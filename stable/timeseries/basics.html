@@ -565,35 +565,12 @@ TimeSeries with attributes:
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Cosinus&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
 
-<span class="n">ts</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">data</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
-</pre></div>
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-TimeSeries with attributes:
-         time: &lt;array of shape (100,)&gt;
-         data: &lt;dict with 2 entries&gt;
-    time_info: &lt;dict with 1 entries&gt;
-    data_info: &lt;dict with 0 entries&gt;
-       events: &lt;list of 0 items&gt;
-</pre></div></div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">ts</span><span class="o">.</span><span class="n">data</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -605,7 +582,7 @@ TimeSeries with attributes:
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -617,12 +594,31 @@ TimeSeries with attributes:
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/timeseries_basics_9_0.png" src="../_images/timeseries_basics_9_0.png" />
+<img alt="../_images/timeseries_basics_8_0.png" src="../_images/timeseries_basics_8_0.png" />
 </div>
 </div>
-<p>A TimeSeries can also contain multidimensional data, as long as the first dimension corresponds to time. Here, we simulate a moving kinematics marker. For the rest of this tutorial, we will work with such a TimeSeries, that contains forces and moments (Nx4 vector series) during manual wheelchair propulsion.</p>
+<p>A TimeSeries can also contain multidimensional data, as long as the first dimension corresponds to time.</p>
+<p>For the rest of this tutorial, we will load a TimeSeries that contains forces and moments during manual wheelchair propulsion. These forces and moments are expressed as Nx4 series of vectors:</p>
+<p><span class="math">\begin{equation}
+\text{Forces} = \begin{bmatrix}
+F_x(0) & F_y(0) & F_z(0) & 0 \\
+F_x(1) & F_y(1) & F_z(1) & 0 \\
+F_x(2) & F_y(2) & F_z(2) & 0 \\
+... & ... & ... & ... \\
+F_x(N-1) & F_y(N-1) & F_z(N-1) & 0
+\end{bmatrix}
+\end{equation}</span></p>
+<p><span class="math">\begin{equation}
+\text{Moments} = \begin{bmatrix}
+M_x(0) & M_y(0) & M_z(0) & 0 \\
+M_x(1) & M_y(1) & M_z(1) & 0 \\
+M_x(2) & M_y(2) & M_z(2) & 0 \\
+... & ... & ... & ... \\
+M_x(N-1) & M_y(N-1) & M_z(N-1) & 0
+\end{bmatrix}
+\end{equation}</span></p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -633,7 +629,7 @@ TimeSeries with attributes:
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -647,7 +643,7 @@ TimeSeries with attributes:
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -656,7 +652,7 @@ TimeSeries with attributes:
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -668,7 +664,7 @@ TimeSeries with attributes:
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -680,7 +676,7 @@ TimeSeries with attributes:
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/timeseries_basics_13_0.png" src="../_images/timeseries_basics_13_0.png" />
+<img alt="../_images/timeseries_basics_12_0.png" src="../_images/timeseries_basics_12_0.png" />
 </div>
 </div>
 </div>
@@ -688,7 +684,7 @@ TimeSeries with attributes:
 <h2>Metadata<a class="headerlink" href="#Metadata" title="Permalink to this headline">¶</a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">time_info</span></code> property associates metadata to the time vector. It is a dictionary where each key is the name of one metadata. By default, <code class="docutils literal notranslate"><span class="pre">time_info</span></code> includes the <code class="docutils literal notranslate"><span class="pre">Unit</span></code> metadata, which corresponds to <code class="docutils literal notranslate"><span class="pre">s</span></code>. Any other metadata can be added by adding new keys in <code class="docutils literal notranslate"><span class="pre">time_info</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -697,7 +693,7 @@ TimeSeries with attributes:
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -709,7 +705,7 @@ TimeSeries with attributes:
 </div>
 <p>Similarly, the <code class="docutils literal notranslate"><span class="pre">data_info</span></code> property associates metadata to data. This property is a dictionary of dictionaries, where the outer key corresponds to the data key, and the inner key is the metadata. The <a class="reference internal" href="../api/kineticstoolkit.TimeSeries.add_data_info.html"><span class="doc">TimeSeries.add_data_info()</span></a> method eases the management of <code class="docutils literal notranslate"><span class="pre">data_info</span></code>.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -721,7 +717,7 @@ TimeSeries with attributes:
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -733,7 +729,7 @@ TimeSeries with attributes:
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -742,7 +738,7 @@ TimeSeries with attributes:
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -754,7 +750,7 @@ TimeSeries with attributes:
 </div>
 <p>Unless explicitly mentioned, metadata is not used for calculation and is optional. It is simply a way to clarify the data by adding information to it. Some functions however read metadata: for example, the <a class="reference internal" href="../api/kineticstoolkit.TimeSeries.plot.html"><span class="doc">TimeSeries.plot()</span></a> method looks for possible <code class="docutils literal notranslate"><span class="pre">Unit</span></code> metadata and prints it on the y axis.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -766,7 +762,7 @@ TimeSeries with attributes:
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/timeseries_basics_20_0.png" src="../_images/timeseries_basics_20_0.png" />
+<img alt="../_images/timeseries_basics_19_0.png" src="../_images/timeseries_basics_19_0.png" />
 </div>
 </div>
 </div>
@@ -777,7 +773,7 @@ TimeSeries with attributes:
 can detect cycles automatically.</p>
 <p>In this tutorial, we will add the events manually.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -797,7 +793,7 @@ can detect cycles automatically.</p>
 </div>
 <p>These 11 events are now added to the TimeSeries’ list of events:</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -806,7 +802,7 @@ can detect cycles automatically.</p>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -820,7 +816,7 @@ TimeSeries with attributes:
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -829,7 +825,7 @@ TimeSeries with attributes:
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="output_area docutils container">
@@ -849,7 +845,7 @@ TimeSeries with attributes:
 </div>
 <p>If we plot again the TimeSeries, we can see the added events.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -861,14 +857,14 @@ TimeSeries with attributes:
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/timeseries_basics_27_0.png" src="../_images/timeseries_basics_27_0.png" />
+<img alt="../_images/timeseries_basics_26_0.png" src="../_images/timeseries_basics_26_0.png" />
 </div>
 </div>
 <div class="section" id="Using-events-to-synchronize-TimeSeries">
 <h3>Using events to synchronize TimeSeries<a class="headerlink" href="#Using-events-to-synchronize-TimeSeries" title="Permalink to this headline">¶</a></h3>
 <p>Let’s see how we can make use of these events. First, the <code class="docutils literal notranslate"><span class="pre">sync</span></code> event may be set to the time origin, which could be useful to sync this TimeSeries with other instrumentation. This can be done using the <a class="reference internal" href="../api/kineticstoolkit.TimeSeries.sync_event.html"><span class="doc">TimeSeries.sync_event()</span></a> function, which shifts the TimeSeries’ time and every event’s time accordingly.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -881,7 +877,7 @@ TimeSeries with attributes:
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/timeseries_basics_29_0.png" src="../_images/timeseries_basics_29_0.png" />
+<img alt="../_images/timeseries_basics_28_0.png" src="../_images/timeseries_basics_28_0.png" />
 </div>
 </div>
 </div>
