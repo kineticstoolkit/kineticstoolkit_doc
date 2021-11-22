@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dimension conventions and first example &mdash; Kinetics Toolkit 0.6.2.1 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -117,7 +118,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="tex2jax_ignore mathjax_ignore section" id="dimension-conventions-and-first-example">
+  <section class="tex2jax_ignore mathjax_ignore" id="dimension-conventions-and-first-example">
 <h1>Dimension conventions and first example<a class="headerlink" href="#dimension-conventions-and-first-example" title="Permalink to this headline"></a></h1>
 <p>In the <a class="reference internal" href="../../api/kineticstoolkit.geometry.html"><span class="doc std std-doc">geometry</span></a> module and in most of Kinetics Toolkit’s module:</p>
 <ul class="simple">
@@ -125,25 +126,25 @@
 <li><p>The first dimension of any series corresponds to <strong>time</strong>.</p></li>
 </ul>
 <p>To understand better how to express scalars, coordinates (points, vectors, frames) and homogeneous transforms as series, please refer to the following pictures:</p>
-<div class="section" id="series-of-scalars">
+<section id="series-of-scalars">
 <h2>Series of scalars<a class="headerlink" href="#series-of-scalars" title="Permalink to this headline"></a></h2>
 <p><img alt="Series of m scalars -width:half" src="../../_images/series_of_m_scalars.png" /></p>
-</div>
-<div class="section" id="series-of-points-series-of-vectors">
+</section>
+<section id="series-of-points-series-of-vectors">
 <h2>Series of points, series of vectors<a class="headerlink" href="#series-of-points-series-of-vectors" title="Permalink to this headline"></a></h2>
 <p><img alt="Series of m points -width:half" src="../../_images/series_of_m_points.png" />
 <img alt="Series of m vectors -width:half" src="../../_images/series_of_m_vectors.png" /></p>
-</div>
-<div class="section" id="series-of-groups-of-points-series-of-groups-of-vectors">
+</section>
+<section id="series-of-groups-of-points-series-of-groups-of-vectors">
 <h2>Series of groups of points, series of groups of vectors<a class="headerlink" href="#series-of-groups-of-points-series-of-groups-of-vectors" title="Permalink to this headline"></a></h2>
 <p><img alt="Series of m groups of n points -width:half" src="../../_images/series_of_m_groups_of_n_points.png" />
 <img alt="Series of m groups of n vectors -width:half" src="../../_images/series_of_m_groups_of_n_vectors.png" /></p>
-</div>
-<div class="section" id="series-of-frames-homogeneous-transforms">
+</section>
+<section id="series-of-frames-homogeneous-transforms">
 <h2>Series of frames/homogeneous transforms<a class="headerlink" href="#series-of-frames-homogeneous-transforms" title="Permalink to this headline"></a></h2>
 <p><img alt="Series of m transformation matrices -width:wider" src="../../_images/series_of_m_transformation_matrices.png" /></p>
-</div>
-<div class="section" id="working-with-constants">
+</section>
+<section id="working-with-constants">
 <h2>Working with constants<a class="headerlink" href="#working-with-constants" title="Permalink to this headline"></a></h2>
 <p>Since most signals in Kinetics Toolkit as considered as a series, always ensure that the first dimension of any array is reserved to time. For example, the vector (x = 1, y = 2, z = 3) must be expressed as <code class="docutils literal notranslate"><span class="pre">np.array([[1.0,</span> <span class="pre">2.0,</span> <span class="pre">3.0,</span> <span class="pre">0.0]])</span></code> (note the double brackets). A common error would be to express it as <code class="docutils literal notranslate"><span class="pre">np.array([1.0,</span> <span class="pre">2.0,</span> <span class="pre">3.0,</span> <span class="pre">0.0])</span></code> (single brackets), which would mean a series of 4 floats instead of one constant vector.</p>
 <p>A quick way to convert a constant array to a series is to use numpy’s <code class="docutils literal notranslate"><span class="pre">newaxis</span></code>:</p>
@@ -181,8 +182,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="first-example-with-the-geometry-module">
+</section>
+<section id="first-example-with-the-geometry-module">
 <h2>First example with the geometry module<a class="headerlink" href="#first-example-with-the-geometry-module" title="Permalink to this headline"></a></h2>
 <p>Now that we presented the conventions for expressing coordinates and transforms as series, we are ready to redo the last example from the last section, this time using Kinetics Toolkit.</p>
 <p><img alt="humerus_frame -height:normal" src="../../_images/humerus_frame.png" />
@@ -239,8 +240,8 @@ Figure 1. Position and orientation of the humerus.</p>
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
