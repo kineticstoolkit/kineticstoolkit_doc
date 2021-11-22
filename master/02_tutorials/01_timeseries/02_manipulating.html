@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Manipulating TimeSeries &mdash; Kinetics Toolkit (dev) master documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -87,11 +88,6 @@
 <li class="toctree-l1"><a class="reference external" href="https://felixchenier.uqam.ca/ktk_develop">Development website</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">FOR DEVELOPERS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../04_for_developers/01_getting_started/index.html">Developing Kinetics Toolkit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../04_for_developers/02_tutorials/index.html">Tutorial development for stable/unstable features</a></li>
-</ul>
 
         </div>
       </div>
@@ -120,7 +116,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="tex2jax_ignore mathjax_ignore section" id="manipulating-timeseries">
+  <section class="tex2jax_ignore mathjax_ignore" id="manipulating-timeseries">
 <h1>Manipulating TimeSeries<a class="headerlink" href="#manipulating-timeseries" title="Permalink to this headline"></a></h1>
 <p>The TimeSeries come with various method to copy, split, extract or combine data:</p>
 <ul class="simple">
@@ -201,7 +197,7 @@
 </div>
 </div>
 </div>
-<div class="section" id="copying-a-timeseries">
+<section id="copying-a-timeseries">
 <h2>Copying a TimeSeries<a class="headerlink" href="#copying-a-timeseries" title="Permalink to this headline"></a></h2>
 <p>As for most class instances in Python, a TimeSeries is a mutable type. This means that for a TimeSeries <code class="docutils literal notranslate"><span class="pre">ts1</span></code>, <code class="docutils literal notranslate"><span class="pre">ts2</span> <span class="pre">=</span> <span class="pre">ts1</span></code> creates a second reference to the same TimeSeries. This means that modifying <code class="docutils literal notranslate"><span class="pre">ts2</span></code> will also modify <code class="docutils literal notranslate"><span class="pre">ts1</span></code>.</p>
 <p>To create a completely independent copy of a TimeSeries, we use the <a class="reference internal" href="../../api/kineticstoolkit.TimeSeries.copy.html"><span class="doc std std-doc">TimeSeries.copy()</span></a> method:</p>
@@ -244,8 +240,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="subsetting-and-merging-timeseries">
+</section>
+<section id="subsetting-and-merging-timeseries">
 <h2>Subsetting and merging TimeSeries<a class="headerlink" href="#subsetting-and-merging-timeseries" title="Permalink to this headline"></a></h2>
 <p>The <a class="reference internal" href="../../api/kineticstoolkit.TimeSeries.get_subset.html"><span class="doc std std-doc">TimeSeries.get_subset()</span></a> method allows copying a TimeSeries with only a subset of the original TimeSeries. For example, in the markers TimeSeries, we may be interested only in the markers <code class="docutils literal notranslate"><span class="pre">BodyL:AcromionL</span></code> and <code class="docutils literal notranslate"><span class="pre">BodyL:LateralEpicondyleL</span></code>. To copy only these markers, we would use:</p>
 <div class="cell docutils container">
@@ -293,10 +289,10 @@
 </pre></div>
 </div>
 <p>However, using the <code class="docutils literal notranslate"><span class="pre">merge</span></code> method is slightly safer since it ensures that the time vector is identical in both TimeSeries before merging.</p>
-</div>
-<div class="section" id="splitting-timeseries">
+</section>
+<section id="splitting-timeseries">
 <h2>Splitting TimeSeries<a class="headerlink" href="#splitting-timeseries" title="Permalink to this headline"></a></h2>
-<div class="section" id="using-indexes">
+<section id="using-indexes">
 <h3>Using indexes<a class="headerlink" href="#using-indexes" title="Permalink to this headline"></a></h3>
 <p>The <a class="reference internal" href="../../api/kineticstoolkit.TimeSeries.get_ts_before_index.html"><span class="doc std std-doc">TimeSeries.get_ts_before_index()</span></a>,
 <a class="reference internal" href="../../api/kineticstoolkit.TimeSeries.get_ts_after_index.html"><span class="doc std std-doc">TimeSeries.get_ts_after_index()</span></a>, and
@@ -324,8 +320,8 @@ allow splitting the TimeSeries based on time indexes. For example, if we plot th
 <img alt="../../_images/02_manipulating_14_0.png" src="../../_images/02_manipulating_14_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="using-time">
+</section>
+<section id="using-time">
 <h3>Using time<a class="headerlink" href="#using-time" title="Permalink to this headline"></a></h3>
 <p>We could also use the time directly to do the same split, using one of
 <a class="reference internal" href="../../api/kineticstoolkit.TimeSeries.get_ts_before_time.html"><span class="doc std std-doc">TimeSeries.get_ts_before_time()</span></a>,
@@ -342,8 +338,8 @@ allow splitting the TimeSeries based on time indexes. For example, if we plot th
 <img alt="../../_images/02_manipulating_16_0.png" src="../../_images/02_manipulating_16_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="using-events">
+</section>
+<section id="using-events">
 <h3>Using events<a class="headerlink" href="#using-events" title="Permalink to this headline"></a></h3>
 <p>A very powerful method to split a TimeSeries is to use events. For this example, we will rebuilt the wheelchair kinetics TimeSeries of the previous tutorial.</p>
 <div class="cell docutils container">
@@ -410,9 +406,9 @@ allow splitting the TimeSeries based on time indexes. For example, if we plot th
 <img alt="../../_images/02_manipulating_22_0.png" src="../../_images/02_manipulating_22_0.png" />
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>

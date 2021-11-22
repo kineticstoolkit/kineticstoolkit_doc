@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anthropometrics &mdash; Kinetics Toolkit (dev) master documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -25,8 +26,6 @@
     <script src="../../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
-    <link rel="next" title="Inverse Dynamics" href="../03_inversedynamics/index.html" />
-    <link rel="prev" title="Reconstructing virtual markers" href="../01_reconstruction/index.html" />
 
 
  
@@ -72,23 +71,6 @@
 <li class="toctree-l1"><a class="reference external" href="https://felixchenier.uqam.ca/ktk_develop">Development website</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">FOR DEVELOPERS</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/index.html">Developing Kinetics Toolkit</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../index.html">Tutorial development for stable/unstable features</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../01_reconstruction/index.html">Reconstructing virtual markers</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Anthropometrics</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#infer-joint-centers">Infer joint centers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#estimate-centers-of-mass">Estimate centers of mass</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#track-local-coordinate-systems">Track local coordinate systems</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../03_inversedynamics/index.html">Inverse Dynamics</a></li>
-</ul>
-</li>
-</ul>
 
         </div>
       </div>
@@ -104,20 +86,16 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../index.html">Tutorial development for stable/unstable features</a> &raquo;</li>
       <li>Anthropometrics</li>
       <li class="wy-breadcrumbs-aside">
       </li>
-  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="../01_reconstruction/index.html" class="btn btn-neutral float-left" title="Reconstructing virtual markers" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../03_inversedynamics/index.html" class="btn btn-neutral float-right" title="Inverse Dynamics" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-  </div>
+  </ul>
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="tex2jax_ignore mathjax_ignore section" id="anthropometrics">
+  <section class="tex2jax_ignore mathjax_ignore" id="anthropometrics">
 <h1>Anthropometrics<a class="headerlink" href="#anthropometrics" title="Permalink to this headline"></a></h1>
 <p>The <code class="docutils literal notranslate"><span class="pre">anthropometrics</span></code> module aims to assist the reconstruction of human-specific points of anatomy, to establish trajectories of segment orientations via standardised local coordinate systems, and to estimate the segment’s centers of mass and inertial properties.</p>
 <div class="admonition warning">
@@ -227,7 +205,7 @@
 <img alt="../../../_images/index_4_0.png" src="../../../_images/index_4_0.png" />
 </div>
 </div>
-<div class="section" id="infer-joint-centers">
+<section id="infer-joint-centers">
 <h2>Infer joint centers<a class="headerlink" href="#infer-joint-centers" title="Permalink to this headline"></a></h2>
 <p>Although a lot of markers are already available in this acquisition, the joint centers are undefined. We will first add the hips and L5S1, which are defined by the pelvis segment.</p>
 <div class="cell docutils container">
@@ -383,8 +361,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="estimate-centers-of-mass">
+</section>
+<section id="estimate-centers-of-mass">
 <h2>Estimate centers of mass<a class="headerlink" href="#estimate-centers-of-mass" title="Permalink to this headline"></a></h2>
 <p>Now that the joint centers are defined, it is possible to estimate the center of mass for every segment.</p>
 <div class="cell docutils container">
@@ -414,7 +392,7 @@
 <img alt="../../../_images/index_14_0.png" src="../../../_images/index_14_0.png" />
 </div>
 </div>
-<div class="section" id="track-local-coordinate-systems">
+<section id="track-local-coordinate-systems">
 <h3>Track local coordinate systems<a class="headerlink" href="#track-local-coordinate-systems" title="Permalink to this headline"></a></h3>
 <p>To perform a kinematic analysis of a given task, one could use the reconstructed markers to set standard segment’s local coordinate system and track those segments.</p>
 <div class="cell docutils container">
@@ -435,17 +413,14 @@
 <img alt="../../../_images/index_16_0.png" src="../../../_images/index_16_0.png" />
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../01_reconstruction/index.html" class="btn btn-neutral float-left" title="Reconstructing virtual markers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../03_inversedynamics/index.html" class="btn btn-neutral float-right" title="Inverse Dynamics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 

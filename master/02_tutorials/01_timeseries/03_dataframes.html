@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Converting between TimeSeries and Pandas DataFrames &mdash; Kinetics Toolkit (dev) master documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -84,11 +85,6 @@
 <li class="toctree-l1"><a class="reference external" href="https://felixchenier.uqam.ca/ktk_develop">Development website</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">FOR DEVELOPERS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../04_for_developers/01_getting_started/index.html">Developing Kinetics Toolkit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../04_for_developers/02_tutorials/index.html">Tutorial development for stable/unstable features</a></li>
-</ul>
 
         </div>
       </div>
@@ -117,7 +113,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="tex2jax_ignore mathjax_ignore section" id="converting-between-timeseries-and-pandas-dataframes">
+  <section class="tex2jax_ignore mathjax_ignore" id="converting-between-timeseries-and-pandas-dataframes">
 <h1>Converting between TimeSeries and Pandas DataFrames<a class="headerlink" href="#converting-between-timeseries-and-pandas-dataframes" title="Permalink to this headline"></a></h1>
 <p>To ensure a great compatibility between Kinetics Toolkit and other frameworks, TimeSeries can be converted from and to Pandas DataFrame using the <a class="reference internal" href="../../api/kineticstoolkit.TimeSeries.from_dataframe.html"><span class="doc std std-doc">TimeSeries.from_dataframe()</span></a> and <a class="reference internal" href="../../api/kineticstoolkit.TimeSeries.to_dataframe.html"><span class="doc std std-doc">TimeSeries.to_dataframe()</span></a> methods, and thus benefit from the myriad of options offered by Pandas.</p>
 <p>In this tutorial, we will learn how to import comma-separated-value (csv) files as TimeSeries, and export back to csv.</p>
@@ -129,7 +125,7 @@
 </div>
 </div>
 </div>
-<div class="section" id="example-1-importing-a-csv-file">
+<section id="example-1-importing-a-csv-file">
 <h2>Example 1: Importing a csv file<a class="headerlink" href="#example-1-importing-a-csv-file" title="Permalink to this headline"></a></h2>
 <p>We import the contents of this csv file:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">Time</span><span class="p">,</span><span class="n">Force</span><span class="p">,</span><span class="n">Position</span>
@@ -186,7 +182,7 @@
 </div>
 </div>
 </div>
-<div class="section" id="multidimensional-data">
+<section id="multidimensional-data">
 <h3>Multidimensional data<a class="headerlink" href="#multidimensional-data" title="Permalink to this headline"></a></h3>
 <p>TimeSeries are well suited for multidimensional data. In the last example, the force sensor was unidimensional. For a tridimensional force sensor, we would expect three signals (x, y, z).</p>
 <p>In this second example, we will import the following csv file:</p>
@@ -536,9 +532,9 @@
 </div>
 </div>
 <p>For series of arrays with more than one dimension, the brackets would have multiple indexes. For example, a series of Nx4x4 homogeneous matrices would require 16 columns and the indexes would go from [0,0] to [3,3].</p>
-</div>
-</div>
-<div class="section" id="example-2-converting-a-c3d-file-to-csv">
+</section>
+</section>
+<section id="example-2-converting-a-c3d-file-to-csv">
 <h2>Example 2: Converting a c3d file to csv<a class="headerlink" href="#example-2-converting-a-c3d-file-to-csv" title="Permalink to this headline"></a></h2>
 <p>For saving a TimeSeries to a <code class="docutils literal notranslate"><span class="pre">csv</span></code>, we create a DataFrame using the <a class="reference internal" href="../../api/kineticstoolkit.TimeSeries.to_dataframe.html"><span class="doc std std-doc">TimeSeries.to_dataframe()</span></a> method, then we can use Pandas’ <code class="docutils literal notranslate"><span class="pre">to_csv()</span></code> method.</p>
 <p>In this example, we will read 3d marker positions from a sample <code class="docutils literal notranslate"><span class="pre">c3d</span></code> file, and export these positions to a <code class="docutils literal notranslate"><span class="pre">csv</span></code> file. We first read the <code class="docutils literal notranslate"><span class="pre">c3d</span></code> file using the <a class="reference internal" href="../../api/kineticstoolkit.kinematics.html"><span class="doc std std-doc">kinematics</span></a> module. This results in a TimeSeries with 26 markers:</p>
@@ -941,8 +937,8 @@
 </div>
 </div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

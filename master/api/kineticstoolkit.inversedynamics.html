@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>kineticstoolkit.inversedynamics &mdash; Kinetics Toolkit (dev) master documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -25,7 +26,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="kineticstoolkit.inversedynamics.calculate_com_acceleration" href="kineticstoolkit.inversedynamics.calculate_com_acceleration.html" />
+    <link rel="next" title="kineticstoolkit.kinematics" href="kineticstoolkit.kinematics.html" />
     <link rel="prev" title="kineticstoolkit.geometry.register_points" href="kineticstoolkit.geometry.register_points.html" />
 
 
@@ -76,15 +77,7 @@
 <li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.emg.html">kineticstoolkit.emg</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.filters.html">kineticstoolkit.filters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.geometry.html">kineticstoolkit.geometry</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">kineticstoolkit.inversedynamics</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="kineticstoolkit.inversedynamics.calculate_com_acceleration.html">kineticstoolkit.inversedynamics.calculate_com_acceleration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="kineticstoolkit.inversedynamics.calculate_com_position.html">kineticstoolkit.inversedynamics.calculate_com_position</a></li>
-<li class="toctree-l4"><a class="reference internal" href="kineticstoolkit.inversedynamics.calculate_proximal_wrench.html">kineticstoolkit.inversedynamics.calculate_proximal_wrench</a></li>
-<li class="toctree-l4"><a class="reference internal" href="kineticstoolkit.inversedynamics.calculate_segment_angles.html">kineticstoolkit.inversedynamics.calculate_segment_angles</a></li>
-<li class="toctree-l4"><a class="reference internal" href="kineticstoolkit.inversedynamics.calculate_segment_rotation_rates.html">kineticstoolkit.inversedynamics.calculate_segment_rotation_rates</a></li>
-<li class="toctree-l4"><a class="reference internal" href="kineticstoolkit.inversedynamics.get_anthropometrics.html">kineticstoolkit.inversedynamics.get_anthropometrics</a></li>
-</ul>
-</li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">kineticstoolkit.inversedynamics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.kinematics.html">kineticstoolkit.kinematics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.pushrimkinetics.html">kineticstoolkit.pushrimkinetics</a></li>
 <li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.anthropometrics.html">kineticstoolkit.anthropometrics</a></li>
@@ -94,11 +87,6 @@
 </li>
 <li class="toctree-l1"><a class="reference external" href="https://felixchenier.uqam.ca/ktk_develop">Development website</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">FOR DEVELOPERS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../04_for_developers/01_getting_started/index.html">Developing Kinetics Toolkit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../04_for_developers/02_tutorials/index.html">Tutorial development for stable/unstable features</a></li>
 </ul>
 
         </div>
@@ -121,14 +109,14 @@
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
         <a href="kineticstoolkit.geometry.register_points.html" class="btn btn-neutral float-left" title="kineticstoolkit.geometry.register_points" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="kineticstoolkit.inversedynamics.calculate_com_acceleration.html" class="btn btn-neutral float-right" title="kineticstoolkit.inversedynamics.calculate_com_acceleration" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="kineticstoolkit.kinematics.html" class="btn btn-neutral float-right" title="kineticstoolkit.kinematics" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="module-kineticstoolkit.inversedynamics">
+  <section id="module-kineticstoolkit.inversedynamics">
 <span id="kineticstoolkit-inversedynamics"></span><h1>kineticstoolkit.inversedynamics<a class="headerlink" href="#module-kineticstoolkit.inversedynamics" title="Permalink to this headline"></a></h1>
 <p>Provide functions to calculate inverse dynamics.</p>
 <div class="admonition warning">
@@ -136,41 +124,14 @@
 <p>This module is currently experimental and its API and behaviour could be
 modified in the future.</p>
 </div>
-<p class="rubric">Functions</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="kineticstoolkit.inversedynamics.calculate_com_acceleration.html#kineticstoolkit.inversedynamics.calculate_com_acceleration" title="kineticstoolkit.inversedynamics.calculate_com_acceleration"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_com_acceleration</span></code></a></p></td>
-<td><p>Calculate the acceleration of the segment's center of mass.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="kineticstoolkit.inversedynamics.calculate_com_position.html#kineticstoolkit.inversedynamics.calculate_com_position" title="kineticstoolkit.inversedynamics.calculate_com_position"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_com_position</span></code></a></p></td>
-<td><p>Calculate the position of the segment's center of mass.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="kineticstoolkit.inversedynamics.calculate_proximal_wrench.html#kineticstoolkit.inversedynamics.calculate_proximal_wrench" title="kineticstoolkit.inversedynamics.calculate_proximal_wrench"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_proximal_wrench</span></code></a></p></td>
-<td><p>Calculate the proximal wrench based on a TimeSeries.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="kineticstoolkit.inversedynamics.calculate_segment_angles.html#kineticstoolkit.inversedynamics.calculate_segment_angles" title="kineticstoolkit.inversedynamics.calculate_segment_angles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_segment_angles</span></code></a></p></td>
-<td><p>Calculate the segment's projection angles in the three axes.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="kineticstoolkit.inversedynamics.calculate_segment_rotation_rates.html#kineticstoolkit.inversedynamics.calculate_segment_rotation_rates" title="kineticstoolkit.inversedynamics.calculate_segment_rotation_rates"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_segment_rotation_rates</span></code></a></p></td>
-<td><p>Calculate the segments' projected angular velocities and accelerations.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="kineticstoolkit.inversedynamics.get_anthropometrics.html#kineticstoolkit.inversedynamics.get_anthropometrics" title="kineticstoolkit.inversedynamics.get_anthropometrics"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_anthropometrics</span></code></a></p></td>
-<td><p>Get anthropometric values for a given segment name.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
+</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="kineticstoolkit.geometry.register_points.html" class="btn btn-neutral float-left" title="kineticstoolkit.geometry.register_points" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="kineticstoolkit.inversedynamics.calculate_com_acceleration.html" class="btn btn-neutral float-right" title="kineticstoolkit.inversedynamics.calculate_com_acceleration" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="kineticstoolkit.kinematics.html" class="btn btn-neutral float-right" title="kineticstoolkit.kinematics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
