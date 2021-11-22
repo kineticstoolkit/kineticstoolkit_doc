@@ -1,0 +1,7 @@
+#!/usr/bin/env zsh
+
+echo "Building Stable Version. Please run 'make clean' before to be sure to build a clean version."
+cp -f ../../kineticstoolkit/kineticstoolkit/STABLE_VERSION KTK_VERSION
+make html
+cp -fR _build/html/* ../stable/
+open ../stable/index.html
