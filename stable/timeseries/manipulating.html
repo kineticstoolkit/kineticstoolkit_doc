@@ -1,0 +1,881 @@
+
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Manipulating TimeSeries &mdash; Kinetics Toolkit 0.6.2.1 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Converting between TimeSeries and Pandas DataFrames" href="dataframes.html" />
+    <link rel="prev" title="TimeSeries Basics" href="basics.html" />
+
+
+ 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: black" >
+          
+
+          
+            <a href="../index.html">
+          
+
+          
+            
+            <img src="../_static/logo_with_text_black.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">GETTING STARTED</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../what_is_kinetics_toolkit.html">What is Kinetics Toolkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../conventions.html">Conventions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">TUTORIALS</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="timeseries.html">TimeSeries</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="basics.html">TimeSeries Basics</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Manipulating TimeSeries</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Copying-a-TimeSeries">Copying a TimeSeries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Subsetting-and-merging-TimeSeries">Subsetting and merging TimeSeries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Splitting-TimeSeries">Splitting TimeSeries</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Using-indexes">Using indexes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Using-time">Using time</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Using-events">Using events</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dataframes.html">Converting between TimeSeries and Pandas DataFrames</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../loadsave.html">Saving and loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../filters/filters.html">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../cycles.html">Detecting and normalizing cycles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../geometry/geometry.html">Rigid body geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../kinematics/kinematics.html">Kinematics analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../pushrimkinetics.html">Wheelchair kinetics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">IN DEPTH</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../lab_mode.html">Lab mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://felixchenier.uqam.ca/ktk_develop">Development website</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Kinetics Toolkit</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="timeseries.html">TimeSeries</a> &raquo;</li>
+        
+      <li>Manipulating TimeSeries</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <div class="rst-breadcrumbs-buttons" role="navigation" aria-label="breadcrumb navigation">
+      
+        <a href="dataframes.html" class="btn btn-neutral float-right" title="Converting between TimeSeries and Pandas DataFrames" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+      
+      
+        <a href="basics.html" class="btn btn-neutral float-left" title="TimeSeries Basics" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+      
+  </div>
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt *,
+div.nbinput.container div.input_area pre,
+div.nboutput.container div.output_area pre,
+div.nbinput.container div.input_area .highlight,
+div.nboutput.container div.output_area .highlight {
+    border: none;
+    padding: 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+div.nbinput.container > div[class*=highlight],
+div.nboutput.container > div[class*=highlight] {
+    margin: 0;
+}
+
+div.nbinput.container div.prompt *,
+div.nboutput.container div.prompt * {
+    background: none;
+}
+
+div.nboutput.container div.output_area .highlight,
+div.nboutput.container div.output_area pre {
+    background: unset;
+}
+
+div.nboutput.container div.output_area div.highlight {
+    color: unset;  /* override Pygments text color */
+}
+
+/* avoid gaps between output lines */
+div.nboutput.container div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput.container,
+div.nboutput.container {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput.container,
+    div.nboutput.container {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput.container {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast.container {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput.container div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput.container div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput.container div.prompt,
+div.nboutput.container div.prompt {
+    width: 4.5ex;
+    padding-top: 5px;
+    position: relative;
+    user-select: none;
+}
+
+div.nbinput.container div.prompt > div,
+div.nboutput.container div.prompt > div {
+    position: absolute;
+    right: 0;
+    margin-right: 0.3ex;
+}
+
+@media (max-width: 540px) {
+    div.nbinput.container div.prompt,
+    div.nboutput.container div.prompt {
+        width: unset;
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput.container div.prompt.empty {
+        padding: 0;
+    }
+
+    div.nbinput.container div.prompt > div,
+    div.nboutput.container div.prompt > div {
+        position: unset;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput.container div.prompt pre,
+div.nboutput.container div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput.container div.input_area,
+div.nboutput.container div.output_area {
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput.container div.input_area,
+    div.nboutput.container div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput.container div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    /*background: #f5f5f5;*/
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput.container div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput.container div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput.container div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+
+div.nbinput.container div.input_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight] > pre,
+div.nboutput.container div.output_area div[class*=highlight].math,
+div.nboutput.container div.output_area.rendered_html,
+div.nboutput.container div.output_area > div.output_javascript,
+div.nboutput.container div.output_area:not(.rendered_html) > img{
+    padding: 5px;
+    margin: 0;
+}
+
+/* fix copybtn overflow problem in chromium (needed for 'sphinx_copybutton') */
+div.nbinput.container div.input_area > div[class^='highlight'],
+div.nboutput.container div.output_area > div[class^='highlight']{
+    overflow-y: hidden;
+}
+
+/* hide copybtn icon on prompts (needed for 'sphinx_copybutton') */
+.prompt a.copybtn {
+    display: none;
+}
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Manipulating-TimeSeries">
+<h1>Manipulating TimeSeries<a class="headerlink" href="#Manipulating-TimeSeries" title="Permalink to this headline">¶</a></h1>
+<p>The TimeSeries come with various method to copy, split, extract or combine data:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../api/kineticstoolkit.TimeSeries.copy.html"><span class="doc">TimeSeries.copy()</span></a> to make a deep copy of a TimeSeries;</p></li>
+<li><p><a class="reference internal" href="../api/kineticstoolkit.TimeSeries.get_subset.html"><span class="doc">TimeSeries.get_subset()</span></a> to make a deep copy of a TimeSeries, but only with a selected subset of data;</p></li>
+<li><p><a class="reference internal" href="../api/kineticstoolkit.TimeSeries.merge.html"><span class="doc">TimeSeries.merge()</span></a> to merge two TimeSeries with a same time vector together;</p></li>
+<li><p><a class="reference internal" href="../api/kineticstoolkit.TimeSeries.get_ts_before_index.html"><span class="doc">TimeSeries.get_ts_before_index()</span></a>, <a class="reference internal" href="../api/kineticstoolkit.TimeSeries.get_ts_after_index.html"><span class="doc">TimeSeries.get_ts_after_index()</span></a>, <a class="reference internal" href="../api/kineticstoolkit.TimeSeries.get_ts_between_indexes.html"><span class="doc">TimeSeries.get_ts_between_indexes()</span></a>, <a class="reference internal" href="../api/kineticstoolkit.TimeSeries.get_ts_before_time.html"><span class="doc">TimeSeries.get_ts_before_time()</span></a>, <a class="reference internal" href="../api/kineticstoolkit.TimeSeries.get_ts_after_time.html"><span class="doc">TimeSeries.get_ts_after_time()</span></a>,
+<a class="reference internal" href="../api/kineticstoolkit.TimeSeries.get_ts_between_times.html"><span class="doc">TimeSeries.get_ts_between_times()</span></a>, <a class="reference internal" href="../api/kineticstoolkit.TimeSeries.get_ts_before_event.html"><span class="doc">TimeSeries.get_ts_before_event()</span></a>, <a class="reference internal" href="../api/kineticstoolkit.TimeSeries.get_ts_after_event.html"><span class="doc">TimeSeries.get_ts_after_event()</span></a>, <a class="reference internal" href="../api/kineticstoolkit.TimeSeries.get_ts_between_events.html"><span class="doc">TimeSeries.get_ts_between_events()</span></a> to split a TimeSeries in time following specific criteria.</p></li>
+</ul>
+<p>In this tutorial, we will see how to use these methods to manage a TimeSeries of marker trajectories. We will start by loading a sample <code class="docutils literal notranslate"><span class="pre">c3d</span></code> file with some marker trajectories. This example has 26 markers with 3678 samples recorded at 120 Hz.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">kineticstoolkit.lab</span> <span class="k">as</span> <span class="nn">ktk</span>
+
+<span class="n">markers</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">kinematics</span><span class="o">.</span><span class="n">read_c3d_file</span><span class="p">(</span>
+    <span class="n">ktk</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">root_folder</span>
+    <span class="o">+</span> <span class="s1">&#39;/data/kinematics/sprintbasket.c3d&#39;</span>
+<span class="p">)</span>
+
+<span class="n">markers</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+TimeSeries with attributes:
+         time: &lt;array of shape (3678,)&gt;
+         data: &lt;dict with 26 entries&gt;
+    time_info: &lt;dict with 1 entries&gt;
+    data_info: &lt;dict with 26 entries&gt;
+       events: &lt;list of 0 items&gt;
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">markers</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{
+         &#39;WheelchairL:Marker1&#39;: &lt;array of shape (3678, 4)&gt;
+                 &#39;SWL:Marker2&#39;: &lt;array of shape (3678, 4)&gt;
+         &#39;WheelchairL:Marker2&#39;: &lt;array of shape (3678, 4)&gt;
+                &#39;ArmL:Marker1&#39;: &lt;array of shape (3678, 4)&gt;
+                 &#39;SWL:Marker3&#39;: &lt;array of shape (3678, 4)&gt;
+                &#39;ArmL:Marker2&#39;: &lt;array of shape (3678, 4)&gt;
+                &#39;ArmL:Marker3&#39;: &lt;array of shape (3678, 4)&gt;
+                 &#39;SWL:Marker4&#39;: &lt;array of shape (3678, 4)&gt;
+         &#39;WheelchairL:Marker4&#39;: &lt;array of shape (3678, 4)&gt;
+                &#39;ArmL:Marker4&#39;: &lt;array of shape (3678, 4)&gt;
+         &#39;WheelchairL:Marker3&#39;: &lt;array of shape (3678, 4)&gt;
+                 &#39;SWL:Marker1&#39;: &lt;array of shape (3678, 4)&gt;
+            &#39;ForearmL:Marker4&#39;: &lt;array of shape (3678, 4)&gt;
+            &#39;ForearmL:Marker2&#39;: &lt;array of shape (3678, 4)&gt;
+            &#39;ForearmL:Marker1&#39;: &lt;array of shape (3678, 4)&gt;
+            &#39;ForearmL:Marker3&#39;: &lt;array of shape (3678, 4)&gt;
+              &#39;BodyL:Forehead&#39;: &lt;array of shape (3678, 4)&gt;
+               &#39;BodyL:TempleL&#39;: &lt;array of shape (3678, 4)&gt;
+                  &#39;BodyL:EarL&#39;: &lt;array of shape (3678, 4)&gt;
+                    &#39;BodyL:C7&#39;: &lt;array of shape (3678, 4)&gt;
+             &#39;BodyL:AcromionL&#39;: &lt;array of shape (3678, 4)&gt;
+        &#39;BodyL:ScapularSpineL&#39;: &lt;array of shape (3678, 4)&gt;
+              &#39;BodyL:ScapulaL&#39;: &lt;array of shape (3678, 4)&gt;
+    &#39;BodyL:LateralEpicondyleL&#39;: &lt;array of shape (3678, 4)&gt;
+                 &#39;BodyL:HandL&#39;: &lt;array of shape (3678, 4)&gt;
+                   &#39;Sync:Sync&#39;: &lt;array of shape (3678, 4)&gt;
+}
+</pre></div></div>
+</div>
+<div class="section" id="Copying-a-TimeSeries">
+<h2>Copying a TimeSeries<a class="headerlink" href="#Copying-a-TimeSeries" title="Permalink to this headline">¶</a></h2>
+<p>As for most class instances in Python, a TimeSeries is a mutable type. This means that for a TimeSeries <code class="docutils literal notranslate"><span class="pre">ts1</span></code>, <code class="docutils literal notranslate"><span class="pre">ts2</span> <span class="pre">=</span> <span class="pre">ts1</span></code> creates a second reference to the same TimeSeries. This means that modifying <code class="docutils literal notranslate"><span class="pre">ts2</span></code> will also modify <code class="docutils literal notranslate"><span class="pre">ts1</span></code>.</p>
+<p>To create a completely independent copy of a TimeSeries, we use the <a class="reference internal" href="../api/kineticstoolkit.TimeSeries.copy.html"><span class="doc">TimeSeries.copy()</span></a> method:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">markers_copy</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">markers_copy</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+TimeSeries with attributes:
+         time: &lt;array of shape (3678,)&gt;
+         data: &lt;dict with 26 entries&gt;
+    time_info: &lt;dict with 1 entries&gt;
+    data_info: &lt;dict with 26 entries&gt;
+       events: &lt;list of 0 items&gt;
+</pre></div></div>
+</div>
+<p>Interestingly, <a class="reference internal" href="../api/kineticstoolkit.TimeSeries.copy.html"><span class="doc">TimeSeries.copy()</span></a> has different arguments to select which attributes to copy. For instance, if we want to create an empty TimeSeries, but with the same time and events as the source, we could use:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">markers_copy</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">copy_data</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">copy_data_info</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">markers_copy</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+TimeSeries with attributes:
+         time: &lt;array of shape (3678,)&gt;
+         data: &lt;dict with 0 entries&gt;
+    time_info: &lt;dict with 1 entries&gt;
+    data_info: &lt;dict with 0 entries&gt;
+       events: &lt;list of 0 items&gt;
+</pre></div></div>
+</div>
+</div>
+<div class="section" id="Subsetting-and-merging-TimeSeries">
+<h2>Subsetting and merging TimeSeries<a class="headerlink" href="#Subsetting-and-merging-TimeSeries" title="Permalink to this headline">¶</a></h2>
+<p>The <a class="reference internal" href="../api/kineticstoolkit.TimeSeries.get_subset.html"><span class="doc">TimeSeries.get_subset()</span></a> method allows copying a TimeSeries with only a subset of the original TimeSeries. For example, in the markers TimeSeries, we may be interested only in the markers <code class="docutils literal notranslate"><span class="pre">BodyL:AcromionL</span></code> and <code class="docutils literal notranslate"><span class="pre">BodyL:LateralEpicondyleL</span></code>. To copy only these markers, we would use:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">markers_subset</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">get_subset</span><span class="p">(</span>
+    <span class="p">[</span><span class="s1">&#39;BodyL:AcromionL&#39;</span><span class="p">,</span> <span class="s1">&#39;BodyL:LateralEpicondyleL&#39;</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">markers_subset</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{
+             &#39;BodyL:AcromionL&#39;: &lt;array of shape (3678, 4)&gt;
+    &#39;BodyL:LateralEpicondyleL&#39;: &lt;array of shape (3678, 4)&gt;
+}
+</pre></div></div>
+</div>
+<p>To merge two TimeSeries together, we use the <a class="reference internal" href="../api/kineticstoolkit.TimeSeries.merge.html"><span class="doc">TimeSeries.merge()</span></a>. For example, if we wanted to add the marker <code class="docutils literal notranslate"><span class="pre">BodyL:HandL</span></code> to this subset:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">markers_subset</span> <span class="o">=</span> <span class="n">markers_subset</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+    <span class="n">markers</span><span class="o">.</span><span class="n">get_subset</span><span class="p">(</span><span class="s1">&#39;BodyL:HandL&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">markers_subset</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{
+             &#39;BodyL:AcromionL&#39;: &lt;array of shape (3678, 4)&gt;
+    &#39;BodyL:LateralEpicondyleL&#39;: &lt;array of shape (3678, 4)&gt;
+                 &#39;BodyL:HandL&#39;: &lt;array of shape (3678, 4)&gt;
+}
+</pre></div></div>
+</div>
+<p>Alternatively, we could directly add the data to the TimeSeries <code class="docutils literal notranslate"><span class="pre">data</span></code> attribute using</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>markers_subset.data[&#39;BodyL:HandL&#39;] = markers.data[&#39;BodyL:HandL&#39;]
+</pre></div>
+</div>
+<p>However, using the <code class="docutils literal notranslate"><span class="pre">merge</span></code> method is slightly safer since it ensures that the time vector is identical in both TimeSeries before merging.</p>
+</div>
+<div class="section" id="Splitting-TimeSeries">
+<h2>Splitting TimeSeries<a class="headerlink" href="#Splitting-TimeSeries" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Using-indexes">
+<h3>Using indexes<a class="headerlink" href="#Using-indexes" title="Permalink to this headline">¶</a></h3>
+<p>The <a class="reference internal" href="../api/kineticstoolkit.TimeSeries.get_ts_before_index.html"><span class="doc">TimeSeries.get_ts_before_index()</span></a>, <a class="reference internal" href="../api/kineticstoolkit.TimeSeries.get_ts_after_index.html"><span class="doc">TimeSeries.get_ts_after_index()</span></a>, and <a class="reference internal" href="../api/kineticstoolkit.TimeSeries.get_ts_between_indexes.html"><span class="doc">TimeSeries.get_ts_between_indexes()</span></a> allow splitting the TimeSeries based on time indexes. For example, if we plot the previous markers subset, we see that the main action (the oscillating signals) starts at about 12 seconds and
+stops at about 18 seconds. At 120 samples per second, this means from indexes 1440 to 2160.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">markers_subset</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/timeseries_manipulating_14_0.png" src="../_images/timeseries_manipulating_14_0.png" />
+</div>
+</div>
+<p>We could therefore split the TimeSeries between indexes 1440 and 2160:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">markers_subset</span><span class="o">.</span><span class="n">get_ts_between_indexes</span><span class="p">(</span><span class="mi">1440</span><span class="p">,</span> <span class="mi">2160</span><span class="p">)</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/timeseries_manipulating_16_0.png" src="../_images/timeseries_manipulating_16_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="Using-time">
+<h3>Using time<a class="headerlink" href="#Using-time" title="Permalink to this headline">¶</a></h3>
+<p>We could also use the time directly to do the same split, using one of <a class="reference internal" href="../api/kineticstoolkit.TimeSeries.get_ts_before_time.html"><span class="doc">TimeSeries.get_ts_before_time()</span></a>, <a class="reference internal" href="../api/kineticstoolkit.TimeSeries.get_ts_after_time.html"><span class="doc">TimeSeries.get_ts_after_time()</span></a>, and <a class="reference internal" href="../api/kineticstoolkit.TimeSeries.get_ts_between_times.html"><span class="doc">TimeSeries.get_ts_between_times()</span></a>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">markers_subset</span><span class="o">.</span><span class="n">get_ts_between_times</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">18</span><span class="p">)</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/timeseries_manipulating_18_0.png" src="../_images/timeseries_manipulating_18_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="Using-events">
+<h3>Using events<a class="headerlink" href="#Using-events" title="Permalink to this headline">¶</a></h3>
+<p>A very powerful method to split a TimeSeries is to use events. For this example, we will rebuilt the wheelchair kinetics TimeSeries of the previous tutorial.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">ktk</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">root_folder</span> <span class="o">+</span> <span class="s1">&#39;/data/timeseries/smartwheel.ktk.zip&#39;</span><span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">4.35</span><span class="p">,</span> <span class="s1">&#39;sync&#39;</span><span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">8.56</span><span class="p">,</span> <span class="s1">&#39;push&#39;</span><span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">9.93</span><span class="p">,</span> <span class="s1">&#39;recovery&#39;</span><span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">10.50</span><span class="p">,</span> <span class="s1">&#39;push&#39;</span><span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">11.12</span><span class="p">,</span> <span class="s1">&#39;recovery&#39;</span><span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">11.78</span><span class="p">,</span> <span class="s1">&#39;push&#39;</span><span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">12.33</span><span class="p">,</span> <span class="s1">&#39;recovery&#39;</span><span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">13.39</span><span class="p">,</span> <span class="s1">&#39;push&#39;</span><span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">13.88</span><span class="p">,</span> <span class="s1">&#39;recovery&#39;</span><span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">14.86</span><span class="p">,</span> <span class="s1">&#39;push&#39;</span><span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">15.30</span><span class="p">,</span> <span class="s1">&#39;recovery&#39;</span><span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">sync_event</span><span class="p">(</span><span class="s1">&#39;sync&#39;</span><span class="p">)</span>
+
+<span class="n">ts</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/timeseries_manipulating_20_0.png" src="../_images/timeseries_manipulating_20_0.png" />
+</div>
+</div>
+<p>If we want to analyze data of the four first pushes and get rid of any other data, we would use one of <a class="reference internal" href="../api/kineticstoolkit.TimeSeries.get_ts_before_event.html"><span class="doc">TimeSeries.get_ts_before_event()</span></a>, <a class="reference internal" href="../api/kineticstoolkit.TimeSeries.get_ts_after_event.html"><span class="doc">TimeSeries.get_ts_after_event()</span></a>, and <a class="reference internal" href="../api/kineticstoolkit.TimeSeries.get_ts_between_events.html"><span class="doc">TimeSeries.get_ts_between_events()</span></a>:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="c1"># inclusive=True to ensure that the push 0 and push 4 events are included in</span>
+<span class="c1"># the resulting time vector</span>
+<span class="n">first_four_pushes</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">get_ts_between_events</span><span class="p">(</span>
+    <span class="s1">&#39;push&#39;</span><span class="p">,</span> <span class="s1">&#39;push&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">inclusive</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="c1"># Remove events not inside the resulting time vector</span>
+<span class="n">first_four_pushes</span> <span class="o">=</span> <span class="n">first_four_pushes</span><span class="o">.</span><span class="n">trim_events</span><span class="p">()</span>
+
+<span class="n">first_four_pushes</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/timeseries_manipulating_22_0.png" src="../_images/timeseries_manipulating_22_0.png" />
+</div>
+</div>
+<p>We could also, for instance, extract only the push phase of the second cycle:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">second_push_phase</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">get_ts_between_events</span><span class="p">(</span>
+    <span class="s1">&#39;push&#39;</span><span class="p">,</span> <span class="s1">&#39;recovery&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">inclusive</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="n">second_push_phase</span> <span class="o">=</span> <span class="n">second_push_phase</span><span class="o">.</span><span class="n">trim_events</span><span class="p">()</span>
+
+<span class="n">second_push_phase</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/timeseries_manipulating_24_0.png" src="../_images/timeseries_manipulating_24_0.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="dataframes.html" class="btn btn-neutral float-right" title="Converting between TimeSeries and Pandas DataFrames" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="basics.html" class="btn btn-neutral float-left" title="TimeSeries Basics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2020-2021, Félix Chénier.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

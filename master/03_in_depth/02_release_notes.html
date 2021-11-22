@@ -1,0 +1,360 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Release Notes &mdash; Kinetics Toolkit (dev) master documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="API Reference" href="../api_reference.html" />
+    <link rel="prev" title="Lab mode" href="01_lab_mode.html" />
+
+
+ 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: black" >
+            <a href="../index.html">
+            <img src="../_static/logo_development.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">GETTING STARTED</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../01_getting_started/01_what_is_kinetics_toolkit.html">What is Kinetics Toolkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_getting_started/02_install.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_getting_started/03_conventions.html">Conventions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">TUTORIALS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../02_tutorials/01_timeseries/index.html">TimeSeries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_tutorials/02_loadsave/index.html">Saving and loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_tutorials/03_filters/index.html">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_tutorials/04_cycles/index.html">Detecting and normalizing cycles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_tutorials/05_geometry/index.html">Rigid body geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_tutorials/06_kinematics/index.html">Kinematics analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_tutorials/07_pushrimkinetics/index.html">Wheelchair kinetics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">IN DEPTH</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="01_lab_mode.html">Lab mode</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#version-0-7-upcoming">Version 0.7 (Upcoming)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#new-features">New Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#improvements">Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#breaking-changes">Breaking Changes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#version-0-6-august-2021">Version 0.6 (August 2021)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">New Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Breaking Changes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#version-0-5-june-2021">Version 0.5 (June 2021)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id4">New Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Breaking Changes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#version-0-4-april-2021">Version 0.4 (April 2021)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id7">New Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">Breaking Changes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#version-0-3-october-2020">Version 0.3 (October 2020)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id10">New Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">Breaking Changes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#version-0-2-august-2020">Version 0.2 (August 2020)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id13">New Features</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">Improvements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">Breaking Changes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#version-0-1-may-2020">Version 0.1 (May 2020)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id16">New Features</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://felixchenier.uqam.ca/ktk_develop">Development website</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FOR DEVELOPERS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../04_for_developers/01_getting_started/index.html">Developing Kinetics Toolkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_for_developers/02_tutorials/index.html">Tutorial development for stable/unstable features</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: black" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Kinetics Toolkit (dev)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Release Notes</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="01_lab_mode.html" class="btn btn-neutral float-left" title="Lab mode" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../api_reference.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="tex2jax_ignore mathjax_ignore section" id="release-notes">
+<h1>Release Notes<a class="headerlink" href="#release-notes" title="Permalink to this headline"></a></h1>
+<div class="section" id="version-0-7-upcoming">
+<h2>Version 0.7 (Upcoming)<a class="headerlink" href="#version-0-7-upcoming" title="Permalink to this headline"></a></h2>
+<div class="section" id="new-features">
+<h3>New Features<a class="headerlink" href="#new-features" title="Permalink to this headline"></a></h3>
+</div>
+<div class="section" id="improvements">
+<h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline"></a></h3>
+</div>
+<div class="section" id="breaking-changes">
+<h3>Breaking Changes<a class="headerlink" href="#breaking-changes" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>New default for <code class="docutils literal notranslate"><span class="pre">TimeSeries.merge</span></code>’s <code class="docutils literal notranslate"><span class="pre">overwrite</span></code> option. It changed from True to False.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="version-0-6-august-2021">
+<h2>Version 0.6 (August 2021)<a class="headerlink" href="#version-0-6-august-2021" title="Permalink to this headline"></a></h2>
+<div class="section" id="id1">
+<h3>New Features<a class="headerlink" href="#id1" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Rigid body tracking and reconstruction of virtual markers in module <code class="docutils literal notranslate"><span class="pre">kinematics</span></code>: functions <code class="docutils literal notranslate"><span class="pre">define_rigid_body()</span></code>, <code class="docutils literal notranslate"><span class="pre">define_virtual_marker()</span></code>, and <code class="docutils literal notranslate"><span class="pre">track_rigid_body()</span></code>.</p></li>
+<li><p>Interactive method to edit events in a TimeSeries: method <code class="docutils literal notranslate"><span class="pre">TimeSeries.ui_edit_events()</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h3>Improvements<a class="headerlink" href="#id2" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>All TimeSeries methods now work on copies, see breaking changes below.</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h3>Breaking Changes<a class="headerlink" href="#id3" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p><strong>WARNING - Important breaking change</strong> - Every <code class="docutils literal notranslate"><span class="pre">TimeSeries</span></code> method now works on a copy of the TimeSeries. The original TimeSeries is never modified itself. It was already the case for methods such as <code class="docutils literal notranslate"><span class="pre">get_ts_between_events()</span></code> etc. which would not affect the original TimeSeries, but not for others such as <code class="docutils literal notranslate"><span class="pre">add_event()</span></code>, <code class="docutils literal notranslate"><span class="pre">rename_data()</span></code>, etc. This modification was made in an effort to standardize the TimeSeries behaviour and to allow safe method chaining. This choice is a bit drastic and was implemented quickly because we are still early in Kinetics Toolkit’s development. It has been encouraged by Pandas, which seems to also go in a similar direction (https://github.com/pandas-dev/pandas/issues/16529). To migrate your code to the new behaviour, please change your method calls accordingly by adding an assignation before the call. For example: <code class="docutils literal notranslate"><span class="pre">ts.add_event(...)</span></code> becomes <code class="docutils literal notranslate"><span class="pre">ts</span> <span class="pre">=</span> <span class="pre">ts.add_event(...)</span></code>. The full list of methods that have been changed is:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">add_data_info()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">add_event()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">fill_missing_samples()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">merge()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">remove_data()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">remove_data_info()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">remove_event()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rename_data()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">rename_event()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">shift()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sort_events()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">sync_event()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">trim_events()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ui_add_event()</span></code> (now discontinued in favour of <code class="docutils literal notranslate"><span class="pre">ui_edit_events</span></code>)</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Please do not update to 0.6 until you are ready to find and modify those statements in your current code</strong>.</p>
+</div>
+</div>
+<div class="section" id="version-0-5-june-2021">
+<h2>Version 0.5 (June 2021)<a class="headerlink" href="#version-0-5-june-2021" title="Permalink to this headline"></a></h2>
+<div class="section" id="id4">
+<h3>New Features<a class="headerlink" href="#id4" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Coordinate system origins are now clickable in Player.</p></li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h3>Improvements<a class="headerlink" href="#id5" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Most TimeSeries arguments can now be used either by position or keyword (removed superflous slash operators in signatures).</p></li>
+<li><p>TimeSeriesEvent class is now a proper data class. This has no implication on usability, but the API is cleaner and more robust.</p></li>
+<li><p>Bug fixes.</p></li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h3>Breaking Changes<a class="headerlink" href="#id6" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">cycle.detect_cycles</span></code> was changed back to experimental. Its argument pairs xxxx1, xxxx2 have been changed to sequences [xxxx1, xxxx2] in prevision of possible cycle detections with more than 2 phases, or even only one phase. This method is now experimental because it may be separated into different functions (one to detect cycles, another to search cycles with given criteria, and another to remove found cycles).</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="version-0-4-april-2021">
+<h2>Version 0.4 (April 2021)<a class="headerlink" href="#version-0-4-april-2021" title="Permalink to this headline"></a></h2>
+<div class="section" id="id7">
+<h3>New Features<a class="headerlink" href="#id7" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">geometry</span></code> module to perform rigid body geometry operations such as creating frames, homogeneous transforms, multiplying series of matrices, converting from local to global coordinates and vice-versa, and extracting Euler angles from homogeneous transforms.</p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">span</span></code> option to <code class="docutils literal notranslate"><span class="pre">cycles.time_normalize</span></code>, so that cycles can be normalized between other ranges than 0% to 100%. Both reducing span (e.g., 10% to 90%) and increasing span (e.g., -25 to 125%) work.</p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">to_html5</span></code> method to <code class="docutils literal notranslate"><span class="pre">Player</span></code>, which allows visualizing 3d markers and bodies in Jupyter.</p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">rename_event</span></code> method to <code class="docutils literal notranslate"><span class="pre">TimeSeries</span></code>.</p></li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h3>Improvements<a class="headerlink" href="#id8" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Added test coverage measurement for continuous improvement of code robustness.</p></li>
+<li><p>Added warnings when using private or unstable functions.</p></li>
+<li><p>Changed the website to use the ReadTheDoc theme, and changed its structure to facilitate continuous improvements of the website without needing to wait for releases.</p></li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h3>Breaking Changes<a class="headerlink" href="#id9" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>The default behaviour for <code class="docutils literal notranslate"><span class="pre">TimeSeries.remove_event</span></code> changed when no occurrence is defined. Previously, only the first occurrence was removed. Now every occurrence is removed.</p></li>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">cycles.time_normalize</span></code>, the way to time-normalize between two events of the same name changed from <code class="docutils literal notranslate"><span class="pre">event_name,</span> <span class="pre">_</span></code> to <code class="docutils literal notranslate"><span class="pre">event_name,</span> <span class="pre">event_name</span></code>.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="version-0-3-october-2020">
+<h2>Version 0.3 (October 2020)<a class="headerlink" href="#version-0-3-october-2020" title="Permalink to this headline"></a></h2>
+<div class="section" id="id10">
+<h3>New Features<a class="headerlink" href="#id10" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">cycles</span></code> module to detect, time-normalize and stack cycles (e.g., gait cycles, wheelchair propulsion cycles, etc.)</p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">pushrimkinetics</span></code> module to read files from instrumented wheelchair wheels, reconstruct the pushrim kinetics,
+remove dynamic offsets in kinetic signals, and perform speed and power calculation for analysing spatiotemporal and kinetic
+parameters of wheelchair propulsion.</p></li>
+<li><p>Added lab mode to allow importing ktk without changing defaults.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">ktk.filters.deriv()</span></code> to derivate TimeSeries.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">ktk.filters.median()</span></code>, which is a running median filter function.</p></li>
+</ul>
+</div>
+<div class="section" id="id11">
+<h3>Improvements<a class="headerlink" href="#id11" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">TimeSeries.plot()</span></code> now shows the event occurrences besides the event names.</p></li>
+<li><p>Nicer tutorial for the <code class="docutils literal notranslate"><span class="pre">filters</span></code> module.</p></li>
+<li><p>Improved unit tests for the <code class="docutils literal notranslate"><span class="pre">filters</span></code> module.</p></li>
+</ul>
+</div>
+<div class="section" id="id12">
+<h3>Breaking Changes<a class="headerlink" href="#id12" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>The module name has been changed from <code class="docutils literal notranslate"><span class="pre">ktk</span></code> to <code class="docutils literal notranslate"><span class="pre">kineticstoolkit</span></code>. Importing using <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">ktk</span></code> is now deprecated and the standard way to import is now either <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">kineticstoolkit</span> <span class="pre">as</span> <span class="pre">ktk</span></code> or <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">kineticstoolkit.lab</span> <span class="pre">as</span> <span class="pre">ktk</span></code>.</p></li>
+<li><p>Now importing Kinetics Toolkit does not change IPython’s representation of dicts or matplotlib’s defaults. This allows using ktk’s functions without modifying the current working environment. The old behaviour is now the lab mode and is the recommended way to import Kinetics Toolkit in an IPython-based environment: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">kineticstoolkit.lab</span> <span class="pre">as</span> <span class="pre">ktk</span></code>.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="version-0-2-august-2020">
+<h2>Version 0.2 (August 2020)<a class="headerlink" href="#version-0-2-august-2020" title="Permalink to this headline"></a></h2>
+<div class="section" id="id13">
+<h3>New Features<a class="headerlink" href="#id13" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Added the functions <code class="docutils literal notranslate"><span class="pre">ktk.load</span></code> and <code class="docutils literal notranslate"><span class="pre">ktk.save</span></code>.</p></li>
+<li><p>Introduced the <code class="docutils literal notranslate"><span class="pre">ktk.zip</span></code> file format.</p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">gui</span></code> module to show messages, input dialogs and file/folder pickers.</p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">filters</span></code> module with TimeSeries wrappers for scipy’s butterworth and savitsky-golay filters.</p></li>
+<li><p>Added interactive methods to TimeSeries: <code class="docutils literal notranslate"><span class="pre">TimeSeries.ui_add_event()</span></code>, <code class="docutils literal notranslate"><span class="pre">TimeSeries.ui_get_ts_between_clicks()</span></code> and <code class="docutils literal notranslate"><span class="pre">TimeSeries.ui_sync()</span></code> (experimental).</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">TimeSeries.remove_event()</span></code> method.</p></li>
+<li><p>Added <code class="docutils literal notranslate"><span class="pre">TimeSeries.resample()</span></code> (experimental).</p></li>
+</ul>
+</div>
+<div class="section" id="id14">
+<h3>Improvements<a class="headerlink" href="#id14" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Updated the documentation system using sphinx and jupyter-lab.</p></li>
+<li><p>Improved performance of <code class="docutils literal notranslate"><span class="pre">TimeSeries.from_dataframe()</span></code></p></li>
+<li><p>ktk is now typed.</p></li>
+</ul>
+</div>
+<div class="section" id="id15">
+<h3>Breaking Changes<a class="headerlink" href="#id15" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">TimeSeries.from_dataframe()</span></code> is now a class function and not an instance method anymore. Therefore we need to call <code class="docutils literal notranslate"><span class="pre">ktk.TimeSeries.from_dataframe(dataframe)</span></code> instead of <code class="docutils literal notranslate"><span class="pre">ktk.TimeSeries().from_dataframe(dataframe)</span></code>.</p></li>
+<li><p>Now depends on python 3.8 instead of 3.7.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="version-0-1-may-2020">
+<h2>Version 0.1 (May 2020)<a class="headerlink" href="#version-0-1-may-2020" title="Permalink to this headline"></a></h2>
+<div class="section" id="id16">
+<h3>New Features<a class="headerlink" href="#id16" title="Permalink to this headline"></a></h3>
+<ul class="simple">
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">TimeSeries</span></code> class.</p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">kinematics</span></code> module, to read c3d and n3d files.</p></li>
+<li><p>Added the <code class="docutils literal notranslate"><span class="pre">Player</span></code> class, to view markers in 3d.</p></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="01_lab_mode.html" class="btn btn-neutral float-left" title="Lab mode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../api_reference.html" class="btn btn-neutral float-right" title="API Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2021, Félix Chénier.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

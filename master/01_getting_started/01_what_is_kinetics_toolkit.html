@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>What is Kinetics Toolkit &mdash; Kinetics Toolkit (dev) master documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Installing" href="02_install.html" />
+    <link rel="prev" title="Kinetics Toolkit" href="../index.html" />
+
+
+ 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: black" >
+            <a href="../index.html">
+            <img src="../_static/logo_development.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">GETTING STARTED</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">What is Kinetics Toolkit</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#summary">Summary</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#statement-of-need">Statement of need</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#objectives-of-this-project">Objectives of this project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-contribute">How to contribute</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-cite">How to cite</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="02_install.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_conventions.html">Conventions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">TUTORIALS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../02_tutorials/01_timeseries/index.html">TimeSeries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_tutorials/02_loadsave/index.html">Saving and loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_tutorials/03_filters/index.html">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_tutorials/04_cycles/index.html">Detecting and normalizing cycles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_tutorials/05_geometry/index.html">Rigid body geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_tutorials/06_kinematics/index.html">Kinematics analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_tutorials/07_pushrimkinetics/index.html">Wheelchair kinetics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">IN DEPTH</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../03_in_depth/01_lab_mode.html">Lab mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_in_depth/02_release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://felixchenier.uqam.ca/ktk_develop">Development website</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FOR DEVELOPERS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../04_for_developers/01_getting_started/index.html">Developing Kinetics Toolkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_for_developers/02_tutorials/index.html">Tutorial development for stable/unstable features</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: black" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Kinetics Toolkit (dev)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>What is Kinetics Toolkit</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="../index.html" class="btn btn-neutral float-left" title="Kinetics Toolkit" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="02_install.html" class="btn btn-neutral float-right" title="Installing" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="tex2jax_ignore mathjax_ignore section" id="what-is-kinetics-toolkit">
+<h1>What is Kinetics Toolkit<a class="headerlink" href="#what-is-kinetics-toolkit" title="Permalink to this headline"></a></h1>
+<p><em>The Summary and Statement of need sections are from the white paper published in</em>
+<a class="reference external" href="https://joss.theoj.org/papers/10.21105/joss.03714">Journal of Open Source Software</a>.</p>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline"></a></h2>
+<p>Kinetics Toolkit is a Python package for generic biomechanical analysis of human motion that is easily accessible by new programmers. The only prerequisite for using this toolkit is having minimal to moderate skills in Python and Numpy.</p>
+<p>While Kinetics Toolkit provides a dedicated class for containing and manipulating data (<code class="docutils literal notranslate"><span class="pre">TimeSeries</span></code>), it loosely follows a procedural programming paradigm where processes are grouped as interrelated functions in different submodules, which is consistent with how people are generally introduced to programming. Each function has a limited and well-defined scope, making Kinetics Toolkit generic and expandable. Particular care is given to documentation, with extensive tutorials and API references. Special attention is also given to interoperability with other software programs by using Pandas Dataframes (and therefore CSV files, Excel files, etc.), JSON files or C3D files as intermediate data containers.</p>
+<p>Kinetics Toolkit is accessible at https://kineticstoolkit.uqam.ca and is distributed via conda and pip.</p>
+</div>
+<div class="section" id="statement-of-need">
+<h2>Statement of need<a class="headerlink" href="#statement-of-need" title="Permalink to this headline"></a></h2>
+<p>The last decade has been marked by the development of several powerful open-source software programs in biomechanics. Examples include:
+<a class="reference external" href="https://doi.org/10.1371/journal.pcbi.1006223">OpenSim</a>,
+<a class="reference external" href="https://doi.org/10.1016/j.piutam.2011.04.023">SimBody</a>,
+<a class="reference external" href="https://doi.org/10.21105/joss.02562">Biordb</a>,
+<a class="reference external" href="https://doi.org/10.1016/j.cmpb.2016.11.007">BiomechZoo</a>,
+<a class="reference external" href="https://doi.org/10.1109/SII.2019.8700380">Pinocchio</a>,
+<a class="reference external" href="https://doi.org/10.1098/rsos.140449">FreeBody</a>,
+<a class="reference external" href="https://doi.org/10.21105/joss.00927">CusToM</a>,
+as well as many others. However, many of these tools are rather specific (e.g., musculoskeletal modelling, neuromuscular optimization, etc.) and not especially well suited for performing generic processing of human motion data such as filtering data, segmenting cycles, changing coordinate systems, etc. Other software programs, while being open source, rely on expensive closed-source software such as Matlab (Mathworks LCC, Naticks, USA).</p>
+<p>While Matlab has a long and successful history in biomechanical analysis, it is quickly becoming challenged by the free and open-source Python scientific ecosystem, particularly by powerful packages, including
+<a class="reference external" href="https://doi.org/10.1038/s41586-020-2649-2">Numpy</a>,
+<a class="reference external" href="https://doi.org/10.1109/MCSE.2007.55">Matplotlib</a>,
+<a class="reference external" href="https://doi.org/10.1038/s41592-019-0686-2">SciPy</a> and
+<a class="reference external" href="https://pandas.pydata.org">Pandas</a>.
+Since Python is regarded as a <a class="reference external" href="https://doi.org/10.1007/978-3-540-25944-2_157">robust introductory programming language for algorithm development</a>, it may be an ideal tool for new programmers in biomechanics.</p>
+<p>The <a class="reference external" href="https://doi.org/10.21105/joss.02431">Pyomeca</a> toolbox is a Python library for biomechanical analysis. It uses an object-oriented programming paradigm where each data class (<code class="docutils literal notranslate"><span class="pre">Angles</span></code>, <code class="docutils literal notranslate"><span class="pre">Rototrans</span></code>, <code class="docutils literal notranslate"><span class="pre">Analogs</span></code>, <code class="docutils literal notranslate"><span class="pre">Markers</span></code>) subclasses <a class="reference external" href="https://doi.org/10.5334/jors.148">xarray</a>, and where the data processing functions are accessible as class methods. While this paradigm may be compelling from a programmer’s perspective, it requires users to master xarray and object-oriented concepts such as class inheritance, which are not as straightforward to learn, especially for new programmers who may just be starting out with Python and Numpy.</p>
+<p>With this beginner audience in mind, Kinetics Toolkit is a Python package for generic biomechanical analysis of human motion. It is a user-friendly tool for people with little experience in programming, yet elegant, fun to use and still appealing to experienced programmers. Designed with a mainly procedural programming paradigm, its data processing functions can be used directly as examples so that users can build their own scripts, functions, and even modules, and therefore make Kinetics Toolkit fit their own specific needs.</p>
+</div>
+<div class="section" id="objectives-of-this-project">
+<h2>Objectives of this project<a class="headerlink" href="#objectives-of-this-project" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p>Build an intuitive and elegant Python package that leverages the power of biomechanical analysis to people who are not formed in programming or engineering;</p></li>
+<li><p>Build a strong documentation around this package to:</p>
+<ul>
+<li><p>Teach or remind the basic principles of biomechanics to newcomers;</p></li>
+<li><p>Explain how Kinetics Toolkit implements these principles;</p></li>
+<li><p>Teach users how to use Kinetics Toolkit on their data without relying on do-it-all, commercial graphical interfaces.</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="how-to-contribute">
+<h2>How to contribute<a class="headerlink" href="#how-to-contribute" title="Permalink to this headline"></a></h2>
+<p>At the moment, I think Kinetics Toolkit has made a moderate way into its first objective. There is however still much to do. If you find this long-term project appealing and want to contribute, here are different ways to help:</p>
+<ul class="simple">
+<li><p>Try it and tell me your thoughts and ideas on the interface, features and documentation;</p></li>
+<li><p>Test it and report bugs;</p></li>
+<li><p>Communicate with me to help with documentation;</p></li>
+<li><p>Extend it to develop missing functionality and share the results;</p></li>
+<li><p>Citing it in your work;</p></li>
+<li><p>Possibly many other ways to help.</p></li>
+</ul>
+<p>A good start would be to check out the <a class="reference external" href="https://felixchenier.uqam.ca/ktk_develop">development website</a> or fork the repository on <a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub</a>.</p>
+</div>
+<div class="section" id="how-to-cite">
+<h2>How to cite<a class="headerlink" href="#how-to-cite" title="Permalink to this headline"></a></h2>
+<p>If you find Kinetics Toolkit useful and want to credit it in your work (which I would much appreciate), then please cite this paper:</p>
+<p>Chénier, F., 2021. Kinetics Toolkit: An Open-Source Python Package to Facilitate Research in Biomechanics.
+<em>Journal of Open Source Software</em> 6(66), 3714. https://doi.org/10.21105/joss.03714</p>
+<hr class="docutils" />
+<p>I hope Kinetics Toolkit may help you in your biomechanical analyses; have a good read!</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="Kinetics Toolkit" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="02_install.html" class="btn btn-neutral float-right" title="Installing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2021, Félix Chénier.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

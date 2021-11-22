@@ -1,0 +1,276 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dimension conventions and first example &mdash; Kinetics Toolkit (dev) master documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Kinematics analysis" href="../06_kinematics/index.html" />
+    <link rel="prev" title="Basics of rigid body geometry" href="01_basics.html" />
+
+
+ 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: black" >
+            <a href="../../index.html">
+            <img src="../../_static/logo_development.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">GETTING STARTED</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/01_what_is_kinetics_toolkit.html">What is Kinetics Toolkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/02_install.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/03_conventions.html">Conventions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">TUTORIALS</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../01_timeseries/index.html">TimeSeries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_loadsave/index.html">Saving and loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_filters/index.html">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_cycles/index.html">Detecting and normalizing cycles</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Rigid body geometry</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_basics.html">Basics of rigid body geometry</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Dimension conventions and first example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#series-of-scalars">Series of scalars</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#series-of-points-series-of-vectors">Series of points, series of vectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#series-of-groups-of-points-series-of-groups-of-vectors">Series of groups of points, series of groups of vectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#series-of-frames-homogeneous-transforms">Series of frames/homogeneous transforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#working-with-constants">Working with constants</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#first-example-with-the-geometry-module">First example with the geometry module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../06_kinematics/index.html">Kinematics analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07_pushrimkinetics/index.html">Wheelchair kinetics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">IN DEPTH</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../03_in_depth/01_lab_mode.html">Lab mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../03_in_depth/02_release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api_reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://felixchenier.uqam.ca/ktk_develop">Development website</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FOR DEVELOPERS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../04_for_developers/01_getting_started/index.html">Developing Kinetics Toolkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../04_for_developers/02_tutorials/index.html">Tutorial development for stable/unstable features</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: black" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Kinetics Toolkit (dev)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Rigid body geometry</a> &raquo;</li>
+      <li>Dimension conventions and first example</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="01_basics.html" class="btn btn-neutral float-left" title="Basics of rigid body geometry" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../06_kinematics/index.html" class="btn btn-neutral float-right" title="Kinematics analysis" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="tex2jax_ignore mathjax_ignore section" id="dimension-conventions-and-first-example">
+<h1>Dimension conventions and first example<a class="headerlink" href="#dimension-conventions-and-first-example" title="Permalink to this headline"></a></h1>
+<p>In the <a class="reference internal" href="../../api/kineticstoolkit.geometry.html"><span class="doc std std-doc">geometry</span></a> module and in most of Kinetics Toolkit’s module:</p>
+<ul class="simple">
+<li><p>Every point, vector or matrix, and in many case even scalar, is considered as a <strong>series</strong>.</p></li>
+<li><p>The first dimension of any series corresponds to <strong>time</strong>.</p></li>
+</ul>
+<p>To understand better how to express scalars, coordinates (points, vectors, frames) and homogeneous transforms as series, please refer to the following pictures:</p>
+<div class="section" id="series-of-scalars">
+<h2>Series of scalars<a class="headerlink" href="#series-of-scalars" title="Permalink to this headline"></a></h2>
+<p><img alt="Series of m scalars -width:half" src="../../_images/series_of_m_scalars.png" /></p>
+</div>
+<div class="section" id="series-of-points-series-of-vectors">
+<h2>Series of points, series of vectors<a class="headerlink" href="#series-of-points-series-of-vectors" title="Permalink to this headline"></a></h2>
+<p><img alt="Series of m points -width:half" src="../../_images/series_of_m_points.png" />
+<img alt="Series of m vectors -width:half" src="../../_images/series_of_m_vectors.png" /></p>
+</div>
+<div class="section" id="series-of-groups-of-points-series-of-groups-of-vectors">
+<h2>Series of groups of points, series of groups of vectors<a class="headerlink" href="#series-of-groups-of-points-series-of-groups-of-vectors" title="Permalink to this headline"></a></h2>
+<p><img alt="Series of m groups of n points -width:half" src="../../_images/series_of_m_groups_of_n_points.png" />
+<img alt="Series of m groups of n vectors -width:half" src="../../_images/series_of_m_groups_of_n_vectors.png" /></p>
+</div>
+<div class="section" id="series-of-frames-homogeneous-transforms">
+<h2>Series of frames/homogeneous transforms<a class="headerlink" href="#series-of-frames-homogeneous-transforms" title="Permalink to this headline"></a></h2>
+<p><img alt="Series of m transformation matrices -width:wider" src="../../_images/series_of_m_transformation_matrices.png" /></p>
+</div>
+<div class="section" id="working-with-constants">
+<h2>Working with constants<a class="headerlink" href="#working-with-constants" title="Permalink to this headline"></a></h2>
+<p>Since most signals in Kinetics Toolkit as considered as a series, always ensure that the first dimension of any array is reserved to time. For example, the vector (x = 1, y = 2, z = 3) must be expressed as <code class="docutils literal notranslate"><span class="pre">np.array([[1.0,</span> <span class="pre">2.0,</span> <span class="pre">3.0,</span> <span class="pre">0.0]])</span></code> (note the double brackets). A common error would be to express it as <code class="docutils literal notranslate"><span class="pre">np.array([1.0,</span> <span class="pre">2.0,</span> <span class="pre">3.0,</span> <span class="pre">0.0])</span></code> (single brackets), which would mean a series of 4 floats instead of one constant vector.</p>
+<p>A quick way to convert a constant array to a series is to use numpy’s <code class="docutils literal notranslate"><span class="pre">newaxis</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">one_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">one_matrix</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1., 0., 0., 0.],
+       [0., 1., 0., 0.],
+       [0., 0., 1., 0.],
+       [0., 0., 0., 1.]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">series_of_one_matrix</span> <span class="o">=</span> <span class="n">one_matrix</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+<span class="n">series_of_one_matrix</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[[1., 0., 0., 0.],
+        [0., 1., 0., 0.],
+        [0., 0., 1., 0.],
+        [0., 0., 0., 1.]]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="first-example-with-the-geometry-module">
+<h2>First example with the geometry module<a class="headerlink" href="#first-example-with-the-geometry-module" title="Permalink to this headline"></a></h2>
+<p>Now that we presented the conventions for expressing coordinates and transforms as series, we are ready to redo the last example from the last section, this time using Kinetics Toolkit.</p>
+<p><img alt="humerus_frame -height:normal" src="../../_images/humerus_frame.png" />
+Figure 1. Position and orientation of the humerus.</p>
+<p>We know the lenght of the arm is 38 cm, and we want to express the position of the elbow in the global coordinate system. The shoulder is located 15 cm forward and 70 cm upward to the global origin and the humerus is inclined at 30 degrees of the vertical.</p>
+<p>First, let’s express the elbow position in the humerus coordinate system.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">kineticstoolkit.lab</span> <span class="k">as</span> <span class="nn">ktk</span>
+
+<span class="n">local_elbow_position</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.38</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+
+<span class="n">local_elbow_position</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.  , -0.38,  0.  ,  1.  ]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we create the frame representing the position and orientation of the humerus coordinate system. Since we know these position and orientation, then we will create this frame as an homogeneous transform from the global to the humerus coordinate system, using the <a class="reference internal" href="../../api/kineticstoolkit.geometry.create_transforms.html"><span class="doc std std-doc">geometry.create_transforms()</span></a> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">humerus_frame</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">create_transforms</span><span class="p">(</span>
+    <span class="n">seq</span> <span class="o">=</span> <span class="s1">&#39;z&#39;</span><span class="p">,</span>
+    <span class="n">angles</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="mi">30</span><span class="p">)],</span>
+    <span class="n">translations</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.70</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+
+<span class="n">humerus_frame</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[[ 0.8660254, -0.5      ,  0.       ,  0.15     ],
+        [ 0.5      ,  0.8660254,  0.       ,  0.7      ],
+        [ 0.       ,  0.       ,  1.       ,  0.       ],
+        [ 0.       ,  0.       ,  0.       ,  1.       ]]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can express the local elbow position in the global coordinate system:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">get_global_coordinates</span><span class="p">(</span><span class="n">local_elbow_position</span><span class="p">,</span> <span class="n">humerus_frame</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.34      , 0.37091035, 0.        , 1.        ]])
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="01_basics.html" class="btn btn-neutral float-left" title="Basics of rigid body geometry" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../06_kinematics/index.html" class="btn btn-neutral float-right" title="Kinematics analysis" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2021, Félix Chénier.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
