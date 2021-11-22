@@ -1,0 +1,241 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smoothing and deriving using a Savitzky-Golay filter &mdash; Kinetics Toolkit 0.6.2.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Removing artefacts using a median filter" href="04_median.html" />
+    <link rel="prev" title="Smoothing signals using a moving average" href="02_smooth.html" />
+
+
+ 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: black" >
+            <a href="../../index.html">
+            <img src="../../_static/logo_with_text_black.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">GETTING STARTED</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/01_what_is_kinetics_toolkit.html">What is Kinetics Toolkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/02_install.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/03_conventions.html">Conventions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">TUTORIALS</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../01_timeseries/index.html">TimeSeries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_loadsave/index.html">Saving and loading</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Filtering</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="01_butter.html">Removing frequencies using a Butterworth filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_smooth.html">Smoothing signals using a moving average</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Smoothing and deriving using a Savitzky-Golay filter</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#smoothing-using-a-savitzky-golay-filter">Smoothing using a Savitzky-Golay filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#deriving-using-a-savitzky-golay-filter">Deriving using a Savitzky-Golay filter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="04_median.html">Removing artefacts using a median filter</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../04_cycles/index.html">Detecting and normalizing cycles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05_geometry/index.html">Rigid body geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06_kinematics/index.html">Kinematics analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07_pushrimkinetics/index.html">Wheelchair kinetics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">IN DEPTH</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../03_in_depth/01_lab_mode.html">Lab mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../03_in_depth/02_release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api_reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://felixchenier.uqam.ca/ktk_develop">Development website</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FOR DEVELOPERS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../04_for_developers/01_getting_started/index.html">Developing Kinetics Toolkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../04_for_developers/02_tutorials/index.html">Tutorial development for stable/unstable features</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: black" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Kinetics Toolkit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">Filtering</a> &raquo;</li>
+      <li>Smoothing and deriving using a Savitzky-Golay filter</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="02_smooth.html" class="btn btn-neutral float-left" title="Smoothing signals using a moving average" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="04_median.html" class="btn btn-neutral float-right" title="Removing artefacts using a median filter" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="tex2jax_ignore mathjax_ignore section" id="smoothing-and-deriving-using-a-savitzky-golay-filter">
+<h1>Smoothing and deriving using a Savitzky-Golay filter<a class="headerlink" href="#smoothing-and-deriving-using-a-savitzky-golay-filter" title="Permalink to this headline"></a></h1>
+<p>The Savitzky-Golay filter is a generalization of the moving average. Instead of taking the mean of the n points of a moving window, the Savitzky-Golay filter fits a polynomial over each window. It is a powerful filter for data that is heavily quantized, particularly if we want to derivate these data. In this tutorial, we will see how to apply Savitzky-Golay filters on TimeSeries data, using the <a class="reference internal" href="../../api/kineticstoolkit.filters.savgol.html"><span class="doc std std-doc">filters.savgol()</span></a> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">kineticstoolkit.lab</span> <span class="k">as</span> <span class="nn">ktk</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We will first load some noisy data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
+    <span class="n">ktk</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">root_folder</span> <span class="o">+</span> <span class="s1">&#39;/data/filters/sample_noises.ktk.zip&#39;</span><span class="p">)</span>
+
+<span class="c1"># Plot it</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="s1">&#39;clean&#39;</span><span class="p">,</span> <span class="s1">&#39;quantized&#39;</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/03_savgol_3_0.png" src="../../_images/03_savgol_3_0.png" />
+</div>
+</div>
+<div class="section" id="smoothing-using-a-savitzky-golay-filter">
+<h2>Smoothing using a Savitzky-Golay filter<a class="headerlink" href="#smoothing-using-a-savitzky-golay-filter" title="Permalink to this headline"></a></h2>
+<p>Let’s try to smooth the non-derived signal using a second-order Savitzky-Golay filter with a window length of 7.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filtered</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">savgol</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">poly_order</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">window_length</span><span class="o">=</span><span class="mi">7</span><span class="p">)</span>
+
+<span class="n">ts</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="s1">&#39;clean&#39;</span><span class="p">,</span> <span class="s1">&#39;quantized&#39;</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">filtered</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="s1">&#39;quantized&#39;</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Smoothed signal using a Savitzky-Golay filter of order=2 and window_length=7&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/03_savgol_5_0.png" src="../../_images/03_savgol_5_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="deriving-using-a-savitzky-golay-filter">
+<h2>Deriving using a Savitzky-Golay filter<a class="headerlink" href="#deriving-using-a-savitzky-golay-filter" title="Permalink to this headline"></a></h2>
+<p>This sort of signal that suffers from bad resolution is very difficult to derivate because it is filled with fast-changing plateaus:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Try to derivate</span>
+<span class="n">derivate</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">deriv</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
+
+<span class="c1"># Plot it</span>
+<span class="n">derivate</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="s1">&#39;clean&#39;</span><span class="p">,</span> <span class="s1">&#39;quantized&#39;</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/03_savgol_7_0.png" src="../../_images/03_savgol_7_0.png" />
+</div>
+</div>
+<p>Since the Savitzky-Golay filter fits a polynom instead of just smoothing the signal, then the derivative of the filtered signal is automatically given by deriving the polynom instead of the signal. Let’s see the result with the same filtering conditions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Filter and derivate</span>
+<span class="n">derivate_savgol</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">savgol</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">poly_order</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">window_length</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span> <span class="n">deriv</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># Plot it</span>
+<span class="n">derivate</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="s1">&#39;clean&#39;</span><span class="p">,</span> <span class="s1">&#39;quantized&#39;</span><span class="p">],</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">)</span>
+<span class="n">derivate_savgol</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;quantized&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Derived signal using a Savitzky-Golay filter of order=2 and window_length=7 (black)&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/03_savgol_9_0.png" src="../../_images/03_savgol_9_0.png" />
+</div>
+</div>
+<p>As observed, the derivative of the highly-quantized signal is very similar to the derivative of the clean signal.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="02_smooth.html" class="btn btn-neutral float-left" title="Smoothing signals using a moving average" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="04_median.html" class="btn btn-neutral float-right" title="Removing artefacts using a median filter" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2021, Félix Chénier.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

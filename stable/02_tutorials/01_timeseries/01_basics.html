@@ -1,0 +1,469 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TimeSeries Basics &mdash; Kinetics Toolkit 0.6.2.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Manipulating TimeSeries" href="02_manipulating.html" />
+    <link rel="prev" title="TimeSeries" href="index.html" />
+
+
+ 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: black" >
+            <a href="../../index.html">
+            <img src="../../_static/logo_with_text_black.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">GETTING STARTED</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/01_what_is_kinetics_toolkit.html">What is Kinetics Toolkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/02_install.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/03_conventions.html">Conventions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">TUTORIALS</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">TimeSeries</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">TimeSeries Basics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#time-and-data">Time and Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#metadata">Metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#events">Events</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#using-events-to-synchronize-timeseries">Using events to synchronize TimeSeries</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="02_manipulating.html">Manipulating TimeSeries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_dataframes.html">Converting between TimeSeries and Pandas DataFrames</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../02_loadsave/index.html">Saving and loading</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_filters/index.html">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_cycles/index.html">Detecting and normalizing cycles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05_geometry/index.html">Rigid body geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06_kinematics/index.html">Kinematics analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07_pushrimkinetics/index.html">Wheelchair kinetics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">IN DEPTH</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../03_in_depth/01_lab_mode.html">Lab mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../03_in_depth/02_release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api_reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://felixchenier.uqam.ca/ktk_develop">Development website</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FOR DEVELOPERS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../04_for_developers/01_getting_started/index.html">Developing Kinetics Toolkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../04_for_developers/02_tutorials/index.html">Tutorial development for stable/unstable features</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: black" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Kinetics Toolkit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="index.html">TimeSeries</a> &raquo;</li>
+      <li>TimeSeries Basics</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="index.html" class="btn btn-neutral float-left" title="TimeSeries" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="02_manipulating.html" class="btn btn-neutral float-right" title="Manipulating TimeSeries" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="tex2jax_ignore mathjax_ignore section" id="timeseries-basics">
+<h1>TimeSeries Basics<a class="headerlink" href="#timeseries-basics" title="Permalink to this headline"></a></h1>
+<p>TimeSeries are largely inspired by Matlab’s <code class="docutils literal notranslate"><span class="pre">timeseries</span></code> and <code class="docutils literal notranslate"><span class="pre">tscollection</span></code>. Every TimeSeries contains the following attributes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">time</span></code>: A numpy array that contains the time vector.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data</span></code>: A dict where each entry is a numpy array, with the first dimension corresponding to time.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">events</span></code>: An optional list of events.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">time_info</span></code>: Metadata corresponding to time, that contains at least the time unit.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data_info</span></code>: Optional metadata.</p></li>
+</ul>
+<div class="section" id="time-and-data">
+<h2>Time and Data<a class="headerlink" href="#time-and-data" title="Permalink to this headline"></a></h2>
+<p>A TimeSeries in its simplest form contains a time vector and at least one data series. For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">kineticstoolkit.lab</span> <span class="k">as</span> <span class="nn">ktk</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">ts</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">TimeSeries</span><span class="p">()</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>  <span class="c1"># 10 seconds at 10 Hz</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Sinus&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+
+<span class="n">ts</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TimeSeries with attributes:
+         time: &lt;array of shape (100,)&gt;
+         data: &lt;dict with 1 entries&gt;
+    time_info: &lt;dict with 1 entries&gt;
+    data_info: &lt;dict with 0 entries&gt;
+       events: &lt;list of 0 items&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &#39;Sinus&#39;: &lt;array of shape (100,)&gt;
+}
+</pre></div>
+</div>
+</div>
+</div>
+<p>TimeSeries can be <a class="reference internal" href="../../api/kineticstoolkit.TimeSeries.plot.html"><span class="doc std std-doc">plotted</span></a> directly using Matplotlib:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/01_basics_4_0.png" src="../../_images/01_basics_4_0.png" />
+</div>
+</div>
+<p>A TimeSeries can contain many independent data that share a same time vector:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Cosinus&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+
+<span class="n">ts</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+      &#39;Sinus&#39;: &lt;array of shape (100,)&gt;
+    &#39;Cosinus&#39;: &lt;array of shape (100,)&gt;
+}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/01_basics_7_0.png" src="../../_images/01_basics_7_0.png" />
+</div>
+</div>
+<p>A TimeSeries can also contain multidimensional data, as long as the first dimension corresponds to time.</p>
+<p>For the rest of this tutorial, we will load a TimeSeries that contains forces and moments during manual wheelchair propulsion. These forces and moments are expressed as Nx4 series of vectors:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\text{Forces} = \begin{bmatrix}
+F_x(0) &amp; F_y(0) &amp; F_z(0) &amp; 0 \\
+F_x(1) &amp; F_y(1) &amp; F_z(1) &amp; 0 \\
+F_x(2) &amp; F_y(2) &amp; F_z(2) &amp; 0 \\
+... &amp; ... &amp; ... &amp; ... \\
+F_x(N-1) &amp; F_y(N-1) &amp; F_z(N-1) &amp; 0
+\end{bmatrix}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\text{Moments} = \begin{bmatrix}
+M_x(0) &amp; M_y(0) &amp; M_z(0) &amp; 0 \\
+M_x(1) &amp; M_y(1) &amp; M_z(1) &amp; 0 \\
+M_x(2) &amp; M_y(2) &amp; M_z(2) &amp; 0 \\
+... &amp; ... &amp; ... &amp; ... \\
+M_x(N-1) &amp; M_y(N-1) &amp; M_z(N-1) &amp; 0
+\end{bmatrix}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">ktk</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">root_folder</span> <span class="o">+</span> <span class="s1">&#39;/data/timeseries/smartwheel.ktk.zip&#39;</span><span class="p">)</span>
+
+<span class="n">ts</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TimeSeries with attributes:
+         time: &lt;array of shape (5000,)&gt;
+         data: &lt;dict with 2 entries&gt;
+    time_info: &lt;dict with 1 entries&gt;
+    data_info: &lt;dict with 0 entries&gt;
+       events: &lt;list of 0 items&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+     &#39;Forces&#39;: &lt;array of shape (5000, 4)&gt;
+    &#39;Moments&#39;: &lt;array of shape (5000, 4)&gt;
+}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/01_basics_11_0.png" src="../../_images/01_basics_11_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="metadata">
+<h2>Metadata<a class="headerlink" href="#metadata" title="Permalink to this headline"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">time_info</span></code> property associates metadata to the time vector. It is a dictionary where each key is the name of one metadata. By default, <code class="docutils literal notranslate"><span class="pre">time_info</span></code> includes the <code class="docutils literal notranslate"><span class="pre">Unit</span></code> metadata, which corresponds to <code class="docutils literal notranslate"><span class="pre">s</span></code>. Any other metadata can be added by adding new keys in <code class="docutils literal notranslate"><span class="pre">time_info</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">time_info</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &#39;Unit&#39;: &#39;s&#39;
+}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Similarly, the <code class="docutils literal notranslate"><span class="pre">data_info</span></code> property associates metadata to data. This property is a dictionary of dictionaries, where the outer key corresponds to the data key, and the inner key is the metadata. The <a class="reference internal" href="../../api/kineticstoolkit.TimeSeries.add_data_info.html"><span class="doc std std-doc">TimeSeries.add_data_info()</span></a> method eases the management of <code class="docutils literal notranslate"><span class="pre">data_info</span></code>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="s1">&#39;Forces&#39;</span><span class="p">,</span> <span class="s1">&#39;Unit&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="s1">&#39;Moments&#39;</span><span class="p">,</span> <span class="s1">&#39;Unit&#39;</span><span class="p">,</span> <span class="s1">&#39;Nm&#39;</span><span class="p">)</span>
+
+<span class="n">ts</span><span class="o">.</span><span class="n">data_info</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+     &#39;Forces&#39;: &lt;dict with 1 entries&gt;
+    &#39;Moments&#39;: &lt;dict with 1 entries&gt;
+}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="s1">&#39;Forces&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &#39;Unit&#39;: &#39;N&#39;
+}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Unless explicitly mentioned, metadata is not used for calculation and is optional. It is simply a way to clarify the data by adding information to it. Some functions however read metadata: for example, the <a class="reference internal" href="../../api/kineticstoolkit.TimeSeries.plot.html"><span class="doc std std-doc">TimeSeries.plot()</span></a> method looks for possible <code class="docutils literal notranslate"><span class="pre">Unit</span></code> metadata and prints it on the y axis.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/01_basics_18_0.png" src="../../_images/01_basics_18_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="events">
+<h2>Events<a class="headerlink" href="#events" title="Permalink to this headline"></a></h2>
+<p>In the figure above, we see that the TimeSeries contains cyclic data that could be characterized by events. A first spike was generated at about 4 seconds: this event corresponds to a synchronization signal that we generated by gently impacting the instrumented pushrim. Thereafter, we see a series of pushes and recoveries. We will add these events to the TimeSeries.</p>
+<p>There are several ways to edit the events of a TimeSeries:</p>
+<ul class="simple">
+<li><p>Editing events manually, using the <a class="reference internal" href="../../api/kineticstoolkit.TimeSeries.add_event.html"><span class="doc std std-doc">TimeSeries.add_event()</span></a> and <a class="reference internal" href="../../api/kineticstoolkit.TimeSeries.remove_event.html"><span class="doc std std-doc">TimeSeries.remove_event()</span></a> methods;</p></li>
+<li><p>Editing events interactively, using the <a class="reference internal" href="../../api/kineticstoolkit.TimeSeries.ui_edit_events.html"><span class="doc std std-doc">TimeSeries.ui_edit_events()</span></a> method;</p></li>
+<li><p>Adding events automatically, for example using the <a class="reference internal" href="../../api/kineticstoolkit.cycles.html"><span class="doc std std-doc">cycles</span></a> module that can detect cycles automatically.</p></li>
+</ul>
+<p>In this tutorial, we will add the events manually.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">4.35</span><span class="p">,</span> <span class="s1">&#39;sync&#39;</span><span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">8.56</span><span class="p">,</span> <span class="s1">&#39;push&#39;</span><span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">9.93</span><span class="p">,</span> <span class="s1">&#39;recovery&#39;</span><span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">10.50</span><span class="p">,</span> <span class="s1">&#39;push&#39;</span><span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">11.12</span><span class="p">,</span> <span class="s1">&#39;recovery&#39;</span><span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">11.78</span><span class="p">,</span> <span class="s1">&#39;push&#39;</span><span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">12.33</span><span class="p">,</span> <span class="s1">&#39;recovery&#39;</span><span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">13.39</span><span class="p">,</span> <span class="s1">&#39;push&#39;</span><span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">13.88</span><span class="p">,</span> <span class="s1">&#39;recovery&#39;</span><span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">14.86</span><span class="p">,</span> <span class="s1">&#39;push&#39;</span><span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">15.30</span><span class="p">,</span> <span class="s1">&#39;recovery&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>These 11 events are now added to the TimeSeries’ list of events:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TimeSeries with attributes:
+         time: &lt;array of shape (5000,)&gt;
+         data: &lt;dict with 2 entries&gt;
+    time_info: &lt;dict with 1 entries&gt;
+    data_info: &lt;dict with 2 entries&gt;
+       events: &lt;list of 11 items&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">events</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[TimeSeriesEvent(time=4.35, name=&#39;sync&#39;),
+ TimeSeriesEvent(time=8.56, name=&#39;push&#39;),
+ TimeSeriesEvent(time=9.93, name=&#39;recovery&#39;),
+ TimeSeriesEvent(time=10.5, name=&#39;push&#39;),
+ TimeSeriesEvent(time=11.12, name=&#39;recovery&#39;),
+ TimeSeriesEvent(time=11.78, name=&#39;push&#39;),
+ TimeSeriesEvent(time=12.33, name=&#39;recovery&#39;),
+ TimeSeriesEvent(time=13.39, name=&#39;push&#39;),
+ TimeSeriesEvent(time=13.88, name=&#39;recovery&#39;),
+ TimeSeriesEvent(time=14.86, name=&#39;push&#39;),
+ TimeSeriesEvent(time=15.3, name=&#39;recovery&#39;)]
+</pre></div>
+</div>
+</div>
+</div>
+<p>If we plot again the TimeSeries, we can see the added events.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/01_basics_25_0.png" src="../../_images/01_basics_25_0.png" />
+</div>
+</div>
+<div class="section" id="using-events-to-synchronize-timeseries">
+<h3>Using events to synchronize TimeSeries<a class="headerlink" href="#using-events-to-synchronize-timeseries" title="Permalink to this headline"></a></h3>
+<p>Let’s see how we can make use of these events. First, the <code class="docutils literal notranslate"><span class="pre">sync</span></code> event may be set to the time origin, which could be useful to sync this TimeSeries with other instrumentation. This can be done using the <a class="reference internal" href="../../api/kineticstoolkit.TimeSeries.sync_event.html"><span class="doc std std-doc">TimeSeries.sync_event()</span></a> function, which shifts the TimeSeries’ time and every event’s time accordingly.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">sync_event</span><span class="p">(</span><span class="s1">&#39;sync&#39;</span><span class="p">)</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/01_basics_27_0.png" src="../../_images/01_basics_27_0.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="TimeSeries" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="02_manipulating.html" class="btn btn-neutral float-right" title="Manipulating TimeSeries" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2021, Félix Chénier.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

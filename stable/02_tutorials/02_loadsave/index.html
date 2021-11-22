@@ -1,0 +1,293 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saving and loading &mdash; Kinetics Toolkit 0.6.2.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Filtering" href="../03_filters/index.html" />
+    <link rel="prev" title="Converting between TimeSeries and Pandas DataFrames" href="../01_timeseries/03_dataframes.html" />
+
+
+ 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: black" >
+            <a href="../../index.html">
+            <img src="../../_static/logo_with_text_black.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">GETTING STARTED</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/01_what_is_kinetics_toolkit.html">What is Kinetics Toolkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/02_install.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/03_conventions.html">Conventions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">TUTORIALS</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../01_timeseries/index.html">TimeSeries</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Saving and loading</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#file-format-and-supported-types">File format and supported types</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#loading-a-ktk-zip-file-in-matlab">Loading a ktk.zip file in Matlab</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../03_filters/index.html">Filtering</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_cycles/index.html">Detecting and normalizing cycles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05_geometry/index.html">Rigid body geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06_kinematics/index.html">Kinematics analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../07_pushrimkinetics/index.html">Wheelchair kinetics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">IN DEPTH</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../03_in_depth/01_lab_mode.html">Lab mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../03_in_depth/02_release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api_reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://felixchenier.uqam.ca/ktk_develop">Development website</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FOR DEVELOPERS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../04_for_developers/01_getting_started/index.html">Developing Kinetics Toolkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../04_for_developers/02_tutorials/index.html">Tutorial development for stable/unstable features</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: black" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Kinetics Toolkit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Saving and loading</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="../01_timeseries/03_dataframes.html" class="btn btn-neutral float-left" title="Converting between TimeSeries and Pandas DataFrames" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../03_filters/index.html" class="btn btn-neutral float-right" title="Filtering" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="tex2jax_ignore mathjax_ignore section" id="saving-and-loading">
+<h1>Saving and loading<a class="headerlink" href="#saving-and-loading" title="Permalink to this headline"></a></h1>
+<p>Contrarily to Matlab with its <code class="docutils literal notranslate"><span class="pre">.mat</span></code> file, python does not come with a single standard way to save data. To ease saving and sharing data, Kinetics Toolkit provides two functions that load and save its own <code class="docutils literal notranslate"><span class="pre">.ktk.zip</span></code> format:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="../../api/kineticstoolkit.save.html"><span class="doc std std-doc">save()</span></a></p></li>
+<li><p><a class="reference internal" href="../../api/kineticstoolkit.load.html"><span class="doc std std-doc">load()</span></a></p></li>
+</ul>
+<p>These functions are straightforward to use:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">kineticstoolkit.lab</span> <span class="k">as</span> <span class="nn">ktk</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">variable</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;some_array&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">),</span>
+    <span class="s1">&#39;some_text&#39;</span><span class="p">:</span> <span class="s1">&#39;hello&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Saving the variable:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ktk</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s1">&#39;filename.ktk.zip&#39;</span><span class="p">,</span> <span class="n">variable</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Loading back the variable:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">loaded_variable</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;filename.ktk.zip&#39;</span><span class="p">)</span>
+
+<span class="n">loaded_variable</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &#39;some_array&#39;: &lt;array of shape (10,)&gt;
+     &#39;some_text&#39;: &#39;hello&#39;
+}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="file-format-and-supported-types">
+<h2>File format and supported types<a class="headerlink" href="#file-format-and-supported-types" title="Permalink to this headline"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">ktk.zip</span></code> file format is built to be as portable and simple as possible. It is a standard zip file that contains two JSON files:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">metadata.json</span></code>: The file metadata such as the save date, the computer’s operating system, etc.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data.json</span></code>: The data. The data types that are not supported natively by the JSON file format (e.g., numpy, pandas and ktk objects) are converted to supported objects so that they are fully readable in other environments such as Matlab.</p></li>
+</ul>
+<p>The <code class="docutils literal notranslate"><span class="pre">ktk.zip</span></code> file format supports any combination of the following types:</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Already supported by JSON</p></th>
+<th class="head"><p>Extended for Kinetics Toolkit</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>dict containing any supported type</p></td>
+<td><p>numpy.array</p></td>
+</tr>
+<tr class="row-odd"><td><p>list containing any supported type</p></td>
+<td><p>pandas.DataFrame</p></td>
+</tr>
+<tr class="row-even"><td><p>str</p></td>
+<td><p>pandas.Series</p></td>
+</tr>
+<tr class="row-odd"><td><p>int</p></td>
+<td><p>kineticstoolkit.TimeSeries</p></td>
+</tr>
+<tr class="row-even"><td><p>float</p></td>
+<td><p></p></td>
+</tr>
+<tr class="row-odd"><td><p>True, False, None</p></td>
+<td><p></p></td>
+</tr>
+</tbody>
+</table>
+<p>Tuples can also be saved but will be loaded back as lists.</p>
+</div>
+<div class="section" id="loading-a-ktk-zip-file-in-matlab">
+<h2>Loading a ktk.zip file in Matlab<a class="headerlink" href="#loading-a-ktk-zip-file-in-matlab" title="Permalink to this headline"></a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>% Create a temporary folder to unzip to
+mkdir(&#39;temp&#39;);
+unzip(filename, &#39;temp&#39;);
+
+% Load the file contents
+data = jsondecode(fileread(&#39;temp/data.json&#39;));
+metadata = jsondecode(fileread(&#39;temp/metadata.json&#39;));
+</pre></div>
+</div>
+<p>Since the types are not the same between python, JSON and Matlab, here is how Matlab will reconstruct the following python types:</p>
+<table class="colwidths-auto docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Python</p></th>
+<th class="head"><p>Matlab</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>None</p></td>
+<td><p>NaN</p></td>
+</tr>
+<tr class="row-odd"><td><p>True, False</p></td>
+<td><p>true, false</p></td>
+</tr>
+<tr class="row-even"><td><p>int, float</p></td>
+<td><p>double</p></td>
+</tr>
+<tr class="row-odd"><td><p>str</p></td>
+<td><p>char</p></td>
+</tr>
+<tr class="row-even"><td><p>dict</p></td>
+<td><p>struct</p></td>
+</tr>
+<tr class="row-odd"><td><p>list of different data types</p></td>
+<td><p>cell array</p></td>
+</tr>
+<tr class="row-even"><td><p>list of boolean</p></td>
+<td><p>array of logical</p></td>
+</tr>
+<tr class="row-odd"><td><p>list of int or float</p></td>
+<td><p>array of double</p></td>
+</tr>
+<tr class="row-even"><td><p>list of str</p></td>
+<td><p>cell array of char</p></td>
+</tr>
+<tr class="row-odd"><td><p>list of dict, same field names</p></td>
+<td><p>structure array</p></td>
+</tr>
+<tr class="row-even"><td><p>list of dict, diff field names</p></td>
+<td><p>cell array of struct</p></td>
+</tr>
+<tr class="row-odd"><td><p>numpy.array</p></td>
+<td><p>array of double</p></td>
+</tr>
+<tr class="row-even"><td><p>kineticstoolkit.TimeSeries</p></td>
+<td><p>struct</p></td>
+</tr>
+<tr class="row-odd"><td><p>complex</p></td>
+<td><p>struct with real and imag</p></td>
+</tr>
+</tbody>
+</table>
+<p>*tuples are saved as lists in JSON.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../01_timeseries/03_dataframes.html" class="btn btn-neutral float-left" title="Converting between TimeSeries and Pandas DataFrames" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../03_filters/index.html" class="btn btn-neutral float-right" title="Filtering" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2021, Félix Chénier.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
