@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Removing frequencies using a Butterworth filter &mdash; Kinetics Toolkit (dev) master documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Smoothing signals using a moving average" href="02_smooth.html" />
+    <link rel="prev" title="Filtering" href="00_filters.html" />
+
+
+ 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: black" >
+            <a href="../index.html">
+            <img src="../_static/logo_development.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">GETTING STARTED</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../11_what_is_kinetics_toolkit.html">What is Kinetics Toolkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../12_install.html">Installing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../13_conventions.html">Conventions</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">TUTORIALS</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../21_timeseries/00_timeseries.html">TimeSeries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../22_loadsave/00_loadsave.html">Saving and loading</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="00_filters.html">Filtering</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Removing frequencies using a Butterworth filter</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#low-pass-no-lag-filter">Low-pass no-lag filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#high-pass-no-lag-filter">High-pass no-lag filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#real-world-example-using-electromyographic-data">Real-world example using electromyographic data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="02_smooth.html">Smoothing signals using a moving average</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_savgol.html">Smoothing and deriving using a Savitzky-Golay filter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="04_median.html">Removing artefacts using a median filter</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../24_cycles/00_cycles.html">Detecting and normalizing cycles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../25_geometry/00_geometry.html">Rigid body geometry</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../26_kinematics/00_kinematics.html">Kinematics analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../27_pushrimkinetics/00_pushrimkinetics.html">Wheelchair kinetics</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">IN DEPTH</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../31_lab_mode.html">Lab mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../32_release_notes.html">Release Notes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://felixchenier.uqam.ca/ktk_develop">Development website</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FOR DEVELOPERS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../41_install.html">Installing from git-hub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../42_developer_manual.html">Developer manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../43_dev/00_tutorials.html">Tutorials for unreleased features</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: black" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Kinetics Toolkit (dev)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="00_filters.html">Filtering</a> &raquo;</li>
+      <li>Removing frequencies using a Butterworth filter</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="00_filters.html" class="btn btn-neutral float-left" title="Filtering" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="02_smooth.html" class="btn btn-neutral float-right" title="Smoothing signals using a moving average" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="removing-frequencies-using-a-butterworth-filter">
+<h1>Removing frequencies using a Butterworth filter<a class="headerlink" href="#removing-frequencies-using-a-butterworth-filter" title="Permalink to this headline"></a></h1>
+<p>The Butterworth filter may be the most used filter in biomechanics. It targets ranges of frequencies to remove from the signal’s frequency spectrum. A classic use is to estimate the frequency range of both the data and noise, then use the filter to keep most of the data’s frequency range while filtering out most of the noise’s frequency range. In this tutorial, we will see how to apply Butterworth filters on TimeSeries data, using the <a class="reference internal" href="../api/kineticstoolkit.filters.butter.html"><span class="doc std std-doc">filters.butter()</span></a> function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">kineticstoolkit.lab</span> <span class="k">as</span> <span class="nn">ktk</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We begin by loading some sample data:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts_noisy</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
+    <span class="n">ktk</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">root_folder</span> <span class="o">+</span> <span class="s1">&#39;/data/filters/sample_noisy.ktk.zip&#39;</span><span class="p">)</span>
+
+<span class="n">ts_noisy</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Noisy signals&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/01_butter_3_0.png" src="../_images/01_butter_3_0.png" />
+</div>
+</div>
+<section id="low-pass-no-lag-filter">
+<h2>Low-pass no-lag filter<a class="headerlink" href="#low-pass-no-lag-filter" title="Permalink to this headline"></a></h2>
+<p>Here is an example of how to filter out high frequencies using a no-lag Butterworth filter of order 2:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ts_noisy</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Before filtering&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">butter</span><span class="p">(</span><span class="n">ts_noisy</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">temp</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Low-pass 2nd order at 20 Hz&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">butter</span><span class="p">(</span><span class="n">ts_noisy</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">temp</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Low-pass 2nd order at 4 Hz&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/01_butter_5_0.png" src="../_images/01_butter_5_0.png" />
+</div>
+</div>
+<p>As expected, when filtering lower frequencies, the signal is clearer but transitions are less sharp and some very dynamic information may be lost.</p>
+</section>
+<section id="high-pass-no-lag-filter">
+<h2>High-pass no-lag filter<a class="headerlink" href="#high-pass-no-lag-filter" title="Permalink to this headline"></a></h2>
+<p>Here is an example of how to filter out low frequencies using a no-lag Butterworth filter of order 2.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ts_noisy</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Before filtering&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">temp</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">butter</span><span class="p">(</span><span class="n">ts_noisy</span><span class="p">,</span> <span class="n">btype</span><span class="o">=</span><span class="s1">&#39;highpass&#39;</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="mi">60</span><span class="p">)</span>
+<span class="n">temp</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;High-pass 2nd order at 60 Hz&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/01_butter_7_0.png" src="../_images/01_butter_7_0.png" />
+</div>
+</div>
+<p>As expected, only the transitions are kept; all the stable parts of the signal were removed.</p>
+</section>
+<section id="real-world-example-using-electromyographic-data">
+<h2>Real-world example using electromyographic data<a class="headerlink" href="#real-world-example-using-electromyographic-data" title="Permalink to this headline"></a></h2>
+<p>#TODO</p>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="00_filters.html" class="btn btn-neutral float-left" title="Filtering" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="02_smooth.html" class="btn btn-neutral float-right" title="Smoothing signals using a moving average" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2021, Félix Chénier.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
