@@ -2,8 +2,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Converting between TimeSeries and Pandas DataFrames &mdash; Kinetics Toolkit (dev) master documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -26,7 +25,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Saving and loading" href="../02_loadsave/index.html" />
+    <link rel="next" title="Saving and loading" href="../02_loadsave/00_index.html" />
     <link rel="prev" title="Manipulating TimeSeries" href="02_manipulating.html" />
 
 
@@ -49,41 +48,44 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">GETTING STARTED</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/01_what_is_kinetics_toolkit.html">What is Kinetics Toolkit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/02_install.html">Installing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/03_conventions.html">Conventions</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">TUTORIALS</span></p>
+              <p class="caption" role="heading"><span class="caption-text">MANUAL</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">TimeSeries</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="01_basics.html">TimeSeries Basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02_manipulating.html">Manipulating TimeSeries</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Converting between TimeSeries and Pandas DataFrames</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#example-1-importing-a-csv-file">Example 1: Importing a csv file</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#multidimensional-data">Multidimensional data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/00_index.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../00_index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="00_index.html">TimeSeries</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="01_basics.html">TimeSeries Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_manipulating.html">Manipulating TimeSeries</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Converting between TimeSeries and Pandas DataFrames</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#example-1-importing-a-csv-file">Example 1: Importing a csv file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#example-2-converting-a-c3d-file-to-csv">Example 2: Converting a c3d file to csv</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#example-2-converting-a-c3d-file-to-csv">Example 2: Converting a c3d file to csv</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../02_loadsave/00_index.html">Saving and loading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_filters/00_index.html">Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04_cycles/00_index.html">Detecting and normalizing cycles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05_geometry/00_index.html">Rigid body geometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_kinematics/00_index.html">Kinematics analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07_pushrimkinetics/00_index.html">Wheelchair kinetics</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../02_loadsave/index.html">Saving and loading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../03_filters/index.html">Filtering</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../04_cycles/index.html">Detecting and normalizing cycles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../05_geometry/index.html">Rigid body geometry</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../06_kinematics/index.html">Kinematics analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../07_pushrimkinetics/index.html">Wheelchair kinetics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../04_in_depth/00_index.html">In depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../05_learning_python/00_index.html">Learning Python</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">IN DEPTH</span></p>
+<p class="caption" role="heading"><span class="caption-text">API REFERENCE</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../03_in_depth/01_lab_mode.html">Lab mode</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../03_in_depth/02_release_notes.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api_reference.html">API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">LINKS</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference external" href="https://felixchenier.uqam.ca/ktk_develop">Development website</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FOR DEVELOPERS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../99_for_developers/01_getting_started/00_index.html">Developing Kinetics Toolkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../99_for_developers/02_tutorials/00_index.html">Tutorial development for stable/unstable features</a></li>
 </ul>
 
         </div>
@@ -100,22 +102,23 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="index.html">TimeSeries</a> &raquo;</li>
+          <li><a href="../00_index.html">Tutorials</a> &raquo;</li>
+          <li><a href="00_index.html">TimeSeries</a> &raquo;</li>
       <li>Converting between TimeSeries and Pandas DataFrames</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
         <a href="02_manipulating.html" class="btn btn-neutral float-left" title="Manipulating TimeSeries" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../02_loadsave/index.html" class="btn btn-neutral float-right" title="Saving and loading" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../02_loadsave/00_index.html" class="btn btn-neutral float-right" title="Saving and loading" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="converting-between-timeseries-and-pandas-dataframes">
+  <div class="tex2jax_ignore mathjax_ignore section" id="converting-between-timeseries-and-pandas-dataframes">
 <h1>Converting between TimeSeries and Pandas DataFrames<a class="headerlink" href="#converting-between-timeseries-and-pandas-dataframes" title="Permalink to this headline"></a></h1>
-<p>To ensure a great compatibility between Kinetics Toolkit and other frameworks, TimeSeries can be converted from and to Pandas DataFrame using the <a class="reference internal" href="../../api/kineticstoolkit.TimeSeries.from_dataframe.html"><span class="doc std std-doc">TimeSeries.from_dataframe()</span></a> and <a class="reference internal" href="../../api/kineticstoolkit.TimeSeries.to_dataframe.html"><span class="doc std std-doc">TimeSeries.to_dataframe()</span></a> methods, and thus benefit from the myriad of options offered by Pandas.</p>
+<p>To ensure a great compatibility between Kinetics Toolkit and other frameworks, TimeSeries can be converted from and to Pandas DataFrame using the [[)](/api/kineticstoolkit.TimeSeries.from_dataframe.rst|TimeSeries.from_dataframe()]] and [[)](/api/kineticstoolkit.TimeSeries.to_dataframe.rst|TimeSeries.to_dataframe()]] methods, and thus benefit from the myriad of options offered by Pandas.</p>
 <p>In this tutorial, we will learn how to import comma-separated-value (csv) files as TimeSeries, and export back to csv.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -125,7 +128,7 @@
 </div>
 </div>
 </div>
-<section id="example-1-importing-a-csv-file">
+<div class="section" id="example-1-importing-a-csv-file">
 <h2>Example 1: Importing a csv file<a class="headerlink" href="#example-1-importing-a-csv-file" title="Permalink to this headline"></a></h2>
 <p>We import the contents of this csv file:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">Time</span><span class="p">,</span><span class="n">Force</span><span class="p">,</span><span class="n">Position</span>
@@ -182,7 +185,7 @@
 </div>
 </div>
 </div>
-<section id="multidimensional-data">
+<div class="section" id="multidimensional-data">
 <h3>Multidimensional data<a class="headerlink" href="#multidimensional-data" title="Permalink to this headline"></a></h3>
 <p>TimeSeries are well suited for multidimensional data. In the last example, the force sensor was unidimensional. For a tridimensional force sensor, we would expect three signals (x, y, z).</p>
 <p>In this second example, we will import the following csv file:</p>
@@ -532,12 +535,12 @@
 </div>
 </div>
 <p>For series of arrays with more than one dimension, the brackets would have multiple indexes. For example, a series of Nx4x4 homogeneous matrices would require 16 columns and the indexes would go from [0,0] to [3,3].</p>
-</section>
-</section>
-<section id="example-2-converting-a-c3d-file-to-csv">
+</div>
+</div>
+<div class="section" id="example-2-converting-a-c3d-file-to-csv">
 <h2>Example 2: Converting a c3d file to csv<a class="headerlink" href="#example-2-converting-a-c3d-file-to-csv" title="Permalink to this headline"></a></h2>
-<p>For saving a TimeSeries to a <code class="docutils literal notranslate"><span class="pre">csv</span></code>, we create a DataFrame using the <a class="reference internal" href="../../api/kineticstoolkit.TimeSeries.to_dataframe.html"><span class="doc std std-doc">TimeSeries.to_dataframe()</span></a> method, then we can use Pandas’ <code class="docutils literal notranslate"><span class="pre">to_csv()</span></code> method.</p>
-<p>In this example, we will read 3d marker positions from a sample <code class="docutils literal notranslate"><span class="pre">c3d</span></code> file, and export these positions to a <code class="docutils literal notranslate"><span class="pre">csv</span></code> file. We first read the <code class="docutils literal notranslate"><span class="pre">c3d</span></code> file using the <a class="reference internal" href="../../api/kineticstoolkit.kinematics.html"><span class="doc std std-doc">kinematics</span></a> module. This results in a TimeSeries with 26 markers:</p>
+<p>For saving a TimeSeries to a <code class="docutils literal notranslate"><span class="pre">csv</span></code>, we create a DataFrame using the [[)](/api/kineticstoolkit.TimeSeries.to_dataframe.rst|TimeSeries.to_dataframe()]] method, then we can use Pandas’ <code class="docutils literal notranslate"><span class="pre">to_csv()</span></code> method.</p>
+<p>In this example, we will read 3d marker positions from a sample <code class="docutils literal notranslate"><span class="pre">c3d</span></code> file, and export these positions to a <code class="docutils literal notranslate"><span class="pre">csv</span></code> file. We first read the <code class="docutils literal notranslate"><span class="pre">c3d</span></code> file using the [[../../03_api/kineticstoolkit.kinematics.rst|kinematics]] module. This results in a TimeSeries with 26 markers:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">markers</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">kinematics</span><span class="o">.</span><span class="n">read_c3d_file</span><span class="p">(</span>
@@ -937,15 +940,15 @@
 </div>
 </div>
 </div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="02_manipulating.html" class="btn btn-neutral float-left" title="Manipulating TimeSeries" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../02_loadsave/index.html" class="btn btn-neutral float-right" title="Saving and loading" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../02_loadsave/00_index.html" class="btn btn-neutral float-right" title="Saving and loading" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

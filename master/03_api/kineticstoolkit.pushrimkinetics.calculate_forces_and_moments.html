@@ -1,0 +1,162 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>kineticstoolkit.pushrimkinetics.calculate_forces_and_moments &mdash; Kinetics Toolkit (dev) master documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+
+ 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: black" >
+            <a href="../index.html">
+            <img src="../_static/logo_development.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../01_getting_started/00_index.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_tutorials/00_index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_in_depth/00_index.html">In depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05_learning_python/00_index.html">Learning Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06_for_developers/00_index.html">For Developers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://felixchenier.uqam.ca/ktk_develop">Development website</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: black" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Kinetics Toolkit (dev)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>kineticstoolkit.pushrimkinetics.calculate_forces_and_moments</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="kineticstoolkit-pushrimkinetics-calculate-forces-and-moments">
+<h1>kineticstoolkit.pushrimkinetics.calculate_forces_and_moments<a class="headerlink" href="#kineticstoolkit-pushrimkinetics-calculate-forces-and-moments" title="Permalink to this headline"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="kineticstoolkit.pushrimkinetics.calculate_forces_and_moments">
+<span class="sig-prename descclassname"><span class="pre">kineticstoolkit.pushrimkinetics.</span></span><span class="sig-name descname"><span class="pre">calculate_forces_and_moments</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kinetics</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gains</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">offsets</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([0.,</span> <span class="pre">0.,</span> <span class="pre">0.,</span> <span class="pre">0.,</span> <span class="pre">0.,</span> <span class="pre">0.])</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">transducer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'force_cell'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'wheel'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#kineticstoolkit.pushrimkinetics.calculate_forces_and_moments" title="Permalink to this definition"></a></dt>
+<dd><p>Calculate pushrim forces and moments based on raw channel values.</p>
+<p>For standard force cells (with each channel being a raw value
+corresponding to Fx, Fy, Fz, Mx, My, Mz, respectively), calculates
+the forces and moments using a sensitivity matrix (gains) and an
+offset vector (offsets):</p>
+<p><code class="docutils literal notranslate"><span class="pre">[Fx,</span> <span class="pre">Fy,</span> <span class="pre">Fz,</span> <span class="pre">Mx,</span> <span class="pre">My,</span> <span class="pre">Mz]</span> <span class="pre">=</span> <span class="pre">gains</span> <span class="pre">&#64;</span> <span class="pre">channels</span> <span class="pre">+</span> <span class="pre">offsets</span></code></p>
+<p>For SmartWheel, calculates the forces and moments using a gain
+vector (gains) and an offset vector (offsets).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>kinetics</strong> (<a class="reference internal" href="../api/kineticstoolkit.TimeSeries.html#kineticstoolkit.TimeSeries" title="kineticstoolkit.timeseries.TimeSeries"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeSeries</span></code></a>) – Input TimeSeries that must contain a ‘Channels’ key in its data dict.</p></li>
+<li><p><strong>gains</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – 6x6 gain matrix (force_cell) or gain vector of length 6 (smartwheel).</p></li>
+<li><p><strong>offsets</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – Optional. Offset vector of length 6.</p></li>
+<li><p><strong>transducer</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Optional. ‘force_cell’ or ‘smartwheel’.</p></li>
+<li><p><strong>reference_frame</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Optional. ‘wheel’ or ‘hub’. ‘wheel’ to report the forces and moments
+into the local wheel’s reference frame; ‘hub’ to compensate for the
+wheel rotation and match the reference frame used by the SmartWheel:
+x anteroposterior, y in the wheel plane, upward for non-camberred
+wheels, and z perpendicular to the wheel plane, outward.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A copy of the input TimeSeries, with the added ‘Forces’
+and ‘Moments’ data keys.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../api/kineticstoolkit.TimeSeries.html#kineticstoolkit.TimeSeries" title="kineticstoolkit.TimeSeries">TimeSeries</a></p>
+</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Some calibration matrices are provided as examples in the
+<code class="docutils literal notranslate"><span class="pre">pushrimkinetics.CALIBRATION_MATRICES</span></code> dictionary. This dictionary can
+be used directly using dict unpacking. For example:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ktk</span><span class="o">.</span><span class="n">pushrimkinetics</span><span class="o">.</span><span class="n">calculate_force_and_moments</span><span class="p">(</span>
+    <span class="n">kinetics</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">ktk</span><span class="o">.</span><span class="n">pushrimkinetics</span><span class="o">.</span><span class="n">CALIBRATION_MATRICES</span><span class="p">[</span><span class="s1">&#39;SmartWheel_123&#39;</span><span class="p">],</span>
+    <span class="n">reference_frame</span><span class="o">=</span><span class="s1">&#39;level&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2021, Félix Chénier.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

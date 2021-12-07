@@ -2,8 +2,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Saving and loading &mdash; Kinetics Toolkit (dev) master documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -52,8 +51,9 @@
               <p class="caption" role="heading"><span class="caption-text">GETTING STARTED</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/01_what_is_kinetics_toolkit.html">What is Kinetics Toolkit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/02_install.html">Installing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/03_conventions.html">Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/02_getting_started_with_python.html">Getting started with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/03_install.html">Installing Kinetics Toolkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/04_conventions.html">Conventions</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">TUTORIALS</span></p>
 <ul class="current">
@@ -76,6 +76,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../api_reference.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://felixchenier.uqam.ca/ktk_develop">Development website</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">LEARNING PYTHON</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../05_learning_python/index.html">Learning Python</a></li>
 </ul>
 
         </div>
@@ -104,7 +108,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="saving-and-loading">
+  <div class="tex2jax_ignore mathjax_ignore section" id="saving-and-loading">
 <h1>Saving and loading<a class="headerlink" href="#saving-and-loading" title="Permalink to this headline"></a></h1>
 <p>Contrarily to Matlab with its <code class="docutils literal notranslate"><span class="pre">.mat</span></code> file, python does not come with a single standard way to save data. To ease saving and sharing data, Kinetics Toolkit provides two functions that load and save its own <code class="docutils literal notranslate"><span class="pre">.ktk.zip</span></code> format:</p>
 <ul class="simple">
@@ -151,7 +155,7 @@
 </div>
 </div>
 </div>
-<section id="file-format-and-supported-types">
+<div class="section" id="file-format-and-supported-types">
 <h2>File format and supported types<a class="headerlink" href="#file-format-and-supported-types" title="Permalink to this headline"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">ktk.zip</span></code> file format is built to be as portable and simple as possible. It is a standard zip file that contains two JSON files:</p>
 <ul class="simple">
@@ -187,8 +191,8 @@
 </tbody>
 </table>
 <p>Tuples can also be saved but will be loaded back as lists.</p>
-</section>
-<section id="loading-a-ktk-zip-file-in-matlab">
+</div>
+<div class="section" id="loading-a-ktk-zip-file-in-matlab">
 <h2>Loading a ktk.zip file in Matlab<a class="headerlink" href="#loading-a-ktk-zip-file-in-matlab" title="Permalink to this headline"></a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>% Create a temporary folder to unzip to
 mkdir(&#39;temp&#39;);
@@ -252,8 +256,8 @@ metadata = jsondecode(fileread(&#39;temp/metadata.json&#39;));
 </tbody>
 </table>
 <p>*tuples are saved as lists in JSON.</p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

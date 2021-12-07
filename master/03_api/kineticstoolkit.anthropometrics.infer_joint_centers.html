@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>kineticstoolkit.anthropometrics.infer_joint_centers &mdash; Kinetics Toolkit (dev) master documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+
+ 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: black" >
+            <a href="../index.html">
+            <img src="../_static/logo_development.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../01_getting_started/00_index.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_tutorials/00_index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_in_depth/00_index.html">In depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05_learning_python/00_index.html">Learning Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06_for_developers/00_index.html">For Developers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://felixchenier.uqam.ca/ktk_develop">Development website</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: black" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Kinetics Toolkit (dev)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>kineticstoolkit.anthropometrics.infer_joint_centers</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="kineticstoolkit-anthropometrics-infer-joint-centers">
+<h1>kineticstoolkit.anthropometrics.infer_joint_centers<a class="headerlink" href="#kineticstoolkit-anthropometrics-infer-joint-centers" title="Permalink to this headline"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="kineticstoolkit.anthropometrics.infer_joint_centers">
+<span class="sig-prename descclassname"><span class="pre">kineticstoolkit.anthropometrics.</span></span><span class="sig-name descname"><span class="pre">infer_joint_centers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">markers</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">segment</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sex</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'M'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#kineticstoolkit.anthropometrics.infer_joint_centers" title="Permalink to this definition"></a></dt>
+<dd><p>Infer joint centers based on anthropometric data.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The function infer_joint_centers is unstable, which means it may not be tested or settled yet. Please avoid using this function in production code.</p>
+<p>This function is aimed to be used on static acquisitions in quasi-neutral
+position.</p>
+<p>For the pelvis:
+Creates L5S1JointCenter, HipJointCenterL and HipJointCenterR based on
+AnteriorSuperiorIliacSpineR/L, PosteriorSuperiorIliacSpineR/L and
+PubicSymphysis, following the method presented in Reed et al. (1999)[1]_.</p>
+<p>For the thorax:
+Creates C7T1JointCenter, GlenohumeralJointCenterL and
+GlenohumeralJointCenterR based on C7, L5S1JointCenter, Suprasternal,
+AcromionR and AcromionL, following the method presented in Reed et al.
+(1999)[1]_. The scapulo-thoracic joint must be in a neutral
+position.</p>
+<p>For the extremities, creates:
+- ElbowJointCenterR/L as the midpoint between</p>
+<blockquote>
+<div><p>LateralHumeralEpicondyleR/L and MedialHumeralEpicondyleR;</p>
+</div></blockquote>
+<ul class="simple">
+<li><p>WristJointCenterR as the midpoint between
+UlnarStyloidR/L and RadialStyloidR/L;</p></li>
+<li><p>KneeJointCenterR/L as the midpoint between
+LateralFemoralEpicondyleR/L and MedialFemoralEpicondyleR/L;</p></li>
+<li><p>AnkleJointCenterR/L as the midpoint between
+LateralMalleolusR/L and MedialMalleolusR/L.</p></li>
+</ul>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>markers</strong> (<a class="reference internal" href="../api/kineticstoolkit.TimeSeries.html#kineticstoolkit.TimeSeries" title="kineticstoolkit.timeseries.TimeSeries"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeSeries</span></code></a>) – TimeSeries that contain the trajectory of the required markers as
+Nx4 series.</p></li>
+<li><p><strong>segment</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Can be either ‘Pelvis’, ‘Thorax’, or ‘Extremities’. An error is raised
+in case of missing markers.</p></li>
+<li><p><strong>sex</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Optional. Can be either ‘M’ or ‘F’. The default is ‘M’.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A TimeSeries that contains the inferred joint center trajectories.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="../api/kineticstoolkit.TimeSeries.html#kineticstoolkit.TimeSeries" title="kineticstoolkit.TimeSeries">TimeSeries</a></p>
+</dd>
+</dl>
+<div class="admonition-references admonition">
+<p class="admonition-title">References</p>
+<dl class="footnote brackets">
+<dt class="label" id="id1"><span class="brackets">1</span></dt>
+<dd><p>Reed, M., Manary, M.A., Schneider, L.W., 1999.
+Methods for Measuring and Representing Automobile Occupant Posture.
+Presented at the International Congress &amp;  Exposition, pp. 1999-01–0959.
+<a class="reference external" href="https://doi.org/10.4271/1999-01-0959">https://doi.org/10.4271/1999-01-0959</a></p>
+</dd>
+</dl>
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2021, Félix Chénier.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

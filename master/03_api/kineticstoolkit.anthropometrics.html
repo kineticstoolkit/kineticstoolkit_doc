@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>kineticstoolkit.anthropometrics &mdash; Kinetics Toolkit (dev) master documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+
+ 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: black" >
+            <a href="../index.html">
+            <img src="../_static/logo_development.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../01_getting_started/00_index.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_tutorials/00_index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_in_depth/00_index.html">In depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05_learning_python/00_index.html">Learning Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../06_for_developers/00_index.html">For Developers</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://felixchenier.uqam.ca/ktk_develop">Development website</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: black" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Kinetics Toolkit (dev)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>kineticstoolkit.anthropometrics</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="module-kineticstoolkit.anthropometrics">
+<span id="kineticstoolkit-anthropometrics"></span><h1>kineticstoolkit.anthropometrics<a class="headerlink" href="#module-kineticstoolkit.anthropometrics" title="Permalink to this headline"></a></h1>
+<p>Provide tools associated to anthropometric measurements and estimates.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This module is in very early development and everything can still change.
+Please don’t use this module in production code.</p>
+<p>Skin markers (either real or reconstructed):</p>
+<ul class="simple">
+<li><p>HeadVertex</p></li>
+<li><p>Sellion</p></li>
+<li><p>C7</p></li>
+<li><p>Suprasternale</p></li>
+<li><p>PubicSymphysis</p></li>
+<li><p>AnteriorSuperiorIliacSpineR/L</p></li>
+<li><p>PosteriorSuperiorIliacSpineR/L</p></li>
+<li><p>AcromionR/L</p></li>
+<li><p>LateralHumeralEpicondyleR/L</p></li>
+<li><p>MedialHumeralEpicondyleR/L</p></li>
+<li><p>UlnarStyloidR/L</p></li>
+<li><p>RadialStyloidR/L</p></li>
+<li><p>CarpalMetaHead2R/L</p></li>
+<li><p>CarpalMetaHead5R/L</p></li>
+<li><p>HipJointCenterR/L</p></li>
+<li><p>LateralFemoralEpicondyleR/L</p></li>
+<li><p>MedialFemoralEpicondyleR/L</p></li>
+<li><p>LateralMalleolusR/L</p></li>
+<li><p>MedialMalleolusR/L</p></li>
+<li><p>CalcaneusR/L</p></li>
+<li><p>NavicularR/L</p></li>
+<li><p>TarsalMetaHead1R/L</p></li>
+<li><p>TarsalMetaHead5R/L</p></li>
+</ul>
+<p>Inferred joint centers:</p>
+<ul class="simple">
+<li><p>L5S1JointCenter</p></li>
+<li><p>C7T1JointCenter</p></li>
+<li><p>GlenohumeralJointCenterR/L</p></li>
+<li><p>ElbowJointCenterR/L</p></li>
+<li><p>WristJointCenterR/L</p></li>
+<li><p>KneeJointCenterR/L</p></li>
+<li><p>AnkleJointCenterR/L</p></li>
+</ul>
+</div>
+<p class="rubric">Functions</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api/kineticstoolkit.anthropometrics.estimate_center_of_mass.html#kineticstoolkit.anthropometrics.estimate_center_of_mass" title="kineticstoolkit.anthropometrics.estimate_center_of_mass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">estimate_center_of_mass</span></code></a></p></td>
+<td><p>Estimate the segments' center of mass based on anthropometric data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../api/kineticstoolkit.anthropometrics.estimate_global_center_of_mass.html#kineticstoolkit.anthropometrics.estimate_global_center_of_mass" title="kineticstoolkit.anthropometrics.estimate_global_center_of_mass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">estimate_global_center_of_mass</span></code></a></p></td>
+<td><p>Estimate the global center of mass.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="../api/kineticstoolkit.anthropometrics.infer_joint_centers.html#kineticstoolkit.anthropometrics.infer_joint_centers" title="kineticstoolkit.anthropometrics.infer_joint_centers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">infer_joint_centers</span></code></a></p></td>
+<td><p>Infer joint centers based on anthropometric data.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="../api/kineticstoolkit.anthropometrics.track_local_coordinate_systems.html#kineticstoolkit.anthropometrics.track_local_coordinate_systems" title="kineticstoolkit.anthropometrics.track_local_coordinate_systems"><code class="xref py py-obj docutils literal notranslate"><span class="pre">track_local_coordinate_systems</span></code></a></p></td>
+<td><p>Create local coordinate system definitions based on static markers.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2021, Félix Chénier.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

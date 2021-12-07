@@ -1,0 +1,318 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Developer manual &mdash; Kinetics Toolkit (dev) master documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Tutorial development for stable/unstable features" href="../02_tutorials/00_index.html" />
+    <link rel="prev" title="Installing from git-hub" href="01_install.html" />
+
+
+ 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: black" >
+            <a href="../../index.html">
+            <img src="../../_static/logo_development.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/00_index.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../02_tutorials/00_index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../04_in_depth/00_index.html">In depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../05_learning_python/00_index.html">Learning Python</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../00_index.html">For Developers</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="00_index.html">Developing Kinetics Toolkit</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="01_install.html">Installing from git-hub</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Developer manual</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#coding-style">Coding style</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#feature-development-to-release-cycle">Feature development to release cycle</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../02_tutorials/00_index.html">Tutorial development for stable/unstable features</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference external" href="https://felixchenier.uqam.ca/ktk_develop">Development website</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: black" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Kinetics Toolkit (dev)</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../00_index.html">For Developers</a> &raquo;</li>
+          <li><a href="00_index.html">Developing Kinetics Toolkit</a> &raquo;</li>
+      <li>Developer manual</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="01_install.html" class="btn btn-neutral float-left" title="Installing from git-hub" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../02_tutorials/00_index.html" class="btn btn-neutral float-right" title="Tutorial development for stable/unstable features" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="tex2jax_ignore mathjax_ignore section" id="developer-manual">
+<h1>Developer manual<a class="headerlink" href="#developer-manual" title="Permalink to this headline"></a></h1>
+<p>This is a draft for an upcoming coding style for Kinetics Toolkit and other projects at the Research Lab on Mobility in Adaptive Sports.</p>
+<div class="section" id="coding-style">
+<h2>Coding style<a class="headerlink" href="#coding-style" title="Permalink to this headline"></a></h2>
+<div class="section" id="standard-python-conventions">
+<h3>Standard Python conventions<a class="headerlink" href="#standard-python-conventions" title="Permalink to this headline"></a></h3>
+<p>We try, when possible, to match the guidelines presented in these documents:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://pep8.org">Style Guide for Python Code (PEP8)</a>;</p></li>
+<li><p><a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html">Numpy Docstring</a>.</p></li>
+</ul>
+<p>Those are precious references and all other sections are additions to these references. Integrated desktop environments may help programmers to follow these conventions. For example, in Spyder, one could enable:</p>
+<ul class="simple">
+<li><p>In <code class="docutils literal notranslate"><span class="pre">Preferences</span> <span class="pre">:</span> <span class="pre">Completion</span> <span class="pre">in</span> <span class="pre">linting</span> <span class="pre">:</span> <span class="pre">Code</span> <span class="pre">style</span> <span class="pre">and</span> <span class="pre">formatting</span> <span class="pre">:</span> <span class="pre">Code</span> <span class="pre">style</span></code>, check <code class="docutils literal notranslate"><span class="pre">Enable</span> <span class="pre">code</span> <span class="pre">style</span> <span class="pre">linting</span></code> to enable PEP8 linting;</p></li>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">Preferences</span> <span class="pre">:</span> <span class="pre">Completion</span> <span class="pre">in</span> <span class="pre">linting</span> <span class="pre">:</span> <span class="pre">Code</span> <span class="pre">style</span> <span class="pre">and</span> <span class="pre">formatting</span> <span class="pre">:</span> <span class="pre">Code</span> <span class="pre">formatting</span></code>, Select <code class="docutils literal notranslate"><span class="pre">autopep8</span></code> and check <code class="docutils literal notranslate"><span class="pre">Autoformat</span> <span class="pre">files</span> <span class="pre">on</span> <span class="pre">save</span></code> to ensure minimal PEP8 compliance at all times;</p></li>
+<li><p>In <code class="docutils literal notranslate"><span class="pre">Preferences</span> <span class="pre">:</span> <span class="pre">Completion</span> <span class="pre">in</span> <span class="pre">linting</span> <span class="pre">:</span> <span class="pre">Docstring</span> <span class="pre">style</span></code>, check <code class="docutils literal notranslate"><span class="pre">Enable</span> <span class="pre">Docstring</span> <span class="pre">style</span> <span class="pre">linting</span></code> and select <code class="docutils literal notranslate"><span class="pre">Numpy</span></code>  to enable Numpy docstring linting.</p></li>
+</ul>
+</div>
+<div class="section" id="quote-style">
+<h3>Quote style<a class="headerlink" href="#quote-style" title="Permalink to this headline"></a></h3>
+<p>Strings are single-quoted or double-quoted following their meaning:</p>
+<ul class="simple">
+<li><p>Most strings have single quotes:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">kinetics['Forces']</span> <span class="pre">=</span> <span class="pre">[0,</span> <span class="pre">0,</span> <span class="pre">0,</span> <span class="pre">0]</span></code></p></li>
+</ul>
+</li>
+<li><p>Strings that contain text in the form of messages have double quotes:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">warnings.warn(&quot;This</span> <span class="pre">sample</span> <span class="pre">contains</span> <span class="pre">missing</span> <span class="pre">data&quot;)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">dictionary['key']</span> <span class="pre">=</span> <span class="pre">&quot;Please</span> <span class="pre">select</span> <span class="pre">an</span> <span class="pre">option.&quot;</span></code></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="naming-conventions">
+<h3>Naming conventions<a class="headerlink" href="#naming-conventions" title="Permalink to this headline"></a></h3>
+<p>The following PEP8 conventions are used:</p>
+<ul class="simple">
+<li><p>All code, comments and documentation are in <strong>English</strong>.</p></li>
+<li><p><strong>Function names</strong> are active (begin by a verb), and are in snake_case (lowercase words separated by underscores):</p>
+<ul>
+<li><p>close</p></li>
+<li><p>calculate_power</p></li>
+<li><p>detect_cycles</p></li>
+</ul>
+</li>
+<li><p><strong>Variable names</strong> are passive, and are also in snake_case:</p>
+<ul>
+<li><p>forces</p></li>
+<li><p>detected_markers</p></li>
+</ul>
+</li>
+<li><p><strong>Class names</strong> are passive, and are in PascalCase (Capital first letters):</p>
+<ul>
+<li><p>TimeSeries</p></li>
+<li><p>Player</p></li>
+</ul>
+</li>
+<li><p><strong>Constants</strong> are passive, and are in UPPER_SNAKE (uppercase words separated by underscores):</p>
+<ul>
+<li><p>CALIBRATION_MATRIX</p></li>
+<li><p>WHEEL_RADIUS</p></li>
+</ul>
+</li>
+</ul>
+<p>In addition, the following convention is used:</p>
+<ul class="simple">
+<li><p><strong>Strings contents</strong> for data flow and coding (e.g., keys, signal names) are passive form, and are in MixedCase:</p>
+<ul>
+<li><p>contents[‘Forces’], kinematics.data[‘UpperArmR’]</p></li>
+<li><p>dataframe.columns = [‘WithBall’, ‘WithoutBall’]</p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="type-hints">
+<h3>Type hints<a class="headerlink" href="#type-hints" title="Permalink to this headline"></a></h3>
+<p>Kinetics Toolkit is type-hinted, with static type checking performed by <code class="docutils literal notranslate"><span class="pre">mypy</span></code>. It does not use python 3.9 contained types yet, and therefore relies on the standard <code class="docutils literal notranslate"><span class="pre">typing</span></code> library.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+
+<span class="k">def</span> <span class="nf">dataframe_to_dict_of_arrays</span><span class="p">(</span>
+        <span class="n">dataframe</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="function-life-from-development-to-deprecation">
+<h3>Function life from development to deprecation<a class="headerlink" href="#function-life-from-development-to-deprecation" title="Permalink to this headline"></a></h3>
+<p>New public functions appear and live in the following order:</p>
+<div class="section" id="unstable">
+<h4>Unstable<a class="headerlink" href="#unstable" title="Permalink to this headline"></a></h4>
+<p>These functions are currently being developed. They are considered public in the development API, and private in the stable API. They are decorated by the <code class="docutils literal notranslate"><span class="pre">&#64;unstable</span></code> decorator, which automates the documentation of their unstable status both in their doctring and in the API documentation. This decorator automates the inclusion of these functions in the development API, and their exclusion from the stable API.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">kineticstoolkit.decorators</span> <span class="kn">import</span> <span class="n">unstable</span>
+
+
+<span class="nd">@unstable</span>
+<span class="k">def</span> <span class="nf">function_name</span><span class="p">(</span><span class="n">arguments</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Perform an operation.&quot;&quot;&quot;</span>
+    <span class="k">pass</span>  <span class="c1"># Function contents</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="experimental">
+<h4>Experimental<a class="headerlink" href="#experimental" title="Permalink to this headline"></a></h4>
+<p>These objects are part of the API but are not considered stable yet. They are documented accordingly in their docstring, with the following text just before the parameters section (by replacing the version number):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="ne">Warning</span>
+    <span class="o">-------</span>
+    <span class="n">This</span> <span class="n">function</span><span class="p">,</span> <span class="n">which</span> <span class="n">has</span> <span class="n">been</span> <span class="n">introduced</span> <span class="ow">in</span> <span class="mf">0.4</span><span class="p">,</span> <span class="ow">is</span> <span class="n">still</span> <span class="n">experimental</span> <span class="ow">and</span>
+    <span class="n">may</span> <span class="n">change</span> <span class="n">signature</span> <span class="ow">or</span> <span class="n">behaviour</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">future</span><span class="o">.</span>
+</pre></div>
+</div>
+<p>They don’t have a dedicated decorator.</p>
+</div>
+<div class="section" id="stable">
+<h4>Stable<a class="headerlink" href="#stable" title="Permalink to this headline"></a></h4>
+<p>Standard production function, without specific decorator or warning.</p>
+</div>
+<div class="section" id="deprecated">
+<h4>Deprecated<a class="headerlink" href="#deprecated" title="Permalink to this headline"></a></h4>
+<p>Standard function, but decorated with the <code class="docutils literal notranslate"><span class="pre">&#64;deprecated</span></code> decorator:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">kineticstoolkit.decorators</span> <span class="kn">import</span> <span class="n">deprecated</span>
+
+
+<span class="nd">@deprecated</span><span class="p">(</span><span class="n">since</span><span class="o">=</span><span class="s1">&#39;0.1&#39;</span><span class="p">,</span> <span class="n">until</span><span class="o">=</span><span class="s1">&#39;0.2&#39;</span><span class="p">,</span>
+            <span class="n">details</span><span class="o">=</span><span class="s1">&#39;It has been replaced by `better_function` because &#39;</span>
+                    <span class="s1">&#39;the latter is much better.&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">function_name</span><span class="p">(</span><span class="n">arguments</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;Perform an operation.&quot;&quot;&quot;</span>
+    <span class="k">pass</span>  <span class="c1"># Function contents</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="feature-development-to-release-cycle">
+<h2>Feature development to release cycle<a class="headerlink" href="#feature-development-to-release-cycle" title="Permalink to this headline"></a></h2>
+<div class="section" id="feature-branches">
+<h3>Feature branches<a class="headerlink" href="#feature-branches" title="Permalink to this headline"></a></h3>
+<p>Features are developed on <code class="docutils literal notranslate"><span class="pre">feature/feature_name</span></code> branches. All of the above should be done before going further:</p>
+<ul class="simple">
+<li><p>Feature completed</p></li>
+<li><p>Docstring completed</p></li>
+<li><p>Doctest completed and passing (if relevant)</p></li>
+<li><p>Unit test completed and passing</p></li>
+</ul>
+<p>Still on the feature branch, <code class="docutils literal notranslate"><span class="pre">ktk.dev.run_tests()</span></code> should be run with success. This function runs <code class="docutils literal notranslate"><span class="pre">autopep8</span></code>, <code class="docutils literal notranslate"><span class="pre">mypy</span></code>, and every unit test.</p>
+<p>Then, one should try to build the documentation website and check the output for both the tutorials and API. The website is built using <code class="docutils literal notranslate"><span class="pre">ktk.dev.build_website()</span></code>.</p>
+<p>When all is done, the feature branch can be merged onto <code class="docutils literal notranslate"><span class="pre">master</span></code>.</p>
+</div>
+<div class="section" id="master-branch">
+<h3>Master branch<a class="headerlink" href="#master-branch" title="Permalink to this headline"></a></h3>
+<p>This is the main development branch, which hosts the most recent code and documentation. The development website’s documentation automatically pulls from the master branch regularly.</p>
+<p>Everything on <code class="docutils literal notranslate"><span class="pre">master</span></code> should work, but new features (marked with the &#64;unstable decorator) are not final.</p>
+</div>
+<div class="section" id="stable-branch">
+<h3>Stable branch<a class="headerlink" href="#stable-branch" title="Permalink to this headline"></a></h3>
+<p>This is the release branch that corresponds to the packages distributed on PyPI and conda-forge. This branch also hosts the main website’s documentation. This site automatically pulls from the stable branch regularly.</p>
+<p>To make a release, one must:
+- Merge the master branch onto the stable branch;
+- Remove the &#64;unstable decorators from the to-be-released function declarations;
+- Bump the version number in <code class="docutils literal notranslate"><span class="pre">kineticstoolkit/VERSION</span></code>
+- Run <code class="docutils literal notranslate"><span class="pre">ktk.dev.release()</span></code> and check the generated website, as for a normal commit on master;
+- Run <code class="docutils literal notranslate"><span class="pre">ktk.dev.compile_for_pypi()</span></code>;
+- Run <code class="docutils literal notranslate"><span class="pre">ktk.dev.upload_to_pypi()</span></code>.
+- Commit and tag the release on the stable branch.
+- Wait for conda-forge to detect the change on PyPI, and automatically create and merge a pull request on conda-forge.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="01_install.html" class="btn btn-neutral float-left" title="Installing from git-hub" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../02_tutorials/00_index.html" class="btn btn-neutral float-right" title="Tutorial development for stable/unstable features" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2021, Félix Chénier.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

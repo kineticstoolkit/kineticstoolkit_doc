@@ -2,8 +2,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Developer manual &mdash; Kinetics Toolkit (dev) master documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -50,8 +49,9 @@
               <p class="caption" role="heading"><span class="caption-text">GETTING STARTED</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/01_what_is_kinetics_toolkit.html">What is Kinetics Toolkit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/02_install.html">Installing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/03_conventions.html">Conventions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/02_getting_started_with_python.html">Getting started with Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/03_install.html">Installing Kinetics Toolkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/04_conventions.html">Conventions</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">TUTORIALS</span></p>
 <ul>
@@ -70,6 +70,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../api_reference.html">API Reference</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://felixchenier.uqam.ca/ktk_develop">Development website</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">LEARNING PYTHON</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../05_learning_python/index.html">Learning Python</a></li>
 </ul>
 
         </div>
@@ -95,12 +99,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="developer-manual">
+  <div class="tex2jax_ignore mathjax_ignore section" id="developer-manual">
 <h1>Developer manual<a class="headerlink" href="#developer-manual" title="Permalink to this headline"></a></h1>
 <p>This is a draft for an upcoming coding style for Kinetics Toolkit and other projects at the Research Lab on Mobility in Adaptive Sports.</p>
-<section id="coding-style">
+<div class="section" id="coding-style">
 <h2>Coding style<a class="headerlink" href="#coding-style" title="Permalink to this headline"></a></h2>
-<section id="standard-python-conventions">
+<div class="section" id="standard-python-conventions">
 <h3>Standard Python conventions<a class="headerlink" href="#standard-python-conventions" title="Permalink to this headline"></a></h3>
 <p>We try, when possible, to match the guidelines presented in these documents:</p>
 <ul class="simple">
@@ -113,8 +117,8 @@
 <li><p>In <code class="docutils literal notranslate"><span class="pre">Preferences</span> <span class="pre">:</span> <span class="pre">Completion</span> <span class="pre">in</span> <span class="pre">linting</span> <span class="pre">:</span> <span class="pre">Code</span> <span class="pre">style</span> <span class="pre">and</span> <span class="pre">formatting</span> <span class="pre">:</span> <span class="pre">Code</span> <span class="pre">formatting</span></code>, Select <code class="docutils literal notranslate"><span class="pre">autopep8</span></code> and check <code class="docutils literal notranslate"><span class="pre">Autoformat</span> <span class="pre">files</span> <span class="pre">on</span> <span class="pre">save</span></code> to ensure minimal PEP8 compliance at all times;</p></li>
 <li><p>In <code class="docutils literal notranslate"><span class="pre">Preferences</span> <span class="pre">:</span> <span class="pre">Completion</span> <span class="pre">in</span> <span class="pre">linting</span> <span class="pre">:</span> <span class="pre">Docstring</span> <span class="pre">style</span></code>, check <code class="docutils literal notranslate"><span class="pre">Enable</span> <span class="pre">Docstring</span> <span class="pre">style</span> <span class="pre">linting</span></code> and select <code class="docutils literal notranslate"><span class="pre">Numpy</span></code>  to enable Numpy docstring linting.</p></li>
 </ul>
-</section>
-<section id="quote-style">
+</div>
+<div class="section" id="quote-style">
 <h3>Quote style<a class="headerlink" href="#quote-style" title="Permalink to this headline"></a></h3>
 <p>Strings are single-quoted or double-quoted following their meaning:</p>
 <ul class="simple">
@@ -130,8 +134,8 @@
 </ul>
 </li>
 </ul>
-</section>
-<section id="naming-conventions">
+</div>
+<div class="section" id="naming-conventions">
 <h3>Naming conventions<a class="headerlink" href="#naming-conventions" title="Permalink to this headline"></a></h3>
 <p>The following PEP8 conventions are used:</p>
 <ul class="simple">
@@ -171,8 +175,8 @@
 </ul>
 </li>
 </ul>
-</section>
-<section id="type-hints">
+</div>
+<div class="section" id="type-hints">
 <h3>Type hints<a class="headerlink" href="#type-hints" title="Permalink to this headline"></a></h3>
 <p>Kinetics Toolkit is type-hinted, with static type checking performed by <code class="docutils literal notranslate"><span class="pre">mypy</span></code>. It does not use python 3.9 contained types yet, and therefore relies on the standard <code class="docutils literal notranslate"><span class="pre">typing</span></code> library.</p>
 <div class="cell docutils container">
@@ -188,11 +192,11 @@
 </div>
 </div>
 </div>
-</section>
-<section id="function-life-from-development-to-deprecation">
+</div>
+<div class="section" id="function-life-from-development-to-deprecation">
 <h3>Function life from development to deprecation<a class="headerlink" href="#function-life-from-development-to-deprecation" title="Permalink to this headline"></a></h3>
 <p>New public functions appear and live in the following order:</p>
-<section id="unstable">
+<div class="section" id="unstable">
 <h4>Unstable<a class="headerlink" href="#unstable" title="Permalink to this headline"></a></h4>
 <p>These functions are currently being developed. They are considered public in the development API, and private in the stable API. They are decorated by the <code class="docutils literal notranslate"><span class="pre">&#64;unstable</span></code> decorator, which automates the documentation of their unstable status both in their doctring and in the API documentation. This decorator automates the inclusion of these functions in the development API, and their exclusion from the stable API.</p>
 <div class="cell docutils container">
@@ -208,8 +212,8 @@
 </div>
 </div>
 </div>
-</section>
-<section id="experimental">
+</div>
+<div class="section" id="experimental">
 <h4>Experimental<a class="headerlink" href="#experimental" title="Permalink to this headline"></a></h4>
 <p>These objects are part of the API but are not considered stable yet. They are documented accordingly in their docstring, with the following text just before the parameters section (by replacing the version number):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="ne">Warning</span>
@@ -219,12 +223,12 @@
 </pre></div>
 </div>
 <p>They don’t have a dedicated decorator.</p>
-</section>
-<section id="stable">
+</div>
+<div class="section" id="stable">
 <h4>Stable<a class="headerlink" href="#stable" title="Permalink to this headline"></a></h4>
 <p>Standard production function, without specific decorator or warning.</p>
-</section>
-<section id="deprecated">
+</div>
+<div class="section" id="deprecated">
 <h4>Deprecated<a class="headerlink" href="#deprecated" title="Permalink to this headline"></a></h4>
 <p>Standard function, but decorated with the <code class="docutils literal notranslate"><span class="pre">&#64;deprecated</span></code> decorator:</p>
 <div class="cell docutils container">
@@ -242,12 +246,12 @@
 </div>
 </div>
 </div>
-</section>
-</section>
-</section>
-<section id="feature-development-to-release-cycle">
+</div>
+</div>
+</div>
+<div class="section" id="feature-development-to-release-cycle">
 <h2>Feature development to release cycle<a class="headerlink" href="#feature-development-to-release-cycle" title="Permalink to this headline"></a></h2>
-<section id="feature-branches">
+<div class="section" id="feature-branches">
 <h3>Feature branches<a class="headerlink" href="#feature-branches" title="Permalink to this headline"></a></h3>
 <p>Features are developed on <code class="docutils literal notranslate"><span class="pre">feature/feature_name</span></code> branches. All of the above should be done before going further:</p>
 <ul class="simple">
@@ -259,13 +263,13 @@
 <p>Still on the feature branch, <code class="docutils literal notranslate"><span class="pre">ktk.dev.run_tests()</span></code> should be run with success. This function runs <code class="docutils literal notranslate"><span class="pre">autopep8</span></code>, <code class="docutils literal notranslate"><span class="pre">mypy</span></code>, and every unit test.</p>
 <p>Then, one should try to build the documentation website and check the output for both the tutorials and API. The website is built using <code class="docutils literal notranslate"><span class="pre">ktk.dev.build_website()</span></code>.</p>
 <p>When all is done, the feature branch can be merged onto <code class="docutils literal notranslate"><span class="pre">master</span></code>.</p>
-</section>
-<section id="master-branch">
+</div>
+<div class="section" id="master-branch">
 <h3>Master branch<a class="headerlink" href="#master-branch" title="Permalink to this headline"></a></h3>
 <p>This is the main development branch, which hosts the most recent code and documentation. The development website’s documentation automatically pulls from the master branch regularly.</p>
 <p>Everything on <code class="docutils literal notranslate"><span class="pre">master</span></code> should work, but new features (marked with the &#64;unstable decorator) are not final.</p>
-</section>
-<section id="stable-branch">
+</div>
+<div class="section" id="stable-branch">
 <h3>Stable branch<a class="headerlink" href="#stable-branch" title="Permalink to this headline"></a></h3>
 <p>This is the release branch that corresponds to the packages distributed on PyPI and conda-forge. This branch also hosts the main website’s documentation. This site automatically pulls from the stable branch regularly.</p>
 <p>To make a release, one must:
@@ -277,9 +281,9 @@
 - Run <code class="docutils literal notranslate"><span class="pre">ktk.dev.upload_to_pypi()</span></code>.
 - Commit and tag the release on the stable branch.
 - Wait for conda-forge to detect the change on PyPI, and automatically create and merge a pull request on conda-forge.</p>
-</section>
-</section>
-</section>
+</div>
+</div>
+</div>
 
 
            </div>

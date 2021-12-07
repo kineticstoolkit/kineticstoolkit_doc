@@ -1,0 +1,7 @@
+# Getting started
+
+```{toctree}
+:glob:
+
+*
+```

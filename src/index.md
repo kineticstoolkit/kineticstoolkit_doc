@@ -30,38 +30,32 @@ Thanks to Clay Flannigan for his [icp](https://github.com/ClayFlannigan/icp) met
 ## Site map
 
 ```{toctree}
-:caption: GETTING STARTED
-:maxdepth: 2
+:caption: MANUAL
 :glob:
 
-01_getting_started/*
+0*/00_index
 ```
 
 ```{toctree}
-:caption: TUTORIALS
-:maxdepth: 2
+:caption: API REFERENCE
 :glob:
 
-02_tutorials/*/index
-```
-
-```{toctree}
-:caption: IN DEPTH
-:maxdepth: 2
-:glob:
-
-03_in_depth/*
 api_reference
+```
+
+```{toctree}
+:caption: LINKS
+:glob:
+
 Development website <https://felixchenier.uqam.ca/ktk_develop>
 GitHub <https://github.com/felixchenier/kineticstoolkit>
 ```
 
 :::{ifconfig} release == 'master'
-    ```{toctree}
-    :caption: FOR DEVELOPERS
-    :maxdepth: 2
-    :glob:
+```{toctree}
+:caption: FOR DEVELOPERS
+:glob:
 
-    04_for_developers/*/index
-    ```
+99_for_developers/*/00_index
+```
 :::

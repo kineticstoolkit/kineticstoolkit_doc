@@ -2,8 +2,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Basics of rigid body geometry &mdash; Kinetics Toolkit (dev) master documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -29,7 +28,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Dimension conventions and first example" href="02_dimension_conventions.html" />
-    <link rel="prev" title="Rigid body geometry" href="index.html" />
+    <link rel="prev" title="Rigid body geometry" href="00_index.html" />
 
 
  
@@ -51,48 +50,44 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">GETTING STARTED</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/01_what_is_kinetics_toolkit.html">What is Kinetics Toolkit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/02_install.html">Installing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/03_conventions.html">Conventions</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">TUTORIALS</span></p>
+              <p class="caption" role="heading"><span class="caption-text">MANUAL</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../01_timeseries/index.html">TimeSeries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../02_loadsave/index.html">Saving and loading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../03_filters/index.html">Filtering</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../04_cycles/index.html">Detecting and normalizing cycles</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="index.html">Rigid body geometry</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Basics of rigid body geometry</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#coordinates-points-vectors-and-frames">Coordinates: points, vectors and frames</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#global-coordinate-system">Global coordinate system</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#points-and-vectors">Points and vectors</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#local-coordinate-system">Local coordinate system</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#frames">Frames</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/00_index.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../00_index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../01_timeseries/00_index.html">TimeSeries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_loadsave/00_index.html">Saving and loading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_filters/00_index.html">Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04_cycles/00_index.html">Detecting and normalizing cycles</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="00_index.html">Rigid body geometry</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Basics of rigid body geometry</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#coordinates-points-vectors-and-frames">Coordinates: points, vectors and frames</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#rotations-and-translations-the-homogeneous-transform">Rotations and translations: the homogeneous transform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#main-points-to-remember">Main points to remember</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#rotations-and-translations-the-homogeneous-transform">Rotations and translations: the homogeneous transform</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#moving-coordinates">Moving coordinates</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#remap-coordinates-to-other-coordinate-systems">Remap coordinates to other coordinate systems</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_dimension_conventions.html">Dimension conventions and first example</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#main-points-to-remember">Main points to remember</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_kinematics/00_index.html">Kinematics analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07_pushrimkinetics/00_index.html">Wheelchair kinetics</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="02_dimension_conventions.html">Dimension conventions and first example</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../04_in_depth/00_index.html">In depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../05_learning_python/00_index.html">Learning Python</a></li>
 </ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../06_kinematics/index.html">Kinematics analysis</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../07_pushrimkinetics/index.html">Wheelchair kinetics</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">IN DEPTH</span></p>
+<p class="caption" role="heading"><span class="caption-text">API REFERENCE</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../03_in_depth/01_lab_mode.html">Lab mode</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../03_in_depth/02_release_notes.html">Release Notes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../api_reference.html">API Reference</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">LINKS</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference external" href="https://felixchenier.uqam.ca/ktk_develop">Development website</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FOR DEVELOPERS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../99_for_developers/01_getting_started/00_index.html">Developing Kinetics Toolkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../99_for_developers/02_tutorials/00_index.html">Tutorial development for stable/unstable features</a></li>
 </ul>
 
         </div>
@@ -109,12 +104,13 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="index.html">Rigid body geometry</a> &raquo;</li>
+          <li><a href="../00_index.html">Tutorials</a> &raquo;</li>
+          <li><a href="00_index.html">Rigid body geometry</a> &raquo;</li>
       <li>Basics of rigid body geometry</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="index.html" class="btn btn-neutral float-left" title="Rigid body geometry" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="00_index.html" class="btn btn-neutral float-left" title="Rigid body geometry" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="02_dimension_conventions.html" class="btn btn-neutral float-right" title="Dimension conventions and first example" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
@@ -122,13 +118,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="basics-of-rigid-body-geometry">
+  <div class="tex2jax_ignore mathjax_ignore section" id="basics-of-rigid-body-geometry">
 <h1>Basics of rigid body geometry<a class="headerlink" href="#basics-of-rigid-body-geometry" title="Permalink to this headline"></a></h1>
 <p>This tutorial is an introduction or reminder of the basic elements of rigid body geometry. It covers the definitions of bodies, coordinate systems, coordinates (such as points, vectors and frames), and homogeneous transforms. It follows the nomenclature conventions of Craig, J., 1987. Introduction to robotics: Mechanics and control, in the context of rigid body biomechanics.</p>
 <p>While these notions largely come from the robotics field, they will be approached in the scope of rigid body biomechanics. As such, we will use the posture in Figure 1 all through the tutorial as an example for every introduced notion. To facilitate the comprehension, this is a bidimensional example; however, we will treat it as conventional 3D problem, with all z coordinates being set to zero.</p>
 <p><img alt="humerus_intro -height:short" src="../../_images/humerus_intro.png" /></p>
 <p>Figure 1. The posture used as an example in this tutorial.</p>
-<section id="coordinates-points-vectors-and-frames">
+<div class="section" id="coordinates-points-vectors-and-frames">
 <h2>Coordinates: points, vectors and frames<a class="headerlink" href="#coordinates-points-vectors-and-frames" title="Permalink to this headline"></a></h2>
 <p>In this section, we will see how to express:</p>
 <ul class="simple">
@@ -136,7 +132,7 @@
 <li><p>Vectors such as velocities, accelerations and forces; and</p></li>
 <li><p>Frames, which are the orientation and position of a coordinate system.</p></li>
 </ul>
-<section id="global-coordinate-system">
+<div class="section" id="global-coordinate-system">
 <h3>Global coordinate system<a class="headerlink" href="#global-coordinate-system" title="Permalink to this headline"></a></h3>
 <p>To express any coordinate, we need a coordinate system. A coordinate system is composed of an origin (the point in space everything is expressed relative to) and a set of axes. In human movement biomechanics, we usually use a cartesian system composed of three orthonormal axes (x, y and z).</p>
 <p>In newton dynamics and at the human scale, it is totally acceptable to define a global, non-moving coordinate system everything can be referenced to. In Figure 2, we define such a fixed system:</p>
@@ -149,8 +145,8 @@
 <p>This coordinate system is completely arbitrary: any other origin or set of orthonormal axes would still be perfectly valid. This is the one we chose here, and the one every global coordinate will refer to.</p>
 <p><img alt="humerus_intro -height:normal" src="../../_images/humerus_global_coordinates.png" /></p>
 <p>Figure 2. A global coordinate system</p>
-</section>
-<section id="points-and-vectors">
+</div>
+<div class="section" id="points-and-vectors">
 <h3>Points and vectors<a class="headerlink" href="#points-and-vectors" title="Permalink to this headline"></a></h3>
 <p>Using the global coordinate system of Figure 2, we can express the position of any point in space using its three components (x, y, z). For example, the position of the shoulder in global coordinates is:</p>
 <div class="math notranslate nohighlight">
@@ -185,8 +181,8 @@ v_\text{y shoulder} \\
 v_\text{z shoulder} \\ 0
 \end{bmatrix}
 \end{split}\]</div>
-</section>
-<section id="local-coordinate-system">
+</div>
+<div class="section" id="local-coordinate-system">
 <h3>Local coordinate system<a class="headerlink" href="#local-coordinate-system" title="Permalink to this headline"></a></h3>
 <p>As we just saw, points and vectors are easy to express in a coordinate system. The orientation of a segment is however more complex. In Figure 2, if we wanted to express the orientation of the humerus, we would explicitely need this information:</p>
 <ul class="simple">
@@ -207,8 +203,8 @@ v_\text{z shoulder} \\ 0
 <p>Now that we defined this local coordinate system, we can come back to the position of interest of Figure 1. Look in Figure 4 how the humerus coordinate system is attached to the humerus and thus moves with it.</p>
 <p><img alt="humerus_frame -height:normal" src="../../_images/humerus_frame.png" /></p>
 <p>Figure 4. Expressing the position and orientation of the humerus.</p>
-</section>
-<section id="frames">
+</div>
+<div class="section" id="frames">
 <h3>Frames<a class="headerlink" href="#frames" title="Permalink to this headline"></a></h3>
 <p>We are now ready to introduce the <strong>frame</strong>, a 4x4 matrix that expresses both the position and the orientation of a coordinate system, in reference to another coordinate system.</p>
 <p>The fourth (easiest) column of a frame is the position of the local coordinate system’s origin expressed in the reference coordinate system. In the example of Figure 4, this is:</p>
@@ -288,16 +284,16 @@ R_{31} &amp; R_{32} &amp; R_{33} &amp; P_z \\
 <li><p>the <span class="math notranslate nohighlight">\(R\)</span> sub-matrix is a function of three rotation angles and represents the orientation of the local coordinate system;</p></li>
 <li><p>the <span class="math notranslate nohighlight">\(P\)</span> vector is the position of the local coordinate system’s origin.</p></li>
 </ul>
-</section>
-</section>
-<section id="rotations-and-translations-the-homogeneous-transform">
+</div>
+</div>
+<div class="section" id="rotations-and-translations-the-homogeneous-transform">
 <h2>Rotations and translations: the homogeneous transform<a class="headerlink" href="#rotations-and-translations-the-homogeneous-transform" title="Permalink to this headline"></a></h2>
 <p>The 4x4 matrix that we just constructed is very important, not only to express the position and orientation of a local coordinate system, but also to express transformations such as rotations and translations. In this second case, the same 4x4 matrix is called an homogeneous transform, and:</p>
 <ul class="simple">
 <li><p>the <span class="math notranslate nohighlight">\(R\)</span> sub-matrix represents a rotation;</p></li>
 <li><p>the <span class="math notranslate nohighlight">\(P\)</span> vector is a translation.</p></li>
 </ul>
-<section id="moving-coordinates">
+<div class="section" id="moving-coordinates">
 <h3>Moving coordinates<a class="headerlink" href="#moving-coordinates" title="Permalink to this headline"></a></h3>
 <p>Any coordinate (point, vector or frame) that is multiplied by the homogeneous transform will be rotated by <span class="math notranslate nohighlight">\(R\)</span> and translated by <span class="math notranslate nohighlight">\(P\)</span>:</p>
 <div class="math notranslate nohighlight">
@@ -318,8 +314,8 @@ p_{\text{tranformed}} =
 \begin{bmatrix} 10\cos(30) + 2 \\ 10\sin(30) \\ 0 \\ 1 \end{bmatrix} =
 \begin{bmatrix} 8.66 \\ 5 \\ 0 \\ 1 \end{bmatrix}
 \end{split}\]</div>
-</section>
-<section id="remap-coordinates-to-other-coordinate-systems">
+</div>
+<div class="section" id="remap-coordinates-to-other-coordinate-systems">
 <h3>Remap coordinates to other coordinate systems<a class="headerlink" href="#remap-coordinates-to-other-coordinate-systems" title="Permalink to this headline"></a></h3>
 <p>An homogenenous transform can rotate and translate any coordinate, including points, vectors and frames. Since the orientation and position of a coordinate system is itself expressed by a frame, then an homogeneous transform can also rotate and translate a coordinate system.</p>
 <p>This is a great opportunity to express coordinates from a coordinate system to another. As such, the <span class="math notranslate nohighlight">\(~^\text{global}_\text{humerus}T\)</span> matrix that we formed in the last section has a first function that we already know:</p>
@@ -383,9 +379,9 @@ p_{\text{tranformed}} =
 \end{bmatrix}
 \end{split}\]</div>
 <p>Its final coordinates are <span class="math notranslate nohighlight">\((0.34, 0.371, 0)\)</span>.</p>
-</section>
-</section>
-<section id="main-points-to-remember">
+</div>
+</div>
+<div class="section" id="main-points-to-remember">
 <h2>Main points to remember<a class="headerlink" href="#main-points-to-remember" title="Permalink to this headline"></a></h2>
 <p>We will see in the next tutorial that Kinetics Toolkit’s geometry module has several functions to ease the expression of coordinates from one coordinate system to another, to create frames and homogeneous transforms, etc. However, I believe it is important to remember these concepts, to understand how geometric data is represented and calculated.</p>
 <ul class="simple">
@@ -430,14 +426,14 @@ R_{31} &amp; R_{32} &amp; R_{33} &amp; P_z \\
 0      &amp; 0      &amp; 0      &amp; 1
 \end{bmatrix}
 \end{split}\]</div>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="index.html" class="btn btn-neutral float-left" title="Rigid body geometry" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="00_index.html" class="btn btn-neutral float-left" title="Rigid body geometry" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="02_dimension_conventions.html" class="btn btn-neutral float-right" title="Dimension conventions and first example" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
