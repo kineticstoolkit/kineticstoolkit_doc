@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Removing frequencies using a Butterworth filter &mdash; Kinetics Toolkit (dev) master documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -77,7 +78,9 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API REFERENCE</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../api_reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../99_api_reference/01_classes.html">Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../99_api_reference/02_functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../99_api_reference/03_modules.html">Modules</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">LINKS</span></p>
 <ul>
@@ -118,9 +121,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="tex2jax_ignore mathjax_ignore section" id="removing-frequencies-using-a-butterworth-filter">
+  <section class="tex2jax_ignore mathjax_ignore" id="removing-frequencies-using-a-butterworth-filter">
 <h1>Removing frequencies using a Butterworth filter<a class="headerlink" href="#removing-frequencies-using-a-butterworth-filter" title="Permalink to this headline"></a></h1>
-<p>The Butterworth filter may be the most used filter in biomechanics. It targets ranges of frequencies to remove from the signal’s frequency spectrum. A classic use is to estimate the frequency range of both the data and noise, then use the filter to keep most of the data’s frequency range while filtering out most of the noise’s frequency range. In this tutorial, we will see how to apply Butterworth filters on TimeSeries data, using the <span class="xref myst">filters.butter()</span> function.</p>
+<p>The Butterworth filter may be the most used filter in biomechanics. It targets ranges of frequencies to remove from the signal’s frequency spectrum. A classic use is to estimate the frequency range of both the data and noise, then use the filter to keep most of the data’s frequency range while filtering out most of the noise’s frequency range. In this tutorial, we will see how to apply Butterworth filters on TimeSeries data, using the <a class="reference internal" href="../../api/kineticstoolkit.filters.butter.html"><span class="doc std std-doc">filters.butter()</span></a> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">kineticstoolkit.lab</span> <span class="k">as</span> <span class="nn">ktk</span>
@@ -145,7 +148,7 @@
 <img alt="../../_images/01_butter_3_0.png" src="../../_images/01_butter_3_0.png" />
 </div>
 </div>
-<div class="section" id="low-pass-no-lag-filter">
+<section id="low-pass-no-lag-filter">
 <h2>Low-pass no-lag filter<a class="headerlink" href="#low-pass-no-lag-filter" title="Permalink to this headline"></a></h2>
 <p>Here is an example of how to filter out high frequencies using a no-lag Butterworth filter of order 2:</p>
 <div class="cell docutils container">
@@ -173,8 +176,8 @@
 </div>
 </div>
 <p>As expected, when filtering lower frequencies, the signal is clearer but transitions are less sharp and some very dynamic information may be lost.</p>
-</div>
-<div class="section" id="high-pass-no-lag-filter">
+</section>
+<section id="high-pass-no-lag-filter">
 <h2>High-pass no-lag filter<a class="headerlink" href="#high-pass-no-lag-filter" title="Permalink to this headline"></a></h2>
 <p>Here is an example of how to filter out low frequencies using a no-lag Butterworth filter of order 2.</p>
 <div class="cell docutils container">
@@ -196,12 +199,12 @@
 </div>
 </div>
 <p>As expected, only the transitions are kept; all the stable parts of the signal were removed.</p>
-</div>
-<div class="section" id="real-world-example-using-electromyographic-data">
+</section>
+<section id="real-world-example-using-electromyographic-data">
 <h2>Real-world example using electromyographic data<a class="headerlink" href="#real-world-example-using-electromyographic-data" title="Permalink to this headline"></a></h2>
 <p>#TODO</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

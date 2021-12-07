@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Reconstructing virtual markers &mdash; Kinetics Toolkit (dev) master documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -57,7 +58,9 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API REFERENCE</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../api_reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../99_api_reference/01_classes.html">Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../99_api_reference/02_functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../99_api_reference/03_modules.html">Modules</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">LINKS</span></p>
 <ul>
@@ -109,10 +112,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="tex2jax_ignore mathjax_ignore section" id="reconstructing-virtual-markers">
+  <section class="tex2jax_ignore mathjax_ignore" id="reconstructing-virtual-markers">
 <h1>Reconstructing virtual markers<a class="headerlink" href="#reconstructing-virtual-markers" title="Permalink to this headline"></a></h1>
 <p>In this tutorial, we will reconstruct virtual markers for anatomic landmarks that were not physically instrumented during the movement acquisition. We usually do this kind of reconstruction when it is not practical or feasible to stick a marker on an anatomical landmark. Instead, we track clusters of markers on rigid bodies affixed to the segment, and we express the position of virtual markers relative to these clusters.</p>
-<div class="section" id="flowchart-test">
+<section id="flowchart-test">
 <h2>Flowchart test<a class="headerlink" href="#flowchart-test" title="Permalink to this headline"></a></h2>
 <div class="mermaid">
             graph TD
@@ -280,8 +283,8 @@ classDef config fill:#faa,color:black
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="read-and-visualize-marker-trajectories">
+</section>
+<section id="read-and-visualize-marker-trajectories">
 <h2>Read and visualize marker trajectories<a class="headerlink" href="#read-and-visualize-marker-trajectories" title="Permalink to this headline"></a></h2>
 <p>We proceed exactly as in the previous tutorials, but this time we will perform the analysis based on a minimal set of markers. Let’s say that for the right arm and forearm, all we have is one real marker on the lateral epicondyle, and two plates of three markers affixed to the arm and forearm segments (we will show every other in blue for easier visualization).</p>
 <div class="cell docutils container">
@@ -1240,8 +1243,8 @@ AAABAAAAAExhdmY1OC43Ni4xMDA=
 </video></div></div>
 </div>
 <p>The aim of this tutorial is to reconstruct the right acromion, medial epicondyle and both styloids using static and probing acquisitions. Let’s begin.</p>
-</div>
-<div class="section" id="calibration-defining-cluster-configurations-using-a-static-acquisition">
+</section>
+<section id="calibration-defining-cluster-configurations-using-a-static-acquisition">
 <h2>Calibration: Defining cluster configurations using a static acquisition<a class="headerlink" href="#calibration-defining-cluster-configurations-using-a-static-acquisition" title="Permalink to this headline"></a></h2>
 <p>In the static acquisition, every marker should be visible. We use this trial to define, for each cluster, how the cluster’s markers are located each relative to the other.</p>
 <p>For this example, we will create clusters ‘ArmR’ and ‘ForearmR’.</p>
@@ -1707,9 +1710,9 @@ dAAAACWpdG9vAAAAHWRhdGEAAAABAAAAAExhdmY1OC43Ni4xMDA=
 </div>
 </div>
 </div>
-<p>Now that we defined these clusters, we will be able to track those in every other acquisition. This process can be done using the <span class="xref myst">track_cluster()</span> function.</p>
-</div>
-<div class="section" id="calibration-defining-the-virtual-marker-configurations-based-on-probing-acquisitions">
+<p>Now that we defined these clusters, we will be able to track those in every other acquisition. This process can be done using the <a class="reference internal" href="../../../api/kineticstoolkit.kinematics.track_cluster.html"><span class="doc std std-doc">track_cluster()</span></a> function.</p>
+</section>
+<section id="calibration-defining-the-virtual-marker-configurations-based-on-probing-acquisitions">
 <h2>Calibration: Defining the virtual marker configurations based on probing acquisitions<a class="headerlink" href="#calibration-defining-the-virtual-marker-configurations-based-on-probing-acquisitions" title="Permalink to this headline"></a></h2>
 <p>Now we will go though every probing acquisition and apply the same process on each acquisition:</p>
 <ol class="simple">
@@ -1869,8 +1872,8 @@ dAAAACWpdG9vAAAAHWRhdGEAAAABAAAAAExhdmY1OC43Ni4xMDA=
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="task-analysis-tracking-the-clusters">
+</section>
+<section id="task-analysis-tracking-the-clusters">
 <h2>Task analysis: Tracking the clusters<a class="headerlink" href="#task-analysis-tracking-the-clusters" title="Permalink to this headline"></a></h2>
 <p>Now that we defined the clusters and inluded virtual markers to it, we are ready to process the experimental trial we loaded at the beginning of this tutorial. We already loaded the markers; we will now track the cluster to obtain the position of the virtual markers.</p>
 <div class="cell docutils container">
@@ -4256,9 +4259,9 @@ AAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguNzYuMTAw
   Your browser does not support the video tag.
 </video></div></div>
 </div>
-<p>For more information on kinematics, please check the <span class="xref myst">API Reference for the kinematics module</span>.</p>
-</div>
-</div>
+<p>For more information on kinematics, please check the <a class="reference internal" href="../../../api/kineticstoolkit.kinematics.html"><span class="doc std std-doc">API Reference for the kinematics module</span></a>.</p>
+</section>
+</section>
 
 
            </div>

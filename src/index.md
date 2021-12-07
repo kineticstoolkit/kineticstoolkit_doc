@@ -40,7 +40,7 @@ Thanks to Clay Flannigan for his [icp](https://github.com/ClayFlannigan/icp) met
 :caption: API REFERENCE
 :glob:
 
-api_reference
+99_api_reference/*
 ```
 
 ```{toctree}

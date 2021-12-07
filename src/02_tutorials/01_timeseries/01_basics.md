@@ -38,7 +38,7 @@ ts
 ts.data
 ```
 
-TimeSeries can be [[../../03_api/kineticstoolkit.TimeSeries.plot.rst|plotted]] directly using Matplotlib:
+TimeSeries can be [[../../api/kineticstoolkit.TimeSeries.plot.rst|plotted]] directly using Matplotlib:
 
 ```{code-cell}
 ts.plot()
@@ -128,7 +128,7 @@ In the figure above, we see that the TimeSeries contains cyclic data that could 
 There are several ways to edit the events of a TimeSeries:
 - Editing events manually, using the [[)](/api/kineticstoolkit.TimeSeries.add_event.rst|TimeSeries.add_event()]] and [[)](/api/kineticstoolkit.TimeSeries.remove_event.rst|TimeSeries.remove_event()]] methods;
 - Editing events interactively, using the [[)](/api/kineticstoolkit.TimeSeries.ui_edit_events.rst|TimeSeries.ui_edit_events()]] method;
-- Adding events automatically, for example using the [[../../03_api/kineticstoolkit.cycles.rst|cycles]] module that can detect cycles automatically.
+- Adding events automatically, for example using the [[../../api/kineticstoolkit.cycles.rst|cycles]] module that can detect cycles automatically.
 
 In this tutorial, we will add the events manually.
 

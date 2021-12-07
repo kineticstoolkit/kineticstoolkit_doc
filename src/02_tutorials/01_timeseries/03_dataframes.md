@@ -131,7 +131,7 @@ For series of arrays with more than one dimension, the brackets would have multi
 
 For saving a TimeSeries to a `csv`, we create a DataFrame using the [[)](/api/kineticstoolkit.TimeSeries.to_dataframe.rst|TimeSeries.to_dataframe()]] method, then we can use Pandas' `to_csv()` method.
 
-In this example, we will read 3d marker positions from a sample `c3d` file, and export these positions to a `csv` file. We first read the `c3d` file using the [[../../03_api/kineticstoolkit.kinematics.rst|kinematics]] module. This results in a TimeSeries with 26 markers:
+In this example, we will read 3d marker positions from a sample `c3d` file, and export these positions to a `csv` file. We first read the `c3d` file using the [[../../api/kineticstoolkit.kinematics.rst|kinematics]] module. This results in a TimeSeries with 26 markers:
 
 ```{code-cell}
 markers = ktk.kinematics.read_c3d_file(

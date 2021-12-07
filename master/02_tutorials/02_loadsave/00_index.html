@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Saving and loading &mdash; Kinetics Toolkit (dev) master documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -70,7 +71,9 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API REFERENCE</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../api_reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../99_api_reference/01_classes.html">Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../99_api_reference/02_functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../99_api_reference/03_modules.html">Modules</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">LINKS</span></p>
 <ul>
@@ -110,12 +113,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="tex2jax_ignore mathjax_ignore section" id="saving-and-loading">
+  <section class="tex2jax_ignore mathjax_ignore" id="saving-and-loading">
 <h1>Saving and loading<a class="headerlink" href="#saving-and-loading" title="Permalink to this headline"></a></h1>
 <p>Contrarily to Matlab with its <code class="docutils literal notranslate"><span class="pre">.mat</span></code> file, python does not come with a single standard way to save data. To ease saving and sharing data, Kinetics Toolkit provides two functions that load and save its own <code class="docutils literal notranslate"><span class="pre">.ktk.zip</span></code> format:</p>
 <ul class="simple">
-<li><p><span class="xref myst">save()</span></p></li>
-<li><p><span class="xref myst">load()</span></p></li>
+<li><p><a class="reference internal" href="../../api/kineticstoolkit.save.html"><span class="doc std std-doc">save()</span></a></p></li>
+<li><p><a class="reference internal" href="../../api/kineticstoolkit.load.html"><span class="doc std std-doc">load()</span></a></p></li>
 </ul>
 <p>These functions are straightforward to use:</p>
 <div class="cell docutils container">
@@ -157,7 +160,7 @@
 </div>
 </div>
 </div>
-<div class="section" id="file-format-and-supported-types">
+<section id="file-format-and-supported-types">
 <h2>File format and supported types<a class="headerlink" href="#file-format-and-supported-types" title="Permalink to this headline"></a></h2>
 <p>The <code class="docutils literal notranslate"><span class="pre">ktk.zip</span></code> file format is built to be as portable and simple as possible. It is a standard zip file that contains two JSON files:</p>
 <ul class="simple">
@@ -193,8 +196,8 @@
 </tbody>
 </table>
 <p>Tuples can also be saved but will be loaded back as lists.</p>
-</div>
-<div class="section" id="loading-a-ktk-zip-file-in-matlab">
+</section>
+<section id="loading-a-ktk-zip-file-in-matlab">
 <h2>Loading a ktk.zip file in Matlab<a class="headerlink" href="#loading-a-ktk-zip-file-in-matlab" title="Permalink to this headline"></a></h2>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>% Create a temporary folder to unzip to
 mkdir(&#39;temp&#39;);
@@ -258,8 +261,8 @@ metadata = jsondecode(fileread(&#39;temp/metadata.json&#39;));
 </tbody>
 </table>
 <p>*tuples are saved as lists in JSON.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

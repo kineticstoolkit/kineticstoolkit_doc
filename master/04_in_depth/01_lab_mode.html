@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Lab mode &mdash; Kinetics Toolkit (dev) master documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -71,7 +72,9 @@
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API REFERENCE</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../99_api_reference/01_classes.html">Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../99_api_reference/02_functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../99_api_reference/03_modules.html">Modules</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">LINKS</span></p>
 <ul>
@@ -111,10 +114,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="tex2jax_ignore mathjax_ignore section" id="lab-mode">
+  <section class="tex2jax_ignore mathjax_ignore" id="lab-mode">
 <h1>Lab mode<a class="headerlink" href="#lab-mode" title="Permalink to this headline"></a></h1>
 <p>Kinetics Toolkit includes a lab mode that changes some defaults so that doing scientific work in IPython-based environments is more enjoyable (at least for me). This mode does not affect anything besides visual representations and is completely facultative.</p>
-<div class="section" id="when-to-use-lab-mode">
+<section id="when-to-use-lab-mode">
 <h2>When to use lab mode<a class="headerlink" href="#when-to-use-lab-mode" title="Permalink to this headline"></a></h2>
 <p><strong>Use it</strong> if you want to use Kinetics Toolkit as an integrated work environment using IPython based environments (Spyder, Jupyter) in a biomechanics research labs. If you’re not sure, use lab mode.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; import kineticstoolkit.lab as ktk
@@ -124,10 +127,10 @@
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&gt;&gt;&gt; import kineticstoolkit as ktk
 </pre></div>
 </div>
-</div>
-<div class="section" id="what-lab-mode-does">
+</section>
+<section id="what-lab-mode-does">
 <h2>What lab mode does<a class="headerlink" href="#what-lab-mode-does" title="Permalink to this headline"></a></h2>
-<div class="section" id="modification-to-repr-of-dictionaries">
+<section id="modification-to-repr-of-dictionaries">
 <h3>Modification to repr of dictionaries<a class="headerlink" href="#modification-to-repr-of-dictionaries" title="Permalink to this headline"></a></h3>
 <p>Kinetics Toolkit often stores data as nested dictionaries, which can lead to very large printouts when we simply want to see the dictionary’s contents. Importing ktk changes the repr of dictionaries in IPython so that a summary of the dict’s content is shown, more like the representation of a Matlab struct.</p>
 <p>For example, let’s create a dummy dictionary:</p>
@@ -161,8 +164,8 @@
 }
 </pre></div>
 </div>
-</div>
-<div class="section" id="modification-to-warnings-format">
+</section>
+<section id="modification-to-warnings-format">
 <h3>Modification to warnings format<a class="headerlink" href="#modification-to-warnings-format" title="Permalink to this headline"></a></h3>
 <p>Kinetics Toolkit sometimes generates warnings when calculations are encountering unexpected data, when assumptions were made or to flag relevant suspicious informations to the user. Importing ktk in lab mode pretty-prints those warnings so they are clearer to see and understand.</p>
 <p>For example, a default user warning would print as:</p>
@@ -174,12 +177,12 @@
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>UserWarning [path/to/filename.py:1] Something strange happened in this function
 </pre></div>
 </div>
-</div>
-<div class="section" id="modification-to-repr-of-numpy-s-floats">
+</section>
+<section id="modification-to-repr-of-numpy-s-floats">
 <h3>Modification to repr of numpy’s floats<a class="headerlink" href="#modification-to-repr-of-numpy-s-floats" title="Permalink to this headline"></a></h3>
 <p>Numpy is set to display floats with floating point precision.</p>
-</div>
-<div class="section" id="alternative-defaults-for-matplotlib">
+</section>
+<section id="alternative-defaults-for-matplotlib">
 <h3>Alternative defaults for matplotlib<a class="headerlink" href="#alternative-defaults-for-matplotlib" title="Permalink to this headline"></a></h3>
 <p>We assume that most work with figure is interactive, on screen. In that view,
 the following modifications are made to default matplotlib figures:</p>
@@ -193,9 +196,9 @@ first colors, red, green and blue, are consistent the colours assigned to
 x, y and z in most 3D visualization softwares, and the next colours are
 consistent with Matlab’s legacy color order.</p></li>
 </ul>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
