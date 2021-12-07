@@ -130,8 +130,6 @@ html_sidebars = {
 
 html_show_sourcelink = False
 html_copy_source = False
-html_logo = '_static/logo_with_text_black.png'
-html_css_files = ['css/custom.css']
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -141,3 +139,8 @@ html_static_path = ['_static']
 if release == 'master':
     # Modify some parameters to distingate the development site
     html_logo = '_static/logo_development.png'
+    html_css_files = ['css/custom.css']
+else:
+    html_logo = '_static/logo_with_text_black.png'
+    html_css_files = ['css/custom.css', 'css/stable.css']
+
