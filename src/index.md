@@ -26,12 +26,12 @@ Kinetics Toolkit is developed at the [Mobility and Adaptive Sports Research Lab]
 
 Thanks to Clay Flannigan for his [icp](https://github.com/ClayFlannigan/icp) method, to Benjamin Michaud for his [ezc3d](https://github.com/pyomeca/ezc3d) module, and to the dedicated people behind major software and packages used by Kinetics Toolkit, such as python, numpy, matplotlib, pandas, jupyter, pytest, sphinx, etc.
 
-
 ## Site map
 
 ```{toctree}
 :caption: MANUAL
 :glob:
+:numbered:
 
 0*/00_index
 ```
