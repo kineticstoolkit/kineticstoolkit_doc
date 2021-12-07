@@ -13,18 +13,18 @@ kernelspec:
 
 The TimeSeries come with various method to copy, split, extract or combine data:
 
-- [[)](/api/kineticstoolkit.TimeSeries.copy.rst|TimeSeries.copy()]] to make a deep copy of a TimeSeries;
-- [[)](/api/kineticstoolkit.TimeSeries.get_subset.rst|TimeSeries.get_subset()]] to make a deep copy of a TimeSeries, but only with a selected subset of data;
-- [[)](/api/kineticstoolkit.TimeSeries.merge.rst|TimeSeries.merge()]] to merge two TimeSeries with a same time vector together;
-- [[)](/api/kineticstoolkit.TimeSeries.get_ts_before_index.rst|TimeSeries.get_ts_before_index()]],
-  [[)](/api/kineticstoolkit.TimeSeries.get_ts_after_index.rst|TimeSeries.get_ts_after_index()]],
-  [[)](/api/kineticstoolkit.TimeSeries.get_ts_between_indexes.rst|TimeSeries.get_ts_between_indexes()]],
-  [[)](/api/kineticstoolkit.TimeSeries.get_ts_before_time.rst|TimeSeries.get_ts_before_time()]],
-  [[)](/api/kineticstoolkit.TimeSeries.get_ts_after_time.rst|TimeSeries.get_ts_after_time()]],
-  [[)](/api/kineticstoolkit.TimeSeries.get_ts_between_times.rst|TimeSeries.get_ts_between_times()]],
-  [[)](/api/kineticstoolkit.TimeSeries.get_ts_before_event.rst|TimeSeries.get_ts_before_event()]],
-  [[)](/api/kineticstoolkit.TimeSeries.get_ts_after_event.rst|TimeSeries.get_ts_after_event()]],
-  [[)](/api/kineticstoolkit.TimeSeries.get_ts_between_events.rst|TimeSeries.get_ts_between_events()]] to split a TimeSeries in time following specific criteria.
+- [TimeSeries.copy()]()) to make a deep copy of a TimeSeries;
+- [TimeSeries.get_subset()]()) to make a deep copy of a TimeSeries, but only with a selected subset of data;
+- [TimeSeries.merge()]()) to merge two TimeSeries with a same time vector together;
+- [TimeSeries.get_ts_before_index()]()),
+  [TimeSeries.get_ts_after_index()]()),
+  [TimeSeries.get_ts_between_indexes()]()),
+  [TimeSeries.get_ts_before_time()]()),
+  [TimeSeries.get_ts_after_time()]()),
+  [TimeSeries.get_ts_between_times()]()),
+  [TimeSeries.get_ts_before_event()]()),
+  [TimeSeries.get_ts_after_event()]()),
+  [TimeSeries.get_ts_between_events()]()) to split a TimeSeries in time following specific criteria.
 
 In this tutorial, we will see how to use these methods to manage a TimeSeries of marker trajectories. We will start by loading a sample `c3d` file with some marker trajectories. This example has 26 markers with 3678 samples recorded at 120 Hz.
 
@@ -47,7 +47,7 @@ markers.data
 
 As for most class instances in Python, a TimeSeries is a mutable type. This means that for a TimeSeries `ts1`, `ts2 = ts1` creates a second reference to the same TimeSeries. This means that modifying `ts2` will also modify `ts1`.
 
-To create a completely independent copy of a TimeSeries, we use the [[)](/api/kineticstoolkit.TimeSeries.copy.rst|TimeSeries.copy()]] method:
+To create a completely independent copy of a TimeSeries, we use the [TimeSeries.copy()]()) method:
 
 ```{code-cell}
 markers_copy = markers.copy()
@@ -55,7 +55,7 @@ markers_copy = markers.copy()
 markers_copy
 ```
 
-Interestingly, [[)](/api/kineticstoolkit.TimeSeries.copy.rst|TimeSeries.copy()]] has different arguments to select which attributes to copy. For instance, if we want to create an empty TimeSeries, but with the same time and events as the source, we could use:
+Interestingly, [TimeSeries.copy()]()) has different arguments to select which attributes to copy. For instance, if we want to create an empty TimeSeries, but with the same time and events as the source, we could use:
 
 ```{code-cell}
 markers_copy = markers.copy(copy_data=False, copy_data_info=False)
@@ -65,7 +65,7 @@ markers_copy
 
 ## Subsetting and merging TimeSeries
 
-The [[)](/api/kineticstoolkit.TimeSeries.get_subset.rst|TimeSeries.get_subset()]] method allows copying a TimeSeries with only a subset of the original TimeSeries. For example, in the markers TimeSeries, we may be interested only in the markers `BodyL:AcromionL` and `BodyL:LateralEpicondyleL`. To copy only these markers, we would use:
+The [TimeSeries.get_subset()]()) method allows copying a TimeSeries with only a subset of the original TimeSeries. For example, in the markers TimeSeries, we may be interested only in the markers `BodyL:AcromionL` and `BodyL:LateralEpicondyleL`. To copy only these markers, we would use:
 
 ```{code-cell}
 markers_subset = markers.get_subset(
@@ -75,7 +75,7 @@ markers_subset = markers.get_subset(
 markers_subset.data
 ```
 
-To merge two TimeSeries together, we use the [[)](/api/kineticstoolkit.TimeSeries.merge.rst|TimeSeries.merge()]]. For example, if we wanted to add the marker `BodyL:HandL` to this subset:
+To merge two TimeSeries together, we use the [TimeSeries.merge()]()). For example, if we wanted to add the marker `BodyL:HandL` to this subset:
 
 ```{code-cell}
 markers_subset = markers_subset.merge(
@@ -97,9 +97,9 @@ However, using the `merge` method is slightly safer since it ensures that the ti
 
 ### Using indexes
 
-The [[)](/api/kineticstoolkit.TimeSeries.get_ts_before_index.rst|TimeSeries.get_ts_before_index()]],
-[[)](/api/kineticstoolkit.TimeSeries.get_ts_after_index.rst|TimeSeries.get_ts_after_index()]], and
-[[)](/api/kineticstoolkit.TimeSeries.get_ts_between_indexes.rst|TimeSeries.get_ts_between_indexes()]]
+The [TimeSeries.get_ts_before_index()]()),
+[TimeSeries.get_ts_after_index()]()), and
+[TimeSeries.get_ts_between_indexes()]())
 allow splitting the TimeSeries based on time indexes. For example, if we plot the previous markers subset, we see that the main action (the oscillating signals) starts at about 12 seconds and stops at about 18 seconds. At 120 samples per second, this means from indexes 1440 to 2160.
 
 ```{code-cell}
@@ -116,9 +116,9 @@ ts.plot()
 ### Using time
 
 We could also use the time directly to do the same split, using one of
-[[)](/api/kineticstoolkit.TimeSeries.get_ts_before_time.rst|TimeSeries.get_ts_before_time()]],
-[[)](/api/kineticstoolkit.TimeSeries.get_ts_after_time.rst|TimeSeries.get_ts_after_time()]], and
-[[)](/api/kineticstoolkit.TimeSeries.get_ts_between_times.rst|TimeSeries.get_ts_between_times()]].
+[TimeSeries.get_ts_before_time()]()),
+[TimeSeries.get_ts_after_time()]()), and
+[TimeSeries.get_ts_between_times()]()).
 
 ```{code-cell}
 ts = markers_subset.get_ts_between_times(12, 18)
@@ -148,9 +148,9 @@ ts.plot()
 ```
 
 If we want to analyze data of the four first pushes and get rid of any other data, we would use one of
-[[)](/api/kineticstoolkit.TimeSeries.get_ts_before_event.rst|TimeSeries.get_ts_before_event()]],
-[[)](/api/kineticstoolkit.TimeSeries.get_ts_after_event.rst|TimeSeries.get_ts_after_event()]], and
-[[)](/api/kineticstoolkit.TimeSeries.get_ts_between_events.rst|TimeSeries.get_ts_between_events()]]:
+[TimeSeries.get_ts_before_event()]()),
+[TimeSeries.get_ts_after_event()]()), and
+[TimeSeries.get_ts_between_events()]()):
 
 ```{code-cell}
 # inclusive=True to ensure that the push 0 and push 4 events are included in

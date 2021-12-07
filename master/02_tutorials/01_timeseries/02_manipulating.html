@@ -124,18 +124,18 @@
 <h1>Manipulating TimeSeries<a class="headerlink" href="#manipulating-timeseries" title="Permalink to this headline"></a></h1>
 <p>The TimeSeries come with various method to copy, split, extract or combine data:</p>
 <ul class="simple">
-<li><p>[[)](/api/kineticstoolkit.TimeSeries.copy.rst|TimeSeries.copy()]] to make a deep copy of a TimeSeries;</p></li>
-<li><p>[[)](/api/kineticstoolkit.TimeSeries.get_subset.rst|TimeSeries.get_subset()]] to make a deep copy of a TimeSeries, but only with a selected subset of data;</p></li>
-<li><p>[[)](/api/kineticstoolkit.TimeSeries.merge.rst|TimeSeries.merge()]] to merge two TimeSeries with a same time vector together;</p></li>
-<li><p>[[)](/api/kineticstoolkit.TimeSeries.get_ts_before_index.rst|TimeSeries.get_ts_before_index()]],
-[[)](/api/kineticstoolkit.TimeSeries.get_ts_after_index.rst|TimeSeries.get_ts_after_index()]],
-[[)](/api/kineticstoolkit.TimeSeries.get_ts_between_indexes.rst|TimeSeries.get_ts_between_indexes()]],
-[[)](/api/kineticstoolkit.TimeSeries.get_ts_before_time.rst|TimeSeries.get_ts_before_time()]],
-[[)](/api/kineticstoolkit.TimeSeries.get_ts_after_time.rst|TimeSeries.get_ts_after_time()]],
-[[)](/api/kineticstoolkit.TimeSeries.get_ts_between_times.rst|TimeSeries.get_ts_between_times()]],
-[[)](/api/kineticstoolkit.TimeSeries.get_ts_before_event.rst|TimeSeries.get_ts_before_event()]],
-[[)](/api/kineticstoolkit.TimeSeries.get_ts_after_event.rst|TimeSeries.get_ts_after_event()]],
-[[)](/api/kineticstoolkit.TimeSeries.get_ts_between_events.rst|TimeSeries.get_ts_between_events()]] to split a TimeSeries in time following specific criteria.</p></li>
+<li><p><span class="xref myst">TimeSeries.copy()</span>) to make a deep copy of a TimeSeries;</p></li>
+<li><p><span class="xref myst">TimeSeries.get_subset()</span>) to make a deep copy of a TimeSeries, but only with a selected subset of data;</p></li>
+<li><p><span class="xref myst">TimeSeries.merge()</span>) to merge two TimeSeries with a same time vector together;</p></li>
+<li><p><span class="xref myst">TimeSeries.get_ts_before_index()</span>),
+<span class="xref myst">TimeSeries.get_ts_after_index()</span>),
+<span class="xref myst">TimeSeries.get_ts_between_indexes()</span>),
+<span class="xref myst">TimeSeries.get_ts_before_time()</span>),
+<span class="xref myst">TimeSeries.get_ts_after_time()</span>),
+<span class="xref myst">TimeSeries.get_ts_between_times()</span>),
+<span class="xref myst">TimeSeries.get_ts_before_event()</span>),
+<span class="xref myst">TimeSeries.get_ts_after_event()</span>),
+<span class="xref myst">TimeSeries.get_ts_between_events()</span>) to split a TimeSeries in time following specific criteria.</p></li>
 </ul>
 <p>In this tutorial, we will see how to use these methods to manage a TimeSeries of marker trajectories. We will start by loading a sample <code class="docutils literal notranslate"><span class="pre">c3d</span></code> file with some marker trajectories. This example has 26 markers with 3678 samples recorded at 120 Hz.</p>
 <div class="cell docutils container">
@@ -204,7 +204,7 @@
 <section id="copying-a-timeseries">
 <h2>Copying a TimeSeries<a class="headerlink" href="#copying-a-timeseries" title="Permalink to this headline"></a></h2>
 <p>As for most class instances in Python, a TimeSeries is a mutable type. This means that for a TimeSeries <code class="docutils literal notranslate"><span class="pre">ts1</span></code>, <code class="docutils literal notranslate"><span class="pre">ts2</span> <span class="pre">=</span> <span class="pre">ts1</span></code> creates a second reference to the same TimeSeries. This means that modifying <code class="docutils literal notranslate"><span class="pre">ts2</span></code> will also modify <code class="docutils literal notranslate"><span class="pre">ts1</span></code>.</p>
-<p>To create a completely independent copy of a TimeSeries, we use the [[)](/api/kineticstoolkit.TimeSeries.copy.rst|TimeSeries.copy()]] method:</p>
+<p>To create a completely independent copy of a TimeSeries, we use the <span class="xref myst">TimeSeries.copy()</span>) method:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">markers_copy</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -224,7 +224,7 @@
 </div>
 </div>
 </div>
-<p>Interestingly, [[)](/api/kineticstoolkit.TimeSeries.copy.rst|TimeSeries.copy()]] has different arguments to select which attributes to copy. For instance, if we want to create an empty TimeSeries, but with the same time and events as the source, we could use:</p>
+<p>Interestingly, <span class="xref myst">TimeSeries.copy()</span>) has different arguments to select which attributes to copy. For instance, if we want to create an empty TimeSeries, but with the same time and events as the source, we could use:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">markers_copy</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">copy_data</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">copy_data_info</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -247,7 +247,7 @@
 </section>
 <section id="subsetting-and-merging-timeseries">
 <h2>Subsetting and merging TimeSeries<a class="headerlink" href="#subsetting-and-merging-timeseries" title="Permalink to this headline"></a></h2>
-<p>The [[)](/api/kineticstoolkit.TimeSeries.get_subset.rst|TimeSeries.get_subset()]] method allows copying a TimeSeries with only a subset of the original TimeSeries. For example, in the markers TimeSeries, we may be interested only in the markers <code class="docutils literal notranslate"><span class="pre">BodyL:AcromionL</span></code> and <code class="docutils literal notranslate"><span class="pre">BodyL:LateralEpicondyleL</span></code>. To copy only these markers, we would use:</p>
+<p>The <span class="xref myst">TimeSeries.get_subset()</span>) method allows copying a TimeSeries with only a subset of the original TimeSeries. For example, in the markers TimeSeries, we may be interested only in the markers <code class="docutils literal notranslate"><span class="pre">BodyL:AcromionL</span></code> and <code class="docutils literal notranslate"><span class="pre">BodyL:LateralEpicondyleL</span></code>. To copy only these markers, we would use:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">markers_subset</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">get_subset</span><span class="p">(</span>
@@ -267,7 +267,7 @@
 </div>
 </div>
 </div>
-<p>To merge two TimeSeries together, we use the [[)](/api/kineticstoolkit.TimeSeries.merge.rst|TimeSeries.merge()]]. For example, if we wanted to add the marker <code class="docutils literal notranslate"><span class="pre">BodyL:HandL</span></code> to this subset:</p>
+<p>To merge two TimeSeries together, we use the <span class="xref myst">TimeSeries.merge()</span>). For example, if we wanted to add the marker <code class="docutils literal notranslate"><span class="pre">BodyL:HandL</span></code> to this subset:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">markers_subset</span> <span class="o">=</span> <span class="n">markers_subset</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
@@ -298,9 +298,9 @@
 <h2>Splitting TimeSeries<a class="headerlink" href="#splitting-timeseries" title="Permalink to this headline"></a></h2>
 <section id="using-indexes">
 <h3>Using indexes<a class="headerlink" href="#using-indexes" title="Permalink to this headline"></a></h3>
-<p>The [[)](/api/kineticstoolkit.TimeSeries.get_ts_before_index.rst|TimeSeries.get_ts_before_index()]],
-[[)](/api/kineticstoolkit.TimeSeries.get_ts_after_index.rst|TimeSeries.get_ts_after_index()]], and
-[[)](/api/kineticstoolkit.TimeSeries.get_ts_between_indexes.rst|TimeSeries.get_ts_between_indexes()]]
+<p>The <span class="xref myst">TimeSeries.get_ts_before_index()</span>),
+<span class="xref myst">TimeSeries.get_ts_after_index()</span>), and
+<span class="xref myst">TimeSeries.get_ts_between_indexes()</span>)
 allow splitting the TimeSeries based on time indexes. For example, if we plot the previous markers subset, we see that the main action (the oscillating signals) starts at about 12 seconds and stops at about 18 seconds. At 120 samples per second, this means from indexes 1440 to 2160.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -328,9 +328,9 @@ allow splitting the TimeSeries based on time indexes. For example, if we plot th
 <section id="using-time">
 <h3>Using time<a class="headerlink" href="#using-time" title="Permalink to this headline"></a></h3>
 <p>We could also use the time directly to do the same split, using one of
-[[)](/api/kineticstoolkit.TimeSeries.get_ts_before_time.rst|TimeSeries.get_ts_before_time()]],
-[[)](/api/kineticstoolkit.TimeSeries.get_ts_after_time.rst|TimeSeries.get_ts_after_time()]], and
-[[)](/api/kineticstoolkit.TimeSeries.get_ts_between_times.rst|TimeSeries.get_ts_between_times()]].</p>
+<span class="xref myst">TimeSeries.get_ts_before_time()</span>),
+<span class="xref myst">TimeSeries.get_ts_after_time()</span>), and
+<span class="xref myst">TimeSeries.get_ts_between_times()</span>).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">markers_subset</span><span class="o">.</span><span class="n">get_ts_between_times</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">18</span><span class="p">)</span>
@@ -371,9 +371,9 @@ allow splitting the TimeSeries based on time indexes. For example, if we plot th
 </div>
 </div>
 <p>If we want to analyze data of the four first pushes and get rid of any other data, we would use one of
-[[)](/api/kineticstoolkit.TimeSeries.get_ts_before_event.rst|TimeSeries.get_ts_before_event()]],
-[[)](/api/kineticstoolkit.TimeSeries.get_ts_after_event.rst|TimeSeries.get_ts_after_event()]], and
-[[)](/api/kineticstoolkit.TimeSeries.get_ts_between_events.rst|TimeSeries.get_ts_between_events()]]:</p>
+<span class="xref myst">TimeSeries.get_ts_before_event()</span>),
+<span class="xref myst">TimeSeries.get_ts_after_event()</span>), and
+<span class="xref myst">TimeSeries.get_ts_between_events()</span>):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># inclusive=True to ensure that the push 0 and push 4 events are included in</span>
