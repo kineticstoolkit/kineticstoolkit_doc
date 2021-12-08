@@ -2,9 +2,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wheelchair kinetics &mdash; Kinetics Toolkit (dev) master documentation</title>
+  <title>2.7. Wheelchair kinetics &mdash; Kinetics Toolkit (dev) master documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
@@ -25,8 +26,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="In depth" href="../../04_in_depth/00_index.html" />
-    <link rel="prev" title="Calculating joint angles from a kinematic acquisition" href="../06_kinematics/02_joint_angles.html" />
+    <link rel="next" title="3. In depth" href="../../03_in_depth/00_index.html" />
+    <link rel="prev" title="2.6.2. Calculating joint angles from a kinematic acquisition" href="../06_kinematics/02_joint_angles.html" />
 
 
  
@@ -50,31 +51,33 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">MANUAL</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/00_index.html">Getting started</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../00_index.html">Tutorials</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../01_timeseries/00_index.html">TimeSeries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02_loadsave/00_index.html">Saving and loading</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03_filters/00_index.html">Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04_cycles/00_index.html">Detecting and normalizing cycles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05_geometry/00_index.html">Rigid body geometry</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../06_kinematics/00_index.html">Kinematics analysis</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Wheelchair kinetics</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#read-data-from-file">Read data from file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#calculate-forces-and-moments">Calculate forces and moments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#removing-dynamic-offsets-in-forces-and-moments">Removing dynamic offsets in forces and moments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#calculate-velocity-and-power">Calculate velocity and power</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#detecting-the-pushes">Detecting the pushes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#extracting-spatiotemporal-and-kinetic-parameters">Extracting spatiotemporal and kinetic parameters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/00_index.html">1. Getting started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../00_index.html">2. Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../01_timeseries/00_index.html">2.1. TimeSeries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_loadsave/00_index.html">2.2. Saving and loading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_filters/00_index.html">2.3. Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04_cycles/00_index.html">2.4. Detecting and normalizing cycles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05_geometry/00_index.html">2.5. Rigid body geometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../06_kinematics/00_index.html">2.6. Kinematics analysis</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2.7. Wheelchair kinetics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#read-data-from-file">2.7.1. Read data from file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#calculate-forces-and-moments">2.7.2. Calculate forces and moments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#removing-dynamic-offsets-in-forces-and-moments">2.7.3. Removing dynamic offsets in forces and moments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#calculate-velocity-and-power">2.7.4. Calculate velocity and power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#detecting-the-pushes">2.7.5. Detecting the pushes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#extracting-spatiotemporal-and-kinetic-parameters">2.7.6. Extracting spatiotemporal and kinetic parameters</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../04_in_depth/00_index.html">In depth</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../05_learning_python/00_index.html">Learning Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../03_in_depth/00_index.html">3. In depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../04_learning_python/00_index.html">4. Learning Python</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API REFERENCE</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../api_reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../99_api_reference/01_classes.html">Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../99_api_reference/02_functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../99_api_reference/03_modules.html">Modules</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">LINKS</span></p>
 <ul>
@@ -101,22 +104,22 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../00_index.html">Tutorials</a> &raquo;</li>
-      <li>Wheelchair kinetics</li>
+          <li><a href="../00_index.html"><span class="section-number">2. </span>Tutorials</a> &raquo;</li>
+      <li><span class="section-number">2.7. </span>Wheelchair kinetics</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="../06_kinematics/02_joint_angles.html" class="btn btn-neutral float-left" title="Calculating joint angles from a kinematic acquisition" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../../04_in_depth/00_index.html" class="btn btn-neutral float-right" title="In depth" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../06_kinematics/02_joint_angles.html" class="btn btn-neutral float-left" title="2.6.2. Calculating joint angles from a kinematic acquisition" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../03_in_depth/00_index.html" class="btn btn-neutral float-right" title="3. In depth" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="tex2jax_ignore mathjax_ignore section" id="wheelchair-kinetics">
-<h1>Wheelchair kinetics<a class="headerlink" href="#wheelchair-kinetics" title="Permalink to this headline"></a></h1>
-<p>The <span class="xref myst">pushrimkinetics</span> module allows processing kinetics data from instrumented wheelchair wheels such as the SmartWheel.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="wheelchair-kinetics">
+<h1><span class="section-number">2.7. </span>Wheelchair kinetics<a class="headerlink" href="#wheelchair-kinetics" title="Permalink to this headline"></a></h1>
+<p>The <a class="reference internal" href="../../api/kineticstoolkit.pushrimkinetics.html"><span class="doc std std-doc">pushrimkinetics</span></a> module allows processing kinetics data from instrumented wheelchair wheels such as the SmartWheel.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">kineticstoolkit.lab</span> <span class="k">as</span> <span class="nn">ktk</span>
@@ -127,9 +130,9 @@
 </div>
 </div>
 </div>
-<div class="section" id="read-data-from-file">
-<h2>Read data from file<a class="headerlink" href="#read-data-from-file" title="Permalink to this headline"></a></h2>
-<p>The first step is to load data from a file, using the <span class="xref myst">pushrimkinetics.read_file()</span> function.</p>
+<section id="read-data-from-file">
+<h2><span class="section-number">2.7.1. </span>Read data from file<a class="headerlink" href="#read-data-from-file" title="Permalink to this headline"></a></h2>
+<p>The first step is to load data from a file, using the <a class="reference internal" href="../../api/kineticstoolkit.pushrimkinetics.read_file.html"><span class="doc std std-doc">pushrimkinetics.read_file()</span></a> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="p">(</span>
@@ -191,10 +194,10 @@
 <img alt="../../_images/00_index_7_01.png" src="../../_images/00_index_7_01.png" />
 </div>
 </div>
-</div>
-<div class="section" id="calculate-forces-and-moments">
-<h2>Calculate forces and moments<a class="headerlink" href="#calculate-forces-and-moments" title="Permalink to this headline"></a></h2>
-<p>If the loaded data doesn’t include forces and moments but only raw data (for exemple, when loading data from a SmartWheel’s SD card), we must calculate the forces and moments based on a calibration matrix. The function <span class="xref myst">pushrimkinetics.calculate_forces_and_moments()</span> performs this calculation. In this example, we use a calibration matrix that is included in <code class="docutils literal notranslate"><span class="pre">ktk.pushrimkinetics.CALIBRATION_MATRICES</span></code>, and we express the calculated forces and moments in a reference frame that is orthogonal to the ground (levelled using the wheel’s angular encoder).</p>
+</section>
+<section id="calculate-forces-and-moments">
+<h2><span class="section-number">2.7.2. </span>Calculate forces and moments<a class="headerlink" href="#calculate-forces-and-moments" title="Permalink to this headline"></a></h2>
+<p>If the loaded data doesn’t include forces and moments but only raw data (for exemple, when loading data from a SmartWheel’s SD card), we must calculate the forces and moments based on a calibration matrix. The function <a class="reference internal" href="../../api/kineticstoolkit.pushrimkinetics.calculate_forces_and_moments.html"><span class="doc std std-doc">pushrimkinetics.calculate_forces_and_moments()</span></a> performs this calculation. In this example, we use a calibration matrix that is included in <code class="docutils literal notranslate"><span class="pre">ktk.pushrimkinetics.CALIBRATION_MATRICES</span></code>, and we express the calculated forces and moments in a reference frame that is orthogonal to the ground (levelled using the wheel’s angular encoder).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">calibration_matrices</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">pushrimkinetics</span><span class="o">.</span><span class="n">CALIBRATION_MATRICES</span><span class="p">[</span><span class="s1">&#39;SmartWheel_123&#39;</span><span class="p">]</span>
@@ -234,10 +237,10 @@
 </div>
 </div>
 <p>We observe some sign differences here. In fact, the SmartWheel softwares inverts some signals based on the SmartWheel’s sign convention and the side of the wheel. When the forces and moments are reconstructed from raw data, these sign changes do not happen, which explains these discrepancies.</p>
-</div>
-<div class="section" id="removing-dynamic-offsets-in-forces-and-moments">
-<h2>Removing dynamic offsets in forces and moments<a class="headerlink" href="#removing-dynamic-offsets-in-forces-and-moments" title="Permalink to this headline"></a></h2>
-<p>We observe in the last graphs that dynamic (sinusoidal) offsets are presents mostly in the forces but also in the moments. We can auto-remove these offsets using <span class="xref myst">pushrimkinetics.remove_offsets()</span>.</p>
+</section>
+<section id="removing-dynamic-offsets-in-forces-and-moments">
+<h2><span class="section-number">2.7.3. </span>Removing dynamic offsets in forces and moments<a class="headerlink" href="#removing-dynamic-offsets-in-forces-and-moments" title="Permalink to this headline"></a></h2>
+<p>We observe in the last graphs that dynamic (sinusoidal) offsets are presents mostly in the forces but also in the moments. We can auto-remove these offsets using <a class="reference internal" href="../../api/kineticstoolkit.pushrimkinetics.remove_offsets.html"><span class="doc std std-doc">pushrimkinetics.remove_offsets()</span></a>.</p>
 <p>Let’s apply this function on the data we just loaded.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -267,12 +270,12 @@
 <img alt="../../_images/00_index_13_01.png" src="../../_images/00_index_13_01.png" />
 </div>
 </div>
-<p>This automatic method has only be validated for straight-line, level-ground propulsion. For any other condition, a baseline trial is required. A baseline trial is a trial where an operator pushes the wheelchair but no external force appart from gravity is applied on the instrumented wheel. Please consult the <span class="xref myst">pushrimkinetics.remove_offsets()</span> function help for more information.</p>
-</div>
-<div class="section" id="calculate-velocity-and-power">
-<h2>Calculate velocity and power<a class="headerlink" href="#calculate-velocity-and-power" title="Permalink to this headline"></a></h2>
-<p>Thee wheel velocity is calculated from the wheel angle with a derivative Savitsky-Golay filter, using the <span class="xref myst">pushrimkinetics.calculate_velocity()</span> function. Once the velocity has been calculated, the output power can also be calculated by
-multiplying the velocity by the propulsion moment, using the <span class="xref myst">pushrimkinetics.calculate_power()</span> function.</p>
+<p>This automatic method has only be validated for straight-line, level-ground propulsion. For any other condition, a baseline trial is required. A baseline trial is a trial where an operator pushes the wheelchair but no external force appart from gravity is applied on the instrumented wheel. Please consult the <a class="reference internal" href="../../api/kineticstoolkit.pushrimkinetics.remove_offsets.html"><span class="doc std std-doc">pushrimkinetics.remove_offsets()</span></a> function help for more information.</p>
+</section>
+<section id="calculate-velocity-and-power">
+<h2><span class="section-number">2.7.4. </span>Calculate velocity and power<a class="headerlink" href="#calculate-velocity-and-power" title="Permalink to this headline"></a></h2>
+<p>Thee wheel velocity is calculated from the wheel angle with a derivative Savitsky-Golay filter, using the <a class="reference internal" href="../../api/kineticstoolkit.pushrimkinetics.calculate_velocity.html"><span class="doc std std-doc">pushrimkinetics.calculate_velocity()</span></a> function. Once the velocity has been calculated, the output power can also be calculated by
+multiplying the velocity by the propulsion moment, using the <a class="reference internal" href="../../api/kineticstoolkit.pushrimkinetics.calculate_power.html"><span class="doc std std-doc">pushrimkinetics.calculate_power()</span></a> function.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">kinetics</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">pushrimkinetics</span><span class="o">.</span><span class="n">calculate_velocity</span><span class="p">(</span><span class="n">kinetics</span><span class="p">)</span>
@@ -290,10 +293,10 @@ multiplying the velocity by the propulsion moment, using the <span class="xref m
 <img alt="../../_images/00_index_15_01.png" src="../../_images/00_index_15_01.png" />
 </div>
 </div>
-</div>
-<div class="section" id="detecting-the-pushes">
-<h2>Detecting the pushes<a class="headerlink" href="#detecting-the-pushes" title="Permalink to this headline"></a></h2>
-<p>The <span class="xref myst">cycles</span> module provides powerful tools to detect and manage cycles. Here we use <span class="xref myst">cycles.detect_cycles()</span> to detect the pushes using these specifications:</p>
+</section>
+<section id="detecting-the-pushes">
+<h2><span class="section-number">2.7.5. </span>Detecting the pushes<a class="headerlink" href="#detecting-the-pushes" title="Permalink to this headline"></a></h2>
+<p>The <a class="reference internal" href="../../api/kineticstoolkit.cycles.html"><span class="doc std std-doc">cycles</span></a> module provides powerful tools to detect and manage cycles. Here we use <a class="reference internal" href="../../api/kineticstoolkit.cycles.detect_cycles.html"><span class="doc std std-doc">cycles.detect_cycles()</span></a> to detect the pushes using these specifications:</p>
 <ul class="simple">
 <li><p>a push starts when the total force crosses 5 N upward;</p></li>
 <li><p>a push ends when the total force crosses 2 N downward;</p></li>
@@ -322,9 +325,9 @@ multiplying the velocity by the propulsion moment, using the <span class="xref m
 <img alt="../../_images/00_index_17_01.png" src="../../_images/00_index_17_01.png" />
 </div>
 </div>
-</div>
-<div class="section" id="extracting-spatiotemporal-and-kinetic-parameters">
-<h2>Extracting spatiotemporal and kinetic parameters<a class="headerlink" href="#extracting-spatiotemporal-and-kinetic-parameters" title="Permalink to this headline"></a></h2>
+</section>
+<section id="extracting-spatiotemporal-and-kinetic-parameters">
+<h2><span class="section-number">2.7.6. </span>Extracting spatiotemporal and kinetic parameters<a class="headerlink" href="#extracting-spatiotemporal-and-kinetic-parameters" title="Permalink to this headline"></a></h2>
 <p>As a conclusion to this tutorial, we will now extract some key spatiotemporal and kinetic parameters from these data, and express those parameters as a pandas DataFrame. Obviously, this is only an example and many other parameters can be calculated using a similar procedure.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -576,16 +579,16 @@ multiplying the velocity by the propulsion moment, using the <span class="xref m
 </table>
 </div></div></div>
 </div>
-<p>For more information, please check the <span class="xref myst">API Reference for the pushrimkinetics module</span>.</p>
-</div>
-</div>
+<p>For more information, please check the <a class="reference internal" href="../../api/kineticstoolkit.pushrimkinetics.html"><span class="doc std std-doc">API Reference for the pushrimkinetics module</span></a>.</p>
+</section>
+</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../06_kinematics/02_joint_angles.html" class="btn btn-neutral float-left" title="Calculating joint angles from a kinematic acquisition" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../../04_in_depth/00_index.html" class="btn btn-neutral float-right" title="In depth" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../06_kinematics/02_joint_angles.html" class="btn btn-neutral float-left" title="2.6.2. Calculating joint angles from a kinematic acquisition" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../03_in_depth/00_index.html" class="btn btn-neutral float-right" title="3. In depth" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

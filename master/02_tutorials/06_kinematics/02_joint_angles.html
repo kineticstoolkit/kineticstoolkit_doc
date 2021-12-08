@@ -2,9 +2,10 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Calculating joint angles from a kinematic acquisition &mdash; Kinetics Toolkit (dev) master documentation</title>
+  <title>2.6.2. Calculating joint angles from a kinematic acquisition &mdash; Kinetics Toolkit (dev) master documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
@@ -25,8 +26,8 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Wheelchair kinetics" href="../07_pushrimkinetics/00_index.html" />
-    <link rel="prev" title="Reading and visualizing marker trajectories" href="01_load_visualize.html" />
+    <link rel="next" title="2.7. Wheelchair kinetics" href="../07_pushrimkinetics/00_index.html" />
+    <link rel="prev" title="2.6.1. Reading and visualizing marker trajectories" href="01_load_visualize.html" />
 
 
  
@@ -50,34 +51,36 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">MANUAL</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/00_index.html">Getting started</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../00_index.html">Tutorials</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../01_timeseries/00_index.html">TimeSeries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../02_loadsave/00_index.html">Saving and loading</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../03_filters/00_index.html">Filtering</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../04_cycles/00_index.html">Detecting and normalizing cycles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../05_geometry/00_index.html">Rigid body geometry</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="00_index.html">Kinematics analysis</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="01_load_visualize.html">Reading and visualizing marker trajectories</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Calculating joint angles from a kinematic acquisition</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#read-and-visualize-marker-trajectories">Read and visualize marker trajectories</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#create-local-coordinate-systems">Create local coordinate systems</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#find-the-series-of-homogeneous-transforms-between-both-segments">Find the series of homogeneous transforms between both segments</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#extract-the-series-of-euler-angles">Extract the series of Euler angles</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#plot-the-euler-angles">Plot the Euler angles</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/00_index.html">1. Getting started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../00_index.html">2. Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../01_timeseries/00_index.html">2.1. TimeSeries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_loadsave/00_index.html">2.2. Saving and loading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_filters/00_index.html">2.3. Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04_cycles/00_index.html">2.4. Detecting and normalizing cycles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../05_geometry/00_index.html">2.5. Rigid body geometry</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="00_index.html">2.6. Kinematics analysis</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="01_load_visualize.html">2.6.1. Reading and visualizing marker trajectories</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">2.6.2. Calculating joint angles from a kinematic acquisition</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#read-and-visualize-marker-trajectories">2.6.2.1. Read and visualize marker trajectories</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-local-coordinate-systems">2.6.2.2. Create local coordinate systems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#find-the-series-of-homogeneous-transforms-between-both-segments">2.6.2.3. Find the series of homogeneous transforms between both segments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#extract-the-series-of-euler-angles">2.6.2.4. Extract the series of Euler angles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#plot-the-euler-angles">2.6.2.5. Plot the Euler angles</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../07_pushrimkinetics/00_index.html">Wheelchair kinetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../07_pushrimkinetics/00_index.html">2.7. Wheelchair kinetics</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../04_in_depth/00_index.html">In depth</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../05_learning_python/00_index.html">Learning Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../03_in_depth/00_index.html">3. In depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../04_learning_python/00_index.html">4. Learning Python</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API REFERENCE</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../api_reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../99_api_reference/01_classes.html">Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../99_api_reference/02_functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../99_api_reference/03_modules.html">Modules</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">LINKS</span></p>
 <ul>
@@ -104,22 +107,22 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../00_index.html">Tutorials</a> &raquo;</li>
-          <li><a href="00_index.html">Kinematics analysis</a> &raquo;</li>
-      <li>Calculating joint angles from a kinematic acquisition</li>
+          <li><a href="../00_index.html"><span class="section-number">2. </span>Tutorials</a> &raquo;</li>
+          <li><a href="00_index.html"><span class="section-number">2.6. </span>Kinematics analysis</a> &raquo;</li>
+      <li><span class="section-number">2.6.2. </span>Calculating joint angles from a kinematic acquisition</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="01_load_visualize.html" class="btn btn-neutral float-left" title="Reading and visualizing marker trajectories" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../07_pushrimkinetics/00_index.html" class="btn btn-neutral float-right" title="Wheelchair kinetics" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="01_load_visualize.html" class="btn btn-neutral float-left" title="2.6.1. Reading and visualizing marker trajectories" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../07_pushrimkinetics/00_index.html" class="btn btn-neutral float-right" title="2.7. Wheelchair kinetics" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="tex2jax_ignore mathjax_ignore section" id="calculating-joint-angles-from-a-kinematic-acquisition">
-<h1>Calculating joint angles from a kinematic acquisition<a class="headerlink" href="#calculating-joint-angles-from-a-kinematic-acquisition" title="Permalink to this headline"></a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="calculating-joint-angles-from-a-kinematic-acquisition">
+<h1><span class="section-number">2.6.2. </span>Calculating joint angles from a kinematic acquisition<a class="headerlink" href="#calculating-joint-angles-from-a-kinematic-acquisition" title="Permalink to this headline"></a></h1>
 <p>In this tutorial, we will calculate the elbow joint angles in the acquisition presented in the previous section. At the end of the tutorial, we will have plotted curves of elbow flexion and pronation angles during the complete acquisition.</p>
 <p>Such an analysis is composed of the following steps:</p>
 <p><strong>Step 1.</strong> Read the marker trajectories</p>
@@ -135,8 +138,8 @@
 </div>
 </div>
 </div>
-<div class="section" id="read-and-visualize-marker-trajectories">
-<h2>Read and visualize marker trajectories<a class="headerlink" href="#read-and-visualize-marker-trajectories" title="Permalink to this headline"></a></h2>
+<section id="read-and-visualize-marker-trajectories">
+<h2><span class="section-number">2.6.2.1. </span>Read and visualize marker trajectories<a class="headerlink" href="#read-and-visualize-marker-trajectories" title="Permalink to this headline"></a></h2>
 <p>We proceed exactly as in the previous tutorial:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1554,13 +1557,13 @@ AAEAAAAATGF2ZjU4Ljc2LjEwMA==
   Your browser does not support the video tag.
 </video></div></div>
 </div>
-</div>
-<div class="section" id="create-local-coordinate-systems">
-<h2>Create local coordinate systems<a class="headerlink" href="#create-local-coordinate-systems" title="Permalink to this headline"></a></h2>
+</section>
+<section id="create-local-coordinate-systems">
+<h2><span class="section-number">2.6.2.2. </span>Create local coordinate systems<a class="headerlink" href="#create-local-coordinate-systems" title="Permalink to this headline"></a></h2>
 <p>To calculate the elbow angles, we need to express frames for the arm and forearm segments. The elbow angles will be extracted from the homogeneous transform between both frames.</p>
 <p>We will use the recommendations of the International Society of Biomechanics [1] to define these local coordinate systems:</p>
-<div class="section" id="arm-coordinate-system">
-<h3>Arm coordinate system<a class="headerlink" href="#arm-coordinate-system" title="Permalink to this headline"></a></h3>
+<section id="arm-coordinate-system">
+<h3><span class="section-number">2.6.2.2.1. </span>Arm coordinate system<a class="headerlink" href="#arm-coordinate-system" title="Permalink to this headline"></a></h3>
 <p>Following the ISB recommendations, the local coordinate system for the humerus is defined as follow:</p>
 <p><strong>1. The origin is GH (glenohumeral joint).</strong></p>
 <p>We don’t have a marker for the glenohumeral join, but we have one for the acromion. We will therefore approximate GH by the acromion.</p>
@@ -3097,9 +3100,9 @@ AAABAAAAAExhdmY1OC43Ni4xMDA=
   Your browser does not support the video tag.
 </video></div></div>
 </div>
-</div>
-<div class="section" id="forearm-frame">
-<h3>Forearm frame<a class="headerlink" href="#forearm-frame" title="Permalink to this headline"></a></h3>
+</section>
+<section id="forearm-frame">
+<h3><span class="section-number">2.6.2.2.2. </span>Forearm frame<a class="headerlink" href="#forearm-frame" title="Permalink to this headline"></a></h3>
 <p>We will now proceed with the exact same steps to create the forearm coordinate system. From the ISB <a class="footnote-reference brackets" href="#id3" id="id1">1</a> :</p>
 <p><strong>1. The origin is US (ulnar styloid process).</strong></p>
 <div class="cell docutils container">
@@ -4689,10 +4692,10 @@ c3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguNzYuMTAw
   Your browser does not support the video tag.
 </video></div></div>
 </div>
-</div>
-</div>
-<div class="section" id="find-the-series-of-homogeneous-transforms-between-both-segments">
-<h2>Find the series of homogeneous transforms between both segments<a class="headerlink" href="#find-the-series-of-homogeneous-transforms-between-both-segments" title="Permalink to this headline"></a></h2>
+</section>
+</section>
+<section id="find-the-series-of-homogeneous-transforms-between-both-segments">
+<h2><span class="section-number">2.6.2.3. </span>Find the series of homogeneous transforms between both segments<a class="headerlink" href="#find-the-series-of-homogeneous-transforms-between-both-segments" title="Permalink to this headline"></a></h2>
 <p>Now that we have expressed frames for both the arm and forearm, we can find the homogeneous transform between both frames. This is equivalent to expressing the forearm frame in the local coordinates system of the arm.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4741,10 +4744,10 @@ c3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguNzYuMTAw
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="extract-the-series-of-euler-angles">
-<h2>Extract the series of Euler angles<a class="headerlink" href="#extract-the-series-of-euler-angles" title="Permalink to this headline"></a></h2>
-<p>We now have a series of homogeneous matrices, from which we will now extract Euler angles corresponding to flexion and pronation. We will use the <span class="xref myst">geometry.get_angles()</span> function to extract these Euler angles. We however fist need to define the sequence of rotation for these angles. Still following the recommendations of the International Society of Biomechanics <a class="footnote-reference brackets" href="#id3" id="id2">1</a>, we define the series of rotations from the arm to forearm as:</p>
+</section>
+<section id="extract-the-series-of-euler-angles">
+<h2><span class="section-number">2.6.2.4. </span>Extract the series of Euler angles<a class="headerlink" href="#extract-the-series-of-euler-angles" title="Permalink to this headline"></a></h2>
+<p>We now have a series of homogeneous matrices, from which we will now extract Euler angles corresponding to flexion and pronation. We will use the <a class="reference internal" href="../../api/kineticstoolkit.geometry.get_angles.html"><span class="doc std std-doc">geometry.get_angles()</span></a> function to extract these Euler angles. We however fist need to define the sequence of rotation for these angles. Still following the recommendations of the International Society of Biomechanics <a class="footnote-reference brackets" href="#id3" id="id2">1</a>, we define the series of rotations from the arm to forearm as:</p>
 <p><strong>First rotation:</strong> Around the humerus’ z axis. Corresponds to a flexion (positive) or hyperextension (negative).</p>
 <p><strong>Second rotation:</strong> Around the forearm’s rotated x axis. Corresponds to a “carrying angle” due to a tilt in the humeral flexion/extension axis at the humero-ulnar joint and an angulation of the ulna itself.</p>
 <p><strong>Third rotation:</strong> Around the forearm’s rotated y axis. Corresponds to a pronation (positive) or supination (negative).</p>
@@ -4769,9 +4772,9 @@ c3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguNzYuMTAw
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="plot-the-euler-angles">
-<h2>Plot the Euler angles<a class="headerlink" href="#plot-the-euler-angles" title="Permalink to this headline"></a></h2>
+</section>
+<section id="plot-the-euler-angles">
+<h2><span class="section-number">2.6.2.5. </span>Plot the Euler angles<a class="headerlink" href="#plot-the-euler-angles" title="Permalink to this headline"></a></h2>
 <p>Now that we calculated the angles, it would be a good idea to create a last TimeSeries to keep track of the time and meaning of these angles.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4821,15 +4824,15 @@ c3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguNzYuMTAw
 <dd><p>G. Wu et al., “ISB recommendation on definitions of joint coordinate systems of various joints for the reporting of human joint motion - Part II: shoulder, elbow, wrist and hand,” Journal of Biomechanics, vol. 38, no. 5, pp. 981–992, 2005.</p>
 </dd>
 </dl>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="01_load_visualize.html" class="btn btn-neutral float-left" title="Reading and visualizing marker trajectories" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="../07_pushrimkinetics/00_index.html" class="btn btn-neutral float-right" title="Wheelchair kinetics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="01_load_visualize.html" class="btn btn-neutral float-left" title="2.6.1. Reading and visualizing marker trajectories" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../07_pushrimkinetics/00_index.html" class="btn btn-neutral float-right" title="2.7. Wheelchair kinetics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
