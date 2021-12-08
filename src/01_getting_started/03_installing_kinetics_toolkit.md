@@ -1,31 +1,22 @@
----
-jupytext:
-  text_representation:
-    extension: .md
-    format_name: myst
-kernelspec:
-  display_name: Python 3 (ipykernel)
-  language: python
-  name: python3
----
-
 # Installing Kinetics Toolkit
 
 Kinetics Toolkit is distributed via both [conda-forge](https://anaconda.org/conda-forge/kineticstoolkit) and [PyPi](https://pypi.org/project/kineticstoolkit). The source code is hosted on [git-hub](https://github.com/felixchenier/kineticstoolkit).
 
 Since reading c3d files relies on [ezc3d](https://github.com/pyomeca/ezc3d) which binaries are distributed only via conda-forge, the recommended installation method is therefore using conda-forge.
 
-
-
 ## Install and update Kinetics Toolkit
 
 Still in the prompt/terminal:
 
-    conda install -c conda-forge kineticstoolkit ezc3d
-            
+```
+conda install -c conda-forge kineticstoolkit ezc3d
+```
+
 You can keep Kinetics Toolkit up to date by typing this command regularly:
 
-    conda update -c conda-forge kineticstoolkit
+```
+conda update -c conda-forge kineticstoolkit
+```
 
 ## Configuring Matplotlib graphics in IPython/Spyder
 
@@ -41,8 +32,12 @@ Alternatively, since the Spyder IDE is so oriented towards science and it uses I
 
 The last step is to verify that you are able to import Kinetics Toolkit in an interactive IPython console. This should work without error:
 
-    >>> import kineticstoolkit
+```
+>>> import kineticstoolkit
+```
 
 or
 
-    >>> import kineticstoolkit.lab as ktk
+```
+>>> import kineticstoolkit.lab as ktk
+````

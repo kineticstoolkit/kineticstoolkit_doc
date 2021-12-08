@@ -1,14 +1,3 @@
----
-jupytext:
-  text_representation:
-    extension: .md
-    format_name: myst
-kernelspec:
-  display_name: Python 3 (ipykernel)
-  language: python
-  name: python3
----
-
 # What is Kinetics Toolkit
 
 *The Summary and Statement of need sections are from the white paper published in*
