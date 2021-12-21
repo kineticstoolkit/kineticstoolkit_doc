@@ -2,8 +2,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Installing from git-hub &mdash; Kinetics Toolkit (dev) master documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -26,7 +25,7 @@
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Developer manual" href="02_developer_manual.html" />
+    <link rel="next" title="Development rules" href="02_development_rules.html" />
     <link rel="prev" title="Developing Kinetics Toolkit" href="00_index.html" />
 
 
@@ -70,8 +69,13 @@
 <p class="caption" role="heading"><span class="caption-text">FOR DEVELOPERS</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="00_index.html">Developing Kinetics Toolkit</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Installing from git-hub</a></li>
-<li class="toctree-l2"><a class="reference internal" href="02_developer_manual.html">Developer manual</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Installing from git-hub</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install-the-development-requirements">Install the development requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-kinetics-toolkit-s-development-version">Install Kinetics Toolkit’s development version</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="02_development_rules.html">Development rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="03_coding_style.html">Coding style</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../02_tutorials/00_index.html">Tutorial development for stable/unstable features</a></li>
@@ -97,48 +101,36 @@
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
         <a href="00_index.html" class="btn btn-neutral float-left" title="Developing Kinetics Toolkit" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="02_developer_manual.html" class="btn btn-neutral float-right" title="Developer manual" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="02_development_rules.html" class="btn btn-neutral float-right" title="Development rules" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="installing-from-git-hub">
+  <div class="tex2jax_ignore mathjax_ignore section" id="installing-from-git-hub">
 <h1>Installing from git-hub<a class="headerlink" href="#installing-from-git-hub" title="Permalink to this headline"></a></h1>
-<p>To help developping Kinetics Toolkits by testing it or extending it, you can install it directly from Git-hub.</p>
-<p>This howto assumes you already have a working conda installation.</p>
-<ol class="simple">
-<li><p>Install the dependencies</p></li>
-</ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.8</span> <span class="n">matplotlib</span> <span class="n">scipy</span> <span class="n">pandas</span> <span class="n">scikit</span><span class="o">-</span><span class="n">learn</span> <span class="n">pyqt</span> <span class="n">ezc3d</span> <span class="n">limitedinteraction</span> <span class="n">git</span> <span class="n">pytest</span> <span class="n">mypy</span> <span class="n">coverage</span> <span class="n">jupyterlab</span> <span class="n">spyder</span> <span class="n">sphinx</span> <span class="n">sphinx_rtd_theme</span> <span class="n">sphinx</span><span class="o">-</span><span class="n">autodoc</span><span class="o">-</span><span class="n">typehints</span> <span class="n">nbsphinx</span> <span class="n">twine</span>
-</pre></div>
+<p>To help developping Kinetics Toolkits by testing it or extending it, you can install it directly from git-hub. Although you can install and use Kinetics Toolkit directly from the git-hub repository, you need additional modules to develop it.</p>
+<div class="section" id="install-the-development-requirements">
+<h2>Install the development requirements<a class="headerlink" href="#install-the-development-requirements" title="Permalink to this headline"></a></h2>
+<p>For this step, I advise to create an environment such as the one we use <a class="reference external" href="https://github.com/felixchenier/mosa">at our lab</a>.</p>
 </div>
+<div class="section" id="install-kinetics-toolkit-s-development-version">
+<h2>Install Kinetics Toolkit’s development version<a class="headerlink" href="#install-kinetics-toolkit-s-development-version" title="Permalink to this headline"></a></h2>
+<p>One you installed the <code class="docutils literal notranslate"><span class="pre">mosa</span></code> environment described in the link above, you can install the development version of Kinetics Tookit:</p>
 <ol class="simple">
-<li><p>Clone the git repository</p></li>
+<li><p>Clone the git repository: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/felixchenier/kineticstoolkit.git</span> <span class="pre">kineticstoolkit</span></code></p></li>
+<li><p>Add the <code class="docutils literal notranslate"><span class="pre">kineticstoolkit</span></code> folder to your PYTHON_PATH according to your favourite IDE and python installation.</p></li>
 </ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">felixchenier</span><span class="o">/</span><span class="n">kineticstoolkit</span><span class="o">.</span><span class="n">git</span> <span class="n">ktk_develop</span>
-</pre></div>
 </div>
-<ol class="simple">
-<li><p>Add ktk_develop to your PYTHON_PATH</p></li>
-</ol>
-<p>Add the <code class="docutils literal notranslate"><span class="pre">ktk_develop</span></code> folder to your PYTHON_PATH according to your favourite IDE and python installation.</p>
-<ol class="simple">
-<li><p>To keep up to date</p></li>
-</ol>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">ktk_develop</span>
-<span class="n">git</span> <span class="n">pull</span> <span class="n">origin</span> <span class="n">master</span>
-</pre></div>
 </div>
-</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="00_index.html" class="btn btn-neutral float-left" title="Developing Kinetics Toolkit" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="02_developer_manual.html" class="btn btn-neutral float-right" title="Developer manual" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="02_development_rules.html" class="btn btn-neutral float-right" title="Development rules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

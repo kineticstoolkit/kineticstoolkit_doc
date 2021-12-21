@@ -2,8 +2,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>2.4. Detecting and normalizing cycles &mdash; Kinetics Toolkit (dev) master documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -66,6 +65,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../05_geometry/00_index.html">2.5. Rigid body geometry</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../06_kinematics/00_index.html">2.6. Kinematics analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../07_pushrimkinetics/00_index.html">2.7. Wheelchair kinetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08_conventions/00_index.html">2.8. Conventions</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../03_in_depth/00_index.html">3. In depth</a></li>
@@ -115,7 +115,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="detecting-and-normalizing-cycles">
+  <div class="tex2jax_ignore mathjax_ignore section" id="detecting-and-normalizing-cycles">
 <h1><span class="section-number">2.4. </span>Detecting and normalizing cycles<a class="headerlink" href="#detecting-and-normalizing-cycles" title="Permalink to this headline"></a></h1>
 <p>The <a class="reference internal" href="../../api/kineticstoolkit.cycles.html"><span class="doc std std-doc">cycles</span></a> module allows detecting cycles in TimeSeries, time-normalize these cycles and find the most repeatable ones.</p>
 <p>In this tutorial, we will use kinetics data from wheelchair propulsion using a csv file.</p>
@@ -161,7 +161,7 @@
 <img alt="../../_images/00_index_3_0.png" src="../../_images/00_index_3_0.png" />
 </div>
 </div>
-<section id="detecting-cycles">
+<div class="section" id="detecting-cycles">
 <h2><span class="section-number">2.4.1. </span>Detecting cycles<a class="headerlink" href="#detecting-cycles" title="Permalink to this headline"></a></h2>
 <p>The <a class="reference internal" href="../../api/kineticstoolkit.cycles.detect_cycles.html"><span class="doc std std-doc">cycles.detect_cycles()</span></a> function allows detecting cycles in a TimeSeries, using one specified signal from this TimeSeries. Here, this signal will be the total force Ftot.</p>
 <p>We first calculate it based on the three force components and we add it as a new data of the TimeSeries.</p>
@@ -239,8 +239,8 @@
 <li><p>Transition from phase 1 to phase 2: <code class="docutils literal notranslate"><span class="pre">event_name2</span></code></p></li>
 <li><p>Cycle end: <code class="docutils literal notranslate"><span class="pre">_</span></code>.</p></li>
 </ul>
-</section>
-<section id="time-normalizing-cycles">
+</div>
+<div class="section" id="time-normalizing-cycles">
 <h2><span class="section-number">2.4.2. </span>Time-normalizing cycles<a class="headerlink" href="#time-normalizing-cycles" title="Permalink to this headline"></a></h2>
 <p>Once the cycles have been detected, we can time-normalize these cycles using <a class="reference internal" href="../../api/kineticstoolkit.cycles.time_normalize.html"><span class="doc std std-doc">cycles.time_normalize()</span></a> to get them on the same time scale (a percentage of the cycle). Each of the 12 complete cycles is then time-normalized from 0 to 100%, with cycles being multiples of 100%.</p>
 <div class="cell docutils container">
@@ -296,8 +296,8 @@
 </div>
 </div>
 <p>Note that in this case, each time point represents 1% of a push cycle, but the TimeSeries wrap every 145 points (0 to 19 is the pre-push for the first cycle, 20 to 119 is the first push, 120 to 144 is the post-release for the first cycle, etc.).</p>
-</section>
-<section id="combining-the-cycles">
+</div>
+<div class="section" id="combining-the-cycles">
 <h2><span class="section-number">2.4.3. </span>Combining the cycles<a class="headerlink" href="#combining-the-cycles" title="Permalink to this headline"></a></h2>
 <p>Time-normalizing cycles is often performed in the aim of performing further operations such as computing and visualizing the average cycle. Therefore, the next logical step is often to group the cycles into indexable arrays. This can be done using the <a class="reference internal" href="../../api/kineticstoolkit.cycles.stack.html"><span class="doc std std-doc">cycles.stack()</span></a> function.</p>
 <p>In this example, we will stack the data from the last computed TimeSeries.</p>
@@ -342,8 +342,8 @@
 <img alt="../../_images/00_index_21_0.png" src="../../_images/00_index_21_0.png" />
 </div>
 </div>
-</section>
-<section id="finding-the-most-repeatable-cycles">
+</div>
+<div class="section" id="finding-the-most-repeatable-cycles">
 <h2><span class="section-number">2.4.4. </span>Finding the most repeatable cycles<a class="headerlink" href="#finding-the-most-repeatable-cycles" title="Permalink to this headline"></a></h2>
 <p>In the previous step, we calculated an average cycle. However, this average cycle was calculated on cycles that were very different between each other. We can use the <a class="reference internal" href="../../api/kineticstoolkit.cycles.most_repeatable_cycles.html"><span class="doc std std-doc">cycles.most_repeatable_cycles()</span></a> function to obtain an ordered list from the most repeatable cycles to the most different one. Here, we will base this analysis on the <code class="docutils literal notranslate"><span class="pre">Ftot</span></code> signal.</p>
 <div class="cell docutils container">
@@ -384,8 +384,8 @@
 </div>
 </div>
 <p>For more information on cycles, please check the <a class="reference internal" href="../../api/kineticstoolkit.cycles.html"><span class="doc std std-doc">API Reference for the cycles module</span></a>.</p>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>
