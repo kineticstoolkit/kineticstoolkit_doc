@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Variables and arithmetics &mdash; Kinetics Toolkit 0.6.2.1 documentation</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/stable.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Numpy basics" href="../02_numpy_basics/00_index.html" />
+    <link rel="prev" title="Using Spyder" href="02_using_spyder.html" />
+
+
+ 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: black" >
+            <a href="../../index.html">
+            <img src="../../_static/logo_with_text_black.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">MANUAL</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/00_index.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../02_tutorials/00_index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../03_in_depth/00_index.html">In depth</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../00_index.html">Learning Python</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="00_index.html">Python basics</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="01_installing_python.html">Installing Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_using_spyder.html">Using Spyder</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Variables and arithmetics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#strings">Strings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#numbers-and-arithmetics">Numbers and arithmetics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#to-be-continued">To be continued</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../02_numpy_basics/00_index.html">Numpy basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../02_numpy_basics/00_index.html#a-visual-intro-to-numpy-and-data-representation">A Visual Intro to NumPy and Data Representation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../03_matplotlib_basics/00_index.html">Matplotlib basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../04_pandas_basics/00_index.html">Pandas basics</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API REFERENCE</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../99_api_reference/01_classes.html">Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../99_api_reference/02_functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../99_api_reference/03_modules.html">Modules</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">LINKS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://felixchenier.uqam.ca/ktk_develop">Development website</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: black" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Kinetics Toolkit</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../00_index.html">Learning Python</a> &raquo;</li>
+          <li><a href="00_index.html">Python basics</a> &raquo;</li>
+      <li>Variables and arithmetics</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="02_using_spyder.html" class="btn btn-neutral float-left" title="Using Spyder" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../02_numpy_basics/00_index.html" class="btn btn-neutral float-right" title="Numpy basics" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section class="tex2jax_ignore mathjax_ignore" id="variables-and-arithmetics">
+<h1>Variables and arithmetics<a class="headerlink" href="#variables-and-arithmetics" title="Permalink to this headline"></a></h1>
+<section id="strings">
+<h2>Strings<a class="headerlink" href="#strings" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=iAzShkKzpJo&amp;list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-&amp;index=4&amp;t=41s">Strings (Socratica)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=YYXdXT2l-Gg&amp;list=PL-osiE80TeTskrapNbzXhwoFUiLCjGgY7&amp;index=2&amp;t=0s">Strings (Schafer)</a></p></li>
+</ul>
+</section>
+<section id="numbers-and-arithmetics">
+<h2>Numbers and arithmetics<a class="headerlink" href="#numbers-and-arithmetics" title="Permalink to this headline"></a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=_87ASgggEg0&amp;list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-&amp;index=6&amp;t=6s">Numbers: int, float, complex (Socratica)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=Aj8FQRIHJSc&amp;list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-&amp;index=8&amp;t=0s">Arithmetics (Socratica)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=khKv-8q7YmY&amp;list=PL-osiE80TeTskrapNbzXhwoFUiLCjGgY7&amp;index=4&amp;t=0s">Numbers: int, float (Schafer)</a></p></li>
+</ul>
+</section>
+<section id="to-be-continued">
+<h2>To be continued<a class="headerlink" href="#to-be-continued" title="Permalink to this headline"></a></h2>
+<p>Socratica:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=BVXv0-1Rcc8&amp;list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-&amp;index=9&amp;t=84s">Help</a> (In Spyder, we can also use the Help pane)</p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=9OK32jb_TdI&amp;list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-&amp;index=10&amp;t=0s">Booleans (True, False) and logical operations</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=f4KOjWS_KZs&amp;list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-&amp;index=12&amp;t=0s">Conditions (if, elif, else)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=NE97ylAnrz4&amp;list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-&amp;index=13&amp;t=0s">Functions</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=sBvaPopWOmQ&amp;list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-&amp;index=14&amp;t=0s">Sets</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=ohCDWZgNIU0&amp;list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-&amp;index=15&amp;t=0s">Lists</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=XCcpzWs-CI4&amp;list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-&amp;index=16&amp;t=193s">Dictionaries</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=NI26dqhs2Rk&amp;list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-&amp;index=17&amp;t=148s">Tuples</a></p></li>
+</ul>
+<p>Corey Schafer:</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=W8KRzm-HUcc&amp;list=PL-osiE80TeTskrapNbzXhwoFUiLCjGgY7&amp;index=5&amp;t=0s">Sequences and sets (list, tuple, set)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=daefaLgNkw0&amp;list=PL-osiE80TeTskrapNbzXhwoFUiLCjGgY7&amp;index=6&amp;t=0s">Dictionaries (dict)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=DZwmZ8Usvnk&amp;list=PL-osiE80TeTskrapNbzXhwoFUiLCjGgY7&amp;index=7&amp;t=0s">Booleans (True, False) and conditions (if, elif, else)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=6iF8Xb7Z3wQ&amp;list=PL-osiE80TeTskrapNbzXhwoFUiLCjGgY7&amp;index=8&amp;t=0s">Loops (for, while)</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=9Os0o3wzS_I&amp;list=PL-osiE80TeTskrapNbzXhwoFUiLCjGgY7&amp;index=9&amp;t=0s">Functions</a></p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="02_using_spyder.html" class="btn btn-neutral float-left" title="Using Spyder" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../02_numpy_basics/00_index.html" class="btn btn-neutral float-right" title="Numpy basics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2020-2021, Félix Chénier.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

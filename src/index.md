@@ -55,10 +55,10 @@ GitHub <https://github.com/felixchenier/kineticstoolkit>
 ```
 
 :::{ifconfig} release == 'master'
-```{toctree}
-:caption: FOR DEVELOPERS
-:glob:
+    ```{toctree}
+    :caption: FOR DEVELOPERS
+    :glob:
 
-99_for_developers/*/00_index
-```
+    99_for_developers/*/00_index
+    ```
 :::

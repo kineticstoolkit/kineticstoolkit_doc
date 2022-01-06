@@ -6,7 +6,7 @@ Kinetics Toolkit is a Python package for generic biomechanical analysis of human
 
 While Kinetics Toolkit provides a dedicated class for containing and manipulating data (`TimeSeries`), it loosely follows a procedural programming paradigm where processes are grouped as interrelated functions in different submodules, which is consistent with how people are generally introduced to programming. Each function has a limited and well-defined scope, making Kinetics Toolkit generic and expandable. Particular care is given to documentation, with extensive tutorials and API references. Special attention is also given to interoperability with other software programs by using Pandas Dataframes (and therefore CSV files, Excel files, etc.), JSON files or C3D files as intermediate data containers.
 
-Kinetics Toolkit is accessible at https://kineticstoolkit.uqam.ca and is distributed via conda and pip[^1].
+Kinetics Toolkit is accessible at [](https://kineticstoolkit.uqam.ca) and is distributed via conda and pip[^1].
 
 [^1]: This Summary is from the white paper published in
 [Journal of Open Source Software](https://joss.theoj.org/papers/10.21105/joss.03714).

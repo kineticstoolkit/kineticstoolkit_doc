@@ -25,7 +25,7 @@ if release == 'master':
 else:
     project = 'Kinetics Toolkit'
 
-copyright = '2020-2021, Félix Chénier'
+copyright = '2020-2022, Félix Chénier'
 author = 'Félix Chénier'
 
 
@@ -42,10 +42,9 @@ extensions = [
     # Allow conditional contents for master vs stable versions
     'sphinx.ext.ifconfig',
 
-    # 'nbsphinx',
     'sphinx_autodoc_typehints',
     'sphinxcontrib.mermaid',
-    'myst_nb',             # Instead of nbsphinx to generate mermaid from md files
+    'myst_nb',
 ]
 
 autodoc_default_options = {
@@ -59,9 +58,6 @@ myst_enable_extensions = [
     'dollarmath',
     'html_admonition',
 ]
-
-#
-#nbsphinx_execute = 'never'
 
 # Myst-nb options
 jupyter_execute_notebooks = "cache"

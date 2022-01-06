@@ -79,7 +79,7 @@ player.to_html5(start_time=0, stop_time=1)
 
 To calculate the elbow angles, we need to express frames for the arm and forearm segments. The elbow angles will be extracted from the homogeneous transform between both frames.
 
-We will use the recommendations of the International Society of Biomechanics [1] to define these local coordinate systems:
+We will use the recommendations of the International Society of Biomechanics [^1] to define these local coordinate systems:
 
 ### Arm coordinate system
 
