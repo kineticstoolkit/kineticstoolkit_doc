@@ -1,14 +1,3 @@
----
-jupytext:
-  text_representation:
-    extension: .md
-    format_name: myst
-kernelspec:
-  display_name: Python 3 (ipykernel)
-  language: python
-  name: python3
----
-
 # Developer manual
 
 This is a draft for an upcoming coding style for Kinetics Toolkit and other projects at the Research Lab on Mobility in Adaptive Sports.
@@ -67,7 +56,7 @@ In addition, the following convention is used:
 
 Kinetics Toolkit is type-hinted, with static type checking performed by `mypy`. It does not use python 3.9 contained types yet, and therefore relies on the standard `typing` library.
 
-```{code-cell}
+```
 import pandas as pd
 import numpy as np
 from typing import Dict
@@ -85,7 +74,7 @@ New public functions appear and live in the following order:
 
 These functions are currently being developed. They are considered public in the development API, and private in the stable API. They are decorated by the `@unstable` decorator, which automates the documentation of their unstable status both in their doctring and in the API documentation. This decorator automates the inclusion of these functions in the development API, and their exclusion from the stable API.
 
-```{code-cell}
+```
 from kineticstoolkit.decorators import unstable
 
 
@@ -116,7 +105,7 @@ Standard production function, without specific decorator or warning.
 
 Standard function, but decorated with the `@deprecated` decorator:
 
-```{code-cell}
+```
 from kineticstoolkit.decorators import deprecated
 
 

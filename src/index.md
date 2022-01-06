@@ -31,7 +31,6 @@ Thanks to Clay Flannigan for his [icp](https://github.com/ClayFlannigan/icp) met
 ```{toctree}
 :caption: MANUAL
 :glob:
-:numbered:
 
 0*/00_index
 ```
