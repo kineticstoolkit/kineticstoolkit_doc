@@ -2,8 +2,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>2.6.2. Calculating joint angles from a kinematic acquisition &mdash; Kinetics Toolkit (dev) master documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -71,6 +70,7 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../07_pushrimkinetics/00_index.html">2.7. Wheelchair kinetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08_conventions/00_index.html">2.8. Conventions</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../03_in_depth/00_index.html">3. In depth</a></li>
@@ -121,7 +121,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="calculating-joint-angles-from-a-kinematic-acquisition">
+  <div class="tex2jax_ignore mathjax_ignore section" id="calculating-joint-angles-from-a-kinematic-acquisition">
 <h1><span class="section-number">2.6.2. </span>Calculating joint angles from a kinematic acquisition<a class="headerlink" href="#calculating-joint-angles-from-a-kinematic-acquisition" title="Permalink to this headline"></a></h1>
 <p>In this tutorial, we will calculate the elbow joint angles in the acquisition presented in the previous section. At the end of the tutorial, we will have plotted curves of elbow flexion and pronation angles during the complete acquisition.</p>
 <p>Such an analysis is composed of the following steps:</p>
@@ -138,7 +138,7 @@
 </div>
 </div>
 </div>
-<section id="read-and-visualize-marker-trajectories">
+<div class="section" id="read-and-visualize-marker-trajectories">
 <h2><span class="section-number">2.6.2.1. </span>Read and visualize marker trajectories<a class="headerlink" href="#read-and-visualize-marker-trajectories" title="Permalink to this headline"></a></h2>
 <p>We proceed exactly as in the previous tutorial:</p>
 <div class="cell docutils container">
@@ -1557,12 +1557,12 @@ AAEAAAAATGF2ZjU4Ljc2LjEwMA==
   Your browser does not support the video tag.
 </video></div></div>
 </div>
-</section>
-<section id="create-local-coordinate-systems">
+</div>
+<div class="section" id="create-local-coordinate-systems">
 <h2><span class="section-number">2.6.2.2. </span>Create local coordinate systems<a class="headerlink" href="#create-local-coordinate-systems" title="Permalink to this headline"></a></h2>
 <p>To calculate the elbow angles, we need to express frames for the arm and forearm segments. The elbow angles will be extracted from the homogeneous transform between both frames.</p>
 <p>We will use the recommendations of the International Society of Biomechanics [1] to define these local coordinate systems:</p>
-<section id="arm-coordinate-system">
+<div class="section" id="arm-coordinate-system">
 <h3><span class="section-number">2.6.2.2.1. </span>Arm coordinate system<a class="headerlink" href="#arm-coordinate-system" title="Permalink to this headline"></a></h3>
 <p>Following the ISB recommendations, the local coordinate system for the humerus is defined as follow:</p>
 <p><strong>1. The origin is GH (glenohumeral joint).</strong></p>
@@ -3100,8 +3100,8 @@ AAABAAAAAExhdmY1OC43Ni4xMDA=
   Your browser does not support the video tag.
 </video></div></div>
 </div>
-</section>
-<section id="forearm-frame">
+</div>
+<div class="section" id="forearm-frame">
 <h3><span class="section-number">2.6.2.2.2. </span>Forearm frame<a class="headerlink" href="#forearm-frame" title="Permalink to this headline"></a></h3>
 <p>We will now proceed with the exact same steps to create the forearm coordinate system. From the ISB <a class="footnote-reference brackets" href="#id3" id="id1">1</a> :</p>
 <p><strong>1. The origin is US (ulnar styloid process).</strong></p>
@@ -4692,9 +4692,9 @@ c3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguNzYuMTAw
   Your browser does not support the video tag.
 </video></div></div>
 </div>
-</section>
-</section>
-<section id="find-the-series-of-homogeneous-transforms-between-both-segments">
+</div>
+</div>
+<div class="section" id="find-the-series-of-homogeneous-transforms-between-both-segments">
 <h2><span class="section-number">2.6.2.3. </span>Find the series of homogeneous transforms between both segments<a class="headerlink" href="#find-the-series-of-homogeneous-transforms-between-both-segments" title="Permalink to this headline"></a></h2>
 <p>Now that we have expressed frames for both the arm and forearm, we can find the homogeneous transform between both frames. This is equivalent to expressing the forearm frame in the local coordinates system of the arm.</p>
 <div class="cell docutils container">
@@ -4744,8 +4744,8 @@ c3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguNzYuMTAw
 </div>
 </div>
 </div>
-</section>
-<section id="extract-the-series-of-euler-angles">
+</div>
+<div class="section" id="extract-the-series-of-euler-angles">
 <h2><span class="section-number">2.6.2.4. </span>Extract the series of Euler angles<a class="headerlink" href="#extract-the-series-of-euler-angles" title="Permalink to this headline"></a></h2>
 <p>We now have a series of homogeneous matrices, from which we will now extract Euler angles corresponding to flexion and pronation. We will use the <a class="reference internal" href="../../api/kineticstoolkit.geometry.get_angles.html"><span class="doc std std-doc">geometry.get_angles()</span></a> function to extract these Euler angles. We however fist need to define the sequence of rotation for these angles. Still following the recommendations of the International Society of Biomechanics <a class="footnote-reference brackets" href="#id3" id="id2">1</a>, we define the series of rotations from the arm to forearm as:</p>
 <p><strong>First rotation:</strong> Around the humerus’ z axis. Corresponds to a flexion (positive) or hyperextension (negative).</p>
@@ -4772,8 +4772,8 @@ c3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguNzYuMTAw
 </div>
 </div>
 </div>
-</section>
-<section id="plot-the-euler-angles">
+</div>
+<div class="section" id="plot-the-euler-angles">
 <h2><span class="section-number">2.6.2.5. </span>Plot the Euler angles<a class="headerlink" href="#plot-the-euler-angles" title="Permalink to this headline"></a></h2>
 <p>Now that we calculated the angles, it would be a good idea to create a last TimeSeries to keep track of the time and meaning of these angles.</p>
 <div class="cell docutils container">
@@ -4824,8 +4824,8 @@ c3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguNzYuMTAw
 <dd><p>G. Wu et al., “ISB recommendation on definitions of joint coordinate systems of various joints for the reporting of human joint motion - Part II: shoulder, elbow, wrist and hand,” Journal of Biomechanics, vol. 38, no. 5, pp. 981–992, 2005.</p>
 </dd>
 </dl>
-</section>
-</section>
+</div>
+</div>
 
 
            </div>

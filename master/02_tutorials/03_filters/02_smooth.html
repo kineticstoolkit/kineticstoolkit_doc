@@ -2,8 +2,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>2.3.2. Smoothing signals using a moving average &mdash; Kinetics Toolkit (dev) master documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -66,6 +65,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../05_geometry/00_index.html">2.5. Rigid body geometry</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../06_kinematics/00_index.html">2.6. Kinematics analysis</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../07_pushrimkinetics/00_index.html">2.7. Wheelchair kinetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../08_conventions/00_index.html">2.8. Conventions</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../03_in_depth/00_index.html">3. In depth</a></li>
@@ -116,7 +116,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="smoothing-signals-using-a-moving-average">
+  <div class="tex2jax_ignore mathjax_ignore section" id="smoothing-signals-using-a-moving-average">
 <h1><span class="section-number">2.3.2. </span>Smoothing signals using a moving average<a class="headerlink" href="#smoothing-signals-using-a-moving-average" title="Permalink to this headline"></a></h1>
 <p>The moving average is an excellent filter to remove noise that is related to a specific time pattern. The classic example is the day-to-day evaluation of a process that is sensible to week-ends (for example, the number of workers who enter a building). A moving average with a window length of 7 days is ideal to evaluate the generic trend of this signal without considering intra-week fluctuations. Although its use in biomechanics is less obvious, this filter may be useful in some situation. This tutorial will show how to use the <a class="reference internal" href="../../api/kineticstoolkit.filters.smooth.html"><span class="doc std std-doc">ktk.filters.smooth()</span></a> function on TimeSeries data.</p>
 <div class="cell docutils container">
@@ -164,7 +164,7 @@
 </div>
 </div>
 <p>As expected, the 5-sample period noise was completely removed. Some signal was however averaged and we therefore lost some dynamics in the signal.</p>
-</section>
+</div>
 
 
            </div>

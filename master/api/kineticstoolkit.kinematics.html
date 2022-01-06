@@ -2,8 +2,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>kineticstoolkit.kinematics &mdash; Kinetics Toolkit (dev) master documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -27,7 +26,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="kineticstoolkit.kinematics.create_cluster" href="kineticstoolkit.kinematics.create_cluster.html" />
-    <link rel="prev" title="kineticstoolkit.geometry.register_points" href="kineticstoolkit.geometry.register_points.html" />
+    <link rel="prev" title="kineticstoolkit.inversedynamics.get_anthropometrics" href="kineticstoolkit.inversedynamics.get_anthropometrics.html" />
 
 
  
@@ -51,35 +50,40 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">MANUAL</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../01_getting_started/00_index.html">1. Getting started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../02_tutorials/00_index.html">2. Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../03_in_depth/00_index.html">3. In depth</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../04_learning_python/00_index.html">4. Learning Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../01_getting_started/00_index.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_tutorials/00_index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_in_depth/00_index.html">In depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05_learning_python/00_index.html">Learning Python</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API REFERENCE</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../99_api_reference/01_classes.html">Classes</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../99_api_reference/02_functions.html">Functions</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../99_api_reference/03_modules.html">Modules</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="kineticstoolkit.cycles.html">kineticstoolkit.cycles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="kineticstoolkit.filters.html">kineticstoolkit.filters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="kineticstoolkit.geometry.html">kineticstoolkit.geometry</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">kineticstoolkit.kinematics</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.kinematics.create_cluster.html">kineticstoolkit.kinematics.create_cluster</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.kinematics.define_local_position.html">kineticstoolkit.kinematics.define_local_position</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.kinematics.define_rigid_body.html">kineticstoolkit.kinematics.define_rigid_body</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.kinematics.extend_cluster.html">kineticstoolkit.kinematics.extend_cluster</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.kinematics.read_c3d_file.html">kineticstoolkit.kinematics.read_c3d_file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.kinematics.read_n3d_file.html">kineticstoolkit.kinematics.read_n3d_file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.kinematics.track_cluster.html">kineticstoolkit.kinematics.track_cluster</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.kinematics.track_rigid_bodies.html">kineticstoolkit.kinematics.track_rigid_bodies</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.kinematics.track_rigid_body.html">kineticstoolkit.kinematics.track_rigid_body</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.kinematics.write_c3d_file.html">kineticstoolkit.kinematics.write_c3d_file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.kinematics.write_trc_file.html">kineticstoolkit.kinematics.write_trc_file</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api_reference.html#classes">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_reference.html#functions">Functions</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../api_reference.html#submodules">Submodules</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.cycles.html">kineticstoolkit.cycles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.emg.html">kineticstoolkit.emg</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.filters.html">kineticstoolkit.filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.geometry.html">kineticstoolkit.geometry</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.inversedynamics.html">kineticstoolkit.inversedynamics</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">kineticstoolkit.kinematics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="kineticstoolkit.kinematics.create_cluster.html">kineticstoolkit.kinematics.create_cluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="kineticstoolkit.kinematics.define_local_position.html">kineticstoolkit.kinematics.define_local_position</a></li>
+<li class="toctree-l4"><a class="reference internal" href="kineticstoolkit.kinematics.define_rigid_body.html">kineticstoolkit.kinematics.define_rigid_body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="kineticstoolkit.kinematics.extend_cluster.html">kineticstoolkit.kinematics.extend_cluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="kineticstoolkit.kinematics.read_c3d_file.html">kineticstoolkit.kinematics.read_c3d_file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="kineticstoolkit.kinematics.read_n3d_file.html">kineticstoolkit.kinematics.read_n3d_file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="kineticstoolkit.kinematics.track_cluster.html">kineticstoolkit.kinematics.track_cluster</a></li>
+<li class="toctree-l4"><a class="reference internal" href="kineticstoolkit.kinematics.track_rigid_bodies.html">kineticstoolkit.kinematics.track_rigid_bodies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="kineticstoolkit.kinematics.track_rigid_body.html">kineticstoolkit.kinematics.track_rigid_body</a></li>
+<li class="toctree-l4"><a class="reference internal" href="kineticstoolkit.kinematics.write_c3d_file.html">kineticstoolkit.kinematics.write_c3d_file</a></li>
+<li class="toctree-l4"><a class="reference internal" href="kineticstoolkit.kinematics.write_trc_file.html">kineticstoolkit.kinematics.write_trc_file</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="kineticstoolkit.pushrimkinetics.html">kineticstoolkit.pushrimkinetics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../99_api_reference/03_modules.html#unreleased-modules">Unreleased modules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.pushrimkinetics.html">kineticstoolkit.pushrimkinetics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.anthropometrics.html">kineticstoolkit.anthropometrics</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -108,12 +112,12 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../99_api_reference/03_modules.html">Modules</a> &raquo;</li>
+          <li><a href="../api_reference.html">API Reference</a> &raquo;</li>
       <li>kineticstoolkit.kinematics</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="kineticstoolkit.geometry.register_points.html" class="btn btn-neutral float-left" title="kineticstoolkit.geometry.register_points" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="kineticstoolkit.inversedynamics.get_anthropometrics.html" class="btn btn-neutral float-left" title="kineticstoolkit.inversedynamics.get_anthropometrics" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="kineticstoolkit.kinematics.create_cluster.html" class="btn btn-neutral float-right" title="kineticstoolkit.kinematics.create_cluster" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
@@ -121,7 +125,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-kineticstoolkit.kinematics">
+  <div class="section" id="module-kineticstoolkit.kinematics">
 <span id="kineticstoolkit-kinematics"></span><h1>kineticstoolkit.kinematics<a class="headerlink" href="#module-kineticstoolkit.kinematics" title="Permalink to this headline"></a></h1>
 <p>Provide functions related to kinematics analysis.</p>
 <p class="rubric">Functions</p>
@@ -166,13 +170,13 @@
 </tr>
 </tbody>
 </table>
-</section>
+</div>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="kineticstoolkit.geometry.register_points.html" class="btn btn-neutral float-left" title="kineticstoolkit.geometry.register_points" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="kineticstoolkit.inversedynamics.get_anthropometrics.html" class="btn btn-neutral float-left" title="kineticstoolkit.inversedynamics.get_anthropometrics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="kineticstoolkit.kinematics.create_cluster.html" class="btn btn-neutral float-right" title="kineticstoolkit.kinematics.create_cluster" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
