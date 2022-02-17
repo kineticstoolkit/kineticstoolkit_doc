@@ -3,6 +3,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.13.1
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -31,11 +33,11 @@ import matplotlib.pyplot as plt
 
 In this tutorial, we will load propulsion data from a sprint in Wheelchair Basketball. Kinetics were recorded using an instrumented wheel (SmartWheel) and kinematics were recorded using an optoelectronic system (Optitrack). Both are synchronized.
 
-```{code-cell}
+```{code-cell} ipython3
 # Load kinetics
 kinetics = ktk.load(
-    ktk.config.root_folder +
-    '/data/inversedynamics/basketball_kinetics.ktk.zip')
+    ktk.doc.download('inversedynamics_kinetics.ktk.zip')
+)
 
 # Change some signs to match (locally): x anterior, # y up, z lateral (right)
 kinetics.data['Forces'][:, 0] = -kinetics.data['Forces'][:, 0]
@@ -54,11 +56,11 @@ plt.subplot(1, 2, 2)
 kinetics.plot('Moments')
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # Load kinematics
 kinematics = ktk.load(
-    ktk.config.root_folder +
-    '/data/inversedynamics/basketball_kinematics.ktk.zip')['Kinematics']
+    ktk.doc.download('inversedynamics_kinematics.ktk.zip')
+)['Kinematics']
 
 # Extract markers
 markers = kinematics['Markers']
@@ -79,7 +81,7 @@ markers.plot('RadialStyloidR')
 markers.data
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # Check what frames are available
 frames.data
 ```
@@ -88,7 +90,7 @@ frames.data
 
 We will now create a single TimeSeries with every relevant signal. Note that for kinematics, we use `merge` instead of simply copying the data, because kinetics and kinematics have different sampling rate and therefore the data have different lengths. Merging takes care of resampling.
 
-```{code-cell}
+```{code-cell} ipython3
 ts_all = ktk.TimeSeries(time=kinetics.time, events=kinetics.events)
 
 # Add frames (to put pushrim kinetics in global coordinates,
@@ -123,7 +125,7 @@ ts_all.data
 
 The same calculation is done on every segment, from distal to proximal. We begin with the segment 'Wheel' with the point of force application at the hub (since the measured values are referred at the hub).
 
-```{code-cell}
+```{code-cell} ipython3
 # Create an empty TimeSeries
 ts = ktk.TimeSeries(time=kinetics.time, events=kinetics.events)
 
@@ -142,7 +144,7 @@ ts.data
 
 We now have everything to start computing the forces and moments at the wrist.
 
-```{code-cell}
+```{code-cell} ipython3
 # We neglect the inertial properties of the wheel. This is a limit and we could improve on this.
 inertial_constants = {
     'Mass' : 0,
@@ -153,7 +155,7 @@ inertial_constants = {
 
 ### Calculate the COM position of the wheel segment
 
-```{code-cell}
+```{code-cell} ipython3
 ts = ktk.inversedynamics.calculate_com_position(ts, inertial_constants)
 
 ts.data
@@ -161,7 +163,7 @@ ts.data
 
 ### Calculate the COM acceleration of the wheel segment
 
-```{code-cell}
+```{code-cell} ipython3
 ts = ktk.inversedynamics.calculate_com_acceleration(ts, 'butter', fc=10)
 
 ts.data
@@ -169,7 +171,7 @@ ts.data
 
 ### Calculate the wheel segment's angles around the global x, y and z axes
 
-```{code-cell}
+```{code-cell} ipython3
 ts = ktk.inversedynamics.calculate_segment_angles(ts)
 
 ts.data
@@ -177,7 +179,7 @@ ts.data
 
 ### Calculate the segment's angular velocity and acceleration around the global x, y and z axes
 
-```{code-cell}
+```{code-cell} ipython3
 ts = ktk.inversedynamics.calculate_segment_rotation_rates(ts, 'butter', fc=10)
 
 ts.data
@@ -185,7 +187,7 @@ ts.data
 
 ### Finally, calculate the proximal forces and moments
 
-```{code-cell}
+```{code-cell} ipython3
 ts = ktk.inversedynamics.calculate_proximal_wrench(ts, inertial_constants)
 
 ts.data
@@ -193,18 +195,18 @@ ts.data
 
 ### Add the calculated distal forces and moments to the ts_all TimeSeries
 
-```{code-cell}
+```{code-cell} ipython3
 ts_all.data['WristForces'] = ts.data['ProximalForces']
 ts_all.data['WristMoments'] = ts.data['ProximalMoments']
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # Plot the hub and wrist forces (identical since
 # there were no inertial constants on this segment)
 ts_all.plot(['HubForces', 'WristForces'])
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # Plot the hub and wrist moments (not identical
 # because of the lever arm between the hub and wrist)
 ts_all.plot(['HubMoments', 'WristMoments'])
@@ -214,7 +216,7 @@ ts_all.plot(['HubMoments', 'WristMoments'])
 
 The method is identical for the other segments. However, for these segments, we will define inertial constants based on anthropometric tables.
 
-```{code-cell}
+```{code-cell} ipython3
 inertial_constants = ktk.inversedynamics.get_anthropometrics(
     segment_name='Forearm',
     total_mass=80)
@@ -222,7 +224,7 @@ inertial_constants = ktk.inversedynamics.get_anthropometrics(
 inertial_constants
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # Create an empty TimeSeries
 ts = ktk.TimeSeries(time=kinetics.time, events=kinetics.events)
 
@@ -254,7 +256,7 @@ ts_all.data['ElbowMoments'] = ts.data['ProximalMoments']
 ts_all.plot(['WristForces', 'ElbowForces'])
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # Compare the wrist moments to the elbow moments
 ts_all.plot(['WristMoments', 'ElbowMoments'])
 ```
@@ -263,7 +265,7 @@ ts_all.plot(['WristMoments', 'ElbowMoments'])
 
 We proceed exactly as for the elbow.
 
-```{code-cell}
+```{code-cell} ipython3
 inertial_constants = ktk.inversedynamics.get_anthropometrics(
     segment_name='UpperArm',
     total_mass=80)
@@ -271,7 +273,7 @@ inertial_constants = ktk.inversedynamics.get_anthropometrics(
 inertial_constants
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # Create an empty TimeSeries
 ts = ktk.TimeSeries(time=kinetics.time, events=kinetics.events)
 
@@ -303,7 +305,7 @@ ts_all.data['ShoulderMoments'] = ts.data['ProximalMoments']
 ts_all.plot(['ElbowForces', 'ShoulderForces'])
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 # Compare the elbow moments to the shoulder moments
 ts_all.plot(['ElbowMoments', 'ShoulderMoments'])
 ```
@@ -312,7 +314,7 @@ ts_all.plot(['ElbowMoments', 'ShoulderMoments'])
 
 Please note that every force and moment we just calculated is expressed in global coordinates, which is of limited value for interpretation. It is much more useful to express these data in local coordinates. Several conventions may be used, here we will express the shoulder forces in the trunk coordinate system, and the shoulder moments in the humeral coordinate system.
 
-```{code-cell}
+```{code-cell} ipython3
 # Create a new TimeSeries
 local_joint_dynamics = ktk.TimeSeries(time=ts_all.time, events=ts_all.events)
 
@@ -336,7 +338,7 @@ local_joint_dynamics.data['Moments'] = ktk.geometry.get_local_coordinates(
 
 Let's plot the shoulder forces in the trunk reference frame:
 
-```{code-cell}
+```{code-cell} ipython3
 local_joint_dynamics.plot('Forces')
 plt.legend(['Anterior', 'Upward', 'Lateral'])
 print('External forces in the trunk coordinate system:')
@@ -344,7 +346,7 @@ print('External forces in the trunk coordinate system:')
 
 ### Local moments
 
-```{code-cell}
+```{code-cell} ipython3
 local_joint_dynamics.plot('Moments')
 plt.legend(['Abduction', 'Internal rotation', 'Flexion'])
 print('Net internal shoulder moments:')

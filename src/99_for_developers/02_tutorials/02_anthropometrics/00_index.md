@@ -28,8 +28,7 @@ We will start by loading a sample dataset, inspect its contents and show it in a
 
 ```{code-cell}
 markers = ktk.load(
-    ktk.config.root_folder
-    + '/data/anthropometrics/static.ktk.zip'
+    ktk.doc.download('anthropometrics_static.ktk.zip')
 )
 
 # Print the available markers

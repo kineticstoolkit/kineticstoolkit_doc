@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Development rules &mdash; Kinetics Toolkit (dev) master documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -26,7 +27,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Coding style" href="03_coding_style.html" />
-    <link rel="prev" title="Installing from git-hub" href="01_install.html" />
+    <link rel="prev" title="Developer manual" href="02_developer_manual.html" />
 
 
  
@@ -50,10 +51,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">MANUAL</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/00_index.html">1. Getting started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../02_tutorials/00_index.html">2. Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../03_in_depth/00_index.html">3. In depth</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../04_learning_python/00_index.html">4. Learning Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/00_index.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../02_tutorials/00_index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../03_in_depth/00_index.html">In depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../04_learning_python/00_index.html">Learning Python</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API REFERENCE</span></p>
 <ul>
@@ -64,12 +65,13 @@
 <p class="caption" role="heading"><span class="caption-text">LINKS</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://felixchenier.uqam.ca/ktk_develop">Development website</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub repository</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">FOR DEVELOPERS</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="00_index.html">Developing Kinetics Toolkit</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="01_install.html">Installing from git-hub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_developer_manual.html">Developer manual</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Development rules</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#rule-1-code-of-conduct">Rule 1: Code of conduct</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#rule-2-consider-writing-tutorials-instead-of-code">Rule 2: Consider writing tutorials instead of code</a></li>
@@ -113,7 +115,7 @@
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="01_install.html" class="btn btn-neutral float-left" title="Installing from git-hub" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="02_developer_manual.html" class="btn btn-neutral float-left" title="Developer manual" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="03_coding_style.html" class="btn btn-neutral float-right" title="Coding style" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
@@ -121,14 +123,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="tex2jax_ignore mathjax_ignore section" id="development-rules">
+  <section class="tex2jax_ignore mathjax_ignore" id="development-rules">
 <h1>Development rules<a class="headerlink" href="#development-rules" title="Permalink to this headline"></a></h1>
 <p>This page is an attempt to guide future collaborators in co-developing Kinetics Toolkit. We will start with the first and most important rule:</p>
-<div class="section" id="rule-1-code-of-conduct">
+<section id="rule-1-code-of-conduct">
 <h2>Rule 1: Code of conduct<a class="headerlink" href="#rule-1-code-of-conduct" title="Permalink to this headline"></a></h2>
 <p>Developing should be fun for everyone, and anybody who wants to contribute should be welcomed, guided and respected. As for any collective developement, ideas can clash, friction can happen, and compromises can or cannot be done. However, despite this possible friction, it is of the utmost importance to stay polite, inclusive and respectful.</p>
-</div>
-<div class="section" id="rule-2-consider-writing-tutorials-instead-of-code">
+</section>
+<section id="rule-2-consider-writing-tutorials-instead-of-code">
 <h2>Rule 2: Consider writing tutorials instead of code<a class="headerlink" href="#rule-2-consider-writing-tutorials-instead-of-code" title="Permalink to this headline"></a></h2>
 <p>Before even starting to develop a new function, one should ask this important question: <strong>Should this feature really be developed, or should I write a tutorial instead?</strong></p>
 <p>We remind that Kinetics Toolkit aims to provide tools for the user to achieve their needs in biomechanical research. Often, the best way to control our data is by learning how to do it instead of using a function performs it for us. In that view, any new feature should start with a discussion on a <a class="reference external" href="https://github.com/felixchenier/kineticstoolkit/issues">feature request issue</a>.</p>
@@ -136,11 +138,11 @@
 <li><p>If a new tutorial is needed, then please contribute to the <a class="reference external" href="https://github.com/felixchenier/kineticstoolkit_doc">kineticstoolkit_doc</a> repository, that version this website’s code.</p></li>
 <li><p>If a new function or module is needed, then continue with this guide.</p></li>
 </ul>
-</div>
-<div class="section" id="rule-3-life-cycle-of-a-function-from-development-to-deprecation">
+</section>
+<section id="rule-3-life-cycle-of-a-function-from-development-to-deprecation">
 <h2>Rule 3: Life cycle of a function, from development to deprecation<a class="headerlink" href="#rule-3-life-cycle-of-a-function-from-development-to-deprecation" title="Permalink to this headline"></a></h2>
 <p>New public functions appear and live in the following order:</p>
-<div class="section" id="unstable">
+<section id="unstable">
 <h3>Unstable<a class="headerlink" href="#unstable" title="Permalink to this headline"></a></h3>
 <p>These functions are currently being developed. They are decorated with the <code class="docutils literal notranslate"><span class="pre">&#64;unstable</span></code> decorator. This decorator has two main functions:</p>
 <ul class="simple">
@@ -157,8 +159,8 @@
 
 </pre></div>
 </div>
-</div>
-<div class="section" id="experimental">
+</section>
+<section id="experimental">
 <h3>Experimental<a class="headerlink" href="#experimental" title="Permalink to this headline"></a></h3>
 <p>These objects are part of the API but are not considered stable yet. They are documented accordingly in their docstring, with the following text just before the parameters section (replace the version number):</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="ne">Warning</span>
@@ -168,12 +170,12 @@
 </pre></div>
 </div>
 <p>They don’t have a dedicated decorator.</p>
-</div>
-<div class="section" id="stable">
+</section>
+<section id="stable">
 <h3>Stable<a class="headerlink" href="#stable" title="Permalink to this headline"></a></h3>
 <p>Standard production function, without specific decorator or warning.</p>
-</div>
-<div class="section" id="deprecated">
+</section>
+<section id="deprecated">
 <h3>Deprecated<a class="headerlink" href="#deprecated" title="Permalink to this headline"></a></h3>
 <p>These deprecated functions are decorated with the <code class="docutils literal notranslate"><span class="pre">&#64;deprecated</span></code> decorator, which has two functions:</p>
 <ul class="simple">
@@ -192,15 +194,15 @@
 
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="rule-4-forks-and-branches">
+</section>
+</section>
+<section id="rule-4-forks-and-branches">
 <h2>Rule 4: Forks and branches<a class="headerlink" href="#rule-4-forks-and-branches" title="Permalink to this headline"></a></h2>
-<div class="section" id="fork-and-create-a-feature-branches">
+<section id="fork-and-create-a-feature-branches">
 <h3>Fork and create a feature branches<a class="headerlink" href="#fork-and-create-a-feature-branches" title="Permalink to this headline"></a></h3>
 <p>To start the developemnt of a feature, please fork the repository. Then, in your fork, create a feature branch: <code class="docutils literal notranslate"><span class="pre">feature/[FEATURE_NAME]</span></code> from the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch.</p>
-</div>
-<div class="section" id="document-and-test-your-feature">
+</section>
+<section id="document-and-test-your-feature">
 <h3>Document and test your feature<a class="headerlink" href="#document-and-test-your-feature" title="Permalink to this headline"></a></h3>
 <p>All of the above should be done before making a pull request:</p>
 <ul class="simple">
@@ -211,26 +213,26 @@
 <li><p>The feature includes unit tests.</p></li>
 </ul>
 <p>While on the feature branch, <code class="docutils literal notranslate"><span class="pre">ktk.dev.run_tests()</span></code> should run with success. This function runs <code class="docutils literal notranslate"><span class="pre">autopep8</span></code>, <code class="docutils literal notranslate"><span class="pre">mypy</span></code>, and every unit test. It is okay to have some warnings (some tests target edge cases that trigger warnings), but no error.</p>
-</div>
-<div class="section" id="create-a-pull-request">
+</section>
+<section id="create-a-pull-request">
 <h3>Create a pull request<a class="headerlink" href="#create-a-pull-request" title="Permalink to this headline"></a></h3>
 <p>When everything is done and passes, it is time to create a pull request. I will then test your feature. If everything is good, I’ll merge your pull request and merge the feature into the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="01_install.html" class="btn btn-neutral float-left" title="Installing from git-hub" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="02_developer_manual.html" class="btn btn-neutral float-left" title="Developer manual" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="03_coding_style.html" class="btn btn-neutral float-right" title="Coding style" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020-2021, Félix Chénier.</p>
+    <p>&#169; Copyright 2020-2022, Félix Chénier.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

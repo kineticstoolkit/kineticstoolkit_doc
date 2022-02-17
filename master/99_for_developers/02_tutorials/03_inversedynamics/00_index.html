@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Inverse Dynamics &mdash; Kinetics Toolkit (dev) master documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -49,10 +50,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">MANUAL</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../01_getting_started/00_index.html">1. Getting started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../02_tutorials/00_index.html">2. Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../03_in_depth/00_index.html">3. In depth</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../04_learning_python/00_index.html">4. Learning Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../01_getting_started/00_index.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../02_tutorials/00_index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../03_in_depth/00_index.html">In depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../04_learning_python/00_index.html">Learning Python</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API REFERENCE</span></p>
 <ul>
@@ -63,7 +64,7 @@
 <p class="caption" role="heading"><span class="caption-text">LINKS</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://felixchenier.uqam.ca/ktk_develop">Development website</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub repository</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">FOR DEVELOPERS</span></p>
 <ul class="current">
@@ -122,7 +123,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="tex2jax_ignore mathjax_ignore section" id="inverse-dynamics">
+  <section class="tex2jax_ignore mathjax_ignore" id="inverse-dynamics">
 <h1>Inverse Dynamics<a class="headerlink" href="#inverse-dynamics" title="Permalink to this headline"></a></h1>
 <p>The <a class="reference internal" href="../../../api/kineticstoolkit.inversedynamics.html"><span class="doc std std-doc">inversedynamics</span></a> module calculates the proximal forces and moments based on the segment’s kinematics and distal forces and moments, based on the general method published in Dumas et al., 2004 <a class="footnote-reference brackets" href="#id2" id="id1">1</a>.</p>
 <p>The results are the forces and moments applied by the distal segment on the
@@ -139,15 +140,15 @@ proximal articulation, in the global coordinates system.</p>
 </div>
 </div>
 </div>
-<div class="section" id="loading-sample-data">
+<section id="loading-sample-data">
 <h2>Loading sample data<a class="headerlink" href="#loading-sample-data" title="Permalink to this headline"></a></h2>
 <p>In this tutorial, we will load propulsion data from a sprint in Wheelchair Basketball. Kinetics were recorded using an instrumented wheel (SmartWheel) and kinematics were recorded using an optoelectronic system (Optitrack). Both are synchronized.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load kinetics</span>
 <span class="n">kinetics</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
-    <span class="n">ktk</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">root_folder</span> <span class="o">+</span>
-    <span class="s1">&#39;/data/inversedynamics/basketball_kinetics.ktk.zip&#39;</span><span class="p">)</span>
+    <span class="n">ktk</span><span class="o">.</span><span class="n">doc</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;inversedynamics_kinetics.ktk.zip&#39;</span><span class="p">)</span>
+<span class="p">)</span>
 
 <span class="c1"># Change some signs to match (locally): x anterior, # y up, z lateral (right)</span>
 <span class="n">kinetics</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Forces&#39;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">kinetics</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Forces&#39;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">]</span>
@@ -175,8 +176,8 @@ proximal articulation, in the global coordinates system.</p>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Load kinematics</span>
 <span class="n">kinematics</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
-    <span class="n">ktk</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">root_folder</span> <span class="o">+</span>
-    <span class="s1">&#39;/data/inversedynamics/basketball_kinematics.ktk.zip&#39;</span><span class="p">)[</span><span class="s1">&#39;Kinematics&#39;</span><span class="p">]</span>
+    <span class="n">ktk</span><span class="o">.</span><span class="n">doc</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;inversedynamics_kinematics.ktk.zip&#39;</span><span class="p">)</span>
+<span class="p">)[</span><span class="s1">&#39;Kinematics&#39;</span><span class="p">]</span>
 
 <span class="c1"># Extract markers</span>
 <span class="n">markers</span> <span class="o">=</span> <span class="n">kinematics</span><span class="p">[</span><span class="s1">&#39;Markers&#39;</span><span class="p">]</span>
@@ -285,8 +286,8 @@ proximal articulation, in the global coordinates system.</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="put-everything-relevant-into-one-synchronized-timeseries">
+</section>
+<section id="put-everything-relevant-into-one-synchronized-timeseries">
 <h2>Put everything relevant into one, synchronized TimeSeries<a class="headerlink" href="#put-everything-relevant-into-one-synchronized-timeseries" title="Permalink to this headline"></a></h2>
 <p>We will now create a single TimeSeries with every relevant signal. Note that for kinematics, we use <code class="docutils literal notranslate"><span class="pre">merge</span></code> instead of simply copying the data, because kinetics and kinematics have different sampling rate and therefore the data have different lengths. Merging takes care of resampling.</p>
 <div class="cell docutils container">
@@ -338,8 +339,8 @@ proximal articulation, in the global coordinates system.</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="calculate-the-force-and-moments-at-the-wrist">
+</section>
+<section id="calculate-the-force-and-moments-at-the-wrist">
 <h2>Calculate the force and moments at the wrist<a class="headerlink" href="#calculate-the-force-and-moments-at-the-wrist" title="Permalink to this headline"></a></h2>
 <p>The same calculation is done on every segment, from distal to proximal. We begin with the segment ‘Wheel’ with the point of force application at the hub (since the measured values are referred at the hub).</p>
 <div class="cell docutils container">
@@ -386,7 +387,7 @@ proximal articulation, in the global coordinates system.</p>
 </div>
 </div>
 </div>
-<div class="section" id="calculate-the-com-position-of-the-wheel-segment">
+<section id="calculate-the-com-position-of-the-wheel-segment">
 <h3>Calculate the COM position of the wheel segment<a class="headerlink" href="#calculate-the-com-position-of-the-wheel-segment" title="Permalink to this headline"></a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -409,8 +410,8 @@ proximal articulation, in the global coordinates system.</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="calculate-the-com-acceleration-of-the-wheel-segment">
+</section>
+<section id="calculate-the-com-acceleration-of-the-wheel-segment">
 <h3>Calculate the COM acceleration of the wheel segment<a class="headerlink" href="#calculate-the-com-acceleration-of-the-wheel-segment" title="Permalink to this headline"></a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -434,8 +435,8 @@ proximal articulation, in the global coordinates system.</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="calculate-the-wheel-segment-s-angles-around-the-global-x-y-and-z-axes">
+</section>
+<section id="calculate-the-wheel-segment-s-angles-around-the-global-x-y-and-z-axes">
 <h3>Calculate the wheel segment’s angles around the global x, y and z axes<a class="headerlink" href="#calculate-the-wheel-segment-s-angles-around-the-global-x-y-and-z-axes" title="Permalink to this headline"></a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -460,8 +461,8 @@ proximal articulation, in the global coordinates system.</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="calculate-the-segment-s-angular-velocity-and-acceleration-around-the-global-x-y-and-z-axes">
+</section>
+<section id="calculate-the-segment-s-angular-velocity-and-acceleration-around-the-global-x-y-and-z-axes">
 <h3>Calculate the segment’s angular velocity and acceleration around the global x, y and z axes<a class="headerlink" href="#calculate-the-segment-s-angular-velocity-and-acceleration-around-the-global-x-y-and-z-axes" title="Permalink to this headline"></a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -488,8 +489,8 @@ proximal articulation, in the global coordinates system.</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="finally-calculate-the-proximal-forces-and-moments">
+</section>
+<section id="finally-calculate-the-proximal-forces-and-moments">
 <h3>Finally, calculate the proximal forces and moments<a class="headerlink" href="#finally-calculate-the-proximal-forces-and-moments" title="Permalink to this headline"></a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -519,8 +520,8 @@ proximal articulation, in the global coordinates system.</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="add-the-calculated-distal-forces-and-moments-to-the-ts-all-timeseries">
+</section>
+<section id="add-the-calculated-distal-forces-and-moments-to-the-ts-all-timeseries">
 <h3>Add the calculated distal forces and moments to the ts_all TimeSeries<a class="headerlink" href="#add-the-calculated-distal-forces-and-moments-to-the-ts-all-timeseries" title="Permalink to this headline"></a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -554,9 +555,9 @@ proximal articulation, in the global coordinates system.</p>
 <img alt="../../../_images/00_index_25_01.png" src="../../../_images/00_index_25_01.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="calculate-the-force-and-moments-at-the-elbow">
+</section>
+</section>
+<section id="calculate-the-force-and-moments-at-the-elbow">
 <h2>Calculate the force and moments at the elbow<a class="headerlink" href="#calculate-the-force-and-moments-at-the-elbow" title="Permalink to this headline"></a></h2>
 <p>The method is identical for the other segments. However, for these segments, we will define inertial constants based on anthropometric tables.</p>
 <div class="cell docutils container">
@@ -631,8 +632,8 @@ proximal articulation, in the global coordinates system.</p>
 <img alt="../../../_images/00_index_29_0.png" src="../../../_images/00_index_29_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="calculate-the-force-and-moments-at-the-shoulder">
+</section>
+<section id="calculate-the-force-and-moments-at-the-shoulder">
 <h2>Calculate the force and moments at the shoulder<a class="headerlink" href="#calculate-the-force-and-moments-at-the-shoulder" title="Permalink to this headline"></a></h2>
 <p>We proceed exactly as for the elbow.</p>
 <div class="cell docutils container">
@@ -707,8 +708,8 @@ proximal articulation, in the global coordinates system.</p>
 <img alt="../../../_images/00_index_33_0.png" src="../../../_images/00_index_33_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="get-the-forces-and-moments-in-the-local-coordinate-system">
+</section>
+<section id="get-the-forces-and-moments-in-the-local-coordinate-system">
 <h2>Get the forces and moments in the local coordinate system<a class="headerlink" href="#get-the-forces-and-moments-in-the-local-coordinate-system" title="Permalink to this headline"></a></h2>
 <p>Please note that every force and moment we just calculated is expressed in global coordinates, which is of limited value for interpretation. It is much more useful to express these data in local coordinates. Several conventions may be used, here we will express the shoulder forces in the trunk coordinate system, and the shoulder moments in the humeral coordinate system.</p>
 <div class="cell docutils container">
@@ -734,7 +735,7 @@ proximal articulation, in the global coordinates system.</p>
 </div>
 </div>
 </div>
-<div class="section" id="local-forces">
+<section id="local-forces">
 <h3>Local forces<a class="headerlink" href="#local-forces" title="Permalink to this headline"></a></h3>
 <p>Let’s plot the shoulder forces in the trunk reference frame:</p>
 <div class="cell docutils container">
@@ -752,8 +753,8 @@ proximal articulation, in the global coordinates system.</p>
 <img alt="../../../_images/00_index_37_1.png" src="../../../_images/00_index_37_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="local-moments">
+</section>
+<section id="local-moments">
 <h3>Local moments<a class="headerlink" href="#local-moments" title="Permalink to this headline"></a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -777,9 +778,9 @@ proximal articulation, in the global coordinates system.</p>
 <dd><p>R. Dumas, R. Aissaoui, and J. A. De Guise, “A 3D generic inverse dynamic method using wrench notation and quaternion algebra,” Comput Meth Biomech Biomed Eng, vol. 7, no. 3, pp. 159–166, 2004.</p>
 </dd>
 </dl>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
@@ -791,7 +792,7 @@ proximal articulation, in the global coordinates system.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020-2021, Félix Chénier.</p>
+    <p>&#169; Copyright 2020-2022, Félix Chénier.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

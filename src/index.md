@@ -51,14 +51,14 @@ Thanks to Clay Flannigan for his [icp](https://github.com/ClayFlannigan/icp) met
 :glob:
 
 Development website <https://felixchenier.uqam.ca/ktk_develop>
-GitHub <https://github.com/felixchenier/kineticstoolkit>
+GitHub repository <https://github.com/felixchenier/kineticstoolkit>
 ```
 
 :::{ifconfig} release == 'master'
-    ```{toctree}
-    :caption: FOR DEVELOPERS
-    :glob:
+```{toctree}
+:caption: FOR DEVELOPERS
+:glob:
 
-    99_for_developers/*/00_index
-    ```
+99_for_developers/*/00_index
+```
 :::

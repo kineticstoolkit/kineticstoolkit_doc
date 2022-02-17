@@ -3,6 +3,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.13.1
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -177,7 +179,7 @@ This process has two steps:
 
 2. An task analysis step where the clusters are tracked and the virtual markers are reconstructed into the task acquisition.
 
-```{code-cell}
+```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
 import numpy as np
 ```
@@ -186,10 +188,11 @@ import numpy as np
 
 We proceed exactly as in the previous tutorials, but this time we will perform the analysis based on a minimal set of markers. Let's say that for the right arm and forearm, all we have is one real marker on the lateral epicondyle, and two plates of three markers affixed to the arm and forearm segments (we will show every other in blue for easier visualization).
 
-```{code-cell}
+```{code-cell} ipython3
 # Read the markers
 markers = ktk.kinematics.read_c3d_file(
-    ktk.config.root_folder + '/data/kinematics/sample_propulsion.c3d')
+    ktk.doc.download('kinematics_racing_propulsion.c3d')
+)
 
 # Set every unnecessary markers to blue
 keep_white = ['LateralEpicondyleR', 'ArmR1', 'ArmR2', 'ArmR3',
@@ -220,12 +223,13 @@ In the static acquisition, every marker should be visible. We use this trial to 
 
 For this example, we will create clusters 'ArmR' and 'ForearmR'.
 
-```{code-cell}
+```{code-cell} ipython3
 clusters = dict()
 
 # Read the static trial
 markers_static = ktk.kinematics.read_c3d_file(
-    ktk.config.root_folder + '/data/kinematics/sample_static.c3d')
+    ktk.doc.download('kinematics_racing_static.c3d')
+)
 
 # Show this trial, just to inspect it
 player = ktk.Player(markers_static, **viewing_options)
@@ -234,7 +238,7 @@ player.to_html5(start_time=0, stop_time=0.5)
 
 Using this trial, we now define the arm cluster:
 
-```{code-cell}
+```{code-cell} ipython3
 clusters['ArmR'] = ktk.kinematics.create_cluster(
     markers_static,
     marker_names=['ArmR1', 'ArmR2', 'ArmR3', 'LateralEpicondyleR'])
@@ -244,7 +248,7 @@ clusters['ArmR']
 
 We proceed the same way for the forearm:
 
-```{code-cell}
+```{code-cell} ipython3
 clusters['ForearmR'] = ktk.kinematics.create_cluster(
     markers_static,
     marker_names=['ForearmR1', 'ForearmR2', 'ForearmR3'])
@@ -254,7 +258,7 @@ clusters['ForearmR']
 
 For the probe, we will define its cluster from its known specifications. Every 6 local point is expressed relative to a reference frame that is centered at the probe tip:
 
-```{code-cell}
+```{code-cell} ipython3
 clusters['Probe'] = {
     'ProbeTip': np.array(
         [[0.0, 0.0, 0.0, 1.0]]),
@@ -286,10 +290,11 @@ Now we will go though every probing acquisition and apply the same process on ea
 
 We will go step by step with the acromion, then we will do the other ones.
 
-```{code-cell}
+```{code-cell} ipython3
 # Load the markers from the acromion probing trial
 probing_markers = ktk.kinematics.read_c3d_file(
-    ktk.config.root_folder + '/data/kinematics/sample_probing_acromion_R.c3d')
+    ktk.doc.download('kinematics_racing_probing_acromion_R.c3d')
+)
 
 # Track the probe cluster
 tracked_markers = ktk.kinematics.track_cluster(
@@ -303,13 +308,13 @@ tracked_markers.data
 
 We see that even if the probe tip was not a real marker, its position was reconstructed based on the tracking of the other probe markers. We will add the probe tip to the markers, as the location of the acromion.
 
-```{code-cell}
+```{code-cell} ipython3
 probing_markers.data['AcromionR'] = tracked_markers.data['ProbeTip']
 ```
 
 Now that the probing markers contain the new marker 'AcromionR', we can add it to the arm cluster.
 
-```{code-cell}
+```{code-cell} ipython3
 clusters['ArmR'] = ktk.kinematics.extend_cluster(
     probing_markers, clusters['ArmR'], new_point = 'AcromionR'
 )
@@ -320,11 +325,11 @@ clusters['ArmR']
 
 Now, we can process every other probing acquisition the same way.
 
-```{code-cell}
+```{code-cell} ipython3
 # Right medial epicondyle
 probing_markers = ktk.kinematics.read_c3d_file(
-    ktk.config.root_folder
-    + '/data/kinematics/sample_probing_medial_epicondyle_R.c3d')
+    ktk.doc.download('kinematics_racing_probing_medial_epicondyle_R.c3d')
+)
 
 tracked_markers = ktk.kinematics.track_cluster(
     probing_markers, clusters['Probe']
@@ -338,8 +343,8 @@ clusters['ArmR'] = ktk.kinematics.extend_cluster(
 
 # Right radial styloid
 probing_markers = ktk.kinematics.read_c3d_file(
-    ktk.config.root_folder
-    + '/data/kinematics/sample_probing_radial_styloid_R.c3d')
+    ktk.doc.download('kinematics_racing_probing_radial_styloid_R.c3d')
+)
 
 tracked_markers = ktk.kinematics.track_cluster(
     probing_markers, clusters['Probe']
@@ -353,8 +358,8 @@ clusters['ForearmR'] = ktk.kinematics.extend_cluster(
 
 # Right ulnar styloid
 probing_markers = ktk.kinematics.read_c3d_file(
-    ktk.config.root_folder
-    + '/data/kinematics/sample_probing_ulnar_styloid_R.c3d')
+    ktk.doc.download('kinematics_racing_probing_ulnar_styloid_R.c3d')
+)
 
 tracked_markers = ktk.kinematics.track_cluster(
     probing_markers, clusters['Probe']
@@ -369,11 +374,11 @@ clusters['ForearmR'] = ktk.kinematics.extend_cluster(
 
 Now every markers that belong to a cluster are defined, be it real or virtual:
 
-```{code-cell}
+```{code-cell} ipython3
 clusters['ArmR']
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 clusters['ForearmR']
 ```
 
@@ -381,7 +386,7 @@ clusters['ForearmR']
 
 Now that we defined the clusters and inluded virtual markers to it, we are ready to process the experimental trial we loaded at the beginning of this tutorial. We already loaded the markers; we will now track the cluster to obtain the position of the virtual markers.
 
-```{code-cell}
+```{code-cell} ipython3
 markers = markers.merge(
     ktk.kinematics.track_cluster(
         markers, clusters['ArmR']
@@ -402,7 +407,7 @@ player.to_html5(start_time=0, stop_time=1)
 
 That is it, we reconstructed the acromion, medial epicondyle and both styloids from probing acquisitions,  without requiring physical markers on these landmarks. We can conclude by adding links for clearer visualization. From now one, we could continue our analysis and calculate the elbow angles as in the previous tutorial.
 
-```{code-cell}
+```{code-cell} ipython3
 # Add the segments
 segments = {
     'ArmR': {

@@ -81,7 +81,9 @@ M_x(N-1) & M_y(N-1) & M_z(N-1) & 0
 $$
 
 ```{code-cell}
-ts = ktk.load(ktk.config.root_folder + '/data/timeseries/smartwheel.ktk.zip')
+ts = ktk.load(
+    ktk.doc.download('timeseries_example.ktk.zip')
+)
 
 ts
 ```

@@ -25,7 +25,8 @@ Let's read the c3d file we recorded in this acquisition:
 
 ```{code-cell}
 markers = ktk.kinematics.read_c3d_file(
-    ktk.config.root_folder + '/data/kinematics/racing_full.c3d')
+    ktk.doc.download('kinematics_racing_full.c3d')
+)
 
 markers
 ```

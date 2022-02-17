@@ -17,13 +17,16 @@
 # -- Project information -----------------------------------------------------
 
 # The full version, including alpha/beta/rc tags
-with open('KTK_VERSION', 'r') as fid:
-    release = fid.read()
+import os
 
-if release == 'master':
+
+if os.path.exists('KTK_AUTO_ENABLE_DEV'):
+    release = 'master'
     project = 'Kinetics Toolkit (dev)'
 else:
+    release = 'stable'
     project = 'Kinetics Toolkit'
+
 
 copyright = '2020-2022, Félix Chénier'
 author = 'Félix Chénier'

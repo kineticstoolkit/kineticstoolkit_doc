@@ -3,6 +3,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.13.1
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -15,22 +17,24 @@ The [cycles](../../api/kineticstoolkit.cycles.rst) module allows detecting cycle
 
 In this tutorial, we will use kinetics data from wheelchair propulsion using a csv file.
 
-```{code-cell}
+```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
 # Load the instrumented wheel's csv file
-filename = ktk.config.root_folder + '/data/pushrimkinetics/sample_sw_csvtxt.csv'
+ts = ktk.pushrimkinetics.read_file(
+    ktk.doc.download('pushrimkinetics_propulsion.csv'),
+    file_format='smartwheel',
+)
 
-ts = ktk.pushrimkinetics.read_file(filename, file_format='smartwheel')
 ts.data
 ```
 
 At this point, we have a TimeSeries that contains several signals, including forces and moments.
 
-```{code-cell}
+```{code-cell} ipython3
 plt.subplot(2, 1, 1)
 ts.plot('Forces')
 plt.subplot(2, 1, 2)
@@ -44,7 +48,7 @@ The [cycles.detect_cycles()](../../api/kineticstoolkit.cycles.detect_cycles.rst)
 
 We first calculate it based on the three force components and we add it as a new data of the TimeSeries.
 
-```{code-cell}
+```{code-cell} ipython3
 ts.data['Ftot'] = np.sqrt(np.sum(ts.data['Forces'] ** 2, 1))
 ts.plot(['Forces', 'Ftot'])
 plt.tight_layout()

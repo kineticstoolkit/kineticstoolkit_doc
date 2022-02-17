@@ -3,6 +3,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.13.1
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -28,12 +30,11 @@ The TimeSeries come with various method to copy, split, extract or combine data:
 
 In this tutorial, we will see how to use these methods to manage a TimeSeries of marker trajectories. We will start by loading a sample `c3d` file with some marker trajectories. This example has 26 markers with 3678 samples recorded at 120 Hz.
 
-```{code-cell}
+```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
 
 markers = ktk.kinematics.read_c3d_file(
-    ktk.config.root_folder
-    + '/data/kinematics/sprintbasket.c3d'
+    ktk.doc.download('kinematics_basket_sprint.c3d')
 )
 
 markers
@@ -49,7 +50,7 @@ As for most class instances in Python, a TimeSeries is a mutable type. This mean
 
 To create a completely independent copy of a TimeSeries, we use the [TimeSeries.copy()](../../api/kineticstoolkit.TimeSeries.copy.rst) method:
 
-```{code-cell}
+```{code-cell} ipython3
 markers_copy = markers.copy()
 
 markers_copy
@@ -57,7 +58,7 @@ markers_copy
 
 Interestingly, [TimeSeries.copy()](../../api/kineticstoolkit.TimeSeries.copy.rst) has different arguments to select which attributes to copy. For instance, if we want to create an empty TimeSeries, but with the same time and events as the source, we could use:
 
-```{code-cell}
+```{code-cell} ipython3
 markers_copy = markers.copy(copy_data=False, copy_data_info=False)
 
 markers_copy
@@ -67,7 +68,7 @@ markers_copy
 
 The [TimeSeries.get_subset()](../../api/kineticstoolkit.TimeSeries.get_subset.rst) method allows copying a TimeSeries with only a subset of the original TimeSeries. For example, in the markers TimeSeries, we may be interested only in the markers `BodyL:AcromionL` and `BodyL:LateralEpicondyleL`. To copy only these markers, we would use:
 
-```{code-cell}
+```{code-cell} ipython3
 markers_subset = markers.get_subset(
     ['BodyL:AcromionL', 'BodyL:LateralEpicondyleL']
 )
@@ -77,7 +78,7 @@ markers_subset.data
 
 To merge two TimeSeries together, we use the [TimeSeries.merge()](../../api/kineticstoolkit.TimeSeries.merge.rst). For example, if we wanted to add the marker `BodyL:HandL` to this subset:
 
-```{code-cell}
+```{code-cell} ipython3
 markers_subset = markers_subset.merge(
     markers.get_subset('BodyL:HandL')
 )
@@ -103,13 +104,13 @@ The
 [TimeSeries.get_ts_between_indexes()](../../api/kineticstoolkit.TimeSeries.get_ts_between_indexes.rst)
 allow splitting the TimeSeries based on time indexes. For example, if we plot the previous markers subset, we see that the main action (the oscillating signals) starts at about 12 seconds and stops at about 18 seconds. At 120 samples per second, this means from indexes 1440 to 2160.
 
-```{code-cell}
+```{code-cell} ipython3
 markers_subset.plot()
 ```
 
 We could therefore split the TimeSeries between indexes 1440 and 2160:
 
-```{code-cell}
+```{code-cell} ipython3
 ts = markers_subset.get_ts_between_indexes(1440, 2160)
 ts.plot()
 ```
@@ -121,7 +122,7 @@ We could also use the time directly to do the same split, using one of
 [TimeSeries.get_ts_after_time()](../../api/kineticstoolkit.TimeSeries.get_ts_after_time.rst), or
 [TimeSeries.get_ts_between_times()](../../api/kineticstoolkit.TimeSeries.get_ts_between_times.rst),
 
-```{code-cell}
+```{code-cell} ipython3
 ts = markers_subset.get_ts_between_times(12, 18)
 ts.plot()
 ```
@@ -130,8 +131,11 @@ ts.plot()
 
 A very powerful method to split a TimeSeries is to use events. For this example, we will rebuilt the wheelchair kinetics TimeSeries of the previous tutorial.
 
-```{code-cell}
-ts = ktk.load(ktk.config.root_folder + '/data/timeseries/smartwheel.ktk.zip')
+```{code-cell} ipython3
+ts = ktk.load(
+    ktk.doc.download('timeseries_example.ktk.zip')
+)
+
 ts = ts.add_event(4.35, 'sync')
 ts = ts.add_event(8.56, 'push')
 ts = ts.add_event(9.93, 'recovery')
@@ -153,7 +157,7 @@ If we want to analyze data of the four first pushes and get rid of any other dat
 [TimeSeries.get_ts_after_event()](../../api/kineticstoolkit.TimeSeries.get_ts_after_event.rst), or
 [TimeSeries.get_ts_between_events()](../../api/kineticstoolkit.TimeSeries.get_ts_between_events.rst):
 
-```{code-cell}
+```{code-cell} ipython3
 # inclusive=True to ensure that the push 0 and push 4 events are included in
 # the resulting time vector
 first_four_pushes = ts.get_ts_between_events(

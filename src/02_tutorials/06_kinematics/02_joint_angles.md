@@ -38,7 +38,8 @@ We proceed exactly as in the previous tutorial:
 ```{code-cell} ipython3
 # Read the markers
 markers = ktk.kinematics.read_c3d_file(
-    ktk.config.root_folder + '/data/kinematics/racing_full.c3d')
+    ktk.doc.download('kinematics_racing_full.c3d')
+)
 
 # Set the point of view for 3D visualization
 viewing_options = {

@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Anthropometrics &mdash; Kinetics Toolkit (dev) master documentation</title>
       <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
@@ -52,17 +53,19 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../01_getting_started/00_index.html">Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../02_tutorials/00_index.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../04_in_depth/00_index.html">In depth</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../../05_learning_python/00_index.html">Learning Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../03_in_depth/00_index.html">In depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../04_learning_python/00_index.html">Learning Python</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API REFERENCE</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../../api_reference.html">API Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../99_api_reference/01_classes.html">Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../99_api_reference/02_functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../99_api_reference/03_modules.html">Modules</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">LINKS</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://felixchenier.uqam.ca/ktk_develop">Development website</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub repository</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">FOR DEVELOPERS</span></p>
 <ul class="current">
@@ -109,7 +112,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="tex2jax_ignore mathjax_ignore section" id="anthropometrics">
+  <section class="tex2jax_ignore mathjax_ignore" id="anthropometrics">
 <h1>Anthropometrics<a class="headerlink" href="#anthropometrics" title="Permalink to this headline"></a></h1>
 <p>The <code class="docutils literal notranslate"><span class="pre">anthropometrics</span></code> module aims to assist the reconstruction of human-specific points of anatomy, to establish trajectories of segment orientations via standardised local coordinate systems, and to estimate the segment’s centers of mass and inertial properties.</p>
 <div class="admonition warning">
@@ -129,8 +132,7 @@
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">markers</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
-    <span class="n">ktk</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">root_folder</span>
-    <span class="o">+</span> <span class="s1">&#39;/data/anthropometrics/static.ktk.zip&#39;</span>
+    <span class="n">ktk</span><span class="o">.</span><span class="n">doc</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;anthropometrics_static.ktk.zip&#39;</span><span class="p">)</span>
 <span class="p">)</span>
 
 <span class="c1"># Print the available markers</span>
@@ -219,7 +221,7 @@
 <img alt="../../../_images/00_index_4_0.png" src="../../../_images/00_index_4_0.png" />
 </div>
 </div>
-<div class="section" id="infer-joint-centers">
+<section id="infer-joint-centers">
 <h2>Infer joint centers<a class="headerlink" href="#infer-joint-centers" title="Permalink to this headline"></a></h2>
 <p>Although a lot of markers are already available in this acquisition, the joint centers are undefined. We will first add the hips and L5S1, which are defined by the pelvis segment.</p>
 <div class="cell docutils container">
@@ -281,7 +283,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/00_index_10_01.png" src="../../../_images/00_index_10_01.png" />
+<img alt="../../../_images/00_index_10_0.png" src="../../../_images/00_index_10_0.png" />
 </div>
 </div>
 <p>Now that every joint center is reconstructed based on this static acquisition, we may to include these joint centers into marker clusters so that they can be reconstructed later in an analyzed action.</p>
@@ -375,8 +377,8 @@
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="estimate-centers-of-mass">
+</section>
+<section id="estimate-centers-of-mass">
 <h2>Estimate centers of mass<a class="headerlink" href="#estimate-centers-of-mass" title="Permalink to this headline"></a></h2>
 <p>Now that the joint centers are defined, it is possible to estimate the center of mass for every segment.</p>
 <div class="cell docutils container">
@@ -403,10 +405,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/00_index_14_0.png" src="../../../_images/00_index_14_0.png" />
+<img alt="../../../_images/00_index_14_01.png" src="../../../_images/00_index_14_01.png" />
 </div>
 </div>
-<div class="section" id="track-local-coordinate-systems">
+<section id="track-local-coordinate-systems">
 <h3>Track local coordinate systems<a class="headerlink" href="#track-local-coordinate-systems" title="Permalink to this headline"></a></h3>
 <p>To perform a kinematic analysis of a given task, one could use the reconstructed markers to set standard segment’s local coordinate system and track those segments.</p>
 <div class="cell docutils container">
@@ -424,12 +426,12 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../../_images/00_index_16_0.png" src="../../../_images/00_index_16_0.png" />
+<img alt="../../../_images/00_index_16_01.png" src="../../../_images/00_index_16_01.png" />
 </div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
@@ -442,7 +444,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020-2021, Félix Chénier.</p>
+    <p>&#169; Copyright 2020-2022, Félix Chénier.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

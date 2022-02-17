@@ -2,7 +2,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Developing Kinetics Toolkit &mdash; Kinetics Toolkit (dev) master documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -50,10 +51,10 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">MANUAL</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/00_index.html">1. Getting started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../02_tutorials/00_index.html">2. Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../03_in_depth/00_index.html">3. In depth</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../04_learning_python/00_index.html">4. Learning Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../01_getting_started/00_index.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../02_tutorials/00_index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../03_in_depth/00_index.html">In depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../04_learning_python/00_index.html">Learning Python</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API REFERENCE</span></p>
 <ul>
@@ -64,12 +65,13 @@
 <p class="caption" role="heading"><span class="caption-text">LINKS</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://felixchenier.uqam.ca/ktk_develop">Development website</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub repository</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">FOR DEVELOPERS</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Developing Kinetics Toolkit</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="01_install.html">Installing from git-hub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="02_developer_manual.html">Developer manual</a></li>
 <li class="toctree-l2"><a class="reference internal" href="02_development_rules.html">Development rules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="03_coding_style.html">Coding style</a></li>
 </ul>
@@ -103,13 +105,36 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="tex2jax_ignore mathjax_ignore section" id="developing-kinetics-toolkit">
+  <section class="tex2jax_ignore mathjax_ignore" id="developing-kinetics-toolkit">
 <h1>Developing Kinetics Toolkit<a class="headerlink" href="#developing-kinetics-toolkit" title="Permalink to this headline"></a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="01_install.html">Installing from git-hub</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="01_install.html#install-the-development-requirements">Install the development requirements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="01_install.html#install-kinetics-toolkit-s-development-version">Install Kinetics Toolkit’s development version</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="02_developer_manual.html">Developer manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="02_developer_manual.html#coding-style">Coding style</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="02_developer_manual.html#standard-python-conventions">Standard Python conventions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_developer_manual.html#quote-style">Quote style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_developer_manual.html#naming-conventions">Naming conventions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_developer_manual.html#type-hints">Type hints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_developer_manual.html#function-life-from-development-to-deprecation">Function life from development to deprecation</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="02_developer_manual.html#unstable">Unstable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02_developer_manual.html#experimental">Experimental</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02_developer_manual.html#stable">Stable</a></li>
+<li class="toctree-l4"><a class="reference internal" href="02_developer_manual.html#deprecated">Deprecated</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="02_developer_manual.html#feature-development-to-release-cycle">Feature development to release cycle</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="02_developer_manual.html#feature-branches">Feature branches</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_developer_manual.html#master-branch">Master branch</a></li>
+<li class="toctree-l3"><a class="reference internal" href="02_developer_manual.html#stable-branch">Stable branch</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="02_development_rules.html">Development rules</a><ul>
@@ -141,7 +166,7 @@
 </li>
 </ul>
 </div>
-</div>
+</section>
 
 
            </div>
@@ -154,7 +179,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020-2021, Félix Chénier.</p>
+    <p>&#169; Copyright 2020-2022, Félix Chénier.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

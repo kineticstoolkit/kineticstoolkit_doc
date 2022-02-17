@@ -3,6 +3,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.13.1
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -15,7 +17,7 @@ To ensure a great compatibility between Kinetics Toolkit and other frameworks, T
 
 In this tutorial, we will learn how to import comma-separated-value (csv) files as TimeSeries, and export back to csv.
 
-```{code-cell}
+```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
 import pandas as pd
 ```
@@ -41,10 +43,10 @@ We import the contents of this csv file:
 
 First, by opening it as a Pandas DataFrame using `pd.read_csv()`, then by converting it to a TimeSeries:
 
-```{code-cell}
+```{code-cell} ipython3
 ts = ktk.TimeSeries.from_dataframe(
     pd.read_csv(
-        ktk.config.root_folder + '/data/timeseries/sample1.csv',
+        ktk.doc.download('timeseries_dataframe_example1.csv'),
         index_col='Time',
     )
 )
@@ -52,7 +54,7 @@ ts = ktk.TimeSeries.from_dataframe(
 ts
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 ts.data
 ```
 
@@ -77,10 +79,10 @@ In this second example, we will import the following csv file:
     1,0,-9.81,0,0.1
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 ts = ktk.TimeSeries.from_dataframe(
     pd.read_csv(
-        ktk.config.root_folder + '/data/timeseries/sample2.csv',
+        ktk.doc.download('timeseries_dataframe_example2.csv'),
         index_col='Time',
     )
 )
@@ -88,7 +90,7 @@ ts = ktk.TimeSeries.from_dataframe(
 ts
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 ts.data
 ```
 
@@ -96,9 +98,9 @@ As for the previous example, the csv file was correctly read as a TimeSeries. Ho
 
 A trick to combine the three force components into a single signal is to rename the columns of the DataFrame, either in the original csv file or after reading it, using index brackets. Let's start over by loading the DataFrame first:
 
-```{code-cell}
+```{code-cell} ipython3
 df = pd.read_csv(
-    ktk.config.root_folder + '/data/timeseries/sample2.csv',
+    ktk.doc.download('timeseries_dataframe_example2.csv'),
     index_col='Time',
 )
 
@@ -107,7 +109,7 @@ df
 
 Now, we rename the columns using indexing:
 
-```{code-cell}
+```{code-cell} ipython3
 df.columns = ['Forces[0]', 'Forces[1]', 'Forces[2]', 'Position']
 
 df
@@ -115,13 +117,13 @@ df
 
 Finally, we can import this new DataFrame as a TimeSeries. The forces signals are combined into one Nx3 array:
 
-```{code-cell}
+```{code-cell} ipython3
 ts = ktk.TimeSeries.from_dataframe(df)
 
 ts.data
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 ts.data['Forces']
 ```
 
@@ -133,22 +135,21 @@ For saving a TimeSeries to a `csv`, we create a DataFrame using the  [TimeSeries
 
 In this example, we will read 3d marker positions from a sample `c3d` file, and export these positions to a `csv` file. We first read the `c3d` file using the [kinematics](../../api/kineticstoolkit.kinematics.rst) module. This results in a TimeSeries with 26 markers:
 
-```{code-cell}
+```{code-cell} ipython3
 markers = ktk.kinematics.read_c3d_file(
-    ktk.config.root_folder
-    + '/data/kinematics/sprintbasket.c3d'
+    ktk.doc.download('kinematics_basket_sprint.c3d')
 )
 
 markers
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 markers.data
 ```
 
 To convert this TimeSeries to a `csv`, we first create a DataFrame:
 
-```{code-cell}
+```{code-cell} ipython3
 df = markers.to_dataframe()
 
 df
@@ -156,7 +157,7 @@ df
 
 Then we export this DataFrame to a `csv` file. Let's print the first 3 lines of this file:
 
-```{code-cell}
+```{code-cell} ipython3
 df.to_csv('output.csv', index_label='Time')
 
 !head -3 output.csv

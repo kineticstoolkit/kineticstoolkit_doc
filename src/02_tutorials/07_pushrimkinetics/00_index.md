@@ -28,8 +28,8 @@ The first step is to load data from a file, using the [pushrimkinetics.read_file
 
 ```{code-cell} ipython3
 filename = (
-    ktk.config.root_folder +
-    '/data/pushrimkinetics/sample_swl_overground_propulsion_withrubber.csv')
+    ktk.doc.download('pushrimkinetics_offsets_propulsion.csv')
+)
 
 kinetics = ktk.pushrimkinetics.read_file(filename, file_format='smartwheel')
 ```
