@@ -49,8 +49,8 @@ viewing_options = {
     'translation': (0.2, -0.7)
 }
 
-# Define the segments for easier visualization
-segments = {
+# Interconnect markers for easier visualization
+interconnections = {
     'ArmR': {
         'Color': [1, 0.25, 0],
         'Links': [['AcromionR', 'MedialEpicondyleR'],
@@ -70,7 +70,7 @@ segments = {
 }
 
 # Create the player
-player = ktk.Player(markers, segments=segments, **viewing_options)
+player = ktk.Player(markers, interconnections=interconnections, **viewing_options)
 
 # Show one second (only needed in Notebooks)
 player.to_html5(start_time=0, stop_time=1)
@@ -135,7 +135,7 @@ Let's visualize it:
 
 ```{code-cell}
 player = ktk.Player(markers, frames,
-                    segments=segments, **viewing_options)
+                    interconnections=interconnections, **viewing_options)
 
 # Show one second in this Jupyter notebook
 player.to_html5(start_time=0, stop_time=1)
@@ -180,7 +180,7 @@ Let's visualize our markers with both new frames:
 
 ```{code-cell}
 player = ktk.Player(markers, frames,
-                    segments=segments, **viewing_options)
+                    interconnections=interconnections, **viewing_options)
 
 # Show one second in this Jupyter notebook
 player.to_html5(start_time=0, stop_time=1)

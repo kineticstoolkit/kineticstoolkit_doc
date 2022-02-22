@@ -62,7 +62,7 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Reading and visualizing marker trajectories</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#reading-marker-trajectories">Reading marker trajectories</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#visualizing-the-markers">Visualizing the markers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#drawing-links-between-markers">Drawing links between markers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#interconnecting-the-markers">Interconnecting the markers</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="02_joint_angles.html">Calculating joint angles from a kinematic acquisition</a></li>
@@ -1235,15 +1235,15 @@ OC43Ni4xMDA=
 <li><p>z = Blue</p></li>
 </ul>
 </section>
-<section id="drawing-links-between-markers">
-<h2>Drawing links between markers<a class="headerlink" href="#drawing-links-between-markers" title="Permalink to this headline"></a></h2>
-<p>To ease the visualization, it is often practical to create segments by linking markers with lines. Here, we will create links between the right arm markers and between the right forearm markers.</p>
+<section id="interconnecting-the-markers">
+<h2>Interconnecting the markers<a class="headerlink" href="#interconnecting-the-markers" title="Permalink to this headline"></a></h2>
+<p>To ease the visualization, it is often practical to interconnect markers with lines. Here, we will create links between the right arm markers and between the right forearm markers.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">segments</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>  <span class="c1"># Will contain all segment definitions</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">interconnections</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>  <span class="c1"># Will contain all segment definitions</span>
 
-<span class="c1"># Create a segment definition for the right arm</span>
-<span class="n">segments</span><span class="p">[</span><span class="s1">&#39;ArmR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+<span class="c1"># Right arm</span>
+<span class="n">interconnections</span><span class="p">[</span><span class="s1">&#39;ArmR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
     
     <span class="c1"># Segment color in [red, green, blue] (each between 0 et 1)</span>
     <span class="s1">&#39;Color&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
@@ -1254,8 +1254,8 @@ OC43Ni4xMDA=
               <span class="p">[</span><span class="s1">&#39;AcromionR&#39;</span><span class="p">,</span> <span class="s1">&#39;OlecraneR&#39;</span><span class="p">]]</span>
 <span class="p">}</span>
 
-<span class="c1"># Create a segment definition for the right forearm</span>
-<span class="n">segments</span><span class="p">[</span><span class="s1">&#39;ForearmR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+<span class="c1"># Right forearm</span>
+<span class="n">interconnections</span><span class="p">[</span><span class="s1">&#39;ForearmR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;Color&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
     <span class="s1">&#39;Links&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;MedialEpicondyleR&#39;</span><span class="p">,</span> <span class="s1">&#39;RadialStyloidR&#39;</span><span class="p">],</span>
               <span class="p">[</span><span class="s1">&#39;MedialEpicondyleR&#39;</span><span class="p">,</span> <span class="s1">&#39;UlnarStyloidR&#39;</span><span class="p">],</span>
@@ -1272,7 +1272,7 @@ OC43Ni4xMDA=
 <p>Now we can load a Player again with the segments we just defined:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">player</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">Player</span><span class="p">(</span><span class="n">markers</span><span class="p">,</span> <span class="n">segments</span><span class="o">=</span><span class="n">segments</span><span class="p">,</span> <span class="o">**</span><span class="n">viewing_options</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">player</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">Player</span><span class="p">(</span><span class="n">markers</span><span class="p">,</span> <span class="n">interconnections</span><span class="o">=</span><span class="n">interconnections</span><span class="p">,</span> <span class="o">**</span><span class="n">viewing_options</span><span class="p">)</span>
 
 <span class="n">player</span><span class="o">.</span><span class="n">to_html5</span><span class="p">(</span><span class="n">start_time</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop_time</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># Show only one second of acquisition</span>
 </pre></div>

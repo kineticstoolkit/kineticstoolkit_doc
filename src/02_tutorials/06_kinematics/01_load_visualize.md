@@ -68,15 +68,15 @@ Note the colored global reference frame on the bottom. This reference frame and 
 - y = Green
 - z = Blue
 
-## Drawing links between markers
+## Interconnecting the markers
 
-To ease the visualization, it is often practical to create segments by linking markers with lines. Here, we will create links between the right arm markers and between the right forearm markers.
+To ease the visualization, it is often practical to interconnect markers with lines. Here, we will create links between the right arm markers and between the right forearm markers.
 
 ```{code-cell}
-segments = dict()  # Will contain all segment definitions
+interconnections = dict()  # Will contain all segment definitions
 
-# Create a segment definition for the right arm
-segments['ArmR'] = {
+# Right arm
+interconnections['ArmR'] = {
     
     # Segment color in [red, green, blue] (each between 0 et 1)
     'Color': [1, 0.25, 0],
@@ -87,8 +87,8 @@ segments['ArmR'] = {
               ['AcromionR', 'OlecraneR']]
 }
 
-# Create a segment definition for the right forearm
-segments['ForearmR'] = {
+# Right forearm
+interconnections['ForearmR'] = {
     'Color': [1, 0.5, 0],
     'Links': [['MedialEpicondyleR', 'RadialStyloidR'],
               ['MedialEpicondyleR', 'UlnarStyloidR'],
@@ -103,7 +103,7 @@ segments['ForearmR'] = {
 Now we can load a Player again with the segments we just defined:
 
 ```{code-cell} ipython3
-player = ktk.Player(markers, segments=segments, **viewing_options)
+player = ktk.Player(markers, interconnections=interconnections, **viewing_options)
 
 player.to_html5(start_time=0, stop_time=1)  # Show only one second of acquisition
 ```
