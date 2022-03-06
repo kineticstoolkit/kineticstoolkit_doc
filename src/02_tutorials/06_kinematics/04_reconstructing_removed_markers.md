@@ -13,7 +13,9 @@ kernelspec:
 
 # Reconstructing removed markers
 
-Rigid bodies affixed to segments are generally used to reconstruct points where it is not feasible or difficult to put a real marker. The following example represents such a situation, where:
+Rigid bodies affixed to segments are generally used to reconstruct points where it is difficult or impossible to affix a real marker. For example, if a marker would be at risk of falling during the action, it can be installed during a short calibration acquisition, and then removed during the action.
+
+The following example represents such a situation:
 - With a rigid body of three markers affixed to the left arm, and a single marker affixed to the left lateral elbow epicondyle, an acquisition of a few seconds was recorded with the participant barely moving.
 - After removing the elbow epicondyle marker, a wheelchair propulsion acquisition was recorded.
 - We want to reconstruct the trajectory of the left lateral elbow epicondyle during the propulsion acquisition, even if it was not present during this acquisition.

@@ -127,11 +127,10 @@
              
   <section class="tex2jax_ignore mathjax_ignore" id="calculating-joint-angles-from-a-kinematic-acquisition">
 <h1>Calculating joint angles from a kinematic acquisition<a class="headerlink" href="#calculating-joint-angles-from-a-kinematic-acquisition" title="Permalink to this headline"></a></h1>
-<p>In this tutorial, we will calculate the elbow joint angles in the acquisition presented in the previous section. At the end of the tutorial, we will have plotted curves of elbow flexion and pronation angles during the complete acquisition.</p>
+<p>In this tutorial, we will calculate the elbow joint angles in the acquisition presented in the previous section. At the end of the tutorial, we will plot curves of elbow flexion and pronation angles during the complete acquisition.</p>
 <p>Such an analysis is composed of the following steps:</p>
-<p><strong>Step 1.</strong> Read the marker trajectories</p>
-<p>For each of the analyzed joint:</p>
-<p><strong>Step 2.</strong> We calculate series of frames to express the orientation of the two segments that compose this joint (how are both segments oriented in space);</p>
+<p><strong>Step 1.</strong> Read the marker trajectories.</p>
+<p><strong>Step 2.</strong> We calculate a series of frames that express the orientation of all segments that compose the analyzed joints (how are both segments oriented in space). Here, we calculate frame series for the forearm and arm.</p>
 <p><strong>Step 3.</strong> We express a series of homogeneous transforms between the proximal and distal frames (how the distal segment is oriented in space compared to the proximal segment);</p>
 <p><strong>Step 4.</strong> We extract the series of Euler angles from these homogeneous transforms (what series of three angles allow such relative orientation);</p>
 <p><strong>Step 5.</strong> We interpret these Euler angle as rotations around anatomical axes.</p>
@@ -1557,7 +1556,7 @@ Aq8AAALAAAAEagAAAzUAAAJnAAAC+AAAA8MAAANVAAACkQAAArYAAAP1AAADTQAAApMAAAJ2AAAD
 AAADEQAAA4MAAARmAAADxgAAA2kAAAL4AAAEIAAAA2YAAAK7AAACUAAAA8wAAAObAAACggAAAokA
 AAOAAAADPgAAArIAAAKoAAAAFHN0Y28AAAAAAAAAAQAAADAAAABidWR0YQAAAFptZXRhAAAAAAAA
 ACFoZGxyAAAAAAAAAABtZGlyYXBwbAAAAAAAAAAAAAAAAC1pbHN0AAAAJal0b28AAAAdZGF0YQAA
-AAEAAAAATGF2ZjU4Ljc2LjEwMA==
+AAEAAAAATGF2ZjU5LjE2LjEwMA==
 ">
   Your browser does not support the video tag.
 </video></div></div>
@@ -1571,7 +1570,7 @@ AAEAAAAATGF2ZjU4Ljc2LjEwMA==
 <h3>Arm coordinate system<a class="headerlink" href="#arm-coordinate-system" title="Permalink to this headline"></a></h3>
 <p>Following the ISB recommendations, the local coordinate system for the humerus is defined as follow:</p>
 <p><strong>1. The origin is GH (glenohumeral joint).</strong></p>
-<p>We don’t have a marker for the glenohumeral join, but we have one for the acromion. We will therefore approximate GH by the acromion.</p>
+<p>We don’t have a marker for the glenohumeral join, but we have one for the acromion. We will approximate GH by the acromion.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">origin</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;AcromionR&#39;</span><span class="p">]</span>
@@ -1602,7 +1601,7 @@ AAEAAAAATGF2ZjU4Ljc2LjEwMA==
 <p>As an easier rule of thumb, look at the next definition: the z vector will point to right. Then just make the yz vector also point to (grossly) right.</p>
 <p><strong>4. The z axis is perpendicular to x and y, pointing to the right.</strong></p>
 <p>We have now defined everything to create the series of humerus frame.</p>
-<p>Let’s first create an empty TimeSeries for our new frames:</p>
+<p>We first create an empty TimeSeries for our frames:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frames</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">TimeSeries</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">markers</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
@@ -3100,7 +3099,7 @@ BJsAAAPLAAAC8AAAApwAAAQfAAADVwAAAiEAAAHUAAAFSgAAA7kAAAJ1AAADNgAABQYAAAQfAAAD
 qQAAA6UAAAUoAAAE3AAAA/MAAANxAAAEOQAAA3oAAALIAAACwwAABEwAAAO/AAACzgAAAt4AAAPd
 AAADnwAAAu8AAALFAAADPAAAABRzdGNvAAAAAAAAAAEAAAAwAAAAYnVkdGEAAABabWV0YQAAAAAA
 AAAhaGRscgAAAAAAAAAAbWRpcmFwcGwAAAAAAAAAAAAAAAAtaWxzdAAAACWpdG9vAAAAHWRhdGEA
-AAABAAAAAExhdmY1OC43Ni4xMDA=
+AAABAAAAAExhdmY1OS4xNi4xMDA=
 ">
   Your browser does not support the video tag.
 </video></div></div>
@@ -4692,7 +4691,7 @@ egAABOUAAAPlAAAC8wAAAs4AAATIAAAEHgAAAzwAAALPAAADmQAABL0AAANJAAAB6QAAAkkAAAWm
 AAAEYQAAAvwAAAPvAAAFoQAABCsAAAOkAAAD7AAABUQAAARYAAAD2QAAAxgAAATWAAAD4wAAAukA
 AAK3AAAE1QAABBYAAAKjAAACwwAABEkAAAPsAAADNQAAAyoAAAAUc3RjbwAAAAAAAAABAAAAMAAA
 AGJ1ZHRhAAAAWm1ldGEAAAAAAAAAIWhkbHIAAAAAAAAAAG1kaXJhcHBsAAAAAAAAAAAAAAAALWls
-c3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguNzYuMTAw
+c3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTkuMTYuMTAw
 ">
   Your browser does not support the video tag.
 </video></div></div>
@@ -4756,7 +4755,7 @@ c3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguNzYuMTAw
 <p><strong>First rotation:</strong> Around the humerus’ z axis. Corresponds to a flexion (positive) or hyperextension (negative).</p>
 <p><strong>Second rotation:</strong> Around the forearm’s rotated x axis. Corresponds to a “carrying angle” due to a tilt in the humeral flexion/extension axis at the humero-ulnar joint and an angulation of the ulna itself.</p>
 <p><strong>Third rotation:</strong> Around the forearm’s rotated y axis. Corresponds to a pronation (positive) or supination (negative).</p>
-<p>These rotations are relative to moving axes (every other rotation is performed around a new frame generated by the previous rotation). Therefore, we will use ‘ZXY’ (capital letters) as the sequence of rotations.</p>
+<p>These rotations are relative to moving axes (every other rotation is performed around a new frame generated by the previous rotation). Therefore, we will use ‘ZXY’ (capital letters - see <a class="reference internal" href="../../api/kineticstoolkit.geometry.get_angles.html"><span class="doc std std-doc">geometry.get_angles()</span></a> for the conventions) as the sequence of rotations.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">euler_angles</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">get_angles</span><span class="p">(</span><span class="n">arm_to_forearm</span><span class="p">,</span> <span class="s1">&#39;ZXY&#39;</span><span class="p">,</span> <span class="n">degrees</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -4780,7 +4779,7 @@ c3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguNzYuMTAw
 </section>
 <section id="plot-the-euler-angles">
 <h2>Plot the Euler angles<a class="headerlink" href="#plot-the-euler-angles" title="Permalink to this headline"></a></h2>
-<p>Now that we calculated the angles, it would be a good idea to create a last TimeSeries to keep track of the time and meaning of these angles.</p>
+<p>Now that we calculated the angles, we create a last TimeSeries that represents the meaning of these angles.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">angles</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">TimeSeries</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">markers</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
@@ -4788,31 +4787,15 @@ c3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTguNzYuMTAw
 <span class="n">angles</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Elbow flexion&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">euler_angles</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
 <span class="n">angles</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Forearm pronation&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">euler_angles</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
 
-<span class="n">angles</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="s1">&#39;Elbow flexion&#39;</span><span class="p">,</span> <span class="s1">&#39;Unit&#39;</span><span class="p">,</span> <span class="s1">&#39;deg&#39;</span><span class="p">)</span>
-<span class="n">angles</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="s1">&#39;Forearm pronation&#39;</span><span class="p">,</span> <span class="s1">&#39;Unit&#39;</span><span class="p">,</span> <span class="s1">&#39;deg&#39;</span><span class="p">)</span>
+<span class="n">angles</span> <span class="o">=</span> <span class="n">angles</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="s1">&#39;Elbow flexion&#39;</span><span class="p">,</span> <span class="s1">&#39;Unit&#39;</span><span class="p">,</span> <span class="s1">&#39;deg&#39;</span><span class="p">)</span>
+<span class="n">angles</span> <span class="o">=</span> <span class="n">angles</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="s1">&#39;Forearm pronation&#39;</span><span class="p">,</span> <span class="s1">&#39;Unit&#39;</span><span class="p">,</span> <span class="s1">&#39;deg&#39;</span><span class="p">)</span>
+
+<span class="n">angles</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TimeSeries with attributes:
-         time: &lt;array of shape (700,)&gt;
-         data: &lt;dict with 2 entries&gt;
-    time_info: &lt;dict with 1 entries&gt;
-    data_info: &lt;dict with 1 entries&gt;
-       events: &lt;list of 0 items&gt;
-</pre></div>
-</div>
-</div>
-</div>
-<p>Now we plot it.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">angles</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="../../_images/02_joint_angles_33_0.png" src="../../_images/02_joint_angles_33_0.png" />
+<img alt="../../_images/02_joint_angles_31_0.png" src="../../_images/02_joint_angles_31_0.png" />
 </div>
 </div>
 <p>From this curve, we can now see that the elbow goes from a total extension to a flexion of about 100 degrees, while the forearm stays in a pronated angle of about 125 to 170 degrees (defined from a fully supinated position in anatomical position).</p>

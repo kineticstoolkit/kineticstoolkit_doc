@@ -17,10 +17,10 @@ In the previous tutorial, we learned how to reconstructed "virtual" markers that
 
 ![Digitizing probe -height:short](../../_static/probe-kit.png)
 
-The whole process is a bit more complex than in the previous tutorials, but the tools provided by Kinetics Toolkit will help doing most of it. The following example represents such a situation, where the following acquisitions were performed:
+The whole process is a bit more complex than in the previous tutorials, but the tools provided by Kinetics Toolkit will help. The following example represents such a situation, where the following acquisitions were performed:
 - With a rigid body of three markers affixed to the right arm, an acquisition of a few seconds was recorded while another person touched the medial elbow epicondyle with the tip of the probe. Both were barely moving.
 - A wheelchair propulsion acquisition was then recorded.
-- We want to reconstruct the trajectory of the right medial elbow epicondyle during the propulsion acquisition, even if it was not present during this acquisition.
+- We want to reconstruct the trajectory of the right medial elbow epicondyle during the propulsion acquisition, even if it was not present during the acquisition.
 
 ## Loading sample data
 
@@ -59,7 +59,7 @@ markers_propulsion.data
 
 ## Defining the probe calibration
 
-Before beginning with this tutorial, we must know the configuration of the probe. What we need is the position of the probe markers in the probe's local coordinate system, assuming that this coordinate system's origin is at the probe tip. These positions may be found in configuration files that depend of the motion capture system. In this tutorial, our probe has four markers with the following local coordinates:
+Before beginning with this tutorial, we must know the configuration of the probe. What we need is the position of the probe markers in the probe's local coordinate system, assuming that this coordinate system's origin is at the probe tip. These positions are generally found in rigid body configuration files or in calibration certificates. In this tutorial, our probe has four markers with the following local coordinates:
 
 - Probe1: (0.0021213, -0.0158328, 0.0864285) m
 - Probe2: (0.0021213, 0.0158508, 0.0864285) m
@@ -85,7 +85,7 @@ probe = {
 
 ## Tracking the probe in the probing acquisition
 
-In the probing acquisition, the probe tip points on the medial epicondyle. Therefore, we can consider the probe tip as if it was a real marker affixed on the medial epicondyle. The first step is therefore to track the probe tip in the probing acquisition, using the four markers of the probe.
+In the probing acquisition, since the probe tip points on the medial epicondyle, we can consider the probe tip as if it was a real marker affixed on the medial epicondyle. The first step is therefore to track the probe tip during the probing acquisition, using the four markers of the probe.
 
 ```{code-cell} ipython3
 reconstructed_probe_markers_during_probing = ktk.kinematics.track_cluster(

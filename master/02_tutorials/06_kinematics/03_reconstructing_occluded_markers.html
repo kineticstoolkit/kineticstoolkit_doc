@@ -126,12 +126,16 @@
              
   <section class="tex2jax_ignore mathjax_ignore" id="reconstructing-occluded-markers">
 <h1>Reconstructing occluded markers<a class="headerlink" href="#reconstructing-occluded-markers" title="Permalink to this headline"></a></h1>
-<p>Often in kinematics acquisition, we affix rigid bodies containing several markers on the person’s segments. These bodies have a minimum of three markers, so that we can reconstruct a local coordinate system for this segment. However, if for some reason, one marker is lost or occluded during the acquisition, then we could not reconstruct the local coordinate system for these samples.</p>
-<p>This is why we usually use more than three markers. Since every marker is fixed relative to the others, then we could reconstruct the position of a marker based on the position of the others.</p>
+<p>Often in kinematics acquisition, we affix rigid bodies containing several markers on the person’s segments. These bodies have a minimum of three markers and allows reconstructing a complete local coordinate system for a given body segment. The importance of these rigid bodies will become clearer in the next tutotials.</p>
+<div class="admonition-dev-note admonition">
+<p class="admonition-title">dev note</p>
+<p>TODO Add a picture of a rigid body</p>
+</div>
+<p>It is often useful to have more than three markers on each rigid body, so that in case of occlusion (one marker is hidden and not recorded by the cameras) we can reconstruct its position using the position of every other marker.</p>
 <p>Kinetics Toolkit provides an easy way to reconstruct missing markers based on the position of the remaining ones. This is the contents of this tutorial.</p>
 <section id="loading-sample-data">
 <h2>Loading sample data<a class="headerlink" href="#loading-sample-data" title="Permalink to this headline"></a></h2>
-<p>Let’s begin by loading a sample acquisition. For this example, we will keep only the markers of the rigid body called ‘ArmL’.</p>
+<p>For this example, we will use a sample of wheelchair propulsion in a moving wheelchair. We will only use the markers of the rigid body called ‘ArmL’.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">kineticstoolkit.lab</span> <span class="k">as</span> <span class="nn">ktk</span>
@@ -199,7 +203,7 @@
 </section>
 <section id="create-a-cluster-of-markers">
 <h2>Create a cluster of markers<a class="headerlink" href="#create-a-cluster-of-markers" title="Permalink to this headline"></a></h2>
-<p>To reconstruct the most that we can from these new data, we begin by creating a cluster of markers. A cluster is the local position of every provided markers expressed in an abritrary, local coordinate system. The <a class="reference internal" href="../../api/kineticstoolkit.kinematics.create_cluster.html"><span class="doc std std-doc">create_cluster()</span></a> function is used to create such a cluster. Note that for this function to work, all markers must be visible at the same time at least once.</p>
+<p>To reconstruct the most that we can from these data, we begin by creating a cluster of markers. A cluster is the fixed, local position of every provided markers expressed in an abritrary, local coordinate system. The <a class="reference internal" href="../../api/kineticstoolkit.kinematics.create_cluster.html"><span class="doc std std-doc">create_cluster()</span></a> function is used to create such a cluster. Note that for this function to work, all markers must be visible at the same time at least once.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cluster</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">kinematics</span><span class="o">.</span><span class="n">create_cluster</span><span class="p">(</span><span class="n">markers</span><span class="p">,</span> <span class="p">[</span>
@@ -229,7 +233,7 @@
 </section>
 <section id="track-the-cluster-to-reconstruct-the-missing-markers">
 <h2>Track the cluster to reconstruct the missing markers<a class="headerlink" href="#track-the-cluster-to-reconstruct-the-missing-markers" title="Permalink to this headline"></a></h2>
-<p>Now that we know how each marker was positioned compared to the others, we can use this cluster to reconstruct data where a marker was hidden.</p>
+<p>Now that we know how each marker is positioned relative to each other, we can use this cluster to reconstruct the missing marker positions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reconstructed_markers</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">kinematics</span><span class="o">.</span><span class="n">track_cluster</span><span class="p">(</span><span class="n">markers</span><span class="p">,</span> <span class="n">cluster</span><span class="p">)</span>
@@ -250,7 +254,7 @@
 <img alt="../../_images/03_reconstructing_occluded_markers_7_0.png" src="../../_images/03_reconstructing_occluded_markers_7_0.png" />
 </div>
 </div>
-<p>As we see, most of the missing data from Marker2 and Marker4 were reconstructed. Only the zone between 14.8 and 15.0 seconds could not, because only two markers were visible at that time. We also note that missing data appeared in the reconstructed markers 1 and 3, whereas no data was missing before. We emphasis that the reconstructed marker positions are not the original marker positions, plus the reconstructed data. They are all new data, generated by the process of fitting a rigid cluster on available marker positions. Since only two markers were available between 14.8 and 15.0 seconds, then the cluster could not be fitted and therefore, no reconstructed marker can be obtained.</p>
+<p>As we see, most of the missing data from Marker2 and Marker4 were reconstructed. Only the zone between 14.8 and 15.0 seconds could not, because only two markers were visible at that time. We also note that missing data appeared in the reconstructed markers 1 and 3, whereas no data was missing before. It is important to understand that the reconstructed marker positions are not the original marker positions, plus the reconstructed data. They are all new data, generated by the process of fitting a rigid cluster on available marker positions. Since only two markers were available between 14.8 and 15.0 seconds, then the cluster could not be fitted and therefore, no reconstructed marker can be obtained.</p>
 </section>
 </section>
 
