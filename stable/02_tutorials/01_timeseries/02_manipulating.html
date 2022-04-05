@@ -5,7 +5,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Manipulating TimeSeries &mdash; Kinetics Toolkit 0.6.2.1 documentation</title>
+  <title>Manipulating TimeSeries &mdash; Kinetics Toolkit stable documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
@@ -86,7 +86,12 @@
 <p class="caption" role="heading"><span class="caption-text">LINKS</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://felixchenier.uqam.ca/ktk_develop">Development website</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub repository</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FOR DEVELOPERS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../99_for_developers/01_getting_started/00_index.html">Developing Kinetics Toolkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../99_for_developers/02_tutorials/00_index.html">Tutorial development for stable/unstable features</a></li>
 </ul>
 
         </div>
@@ -140,8 +145,7 @@
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">kineticstoolkit.lab</span> <span class="k">as</span> <span class="nn">ktk</span>
 
 <span class="n">markers</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">kinematics</span><span class="o">.</span><span class="n">read_c3d_file</span><span class="p">(</span>
-    <span class="n">ktk</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">root_folder</span>
-    <span class="o">+</span> <span class="s1">&#39;/data/kinematics/sprintbasket.c3d&#39;</span>
+    <span class="n">ktk</span><span class="o">.</span><span class="n">doc</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;kinematics_basket_sprint.c3d&#39;</span><span class="p">)</span>
 <span class="p">)</span>
 
 <span class="n">markers</span>
@@ -346,7 +350,10 @@ allow splitting the TimeSeries based on time indexes. For example, if we plot th
 <p>A very powerful method to split a TimeSeries is to use events. For this example, we will rebuilt the wheelchair kinetics TimeSeries of the previous tutorial.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">ktk</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">root_folder</span> <span class="o">+</span> <span class="s1">&#39;/data/timeseries/smartwheel.ktk.zip&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
+    <span class="n">ktk</span><span class="o">.</span><span class="n">doc</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;timeseries_example.ktk.zip&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+
 <span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">4.35</span><span class="p">,</span> <span class="s1">&#39;sync&#39;</span><span class="p">)</span>
 <span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">8.56</span><span class="p">,</span> <span class="s1">&#39;push&#39;</span><span class="p">)</span>
 <span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">9.93</span><span class="p">,</span> <span class="s1">&#39;recovery&#39;</span><span class="p">)</span>
@@ -423,7 +430,7 @@ allow splitting the TimeSeries based on time indexes. For example, if we plot th
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020-2021, Félix Chénier.</p>
+    <p>&#169; Copyright 2020-2022, Félix Chénier.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

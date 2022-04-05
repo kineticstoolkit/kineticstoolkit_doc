@@ -5,7 +5,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kineticstoolkit.Player.to_html5 &mdash; Kinetics Toolkit 0.6.2.1 documentation</title>
+  <title>kineticstoolkit.Player.to_html5 &mdash; Kinetics Toolkit stable documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
@@ -75,7 +75,12 @@
 <p class="caption" role="heading"><span class="caption-text">LINKS</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://felixchenier.uqam.ca/ktk_develop">Development website</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub repository</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FOR DEVELOPERS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../99_for_developers/01_getting_started/00_index.html">Developing Kinetics Toolkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../99_for_developers/02_tutorials/00_index.html">Tutorial development for stable/unstable features</a></li>
 </ul>
 
         </div>
@@ -110,25 +115,22 @@
 <h1>kineticstoolkit.Player.to_html5<a class="headerlink" href="#kineticstoolkit-player-to-html5" title="Permalink to this headline"></a></h1>
 <dl class="py method">
 <dt class="sig sig-object py" id="kineticstoolkit.Player.to_html5">
-<span class="sig-prename descclassname"><span class="pre">Player.</span></span><span class="sig-name descname"><span class="pre">to_html5</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_frame</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#kineticstoolkit.Player.to_html5" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">Player.</span></span><span class="sig-name descname"><span class="pre">to_html5</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#kineticstoolkit.Player.to_html5" title="Permalink to this definition"></a></dt>
 <dd><p>Create an html5 video for displaying in Jupyter notebooks.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>start_frame</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – Start frame in the exported video. Default is the beginning.</p></li>
-<li><p><strong>stop_frame</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – Stop frame in the exported video. Negative numbers to count from
+<li><p><strong>start_index</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – Start index in the exported video. Default is the beginning.</p></li>
+<li><p><strong>stop_index</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – Stop index in the exported video. Negative numbers to count from
 the end. Default is the end.</p></li>
 <li><p><strong>start_time</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – Start time in the exported video. Default is the beginning.
-Ignored if start_frame is set.</p></li>
+Ignored if start_index is set.</p></li>
 <li><p><strong>stop_time</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]) – Stop time in the exported video. Default is the end.
-Ignored if stop_frame is set.</p></li>
+Ignored if stop_index is set.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>A matplotlib animation object for displaying as html5.</p>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>A matplotlib animation object for displaying as html5.</p>
 </dd>
 </dl>
 <div class="admonition warning">
@@ -151,7 +153,7 @@ and may change signature or behaviour in the future.</p>
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020-2021, Félix Chénier.</p>
+    <p>&#169; Copyright 2020-2022, Félix Chénier.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

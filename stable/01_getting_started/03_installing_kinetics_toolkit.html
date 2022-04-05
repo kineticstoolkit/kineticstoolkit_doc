@@ -5,7 +5,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Installing Kinetics Toolkit &mdash; Kinetics Toolkit 0.6.2.1 documentation</title>
+  <title>Installing Kinetics Toolkit &mdash; Kinetics Toolkit stable documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
@@ -76,7 +76,12 @@
 <p class="caption" role="heading"><span class="caption-text">LINKS</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference external" href="https://felixchenier.uqam.ca/ktk_develop">Development website</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub repository</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">FOR DEVELOPERS</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../99_for_developers/01_getting_started/00_index.html">Developing Kinetics Toolkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../99_for_developers/02_tutorials/00_index.html">Tutorial development for stable/unstable features</a></li>
 </ul>
 
         </div>
@@ -109,11 +114,11 @@
   <section class="tex2jax_ignore mathjax_ignore" id="installing-kinetics-toolkit">
 <h1>Installing Kinetics Toolkit<a class="headerlink" href="#installing-kinetics-toolkit" title="Permalink to this headline"></a></h1>
 <p>Kinetics Toolkit is distributed via both <a class="reference external" href="https://anaconda.org/conda-forge/kineticstoolkit">conda-forge</a> and <a class="reference external" href="https://pypi.org/project/kineticstoolkit">PyPi</a>. The source code is hosted on <a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">git-hub</a>.</p>
-<p>Since reading c3d files relies on <a class="reference external" href="https://github.com/pyomeca/ezc3d">ezc3d</a> which binaries are distributed only via conda-forge, the recommended installation method is therefore using conda-forge.</p>
+<p>Since reading c3d files relies on <a class="reference external" href="https://github.com/pyomeca/ezc3d">ezc3d</a> which binaries are distributed only via conda-forge, the recommended installation method is therefore using conda-forge. If needed, go to the <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda website</a> to install a minimal conda installation.</p>
 <section id="install-and-update-kinetics-toolkit">
 <h2>Install and update Kinetics Toolkit<a class="headerlink" href="#install-and-update-kinetics-toolkit" title="Permalink to this headline"></a></h2>
-<p>Still in the prompt/terminal:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">kineticstoolkit</span> <span class="n">ezc3d</span>
+<p>In the Anaconda/Miniconda prompt or terminal:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">kineticstoolkit</span>
 </pre></div>
 </div>
 <p>You can keep Kinetics Toolkit up to date by typing this command regularly:</p>
@@ -124,16 +129,16 @@
 <section id="configuring-matplotlib-graphics-in-ipython-spyder">
 <h2>Configuring Matplotlib graphics in IPython/Spyder<a class="headerlink" href="#configuring-matplotlib-graphics-in-ipython-spyder" title="Permalink to this headline"></a></h2>
 <p>Kinetics Toolkit’s interactive functions make use of IPython’s integration of Matplotlib/Qt5’s event loop. When you want to use interactive functions in IPython, type:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>%matplotlib qt5
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">qt5</span>
 </pre></div>
 </div>
 <p>beforehand.</p>
-<p>Alternatively, since the Spyder IDE is so oriented towards science and it uses IPython, I highly suggest using this development environment. To configure Spyder for interactive graphics, go to the Spyder’s preferences, to the <strong>IPython console</strong> item, then to the <strong>Graphics</strong> pane. In the <strong>Graphics backend</strong> box, select <strong>Qt5</strong>, then restart Spyder.</p>
+<p>Alternatively, I highly recommend using the Spyder development environment since it is so oriented towards science. To configure Spyder for interactive graphics, go to the Spyder’s preferences, to the <strong>IPython console</strong> item, then to the <strong>Graphics</strong> pane. In the <strong>Graphics backend</strong> box, select <strong>Qt5</strong>, then restart Spyder.</p>
 </section>
 <section id="check-that-kinetics-toolkit-loads">
 <h2>Check that Kinetics Toolkit loads<a class="headerlink" href="#check-that-kinetics-toolkit-loads" title="Permalink to this headline"></a></h2>
 <p>The last step is to verify that you are able to import Kinetics Toolkit in an interactive IPython console. This should work without error:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">kineticstoolkit</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">kineticstoolkit</span> <span class="k">as</span> <span class="nn">ktk</span>
 </pre></div>
 </div>
 <p>or</p>
@@ -154,7 +159,7 @@
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020-2021, Félix Chénier.</p>
+    <p>&#169; Copyright 2020-2022, Félix Chénier.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

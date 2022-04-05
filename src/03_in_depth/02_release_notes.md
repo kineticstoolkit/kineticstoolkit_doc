@@ -11,7 +11,7 @@ kernelspec:
 
 # Release Notes
 
-## Version 0.7 (March 2022)
+## Version 0.7 (April 2022)
 
 - New feature: Marker reconstruction using point clusters, using `kinematics.create_cluster()`, `kinematics.extend_cluster()`, `kinematics.track_cluster()`.
 - New feature: Added the new `doc` module, which allows downloading sample data on the fly to reproduce every step of the tutorials.
@@ -20,7 +20,7 @@ kernelspec:
 - Improvement: `ezc3d` was added to the conda package's dependencies. Now Kinetics Toolkit is installed simply using `conda install -c conda-forge kineticstoolkit`.
 - Improvement: Renamed `frame` for `index` in Player's variable names, to avoid confusion between a frame (matrix) and a frame (image number).
 - Improvement: Renamed `segments` for `interconnections` in Player, to avoid confusion between a body segment and a group of interconnections between arbitrary points.
-- **Breaking change**: New default for `TimeSeries.merge`'s `overwrite` option. It was changed from True to False.
+- **Breaking change**: New default for `TimeSeries.merge`'s `overwrite` option. It changed from True to False.
 
 ## Version 0.6 (August 2021)
 
