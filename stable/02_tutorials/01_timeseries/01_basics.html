@@ -90,11 +90,6 @@
 <li class="toctree-l1"><a class="reference external" href="https://felixchenier.uqam.ca/ktk_develop">Development website</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub repository</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">FOR DEVELOPERS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../99_for_developers/01_getting_started/00_index.html">Developing Kinetics Toolkit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../99_for_developers/02_tutorials/00_index.html">Tutorial development for stable/unstable features</a></li>
-</ul>
 
         </div>
       </div>
@@ -139,7 +134,7 @@
 <p>A TimeSeries in its simplest form contains a time vector and at least one data series. For example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">kineticstoolkit.lab</span> <span class="k">as</span> <span class="nn">ktk</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">kineticstoolkit.lab</span> <span class="k">as</span> <span class="nn">ktk</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="n">ts</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">TimeSeries</span><span class="p">()</span>
@@ -150,10 +145,27 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TimeSeries with attributes:
+         time: &lt;array of shape (100,)&gt;
+         data: &lt;dict with 1 entries&gt;
+    time_info: &lt;dict with 1 entries&gt;
+    data_info: &lt;dict with 0 entries&gt;
+       events: &lt;list of 0 items&gt;
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &#39;Sinus&#39;: &lt;array of shape (100,)&gt;
+}
 </pre></div>
 </div>
 </div>
@@ -161,26 +173,40 @@
 <p>TimeSeries can be <a class="reference internal" href="../../api/kineticstoolkit.TimeSeries.plot.html"><span class="doc std std-doc">plotted</span></a> directly using Matplotlib:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/01_basics_4_0.png" src="../../_images/01_basics_4_0.png" />
 </div>
 </div>
 <p>A TimeSeries can contain many independent data that share a same time vector:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Cosinus&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Cosinus&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
 
 <span class="n">ts</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+      &#39;Sinus&#39;: &lt;array of shape (100,)&gt;
+    &#39;Cosinus&#39;: &lt;array of shape (100,)&gt;
+}
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/01_basics_7_0.png" src="../../_images/01_basics_7_0.png" />
 </div>
 </div>
 <p>A TimeSeries can also contain multidimensional data, as long as the first dimension corresponds to time.</p>
@@ -207,7 +233,7 @@ M_x(N-1) &amp; M_y(N-1) &amp; M_z(N-1) &amp; 0
 \end{split}\]</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
     <span class="n">ktk</span><span class="o">.</span><span class="n">doc</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;timeseries_example.ktk.zip&#39;</span><span class="p">)</span>
 <span class="p">)</span>
 
@@ -215,19 +241,40 @@ M_x(N-1) &amp; M_y(N-1) &amp; M_z(N-1) &amp; 0
 </pre></div>
 </div>
 </div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">data</span>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TimeSeries with attributes:
+         time: &lt;array of shape (5000,)&gt;
+         data: &lt;dict with 2 entries&gt;
+    time_info: &lt;dict with 1 entries&gt;
+    data_info: &lt;dict with 0 entries&gt;
+       events: &lt;list of 0 items&gt;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">data</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+     &#39;Forces&#39;: &lt;array of shape (5000, 4)&gt;
+    &#39;Moments&#39;: &lt;array of shape (5000, 4)&gt;
+}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/01_basics_11_0.png" src="../../_images/01_basics_11_0.png" />
 </div>
 </div>
 </section>
@@ -236,7 +283,14 @@ M_x(N-1) &amp; M_y(N-1) &amp; M_z(N-1) &amp; 0
 <p>The <code class="docutils literal notranslate"><span class="pre">time_info</span></code> property associates metadata to the time vector. It is a dictionary where each key is the name of one metadata. By default, <code class="docutils literal notranslate"><span class="pre">time_info</span></code> includes the <code class="docutils literal notranslate"><span class="pre">Unit</span></code> metadata, which corresponds to <code class="docutils literal notranslate"><span class="pre">s</span></code>. Any other metadata can be added by adding new keys in <code class="docutils literal notranslate"><span class="pre">time_info</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">time_info</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">time_info</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &#39;Unit&#39;: &#39;s&#39;
+}
 </pre></div>
 </div>
 </div>
@@ -244,17 +298,32 @@ M_x(N-1) &amp; M_y(N-1) &amp; M_z(N-1) &amp; 0
 <p>Similarly, the <code class="docutils literal notranslate"><span class="pre">data_info</span></code> property associates metadata to data. This property is a dictionary of dictionaries, where the outer key corresponds to the data key, and the inner key is the metadata. The <img alt="TimeSeries.add_data_info()" src="../../_images/kineticstoolkit.TimeSeries.add_data_info.rst" /> method eases the management of <code class="docutils literal notranslate"><span class="pre">data_info</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="s1">&#39;Forces&#39;</span><span class="p">,</span> <span class="s1">&#39;Unit&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="s1">&#39;Forces&#39;</span><span class="p">,</span> <span class="s1">&#39;Unit&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">)</span>
 <span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="s1">&#39;Moments&#39;</span><span class="p">,</span> <span class="s1">&#39;Unit&#39;</span><span class="p">,</span> <span class="s1">&#39;Nm&#39;</span><span class="p">)</span>
 
 <span class="n">ts</span><span class="o">.</span><span class="n">data_info</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+     &#39;Forces&#39;: &lt;dict with 1 entries&gt;
+    &#39;Moments&#39;: &lt;dict with 1 entries&gt;
+}
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="s1">&#39;Forces&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="s1">&#39;Forces&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &#39;Unit&#39;: &#39;N&#39;
+}
 </pre></div>
 </div>
 </div>
@@ -262,9 +331,12 @@ M_x(N-1) &amp; M_y(N-1) &amp; M_z(N-1) &amp; 0
 <p>Unless explicitly mentioned, metadata is not used for calculation and is optional. It is simply a way to clarify the data by adding information to it. Some functions however read metadata: for example, the <img alt="TimeSeries.plot()" src="../../_images/kineticstoolkit.TimeSeries.plot.rst" /> method looks for possible <code class="docutils literal notranslate"><span class="pre">Unit</span></code> metadata and prints it on the y axis.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/01_basics_18_0.png" src="../../_images/01_basics_18_0.png" />
 </div>
 </div>
 </section>
@@ -280,7 +352,7 @@ M_x(N-1) &amp; M_y(N-1) &amp; M_z(N-1) &amp; 0
 <p>In this tutorial, we will add the events manually.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">4.35</span><span class="p">,</span> <span class="s1">&#39;sync&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">4.35</span><span class="p">,</span> <span class="s1">&#39;sync&#39;</span><span class="p">)</span>
 <span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">8.56</span><span class="p">,</span> <span class="s1">&#39;push&#39;</span><span class="p">)</span>
 <span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">9.93</span><span class="p">,</span> <span class="s1">&#39;recovery&#39;</span><span class="p">)</span>
 <span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">10.50</span><span class="p">,</span> <span class="s1">&#39;push&#39;</span><span class="p">)</span>
@@ -298,14 +370,39 @@ M_x(N-1) &amp; M_y(N-1) &amp; M_z(N-1) &amp; 0
 <p>These 11 events are now added to the TimeSeries’ list of events:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TimeSeries with attributes:
+         time: &lt;array of shape (5000,)&gt;
+         data: &lt;dict with 2 entries&gt;
+    time_info: &lt;dict with 1 entries&gt;
+    data_info: &lt;dict with 2 entries&gt;
+       events: &lt;list of 11 items&gt;
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">events</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">events</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[TimeSeriesEvent(time=4.35, name=&#39;sync&#39;),
+ TimeSeriesEvent(time=8.56, name=&#39;push&#39;),
+ TimeSeriesEvent(time=9.93, name=&#39;recovery&#39;),
+ TimeSeriesEvent(time=10.5, name=&#39;push&#39;),
+ TimeSeriesEvent(time=11.12, name=&#39;recovery&#39;),
+ TimeSeriesEvent(time=11.78, name=&#39;push&#39;),
+ TimeSeriesEvent(time=12.33, name=&#39;recovery&#39;),
+ TimeSeriesEvent(time=13.39, name=&#39;push&#39;),
+ TimeSeriesEvent(time=13.88, name=&#39;recovery&#39;),
+ TimeSeriesEvent(time=14.86, name=&#39;push&#39;),
+ TimeSeriesEvent(time=15.3, name=&#39;recovery&#39;)]
 </pre></div>
 </div>
 </div>
@@ -313,9 +410,12 @@ M_x(N-1) &amp; M_y(N-1) &amp; M_z(N-1) &amp; 0
 <p>If we plot again the TimeSeries, we can see the added events.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/01_basics_25_0.png" src="../../_images/01_basics_25_0.png" />
 </div>
 </div>
 <section id="using-events-to-synchronize-timeseries">
@@ -323,10 +423,13 @@ M_x(N-1) &amp; M_y(N-1) &amp; M_z(N-1) &amp; 0
 <p>Let’s see how we can make use of these events. First, the <code class="docutils literal notranslate"><span class="pre">sync</span></code> event may be set to the time origin, which could be useful to sync this TimeSeries with other instrumentation. This can be done using the <img alt="TimeSeries.sync_event()" src="../../_images/kineticstoolkit.TimeSeries.sync_event.rst" /> function, which shifts the TimeSeries’ time and every event’s time accordingly.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">sync_event</span><span class="p">(</span><span class="s1">&#39;sync&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">sync_event</span><span class="p">(</span><span class="s1">&#39;sync&#39;</span><span class="p">)</span>
 <span class="n">ts</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/01_basics_27_0.png" src="../../_images/01_basics_27_0.png" />
 </div>
 </div>
 </section>
