@@ -6,7 +6,7 @@ At one point, you will need to install Python and its scientific environment on 
 
 ## Installing a conda distribution
 
-Download and install Anaconda or [Miniconda](https://docs.conda.io/en/latest/miniconda.html) with python 3.8 or newer.
+Download and install Anaconda or [Miniconda](https://docs.conda.io/en/latest/miniconda.html).
 
 ## Creating a virtual environment
 
