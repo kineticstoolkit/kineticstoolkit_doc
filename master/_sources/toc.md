@@ -12,7 +12,7 @@ parts:
       ### Getting started
       - file: [](getting_started_ktk.md)
         sections:
-          - file: [](what_is_kinetics_toolkit.md)
+          - file: [](ktk_what_is_kinetics_toolkit.md)
           - file: [](getting_started_with_python.md)
           - file: [](installing_kinetics_toolkit.md)
 
@@ -63,12 +63,22 @@ parts:
   ## API Reference
   - caption: "API Reference"
     chapters:
-      - file: [](99_api_reference/01_classes.md)
-      - file: [](99_api_reference/02_functions.md)
-      - file: [](99_api_reference/03_modules.md)
+      - file: [](api_classes.md)
+      - file: [](api_functions.md)
+      - file: [](api_modules.md)
 
-  ## Links
-  - caption: "Links"
+  ## Development
+  - caption: "Development"
     chapters:
       - url: https://github.com/felixchenier/kineticstoolkit
         title: GitHub repository
+      - file: [](dev.md)
+        sections:
+          - file: [](dev_install_from_github.md)
+          - file: [](dev_manual.md)
+          - file: [](dev_rules.md)
+          - file: [](dev_coding_style.md)
+      - file: [](dev_tutorials.md)
+        sections:
+          - file: [](anthropometrics.md)
+          - file: [](inversedynamics.md)
