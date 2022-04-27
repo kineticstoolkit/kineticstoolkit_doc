@@ -1,0 +1,313 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reconstructing occluded markers &mdash; Kinetics Toolkit</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="_static/sphinx-thebe.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/stable.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/togglebutton.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+        <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+        <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+        <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+        <script async="async" src="_static/sphinx-thebe.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Reconstructing removed markers" href="kinematics_reconstructing_removed_markers.html" />
+    <link rel="prev" title="Calculating joint angles from a kinematic acquisition" href="kinematics_joint_angles.html" />
+
+
+ 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: black" >
+            <a href="index.html">
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Manual</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started_ktk.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="tutorials.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="timeseries.html">TimeSeries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loadsave.html">Saving and loading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filters.html">Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycles.html">Detecting and normalizing cycles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometry.html">Rigid body geometry</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="kinematics.html">Kinematics analysis</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="kinematics_load_visualize.html">Reading and visualizing marker trajectories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kinematics_joint_angles.html">Calculating joint angles from a kinematic acquisition</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Reconstructing occluded markers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kinematics_reconstructing_removed_markers.html">Reconstructing removed markers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kinematics_reconstructing_probed_points.html">Reconstructing probed points</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pushrimkinetics.html">Wheelchair kinetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ktk_conventions.html">Conventions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ktk_in_depth.html">In depth</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="99_api_reference/01_classes.html">Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="99_api_reference/02_functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="99_api_reference/03_modules.html">Modules</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub repository</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: black" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="tutorials.html">Tutorials</a> &raquo;</li>
+          <li><a href="kinematics.html">Kinematics analysis</a> &raquo;</li>
+      <li>Reconstructing occluded markers</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/kinematics_reconstructing_occluded_markers.md" rel="nofollow"> View page source</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="kinematics_joint_angles.html" class="btn btn-neutral float-left" title="Calculating joint angles from a kinematic acquisition" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="kinematics_reconstructing_removed_markers.html" class="btn btn-neutral float-right" title="Reconstructing removed markers" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="tex2jax_ignore mathjax_ignore section" id="reconstructing-occluded-markers">
+<h1>Reconstructing occluded markers<a class="headerlink" href="#reconstructing-occluded-markers" title="Permalink to this headline"></a></h1>
+<p>Often in kinematics acquisition, we affix rigid bodies containing several markers on the person’s segments. These bodies have a minimum of three markers and allows reconstructing a complete local coordinate system for a given body segment. The importance of these rigid bodies will become clearer in the next tutotials.</p>
+<div class="admonition-dev-note admonition">
+<p class="admonition-title">dev note</p>
+<p>TODO Add a picture of a rigid body</p>
+</div>
+<p>It is often useful to have more than three markers on each rigid body, so that in case of occlusion (one marker is hidden and not recorded by the cameras) we can reconstruct its position using the position of every other marker.</p>
+<p>Kinetics Toolkit provides an easy way to reconstruct missing markers based on the position of the remaining ones. This is the contents of this tutorial.</p>
+<div class="section" id="loading-sample-data">
+<h2>Loading sample data<a class="headerlink" href="#loading-sample-data" title="Permalink to this headline"></a></h2>
+<p>For this example, we will use a sample of wheelchair propulsion in a moving wheelchair. We will only use the markers of the rigid body called ‘ArmL’.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">kineticstoolkit.lab</span> <span class="k">as</span> <span class="nn">ktk</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">markers</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">kinematics</span><span class="o">.</span><span class="n">read_c3d_file</span><span class="p">(</span>
+    <span class="n">ktk</span><span class="o">.</span><span class="n">doc</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;kinematics_basket_sprint.c3d&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="n">markers</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">get_subset</span><span class="p">([</span>
+    <span class="s1">&#39;ArmL:Marker1&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ArmL:Marker2&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ArmL:Marker3&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ArmL:Marker4&#39;</span><span class="p">,</span>
+<span class="p">])</span>
+
+<span class="n">markers</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">get_ts_between_times</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">17</span><span class="p">)</span>
+
+<span class="c1"># Plot the markers trajectories</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">markers</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;ArmL:Marker1&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">markers</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;ArmL:Marker2&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">markers</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;ArmL:Marker3&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">markers</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;ArmL:Marker4&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/kinematics_reconstructing_occluded_markers_1_0.png" src="_images/kinematics_reconstructing_occluded_markers_1_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="add-marker-occlusion">
+<h2>Add marker occlusion<a class="headerlink" href="#add-marker-occlusion" title="Permalink to this headline"></a></h2>
+<p>These data do not have occlusion, and therefore we will fake some. Let simulate that we lost Marker2 from 14.0 to 15.0 seconds, and Marker4 from 14.8 to 15.8 seconds.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;ArmL:Marker2&#39;</span><span class="p">][</span>
+    <span class="p">(</span><span class="n">markers</span><span class="o">.</span><span class="n">time</span> <span class="o">&gt;=</span> <span class="mf">14.0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">markers</span><span class="o">.</span><span class="n">time</span> <span class="o">&lt;=</span> <span class="mf">15.0</span><span class="p">)</span>
+<span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+<span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;ArmL:Marker4&#39;</span><span class="p">][</span>
+    <span class="p">(</span><span class="n">markers</span><span class="o">.</span><span class="n">time</span> <span class="o">&gt;=</span> <span class="mf">14.8</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">markers</span><span class="o">.</span><span class="n">time</span> <span class="o">&lt;=</span> <span class="mf">15.8</span><span class="p">)</span>
+<span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+<span class="c1"># Plot the markers trajectories</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">markers</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;ArmL:Marker1&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">markers</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;ArmL:Marker2&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">markers</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;ArmL:Marker3&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">markers</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;ArmL:Marker4&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/kinematics_reconstructing_occluded_markers_3_0.png" src="_images/kinematics_reconstructing_occluded_markers_3_0.png" />
+</div>
+</div>
+</div>
+<div class="section" id="create-a-cluster-of-markers">
+<h2>Create a cluster of markers<a class="headerlink" href="#create-a-cluster-of-markers" title="Permalink to this headline"></a></h2>
+<p>To reconstruct the most that we can from these data, we begin by creating a cluster of markers. A cluster is the fixed, local position of every provided markers expressed in an abritrary, local coordinate system. The <a class="reference internal" href="api/kineticstoolkit.kinematics.create_cluster.html"><span class="doc std std-doc">create_cluster()</span></a> function is used to create such a cluster. Note that for this function to work, all markers must be visible at the same time at least once.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cluster</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">kinematics</span><span class="o">.</span><span class="n">create_cluster</span><span class="p">(</span><span class="n">markers</span><span class="p">,</span> <span class="p">[</span>
+    <span class="s1">&#39;ArmL:Marker1&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ArmL:Marker2&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ArmL:Marker3&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ArmL:Marker4&#39;</span><span class="p">,</span>
+<span class="p">])</span>
+
+<span class="c1"># Print the contents of the cluster</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cluster</span><span class="p">[</span><span class="s1">&#39;ArmL:Marker1&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cluster</span><span class="p">[</span><span class="s1">&#39;ArmL:Marker2&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cluster</span><span class="p">[</span><span class="s1">&#39;ArmL:Marker3&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cluster</span><span class="p">[</span><span class="s1">&#39;ArmL:Marker4&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-0.  0.  0.  1.]]
+[[ 0.08192236 -0.         -0.          1.        ]]
+[[ 0.04729033  0.03960755 -0.          1.        ]]
+[[ 0.04756577 -0.03164345 -0.00904679  1.        ]]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="track-the-cluster-to-reconstruct-the-missing-markers">
+<h2>Track the cluster to reconstruct the missing markers<a class="headerlink" href="#track-the-cluster-to-reconstruct-the-missing-markers" title="Permalink to this headline"></a></h2>
+<p>Now that we know how each marker is positioned relative to each other, we can use this cluster to reconstruct the missing marker positions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reconstructed_markers</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">kinematics</span><span class="o">.</span><span class="n">track_cluster</span><span class="p">(</span><span class="n">markers</span><span class="p">,</span> <span class="n">cluster</span><span class="p">)</span>
+
+<span class="c1"># Plot the markers trajectories</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">reconstructed_markers</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;ArmL:Marker1&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">reconstructed_markers</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;ArmL:Marker2&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">reconstructed_markers</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;ArmL:Marker3&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">reconstructed_markers</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;ArmL:Marker4&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/kinematics_reconstructing_occluded_markers_7_0.png" src="_images/kinematics_reconstructing_occluded_markers_7_0.png" />
+</div>
+</div>
+<p>As we see, most of the missing data from Marker2 and Marker4 were reconstructed. Only the zone between 14.8 and 15.0 seconds could not, because only two markers were visible at that time. We also note that missing data appeared in the reconstructed markers 1 and 3, whereas no data was missing before. It is important to understand that the reconstructed marker positions are not the original marker positions, plus the reconstructed data. They are all new data, generated by the process of fitting a rigid cluster on available marker positions. Since only two markers were available between 14.8 and 15.0 seconds, then the cluster could not be fitted and therefore, no reconstructed marker can be obtained.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="kinematics_joint_angles.html" class="btn btn-neutral float-left" title="Calculating joint angles from a kinematic acquisition" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="kinematics_reconstructing_removed_markers.html" class="btn btn-neutral float-right" title="Reconstructing removed markers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

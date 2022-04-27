@@ -1,0 +1,390 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reconstructing probed points &mdash; Kinetics Toolkit</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="_static/sphinx-thebe.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/stable.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/togglebutton.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+        <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+        <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+        <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+        <script async="async" src="_static/sphinx-thebe.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Wheelchair kinetics" href="pushrimkinetics.html" />
+    <link rel="prev" title="Reconstructing removed markers" href="kinematics_reconstructing_removed_markers.html" />
+
+
+ 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: black" >
+            <a href="index.html">
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Manual</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="getting_started_ktk.html">Getting started</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="tutorials.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="timeseries.html">TimeSeries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loadsave.html">Saving and loading</a></li>
+<li class="toctree-l2"><a class="reference internal" href="filters.html">Filtering</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cycles.html">Detecting and normalizing cycles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometry.html">Rigid body geometry</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="kinematics.html">Kinematics analysis</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="kinematics_load_visualize.html">Reading and visualizing marker trajectories</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kinematics_joint_angles.html">Calculating joint angles from a kinematic acquisition</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kinematics_reconstructing_occluded_markers.html">Reconstructing occluded markers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kinematics_reconstructing_removed_markers.html">Reconstructing removed markers</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Reconstructing probed points</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pushrimkinetics.html">Wheelchair kinetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ktk_conventions.html">Conventions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ktk_in_depth.html">In depth</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="99_api_reference/01_classes.html">Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="99_api_reference/02_functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="99_api_reference/03_modules.html">Modules</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub repository</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: black" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="tutorials.html">Tutorials</a> &raquo;</li>
+          <li><a href="kinematics.html">Kinematics analysis</a> &raquo;</li>
+      <li>Reconstructing probed points</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/kinematics_reconstructing_probed_points.md" rel="nofollow"> View page source</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="kinematics_reconstructing_removed_markers.html" class="btn btn-neutral float-left" title="Reconstructing removed markers" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pushrimkinetics.html" class="btn btn-neutral float-right" title="Wheelchair kinetics" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="tex2jax_ignore mathjax_ignore section" id="reconstructing-probed-points">
+<h1>Reconstructing probed points<a class="headerlink" href="#reconstructing-probed-points" title="Permalink to this headline"></a></h1>
+<p>In the previous tutorial, we learned how to reconstructed “virtual” markers that are not physically attached to a bony landmark, but that were during a previous acquisition. Sometimes, it is completely impossible to affix a marker on a landmark, for example if the landmark is obstructed with clothes or other objects. In these situation, it may be possible to use a digitizing probe (image below, from <a class="reference external" href="http://optitrack.com">optitrack.com</a>) to point landmarks during short acquisitions of a few seconds, and use these probed points to reconstruct the landmarks trajectory during other acquisitions.</p>
+<p><img alt="Digitizing probe -height:short" src="_images/probe-kit.png" /></p>
+<p>The whole process is a bit more complex than in the previous tutorials, but the tools provided by Kinetics Toolkit will help. The following example represents such a situation, where the following acquisitions were performed:</p>
+<ul class="simple">
+<li><p>With a rigid body of three markers affixed to the right arm, an acquisition of a few seconds was recorded while another person touched the medial elbow epicondyle with the tip of the probe. Both were barely moving.</p></li>
+<li><p>A wheelchair propulsion acquisition was then recorded.</p></li>
+<li><p>We want to reconstruct the trajectory of the right medial elbow epicondyle during the propulsion acquisition, even if it was not present during the acquisition.</p></li>
+</ul>
+<div class="section" id="loading-sample-data">
+<h2>Loading sample data<a class="headerlink" href="#loading-sample-data" title="Permalink to this headline"></a></h2>
+<p>We will create two TimeSeries, one representing the markers available during the probing acquisition, and the other representing the markers available during the propulsion acquisition.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">kineticstoolkit.lab</span> <span class="k">as</span> <span class="nn">ktk</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Probing acquisition</span>
+<span class="n">markers_probing</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">kinematics</span><span class="o">.</span><span class="n">read_c3d_file</span><span class="p">(</span>
+    <span class="n">ktk</span><span class="o">.</span><span class="n">doc</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;kinematics_racing_probing_medial_epicondyle_R.c3d&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">markers_probing</span> <span class="o">=</span> <span class="n">markers_probing</span><span class="o">.</span><span class="n">get_subset</span><span class="p">([</span>
+    <span class="s1">&#39;ArmR1&#39;</span><span class="p">,</span> <span class="s1">&#39;ArmR2&#39;</span><span class="p">,</span> <span class="s1">&#39;ArmR3&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;Probe1&#39;</span><span class="p">,</span> <span class="s1">&#39;Probe2&#39;</span><span class="p">,</span> <span class="s1">&#39;Probe3&#39;</span><span class="p">,</span> <span class="s1">&#39;Probe4&#39;</span>
+<span class="p">])</span>
+
+<span class="n">markers_probing</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+     &#39;ArmR1&#39;: &lt;array of shape (140, 4)&gt;
+     &#39;ArmR2&#39;: &lt;array of shape (140, 4)&gt;
+     &#39;ArmR3&#39;: &lt;array of shape (140, 4)&gt;
+    &#39;Probe1&#39;: &lt;array of shape (140, 4)&gt;
+    &#39;Probe2&#39;: &lt;array of shape (140, 4)&gt;
+    &#39;Probe3&#39;: &lt;array of shape (140, 4)&gt;
+    &#39;Probe4&#39;: &lt;array of shape (140, 4)&gt;
+}
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Propulsion acquisition</span>
+<span class="n">markers_propulsion</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">kinematics</span><span class="o">.</span><span class="n">read_c3d_file</span><span class="p">(</span>
+    <span class="n">ktk</span><span class="o">.</span><span class="n">doc</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;kinematics_racing_propulsion.c3d&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="n">markers_propulsion</span> <span class="o">=</span> <span class="n">markers_propulsion</span><span class="o">.</span><span class="n">get_subset</span><span class="p">([</span>
+    <span class="s1">&#39;ArmR1&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ArmR2&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ArmR3&#39;</span><span class="p">,</span>
+<span class="p">])</span>
+
+<span class="n">markers_propulsion</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &#39;ArmR1&#39;: &lt;array of shape (700, 4)&gt;
+    &#39;ArmR2&#39;: &lt;array of shape (700, 4)&gt;
+    &#39;ArmR3&#39;: &lt;array of shape (700, 4)&gt;
+}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="defining-the-probe-calibration">
+<h2>Defining the probe calibration<a class="headerlink" href="#defining-the-probe-calibration" title="Permalink to this headline"></a></h2>
+<p>Before beginning with this tutorial, we must know the configuration of the probe. What we need is the position of the probe markers in the probe’s local coordinate system, assuming that this coordinate system’s origin is at the probe tip. These positions are generally found in rigid body configuration files or in calibration certificates. In this tutorial, our probe has four markers with the following local coordinates:</p>
+<ul class="simple">
+<li><p>Probe1: (0.0021213, -0.0158328, 0.0864285) m</p></li>
+<li><p>Probe2: (0.0021213, 0.0158508, 0.0864285) m</p></li>
+<li><p>Probe3: (0.0020575, 0.0160096, 0.1309445) m</p></li>
+<li><p>Probe4: (0.0021213, 0.0161204, 0.1754395) m</p></li>
+</ul>
+<p>We will use these known coordinates to create a cluster as in the previous tutorials, but here we do it manually since we already know the coordinates.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">probe</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;ProbeTip&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+        <span class="p">[[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]]),</span>
+    <span class="s1">&#39;Probe1&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+        <span class="p">[[</span><span class="mf">0.0021213</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0158328</span><span class="p">,</span> <span class="mf">0.0864285</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]]),</span>
+    <span class="s1">&#39;Probe2&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+        <span class="p">[[</span><span class="mf">0.0021213</span><span class="p">,</span> <span class="mf">0.0158508</span><span class="p">,</span> <span class="mf">0.0864285</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]]),</span>
+    <span class="s1">&#39;Probe3&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+        <span class="p">[[</span><span class="mf">0.0020575</span><span class="p">,</span> <span class="mf">0.0160096</span><span class="p">,</span> <span class="mf">0.1309445</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]]),</span>
+    <span class="s1">&#39;Probe4&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+        <span class="p">[[</span><span class="mf">0.0021213</span><span class="p">,</span> <span class="mf">0.0161204</span><span class="p">,</span> <span class="mf">0.1754395</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]]),</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="tracking-the-probe-in-the-probing-acquisition">
+<h2>Tracking the probe in the probing acquisition<a class="headerlink" href="#tracking-the-probe-in-the-probing-acquisition" title="Permalink to this headline"></a></h2>
+<p>In the probing acquisition, since the probe tip points on the medial epicondyle, we can consider the probe tip as if it was a real marker affixed on the medial epicondyle. The first step is therefore to track the probe tip during the probing acquisition, using the four markers of the probe.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reconstructed_probe_markers_during_probing</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">kinematics</span><span class="o">.</span><span class="n">track_cluster</span><span class="p">(</span>
+    <span class="n">markers_probing</span><span class="p">,</span>
+    <span class="n">probe</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">reconstructed_probe_markers_during_probing</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+    &#39;ProbeTip&#39;: &lt;array of shape (140, 4)&gt;
+      &#39;Probe1&#39;: &lt;array of shape (140, 4)&gt;
+      &#39;Probe2&#39;: &lt;array of shape (140, 4)&gt;
+      &#39;Probe3&#39;: &lt;array of shape (140, 4)&gt;
+      &#39;Probe4&#39;: &lt;array of shape (140, 4)&gt;
+}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since we reconstructed the trajectory of the probe tip during the probing acquisition, we can now consider that this trajectory is the same as if a real marker had been affixed on the medial epicondyle.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">markers_probing</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;MedialEpicondyleR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="n">reconstructed_probe_markers_during_probing</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;ProbeTip&#39;</span><span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">markers_probing</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+                &#39;ArmR1&#39;: &lt;array of shape (140, 4)&gt;
+                &#39;ArmR2&#39;: &lt;array of shape (140, 4)&gt;
+                &#39;ArmR3&#39;: &lt;array of shape (140, 4)&gt;
+               &#39;Probe1&#39;: &lt;array of shape (140, 4)&gt;
+               &#39;Probe2&#39;: &lt;array of shape (140, 4)&gt;
+               &#39;Probe3&#39;: &lt;array of shape (140, 4)&gt;
+               &#39;Probe4&#39;: &lt;array of shape (140, 4)&gt;
+    &#39;MedialEpicondyleR&#39;: &lt;array of shape (140, 4)&gt;
+}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="creating-a-cluster-of-markers">
+<h2>Creating a cluster of markers<a class="headerlink" href="#creating-a-cluster-of-markers" title="Permalink to this headline"></a></h2>
+<p>We are now in the same situation as the beginning of the previous tutorial. We can now create a cluster that includes the three rigid body markers, <strong>and</strong> the medial epicondyle.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cluster</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">kinematics</span><span class="o">.</span><span class="n">create_cluster</span><span class="p">(</span>
+    <span class="n">markers_probing</span><span class="p">,</span>
+    <span class="p">[</span><span class="s1">&#39;ArmR1&#39;</span><span class="p">,</span> <span class="s1">&#39;ArmR2&#39;</span><span class="p">,</span> <span class="s1">&#39;ArmR3&#39;</span><span class="p">,</span> <span class="s1">&#39;MedialEpicondyleR&#39;</span><span class="p">])</span>
+
+<span class="c1"># Print the cluster contents</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cluster</span><span class="p">[</span><span class="s1">&#39;ArmR1&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cluster</span><span class="p">[</span><span class="s1">&#39;ArmR2&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cluster</span><span class="p">[</span><span class="s1">&#39;ArmR3&#39;</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">cluster</span><span class="p">[</span><span class="s1">&#39;MedialEpicondyleR&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[-0.  0. -0.  1.]]
+[[ 0.04297859 -0.         -0.          1.        ]]
+[[ 0.02150487  0.03747125 -0.          1.        ]]
+[[0.08345064 0.12620648 0.10931605 1.        ]]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="tracking-the-cluster-to-reconstruct-a-virtual-marker-for-the-epicondyle">
+<h2>Tracking the cluster to reconstruct a “virtual” marker for the epicondyle<a class="headerlink" href="#tracking-the-cluster-to-reconstruct-a-virtual-marker-for-the-epicondyle" title="Permalink to this headline"></a></h2>
+<p>Now, exactly like on the previous tutorial, we use this cluster to reconstruct the whole set of four “markers” during the propulsion acquisitions.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reconstructed_markers_propulsion</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">kinematics</span><span class="o">.</span><span class="n">track_cluster</span><span class="p">(</span>
+    <span class="n">markers_propulsion</span><span class="p">,</span>
+    <span class="n">cluster</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Plot the results</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">reconstructed_markers_propulsion</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;ArmR1&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">reconstructed_markers_propulsion</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;ArmR2&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">reconstructed_markers_propulsion</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;ArmR3&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">reconstructed_markers_propulsion</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;MedialEpicondyleR&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/kinematics_reconstructing_probed_points_12_0.png" src="_images/kinematics_reconstructing_probed_points_12_0.png" />
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="kinematics_reconstructing_removed_markers.html" class="btn btn-neutral float-left" title="Reconstructing removed markers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pushrimkinetics.html" class="btn btn-neutral float-right" title="Wheelchair kinetics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

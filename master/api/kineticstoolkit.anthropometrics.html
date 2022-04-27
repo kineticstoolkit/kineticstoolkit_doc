@@ -2,15 +2,19 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kineticstoolkit.anthropometrics &mdash; Kinetics Toolkit (dev) master documentation</title>
+  <title>kineticstoolkit.anthropometrics &mdash; Kinetics Toolkit</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
       <link rel="stylesheet" href="../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinx-thebe.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/stable.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -20,14 +24,22 @@
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/togglebutton.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
         <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+        <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+        <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+        <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+        <script async="async" src="../_static/sphinx-thebe.js"></script>
         <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
         <script>mermaid.initialize({startOnLoad:true});</script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="kineticstoolkit.anthropometrics.estimate_center_of_mass" href="kineticstoolkit.anthropometrics.estimate_center_of_mass.html" />
-    <link rel="prev" title="kineticstoolkit.inversedynamics.get_anthropometrics" href="kineticstoolkit.inversedynamics.get_anthropometrics.html" />
 
 
  
@@ -39,7 +51,7 @@
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: black" >
             <a href="../index.html">
-            <img src="../_static/logo_development.png" class="logo" alt="Logo"/>
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -49,44 +61,21 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">MANUAL</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Manual</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../01_getting_started/00_index.html">Getting started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../02_tutorials/00_index.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../03_in_depth/00_index.html">In depth</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../04_learning_python/00_index.html">Learning Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started_ktk.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ktk_in_depth.html">In depth</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">API REFERENCE</span></p>
-<ul class="current">
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../99_api_reference/01_classes.html">Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../99_api_reference/02_functions.html">Functions</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../99_api_reference/03_modules.html">Modules</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="kineticstoolkit.cycles.html">kineticstoolkit.cycles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="kineticstoolkit.filters.html">kineticstoolkit.filters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="kineticstoolkit.geometry.html">kineticstoolkit.geometry</a></li>
-<li class="toctree-l2"><a class="reference internal" href="kineticstoolkit.kinematics.html">kineticstoolkit.kinematics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="kineticstoolkit.pushrimkinetics.html">kineticstoolkit.pushrimkinetics</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../99_api_reference/03_modules.html#unreleased-modules">Unreleased modules</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.emg.html">kineticstoolkit.emg</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.inversedynamics.html">kineticstoolkit.inversedynamics</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">kineticstoolkit.anthropometrics</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#nomenclature">Nomenclature</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../99_api_reference/03_modules.html">Modules</a></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">LINKS</span></p>
+<p class="caption" role="heading"><span class="caption-text">Links</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="https://felixchenier.uqam.ca/ktk_develop">Development website</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub repository</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">FOR DEVELOPERS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../99_for_developers/01_getting_started/00_index.html">Developing Kinetics Toolkit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../99_for_developers/02_tutorials/00_index.html">Tutorial development for stable/unstable features</a></li>
 </ul>
 
         </div>
@@ -95,7 +84,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: black" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Kinetics Toolkit (dev)</a>
+          <a href="../index.html">Python</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -103,101 +92,48 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../99_api_reference/03_modules.html">Modules</a> &raquo;</li>
       <li>kineticstoolkit.anthropometrics</li>
       <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/kineticstoolkit.anthropometrics.rst" rel="nofollow"> View page source</a>
       </li>
-  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="kineticstoolkit.inversedynamics.get_anthropometrics.html" class="btn btn-neutral float-left" title="kineticstoolkit.inversedynamics.get_anthropometrics" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="kineticstoolkit.anthropometrics.estimate_center_of_mass.html" class="btn btn-neutral float-right" title="kineticstoolkit.anthropometrics.estimate_center_of_mass" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-  </div>
+  </ul>
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="module-kineticstoolkit.anthropometrics">
-<span id="kineticstoolkit-anthropometrics"></span><h1>kineticstoolkit.anthropometrics<a class="headerlink" href="#module-kineticstoolkit.anthropometrics" title="Permalink to this headline"></a></h1>
-<p>Provide tools associated to anthropometric measurements and estimates.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This module is in very early development and everything can still change.
-Please don’t use this module in production code.</p>
+  <div class="section" id="kineticstoolkit-anthropometrics">
+<h1>kineticstoolkit.anthropometrics<a class="headerlink" href="#kineticstoolkit-anthropometrics" title="Permalink to this headline"></a></h1>
 </div>
-<section id="nomenclature">
-<h2>Nomenclature<a class="headerlink" href="#nomenclature" title="Permalink to this headline"></a></h2>
-<p>Skin markers (either real or reconstructed):</p>
-<ul class="simple">
-<li><p>HeadVertex</p></li>
-<li><p>Sellion</p></li>
-<li><p>C7</p></li>
-<li><p>Suprasternale</p></li>
-<li><p>PubicSymphysis</p></li>
-<li><p>AnteriorSuperiorIliacSpineR/L</p></li>
-<li><p>PosteriorSuperiorIliacSpineR/L</p></li>
-<li><p>AcromionR/L</p></li>
-<li><p>LateralHumeralEpicondyleR/L</p></li>
-<li><p>MedialHumeralEpicondyleR/L</p></li>
-<li><p>UlnarStyloidR/L</p></li>
-<li><p>RadialStyloidR/L</p></li>
-<li><p>CarpalMetaHead2R/L</p></li>
-<li><p>CarpalMetaHead5R/L</p></li>
-<li><p>HipJointCenterR/L</p></li>
-<li><p>LateralFemoralEpicondyleR/L</p></li>
-<li><p>MedialFemoralEpicondyleR/L</p></li>
-<li><p>LateralMalleolusR/L</p></li>
-<li><p>MedialMalleolusR/L</p></li>
-<li><p>CalcaneusR/L</p></li>
-<li><p>NavicularR/L</p></li>
-<li><p>TarsalMetaHead1R/L</p></li>
-<li><p>TarsalMetaHead5R/L</p></li>
-</ul>
-<p>Inferred joint centers:</p>
-<ul class="simple">
-<li><p>L5S1JointCenter</p></li>
-<li><p>C7T1JointCenter</p></li>
-<li><p>GlenohumeralJointCenterR/L</p></li>
-<li><p>ElbowJointCenterR/L</p></li>
-<li><p>WristJointCenterR/L</p></li>
-<li><p>KneeJointCenterR/L</p></li>
-<li><p>AnkleJointCenterR/L</p></li>
-</ul>
-<p class="rubric">Functions</p>
-<table class="longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
-<tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="kineticstoolkit.anthropometrics.estimate_center_of_mass.html#kineticstoolkit.anthropometrics.estimate_center_of_mass" title="kineticstoolkit.anthropometrics.estimate_center_of_mass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">estimate_center_of_mass</span></code></a></p></td>
-<td><p>Estimate the segments' center of mass based on anthropometric data.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="kineticstoolkit.anthropometrics.estimate_global_center_of_mass.html#kineticstoolkit.anthropometrics.estimate_global_center_of_mass" title="kineticstoolkit.anthropometrics.estimate_global_center_of_mass"><code class="xref py py-obj docutils literal notranslate"><span class="pre">estimate_global_center_of_mass</span></code></a></p></td>
-<td><p>Estimate the global center of mass.</p></td>
-</tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="kineticstoolkit.anthropometrics.infer_joint_centers.html#kineticstoolkit.anthropometrics.infer_joint_centers" title="kineticstoolkit.anthropometrics.infer_joint_centers"><code class="xref py py-obj docutils literal notranslate"><span class="pre">infer_joint_centers</span></code></a></p></td>
-<td><p>Infer joint centers based on anthropometric data.</p></td>
-</tr>
-<tr class="row-even"><td><p><a class="reference internal" href="kineticstoolkit.anthropometrics.track_local_coordinate_systems.html#kineticstoolkit.anthropometrics.track_local_coordinate_systems" title="kineticstoolkit.anthropometrics.track_local_coordinate_systems"><code class="xref py py-obj docutils literal notranslate"><span class="pre">track_local_coordinate_systems</span></code></a></p></td>
-<td><p>Create local coordinate system definitions based on static markers.</p></td>
-</tr>
-</tbody>
-</table>
-</section>
-</section>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./api"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="kineticstoolkit.inversedynamics.get_anthropometrics.html" class="btn btn-neutral float-left" title="kineticstoolkit.inversedynamics.get_anthropometrics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="kineticstoolkit.anthropometrics.estimate_center_of_mass.html" class="btn btn-neutral float-right" title="kineticstoolkit.anthropometrics.estimate_center_of_mass" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020-2022, Félix Chénier.</p>
+    <p>&#169; Copyright 2021.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a

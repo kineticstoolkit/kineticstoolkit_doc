@@ -1,0 +1,754 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>kineticstoolkit.geometry &mdash; Kinetics Toolkit</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx-thebe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/stable.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+        <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+
+ 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: black" >
+            <a href="../../index.html">
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started_ktk.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ktk_in_depth.html">In depth</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../99_api_reference/01_classes.html">Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../99_api_reference/02_functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../99_api_reference/03_modules.html">Modules</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub repository</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: black" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      <li>kineticstoolkit.geometry</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for kineticstoolkit.geometry</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright 2020 Félix Chénier</span>
+
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Provide 3d geometry and linear algebra functions related to biomechanics.</span>
+
+<span class="sd">Note</span>
+<span class="sd">----</span>
+<span class="sd">As a convention, the first dimension of every array is always N and corresponds</span>
+<span class="sd">to time. For constants, use a length of 1 as the first dimension.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;Félix Chénier&quot;</span>
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">&quot;Copyright (C) 2020-2021 Félix Chénier&quot;</span>
+<span class="n">__email__</span> <span class="o">=</span> <span class="s2">&quot;chenier.felix@uqam.ca&quot;</span>
+<span class="n">__license__</span> <span class="o">=</span> <span class="s2">&quot;Apache 2.0&quot;</span>
+
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">scipy.spatial.transform</span> <span class="k">as</span> <span class="nn">transform</span>
+<span class="kn">import</span> <span class="nn">kineticstoolkit.external.icp</span> <span class="k">as</span> <span class="nn">icp</span>
+<span class="kn">from</span> <span class="nn">kineticstoolkit.decorators</span> <span class="kn">import</span> <span class="n">unstable</span><span class="p">,</span> <span class="n">directory</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span>
+
+
+<div class="viewcode-block" id="matmul"><a class="viewcode-back" href="../../api/kineticstoolkit.geometry.matmul.html#kineticstoolkit.geometry.matmul">[docs]</a><span class="k">def</span> <span class="nf">matmul</span><span class="p">(</span><span class="n">op1</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">op2</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Matrix multiplication between series of matrices.</span>
+
+<span class="sd">    This function is a wrapper for numpy&#39;s matmul function (operator @), that</span>
+<span class="sd">    helps numpy to understand Kinetics Toolkit&#39;s convention that the first</span>
+<span class="sd">    dimension always corresponds to time.</span>
+
+<span class="sd">    It aligns and create additionnal dimensions if needed to avoid dimension</span>
+<span class="sd">    mismatch errors.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    op1</span>
+<span class="sd">        Series of floats, vectors or matrices.</span>
+<span class="sd">    op2</span>
+<span class="sd">        Series of floats, vectors or matrices.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.ndarray</span>
+<span class="sd">        The product, as a series of Nx4 or Nx4xM matrices.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">perform_mul</span><span class="p">(</span><span class="n">op1</span><span class="p">,</span> <span class="n">op2</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">op1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">op2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">op1</span> <span class="o">@</span> <span class="n">op2</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">op1</span> <span class="o">*</span> <span class="n">op2</span>  <span class="c1"># In the case where we have a series of floats.</span>
+
+    <span class="p">(</span><span class="n">op1</span><span class="p">,</span> <span class="n">op2</span><span class="p">)</span> <span class="o">=</span> <span class="n">_match_size</span><span class="p">(</span><span class="n">op1</span><span class="p">,</span> <span class="n">op2</span><span class="p">)</span>
+
+    <span class="n">n_samples</span> <span class="o">=</span> <span class="n">op1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># Get the expected shape by performing the first multiplication</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">perform_mul</span><span class="p">(</span><span class="n">op1</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">op2</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">n_samples</span><span class="p">,</span> <span class="o">*</span><span class="n">temp</span><span class="o">.</span><span class="n">shape</span><span class="p">))</span>
+
+    <span class="c1"># Perform the multiplication</span>
+    <span class="k">for</span> <span class="n">i_sample</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_samples</span><span class="p">):</span>
+        <span class="n">result</span><span class="p">[</span><span class="n">i_sample</span><span class="p">]</span> <span class="o">=</span> <span class="n">perform_mul</span><span class="p">(</span><span class="n">op1</span><span class="p">[</span><span class="n">i_sample</span><span class="p">],</span> <span class="n">op2</span><span class="p">[</span><span class="n">i_sample</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">result</span></div>
+
+
+<div class="viewcode-block" id="create_transforms"><a class="viewcode-back" href="../../api/kineticstoolkit.geometry.create_transforms.html#kineticstoolkit.geometry.create_transforms">[docs]</a><span class="k">def</span> <span class="nf">create_transforms</span><span class="p">(</span><span class="n">seq</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                      <span class="n">angles</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                      <span class="n">translations</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+                      <span class="o">*</span><span class="p">,</span>
+                      <span class="n">degrees</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create an Nx4x4 series of homogeneous transforms.</span>
+
+<span class="sd">    Warning</span>
+<span class="sd">    -------</span>
+<span class="sd">    This function, which has been introduced in 0.4, is still experimental and</span>
+<span class="sd">    may change signature or behaviour in the future.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    seq</span>
+<span class="sd">        Optional. Specifies sequence of axes for rotations. Up to 3 characters</span>
+<span class="sd">        belonging to the set {&#39;X&#39;, &#39;Y&#39;, &#39;Z&#39;} for intrinsic rotations (moving</span>
+<span class="sd">        axes), or {&#39;x&#39;, &#39;y&#39;, &#39;z&#39;} for extrinsic rotations (fixed axes).</span>
+<span class="sd">        Extrinsic and intrinsic rotations cannot be mixed in one function call.</span>
+<span class="sd">        Required if angles is specified.</span>
+
+<span class="sd">    angles</span>
+<span class="sd">        Optional array_like, shape (N,) or (N, [1 or 2 or 3]).</span>
+<span class="sd">        Angles are specified in radians (degrees is False) or degrees (degrees</span>
+<span class="sd">        is True).</span>
+
+<span class="sd">        For a single character seq, angles can be:</span>
+
+<span class="sd">            - array_like with shape (N,), where each angle[i] corresponds to a</span>
+<span class="sd">              single rotation</span>
+<span class="sd">            - array_like with shape (N, 1), where each angle[i, 0] corresponds</span>
+<span class="sd">              to a single rotation</span>
+
+<span class="sd">        For 2- and 3-character wide seq, angles can be:</span>
+
+<span class="sd">            - array_like with shape (W,) where W is the width of seq, which</span>
+<span class="sd">              corresponds to a single rotation with W axes</span>
+<span class="sd">            - array_like with shape (N, W) where each angle[i] corresponds to</span>
+<span class="sd">              a sequence of Euler angles describing a single rotation</span>
+
+<span class="sd">    translations</span>
+<span class="sd">        Optional float or array_like, shape (N, 3) or (N, 4). This corresponds</span>
+<span class="sd">        to the translation part of the generated series of homogeneous</span>
+<span class="sd">        transforms.</span>
+
+<span class="sd">    degrees</span>
+<span class="sd">        If True, then the given angles are in degrees. Default is False.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.ndarray</span>
+<span class="sd">        An Nx4x4 series of homogeneous transforms.</span>
+
+<span class="sd">    Example</span>
+<span class="sd">    -------</span>
+<span class="sd">    Create a series of two homogeneous transforms that rotates 0, then 90</span>
+<span class="sd">    degrees around x:</span>
+
+<span class="sd">        &gt;&gt;&gt; import kineticstoolkit.lab as ktk</span>
+<span class="sd">        &gt;&gt;&gt; ktk.geometry.create_transforms(&#39;x&#39;, [0, 90], degrees=True)</span>
+<span class="sd">        array([[[ 1.,  0.,  0.,  0.],</span>
+<span class="sd">                [ 0.,  1.,  0.,  0.],</span>
+<span class="sd">                [ 0.,  0.,  1.,  0.],</span>
+<span class="sd">                [ 0.,  0.,  0.,  1.]],</span>
+<span class="sd">        &lt;BLANKLINE&gt;</span>
+<span class="sd">               [[ 1.,  0.,  0.,  0.],</span>
+<span class="sd">                [ 0.,  0., -1.,  0.],</span>
+<span class="sd">                [ 0.,  1.,  0.,  0.],</span>
+<span class="sd">                [ 0.,  0.,  0.,  1.]]])</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Condition translations</span>
+    <span class="k">if</span> <span class="n">translations</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">translations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">translations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">translations</span><span class="p">)</span>
+
+    <span class="c1"># Condition angles</span>
+    <span class="k">if</span> <span class="n">angles</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">angles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">seq</span> <span class="o">=</span> <span class="s1">&#39;x&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">angles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">angles</span><span class="p">)</span>
+
+    <span class="c1"># Match sizes</span>
+    <span class="n">translations</span><span class="p">,</span> <span class="n">angles</span> <span class="o">=</span> <span class="n">_match_size</span><span class="p">(</span><span class="n">translations</span><span class="p">,</span> <span class="n">angles</span><span class="p">)</span>
+    <span class="n">n_samples</span> <span class="o">=</span> <span class="n">angles</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># Create the rotation matrix</span>
+    <span class="n">rotation</span> <span class="o">=</span> <span class="n">transform</span><span class="o">.</span><span class="n">Rotation</span><span class="o">.</span><span class="n">from_euler</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="n">angles</span><span class="p">,</span> <span class="n">degrees</span><span class="p">)</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="n">rotation</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">()</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">R</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>  <span class="c1"># Single rotation: add the Time dimension.</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="n">R</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+
+    <span class="c1"># Construct the final series of transforms</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">n_samples</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+    <span class="n">T</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">R</span>
+    <span class="n">T</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">translations</span>
+    <span class="n">T</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">T</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="n">T</span></div>
+
+
+<div class="viewcode-block" id="get_angles"><a class="viewcode-back" href="../../api/kineticstoolkit.geometry.get_angles.html#kineticstoolkit.geometry.get_angles">[docs]</a><span class="k">def</span> <span class="nf">get_angles</span><span class="p">(</span><span class="n">T</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+               <span class="n">seq</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+               <span class="n">degrees</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+               <span class="n">flip</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represent a series of transformation matrices as series of Euler angles.</span>
+
+<span class="sd">    This function is a wrapper for scipy.transform.Rotation.as_euler. Please</span>
+<span class="sd">    consult scipy help for the complete docstring.</span>
+
+<span class="sd">    Euler angles suffer from the problem of gimbal lock, where the</span>
+<span class="sd">    representation loses a degree of freedom and it is not possible to</span>
+<span class="sd">    determine the first and third angles uniquely. In this case, a warning is</span>
+<span class="sd">    raised, and the third angle is set to zero. Note however that the returned</span>
+<span class="sd">    angles still represent the correct rotation.</span>
+
+<span class="sd">    Warning</span>
+<span class="sd">    -------</span>
+<span class="sd">    This function, which has been introduced in 0.4, is still experimental and</span>
+<span class="sd">    may change signature or behaviour in the future.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    T</span>
+<span class="sd">        An Nx4x4 series of transformation matrices.</span>
+
+<span class="sd">    seq</span>
+<span class="sd">        3 characters belonging to the set {&#39;X&#39;, &#39;Y&#39;, &#39;Z&#39;} for intrinsic</span>
+<span class="sd">        rotations (moving axes), or {&#39;x&#39;, &#39;y&#39;, &#39;z&#39;} for extrinsic rotations</span>
+<span class="sd">        (fixed axes). Adjacent axes cannot be the same. Extrinsic and</span>
+<span class="sd">        intrinsic rotations cannot be mixed in one function call.</span>
+
+<span class="sd">    degrees</span>
+<span class="sd">        Returned angles are in degrees if this flag is True, else they are in</span>
+<span class="sd">        radians. Default is False.</span>
+
+<span class="sd">    flip</span>
+<span class="sd">        Return an alternate sequence with the second angle inverted, that</span>
+<span class="sd">        leads to the same rotation matrices. More specifically:</span>
+
+<span class="sd">        First angle belongs to [-180, 180] degrees (both inclusive)</span>
+
+<span class="sd">        Second angle belongs to:</span>
+<span class="sd">            - Default case (alt_angles = False):</span>
+<span class="sd">                - [-90, 90] degrees if all axes are different (like xyz)</span>
+<span class="sd">                - [0, 180] degrees if first and third axes are the same</span>
+<span class="sd">                  (like zxz)</span>
+<span class="sd">            - Alternate case (alt_angles = True):</span>
+<span class="sd">                - [-180, -90], [90, 180] degrees if all axes are different</span>
+<span class="sd">                  (like xyz)</span>
+<span class="sd">                - [-180, 0] degrees if first and third axes are the same</span>
+<span class="sd">                  (like zxz)</span>
+
+<span class="sd">        Third angle belongs to [-180, 180] degrees (both inclusive)</span>
+
+<span class="sd">        One rationale for adding this special case is the calculation</span>
+<span class="sd">        of shoulder angles: when following the ISB recommendation (YXY), X</span>
+<span class="sd">        corresponds to the negative elevation and thus we expect to get</span>
+<span class="sd">        negative values for Y. In this case, just use alt_angles = True.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.ndarray</span>
+<span class="sd">        A Tx3 array of Euler angles.</span>
+
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="n">transform</span><span class="o">.</span><span class="n">Rotation</span><span class="o">.</span><span class="n">from_matrix</span><span class="p">(</span><span class="n">T</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+    <span class="n">angles</span> <span class="o">=</span> <span class="n">R</span><span class="o">.</span><span class="n">as_euler</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="n">degrees</span><span class="p">)</span>
+
+    <span class="n">offset</span> <span class="o">=</span> <span class="mi">180</span> <span class="k">if</span> <span class="n">degrees</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+
+    <span class="k">if</span> <span class="n">flip</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">seq</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">seq</span><span class="p">[</span><span class="mi">2</span><span class="p">]:</span>  <span class="c1"># Euler angles</span>
+            <span class="n">angles</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">angles</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">offset</span><span class="p">)</span> <span class="o">-</span> <span class="n">offset</span>
+            <span class="n">angles</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">angles</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">angles</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">angles</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">offset</span><span class="p">)</span> <span class="o">-</span> <span class="n">offset</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># Tait-Bryan angles</span>
+            <span class="n">angles</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">angles</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">offset</span><span class="p">)</span> <span class="o">-</span> <span class="n">offset</span>
+            <span class="n">angles</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">offset</span> <span class="o">-</span> <span class="n">angles</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">angles</span><span class="p">[</span><span class="n">angles</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">offset</span><span class="p">,</span> <span class="p">:]</span> <span class="o">-=</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">offset</span><span class="p">)</span>
+            <span class="n">angles</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">angles</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">offset</span><span class="p">)</span> <span class="o">-</span> <span class="n">offset</span>
+
+    <span class="k">return</span> <span class="n">angles</span></div>
+
+
+<div class="viewcode-block" id="create_frames"><a class="viewcode-back" href="../../api/kineticstoolkit.geometry.create_frames.html#kineticstoolkit.geometry.create_frames">[docs]</a><span class="k">def</span> <span class="nf">create_frames</span><span class="p">(</span>
+        <span class="n">origin</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+        <span class="n">x</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">y</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">z</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">xy</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">xz</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">yz</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a Nx4x4 series of frames based on series of points and vectors.</span>
+
+<span class="sd">    Create reference frames based on points and vectors and return this series</span>
+<span class="sd">    of reference frames as a series of transformation matrices.</span>
+
+<span class="sd">    This function&#39;s behaviour is better explained using an example. We will</span>
+<span class="sd">    create reference frames for the right humerus, based on the recommendations</span>
+<span class="sd">    of the International Society of Biomechanics [1]. Lets say we have</span>
+<span class="sd">    constructed series of points for the glenohumeral joint (GH), lateral elbow</span>
+<span class="sd">    epicondyle (EL) and medial elbow epicondyle (EM). Following the ISB:</span>
+
+<span class="sd">        1. The origin is GH;</span>
+<span class="sd">        2. The y axis is the line between GH and the midpoint of EL and EM,</span>
+<span class="sd">           pointing to GH;</span>
+<span class="sd">        3. The x axis is the normal to the GH-EL-EM plane, pointing forward;</span>
+<span class="sd">           which means that GH-EL-EM is a yz plane.</span>
+<span class="sd">        4. The z axis is perpendicular to x and y, pointing to the right.</span>
+
+<span class="sd">    Therefore:</span>
+
+<span class="sd">        1. origin = GH</span>
+<span class="sd">        2. y = GH - (EL + EM) / 2</span>
+<span class="sd">        3. yz = EL - EM  # The x axis is formed by cross(y, yz)</span>
+<span class="sd">        4. reference_frames = ktk.geometry.create_reference_frames(</span>
+<span class="sd">            origin=origin, y=y, yz=yz)</span>
+
+<span class="sd">    Warning</span>
+<span class="sd">    -------</span>
+<span class="sd">    This function, which has been introduced in 0.4, is still experimental and</span>
+<span class="sd">    may change signature or behaviour in the future.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    origin</span>
+<span class="sd">        A series of N points (Nx4) that corresponds to the origin of the</span>
+<span class="sd">        returned reference frames.</span>
+
+<span class="sd">    x|y|z</span>
+<span class="sd">        A series of N vectors (Nx4) that are aligned toward the {x|y|z}</span>
+<span class="sd">        axis of the returned reference frames.</span>
+
+<span class="sd">    xy|xz</span>
+<span class="sd">        When x is specified, a series of N vectors (Nx4) in the {xy|xz} plane</span>
+<span class="sd">        of the returned reference frames.</span>
+
+<span class="sd">    xy|yz</span>
+<span class="sd">        When y is specified, a series of N vectors (Nx4) in the {xy|yz} plane</span>
+<span class="sd">        of the returned reference frames.</span>
+
+<span class="sd">    xz|yz</span>
+<span class="sd">        When z is specified, a series of N vectors (Nx4) in the {xz|yz} plane</span>
+<span class="sd">        of the returned reference frames.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.ndarray</span>
+<span class="sd">        Series of transformation matrices (Nx4x4).</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Create a translated reference frame using 3 points:</span>
+
+<span class="sd">        &gt;&gt;&gt; import kineticstoolkit.lab as ktk</span>
+<span class="sd">        &gt;&gt;&gt; origin = [[2., 2., 2., 1.]]</span>
+<span class="sd">        &gt;&gt;&gt; x = [[10., 0., 0., 0.]]</span>
+<span class="sd">        &gt;&gt;&gt; xy = [[10., 10., 0., 0.]]</span>
+<span class="sd">        &gt;&gt;&gt; rf = ktk.geometry.create_frames(origin, x=x, xy=xy)</span>
+<span class="sd">        &gt;&gt;&gt; rf</span>
+<span class="sd">        array([[[1., 0., 0., 2.],</span>
+<span class="sd">                [0., 1., 0., 2.],</span>
+<span class="sd">                [0., 0., 1., 2.],</span>
+<span class="sd">                [0., 0., 0., 1.]]])</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    1. G. Wu et al., &quot;ISB recommendation on definitions of joint</span>
+<span class="sd">       coordinate systems of various joints for the reporting of human joint</span>
+<span class="sd">       motion - Part II: shoulder, elbow, wrist and hand,&quot; Journal of</span>
+<span class="sd">       Biomechanics, vol. 38, no. 5, pp. 981--992, 2005.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Normalize series of vectors.&quot;&quot;&quot;</span>
+        <span class="n">norm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">v</span> <span class="o">/</span> <span class="n">norm</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">cross</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Cross on series of vectors of length 4.&quot;&quot;&quot;</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">v1</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">c</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">v1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">v2</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">c</span>
+
+    <span class="n">origin</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">origin</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">v_x</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">xy</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">v_z</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">cross</span><span class="p">(</span><span class="n">v_x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">xy</span><span class="p">)))</span>
+            <span class="n">v_y</span> <span class="o">=</span> <span class="n">cross</span><span class="p">(</span><span class="n">v_z</span><span class="p">,</span> <span class="n">v_x</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">xz</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">v_y</span> <span class="o">=</span> <span class="o">-</span><span class="n">normalize</span><span class="p">(</span><span class="n">cross</span><span class="p">(</span><span class="n">v_x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">xz</span><span class="p">)))</span>
+            <span class="n">v_z</span> <span class="o">=</span> <span class="n">cross</span><span class="p">(</span><span class="n">v_x</span><span class="p">,</span> <span class="n">v_y</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Either xy or xz must be set.&quot;</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">y</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">v_y</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">yz</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">v_x</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">cross</span><span class="p">(</span><span class="n">v_y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">yz</span><span class="p">)))</span>
+            <span class="n">v_z</span> <span class="o">=</span> <span class="n">cross</span><span class="p">(</span><span class="n">v_x</span><span class="p">,</span> <span class="n">v_y</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">xy</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">v_z</span> <span class="o">=</span> <span class="o">-</span><span class="n">normalize</span><span class="p">(</span><span class="n">cross</span><span class="p">(</span><span class="n">v_y</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">xy</span><span class="p">)))</span>
+            <span class="n">v_x</span> <span class="o">=</span> <span class="n">cross</span><span class="p">(</span><span class="n">v_y</span><span class="p">,</span> <span class="n">v_z</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Either xy or yz must be set.&quot;</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">z</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">v_z</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">z</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">xz</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">v_y</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">cross</span><span class="p">(</span><span class="n">v_z</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">xz</span><span class="p">)))</span>
+            <span class="n">v_x</span> <span class="o">=</span> <span class="n">cross</span><span class="p">(</span><span class="n">v_y</span><span class="p">,</span> <span class="n">v_z</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">yz</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">v_x</span> <span class="o">=</span> <span class="o">-</span><span class="n">normalize</span><span class="p">(</span><span class="n">cross</span><span class="p">(</span><span class="n">v_z</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">yz</span><span class="p">)))</span>
+            <span class="n">v_y</span> <span class="o">=</span> <span class="n">cross</span><span class="p">(</span><span class="n">v_z</span><span class="p">,</span> <span class="n">v_x</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Either yz or xz must be set.&quot;</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Either x, y or z must be set.&quot;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">((</span><span class="n">v_x</span><span class="p">,</span> <span class="n">v_y</span><span class="p">,</span> <span class="n">v_z</span><span class="p">,</span> <span class="n">origin</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="get_local_coordinates"><a class="viewcode-back" href="../../api/kineticstoolkit.geometry.get_local_coordinates.html#kineticstoolkit.geometry.get_local_coordinates">[docs]</a><span class="k">def</span> <span class="nf">get_local_coordinates</span><span class="p">(</span><span class="n">global_coordinates</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+                          <span class="n">reference_frames</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Express global coordinates in local reference frames.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    global_coordinates</span>
+<span class="sd">        The global coordinates, as a series of N points, vectors or matrices.</span>
+<span class="sd">        For example:</span>
+
+<span class="sd">        - A series of N points or vectors : Nx4</span>
+<span class="sd">        - A series of N set of M points or vectors : Nx4xM</span>
+<span class="sd">        - A series of N 4x4 transformation matrices : Nx4x4</span>
+
+<span class="sd">    reference_frames</span>
+<span class="sd">        A series of N reference frames (Nx4x4) to express the global</span>
+<span class="sd">        coordinates in.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.ndarray</span>
+<span class="sd">        Series of local coordinates in the same shape than</span>
+<span class="sd">        `global_coordinates`.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">n_samples</span> <span class="o">=</span> <span class="n">global_coordinates</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># Transform NaNs in global coordinates to zeros to perform the operation,</span>
+    <span class="c1"># then put back NaNs in the corresponding local coordinates.</span>
+    <span class="n">nan_index</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">global_coordinates</span><span class="p">)</span>
+    <span class="n">global_coordinates</span><span class="p">[</span><span class="n">nan_index</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># Invert the reference frame to obtain the inverse transformation</span>
+    <span class="n">ref_rot</span> <span class="o">=</span> <span class="n">reference_frames</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">ref_t</span> <span class="o">=</span> <span class="n">reference_frames</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+
+    <span class="c1"># Inverse rotation : transpose.</span>
+    <span class="n">inv_ref_rot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">ref_rot</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+    <span class="c1"># Inverse translation : we inverse-rotate the translation.</span>
+    <span class="n">inv_ref_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">ref_t</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">inv_ref_t</span> <span class="o">=</span> <span class="n">matmul</span><span class="p">(</span><span class="n">inv_ref_rot</span><span class="p">,</span> <span class="o">-</span><span class="n">ref_t</span><span class="p">)</span>
+
+    <span class="n">inv_ref_T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_samples</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>  <span class="c1"># init</span>
+    <span class="n">inv_ref_T</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">inv_ref_rot</span>
+    <span class="n">inv_ref_T</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">inv_ref_t</span>
+    <span class="n">inv_ref_T</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)</span>
+
+    <span class="n">local_coordinates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">global_coordinates</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># init</span>
+    <span class="n">local_coordinates</span> <span class="o">=</span> <span class="n">matmul</span><span class="p">(</span><span class="n">inv_ref_T</span><span class="p">,</span> <span class="n">global_coordinates</span><span class="p">)</span>
+
+    <span class="c1"># Put back the NaNs</span>
+    <span class="n">local_coordinates</span><span class="p">[</span><span class="n">nan_index</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+    <span class="k">return</span> <span class="n">local_coordinates</span></div>
+
+
+<div class="viewcode-block" id="get_global_coordinates"><a class="viewcode-back" href="../../api/kineticstoolkit.geometry.get_global_coordinates.html#kineticstoolkit.geometry.get_global_coordinates">[docs]</a><span class="k">def</span> <span class="nf">get_global_coordinates</span><span class="p">(</span><span class="n">local_coordinates</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+                           <span class="n">reference_frames</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Express local coordinates in the global reference frame.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    local_coordinates</span>
+<span class="sd">        The local coordinates, as a series of N points, vectors or matrices.</span>
+<span class="sd">        For example:</span>
+
+<span class="sd">        - A series of N points or vectors : Nx4</span>
+<span class="sd">        - A series of N set of M points or vectors : Nx4xM</span>
+<span class="sd">        - A series of N 4x4 transformation matrices : Nx4x4</span>
+
+<span class="sd">    reference_frames</span>
+<span class="sd">        A series of N reference frames (Nx4x4) the local coordinates are</span>
+<span class="sd">        expressed in.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.ndarray</span>
+<span class="sd">        Series of global coordinates in the same shape than</span>
+<span class="sd">        `local_coordinates`.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">global_coordinates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">local_coordinates</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">global_coordinates</span> <span class="o">=</span> <span class="n">matmul</span><span class="p">(</span><span class="n">reference_frames</span><span class="p">,</span> <span class="n">local_coordinates</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">global_coordinates</span></div>
+
+
+<div class="viewcode-block" id="isnan"><a class="viewcode-back" href="../../api/kineticstoolkit.geometry.isnan.html#kineticstoolkit.geometry.isnan">[docs]</a><span class="nd">@unstable</span>
+<span class="k">def</span> <span class="nf">isnan</span><span class="p">(</span><span class="nb">input</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="o">/</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Check which samples has at least one NaN.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    input</span>
+<span class="sd">        Array where the first dimension corresponds to time.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.ndarray</span>
+<span class="sd">        Array of bool that is the same size of input&#39;s first dimension, with</span>
+<span class="sd">        True for the samples that contain at least one NaN.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">temp</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="p">(</span><span class="n">temp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">temp</span></div>
+
+
+<span class="k">def</span> <span class="nf">_match_size</span><span class="p">(</span><span class="n">op1</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">op2</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+                <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Match the first dimension of op1 and op2.</span>
+
+<span class="sd">    Broadcasts the first dimension of op1 or op2, if required, so that both</span>
+<span class="sd">    inputs have the same size in first dimension. If no modification is</span>
+<span class="sd">    required on an input, then the output is a reference to the same input.</span>
+<span class="sd">    Otherwise, the output is a new variable.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    2x np.ndarray</span>
+<span class="sd">        References or copies of op1 and op2 now matched in size.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">op1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">op1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">op1</span><span class="p">,</span> <span class="n">op2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">op2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">op2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">op2</span><span class="p">,</span> <span class="n">op1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">op1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">op2</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s1">&#39;Could not match first dimension of op1 and op2&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">op1</span><span class="p">,</span> <span class="n">op2</span>
+
+
+<div class="viewcode-block" id="register_points"><a class="viewcode-back" href="../../api/kineticstoolkit.geometry.register_points.html#kineticstoolkit.geometry.register_points">[docs]</a><span class="k">def</span> <span class="nf">register_points</span><span class="p">(</span><span class="n">global_points</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+                    <span class="n">local_points</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Find the homogeneous transforms between two series of point clouds.</span>
+
+<span class="sd">    Warning</span>
+<span class="sd">    -------</span>
+<span class="sd">    This function, which has been introduced in 0.4, is still experimental and</span>
+<span class="sd">    may change signature or behaviour in the future.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    global_points : array of shape Nx4xM</span>
+<span class="sd">        Destination points as a series of N sets of M points.</span>
+<span class="sd">    local_points : array of shape Nx4xM</span>
+<span class="sd">        Local points as a series of N sets of M points.</span>
+<span class="sd">        global_points and local_points must have the same shape.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.ndarray</span>
+<span class="sd">        Array of shape Nx4x4, expressing a series of 4x4 homogeneous</span>
+<span class="sd">        transforms.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">n_samples</span> <span class="o">=</span> <span class="n">global_points</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># Prealloc the transformation matrix</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_samples</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+    <span class="n">T</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i_sample</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_samples</span><span class="p">):</span>
+
+        <span class="c1"># Identify which global points are visible</span>
+        <span class="n">sample_global_points</span> <span class="o">=</span> <span class="n">global_points</span><span class="p">[</span><span class="n">i_sample</span><span class="p">]</span>
+        <span class="n">sample_global_points_missing</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">sample_global_points</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+
+        <span class="c1"># Identify which local points are visible</span>
+        <span class="n">sample_local_points</span> <span class="o">=</span> <span class="n">local_points</span><span class="p">[</span><span class="n">i_sample</span><span class="p">]</span>
+        <span class="n">sample_local_points_missing</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">sample_local_points</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span>
+
+        <span class="n">sample_points_missing</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">logical_or</span><span class="p">(</span>
+            <span class="n">sample_global_points_missing</span><span class="p">,</span> <span class="n">sample_local_points_missing</span><span class="p">)</span>
+
+        <span class="c1"># If at least 3 common points are visible between local and global</span>
+        <span class="c1"># points, then we can regress the transformation.</span>
+        <span class="k">if</span> <span class="nb">sum</span><span class="p">(</span><span class="o">~</span><span class="n">sample_points_missing</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="n">T</span><span class="p">[</span><span class="n">i_sample</span><span class="p">]</span> <span class="o">=</span> <span class="n">icp</span><span class="o">.</span><span class="n">best_fit_transform</span><span class="p">(</span>
+                <span class="n">sample_local_points</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="o">~</span><span class="n">sample_points_missing</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">,</span>
+                <span class="n">sample_global_points</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="o">~</span><span class="n">sample_points_missing</span><span class="p">]</span><span class="o">.</span><span class="n">T</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">T</span><span class="p">[</span><span class="n">i_sample</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+    <span class="k">return</span> <span class="n">T</span></div>
+
+
+<span class="n">module_locals</span> <span class="o">=</span> <span class="nb">locals</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="fm">__dir__</span><span class="p">():</span>  <span class="c1"># pragma: no cover</span>
+    <span class="k">return</span> <span class="n">directory</span><span class="p">(</span><span class="n">module_locals</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
+    <span class="kn">import</span> <span class="nn">doctest</span>
+    <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">(</span><span class="n">optionflags</span><span class="o">=</span><span class="n">doctest</span><span class="o">.</span><span class="n">NORMALIZE_WHITESPACE</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

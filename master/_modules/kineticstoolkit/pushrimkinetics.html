@@ -1,0 +1,694 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>kineticstoolkit.pushrimkinetics &mdash; Kinetics Toolkit</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx-thebe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/stable.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+        <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+
+ 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: black" >
+            <a href="../../index.html">
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started_ktk.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ktk_in_depth.html">In depth</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../99_api_reference/01_classes.html">Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../99_api_reference/02_functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../99_api_reference/03_modules.html">Modules</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Links</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub repository</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: black" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      <li>kineticstoolkit.pushrimkinetics</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for kineticstoolkit.pushrimkinetics</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright 2020 Félix Chénier</span>
+
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Provide functions to process kinetic data from instrumented wheelchair wheels.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;Félix Chénier&quot;</span>
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">&quot;Copyright (C) 2020 Félix Chénier&quot;</span>
+<span class="n">__email__</span> <span class="o">=</span> <span class="s2">&quot;chenier.felix@uqam.ca&quot;</span>
+<span class="n">__license__</span> <span class="o">=</span> <span class="s2">&quot;Apache 2.0&quot;</span>
+
+
+<span class="kn">import</span> <span class="nn">kineticstoolkit.filters</span> <span class="k">as</span> <span class="nn">filters</span>
+<span class="kn">import</span> <span class="nn">kineticstoolkit.cycles</span> <span class="k">as</span> <span class="nn">cycles</span>
+<span class="kn">from</span> <span class="nn">kineticstoolkit</span> <span class="kn">import</span> <span class="n">TimeSeries</span>
+<span class="kn">from</span> <span class="nn">kineticstoolkit.decorators</span> <span class="kn">import</span> <span class="n">unstable</span><span class="p">,</span> <span class="n">dead</span><span class="p">,</span> <span class="n">directory</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span><span class="p">,</span> <span class="n">pi</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span> <span class="nn">struct</span>  <span class="c1"># to unpack binary data from SmartWheels&#39; txt files</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">List</span>
+
+
+<div class="viewcode-block" id="read_file"><a class="viewcode-back" href="../../api/kineticstoolkit.pushrimkinetics.read_file.html#kineticstoolkit.pushrimkinetics.read_file">[docs]</a><span class="k">def</span> <span class="nf">read_file</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span> <span class="n">file_format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Read a file containing pushrim kinetics data.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    filename</span>
+<span class="sd">        Name of the file to open</span>
+<span class="sd">    file_format</span>
+<span class="sd">        Format of the file. Can be either:</span>
+
+<span class="sd">        - &#39;smartwheel&#39; (SmartWheel CSV file)</span>
+<span class="sd">        - &#39;smartwheeltxt&#39; (SmartWheel SD-Card TXT file)</span>
+<span class="sd">        - &#39;racingwheel&#39; (will change)</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">file_format</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;file_format will need to be explicitely specified in &quot;</span>
+                      <span class="s2">&quot;future versions. Now using &#39;smartwheel&#39;.&quot;</span><span class="p">,</span>
+                      <span class="ne">FutureWarning</span><span class="p">)</span>
+        <span class="n">file_format</span> <span class="o">=</span> <span class="s1">&#39;smartwheel&#39;</span>
+
+    <span class="k">if</span> <span class="n">file_format</span> <span class="o">==</span> <span class="s1">&#39;smartwheel&#39;</span><span class="p">:</span>
+
+        <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># Retry with ; as separator</span>
+            <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;;&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+        <span class="n">data</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">index</span><span class="p">))</span> <span class="o">/</span> <span class="mi">240</span>
+        <span class="n">channels</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">6</span><span class="p">:</span><span class="mi">12</span><span class="p">]</span>
+        <span class="n">forces</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">18</span><span class="p">:</span><span class="mi">21</span><span class="p">]</span>
+        <span class="n">moments</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">21</span><span class="p">:</span><span class="mi">24</span><span class="p">]</span>
+        <span class="n">angle_deg</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">]</span>
+        <span class="n">angle_rad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">unwrap</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="n">angle_deg</span><span class="p">))</span>
+
+        <span class="n">ts</span> <span class="o">=</span> <span class="n">TimeSeries</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">time</span><span class="p">)</span>
+
+        <span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Index&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">index</span>
+        <span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Channels&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">channels</span>
+        <span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Forces&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">block</span><span class="p">([[</span><span class="n">forces</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">index</span><span class="p">),</span> <span class="mi">1</span><span class="p">))]])</span>
+        <span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Moments&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">block</span><span class="p">([[</span><span class="n">moments</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">index</span><span class="p">),</span> <span class="mi">1</span><span class="p">))]])</span>
+        <span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Angle&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">angle_rad</span>
+
+        <span class="n">ts</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="s1">&#39;Channels&#39;</span><span class="p">,</span> <span class="s1">&#39;Unit&#39;</span><span class="p">,</span> <span class="s1">&#39;raw&#39;</span><span class="p">)</span>
+        <span class="n">ts</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="s1">&#39;Forces&#39;</span><span class="p">,</span> <span class="s1">&#39;Unit&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">)</span>
+        <span class="n">ts</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="s1">&#39;Moments&#39;</span><span class="p">,</span> <span class="s1">&#39;Unit&#39;</span><span class="p">,</span> <span class="s1">&#39;Nm&#39;</span><span class="p">)</span>
+        <span class="n">ts</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="s1">&#39;Angle&#39;</span><span class="p">,</span> <span class="s1">&#39;Unit&#39;</span><span class="p">,</span> <span class="s1">&#39;rad&#39;</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">file_format</span> <span class="o">==</span> <span class="s1">&#39;racingwheel&#39;</span><span class="p">:</span>
+
+        <span class="n">dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+        <span class="n">time</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="n">channels</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span>
+        <span class="n">battery</span> <span class="o">=</span> <span class="n">data</span><span class="p">[:,</span> <span class="mi">8</span><span class="p">]</span>
+
+        <span class="n">ts</span> <span class="o">=</span> <span class="n">TimeSeries</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">time</span><span class="p">)</span>
+
+        <span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Channels&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">channels</span>
+        <span class="n">ts</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="s1">&#39;Channels&#39;</span><span class="p">,</span> <span class="s1">&#39;Unit&#39;</span><span class="p">,</span> <span class="s1">&#39;raw&#39;</span><span class="p">)</span>
+
+        <span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Battery&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">battery</span>
+        <span class="n">ts</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="s1">&#39;Battery&#39;</span><span class="p">,</span> <span class="s1">&#39;Unit&#39;</span><span class="p">,</span> <span class="s1">&#39;raw&#39;</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">file_format</span> <span class="o">==</span> <span class="s1">&#39;smartwheeltxt&#39;</span><span class="p">:</span>
+
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ch1&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;ch2&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;ch3&#39;</span><span class="p">:</span> <span class="p">[],</span>
+                <span class="s1">&#39;ch4&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;ch5&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;ch6&#39;</span><span class="p">:</span> <span class="p">[],</span> <span class="s1">&#39;angle_ticks&#39;</span><span class="p">:</span> <span class="p">[]}</span>
+
+        <span class="n">length</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
+
+            <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">_</span> <span class="o">=</span> <span class="n">fid</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+                    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;ch1&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="n">fid</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">2</span><span class="p">))[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;ch2&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="n">fid</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">2</span><span class="p">))[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;ch3&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="n">fid</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">2</span><span class="p">))[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;ch4&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="n">fid</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">2</span><span class="p">))[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;ch5&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="n">fid</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">2</span><span class="p">))[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;ch6&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="n">fid</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">2</span><span class="p">))[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;angle_ticks&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                        <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s1">&#39;i&#39;</span><span class="p">,</span> <span class="n">fid</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">))[</span><span class="mi">0</span><span class="p">])</span>
+                    <span class="n">_</span> <span class="o">=</span> <span class="n">fid</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+                    <span class="n">length</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                    <span class="k">break</span>
+
+        <span class="n">ch1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;ch1&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">:</span><span class="n">length</span><span class="p">])</span>  <span class="c1"># Remove 1st sample to be</span>
+        <span class="n">ch2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;ch2&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">:</span><span class="n">length</span><span class="p">])</span>  <span class="c1"># consistent with CSV file</span>
+        <span class="n">ch3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;ch3&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">:</span><span class="n">length</span><span class="p">])</span>
+        <span class="n">ch4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;ch4&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">:</span><span class="n">length</span><span class="p">])</span>
+        <span class="n">ch5</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;ch5&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">:</span><span class="n">length</span><span class="p">])</span>
+        <span class="n">ch6</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;ch6&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">:</span><span class="n">length</span><span class="p">])</span>
+        <span class="n">angle_ticks</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;angle_ticks&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">:</span><span class="n">length</span><span class="p">])</span>
+
+        <span class="c1"># Keep only 12 least significant bytes</span>
+        <span class="n">ch1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">ch1</span><span class="p">,</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">12</span><span class="p">)</span>
+        <span class="n">ch2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">ch2</span><span class="p">,</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">12</span><span class="p">)</span>
+        <span class="n">ch3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">ch3</span><span class="p">,</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">12</span><span class="p">)</span>
+        <span class="n">ch4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">ch4</span><span class="p">,</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">12</span><span class="p">)</span>
+        <span class="n">ch5</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">ch5</span><span class="p">,</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">12</span><span class="p">)</span>
+        <span class="n">ch6</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">ch6</span><span class="p">,</span> <span class="mi">2</span> <span class="o">**</span> <span class="mi">12</span><span class="p">)</span>
+
+        <span class="c1"># Convert angle in radian</span>
+        <span class="n">angle</span> <span class="o">=</span> <span class="n">angle_ticks</span> <span class="o">/</span> <span class="mi">4096</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+
+        <span class="n">ts</span> <span class="o">=</span> <span class="n">TimeSeries</span><span class="p">(</span>
+            <span class="n">time</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">240</span><span class="p">,</span> <span class="n">length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Channels&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">ch1</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">],</span>
+             <span class="n">ch2</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">],</span>
+             <span class="n">ch3</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">],</span>
+             <span class="n">ch4</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">],</span>
+             <span class="n">ch5</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">],</span>
+             <span class="n">ch6</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Angle&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">angle</span>
+
+        <span class="n">ts</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="s1">&#39;Channels&#39;</span><span class="p">,</span> <span class="s1">&#39;Unit&#39;</span><span class="p">,</span> <span class="s1">&#39;raw&#39;</span><span class="p">)</span>
+        <span class="n">ts</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="s1">&#39;Angle&#39;</span><span class="p">,</span> <span class="s1">&#39;Unit&#39;</span><span class="p">,</span> <span class="s1">&#39;rad&#39;</span><span class="p">)</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Unknown file format.&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">ts</span></div>
+
+
+<div class="viewcode-block" id="find_recovery_indices"><a class="viewcode-back" href="../../api/kineticstoolkit.pushrimkinetics.find_recovery_indices.html#kineticstoolkit.pushrimkinetics.find_recovery_indices">[docs]</a><span class="nd">@unstable</span>
+<span class="k">def</span> <span class="nf">find_recovery_indices</span><span class="p">(</span><span class="n">Mz</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="o">/</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Find recovery indices based on a vector of propulsion moments.</span>
+
+<span class="sd">    This function analyzes the Mz moments to find which data correspond to</span>
+<span class="sd">    pushes and which data correspond to recoveries. The method is very</span>
+<span class="sd">    conservative on what could be considered as a recovery, so that every</span>
+<span class="sd">    index returned by this function is almost certain to correspond to a</span>
+<span class="sd">    recovery. This function is used by `pushrimkinetics.remove_sinusoids`</span>
+<span class="sd">    to identify the instants with no hand contact. It should not be used to</span>
+<span class="sd">    isolate the push and recovery phases (use `ktk.cycles.detect_cycles()`</span>
+<span class="sd">    instead).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    Mz</span>
+<span class="sd">        Array that contains the propulsion moments in Nm.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.ndarray</span>
+<span class="sd">        Array of bools where each True represents recovery.</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    ktk.cycles.detect_cycles</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">Mz</span> <span class="o">=</span> <span class="n">Mz</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="n">threshold</span> <span class="o">=</span> <span class="mf">2.24</span>  <span class="c1"># (Nm): max tolerance for the remaining values.</span>
+
+    <span class="k">while</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">Mz</span><span class="p">)</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmin</span><span class="p">(</span><span class="n">Mz</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">threshold</span><span class="p">:</span>
+
+        <span class="c1"># Remove 1% of data that are the farthest to the median:</span>
+
+        <span class="c1"># Sort data</span>
+        <span class="n">index_to_remove</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argsort</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">Mz</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmedian</span><span class="p">(</span><span class="n">Mz</span><span class="p">)))</span>
+        <span class="n">sorted_Mz</span> <span class="o">=</span> <span class="n">Mz</span><span class="p">[</span><span class="n">index_to_remove</span><span class="p">]</span>
+        <span class="n">index_to_remove</span> <span class="o">=</span> <span class="n">index_to_remove</span><span class="p">[</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">sorted_Mz</span><span class="p">)]</span>
+
+        <span class="c1"># Remove the 1% upper.</span>
+        <span class="n">index_to_remove</span> <span class="o">=</span> <span class="n">index_to_remove</span><span class="p">[</span>
+            <span class="nb">int</span><span class="p">(</span><span class="mf">0.99</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">index_to_remove</span><span class="p">))</span><span class="o">-</span><span class="mi">1</span><span class="p">:]</span>
+
+        <span class="c1"># Assign nan to these data</span>
+        <span class="n">Mz</span><span class="p">[</span><span class="n">index_to_remove</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+    <span class="n">index</span> <span class="o">=</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">Mz</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">index</span></div>
+
+
+<div class="viewcode-block" id="remove_offsets"><a class="viewcode-back" href="../../api/kineticstoolkit.pushrimkinetics.remove_offsets.html#kineticstoolkit.pushrimkinetics.remove_offsets">[docs]</a><span class="k">def</span> <span class="nf">remove_offsets</span><span class="p">(</span>
+        <span class="n">kinetics</span><span class="p">:</span> <span class="n">TimeSeries</span><span class="p">,</span>
+        <span class="n">baseline_kinetics</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TimeSeries</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Remove dynamic offsets in forces and moments.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    kinetics</span>
+<span class="sd">        TimeSeries that contains at least Forces, Moments and Angle data.</span>
+<span class="sd">    baseline_kinetics</span>
+<span class="sd">        Optional. TimeSeries that contains at least Forces and Moments data.</span>
+<span class="sd">        This TimeSeries contains a baseline trial, where the wheelchair must be</span>
+<span class="sd">        pushed by an operator and where no external force must be applied on</span>
+<span class="sd">        the pushrims. If no baseline is provided, the baseline is calculated</span>
+<span class="sd">        based on a detection of recoveries in the supplied kinetics</span>
+<span class="sd">        TimeSeries.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    TimeSeries</span>
+<span class="sd">        A copy of the input TimeSeries, where sinusoids are removed from</span>
+<span class="sd">        Forces and Moments data.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    F. Chénier, R. Aissaoui, C. Gauthier, and D. H. Gagnon,</span>
+<span class="sd">    &quot;Wheelchair pushrim kinetics measurement: A method to cancel</span>
+<span class="sd">    inaccuracies due to pushrim weight and wheel camber,&quot; Medical</span>
+<span class="sd">    Engineering and Physics, vol. 40, pp. 75--86, 2017.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">kinetics</span> <span class="o">=</span> <span class="n">kinetics</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">baseline_kinetics</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Create baseline kinetics.</span>
+        <span class="n">recovery_index</span> <span class="o">=</span> <span class="n">find_recovery_indices</span><span class="p">(</span><span class="n">kinetics</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Moments&#39;</span><span class="p">][:,</span> <span class="mi">2</span><span class="p">])</span>
+        <span class="n">f_ofs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">kinetics</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Forces&#39;</span><span class="p">][</span><span class="n">recovery_index</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span>
+                           <span class="n">kinetics</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Moments&#39;</span><span class="p">][</span><span class="n">recovery_index</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]))</span>
+        <span class="n">theta_baseline</span> <span class="o">=</span> <span class="n">kinetics</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Angle&#39;</span><span class="p">][</span><span class="n">recovery_index</span><span class="p">]</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Use baseline kinetics.</span>
+        <span class="n">f_ofs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">baseline_kinetics</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Forces&#39;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span>
+                           <span class="n">baseline_kinetics</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Moments&#39;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]))</span>
+        <span class="n">theta_baseline</span> <span class="o">=</span> <span class="n">baseline_kinetics</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Angle&#39;</span><span class="p">][:]</span>
+
+    <span class="c1"># Do the regression</span>
+    <span class="n">theta_baseline</span> <span class="o">=</span> <span class="n">theta_baseline</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+    <span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta_baseline</span><span class="p">),</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta_baseline</span><span class="p">),</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">theta_baseline</span><span class="p">),</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="p">))</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">lstsq</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">f_ofs</span><span class="p">,</span> <span class="n">rcond</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+    <span class="n">A</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># Apply the regression to forces and moments</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">kinetics</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Angle&#39;</span><span class="p">]</span>
+    <span class="n">theta</span> <span class="o">=</span> <span class="n">theta</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+
+    <span class="n">f</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="n">kinetics</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Forces&#39;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span>
+                   <span class="n">kinetics</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Moments&#39;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]))</span>
+
+    <span class="n">q</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="p">))</span>
+
+    <span class="n">f</span> <span class="o">=</span> <span class="n">f</span> <span class="o">-</span> <span class="n">q</span> <span class="o">@</span> <span class="n">A</span>
+
+    <span class="c1"># Make the output timeseries</span>
+    <span class="n">kinetics</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Forces&#39;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+    <span class="n">kinetics</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Moments&#39;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">f</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">kinetics</span></div>
+
+
+<div class="viewcode-block" id="calculate_forces_and_moments"><a class="viewcode-back" href="../../api/kineticstoolkit.pushrimkinetics.calculate_forces_and_moments.html#kineticstoolkit.pushrimkinetics.calculate_forces_and_moments">[docs]</a><span class="k">def</span> <span class="nf">calculate_forces_and_moments</span><span class="p">(</span>
+        <span class="n">kinetics</span><span class="p">:</span> <span class="n">TimeSeries</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span>
+        <span class="n">gains</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span>
+        <span class="n">offsets</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">6</span><span class="p">)),</span> <span class="o">*</span><span class="p">,</span>
+        <span class="n">transducer</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;force_cell&#39;</span><span class="p">,</span>
+        <span class="n">reference_frame</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;wheel&#39;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate pushrim forces and moments based on raw channel values.</span>
+
+<span class="sd">    For standard force cells (with each channel being a raw value</span>
+<span class="sd">    corresponding to Fx, Fy, Fz, Mx, My, Mz, respectively), calculates</span>
+<span class="sd">    the forces and moments using a sensitivity matrix (gains) and an</span>
+<span class="sd">    offset vector (offsets).</span>
+
+<span class="sd">    For SmartWheel, calculates the forces and moments using a gain</span>
+<span class="sd">    vector (gains) and an offset vector (offsets).</span>
+
+<span class="sd">        [Fx, Fy, Fz, Mx, My, Mz] = gains @ channels + offsets</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    kinetics</span>
+<span class="sd">        Input TimeSeries that must contain a &#39;Channels&#39; key in its data dict.</span>
+<span class="sd">    gains</span>
+<span class="sd">        6x6 gain matrix (force_cell) or gain vector of length 6 (smartwheel).</span>
+<span class="sd">    offsets</span>
+<span class="sd">        Optional. Offset vector of length 6.</span>
+<span class="sd">    transducer</span>
+<span class="sd">        Optional. &#39;force_cell&#39; or &#39;smartwheel&#39;.</span>
+<span class="sd">    reference_frame</span>
+<span class="sd">        Optional. &#39;wheel&#39; or &#39;hub&#39;. &#39;wheel&#39; to report the forces and moments</span>
+<span class="sd">        into the local wheel&#39;s reference frame; &#39;hub&#39; to compensate for the</span>
+<span class="sd">        wheel rotation and match the reference frame used by the SmartWheel:</span>
+<span class="sd">        x anteroposterior, y in the wheel plane, upward for non-camberred</span>
+<span class="sd">        wheels, and z perpendicular to the wheel plane, outward.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    TimeSeries</span>
+<span class="sd">        A copy of the input TimeSeries, with the added &#39;Forces&#39;</span>
+<span class="sd">        and &#39;Moments&#39; data keys.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Calculate the forces and moments and add to the output</span>
+    <span class="k">if</span> <span class="n">transducer</span> <span class="o">==</span> <span class="s1">&#39;smartwheel&#39;</span><span class="p">:</span>
+
+        <span class="c1"># Calculate the rotation angle to apply to the calculated kinetics</span>
+        <span class="k">if</span> <span class="n">reference_frame</span> <span class="o">==</span> <span class="s1">&#39;wheel&#39;</span><span class="p">:</span>
+            <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="n">reference_frame</span> <span class="o">==</span> <span class="s1">&#39;hub&#39;</span><span class="p">:</span>
+            <span class="n">theta</span> <span class="o">=</span> <span class="n">kinetics</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Angle&#39;</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;reference_frame must be &#39;wheel&#39; or &#39;hub&#39;&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Extract channels and angle</span>
+        <span class="n">ch</span> <span class="o">=</span> <span class="n">kinetics</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Channels&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="mi">2048</span>
+
+        <span class="c1"># Calculate the forces and moments</span>
+        <span class="n">Fx</span> <span class="o">=</span> <span class="n">gains</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span>
+            <span class="n">ch</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">+</span>
+            <span class="n">ch</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">theta</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span>
+            <span class="n">ch</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">]</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">theta</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">/</span> <span class="mi">3</span><span class="p">))</span> <span class="o">+</span> <span class="n">offsets</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="n">Fy</span> <span class="o">=</span> <span class="n">gains</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span>
+            <span class="n">ch</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">+</span>
+            <span class="n">ch</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">theta</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span>
+            <span class="n">ch</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">]</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">theta</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">/</span> <span class="mi">3</span><span class="p">))</span> <span class="o">+</span> <span class="n">offsets</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="n">Fz</span> <span class="o">=</span> <span class="n">gains</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">ch</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">ch</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">+</span> <span class="n">ch</span><span class="p">[:,</span> <span class="mi">5</span><span class="p">])</span> <span class="o">+</span> <span class="n">offsets</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+        <span class="n">Mx</span> <span class="o">=</span> <span class="n">gains</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span>
+            <span class="n">ch</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">+</span>
+            <span class="n">ch</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">theta</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span>
+            <span class="n">ch</span><span class="p">[:,</span> <span class="mi">5</span><span class="p">]</span> <span class="o">*</span> <span class="n">sin</span><span class="p">(</span><span class="n">theta</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">/</span> <span class="mi">3</span><span class="p">))</span> <span class="o">+</span> <span class="n">offsets</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+
+        <span class="n">My</span> <span class="o">=</span> <span class="n">gains</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span>
+            <span class="n">ch</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">)</span> <span class="o">+</span>
+            <span class="n">ch</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">theta</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span> <span class="o">+</span>
+            <span class="n">ch</span><span class="p">[:,</span> <span class="mi">5</span><span class="p">]</span> <span class="o">*</span> <span class="n">cos</span><span class="p">(</span><span class="n">theta</span> <span class="o">+</span> <span class="mi">4</span> <span class="o">*</span> <span class="n">pi</span> <span class="o">/</span> <span class="mi">3</span><span class="p">))</span> <span class="o">+</span> <span class="n">offsets</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+
+        <span class="n">Mz</span> <span class="o">=</span> <span class="n">gains</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">ch</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">ch</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">ch</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">])</span> <span class="o">+</span> <span class="n">offsets</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span>
+        <span class="n">forces_moments</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">block</span><span class="p">([</span><span class="n">Fx</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">],</span>
+                                   <span class="n">Fy</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">],</span>
+                                   <span class="n">Fz</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">],</span>
+                                   <span class="n">Mx</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">],</span>
+                                   <span class="n">My</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">],</span>
+                                   <span class="n">Mz</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]])</span>
+
+    <span class="k">elif</span> <span class="n">transducer</span> <span class="o">==</span> <span class="s1">&#39;force_cell&#39;</span><span class="p">:</span>
+
+        <span class="c1"># Calculate the rotation angle to apply to the calculated kinetics</span>
+        <span class="k">if</span> <span class="n">reference_frame</span> <span class="o">==</span> <span class="s1">&#39;wheel&#39;</span><span class="p">:</span>
+            <span class="n">theta</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="n">reference_frame</span> <span class="o">==</span> <span class="s1">&#39;hub&#39;</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;hub reference_frame not implemented yet&quot;</span>
+                                      <span class="s2">&quot;for force_cell transducers.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;reference_frame must be &#39;wheel&#39; or &#39;hub&#39;&quot;</span><span class="p">)</span>
+
+        <span class="n">n_frames</span> <span class="o">=</span> <span class="n">kinetics</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Channels&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="n">forces_moments</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">n_frames</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">i_frame</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_frames</span><span class="p">):</span>
+            <span class="n">forces_moments</span><span class="p">[</span><span class="n">i_frame</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">gains</span> <span class="o">@</span>
+                                       <span class="n">kinetics</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Channels&#39;</span><span class="p">][</span><span class="n">i_frame</span><span class="p">]</span> <span class="o">+</span>
+                                       <span class="n">offsets</span><span class="p">)</span>
+
+    <span class="c1"># Format these data in the output timeseries</span>
+    <span class="n">kinetics</span> <span class="o">=</span> <span class="n">kinetics</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+    <span class="n">kinetics</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Forces&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">forces_moments</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">forces_moments</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">))],</span>
+        <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">kinetics</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="s1">&#39;Forces&#39;</span><span class="p">,</span> <span class="s1">&#39;Unit&#39;</span><span class="p">,</span> <span class="s1">&#39;N&#39;</span><span class="p">)</span>
+
+    <span class="n">kinetics</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Moments&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">forces_moments</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">:</span><span class="mi">6</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">forces_moments</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">1</span><span class="p">))],</span>
+        <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">kinetics</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="s1">&#39;Moments&#39;</span><span class="p">,</span> <span class="s1">&#39;Unit&#39;</span><span class="p">,</span> <span class="s1">&#39;Nm&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span><span class="p">(</span><span class="n">kinetics</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="calculate_velocity"><a class="viewcode-back" href="../../api/kineticstoolkit.pushrimkinetics.calculate_velocity.html#kineticstoolkit.pushrimkinetics.calculate_velocity">[docs]</a><span class="k">def</span> <span class="nf">calculate_velocity</span><span class="p">(</span><span class="n">tsin</span><span class="p">:</span> <span class="n">TimeSeries</span><span class="p">,</span> <span class="o">/</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate velocity based on wheel angle.</span>
+
+<span class="sd">    The velocity is calculated by deriving the angle using a 2nd order</span>
+<span class="sd">    Savitzky-Golay filter of length 21. This filter has been experimentally</span>
+<span class="sd">    validated to maximize the signal-to-noise ratio for a SmartWheel recording</span>
+<span class="sd">    at 240 Hz. This function may change signature in the future to include</span>
+<span class="sd">    other filtering options. To manually get the velocity using a custom</span>
+<span class="sd">    filter, please see the ``ktk.filters`` module.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    tsin</span>
+<span class="sd">        TimeSeries that contains at least the data key &#39;Angle&#39;.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    TimeSeries</span>
+<span class="sd">                A copy of the TimeSeries with the added data key &#39;Velocity&#39;.</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    ktk.filters.butter : Butterworth filter for TimeSeries</span>
+<span class="sd">    ktk.filters.savgol : Savitsky-golay filter for TimeSeries</span>
+<span class="sd">    ktk.filters.deriv : Derivative filter for TimeSeries</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">tsangle</span> <span class="o">=</span> <span class="n">TimeSeries</span><span class="p">()</span>
+    <span class="n">tsangle</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">tsin</span><span class="o">.</span><span class="n">time</span>
+    <span class="n">tsangle</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Angle&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tsin</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Angle&#39;</span><span class="p">]</span>
+    <span class="n">tsvelocity</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">savgol</span><span class="p">(</span><span class="n">tsangle</span><span class="p">,</span> <span class="n">window_length</span><span class="o">=</span><span class="mi">21</span><span class="p">,</span>
+                                <span class="n">poly_order</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">deriv</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">tsout</span> <span class="o">=</span> <span class="n">tsin</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">tsout</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Velocity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">tsvelocity</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Angle&#39;</span><span class="p">]</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">tsout</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="s1">&#39;Velocity&#39;</span><span class="p">,</span> <span class="s1">&#39;Unit&#39;</span><span class="p">,</span>
+                            <span class="n">tsout</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="s1">&#39;Angle&#39;</span><span class="p">][</span><span class="s1">&#39;Unit&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;/s&#39;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="k">return</span> <span class="n">tsout</span></div>
+
+
+<div class="viewcode-block" id="calculate_power"><a class="viewcode-back" href="../../api/kineticstoolkit.pushrimkinetics.calculate_power.html#kineticstoolkit.pushrimkinetics.calculate_power">[docs]</a><span class="k">def</span> <span class="nf">calculate_power</span><span class="p">(</span><span class="n">tsin</span><span class="p">:</span> <span class="n">TimeSeries</span><span class="p">,</span> <span class="o">/</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate power based on wheel velocity and moment.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    tsin</span>
+<span class="sd">        TimeSeries that contains at least the data keys &#39;Velocity&#39; and</span>
+<span class="sd">        &#39;Moments&#39;. The units must be consistent (e.g., rad/s and Nm)</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    TimeSeries</span>
+<span class="sd">        A copy of the TimeSeries with the added data key &#39;Power&#39;.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">tsout</span> <span class="o">=</span> <span class="n">tsin</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">tsout</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Power&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">tsout</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Velocity&#39;</span><span class="p">]</span> <span class="o">*</span>
+                           <span class="n">tsout</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Moments&#39;</span><span class="p">][:,</span> <span class="mi">2</span><span class="p">])</span>
+    <span class="n">tsout</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="s1">&#39;Power&#39;</span><span class="p">,</span> <span class="s1">&#39;Unit&#39;</span><span class="p">,</span> <span class="s1">&#39;W&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">tsout</span></div>
+
+
+<span class="c1"># Deprecated constants:</span>
+
+<span class="n">_deprecated_CALIBRATION_MATRICES</span> <span class="o">=</span> <span class="p">{}</span>
+<span class="n">_deprecated_CALIBRATION_MATRICES</span><span class="p">[</span><span class="s1">&#39;SmartWheel_93&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;gains&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.1080</span><span class="p">,</span> <span class="mf">0.1080</span><span class="p">,</span> <span class="mf">0.0930</span><span class="p">,</span> <span class="mf">0.0222</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0222</span><span class="p">,</span> <span class="mf">0.0234999</span><span class="p">]),</span>
+    <span class="s1">&#39;offsets&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]),</span>
+    <span class="s1">&#39;transducer&#39;</span><span class="p">:</span> <span class="s1">&#39;smartwheel&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">_deprecated_CALIBRATION_MATRICES</span><span class="p">[</span><span class="s1">&#39;SmartWheel_94&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;gains&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.1070</span><span class="p">,</span> <span class="mf">0.1070</span><span class="p">,</span> <span class="mf">0.0960</span><span class="p">,</span> <span class="mf">0.0222</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0222</span><span class="p">,</span> <span class="mf">0.0230</span><span class="p">]),</span>
+    <span class="s1">&#39;offsets&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]),</span>
+    <span class="s1">&#39;transducer&#39;</span><span class="p">:</span> <span class="s1">&#39;smartwheel&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">_deprecated_CALIBRATION_MATRICES</span><span class="p">[</span><span class="s1">&#39;SmartWheel_123&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;gains&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.106</span><span class="p">,</span> <span class="mf">0.106</span><span class="p">,</span> <span class="mf">0.094</span><span class="p">,</span> <span class="mf">0.022</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.022</span><span class="p">,</span> <span class="mf">0.0234999</span><span class="p">]),</span>
+    <span class="s1">&#39;offsets&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]),</span>
+    <span class="s1">&#39;transducer&#39;</span><span class="p">:</span> <span class="s1">&#39;smartwheel&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">_deprecated_CALIBRATION_MATRICES</span><span class="p">[</span><span class="s1">&#39;SmartWheel_124&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;gains&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.106</span><span class="p">,</span> <span class="mf">0.106</span><span class="p">,</span> <span class="mf">0.0949999</span><span class="p">,</span> <span class="mf">0.0215</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0215</span><span class="p">,</span> <span class="mf">0.0225</span><span class="p">]),</span>
+    <span class="s1">&#39;offsets&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]),</span>
+    <span class="s1">&#39;transducer&#39;</span><span class="p">:</span> <span class="s1">&#39;smartwheel&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">_deprecated_CALIBRATION_MATRICES</span><span class="p">[</span><span class="s1">&#39;SmartWheel_125&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;gains&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.104</span><span class="p">,</span> <span class="mf">0.104</span><span class="p">,</span> <span class="mf">0.0979999</span><span class="p">,</span> <span class="mf">0.0215</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0215</span><span class="p">,</span> <span class="mf">0.0225</span><span class="p">]),</span>
+    <span class="s1">&#39;offsets&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]),</span>
+    <span class="s1">&#39;transducer&#39;</span><span class="p">:</span> <span class="s1">&#39;smartwheel&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">_deprecated_CALIBRATION_MATRICES</span><span class="p">[</span><span class="s1">&#39;SmartWheel_126&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;gains&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.1059999</span><span class="p">,</span> <span class="mf">0.1059999</span><span class="p">,</span> <span class="mf">0.086</span><span class="p">,</span> <span class="mf">0.021</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.021</span><span class="p">,</span> <span class="mf">0.023</span><span class="p">]),</span>
+    <span class="s1">&#39;offsets&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]),</span>
+    <span class="s1">&#39;transducer&#39;</span><span class="p">:</span> <span class="s1">&#39;smartwheel&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">_deprecated_CALIBRATION_MATRICES</span><span class="p">[</span><span class="s1">&#39;SmartWheel_126_S18&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;gains&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.1083</span><span class="p">,</span> <span class="mf">0.1109</span><span class="p">,</span> <span class="mf">0.0898</span><span class="p">,</span> <span class="mf">0.0211</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0194</span><span class="p">,</span> <span class="mf">0.0214</span><span class="p">]),</span>
+    <span class="s1">&#39;offsets&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]),</span>
+    <span class="s1">&#39;transducer&#39;</span><span class="p">:</span> <span class="s1">&#39;smartwheel&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">_deprecated_CALIBRATION_MATRICES</span><span class="p">[</span><span class="s1">&#39;SmartWheel_179_S18&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;gains&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.1399</span><span class="p">,</span> <span class="mf">0.1091</span><span class="p">,</span> <span class="mf">0.0892</span><span class="p">,</span> <span class="mf">0.0240</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0222</span><span class="p">,</span> <span class="mf">0.0241</span><span class="p">]),</span>
+    <span class="s1">&#39;offsets&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]),</span>
+    <span class="s1">&#39;transducer&#39;</span><span class="p">:</span> <span class="s1">&#39;smartwheel&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">_deprecated_CALIBRATION_MATRICES</span><span class="p">[</span><span class="s1">&#39;SmartWheel_180_S18&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;gains&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.1069</span><span class="p">,</span> <span class="mf">0.1091</span><span class="p">,</span> <span class="mf">0.0932</span><span class="p">,</span> <span class="mf">0.0240</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0226</span><span class="p">,</span> <span class="mf">0.0238</span><span class="p">]),</span>
+    <span class="s1">&#39;offsets&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]),</span>
+    <span class="s1">&#39;transducer&#39;</span><span class="p">:</span> <span class="s1">&#39;smartwheel&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">_deprecated_CALIBRATION_MATRICES</span><span class="p">[</span><span class="s1">&#39;SmartWheel_181_S18&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;gains&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.1152</span><span class="p">,</span> <span class="mf">0.1095</span><span class="p">,</span> <span class="mf">0.0791</span><span class="p">,</span> <span class="mf">0.0229</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.0197</span><span class="p">,</span> <span class="mf">0.0220</span><span class="p">]),</span>
+    <span class="s1">&#39;offsets&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]),</span>
+    <span class="s1">&#39;transducer&#39;</span><span class="p">:</span> <span class="s1">&#39;smartwheel&#39;</span><span class="p">,</span>
+<span class="p">}</span>
+
+
+<span class="k">def</span> <span class="fm">__getattr__</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;CALIBRATION_MATRICES&#39;</span><span class="p">:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+            <span class="s1">&#39;These sample calibration matrices will be removed in &#39;</span>
+            <span class="s1">&#39;January 2023.&#39;</span><span class="p">,</span> <span class="ne">FutureWarning</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">globals</span><span class="p">()[</span><span class="s1">&#39;_deprecated_CALIBRATION_MATRICES&#39;</span><span class="p">]</span>
+    <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;module </span><span class="si">{</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> has no attribute </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+
+<span class="n">module_locals</span> <span class="o">=</span> <span class="nb">locals</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="fm">__dir__</span><span class="p">():</span>  <span class="c1"># pragma: no cover</span>
+    <span class="k">return</span> <span class="n">directory</span><span class="p">(</span><span class="n">module_locals</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
+    <span class="kn">import</span> <span class="nn">doctest</span>
+    <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">(</span><span class="n">optionflags</span><span class="o">=</span><span class="n">doctest</span><span class="o">.</span><span class="n">NORMALIZE_WHITESPACE</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

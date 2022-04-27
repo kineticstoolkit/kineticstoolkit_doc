@@ -2,15 +2,19 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-
+  <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kinetics Toolkit &mdash; Kinetics Toolkit (dev) master documentation</title>
+  <title>Kinetics Toolkit &mdash; Kinetics Toolkit</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="_static/copybutton.css" type="text/css" />
       <link rel="stylesheet" href="_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="_static/sphinx-thebe.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/stable.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -20,13 +24,23 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/togglebutton.js"></script>
+        <script src="_static/clipboard.min.js"></script>
+        <script src="_static/copybutton.js"></script>
         <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+        <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+        <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+        <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+        <script async="async" src="_static/sphinx-thebe.js"></script>
         <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
         <script>mermaid.initialize({startOnLoad:true});</script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Getting started" href="01_getting_started/00_index.html" />
+    <link rel="next" title="Getting started" href="getting_started_ktk.html" />
 
 
  
@@ -38,7 +52,7 @@
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: black" >
             <a href="#">
-            <img src="_static/logo_development.png" class="logo" alt="Logo"/>
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
@@ -48,28 +62,21 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">MANUAL</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Manual</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="01_getting_started/00_index.html">Getting started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="02_tutorials/00_index.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="03_in_depth/00_index.html">In depth</a></li>
-<li class="toctree-l1"><a class="reference internal" href="04_learning_python/00_index.html">Learning Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started_ktk.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ktk_in_depth.html">In depth</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">API REFERENCE</span></p>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="99_api_reference/01_classes.html">Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="99_api_reference/02_functions.html">Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="99_api_reference/03_modules.html">Modules</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">LINKS</span></p>
+<p class="caption" role="heading"><span class="caption-text">Links</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference external" href="https://felixchenier.uqam.ca/ktk_develop">Development website</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub repository</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">FOR DEVELOPERS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="99_for_developers/01_getting_started/00_index.html">Developing Kinetics Toolkit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="99_for_developers/02_tutorials/00_index.html">Tutorial development for stable/unstable features</a></li>
 </ul>
 
         </div>
@@ -78,7 +85,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: black" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">Kinetics Toolkit (dev)</a>
+          <a href="#">Python</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -88,16 +95,17 @@
       <li><a href="#" class="icon icon-home"></a> &raquo;</li>
       <li>Kinetics Toolkit</li>
       <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.md" rel="nofollow"> View page source</a>
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="01_getting_started/00_index.html" class="btn btn-neutral float-right" title="Getting started" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="getting_started_ktk.html" class="btn btn-neutral float-right" title="Getting started" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section class="tex2jax_ignore mathjax_ignore" id="kinetics-toolkit">
+  <div class="tex2jax_ignore mathjax_ignore section" id="kinetics-toolkit">
 <h1>Kinetics Toolkit<a class="headerlink" href="#kinetics-toolkit" title="Permalink to this headline"></a></h1>
 <p><em>An Open-Source Python Package to Facilitate Research in Biomechanics</em></p>
 <p><a class="reference external" href="https://doi.org/10.21105/joss.03714"><img alt="JOSS" src="https://joss.theoj.org/papers/10.21105/joss.03714/status.svg" /></a>
@@ -112,7 +120,7 @@
 <p>This is a long term project that is focused not only on the tool itself, but also a lot on learning. Please consult the “What is Kinetics Toolkit” section for more information on the project.</p>
 <p><img alt="GIF Animation" src="https://felixchenier.uqam.ca/wp-content/uploads/2020/05/Sample_ktk.Player_Wheelchair.gif" /></p>
 <p>Please ask questions and submit bugs or feature requests on the <a class="reference external" href="https://github.com/felixchenier/kineticstoolkit/issues">git-hub issue tracker</a>. While I develop Kinetics Toolkit primarily for my lab and have limited resources for troubleshooting, it will be my great pleasure to help if I can.</p>
-<section id="credits">
+<div class="section" id="credits">
 <h2>Credits<a class="headerlink" href="#credits" title="Permalink to this headline"></a></h2>
 <p>Kinetics Toolkit is developed at the <a class="reference external" href="https://felixchenier.uqam.ca">Mobility and Adaptive Sports Research Lab</a> by Professor Félix Chénier at <a class="reference external" href="https://uqam.ca">Université du Québec à Montréal</a>, Canada.</p>
 <div class="admonition-dev-note admonition">
@@ -120,495 +128,45 @@
 <p>#todo Add logos and links for MOSA and UQAM.</p>
 </div>
 <p>Thanks to Clay Flannigan for his <a class="reference external" href="https://github.com/ClayFlannigan/icp">icp</a> method, to Benjamin Michaud for his <a class="reference external" href="https://github.com/pyomeca/ezc3d">ezc3d</a> module, and to the dedicated people behind major software and packages used by Kinetics Toolkit, such as python, numpy, matplotlib, pandas, jupyter, pytest, sphinx, etc.</p>
-</section>
-<section id="site-map">
-<h2>Site map<a class="headerlink" href="#site-map" title="Permalink to this headline"></a></h2>
-<div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">MANUAL</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="01_getting_started/00_index.html">Getting started</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="01_getting_started/01_what_is_kinetics_toolkit.html">What is Kinetics Toolkit</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="01_getting_started/01_what_is_kinetics_toolkit.html#summary">Summary</a></li>
-<li class="toctree-l3"><a class="reference internal" href="01_getting_started/01_what_is_kinetics_toolkit.html#objectives-of-this-project">Objectives of this project</a></li>
-<li class="toctree-l3"><a class="reference internal" href="01_getting_started/01_what_is_kinetics_toolkit.html#how-to-contribute">How to contribute</a></li>
-<li class="toctree-l3"><a class="reference internal" href="01_getting_started/01_what_is_kinetics_toolkit.html#how-to-cite">How to cite</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="01_getting_started/02_getting_started_with_python.html">Getting started with Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="01_getting_started/03_installing_kinetics_toolkit.html">Installing Kinetics Toolkit</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="01_getting_started/03_installing_kinetics_toolkit.html#install-and-update-kinetics-toolkit">Install and update Kinetics Toolkit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="01_getting_started/03_installing_kinetics_toolkit.html#configuring-matplotlib-graphics-in-ipython-spyder">Configuring Matplotlib graphics in IPython/Spyder</a></li>
-<li class="toctree-l3"><a class="reference internal" href="01_getting_started/03_installing_kinetics_toolkit.html#check-that-kinetics-toolkit-loads">Check that Kinetics Toolkit loads</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="02_tutorials/00_index.html">Tutorials</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="02_tutorials/01_timeseries/00_index.html">TimeSeries</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="02_tutorials/01_timeseries/01_basics.html">TimeSeries Basics</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/01_timeseries/01_basics.html#time-and-data">Time and Data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/01_timeseries/01_basics.html#metadata">Metadata</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/01_timeseries/01_basics.html#events">Events</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="02_tutorials/01_timeseries/01_basics.html#using-events-to-synchronize-timeseries">Using events to synchronize TimeSeries</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="02_tutorials/01_timeseries/02_manipulating.html">Manipulating TimeSeries</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/01_timeseries/02_manipulating.html#copying-a-timeseries">Copying a TimeSeries</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/01_timeseries/02_manipulating.html#subsetting-and-merging-timeseries">Subsetting and merging TimeSeries</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/01_timeseries/02_manipulating.html#splitting-timeseries">Splitting TimeSeries</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="02_tutorials/01_timeseries/02_manipulating.html#using-indexes">Using indexes</a></li>
-<li class="toctree-l5"><a class="reference internal" href="02_tutorials/01_timeseries/02_manipulating.html#using-time">Using time</a></li>
-<li class="toctree-l5"><a class="reference internal" href="02_tutorials/01_timeseries/02_manipulating.html#using-events">Using events</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="02_tutorials/01_timeseries/03_dataframes.html">Converting between TimeSeries and Pandas DataFrames</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/01_timeseries/03_dataframes.html#example-1-importing-a-csv-file">Example 1: Importing a csv file</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="02_tutorials/01_timeseries/03_dataframes.html#multidimensional-data">Multidimensional data</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/01_timeseries/03_dataframes.html#example-2-converting-a-c3d-file-to-csv">Example 2: Converting a c3d file to csv</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="02_tutorials/02_loadsave/00_index.html">Saving and loading</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="02_tutorials/02_loadsave/00_index.html#file-format-and-supported-types">File format and supported types</a></li>
-<li class="toctree-l3"><a class="reference internal" href="02_tutorials/02_loadsave/00_index.html#loading-a-ktk-zip-file-in-matlab">Loading a ktk.zip file in Matlab</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="02_tutorials/03_filters/00_index.html">Filtering</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="02_tutorials/03_filters/01_butter.html">Removing frequencies using a Butterworth filter</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/03_filters/01_butter.html#low-pass-no-lag-filter">Low-pass no-lag filter</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/03_filters/01_butter.html#high-pass-no-lag-filter">High-pass no-lag filter</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/03_filters/01_butter.html#real-world-example-using-electromyographic-data">Real-world example using electromyographic data</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="02_tutorials/03_filters/02_smooth.html">Smoothing signals using a moving average</a></li>
-<li class="toctree-l3"><a class="reference internal" href="02_tutorials/03_filters/03_savgol.html">Smoothing and deriving using a Savitzky-Golay filter</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/03_filters/03_savgol.html#smoothing-using-a-savitzky-golay-filter">Smoothing using a Savitzky-Golay filter</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/03_filters/03_savgol.html#deriving-using-a-savitzky-golay-filter">Deriving using a Savitzky-Golay filter</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="02_tutorials/03_filters/04_median.html">Removing artefacts using a median filter</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="02_tutorials/04_cycles/00_index.html">Detecting and normalizing cycles</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="02_tutorials/04_cycles/00_index.html#detecting-cycles">Detecting cycles</a></li>
-<li class="toctree-l3"><a class="reference internal" href="02_tutorials/04_cycles/00_index.html#time-normalizing-cycles">Time-normalizing cycles</a></li>
-<li class="toctree-l3"><a class="reference internal" href="02_tutorials/04_cycles/00_index.html#combining-the-cycles">Combining the cycles</a></li>
-<li class="toctree-l3"><a class="reference internal" href="02_tutorials/04_cycles/00_index.html#finding-the-most-repeatable-cycles">Finding the most repeatable cycles</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="02_tutorials/05_geometry/00_index.html">Rigid body geometry</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="02_tutorials/05_geometry/01_basics.html">Basics of rigid body geometry</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/05_geometry/01_basics.html#coordinates-points-vectors-and-frames">Coordinates: points, vectors and frames</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="02_tutorials/05_geometry/01_basics.html#global-coordinate-system">Global coordinate system</a></li>
-<li class="toctree-l5"><a class="reference internal" href="02_tutorials/05_geometry/01_basics.html#points-and-vectors">Points and vectors</a></li>
-<li class="toctree-l5"><a class="reference internal" href="02_tutorials/05_geometry/01_basics.html#local-coordinate-system">Local coordinate system</a></li>
-<li class="toctree-l5"><a class="reference internal" href="02_tutorials/05_geometry/01_basics.html#frames">Frames</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/05_geometry/01_basics.html#rotations-and-translations-the-homogeneous-transform">Rotations and translations: the homogeneous transform</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="02_tutorials/05_geometry/01_basics.html#moving-coordinates">Moving coordinates</a></li>
-<li class="toctree-l5"><a class="reference internal" href="02_tutorials/05_geometry/01_basics.html#remap-coordinates-to-other-coordinate-systems">Remap coordinates to other coordinate systems</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/05_geometry/01_basics.html#main-points-to-remember">Main points to remember</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="02_tutorials/05_geometry/02_dimension_conventions.html">Dimension conventions and first example</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/05_geometry/02_dimension_conventions.html#series-of-scalars">Series of scalars</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/05_geometry/02_dimension_conventions.html#series-of-points-series-of-vectors">Series of points, series of vectors</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/05_geometry/02_dimension_conventions.html#series-of-groups-of-points-series-of-groups-of-vectors">Series of groups of points, series of groups of vectors</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/05_geometry/02_dimension_conventions.html#series-of-frames-homogeneous-transforms">Series of frames/homogeneous transforms</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/05_geometry/02_dimension_conventions.html#working-with-constants">Working with constants</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/05_geometry/02_dimension_conventions.html#first-example-with-the-geometry-module">First example with the geometry module</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="02_tutorials/06_kinematics/00_index.html">Kinematics analysis</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="02_tutorials/06_kinematics/01_load_visualize.html">Reading and visualizing marker trajectories</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/06_kinematics/01_load_visualize.html#reading-marker-trajectories">Reading marker trajectories</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/06_kinematics/01_load_visualize.html#visualizing-the-markers">Visualizing the markers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/06_kinematics/01_load_visualize.html#interconnecting-the-markers">Interconnecting the markers</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="02_tutorials/06_kinematics/02_joint_angles.html">Calculating joint angles from a kinematic acquisition</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/06_kinematics/02_joint_angles.html#read-and-visualize-marker-trajectories">Read and visualize marker trajectories</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/06_kinematics/02_joint_angles.html#create-local-coordinate-systems">Create local coordinate systems</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="02_tutorials/06_kinematics/02_joint_angles.html#arm-coordinate-system">Arm coordinate system</a></li>
-<li class="toctree-l5"><a class="reference internal" href="02_tutorials/06_kinematics/02_joint_angles.html#forearm-frame">Forearm frame</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/06_kinematics/02_joint_angles.html#find-the-series-of-homogeneous-transforms-between-both-segments">Find the series of homogeneous transforms between both segments</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/06_kinematics/02_joint_angles.html#extract-the-series-of-euler-angles">Extract the series of Euler angles</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/06_kinematics/02_joint_angles.html#plot-the-euler-angles">Plot the Euler angles</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="02_tutorials/06_kinematics/03_reconstructing_occluded_markers.html">Reconstructing occluded markers</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/06_kinematics/03_reconstructing_occluded_markers.html#loading-sample-data">Loading sample data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/06_kinematics/03_reconstructing_occluded_markers.html#add-marker-occlusion">Add marker occlusion</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/06_kinematics/03_reconstructing_occluded_markers.html#create-a-cluster-of-markers">Create a cluster of markers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/06_kinematics/03_reconstructing_occluded_markers.html#track-the-cluster-to-reconstruct-the-missing-markers">Track the cluster to reconstruct the missing markers</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="02_tutorials/06_kinematics/04_reconstructing_removed_markers.html">Reconstructing removed markers</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/06_kinematics/04_reconstructing_removed_markers.html#loading-sample-data">Loading sample data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/06_kinematics/04_reconstructing_removed_markers.html#creating-a-cluster-of-markers">Creating a cluster of markers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/06_kinematics/04_reconstructing_removed_markers.html#tracking-the-cluster-to-reconstruct-a-virtual-marker-for-the-epicondyle">Tracking the cluster to reconstruct a “virtual” marker for the epicondyle</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="02_tutorials/06_kinematics/05_reconstructing_probed_points.html">Reconstructing probed points</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/06_kinematics/05_reconstructing_probed_points.html#loading-sample-data">Loading sample data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/06_kinematics/05_reconstructing_probed_points.html#defining-the-probe-calibration">Defining the probe calibration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/06_kinematics/05_reconstructing_probed_points.html#tracking-the-probe-in-the-probing-acquisition">Tracking the probe in the probing acquisition</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/06_kinematics/05_reconstructing_probed_points.html#creating-a-cluster-of-markers">Creating a cluster of markers</a></li>
-<li class="toctree-l4"><a class="reference internal" href="02_tutorials/06_kinematics/05_reconstructing_probed_points.html#tracking-the-cluster-to-reconstruct-a-virtual-marker-for-the-epicondyle">Tracking the cluster to reconstruct a “virtual” marker for the epicondyle</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="02_tutorials/07_pushrimkinetics/00_index.html">Wheelchair kinetics</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="02_tutorials/07_pushrimkinetics/00_index.html#read-data-from-file">Read data from file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="02_tutorials/07_pushrimkinetics/00_index.html#calculate-forces-and-moments">Calculate forces and moments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="02_tutorials/07_pushrimkinetics/00_index.html#removing-dynamic-offsets-in-forces-and-moments">Removing dynamic offsets in forces and moments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="02_tutorials/07_pushrimkinetics/00_index.html#calculate-velocity-and-power">Calculate velocity and power</a></li>
-<li class="toctree-l3"><a class="reference internal" href="02_tutorials/07_pushrimkinetics/00_index.html#detecting-the-pushes">Detecting the pushes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="02_tutorials/07_pushrimkinetics/00_index.html#extracting-spatiotemporal-and-kinetic-parameters">Extracting spatiotemporal and kinetic parameters</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="02_tutorials/08_conventions/00_index.html">Conventions</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="02_tutorials/08_conventions/00_index.html#si-units">SI Units</a></li>
-<li class="toctree-l3"><a class="reference internal" href="02_tutorials/08_conventions/00_index.html#time-as-first-dimension">Time as first dimension</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="03_in_depth/00_index.html">In depth</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="03_in_depth/01_lab_mode.html">Lab mode</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="03_in_depth/01_lab_mode.html#when-to-use-lab-mode">When to use lab mode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="03_in_depth/01_lab_mode.html#what-lab-mode-does">What lab mode does</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="03_in_depth/01_lab_mode.html#modification-to-repr-of-dictionaries">Modification to repr of dictionaries</a></li>
-<li class="toctree-l4"><a class="reference internal" href="03_in_depth/01_lab_mode.html#modification-to-warnings-format">Modification to warnings format</a></li>
-<li class="toctree-l4"><a class="reference internal" href="03_in_depth/01_lab_mode.html#modification-to-repr-of-numpy-s-floats">Modification to repr of numpy’s floats</a></li>
-<li class="toctree-l4"><a class="reference internal" href="03_in_depth/01_lab_mode.html#alternative-defaults-for-matplotlib">Alternative defaults for matplotlib</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="03_in_depth/02_release_notes.html">Release Notes</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="03_in_depth/02_release_notes.html#version-0-7-april-2022">Version 0.7 (April 2022)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="03_in_depth/02_release_notes.html#version-0-6-august-2021">Version 0.6 (August 2021)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="03_in_depth/02_release_notes.html#version-0-5-june-2021">Version 0.5 (June 2021)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="03_in_depth/02_release_notes.html#version-0-4-april-2021">Version 0.4 (April 2021)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="03_in_depth/02_release_notes.html#version-0-3-october-2020">Version 0.3 (October 2020)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="03_in_depth/02_release_notes.html#version-0-2-august-2020">Version 0.2 (August 2020)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="03_in_depth/02_release_notes.html#version-0-1-may-2020">Version 0.1 (May 2020)</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="04_learning_python/00_index.html">Learning Python</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="04_learning_python/01_python_basics/00_index.html">Python basics</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="04_learning_python/01_python_basics/01_installing_python.html">Installing Python</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="04_learning_python/01_python_basics/01_installing_python.html#installing-a-conda-distribution">Installing a conda distribution</a></li>
-<li class="toctree-l4"><a class="reference internal" href="04_learning_python/01_python_basics/01_installing_python.html#creating-a-virtual-environment">Creating a virtual environment</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="04_learning_python/01_python_basics/02_using_spyder.html">Using Spyder</a></li>
-<li class="toctree-l3"><a class="reference internal" href="04_learning_python/01_python_basics/03_python_basics.html">Variables and arithmetics</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="04_learning_python/01_python_basics/03_python_basics.html#strings">Strings</a></li>
-<li class="toctree-l4"><a class="reference internal" href="04_learning_python/01_python_basics/03_python_basics.html#numbers-and-arithmetics">Numbers and arithmetics</a></li>
-<li class="toctree-l4"><a class="reference internal" href="04_learning_python/01_python_basics/03_python_basics.html#to-be-continued">To be continued</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="04_learning_python/02_numpy_basics/00_index.html">Numpy basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04_learning_python/02_numpy_basics/00_index.html#a-visual-intro-to-numpy-and-data-representation">A Visual Intro to NumPy and Data Representation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="04_learning_python/02_numpy_basics/00_index.html#creating-arrays">Creating Arrays</a></li>
-<li class="toctree-l3"><a class="reference internal" href="04_learning_python/02_numpy_basics/00_index.html#array-arithmetic">Array Arithmetic</a></li>
-<li class="toctree-l3"><a class="reference internal" href="04_learning_python/02_numpy_basics/00_index.html#indexing">Indexing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="04_learning_python/02_numpy_basics/00_index.html#aggregation">Aggregation</a></li>
-<li class="toctree-l3"><a class="reference internal" href="04_learning_python/02_numpy_basics/00_index.html#in-more-dimensions">In more dimensions</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="04_learning_python/02_numpy_basics/00_index.html#creating-matrices">Creating Matrices</a></li>
-<li class="toctree-l4"><a class="reference internal" href="04_learning_python/02_numpy_basics/00_index.html#matrix-arithmetic">Matrix Arithmetic</a></li>
-<li class="toctree-l4"><a class="reference internal" href="04_learning_python/02_numpy_basics/00_index.html#dot-product">Dot Product</a></li>
-<li class="toctree-l4"><a class="reference internal" href="04_learning_python/02_numpy_basics/00_index.html#matrix-indexing">Matrix Indexing</a></li>
-<li class="toctree-l4"><a class="reference internal" href="04_learning_python/02_numpy_basics/00_index.html#matrix-aggregation">Matrix Aggregation</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="04_learning_python/02_numpy_basics/00_index.html#transposing-and-reshaping">Transposing and Reshaping</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="04_learning_python/03_matplotlib_basics/00_index.html">Matplotlib basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="04_learning_python/04_pandas_basics/00_index.html">Pandas basics</a></li>
-</ul>
-</li>
-</ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">API REFERENCE</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="99_api_reference/01_classes.html">Classes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.html">kineticstoolkit.TimeSeries</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.add_data_info.html">kineticstoolkit.TimeSeries.add_data_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.add_event.html">kineticstoolkit.TimeSeries.add_event</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.copy.html">kineticstoolkit.TimeSeries.copy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.fill_missing_samples.html">kineticstoolkit.TimeSeries.fill_missing_samples</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.from_dataframe.html">kineticstoolkit.TimeSeries.from_dataframe</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.get_event_index.html">kineticstoolkit.TimeSeries.get_event_index</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.get_event_time.html">kineticstoolkit.TimeSeries.get_event_time</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.get_index_after_time.html">kineticstoolkit.TimeSeries.get_index_after_time</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.get_index_at_time.html">kineticstoolkit.TimeSeries.get_index_at_time</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.get_index_before_time.html">kineticstoolkit.TimeSeries.get_index_before_time</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.get_subset.html">kineticstoolkit.TimeSeries.get_subset</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.get_ts_after_event.html">kineticstoolkit.TimeSeries.get_ts_after_event</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.get_ts_after_index.html">kineticstoolkit.TimeSeries.get_ts_after_index</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.get_ts_after_time.html">kineticstoolkit.TimeSeries.get_ts_after_time</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.get_ts_at_event.html">kineticstoolkit.TimeSeries.get_ts_at_event</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.get_ts_at_time.html">kineticstoolkit.TimeSeries.get_ts_at_time</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.get_ts_before_event.html">kineticstoolkit.TimeSeries.get_ts_before_event</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.get_ts_before_index.html">kineticstoolkit.TimeSeries.get_ts_before_index</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.get_ts_before_time.html">kineticstoolkit.TimeSeries.get_ts_before_time</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.get_ts_between_events.html">kineticstoolkit.TimeSeries.get_ts_between_events</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.get_ts_between_indexes.html">kineticstoolkit.TimeSeries.get_ts_between_indexes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.get_ts_between_times.html">kineticstoolkit.TimeSeries.get_ts_between_times</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.isnan.html">kineticstoolkit.TimeSeries.isnan</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.merge.html">kineticstoolkit.TimeSeries.merge</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.plot.html">kineticstoolkit.TimeSeries.plot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.remove_data.html">kineticstoolkit.TimeSeries.remove_data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.remove_data_info.html">kineticstoolkit.TimeSeries.remove_data_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.remove_event.html">kineticstoolkit.TimeSeries.remove_event</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.rename_data.html">kineticstoolkit.TimeSeries.rename_data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.rename_event.html">kineticstoolkit.TimeSeries.rename_event</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.resample.html">kineticstoolkit.TimeSeries.resample</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.shift.html">kineticstoolkit.TimeSeries.shift</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.sort_events.html">kineticstoolkit.TimeSeries.sort_events</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.sync_event.html">kineticstoolkit.TimeSeries.sync_event</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.to_dataframe.html">kineticstoolkit.TimeSeries.to_dataframe</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.trim_events.html">kineticstoolkit.TimeSeries.trim_events</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.ui_add_event.html">kineticstoolkit.TimeSeries.ui_add_event</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.ui_edit_events.html">kineticstoolkit.TimeSeries.ui_edit_events</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.ui_get_ts_between_clicks.html">kineticstoolkit.TimeSeries.ui_get_ts_between_clicks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.TimeSeries.ui_sync.html">kineticstoolkit.TimeSeries.ui_sync</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="api/kineticstoolkit.TimeSeriesEvent.html">kineticstoolkit.TimeSeriesEvent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/kineticstoolkit.Player.html">kineticstoolkit.Player</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.Player.close.html">kineticstoolkit.Player.close</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.Player.to_html5.html">kineticstoolkit.Player.to_html5</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="99_api_reference/02_functions.html">Functions</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/kineticstoolkit.load.html">kineticstoolkit.load</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/kineticstoolkit.save.html">kineticstoolkit.save</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="99_api_reference/03_modules.html">Modules</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/kineticstoolkit.cycles.html">kineticstoolkit.cycles</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.cycles.detect_cycles.html">kineticstoolkit.cycles.detect_cycles</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.cycles.most_repeatable_cycles.html">kineticstoolkit.cycles.most_repeatable_cycles</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.cycles.stack.html">kineticstoolkit.cycles.stack</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.cycles.time_normalize.html">kineticstoolkit.cycles.time_normalize</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.cycles.unstack.html">kineticstoolkit.cycles.unstack</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="api/kineticstoolkit.filters.html">kineticstoolkit.filters</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.filters.butter.html">kineticstoolkit.filters.butter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.filters.deriv.html">kineticstoolkit.filters.deriv</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.filters.median.html">kineticstoolkit.filters.median</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.filters.savgol.html">kineticstoolkit.filters.savgol</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.filters.smooth.html">kineticstoolkit.filters.smooth</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="api/kineticstoolkit.geometry.html">kineticstoolkit.geometry</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.geometry.create_frames.html">kineticstoolkit.geometry.create_frames</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.geometry.create_transforms.html">kineticstoolkit.geometry.create_transforms</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.geometry.get_angles.html">kineticstoolkit.geometry.get_angles</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.geometry.get_global_coordinates.html">kineticstoolkit.geometry.get_global_coordinates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.geometry.get_local_coordinates.html">kineticstoolkit.geometry.get_local_coordinates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.geometry.isnan.html">kineticstoolkit.geometry.isnan</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.geometry.matmul.html">kineticstoolkit.geometry.matmul</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.geometry.register_points.html">kineticstoolkit.geometry.register_points</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="api/kineticstoolkit.kinematics.html">kineticstoolkit.kinematics</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.kinematics.create_cluster.html">kineticstoolkit.kinematics.create_cluster</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.kinematics.define_local_position.html">kineticstoolkit.kinematics.define_local_position</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.kinematics.define_rigid_body.html">kineticstoolkit.kinematics.define_rigid_body</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.kinematics.extend_cluster.html">kineticstoolkit.kinematics.extend_cluster</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.kinematics.read_c3d_file.html">kineticstoolkit.kinematics.read_c3d_file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.kinematics.read_n3d_file.html">kineticstoolkit.kinematics.read_n3d_file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.kinematics.track_cluster.html">kineticstoolkit.kinematics.track_cluster</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.kinematics.track_rigid_bodies.html">kineticstoolkit.kinematics.track_rigid_bodies</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.kinematics.track_rigid_body.html">kineticstoolkit.kinematics.track_rigid_body</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.kinematics.write_c3d_file.html">kineticstoolkit.kinematics.write_c3d_file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.kinematics.write_trc_file.html">kineticstoolkit.kinematics.write_trc_file</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="api/kineticstoolkit.pushrimkinetics.html">kineticstoolkit.pushrimkinetics</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.pushrimkinetics.calculate_forces_and_moments.html">kineticstoolkit.pushrimkinetics.calculate_forces_and_moments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.pushrimkinetics.calculate_power.html">kineticstoolkit.pushrimkinetics.calculate_power</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.pushrimkinetics.calculate_velocity.html">kineticstoolkit.pushrimkinetics.calculate_velocity</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.pushrimkinetics.find_recovery_indices.html">kineticstoolkit.pushrimkinetics.find_recovery_indices</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.pushrimkinetics.read_file.html">kineticstoolkit.pushrimkinetics.read_file</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.pushrimkinetics.remove_offsets.html">kineticstoolkit.pushrimkinetics.remove_offsets</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="99_api_reference/03_modules.html#unreleased-modules">Unreleased modules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.emg.html">kineticstoolkit.emg</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="api/kineticstoolkit.emg.read_delsys_csv.html">kineticstoolkit.emg.read_delsys_csv</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.inversedynamics.html">kineticstoolkit.inversedynamics</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="api/kineticstoolkit.inversedynamics.calculate_com_acceleration.html">kineticstoolkit.inversedynamics.calculate_com_acceleration</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/kineticstoolkit.inversedynamics.calculate_com_position.html">kineticstoolkit.inversedynamics.calculate_com_position</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/kineticstoolkit.inversedynamics.calculate_proximal_wrench.html">kineticstoolkit.inversedynamics.calculate_proximal_wrench</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/kineticstoolkit.inversedynamics.calculate_segment_angles.html">kineticstoolkit.inversedynamics.calculate_segment_angles</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/kineticstoolkit.inversedynamics.calculate_segment_rotation_rates.html">kineticstoolkit.inversedynamics.calculate_segment_rotation_rates</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/kineticstoolkit.inversedynamics.get_anthropometrics.html">kineticstoolkit.inversedynamics.get_anthropometrics</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="api/kineticstoolkit.anthropometrics.html">kineticstoolkit.anthropometrics</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="api/kineticstoolkit.anthropometrics.html#nomenclature">Nomenclature</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="api/kineticstoolkit.anthropometrics.estimate_center_of_mass.html">kineticstoolkit.anthropometrics.estimate_center_of_mass</a></li>
-<li class="toctree-l5"><a class="reference internal" href="api/kineticstoolkit.anthropometrics.estimate_global_center_of_mass.html">kineticstoolkit.anthropometrics.estimate_global_center_of_mass</a></li>
-<li class="toctree-l5"><a class="reference internal" href="api/kineticstoolkit.anthropometrics.infer_joint_centers.html">kineticstoolkit.anthropometrics.infer_joint_centers</a></li>
-<li class="toctree-l5"><a class="reference internal" href="api/kineticstoolkit.anthropometrics.track_local_coordinate_systems.html">kineticstoolkit.anthropometrics.track_local_coordinate_systems</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">LINKS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference external" href="https://felixchenier.uqam.ca/ktk_develop">Development website</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub repository</a></li>
-</ul>
 </div>
 <div class="toctree-wrapper compound">
-<p class="caption" role="heading"><span class="caption-text">FOR DEVELOPERS</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="99_for_developers/01_getting_started/00_index.html">Developing Kinetics Toolkit</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="99_for_developers/01_getting_started/01_install.html">Installing from git-hub</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="99_for_developers/01_getting_started/01_install.html#install-the-development-requirements">Install the development requirements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="99_for_developers/01_getting_started/01_install.html#install-kinetics-toolkit-s-development-version">Install Kinetics Toolkit’s development version</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="99_for_developers/01_getting_started/02_developer_manual.html">Developer manual</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="99_for_developers/01_getting_started/02_developer_manual.html#coding-style">Coding style</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="99_for_developers/01_getting_started/02_developer_manual.html#standard-python-conventions">Standard Python conventions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="99_for_developers/01_getting_started/02_developer_manual.html#quote-style">Quote style</a></li>
-<li class="toctree-l4"><a class="reference internal" href="99_for_developers/01_getting_started/02_developer_manual.html#naming-conventions">Naming conventions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="99_for_developers/01_getting_started/02_developer_manual.html#type-hints">Type hints</a></li>
-<li class="toctree-l4"><a class="reference internal" href="99_for_developers/01_getting_started/02_developer_manual.html#function-life-from-development-to-deprecation">Function life from development to deprecation</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="99_for_developers/01_getting_started/02_developer_manual.html#unstable">Unstable</a></li>
-<li class="toctree-l5"><a class="reference internal" href="99_for_developers/01_getting_started/02_developer_manual.html#experimental">Experimental</a></li>
-<li class="toctree-l5"><a class="reference internal" href="99_for_developers/01_getting_started/02_developer_manual.html#stable">Stable</a></li>
-<li class="toctree-l5"><a class="reference internal" href="99_for_developers/01_getting_started/02_developer_manual.html#deprecated">Deprecated</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="99_for_developers/01_getting_started/02_developer_manual.html#feature-development-to-release-cycle">Feature development to release cycle</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="99_for_developers/01_getting_started/02_developer_manual.html#feature-branches">Feature branches</a></li>
-<li class="toctree-l4"><a class="reference internal" href="99_for_developers/01_getting_started/02_developer_manual.html#master-branch">Master branch</a></li>
-<li class="toctree-l4"><a class="reference internal" href="99_for_developers/01_getting_started/02_developer_manual.html#stable-branch">Stable branch</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="99_for_developers/01_getting_started/02_development_rules.html">Development rules</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="99_for_developers/01_getting_started/02_development_rules.html#rule-1-code-of-conduct">Rule 1: Code of conduct</a></li>
-<li class="toctree-l3"><a class="reference internal" href="99_for_developers/01_getting_started/02_development_rules.html#rule-2-consider-writing-tutorials-instead-of-code">Rule 2: Consider writing tutorials instead of code</a></li>
-<li class="toctree-l3"><a class="reference internal" href="99_for_developers/01_getting_started/02_development_rules.html#rule-3-life-cycle-of-a-function-from-development-to-deprecation">Rule 3: Life cycle of a function, from development to deprecation</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="99_for_developers/01_getting_started/02_development_rules.html#unstable">Unstable</a></li>
-<li class="toctree-l4"><a class="reference internal" href="99_for_developers/01_getting_started/02_development_rules.html#experimental">Experimental</a></li>
-<li class="toctree-l4"><a class="reference internal" href="99_for_developers/01_getting_started/02_development_rules.html#stable">Stable</a></li>
-<li class="toctree-l4"><a class="reference internal" href="99_for_developers/01_getting_started/02_development_rules.html#deprecated">Deprecated</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="99_for_developers/01_getting_started/02_development_rules.html#rule-4-forks-and-branches">Rule 4: Forks and branches</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="99_for_developers/01_getting_started/02_development_rules.html#fork-and-create-a-feature-branches">Fork and create a feature branches</a></li>
-<li class="toctree-l4"><a class="reference internal" href="99_for_developers/01_getting_started/02_development_rules.html#document-and-test-your-feature">Document and test your feature</a></li>
-<li class="toctree-l4"><a class="reference internal" href="99_for_developers/01_getting_started/02_development_rules.html#create-a-pull-request">Create a pull request</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="99_for_developers/01_getting_started/03_coding_style.html">Coding style</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="99_for_developers/01_getting_started/03_coding_style.html#standard-python-conventions">Standard Python conventions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="99_for_developers/01_getting_started/03_coding_style.html#quote-style">Quote style</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="99_for_developers/01_getting_started/03_coding_style.html#naming-conventions">Naming conventions</a></li>
-<li class="toctree-l4"><a class="reference internal" href="99_for_developers/01_getting_started/03_coding_style.html#type-hints">Type hints</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="99_for_developers/02_tutorials/00_index.html">Tutorial development for stable/unstable features</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="99_for_developers/02_tutorials/02_anthropometrics/00_index.html">Anthropometrics</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="99_for_developers/02_tutorials/02_anthropometrics/00_index.html#infer-joint-centers">Infer joint centers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="99_for_developers/02_tutorials/02_anthropometrics/00_index.html#estimate-centers-of-mass">Estimate centers of mass</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="99_for_developers/02_tutorials/02_anthropometrics/00_index.html#track-local-coordinate-systems">Track local coordinate systems</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="99_for_developers/02_tutorials/03_inversedynamics/00_index.html">Inverse Dynamics</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="99_for_developers/02_tutorials/03_inversedynamics/00_index.html#loading-sample-data">Loading sample data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="99_for_developers/02_tutorials/03_inversedynamics/00_index.html#put-everything-relevant-into-one-synchronized-timeseries">Put everything relevant into one, synchronized TimeSeries</a></li>
-<li class="toctree-l3"><a class="reference internal" href="99_for_developers/02_tutorials/03_inversedynamics/00_index.html#calculate-the-force-and-moments-at-the-wrist">Calculate the force and moments at the wrist</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="99_for_developers/02_tutorials/03_inversedynamics/00_index.html#calculate-the-com-position-of-the-wheel-segment">Calculate the COM position of the wheel segment</a></li>
-<li class="toctree-l4"><a class="reference internal" href="99_for_developers/02_tutorials/03_inversedynamics/00_index.html#calculate-the-com-acceleration-of-the-wheel-segment">Calculate the COM acceleration of the wheel segment</a></li>
-<li class="toctree-l4"><a class="reference internal" href="99_for_developers/02_tutorials/03_inversedynamics/00_index.html#calculate-the-wheel-segment-s-angles-around-the-global-x-y-and-z-axes">Calculate the wheel segment’s angles around the global x, y and z axes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="99_for_developers/02_tutorials/03_inversedynamics/00_index.html#calculate-the-segment-s-angular-velocity-and-acceleration-around-the-global-x-y-and-z-axes">Calculate the segment’s angular velocity and acceleration around the global x, y and z axes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="99_for_developers/02_tutorials/03_inversedynamics/00_index.html#finally-calculate-the-proximal-forces-and-moments">Finally, calculate the proximal forces and moments</a></li>
-<li class="toctree-l4"><a class="reference internal" href="99_for_developers/02_tutorials/03_inversedynamics/00_index.html#add-the-calculated-distal-forces-and-moments-to-the-ts-all-timeseries">Add the calculated distal forces and moments to the ts_all TimeSeries</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="99_for_developers/02_tutorials/03_inversedynamics/00_index.html#calculate-the-force-and-moments-at-the-elbow">Calculate the force and moments at the elbow</a></li>
-<li class="toctree-l3"><a class="reference internal" href="99_for_developers/02_tutorials/03_inversedynamics/00_index.html#calculate-the-force-and-moments-at-the-shoulder">Calculate the force and moments at the shoulder</a></li>
-<li class="toctree-l3"><a class="reference internal" href="99_for_developers/02_tutorials/03_inversedynamics/00_index.html#get-the-forces-and-moments-in-the-local-coordinate-system">Get the forces and moments in the local coordinate system</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="99_for_developers/02_tutorials/03_inversedynamics/00_index.html#local-forces">Local forces</a></li>
-<li class="toctree-l4"><a class="reference internal" href="99_for_developers/02_tutorials/03_inversedynamics/00_index.html#local-moments">Local moments</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
 </div>
-</section>
-</section>
+</div>
 
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="01_getting_started/00_index.html" class="btn btn-neutral float-right" title="Getting started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="getting_started_ktk.html" class="btn btn-neutral float-right" title="Getting started" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>&#169; Copyright 2020-2022, Félix Chénier.</p>
+    <p>&#169; Copyright 2021.</p>
   </div>
 
   Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
