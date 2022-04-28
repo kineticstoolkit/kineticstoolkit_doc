@@ -51,6 +51,7 @@ parts:
               - file: [](kinematics_reconstructing_probed_points.md)
           #### Wheelchair kinetics
           - file: [](pushrimkinetics.md)
+          #### Conventions
           - file: [](ktk_conventions.md)
 
       ### In depth
@@ -58,7 +59,17 @@ parts:
         sections:
           - file: [](ktk_lab_mode.md)
           - file: [](ktk_release_notes.md)
-          - file: [](python_learning.md)
+
+      ### Learning Python
+      - file: [](python_learning.md)
+        sections:
+          - file: [](python_installing.md)
+          - file: [](python.md)
+          - file: [](python_basics.md)
+          - file: [](python_using_spyder.md)
+          - file: [](numpy.md)
+          - file: [](matplotlib.md)
+          - file: [](pandas.md)
 
   ## API Reference
   - caption: "API Reference"

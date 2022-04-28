@@ -1,0 +1,601 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>kineticstoolkit.loadsave &mdash; Kinetics Toolkit</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx-thebe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/stable.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+        <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+
+ 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: black" >
+            <a href="../../index.html">
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started_ktk.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ktk_in_depth.html">In depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_learning.html">Learning Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api_classes.html">Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api_functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api_modules.html">Modules</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev.html">Developing Kinetics Toolkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev_tutorials.html">Tutorial development for stable/unstable features</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: black" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      <li>kineticstoolkit.loadsave</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for kineticstoolkit.loadsave</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright 2020 Félix Chénier</span>
+
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Provide functions to load and save data.</span>
+
+<span class="sd">The classes defined in this module are accessible directly from the toplevel</span>
+<span class="sd">Kinetics Toolkit namespace (i.e. ktk.load, ktk.save).</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;Félix Chénier&quot;</span>
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">&quot;Copyright (C) 2020 Félix Chénier&quot;</span>
+<span class="n">__email__</span> <span class="o">=</span> <span class="s2">&quot;chenier.felix@uqam.ca&quot;</span>
+<span class="n">__license__</span> <span class="o">=</span> <span class="s2">&quot;Apache 2.0&quot;</span>
+
+<span class="kn">from</span> <span class="nn">kineticstoolkit.timeseries</span> <span class="kn">import</span> <span class="n">TimeSeries</span>
+<span class="kn">from</span> <span class="nn">kineticstoolkit.decorators</span> <span class="kn">import</span> <span class="n">directory</span>
+<span class="kn">import</span> <span class="nn">kineticstoolkit.config</span>
+
+<span class="kn">import</span> <span class="nn">scipy.io</span> <span class="k">as</span> <span class="nn">spio</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">getpass</span>
+<span class="kn">import</span> <span class="nn">zipfile</span>
+
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
+
+
+<div class="viewcode-block" id="save"><a class="viewcode-back" href="../../api/kineticstoolkit.save.html#kineticstoolkit.save">[docs]</a><span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">variable</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Save a variable to a ktk.zip file.</span>
+
+<span class="sd">    A ktk.zip file is a zipped folder containing two files:</span>
+
+<span class="sd">    - metadata.json, which includes save date, user, etc.</span>
+<span class="sd">    - data.json, which includes the data.</span>
+
+<span class="sd">    The following classes are supported:</span>
+
+<span class="sd">    - dict containing any supported class</span>
+<span class="sd">    - list containing any supported class</span>
+<span class="sd">    - str</span>
+<span class="sd">    - int</span>
+<span class="sd">    - float</span>
+<span class="sd">    - True</span>
+<span class="sd">    - False</span>
+<span class="sd">    - None</span>
+<span class="sd">    - numpy.array</span>
+<span class="sd">    - pandas.DataFrame</span>
+<span class="sd">    - pandas.Series</span>
+<span class="sd">    - ktk.TimeSeries</span>
+
+<span class="sd">    Tuples are also supported but will be loaded back as lists, without</span>
+<span class="sd">    warning.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">class</span> <span class="nc">CustomEncoder</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">JSONEncoder</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+                <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;class__&#39;</span><span class="p">:</span> <span class="s1">&#39;numpy.array&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;value&#39;</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">tolist</span><span class="p">()}</span>
+
+            <span class="k">elif</span> <span class="nb">str</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">obj</span><span class="p">))</span> <span class="o">==</span> \
+                    <span class="s2">&quot;&lt;class &#39;kineticstoolkit.timeseries.TimeSeries&#39;&gt;&quot;</span><span class="p">:</span>
+                <span class="n">out</span> <span class="o">=</span> <span class="p">{}</span>
+                <span class="n">out</span><span class="p">[</span><span class="s1">&#39;class__&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;ktk.TimeSeries&#39;</span>
+                <span class="n">out</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+                <span class="n">out</span><span class="p">[</span><span class="s1">&#39;time_info&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">time_info</span>
+                <span class="n">out</span><span class="p">[</span><span class="s1">&#39;data_info&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">data_info</span>
+                <span class="n">out</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+                <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">obj</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+                    <span class="n">out</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">obj</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+                <span class="n">out</span><span class="p">[</span><span class="s1">&#39;events&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">obj</span><span class="o">.</span><span class="n">events</span><span class="p">:</span>
+                    <span class="n">out</span><span class="p">[</span><span class="s1">&#39;events&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+                        <span class="s1">&#39;time&#39;</span><span class="p">:</span> <span class="n">event</span><span class="o">.</span><span class="n">time</span><span class="p">,</span>
+                        <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">event</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+                    <span class="p">})</span>
+                <span class="k">return</span> <span class="n">out</span>
+
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">):</span>
+                <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;class__&#39;</span><span class="p">:</span> <span class="s1">&#39;pandas.Series&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">name</span><span class="p">),</span>
+                        <span class="s1">&#39;dtype&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">dtype</span><span class="p">),</span>
+                        <span class="s1">&#39;index&#39;</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+                        <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+                        <span class="p">}</span>
+
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+                <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;class__&#39;</span><span class="p">:</span> <span class="s1">&#39;pandas.DataFrame&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;columns&#39;</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+                        <span class="s1">&#39;dtypes&#39;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span> <span class="k">for</span> <span class="n">dtype</span> <span class="ow">in</span> <span class="n">obj</span><span class="o">.</span><span class="n">dtypes</span><span class="p">],</span>
+                        <span class="s1">&#39;index&#39;</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+                        <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
+                        <span class="p">}</span>
+
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="nb">complex</span><span class="p">):</span>
+                <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;class__&#39;</span><span class="p">:</span> <span class="s1">&#39;complex&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;real&#39;</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">real</span><span class="p">,</span>
+                        <span class="s1">&#39;imag&#39;</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">imag</span><span class="p">,</span>
+                        <span class="p">}</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">default</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+
+    <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">kineticstoolkit</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">is_pc</span><span class="p">:</span>
+        <span class="n">computer</span> <span class="o">=</span> <span class="s1">&#39;PC&#39;</span>
+    <span class="k">elif</span> <span class="n">kineticstoolkit</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">is_mac</span><span class="p">:</span>
+        <span class="n">computer</span> <span class="o">=</span> <span class="s1">&#39;Mac&#39;</span>
+    <span class="k">elif</span> <span class="n">kineticstoolkit</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">is_linux</span><span class="p">:</span>
+        <span class="n">computer</span> <span class="o">=</span> <span class="s1">&#39;Linux&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">computer</span> <span class="o">=</span> <span class="s1">&#39;Unknown&#39;</span>
+
+    <span class="n">metadata</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;Software&#39;</span><span class="p">:</span> <span class="s1">&#39;Kinetics Toolkit&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;Version&#39;</span><span class="p">:</span> <span class="n">kineticstoolkit</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">version</span><span class="p">,</span>
+        <span class="s1">&#39;Computer&#39;</span><span class="p">:</span> <span class="n">computer</span><span class="p">,</span>
+        <span class="s1">&#39;FileFormat&#39;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+        <span class="s1">&#39;SaveDate&#39;</span><span class="p">:</span> <span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">),</span>
+        <span class="s1">&#39;SaveTime&#39;</span><span class="p">:</span> <span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%H:%M:%S&#39;</span><span class="p">),</span>
+        <span class="s1">&#39;User&#39;</span><span class="p">:</span> <span class="n">getpass</span><span class="o">.</span><span class="n">getuser</span><span class="p">(),</span>
+    <span class="p">}</span>
+
+    <span class="c1"># Save</span>
+    <span class="n">temp_folder</span> <span class="o">=</span> <span class="n">kineticstoolkit</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">temp_folder</span> <span class="o">+</span> \
+        <span class="s1">&#39;/save&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">())</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">temp_folder</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">temp_folder</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">temp_folder</span> <span class="o">+</span> <span class="s1">&#39;/metadata.json&#39;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">metadata</span><span class="p">,</span> <span class="n">fid</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">temp_folder</span> <span class="o">+</span> <span class="s1">&#39;/data.json&#39;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
+        <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">variable</span><span class="p">,</span> <span class="n">fid</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="n">CustomEncoder</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="n">shutil</span><span class="o">.</span><span class="n">make_archive</span><span class="p">(</span><span class="n">temp_folder</span><span class="p">,</span> <span class="s1">&#39;zip&#39;</span><span class="p">,</span> <span class="n">temp_folder</span><span class="p">)</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">temp_folder</span> <span class="o">+</span> <span class="s1">&#39;.zip&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+    <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">temp_folder</span><span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">_load_object_hook</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+    <span class="k">if</span> <span class="s1">&#39;class__&#39;</span> <span class="ow">in</span> <span class="n">obj</span><span class="p">:</span>
+        <span class="n">to_class</span> <span class="o">=</span> <span class="n">obj</span><span class="p">[</span><span class="s1">&#39;class__&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">to_class</span> <span class="o">==</span> <span class="s1">&#39;numpy.array&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;value&#39;</span><span class="p">])</span>
+
+        <span class="k">elif</span> <span class="n">to_class</span> <span class="o">==</span> <span class="s1">&#39;ktk.TimeSeries&#39;</span><span class="p">:</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">TimeSeries</span><span class="p">()</span>
+            <span class="n">out</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">])</span>
+            <span class="n">out</span><span class="o">.</span><span class="n">time_info</span> <span class="o">=</span> <span class="n">obj</span><span class="p">[</span><span class="s1">&#39;time_info&#39;</span><span class="p">]</span>
+            <span class="n">out</span><span class="o">.</span><span class="n">data_info</span> <span class="o">=</span> <span class="n">obj</span><span class="p">[</span><span class="s1">&#39;data_info&#39;</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">obj</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]:</span>
+                <span class="n">out</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">key</span><span class="p">])</span>
+            <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">obj</span><span class="p">[</span><span class="s1">&#39;events&#39;</span><span class="p">]:</span>
+                <span class="n">out</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">],</span> <span class="n">event</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span>
+            <span class="k">return</span> <span class="n">out</span>
+
+        <span class="k">elif</span> <span class="n">to_class</span> <span class="o">==</span> <span class="s1">&#39;pandas.DataFrame&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">],</span>
+                                <span class="n">dtype</span><span class="o">=</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;dtypes&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
+                                <span class="n">columns</span><span class="o">=</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;columns&#39;</span><span class="p">],</span>
+                                <span class="n">index</span><span class="o">=</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;index&#39;</span><span class="p">])</span>
+
+        <span class="k">elif</span> <span class="n">to_class</span> <span class="o">==</span> <span class="s1">&#39;pandas.Series&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">],</span>
+                             <span class="n">dtype</span><span class="o">=</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;dtype&#39;</span><span class="p">],</span>
+                             <span class="n">name</span><span class="o">=</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span>
+                             <span class="n">index</span><span class="o">=</span><span class="n">obj</span><span class="p">[</span><span class="s1">&#39;index&#39;</span><span class="p">])</span>
+
+        <span class="k">elif</span> <span class="n">to_class</span> <span class="o">==</span> <span class="s1">&#39;complex&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">obj</span><span class="p">[</span><span class="s1">&#39;real&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">obj</span><span class="p">[</span><span class="s1">&#39;imag&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">1</span><span class="n">j</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The &quot;</span><span class="si">{</span><span class="n">to_class</span><span class="si">}</span><span class="s1">&quot; class is not supported by &#39;</span>
+                          <span class="s1">&#39;this version of Kinetics Toolkit. Please check &#39;</span>
+                          <span class="s1">&#39;that Kinetics Toolkit is up to date.&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">obj</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">obj</span>
+
+
+<span class="k">def</span> <span class="nf">_load_ktk_zip</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">include_metadata</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Read the ktk.zip file format.&quot;&quot;&quot;</span>
+    <span class="n">archive</span> <span class="o">=</span> <span class="n">zipfile</span><span class="o">.</span><span class="n">ZipFile</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">archive</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;data.json&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(),</span>
+                      <span class="n">object_hook</span><span class="o">=</span><span class="n">_load_object_hook</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">include_metadata</span><span class="p">:</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">archive</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="s1">&#39;metadata.json&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(),</span>
+                              <span class="n">object_hook</span><span class="o">=</span><span class="n">_load_object_hook</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data</span><span class="p">,</span> <span class="n">metadata</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+
+<div class="viewcode-block" id="load"><a class="viewcode-back" href="../../api/kineticstoolkit.load.html#kineticstoolkit.load">[docs]</a><span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Load a ktk.zip file.</span>
+
+<span class="sd">    Load a data file as saved using the ktk.save function.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    filename : str</span>
+<span class="sd">        The path of the zip file to load.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Any</span>
+<span class="sd">        The loaded variable.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># NOTE: THIS FUNCTION CAN ALSO LOAD MAT FILES, BUT THIS IS A TRANSITIONAL</span>
+    <span class="c1"># FEATURE FOR MY LAB&#39;S MIGRATION FROM MATLAB TO PYTHON. PLEASE DO NOT</span>
+    <span class="c1"># RELY ON THIS FEATURE AS IT COULD BE REMOVED SOON.</span>
+    <span class="c1"># Check hdf5storage for a nice alternative.</span>
+    <span class="k">if</span> <span class="n">filename</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;filename is empty.&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;filename must be a string.&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">filename</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.zip&#39;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">_load_ktk_zip</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+
+    <span class="k">elif</span> <span class="n">filename</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.mat&#39;</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">_loadmat</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>  <span class="c1"># pragma: no cover</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;The file must be either zip or mat.&#39;</span><span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">_loadmat</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>  <span class="c1"># pragma: no cover</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Load a Matlab&#39;s MAT file.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    filename : str</span>
+<span class="sd">        Path of the MAT file to load.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    The saved variable.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Load the Matlab file</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">spio</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">struct_as_record</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                        <span class="n">squeeze_me</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="c1"># Correct the keys</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">_recursive_matstruct_to_dict</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="c1"># Return contents and metadata if it exists, if not return data as is.</span>
+    <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;contents&#39;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="s1">&#39;metadata&#39;</span> <span class="ow">in</span> <span class="n">data</span><span class="p">):</span>
+
+        <span class="c1"># Since it was saved using ktksave, then also convert structures of</span>
+        <span class="c1"># timeseries to ktk.TimeSeries.</span>
+        <span class="n">contents</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;contents&#39;</span><span class="p">]</span>
+        <span class="c1"># metadata = data[&#39;metadata&#39;]  # Not sure what to do with it yet.</span>
+        <span class="n">contents</span> <span class="o">=</span> <span class="n">_convert_to_timeseries</span><span class="p">(</span><span class="n">contents</span><span class="p">)</span>
+        <span class="n">contents</span> <span class="o">=</span> <span class="n">_convert_cell_arrays_to_lists</span><span class="p">(</span><span class="n">contents</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">contents</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">data</span>
+
+
+<span class="k">def</span> <span class="nf">_convert_cell_arrays_to_lists</span><span class="p">(</span><span class="n">the_input</span><span class="p">):</span>  <span class="c1"># pragma: no cover</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert cell arrays to lists.</span>
+
+<span class="sd">    This function recursively goes into the_input and checks for dicts that</span>
+<span class="sd">    contains a &#39;OriginalClass&#39; == &#39;cell&#39; field. These dicts are then converted</span>
+<span class="sd">    to lists.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">the_input</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="k">if</span> <span class="p">((</span><span class="s1">&#39;OriginalClass&#39;</span> <span class="ow">in</span> <span class="n">the_input</span><span class="p">)</span> <span class="ow">and</span>
+                <span class="n">the_input</span><span class="p">[</span><span class="s1">&#39;OriginalClass&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;cell&#39;</span><span class="p">):</span>
+            <span class="c1"># This should be converted to a list.</span>
+            <span class="c1"># Let&#39;s try with a single dimension list. If it fails, try as a</span>
+            <span class="c1"># bidimensional list.</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">the_input</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span> <span class="o">-</span> <span class="mi">1</span>
+                <span class="n">the_list</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">i_cell</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">length</span><span class="p">):</span>
+                    <span class="n">the_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">_convert_cell_arrays_to_lists</span><span class="p">(</span>
+                        <span class="n">the_input</span><span class="p">[</span><span class="sa">f</span><span class="s1">&#39;cell</span><span class="si">{</span><span class="n">i_cell</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">]))</span>
+                <span class="n">the_input</span> <span class="o">=</span> <span class="n">the_list</span>
+
+            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                <span class="c1"># Convert to a dict with addresses in keys</span>
+
+                <span class="k">def</span> <span class="nf">extract_address</span><span class="p">(</span><span class="n">key</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="n">key</span> <span class="o">!=</span> <span class="s1">&#39;OriginalClass&#39;</span><span class="p">:</span>
+                        <span class="k">return</span> <span class="n">key</span><span class="p">[</span><span class="mi">4</span><span class="p">:]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">return</span> <span class="kc">None</span>
+
+                <span class="c1"># Get the number of rows and columns</span>
+                <span class="n">n_rows</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="n">n_cols</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="n">the_input</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="n">address</span> <span class="o">=</span> <span class="n">extract_address</span><span class="p">(</span><span class="n">cell</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">address</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">n_rows</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">n_rows</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">address</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+                        <span class="n">n_cols</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">n_cols</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">address</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+
+                <span class="c1"># Create and populate the list</span>
+                <span class="n">the_list</span> <span class="o">=</span> <span class="p">[</span>
+                    <span class="p">[</span><span class="kc">None</span> <span class="k">for</span> <span class="n">i_col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_cols</span><span class="p">)]</span>
+                    <span class="k">for</span> <span class="n">i_row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_rows</span><span class="p">)]</span>
+                <span class="k">for</span> <span class="n">cell</span> <span class="ow">in</span> <span class="n">the_input</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="n">address</span> <span class="o">=</span> <span class="n">extract_address</span><span class="p">(</span><span class="n">cell</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">address</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                        <span class="n">the_list</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">address</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="nb">int</span><span class="p">(</span><span class="n">address</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> \
+                            <span class="n">_convert_cell_arrays_to_lists</span><span class="p">(</span><span class="n">the_input</span><span class="p">[</span><span class="n">cell</span><span class="p">])</span>
+
+                <span class="n">the_input</span> <span class="o">=</span> <span class="n">the_list</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">the_input</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="n">the_input</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">_convert_cell_arrays_to_lists</span><span class="p">(</span><span class="n">the_input</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">the_input</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">the_input</span><span class="p">)):</span>
+            <span class="n">the_input</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">_convert_cell_arrays_to_lists</span><span class="p">(</span><span class="n">the_input</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">the_input</span>
+
+
+<span class="k">def</span> <span class="nf">_convert_to_timeseries</span><span class="p">(</span><span class="n">the_input</span><span class="p">):</span>  <span class="c1"># pragma: no cover</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Convert dicts of Matlab timeseries to Kinetics Toolkit TimeSeries.</span>
+
+<span class="sd">    This function recursively goes into the_input and checks for dicts that</span>
+<span class="sd">    result from obvious Matlab&#39;s structures of timeseries. These structures are</span>
+<span class="sd">    converted to Kinetics Toolkit Timeseries.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    the_input : any variable</span>
+<span class="sd">        The input to be checked, usually a dict.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    A copy of the input, with the converted timeseries.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">the_input</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+
+        <span class="c1"># Check if this dict should become a timeseries</span>
+        <span class="n">is_a_timeseries</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="k">for</span> <span class="n">the_key</span> <span class="ow">in</span> <span class="n">the_input</span><span class="p">:</span>
+            <span class="k">if</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">the_input</span><span class="p">[</span><span class="n">the_key</span><span class="p">],</span> <span class="nb">dict</span><span class="p">)</span>
+                    <span class="ow">and</span> <span class="p">(</span><span class="s1">&#39;OriginalClass&#39;</span> <span class="ow">in</span> <span class="n">the_input</span><span class="p">[</span><span class="n">the_key</span><span class="p">])</span>
+                    <span class="ow">and</span> <span class="p">(</span><span class="n">the_input</span><span class="p">[</span><span class="n">the_key</span><span class="p">][</span><span class="s1">&#39;OriginalClass&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;timeseries&#39;</span><span class="p">)):</span>
+                <span class="k">pass</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">is_a_timeseries</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="n">is_a_timeseries</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="c1"># We checked if each key is a Matlab timeseries and it is.</span>
+            <span class="c1"># So we get here.</span>
+            <span class="n">the_output</span> <span class="o">=</span> <span class="n">TimeSeries</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">the_key</span> <span class="ow">in</span> <span class="n">the_input</span><span class="p">:</span>
+
+                <span class="k">if</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">the_input</span><span class="p">[</span><span class="n">the_key</span><span class="p">],</span> <span class="nb">dict</span><span class="p">)</span> <span class="ow">and</span>
+                        <span class="p">(</span><span class="s1">&#39;OriginalClass&#39;</span> <span class="ow">in</span> <span class="n">the_input</span><span class="p">[</span><span class="n">the_key</span><span class="p">])</span> <span class="ow">and</span>
+                        <span class="p">(</span><span class="n">the_input</span><span class="p">[</span><span class="n">the_key</span><span class="p">][</span><span class="s1">&#39;OriginalClass&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;timeseries&#39;</span><span class="p">)):</span>
+                    <span class="c1"># This is a matlab timeseries.</span>
+
+                    <span class="c1"># Extract Time</span>
+                    <span class="n">the_output</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">the_input</span><span class="p">[</span><span class="n">the_key</span><span class="p">][</span><span class="s1">&#39;Time&#39;</span><span class="p">]</span>
+
+                    <span class="c1"># Extract Data</span>
+                    <span class="n">the_data</span> <span class="o">=</span> <span class="n">the_input</span><span class="p">[</span><span class="n">the_key</span><span class="p">][</span><span class="s1">&#39;Data&#39;</span><span class="p">]</span>
+
+                    <span class="k">if</span> <span class="n">the_input</span><span class="p">[</span><span class="n">the_key</span><span class="p">][</span><span class="s1">&#39;IsTimeFirst&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+                        <span class="n">the_output</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">the_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">the_data</span>
+                    <span class="k">else</span><span class="p">:</span>  <span class="c1"># We must reshape to ensure time is on first dim.</span>
+                        <span class="n">the_shape</span> <span class="o">=</span> <span class="n">the_data</span><span class="o">.</span><span class="n">shape</span>
+                        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">the_shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+                            <span class="n">the_output</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">the_key</span><span class="p">]</span> <span class="o">=</span> \
+                                <span class="n">the_data</span><span class="o">.</span><span class="n">transpose</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+                        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">the_shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+                            <span class="n">the_output</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">the_key</span><span class="p">]</span> <span class="o">=</span> \
+                                <span class="n">the_data</span><span class="o">.</span><span class="n">transpose</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">the_output</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">the_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">the_data</span>
+
+                    <span class="c1"># Extract Events</span>
+                    <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">the_input</span><span class="p">[</span><span class="n">the_key</span><span class="p">][</span><span class="s1">&#39;Events&#39;</span><span class="p">]:</span>
+                        <span class="n">the_output</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">],</span> <span class="n">event</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">])</span>
+
+            <span class="k">return</span> <span class="n">the_output</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># It is only a dict, not a dict of matlab timeseries.</span>
+            <span class="k">for</span> <span class="n">the_key</span> <span class="ow">in</span> <span class="n">the_input</span><span class="p">:</span>
+                <span class="n">the_input</span><span class="p">[</span><span class="n">the_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">_convert_to_timeseries</span><span class="p">(</span><span class="n">the_input</span><span class="p">[</span><span class="n">the_key</span><span class="p">])</span>
+            <span class="k">return</span> <span class="n">the_input</span>
+
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">the_input</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">the_input</span><span class="p">)):</span>
+            <span class="n">the_input</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">_convert_to_timeseries</span><span class="p">(</span><span class="n">the_input</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">the_input</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">the_input</span>
+
+
+<span class="k">def</span> <span class="nf">_recursive_matstruct_to_dict</span><span class="p">(</span><span class="n">variable</span><span class="p">):</span>  <span class="c1"># pragma: no cover</span>
+    <span class="sd">&quot;&quot;&quot;Recursively converts Mat-objects in dicts or arrays to nested dicts.&quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">variable</span><span class="p">,</span> <span class="n">spio</span><span class="o">.</span><span class="n">matlab</span><span class="o">.</span><span class="n">mio5_params</span><span class="o">.</span><span class="n">mat_struct</span><span class="p">):</span>
+        <span class="n">variable</span> <span class="o">=</span> <span class="n">_todict</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span>
+        <span class="n">variable</span> <span class="o">=</span> <span class="n">_recursive_matstruct_to_dict</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">variable</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">variable</span><span class="p">:</span>
+            <span class="n">variable</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">_recursive_matstruct_to_dict</span><span class="p">(</span><span class="n">variable</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">variable</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">ndindex</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">variable</span><span class="p">)):</span>
+            <span class="n">variable</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="o">=</span> <span class="n">_recursive_matstruct_to_dict</span><span class="p">(</span><span class="n">variable</span><span class="p">[</span><span class="n">index</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">variable</span>
+
+
+<span class="k">def</span> <span class="nf">_todict</span><span class="p">(</span><span class="n">variable</span><span class="p">):</span>  <span class="c1"># pragma: no cover</span>
+    <span class="sd">&quot;&quot;&quot;Construct dicts from Mat-objects.&quot;&quot;&quot;</span>
+    <span class="nb">dict</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">strg</span> <span class="ow">in</span> <span class="n">variable</span><span class="o">.</span><span class="n">_fieldnames</span><span class="p">:</span>
+        <span class="n">elem</span> <span class="o">=</span> <span class="n">variable</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">[</span><span class="n">strg</span><span class="p">]</span>
+        <span class="nb">dict</span><span class="p">[</span><span class="n">strg</span><span class="p">]</span> <span class="o">=</span> <span class="n">elem</span>
+    <span class="k">return</span> <span class="nb">dict</span>
+
+
+<span class="n">module_locals</span> <span class="o">=</span> <span class="nb">locals</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="fm">__dir__</span><span class="p">():</span>  <span class="c1"># pragma: no cover</span>
+    <span class="k">return</span> <span class="n">directory</span><span class="p">(</span><span class="n">module_locals</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
+    <span class="kn">import</span> <span class="nn">doctest</span>
+    <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">(</span><span class="n">optionflags</span><span class="o">=</span><span class="n">doctest</span><span class="o">.</span><span class="n">NORMALIZE_WHITESPACE</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
