@@ -1,4 +1,4 @@
-# Installing Python
+# Installing Python and Spyder
 
 There exist a great lot of ways to install Python. To start without installing anything, you could use this [online virtual environment](https://repl.it/languages/Python3) where you can write python commands and see their direct effect.
 
@@ -6,7 +6,7 @@ At one point, you will need to install Python and its scientific environment on 
 
 ## Installing a conda distribution
 
-Download and install Anaconda or [Miniconda](https://docs.conda.io/en/latest/miniconda.html) with python 3.8 or newer.
+Download and install Anaconda or [Miniconda](https://docs.conda.io/en/latest/miniconda.html).
 
 ## Creating a virtual environment
 

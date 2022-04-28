@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Python basics &mdash; Kinetics Toolkit</title>
+  <title>Learning Python &mdash; Kinetics Toolkit</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/togglebutton.css" type="text/css" />
@@ -27,21 +27,20 @@
         <script src="_static/clipboard.min.js"></script>
         <script src="_static/copybutton.js"></script>
         <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-        <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-        <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-        <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+        <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+        <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
         <script async="async" src="_static/sphinx-thebe.js"></script>
         <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
         <script>mermaid.initialize({startOnLoad:true});</script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Variables and arithmetics" href="python_basics.html" />
-    <link rel="prev" title="Installing Python" href="python_installing.html" />
+    <link rel="next" title="Installing Python and Spyder" href="python_installing.html" />
+    <link rel="prev" title="Release Notes" href="ktk_release_notes.html" />
 
 
  
@@ -68,11 +67,22 @@
 <li class="toctree-l1"><a class="reference internal" href="getting_started_ktk.html">Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ktk_in_depth.html">In depth</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="python_learning.html">Learning Python</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="python_installing.html">Installing Python</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Python basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python_basics.html">Variables and arithmetics</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Learning Python</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="python_installing.html">Installing Python and Spyder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python_using_spyder.html">Using Spyder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_simple_operations.html">Simple operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_strings.html">Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_comments_and_docstrings.html">Comments and docstrings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_conditions.html">Conditions and booleans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_lists.html">Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_while.html">Looping (while)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_for.html">Looping (for)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_dicts.html">Dicts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_more_advanced.html">More advanced concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_integration_exercises.html">Integration exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_old_basics.html">Variables and arithmetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_links.html">Python links</a></li>
 <li class="toctree-l2"><a class="reference internal" href="numpy.html">Numpy basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="numpy.html#a-visual-intro-to-numpy-and-data-representation">A Visual Intro to NumPy and Data Representation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="matplotlib.html">Matplotlib basics</a></li>
@@ -107,28 +117,48 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="python_learning.html">Learning Python</a> &raquo;</li>
-      <li>Python basics</li>
+      <li>Learning Python</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/python.md" rel="nofollow"> View page source</a>
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="python_installing.html" class="btn btn-neutral float-left" title="Installing Python" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="python_basics.html" class="btn btn-neutral float-right" title="Variables and arithmetics" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ktk_release_notes.html" class="btn btn-neutral float-left" title="Release Notes" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="python_installing.html" class="btn btn-neutral float-right" title="Installing Python and Spyder" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="tex2jax_ignore mathjax_ignore section" id="python-basics">
-<h1>Python basics<a class="headerlink" href="#python-basics" title="Permalink to this headline"></a></h1>
-<p>To discover the basics of Python, we will refer in this chapter to two series of tutorials that we believe are of exceptional quality:</p>
-<ol class="simple">
-<li><p><a class="reference external" href="https://www.youtube.com/channel/UCW6TXMZ5Pq6yL6_k5NZ2e0Q">Socratica’s</a> tutorials with Ulka Simone Mohanty. Be sure to watch their <a class="reference external" href="https://www.youtube.com/watch?v=bY6m6_IIN94&amp;list=PLi01XoE8jYohWFPpC17Z-wWhPOSuh8Er-&amp;index=2">introductory video</a>!</p></li>
-<li><p><a class="reference external" href="https://www.youtube.com/channel/UCCezIgC97PvUuR4_gbFUs5g">Corey Schafer’s</a> tutorials, which go a little deeper than Socratica’s.</p></li>
-</ol>
-<p>But let first install Python and an integrated development environment, in the next section.</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="learning-python">
+<h1>Learning Python<a class="headerlink" href="#learning-python" title="Permalink to this headline"></a></h1>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This whole section is a work in progress. It will contain references to external tutorials on Python, along with examples to put those notions application in biomechanics-related problems.</p>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="python_installing.html">Installing Python and Spyder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_using_spyder.html">Using Spyder</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_simple_operations.html">Simple operations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_comments_and_docstrings.html">Comments and docstrings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_conditions.html">Conditions and booleans</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_while.html">Looping (while)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_for.html">Looping (for)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_dicts.html">Dicts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_more_advanced.html">More advanced concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_integration_exercises.html">Integration exercises</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_old_basics.html">Variables and arithmetics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_links.html">Python links</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpy.html">Numpy basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="numpy.html#a-visual-intro-to-numpy-and-data-representation">A Visual Intro to NumPy and Data Representation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="matplotlib.html">Matplotlib basics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pandas.html">Pandas basics</a></li>
+</ul>
+</div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -154,8 +184,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="python_installing.html" class="btn btn-neutral float-left" title="Installing Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="python_basics.html" class="btn btn-neutral float-right" title="Variables and arithmetics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ktk_release_notes.html" class="btn btn-neutral float-left" title="Release Notes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="python_installing.html" class="btn btn-neutral float-right" title="Installing Python and Spyder" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

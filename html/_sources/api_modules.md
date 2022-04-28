@@ -9,6 +9,7 @@
 .. autosummary::
    :template: custom_module_template.rst
    :recursive:
+   :toctree: api
 
    cycles
    filters
@@ -31,6 +32,7 @@ These modules are in development. They are not fully tested or tested at all, an
 .. autosummary::
    :template: custom_module_template.rst
    :recursive:
+   :toctree: api
 
    emg
    inversedynamics

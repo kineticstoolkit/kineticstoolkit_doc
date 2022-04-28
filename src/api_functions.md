@@ -6,6 +6,8 @@
 
 .. autosummary::
    :template: function.rst
+   :recursive:
+   :toctree: api
 
    load
    save

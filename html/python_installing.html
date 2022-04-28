@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Installing Python &mdash; Kinetics Toolkit</title>
+  <title>Installing Python and Spyder &mdash; Kinetics Toolkit</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/togglebutton.css" type="text/css" />
@@ -27,21 +27,20 @@
         <script src="_static/clipboard.min.js"></script>
         <script src="_static/copybutton.js"></script>
         <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-        <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-        <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-        <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+        <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+        <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
         <script async="async" src="_static/sphinx-thebe.js"></script>
         <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
         <script>mermaid.initialize({startOnLoad:true});</script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Python basics" href="python.html" />
-    <link rel="prev" title="Learning Python" href="python_learning.html" />
+    <link rel="next" title="Using Spyder" href="python_using_spyder.html" />
+    <link rel="prev" title="Learning Python" href="python.html" />
 
 
  
@@ -68,11 +67,22 @@
 <li class="toctree-l1"><a class="reference internal" href="getting_started_ktk.html">Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ktk_in_depth.html">In depth</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="python_learning.html">Learning Python</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Installing Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python.html">Python basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="python_basics.html">Variables and arithmetics</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="python.html">Learning Python</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Installing Python and Spyder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="python_using_spyder.html">Using Spyder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_simple_operations.html">Simple operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_strings.html">Strings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_comments_and_docstrings.html">Comments and docstrings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_functions.html">Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_conditions.html">Conditions and booleans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_lists.html">Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_while.html">Looping (while)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_for.html">Looping (for)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_dicts.html">Dicts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_more_advanced.html">More advanced concepts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_integration_exercises.html">Integration exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_old_basics.html">Variables and arithmetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python_links.html">Python links</a></li>
 <li class="toctree-l2"><a class="reference internal" href="numpy.html">Numpy basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="numpy.html#a-visual-intro-to-numpy-and-data-representation">A Visual Intro to NumPy and Data Representation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="matplotlib.html">Matplotlib basics</a></li>
@@ -107,27 +117,27 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="python_learning.html">Learning Python</a> &raquo;</li>
-      <li>Installing Python</li>
+          <li><a href="python.html">Learning Python</a> &raquo;</li>
+      <li>Installing Python and Spyder</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/python_installing.md" rel="nofollow"> View page source</a>
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="python_learning.html" class="btn btn-neutral float-left" title="Learning Python" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="python.html" class="btn btn-neutral float-right" title="Python basics" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="python.html" class="btn btn-neutral float-left" title="Learning Python" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="python_using_spyder.html" class="btn btn-neutral float-right" title="Using Spyder" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="tex2jax_ignore mathjax_ignore section" id="installing-python">
-<h1>Installing Python<a class="headerlink" href="#installing-python" title="Permalink to this headline"></a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="installing-python-and-spyder">
+<h1>Installing Python and Spyder<a class="headerlink" href="#installing-python-and-spyder" title="Permalink to this headline"></a></h1>
 <p>There exist a great lot of ways to install Python. To start without installing anything, you could use this <a class="reference external" href="https://repl.it/languages/Python3">online virtual environment</a> where you can write python commands and see their direct effect.</p>
 <p>At one point, you will need to install Python and its scientific environment on your computer. In our lab, we mainly use the Spyder integrated development environment (IDE), in a conda environment. This is what we suggest in this guide:</p>
 <div class="section" id="installing-a-conda-distribution">
 <h2>Installing a conda distribution<a class="headerlink" href="#installing-a-conda-distribution" title="Permalink to this headline"></a></h2>
-<p>Download and install Anaconda or <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a> with python 3.8 or newer.</p>
+<p>Download and install Anaconda or <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a>.</p>
 </div>
 <div class="section" id="creating-a-virtual-environment">
 <h2>Creating a virtual environment<a class="headerlink" href="#creating-a-virtual-environment" title="Permalink to this headline"></a></h2>
@@ -164,8 +174,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="python_learning.html" class="btn btn-neutral float-left" title="Learning Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="python.html" class="btn btn-neutral float-right" title="Python basics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="python.html" class="btn btn-neutral float-left" title="Learning Python" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="python_using_spyder.html" class="btn btn-neutral float-right" title="Using Spyder" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

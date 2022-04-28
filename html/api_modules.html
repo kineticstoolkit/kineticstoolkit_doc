@@ -27,21 +27,20 @@
         <script src="_static/clipboard.min.js"></script>
         <script src="_static/copybutton.js"></script>
         <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-        <script src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-        <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-        <script>
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+        <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+        <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
         <script async="async" src="_static/sphinx-thebe.js"></script>
         <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
         <script>mermaid.initialize({startOnLoad:true});</script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Developing Kinetics Toolkit" href="dev.html" />
-    <link rel="prev" title="Functions" href="api_functions.html" />
+    <link rel="next" title="kineticstoolkit.cycles" href="api/kineticstoolkit.cycles.html" />
+    <link rel="prev" title="kineticstoolkit.save" href="api/kineticstoolkit.save.html" />
 
 
  
@@ -68,13 +67,23 @@
 <li class="toctree-l1"><a class="reference internal" href="getting_started_ktk.html">Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ktk_in_depth.html">In depth</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python_learning.html">Learning Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Learning Python</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="api_classes.html">Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_functions.html">Functions</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Modules</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/kineticstoolkit.cycles.html">kineticstoolkit.cycles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/kineticstoolkit.filters.html">kineticstoolkit.filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/kineticstoolkit.geometry.html">kineticstoolkit.geometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/kineticstoolkit.kinematics.html">kineticstoolkit.kinematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/kineticstoolkit.pushrimkinetics.html">kineticstoolkit.pushrimkinetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/kineticstoolkit.emg.html">kineticstoolkit.emg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/kineticstoolkit.inversedynamics.html">kineticstoolkit.inversedynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/kineticstoolkit.anthropometrics.html">kineticstoolkit.anthropometrics</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Development</span></p>
 <ul>
@@ -102,8 +111,8 @@
             <a href="_sources/api_modules.md" rel="nofollow"> View page source</a>
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="api_functions.html" class="btn btn-neutral float-left" title="Functions" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="dev.html" class="btn btn-neutral float-right" title="Developing Kinetics Toolkit" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="api/kineticstoolkit.save.html" class="btn btn-neutral float-left" title="kineticstoolkit.save" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="api/kineticstoolkit.cycles.html" class="btn btn-neutral float-right" title="kineticstoolkit.cycles" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
 </div>
@@ -187,8 +196,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="api_functions.html" class="btn btn-neutral float-left" title="Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="dev.html" class="btn btn-neutral float-right" title="Developing Kinetics Toolkit" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="api/kineticstoolkit.save.html" class="btn btn-neutral float-left" title="kineticstoolkit.save" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="api/kineticstoolkit.cycles.html" class="btn btn-neutral float-right" title="kineticstoolkit.cycles" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -1,47 +1,45 @@
 # Table of contents
-####### This pseudo-markdown file will be converted to `_toc.yml` during building.
+#-- This pseudo-markdown file will be converted to `_toc.yml` during building.
 
 format: jb-book
 root: [](index.md)
 parts:
 
-  ## Manual
+## Manual
   - caption: "Manual"
     chapters:
 
-      ### Getting started
       - file: [](getting_started_ktk.md)
         sections:
           - file: [](ktk_what_is_kinetics_toolkit.md)
           - file: [](getting_started_with_python.md)
           - file: [](installing_kinetics_toolkit.md)
 
-      ### Tutorials
       - file: [](tutorials.md)
         sections:
-          #### TimeSeries
+
           - file: [](timeseries.md)
             sections:
               - file: [](timeseries_basics.md)
               - file: [](timeseries_manipulating.md)
               - file: [](timeseries_dataframes.md)
-          #### Load/Save
+
           - file: [](loadsave.md)
-          #### Filters
+
           - file: [](filters.md)
             sections:
               - file: [](filters_butter.md)
               - file: [](filters_smooth.md)
               - file: [](filters_savgol.md)
               - file: [](filters_median.md)
-          #### Cycles
+
           - file: [](cycles.md)
-          #### Geometry
+
           - file: [](geometry.md)
             sections:
               - file: [](geometry_basics.md)
               - file: [](geometry_dimension_conventions.md)
-          #### Kinematics
+
           - file: [](kinematics.md)
             sections:
               - file: [](kinematics_load_visualize.md)
@@ -49,46 +47,60 @@ parts:
               - file: [](kinematics_reconstructing_occluded_markers.md)
               - file: [](kinematics_reconstructing_removed_markers.md)
               - file: [](kinematics_reconstructing_probed_points.md)
-          #### Wheelchair kinetics
+
           - file: [](pushrimkinetics.md)
-          #### Conventions
+
           - file: [](ktk_conventions.md)
 
-      ### In depth
+        #-- End tutorials
+
       - file: [](ktk_in_depth.md)
         sections:
           - file: [](ktk_lab_mode.md)
           - file: [](ktk_release_notes.md)
 
-      ### Learning Python
-      - file: [](python_learning.md)
+      - file: [](python.md)
         sections:
           - file: [](python_installing.md)
-          - file: [](python.md)
-          - file: [](python_basics.md)
           - file: [](python_using_spyder.md)
+          - file: [](python_simple_operations.md)
+          - file: [](python_strings.md)
+          - file: [](python_comments_and_docstrings.md)
+          - file: [](python_functions.md)
+          - file: [](python_conditions.md)
+          - file: [](python_lists.md)
+          - file: [](python_while.md)
+          - file: [](python_for.md)
+          - file: [](python_dicts.md)
+          - file: [](python_more_advanced.md)
+          - file: [](python_integration_exercises.md)
+          - file: [](python_old_basics.md)
+          - file: [](python_links.md)
           - file: [](numpy.md)
           - file: [](matplotlib.md)
           - file: [](pandas.md)
 
-  ## API Reference
+## API Reference
   - caption: "API Reference"
     chapters:
       - file: [](api_classes.md)
       - file: [](api_functions.md)
       - file: [](api_modules.md)
 
-  ## Development
+## Development
   - caption: "Development"
     chapters:
+
       - url: https://github.com/felixchenier/kineticstoolkit
         title: GitHub repository
+
       - file: [](dev.md)
         sections:
           - file: [](dev_install_from_github.md)
           - file: [](dev_manual.md)
           - file: [](dev_rules.md)
           - file: [](dev_coding_style.md)
+
       - file: [](dev_tutorials.md)
         sections:
           - file: [](anthropometrics.md)
