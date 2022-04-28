@@ -1,0 +1,82 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: Kinetics Toolkit
+author: Félix Chénier
+logo: logo.png
+
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks: cache
+
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_documents:
+    targetname: book.tex
+
+# Add a bibtex file so that we can create citations
+# bibtex_bibfiles:
+#   - references.bib
+
+# Information about where the book exists on the web
+# repository:
+#   url: https://github.com/executablebooks/jupyter-book  # Online location of your book
+#   path_to_book: docs  # Optional path to your book, relative to the repository root
+#   branch: master  # Which branch of the repository should be used when creating links (optional)
+
+# Add GitHub buttons to your book
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+# html:
+#   use_issues_button: true
+#   use_repository_button: true
+
+sphinx:
+  extra_extensions:
+  - 'sphinx.ext.autodoc'     # Document objects using docstrings in API
+  - 'sphinx.ext.autosummary' # Generate summary table pages (for autodoc)
+  - 'sphinx.ext.napoleon'    # Parse numpy-style docstrings (for autodoc)
+  - 'sphinx.ext.viewcode'
+  - 'sphinx.ext.ifconfig'    # Allow conditional contents for master vs stable versions
+  - 'sphinx_autodoc_typehints'
+  - 'sphinxcontrib.mermaid'
+  - 'myst_nb'
+
+  config:
+    html_theme: 'sphinx_rtd_theme'
+    add_module_names: False
+    autosummary_generate: True
+    napoleon_google_docstring: False
+    napoleon_numpy_docstring: True
+    napoleon_include_init_with_doc: False
+    napoleon_include_private_with_doc: False
+    napoleon_include_special_with_doc: False
+    napoleon_use_admonition_for_examples: False
+    napoleon_use_admonition_for_notes: True
+    napoleon_use_admonition_for_references: True
+    napoleon_use_ivar: False
+    napoleon_use_param: True
+    napoleon_use_rtype: True
+    templates_path: ['_templates']
+    exclude_patterns:
+      - '_build'
+      - 'Thumbs.db'
+      - '.DS_Store'
+      - '.ipynb_checkpoints'
+      - 'api/external.*'
+      - 'api/kineticstoolkit.external.*'
+      - 'toc.md'
+
+    html_theme_options:
+      'logo_only': True  # default False
+      'display_version': False
+      'prev_next_buttons_location': 'both'  # default 'bottom'
+      'style_external_links': False
+      'vcs_pageview_mode': ''
+      'style_nav_header_background': 'black'
+      # Toc options
+      'collapse_navigation': True
+      'sticky_navigation': True
+      'navigation_depth': 4
+      'includehidden': True
+      'titles_only': False

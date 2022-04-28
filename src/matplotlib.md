@@ -1,0 +1,5 @@
+# Matplotlib basics
+
+```{note}
+TODO
+```

@@ -6,10 +6,3 @@ To discover the basics of Python, we will refer in this chapter to two series of
 2) [Corey Schafer's](https://www.youtube.com/channel/UCCezIgC97PvUuR4_gbFUs5g) tutorials, which go a little deeper than Socratica's.
 
 But let first install Python and an integrated development environment, in the next section.
-
-```{toctree}
-:glob:
-:maxdepth: 2
-
-*
-```

@@ -20,29 +20,6 @@ This is a long term project that is focused not only on the tool itself, but als
 
 Please ask questions and submit bugs or feature requests on the [git-hub issue tracker](https://github.com/felixchenier/kineticstoolkit/issues).
 
-## Site map
-
-```{toctree}
-:caption: MANUAL
-:glob:
-
-0*/00_index
-```
-
-```{toctree}
-:caption: API REFERENCE
-:glob:
-
-99_api_reference/*
-```
-
-```{toctree}
-:caption: LINKS
-:glob:
-
-Development website <https://felixchenier.uqam.ca/ktk_develop>
-GitHub repository <https://github.com/felixchenier/kineticstoolkit>
-```
 
 :::{ifconfig} release == 'master'
 

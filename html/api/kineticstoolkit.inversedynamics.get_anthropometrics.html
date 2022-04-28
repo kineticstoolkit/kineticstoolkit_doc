@@ -1,0 +1,224 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>kineticstoolkit.inversedynamics.get_anthropometrics &mdash; Kinetics Toolkit</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinx-thebe.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/stable.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/togglebutton.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+        <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+        <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+        <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+        <script async="async" src="../_static/sphinx-thebe.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+
+ 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: black" >
+            <a href="../index.html">
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started_ktk.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ktk_in_depth.html">In depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_learning.html">Learning Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../api_classes.html">Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_modules.html">Modules</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev.html">Developing Kinetics Toolkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev_tutorials.html">Tutorial development for stable/unstable features</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: black" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>kineticstoolkit.inversedynamics.get_anthropometrics</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/kineticstoolkit.inversedynamics.get_anthropometrics.rst" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="kineticstoolkit-inversedynamics-get-anthropometrics">
+<h1>kineticstoolkit.inversedynamics.get_anthropometrics<a class="headerlink" href="#kineticstoolkit-inversedynamics-get-anthropometrics" title="Permalink to this headline"></a></h1>
+<dl class="py function">
+<dt class="sig sig-object py" id="kineticstoolkit.inversedynamics.get_anthropometrics">
+<span class="sig-name descname"><span class="pre">get_anthropometrics</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">segment_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">total_mass</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kineticstoolkit/inversedynamics.html#get_anthropometrics"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kineticstoolkit.inversedynamics.get_anthropometrics" title="Permalink to this definition"></a></dt>
+<dd><p>Get anthropometric values for a given segment name.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The function get_anthropometrics is unstable, which means it may not be tested or settled yet. Please avoid using this function in production code.</p>
+<p>For the moment, only this table is available:</p>
+<p>D. A. Winter, Biomechanics and Motor Control of Human Movement,
+4th ed. University of Waterloo, Waterloo, Ontario, Canada,
+John Wiley &amp; Sons, 2009.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>segment_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – <p>The name of the segment, either:</p>
+<ul>
+<li><p>’Hand’ (wrist axis to knuckle II of middle finger)</p></li>
+<li><p>’Forearm’ (elbow axis to ulnar styloid)</p></li>
+<li><p>’UpperArm’ (glenohumeral axis to elbow axis)</p></li>
+<li><p>’ForearmHand’ (elbow axis to ulnar styloid)</p></li>
+<li><p>’TotalArm’ (glenohumeral joint to ulnar styloid)</p></li>
+<li><p>’Foot’ (lateral malleolus to head metatarsal II)</p></li>
+<li><p>’Leg’ (femoral condyles to medial malleolus)</p></li>
+<li><p>’Thigh’ (greater trochanter to femoral condyles)</p></li>
+<li><p>’FootLeg’ (fomeral condyles to medial malleolus)</p></li>
+<li><p>’TotalLeg’ (greater trochanter to medial malleolus)</p></li>
+<li><p>’TrunkHeadNeck’ (greater trochanter to glenohumeral joint)</p></li>
+<li><p>’HeadArmsTrunk’ (greater trochanter to glenohumeral joint)</p></li>
+</ul>
+</p></li>
+<li><p><strong>total_mass</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – The total mass of the person, in kg.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><p>A dict with the following keys:</p>
+<ul class="simple">
+<li><p>’Mass’ : Mass of the segment, in kg.</p></li>
+<li><p>’COMProximalRatio’ : Distance between the segment’s center of
+mass and the proximal joint, as a ratio of the distance between
+both joints.</p></li>
+<li><p>’COMDistalRatio’ : Distance between the segment’s center of mass
+and the distal joint, as a ratio of the distance between
+both joints.</p></li>
+<li><p>’GyrationCOMRatio’: Radius of gyration around the segment’s center
+of mass, as a ratio of the distance between both joints.</p></li>
+<li><dl class="simple">
+<dt>’GyrationProximalRatio’: Radius of gyration around the segment’s</dt><dd><p>proximal joint, as a ratio of the distance between both joints.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>’GyrationDistalRatio’: Radius of gyration around the segment’s</dt><dd><p>distal joint, as a ratio of the distance between both joints.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>Dict[str, float]</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./api"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

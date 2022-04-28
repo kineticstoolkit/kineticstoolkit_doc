@@ -1,0 +1,739 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>kineticstoolkit.cycles &mdash; Kinetics Toolkit</title>
+      <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/sphinx-thebe.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/stable.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/togglebutton.js"></script>
+        <script src="../../_static/clipboard.min.js"></script>
+        <script src="../../_static/copybutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+        <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+
+
+ 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: black" >
+            <a href="../../index.html">
+            <img src="../../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started_ktk.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../ktk_in_depth.html">In depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../python_learning.html">Learning Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api_classes.html">Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api_functions.html">Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api_modules.html">Modules</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev.html">Developing Kinetics Toolkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../dev_tutorials.html">Tutorial development for stable/unstable features</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: black" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+      <li>kineticstoolkit.cycles</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for kineticstoolkit.cycles</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright 2020 Félix Chénier</span>
+
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Identify cycles and time-normalize data.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;Félix Chénier&quot;</span>
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">&quot;Copyright (C) 2020 Félix Chénier&quot;</span>
+<span class="n">__email__</span> <span class="o">=</span> <span class="s2">&quot;chenier.felix@uqam.ca&quot;</span>
+<span class="n">__license__</span> <span class="o">=</span> <span class="s2">&quot;Apache 2.0&quot;</span>
+
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">kineticstoolkit.timeseries</span> <span class="kn">import</span> <span class="n">TimeSeries</span><span class="p">,</span> <span class="n">TimeSeriesEvent</span>
+<span class="kn">from</span> <span class="nn">kineticstoolkit.decorators</span> <span class="kn">import</span> <span class="n">directory</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Optional</span>
+
+
+<div class="viewcode-block" id="detect_cycles"><a class="viewcode-back" href="../../api/kineticstoolkit.cycles.detect_cycles.html#kineticstoolkit.cycles.detect_cycles">[docs]</a><span class="k">def</span> <span class="nf">detect_cycles</span><span class="p">(</span><span class="n">ts</span><span class="p">:</span> <span class="n">TimeSeries</span><span class="p">,</span>
+                  <span class="n">data_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+                  <span class="n">event_names</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;phase1&#39;</span><span class="p">,</span> <span class="s1">&#39;phase2&#39;</span><span class="p">],</span>
+                  <span class="n">thresholds</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span>
+                  <span class="n">directions</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;rising&#39;</span><span class="p">,</span> <span class="s1">&#39;falling&#39;</span><span class="p">],</span>
+                  <span class="n">min_durations</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">],</span>
+                  <span class="n">max_durations</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">Inf</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">Inf</span><span class="p">],</span>
+                  <span class="n">min_peak_heights</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">Inf</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">Inf</span><span class="p">],</span>
+                  <span class="n">max_peak_heights</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">Inf</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">Inf</span><span class="p">],</span>
+                  <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+                  <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Detect cycles in a TimeSeries based on a dual threshold approach.</span>
+
+<span class="sd">    This function detects biphasic cycles and identifies the transitions as</span>
+<span class="sd">    new events in the output TimeSeries. These new events are named:</span>
+
+<span class="sd">    - `event_name1`:</span>
+<span class="sd">      corresponds to the start of phase 1</span>
+<span class="sd">    - `event_name2`:</span>
+<span class="sd">      corresponds to the start of phase 2</span>
+<span class="sd">    - &#39;_&#39;:</span>
+<span class="sd">      corresponds to the end of the cycle.</span>
+
+<span class="sd">    Warning</span>
+<span class="sd">    -------</span>
+<span class="sd">    This function, which has been introduced in 0.4, is still experimental and</span>
+<span class="sd">    may change signature or behaviour in the future.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ts</span>
+<span class="sd">        TimeSeries to analyze.</span>
+<span class="sd">    data_key</span>
+<span class="sd">        Name of the data key to analyze in the TimeSeries.</span>
+<span class="sd">    event_names</span>
+<span class="sd">        Optional. Name of the events to add in the output TimeSeries. Default</span>
+<span class="sd">        is [&#39;phase1&#39;, &#39;phase2&#39;].</span>
+<span class="sd">    thresholds</span>
+<span class="sd">        Optional. Value to cross to register phase changes. Default is</span>
+<span class="sd">        [0., 1.].</span>
+<span class="sd">    directions</span>
+<span class="sd">        Optional. Direction to cross thresholds to register phase changes.</span>
+<span class="sd">        Either [&#39;rising&#39;, &#39;falling&#39;] or [&#39;falling&#39;, &#39;rising&#39;]. Default is</span>
+<span class="sd">        [&#39;rising&#39;, &#39;falling&#39;].</span>
+<span class="sd">    min_durations</span>
+<span class="sd">        Optional. Minimal phase durations in seconds. Default is [0., 0.].</span>
+<span class="sd">    max_durations</span>
+<span class="sd">        Optional. Maximal phase durations in seconds. Default is</span>
+<span class="sd">        [np.Inf, np.Inf]</span>
+<span class="sd">    min_peak_heights</span>
+<span class="sd">        Optional. Minimal peak values to be reached in both phases. Default is</span>
+<span class="sd">        [-np.Inf, -np.Inf].</span>
+<span class="sd">    max_peak_heights</span>
+<span class="sd">        Optional. Maximal peak values to be reached in both phases. Default is</span>
+<span class="sd">        [np.Inf, np.Inf].</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    TimeSeries</span>
+<span class="sd">        A copy of ts with the events added.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># lowercase directions[0] once</span>
+    <span class="n">directions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">directions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>  <span class="c1"># type: ignore</span>
+    <span class="k">if</span> <span class="n">directions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;rising&#39;</span> <span class="ow">and</span> <span class="n">directions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;falling&#39;</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;directions[0] must be &#39;rising&#39; or &#39;falling&#39;&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Find the pushes</span>
+    <span class="n">time</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">time</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">data_key</span><span class="p">]</span>
+
+    <span class="n">events</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="n">is_phase1</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+
+        <span class="k">if</span> <span class="n">directions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;rising&#39;</span><span class="p">:</span>
+            <span class="n">crossing1</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">thresholds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">crossing2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">thresholds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">crossing1</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">thresholds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">crossing2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">thresholds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">is_phase1</span> <span class="ow">and</span> <span class="n">crossing1</span><span class="p">:</span>
+
+            <span class="n">is_phase1</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">TimeSeriesEvent</span><span class="p">(</span><span class="n">time</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">event_names</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+        <span class="k">elif</span> <span class="p">(</span><span class="ow">not</span> <span class="n">is_phase1</span><span class="p">)</span> <span class="ow">and</span> <span class="n">crossing2</span><span class="p">:</span>
+
+            <span class="n">is_phase1</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">TimeSeriesEvent</span><span class="p">(</span><span class="n">time</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">event_names</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
+
+    <span class="c1"># Ensure that we start with event_name1 and that it&#39;s not on time0</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">events</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">name</span> <span class="o">!=</span> <span class="n">event_names</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="ow">or</span> <span class="p">(</span><span class="n">events</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">time</span> <span class="o">==</span> <span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+        <span class="n">events</span> <span class="o">=</span> <span class="n">events</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+
+    <span class="c1"># Remove cycles where criteria are not reached.</span>
+    <span class="n">valid_events</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="k">for</span> <span class="n">i_event</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">events</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+        <span class="n">time1</span> <span class="o">=</span> <span class="n">events</span><span class="p">[</span><span class="n">i_event</span><span class="p">]</span><span class="o">.</span><span class="n">time</span>
+        <span class="n">time2</span> <span class="o">=</span> <span class="n">events</span><span class="p">[</span><span class="n">i_event</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">time</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">time3</span> <span class="o">=</span> <span class="n">events</span><span class="p">[</span><span class="n">i_event</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">time</span>
+        <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+            <span class="n">time3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">Inf</span>
+
+        <span class="n">sub_ts1</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">get_ts_between_times</span><span class="p">(</span><span class="n">time1</span><span class="p">,</span> <span class="n">time2</span><span class="p">,</span> <span class="n">inclusive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">sub_ts2</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">get_ts_between_times</span><span class="p">(</span><span class="n">time1</span><span class="p">,</span> <span class="n">time3</span><span class="p">,</span> <span class="n">inclusive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">directions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;rising&#39;</span><span class="p">:</span>
+            <span class="n">the_peak1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">sub_ts1</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">data_key</span><span class="p">])</span>
+            <span class="n">the_peak2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">sub_ts2</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">data_key</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">the_peak1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">sub_ts1</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">data_key</span><span class="p">])</span>
+            <span class="n">the_peak2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">sub_ts2</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">data_key</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">time2</span> <span class="o">-</span> <span class="n">time1</span> <span class="o">&gt;=</span> <span class="n">min_durations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span>
+                <span class="n">time2</span> <span class="o">-</span> <span class="n">time1</span> <span class="o">&lt;=</span> <span class="n">max_durations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span>
+                <span class="n">time3</span> <span class="o">-</span> <span class="n">time2</span> <span class="o">&gt;=</span> <span class="n">min_durations</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">and</span>
+                <span class="n">time3</span> <span class="o">-</span> <span class="n">time2</span> <span class="o">&lt;=</span> <span class="n">max_durations</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">and</span>
+                <span class="n">the_peak1</span> <span class="o">&gt;=</span> <span class="n">min_peak_heights</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span>
+                <span class="n">the_peak1</span> <span class="o">&lt;=</span> <span class="n">max_peak_heights</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="ow">and</span>
+                <span class="n">the_peak2</span> <span class="o">&gt;=</span> <span class="n">min_peak_heights</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">and</span>
+                <span class="n">the_peak2</span> <span class="o">&lt;=</span> <span class="n">max_peak_heights</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="c1"># Save it.</span>
+            <span class="n">valid_events</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">events</span><span class="p">[</span><span class="n">i_event</span><span class="p">])</span>
+            <span class="n">valid_events</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">events</span><span class="p">[</span><span class="n">i_event</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isinf</span><span class="p">(</span><span class="n">time3</span><span class="p">):</span>
+                <span class="n">valid_events</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">TimeSeriesEvent</span><span class="p">(</span><span class="n">time3</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">))</span>
+
+    <span class="c1"># Form the output timeseries</span>
+    <span class="n">tsout</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">valid_events</span><span class="p">:</span>
+        <span class="n">tsout</span> <span class="o">=</span> <span class="n">tsout</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">event</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="n">tsout</span><span class="o">.</span><span class="n">sort_events</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">tsout</span></div>
+
+
+<div class="viewcode-block" id="time_normalize"><a class="viewcode-back" href="../../api/kineticstoolkit.cycles.time_normalize.html#kineticstoolkit.cycles.time_normalize">[docs]</a><span class="k">def</span> <span class="nf">time_normalize</span><span class="p">(</span>
+        <span class="n">ts</span><span class="p">:</span> <span class="n">TimeSeries</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span>
+        <span class="n">event_name1</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">event_name2</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span>
+        <span class="n">n_points</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+        <span class="n">span</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Time-normalize cycles in a TimeSeries.</span>
+
+<span class="sd">    This method time-normalizes the TimeSeries at each cycle defined by</span>
+<span class="sd">    event_name1 and event_name2 on n_points. The time-normalized cycles are</span>
+<span class="sd">    put end to end. For example, for a TimeSeries that contains three</span>
+<span class="sd">    cycles, a time normalization with 100 points will give a TimeSeries</span>
+<span class="sd">    of length 300. The TimeSeries&#39; events are also time-normalized, including</span>
+<span class="sd">    event_name1 but with event_name2 renamed as &#39;_&#39;.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ts</span>
+<span class="sd">        The TimeSeries to analyze.</span>
+<span class="sd">    event_name1</span>
+<span class="sd">        The event name that correspond to the begin of a cycle.</span>
+<span class="sd">    event_name2</span>
+<span class="sd">        The event name that correspond to the end of a cycle.</span>
+<span class="sd">    n_points</span>
+<span class="sd">        Optional. The number of points of the output TimeSeries.</span>
+<span class="sd">    span</span>
+<span class="sd">        Optional. Specifies which normalized points to include in the output</span>
+<span class="sd">        TimeSeries. See note below.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    TimeSeries</span>
+<span class="sd">        A new TimeSeries where each cycle has been time-normalized.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    The span argument is experimental and has been introduced in version 0.4.</span>
+<span class="sd">    Use it to define which normalized points to include in the output</span>
+<span class="sd">    TimeSeries. For example, to normalize in percents and to include only data</span>
+<span class="sd">    from 10 to 90% of each cycle, assign 100 to n_points and [10, 90] to span.</span>
+<span class="sd">    The resulting TimeSeries will then be expressed in percents and wrap each</span>
+<span class="sd">    80 points. It is also possible to include pre-cycle or post-cycle data.</span>
+<span class="sd">    For example, to normalize in percents and to include 20% pre-cycle and 15%</span>
+<span class="sd">    post-cycle, assign 100 to n_points and [-20, 15] to span. The resulting</span>
+<span class="sd">    TimeSeries will then wrap each 135 points with the cycles starting at 20,</span>
+<span class="sd">    155, etc. and ending at 119, 254, etc. For each cycle, events outside the</span>
+<span class="sd">    0-100% spans are ignored.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Optional span</span>
+    <span class="k">if</span> <span class="n">span</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">span</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_points</span><span class="p">]</span>
+
+    <span class="c1"># Find the final number of cycles</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">events</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">raise</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;No cycle can be defined from these event names.&#39;</span><span class="p">))</span>
+
+    <span class="n">i_cycle</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># Initialize the destination TimeSeries</span>
+    <span class="n">dest_ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">dest_ts</span><span class="o">.</span><span class="n">events</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">n_points</span> <span class="o">==</span> <span class="mi">100</span><span class="p">:</span>
+        <span class="n">dest_ts</span><span class="o">.</span><span class="n">time_info</span><span class="p">[</span><span class="s1">&#39;Unit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;%&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">dest_ts</span><span class="o">.</span><span class="n">time_info</span><span class="p">[</span><span class="s1">&#39;Unit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;1/</span><span class="si">{</span><span class="n">n_points</span><span class="si">}</span><span class="s2">&quot;</span>
+
+    <span class="n">dest_data</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># type: Dict[str, List[np.ndarray]]</span>
+    <span class="n">dest_data_shape</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># type: Dict[str, Tuple[int, ...]]</span>
+
+    <span class="c1"># Go through all cycles</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+
+        <span class="c1"># Get the begin time for this cycle</span>
+        <span class="n">begin_time</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">get_event_time</span><span class="p">(</span><span class="n">event_name1</span><span class="p">,</span> <span class="n">i_cycle</span><span class="p">)</span>
+
+        <span class="c1"># Get the end time for this cycle</span>
+        <span class="n">end_cycle</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">end_time</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">get_event_time</span><span class="p">(</span><span class="n">event_name2</span><span class="p">,</span> <span class="n">end_cycle</span><span class="p">)</span>
+        <span class="k">while</span> <span class="n">end_time</span> <span class="o">&lt;=</span> <span class="n">begin_time</span><span class="p">:</span>
+            <span class="n">end_cycle</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">end_time</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">get_event_time</span><span class="p">(</span><span class="n">event_name2</span><span class="p">,</span> <span class="n">end_cycle</span><span class="p">)</span>
+
+        <span class="c1"># We are done. Quit the loop.</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">begin_time</span><span class="p">)</span> <span class="ow">or</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">end_time</span><span class="p">):</span>
+            <span class="k">break</span>
+
+        <span class="c1"># Get the extended begin and end times considering relative_span</span>
+        <span class="n">extended_begin_time</span> <span class="o">=</span> <span class="p">(</span><span class="n">begin_time</span> <span class="o">+</span>
+                               <span class="n">span</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">n_points</span> <span class="o">*</span>
+                               <span class="p">(</span><span class="n">end_time</span> <span class="o">-</span> <span class="n">begin_time</span><span class="p">))</span>
+        <span class="n">extended_end_time</span> <span class="o">=</span> <span class="p">(</span><span class="n">begin_time</span> <span class="o">+</span>
+                             <span class="n">span</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">n_points</span> <span class="o">*</span>
+                             <span class="p">(</span><span class="n">end_time</span> <span class="o">-</span> <span class="n">begin_time</span><span class="p">))</span>
+
+        <span class="c1"># Extract this cycle</span>
+        <span class="n">subts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">get_ts_between_times</span><span class="p">(</span>
+            <span class="n">extended_begin_time</span><span class="p">,</span> <span class="n">extended_end_time</span><span class="p">,</span> <span class="n">inclusive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">subts_backup</span> <span class="o">=</span> <span class="n">subts</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">subts</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Resample this cycle on span + 1</span>
+        <span class="c1"># (and get the first points after)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">subts</span> <span class="o">=</span> <span class="n">subts</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">extended_begin_time</span><span class="p">,</span>
+                            <span class="n">extended_end_time</span><span class="p">,</span>
+                            <span class="n">span</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">span</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="n">subts</span> <span class="o">=</span> <span class="n">subts_backup</span>  <span class="c1"># In case the try messed with subts</span>
+            <span class="n">subts</span> <span class="o">=</span> <span class="n">subts</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">extended_begin_time</span><span class="p">,</span>
+                            <span class="n">extended_end_time</span><span class="p">,</span>
+                            <span class="n">span</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">span</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span>
+                <span class="n">fill_value</span><span class="o">=</span><span class="s1">&#39;extrapolate&#39;</span><span class="p">)</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cycle </span><span class="si">{</span><span class="n">i_cycle</span><span class="si">}</span><span class="s2"> has been extrapolated.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Keep only the first points (the last one belongs to the next cycle)</span>
+        <span class="n">subts</span> <span class="o">=</span> <span class="n">subts</span><span class="o">.</span><span class="n">get_ts_between_indexes</span><span class="p">(</span>
+            <span class="mi">0</span><span class="p">,</span> <span class="n">span</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">span</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">inclusive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="c1"># Keep only the events in the unextended span</span>
+        <span class="n">events</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">subts</span><span class="o">.</span><span class="n">events</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">time</span> <span class="o">&gt;=</span> <span class="n">begin_time</span> <span class="ow">and</span> <span class="n">event</span><span class="o">.</span><span class="n">time</span> <span class="o">&lt;</span> <span class="n">end_time</span><span class="p">:</span>
+                <span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+        <span class="n">subts</span><span class="o">.</span><span class="n">events</span> <span class="o">=</span> <span class="n">events</span>
+        <span class="n">subts</span> <span class="o">=</span> <span class="n">subts</span><span class="o">.</span><span class="n">sort_events</span><span class="p">()</span>
+
+        <span class="c1"># Separate start/end events from the other</span>
+        <span class="n">start_end_events</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">other_events</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">subts</span><span class="o">.</span><span class="n">events</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">event_name1</span> <span class="ow">or</span> <span class="n">event</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="n">event_name2</span><span class="p">:</span>
+                <span class="n">start_end_events</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">other_events</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+
+        <span class="c1"># Add event_name1 at the beginning and end (duplicates will be</span>
+        <span class="c1"># cancelled at the end)</span>
+        <span class="n">dest_ts</span> <span class="o">=</span> <span class="n">dest_ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span>
+            <span class="o">-</span><span class="n">span</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">i_cycle</span> <span class="o">*</span> <span class="p">(</span><span class="n">span</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">span</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+            <span class="n">event_name1</span>
+        <span class="p">)</span>
+        <span class="n">dest_ts</span> <span class="o">=</span> <span class="n">dest_ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span>
+            <span class="o">-</span><span class="n">span</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">n_points</span> <span class="o">+</span> <span class="n">i_cycle</span> <span class="o">*</span> <span class="p">(</span><span class="n">span</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">span</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
+            <span class="s1">&#39;_&#39;</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Add the other events</span>
+        <span class="k">def</span> <span class="nf">time_to_normalized_time</span><span class="p">(</span><span class="n">time</span><span class="p">):</span>
+            <span class="sd">&quot;&quot;&quot;Resample the events times.&quot;&quot;&quot;</span>
+            <span class="k">return</span> <span class="p">((</span><span class="n">time</span> <span class="o">-</span> <span class="n">extended_begin_time</span><span class="p">)</span> <span class="o">/</span>
+                    <span class="p">(</span><span class="n">extended_end_time</span> <span class="o">-</span> <span class="n">extended_begin_time</span><span class="p">)</span> <span class="o">*</span>
+                    <span class="p">(</span><span class="n">span</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">span</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="n">i_cycle</span> <span class="o">*</span> <span class="p">(</span><span class="n">span</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">span</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+
+        <span class="k">for</span> <span class="n">i_event</span><span class="p">,</span> <span class="n">event</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">other_events</span><span class="p">):</span>
+
+            <span class="c1"># Resample</span>
+            <span class="n">new_time</span> <span class="o">=</span> <span class="n">time_to_normalized_time</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+            <span class="n">dest_ts</span> <span class="o">=</span> <span class="n">dest_ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="n">new_time</span><span class="p">,</span> <span class="n">event</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+        <span class="c1"># Add this cycle to dest_time and dest_data</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">subts</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">dest_data</span><span class="p">:</span>
+                <span class="n">dest_data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="n">dest_data_shape</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+            <span class="n">dest_data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">subts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+
+        <span class="n">i_cycle</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="n">n_cycles</span> <span class="o">=</span> <span class="n">i_cycle</span>
+
+    <span class="c1"># Put back dest_time and dest_data in dest_ts</span>
+    <span class="n">dest_ts</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_cycles</span> <span class="o">*</span> <span class="p">(</span><span class="n">span</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">span</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+        <span class="c1"># Stack the data into a [cycle, percent, values] shape</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dest_data</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+        <span class="c1"># Reshape to put all cycles end to end</span>
+        <span class="n">new_shape</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">dest_data_shape</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+        <span class="n">new_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">n_cycles</span> <span class="o">*</span> <span class="p">(</span><span class="n">span</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">span</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">dest_ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">new_shape</span><span class="p">)</span>
+
+    <span class="n">dest_ts</span> <span class="o">=</span> <span class="n">dest_ts</span><span class="o">.</span><span class="n">sort_events</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">dest_ts</span></div>
+
+
+<div class="viewcode-block" id="stack"><a class="viewcode-back" href="../../api/kineticstoolkit.cycles.stack.html#kineticstoolkit.cycles.stack">[docs]</a><span class="k">def</span> <span class="nf">stack</span><span class="p">(</span><span class="n">ts</span><span class="p">:</span> <span class="n">TimeSeries</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span> <span class="n">n_points</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Stack time-normalized TimeSeries&#39; data into a dict of arrays.</span>
+
+<span class="sd">    This methods returns the data of a time-normalized TimeSeries as a dict</span>
+<span class="sd">    where each key corresponds to a TimeSeries&#39; data, and contains a numpy</span>
+<span class="sd">    array where the first dimension is the cycle, the second dimension is the</span>
+<span class="sd">    percentage of cycle, and the other dimensions are the data itself.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    ts</span>
+<span class="sd">        The time-normalized TimeSeries.</span>
+<span class="sd">    n_points</span>
+<span class="sd">        Optional. The number of points the TimeSeries has been time-normalized</span>
+<span class="sd">        on.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    Dict[str, np.ndarray]</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    kineticstoolkit.cycles.unstack</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">time</span><span class="p">),</span> <span class="n">n_points</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span><span class="p">(</span><span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s1">&#39;It seems that this TimeSeries is not time-normalized.&#39;</span><span class="p">))</span>
+
+    <span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">current_shape</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+        <span class="n">new_shape</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_points</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">current_shape</span><span class="p">)):</span>
+            <span class="n">new_shape</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">new_shape</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span></div>
+
+
+<div class="viewcode-block" id="unstack"><a class="viewcode-back" href="../../api/kineticstoolkit.cycles.unstack.html#kineticstoolkit.cycles.unstack">[docs]</a><span class="k">def</span> <span class="nf">unstack</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="o">/</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Unstack time-normalized data from a dict of arrays to a TimeSeries.</span>
+
+<span class="sd">    This methods creates a time-normalized TimeSeries by putting each cycle</span>
+<span class="sd">    from the provided data dictionary end to end.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    data</span>
+<span class="sd">        A dict where each key contains a numpy array where the first dimension</span>
+<span class="sd">        is the cycle, the second dimension is the percentage of cycle, and</span>
+<span class="sd">        the other dimensions are the data itself.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    TimeSeries</span>
+
+<span class="sd">    See Also</span>
+<span class="sd">    --------</span>
+<span class="sd">    ktk.cycles.stack</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ts</span> <span class="o">=</span> <span class="n">TimeSeries</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">current_shape</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+        <span class="n">n_cycles</span> <span class="o">=</span> <span class="n">current_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">n_points</span> <span class="o">=</span> <span class="n">current_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">([</span><span class="n">n_cycles</span> <span class="o">*</span> <span class="n">n_points</span><span class="p">],</span> <span class="n">order</span><span class="o">=</span><span class="s1">&#39;C&#39;</span><span class="p">)</span>
+    <span class="n">ts</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_cycles</span> <span class="o">*</span> <span class="n">n_points</span><span class="p">)</span>
+    <span class="n">ts</span><span class="o">.</span><span class="n">time_info</span><span class="p">[</span><span class="s1">&#39;Unit&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="k">return</span> <span class="n">ts</span></div>
+
+
+<span class="c1"># The stack_events function is working but commented for now, since I could not</span>
+<span class="c1"># figure an obvious, undiscutable way to represent its output (use lists,</span>
+<span class="c1"># TimeSeriesEvents, numpy arrays?). It&#39;s also unclear for me how to integrate</span>
+<span class="c1"># with the standard stack function and its unstack counterpart.</span>
+<span class="c1">#</span>
+<span class="c1"># def stack_events(</span>
+<span class="c1">#         ts: TimeSeries, /,</span>
+<span class="c1">#         n_points: int = 100) -&gt; Dict[str, np.ndarray]:</span>
+<span class="c1">#     &quot;&quot;&quot;</span>
+<span class="c1">#     Stack time-normalized TimeSeries&#39; events into a dict of arrays.</span>
+
+<span class="c1">#     This methods returns the a dictionary where each key corresponds to an</span>
+<span class="c1">#     event name, and contains a 2d numpy array that contains the event&#39;s</span>
+<span class="c1">#     normalized time, with the first dimension being the cycle and the second</span>
+<span class="c1">#     dimension being the occurrence of this event during this cycle.</span>
+
+<span class="c1">#     Warning</span>
+<span class="c1">#     -------</span>
+<span class="c1">#     This function is currently experimental and may change signature and</span>
+<span class="c1">#     behaviour in the future.</span>
+
+<span class="c1">#     Parameters</span>
+<span class="c1">#     ----------</span>
+<span class="c1">#     ts</span>
+<span class="c1">#         The time-normalized TimeSeries.</span>
+<span class="c1">#     n_points</span>
+<span class="c1">#         Optional. The number of points the TimeSeries has been</span>
+<span class="c1">#         time-normalized on.</span>
+
+<span class="c1">#     Returns</span>
+<span class="c1">#     -------</span>
+<span class="c1">#     Dict[str, np.ndarray]</span>
+
+<span class="c1">#     Example</span>
+<span class="c1">#     -------</span>
+<span class="c1">#     &gt;&gt;&gt; import kineticstoolkit.lab as ktk</span>
+<span class="c1">#     &gt;&gt;&gt; # Create a TimeSeries with different time-normalized events</span>
+<span class="c1">#     &gt;&gt;&gt; ts = ktk.TimeSeries(time=np.arange(400))  # 4 cycles of 100%</span>
+<span class="c1">#     &gt;&gt;&gt; ts = ts.add_event(9, &#39;event1&#39;)    # event1 at 9% of cycle 0</span>
+<span class="c1">#     &gt;&gt;&gt; ts = ts.add_event(110, &#39;event1&#39;)  # event1 at 10% of cycle 1</span>
+<span class="c1">#     &gt;&gt;&gt; ts = ts.add_event(312, &#39;event1&#39;)  # event1 at 12% of cycle 3</span>
+<span class="c1">#     &gt;&gt;&gt; ts = ts.add_event(382, &#39;event1&#39;)  # 2nd occ. event1 at 82% of cycle 3</span>
+
+<span class="c1">#     &gt;&gt;&gt; # Stack these events</span>
+<span class="c1">#     &gt;&gt;&gt; events = ktk.cycles.stack_events(ts)</span>
+<span class="c1">#     &gt;&gt;&gt; events[&#39;event1&#39;]</span>
+<span class="c1">#     [[9.0], [10.0], [], [12.0, 82.0]]</span>
+
+<span class="c1">#     &quot;&quot;&quot;</span>
+<span class="c1">#     ts = ts.copy()</span>
+<span class="c1">#     ts.sort_events()</span>
+
+<span class="c1">#     n_cycles = int(ts.time.shape[0] / n_points)</span>
+<span class="c1">#     out = {}  # type: Dict[str, np.ndarray]</span>
+
+<span class="c1">#     # Init</span>
+<span class="c1">#     for event in ts.events:</span>
+<span class="c1">#         if event.name not in out:</span>
+<span class="c1">#             out[event.name] = [[] for i in range(n_cycles)]</span>
+
+<span class="c1">#     for event in ts.events:</span>
+<span class="c1">#         event_cycle = int(event.time / n_points)</span>
+
+<span class="c1">#         out[event.name][event_cycle].append(np.mod(event.time, n_points))</span>
+
+<span class="c1">#     return out</span>
+
+
+<div class="viewcode-block" id="most_repeatable_cycles"><a class="viewcode-back" href="../../api/kineticstoolkit.cycles.most_repeatable_cycles.html#kineticstoolkit.cycles.most_repeatable_cycles">[docs]</a><span class="k">def</span> <span class="nf">most_repeatable_cycles</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="o">/</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get the indexes of the most repeatable cycles in TimeSeries or array.</span>
+
+<span class="sd">    This function returns an ordered list of the most repeatable to the least</span>
+<span class="sd">    repeatable cycles.</span>
+
+<span class="sd">    It works by recursively discarding the cycle than maximizes the</span>
+<span class="sd">    root-mean-square error between the cycle and the average of every</span>
+<span class="sd">    remaining cycle, until there are only two cycles remaining. The function</span>
+<span class="sd">    returns a list that is the reverse order of cycle removal: first the two</span>
+<span class="sd">    last cycles, then the last-removed cycle, and so on. If two cycles are as</span>
+<span class="sd">    equivalently repeatable, they are returned in order of appearance.</span>
+
+<span class="sd">    Note</span>
+<span class="sd">    ----</span>
+<span class="sd">    Cycles that include at least one NaN are excluded.</span>
+
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    data</span>
+<span class="sd">        Stacked time-normalized data to analyze, in the shape</span>
+<span class="sd">        (n_cycles, n_points).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    List[int]</span>
+<span class="sd">        List of indexes corresponding to the cycles in most to least</span>
+<span class="sd">        repeatable order.</span>
+
+<span class="sd">    Example</span>
+<span class="sd">    -------</span>
+<span class="sd">    &gt;&gt;&gt; import kineticstoolkit.lab as ktk</span>
+<span class="sd">    &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">    &gt;&gt;&gt; # Create a data sample with four different cycles, the most different</span>
+<span class="sd">    &gt;&gt;&gt; # begin cycle 2 (cos instead of sin), then cycle 0.</span>
+<span class="sd">    &gt;&gt;&gt; x = np.arange(0, 10, 0.1)</span>
+<span class="sd">    &gt;&gt;&gt; data = np.array([[np.sin(x)], \</span>
+<span class="sd">        [np.sin(x) + 0.14], \</span>
+<span class="sd">        [np.cos(x) + 0.14], \</span>
+<span class="sd">        [np.sin(x) + 0.15]])</span>
+
+<span class="sd">    &gt;&gt;&gt; ktk.cycles.most_repeatable_cycles(data)</span>
+<span class="sd">    [1, 3, 0, 2]</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="n">n_cycles</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">out_cycles</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># type: List[int]</span>
+    <span class="n">done_cycles</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># type: List[int]  # Like out_cycles but includes NaNs</span>
+
+    <span class="c1"># Exclude cycles with nans: put nans for all data of this cycle</span>
+    <span class="k">for</span> <span class="n">i_cycle</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_cycles</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i_cycle</span><span class="p">])):</span>
+            <span class="n">data</span><span class="p">[</span><span class="n">i_cycle</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+            <span class="n">done_cycles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i_cycle</span><span class="p">)</span>
+
+    <span class="c1"># Iteratively remove the cycle that is the most different from the</span>
+    <span class="c1"># mean of the remaining cycles.</span>
+    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">done_cycles</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">n_cycles</span> <span class="o">-</span> <span class="mi">2</span><span class="p">:</span>
+
+        <span class="n">current_mean_cycle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="n">rms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_cycles</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">i_curve</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_cycles</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="n">rms</span><span class="p">[</span><span class="n">i_curve</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
+                <span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i_curve</span><span class="p">]</span> <span class="o">-</span> <span class="n">current_mean_cycle</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)))</span>
+
+        <span class="n">i_cycle</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nanargmax</span><span class="p">(</span><span class="n">rms</span><span class="p">))</span>
+        <span class="n">out_cycles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i_cycle</span><span class="p">)</span>
+        <span class="n">done_cycles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i_cycle</span><span class="p">)</span>
+        <span class="n">data</span><span class="p">[</span><span class="n">i_cycle</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+    <span class="c1"># Find the two remaining cycles</span>
+    <span class="n">set_all</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">n_cycles</span><span class="p">))</span>
+    <span class="n">set_done</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">done_cycles</span><span class="p">)</span>
+    <span class="n">remain</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">set_all</span> <span class="o">-</span> <span class="n">set_done</span><span class="p">))</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">remain</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">out_cycles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">remain</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">remain</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">out_cycles</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">remain</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">out_cycles</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span></div>
+
+
+<span class="n">module_locals</span> <span class="o">=</span> <span class="nb">locals</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="fm">__dir__</span><span class="p">():</span>
+    <span class="k">return</span> <span class="n">directory</span><span class="p">(</span><span class="n">module_locals</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="kn">import</span> <span class="nn">doctest</span>
+    <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">(</span><span class="n">optionflags</span><span class="o">=</span><span class="n">doctest</span><span class="o">.</span><span class="n">NORMALIZE_WHITESPACE</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

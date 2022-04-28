@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>kineticstoolkit.pushrimkinetics &mdash; Kinetics Toolkit</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/mystnb.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/sphinx-thebe.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/stable.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/togglebutton.js"></script>
+        <script src="../_static/clipboard.min.js"></script>
+        <script src="../_static/copybutton.js"></script>
+        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+        <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+        <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+        <script>
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+        <script async="async" src="../_static/sphinx-thebe.js"></script>
+        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+        <script>mermaid.initialize({startOnLoad:true});</script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="kineticstoolkit.pushrimkinetics.calculate_forces_and_moments" href="kineticstoolkit.pushrimkinetics.calculate_forces_and_moments.html" />
+    <link rel="prev" title="kineticstoolkit.kinematics.write_c3d_file" href="kineticstoolkit.kinematics.write_c3d_file.html" />
+
+
+ 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: black" >
+            <a href="../index.html">
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started_ktk.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ktk_in_depth.html">In depth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python_learning.html">Learning Python</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../api_classes.html">Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../api_functions.html">Functions</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api_modules.html">Modules</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="kineticstoolkit.cycles.html">kineticstoolkit.cycles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kineticstoolkit.filters.html">kineticstoolkit.filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kineticstoolkit.geometry.html">kineticstoolkit.geometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kineticstoolkit.kinematics.html">kineticstoolkit.kinematics</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">kineticstoolkit.pushrimkinetics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.pushrimkinetics.calculate_forces_and_moments.html">kineticstoolkit.pushrimkinetics.calculate_forces_and_moments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.pushrimkinetics.calculate_power.html">kineticstoolkit.pushrimkinetics.calculate_power</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.pushrimkinetics.calculate_velocity.html">kineticstoolkit.pushrimkinetics.calculate_velocity</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.pushrimkinetics.read_file.html">kineticstoolkit.pushrimkinetics.read_file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.pushrimkinetics.remove_offsets.html">kineticstoolkit.pushrimkinetics.remove_offsets</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="kineticstoolkit.emg.html">kineticstoolkit.emg</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kineticstoolkit.inversedynamics.html">kineticstoolkit.inversedynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kineticstoolkit.anthropometrics.html">kineticstoolkit.anthropometrics</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub repository</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev.html">Developing Kinetics Toolkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev_tutorials.html">Tutorial development for stable/unstable features</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: black" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Python</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="../api_modules.html">Modules</a> &raquo;</li>
+      <li>kineticstoolkit.pushrimkinetics</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/kineticstoolkit.pushrimkinetics.rst" rel="nofollow"> View page source</a>
+      </li>
+  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
+        <a href="kineticstoolkit.kinematics.write_c3d_file.html" class="btn btn-neutral float-left" title="kineticstoolkit.kinematics.write_c3d_file" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="kineticstoolkit.pushrimkinetics.calculate_forces_and_moments.html" class="btn btn-neutral float-right" title="kineticstoolkit.pushrimkinetics.calculate_forces_and_moments" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+  </div>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="module-kineticstoolkit.pushrimkinetics">
+<span id="kineticstoolkit-pushrimkinetics"></span><h1>kineticstoolkit.pushrimkinetics<a class="headerlink" href="#module-kineticstoolkit.pushrimkinetics" title="Permalink to this headline"></a></h1>
+<p>Provide functions to process kinetic data from instrumented wheelchair wheels.</p>
+<p class="rubric">Functions</p>
+<table class="longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="kineticstoolkit.pushrimkinetics.calculate_forces_and_moments.html#kineticstoolkit.pushrimkinetics.calculate_forces_and_moments" title="kineticstoolkit.pushrimkinetics.calculate_forces_and_moments"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_forces_and_moments</span></code></a></p></td>
+<td><p>Calculate pushrim forces and moments based on raw channel values.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="kineticstoolkit.pushrimkinetics.calculate_power.html#kineticstoolkit.pushrimkinetics.calculate_power" title="kineticstoolkit.pushrimkinetics.calculate_power"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_power</span></code></a></p></td>
+<td><p>Calculate power based on wheel velocity and moment.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="kineticstoolkit.pushrimkinetics.calculate_velocity.html#kineticstoolkit.pushrimkinetics.calculate_velocity" title="kineticstoolkit.pushrimkinetics.calculate_velocity"><code class="xref py py-obj docutils literal notranslate"><span class="pre">calculate_velocity</span></code></a></p></td>
+<td><p>Calculate velocity based on wheel angle.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="kineticstoolkit.pushrimkinetics.read_file.html#kineticstoolkit.pushrimkinetics.read_file" title="kineticstoolkit.pushrimkinetics.read_file"><code class="xref py py-obj docutils literal notranslate"><span class="pre">read_file</span></code></a></p></td>
+<td><p>Read a file containing pushrim kinetics data.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="kineticstoolkit.pushrimkinetics.remove_offsets.html#kineticstoolkit.pushrimkinetics.remove_offsets" title="kineticstoolkit.pushrimkinetics.remove_offsets"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_offsets</span></code></a></p></td>
+<td><p>Remove dynamic offsets in forces and moments.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./api"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="kineticstoolkit.kinematics.write_c3d_file.html" class="btn btn-neutral float-left" title="kineticstoolkit.kinematics.write_c3d_file" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="kineticstoolkit.pushrimkinetics.calculate_forces_and_moments.html" class="btn btn-neutral float-right" title="kineticstoolkit.pushrimkinetics.calculate_forces_and_moments" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
