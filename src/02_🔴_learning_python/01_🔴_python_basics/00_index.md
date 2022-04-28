@@ -1,4 +1,4 @@
-# Python basics
+# Getting started with Python
 
 To discover the basics of Python, we will refer in this chapter to two series of tutorials that we believe are of exceptional quality:
 

@@ -1,12 +1,10 @@
 # Using Spyder
 
-```{note}
+:::{note}
 These screenshots are for Spyder 4. Spyder 5 has a different look and feel, but works the same.
-````
+:::
 
-```{admonition} dev note
 #todo Update the screenshots
-```
 
 Spyder is an integrated development environment (IDE) that was created for a scientific use. Its interface reminds Matlab. Spyder's standard look is shown below:
 
@@ -28,3 +26,21 @@ Section B is a panel including, among others, these two interesting tools:
 - A variable explorer where you can view the variables you have created.
 
 Section C is the console where you can write python commands directly. This is the equivalent of the `>>>` console that we regularly see in tutorials.
+
+## Writing code in a console
+
+#todo
+
+print("Hello world")
+
+## Writing code in a script
+
+#todo
+
+print("Hello world") and hit play
+
+## Writing code in a section
+
+#todo
+
+print("Hello north") or print("Hello south") and hit play section

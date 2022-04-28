@@ -3,6 +3,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.13.8
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -100,7 +102,7 @@ ts.plot()
 
 The `time_info` property associates metadata to the time vector. It is a dictionary where each key is the name of one metadata. By default, `time_info` includes the `Unit` metadata, which corresponds to `s`. Any other metadata can be added by adding new keys in `time_info`.
 
-```{code-cell} ipython3
+```{code-cell}
 ts.time_info
 ```
 
@@ -160,7 +162,7 @@ ts.events
 
 If we plot again the TimeSeries, we can see the added events.
 
-```{code-cell} ipython3
+```{code-cell}
 ts.plot()
 ```
 

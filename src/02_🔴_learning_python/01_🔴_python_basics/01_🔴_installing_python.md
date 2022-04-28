@@ -1,4 +1,4 @@
-# Installing Python
+# Installing Python and Spyder
 
 There exist a great lot of ways to install Python. To start without installing anything, you could use this [online virtual environment](https://repl.it/languages/Python3) where you can write python commands and see their direct effect.
 

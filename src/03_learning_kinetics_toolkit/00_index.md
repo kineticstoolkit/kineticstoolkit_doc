@@ -1,4 +1,4 @@
-# Tutorials
+# Learning Kinetics Toolkit
 
 ```{toctree}
 :glob:
