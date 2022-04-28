@@ -1,5 +1,5 @@
 # Matplotlib basics
 
-```{note}
-TODO
-```
+{{ stub }}
+
+#todo 

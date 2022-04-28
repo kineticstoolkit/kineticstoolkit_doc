@@ -1,5 +1,6 @@
 # Table of contents
-#-- This pseudo-markdown file will be converted to `_toc.yml` during building.
+#-- This pseudo-markdown file will be converted to `_toc.yml` during building. We use this file to ease working on the website using knowledge management software such as Obsidian (it allow linking everything together).
+#-- -----------------------------------------------------------------------
 
 format: jb-book
 root: [](index.md)
@@ -9,11 +10,30 @@ parts:
   - caption: "Manual"
     chapters:
 
-      - file: [](getting_started_ktk.md)
+      - file: [](ktk_getting_started.md)
         sections:
-          - file: [](ktk_what_is_kinetics_toolkit.md)
-          - file: [](getting_started_with_python.md)
-          - file: [](installing_kinetics_toolkit.md)
+
+          - file: [](python.md)
+            sections:
+              - file: [](python_installing.md)
+              - file: [](python_using_spyder.md)
+              - file: [](python_simple_operations.md)
+              - file: [](python_strings.md)
+              - file: [](python_comments_and_docstrings.md)
+              - file: [](python_functions.md)
+              - file: [](python_conditions.md)
+              - file: [](python_lists.md)
+              - file: [](python_while.md)
+              - file: [](python_for.md)
+              - file: [](python_dicts.md)
+              - file: [](python_more_advanced.md)
+              - file: [](python_integration_exercises.md)
+              - file: [](python_external_tutorials.md)
+              - file: [](numpy.md)
+              - file: [](matplotlib.md)
+              - file: [](pandas.md)
+
+          - file: [](ktk_installing.md)
 
       - file: [](tutorials.md)
         sections:
@@ -59,27 +79,6 @@ parts:
           - file: [](ktk_lab_mode.md)
           - file: [](ktk_release_notes.md)
 
-      - file: [](python.md)
-        sections:
-          - file: [](python_installing.md)
-          - file: [](python_using_spyder.md)
-          - file: [](python_simple_operations.md)
-          - file: [](python_strings.md)
-          - file: [](python_comments_and_docstrings.md)
-          - file: [](python_functions.md)
-          - file: [](python_conditions.md)
-          - file: [](python_lists.md)
-          - file: [](python_while.md)
-          - file: [](python_for.md)
-          - file: [](python_dicts.md)
-          - file: [](python_more_advanced.md)
-          - file: [](python_integration_exercises.md)
-          - file: [](python_old_basics.md)
-          - file: [](python_links.md)
-          - file: [](numpy.md)
-          - file: [](matplotlib.md)
-          - file: [](pandas.md)
-
 ## API Reference
   - caption: "API Reference"
     chapters:
@@ -87,21 +86,22 @@ parts:
       - file: [](api_functions.md)
       - file: [](api_modules.md)
 
-## Development
-  - caption: "Development"
+## Contributing
+  - caption: "Contributing"
     chapters:
 
-      - url: https://github.com/felixchenier/kineticstoolkit
-        title: GitHub repository
+      - file: [](ktk_citing.md)
 
-      - file: [](dev.md)
+      - file: [](dev_contributing.md)
         sections:
-          - file: [](dev_install_from_github.md)
-          - file: [](dev_manual.md)
           - file: [](dev_rules.md)
+          - file: [](dev_installing_from_github.md)
           - file: [](dev_coding_style.md)
 
       - file: [](dev_tutorials.md)
         sections:
-          - file: [](anthropometrics.md)
-          - file: [](inversedynamics.md)
+          - file: [](dev_anthropometrics.md)
+          - file: [](dev_inversedynamics.md)
+
+      - url: https://github.com/felixchenier/kineticstoolkit
+        title: GitHub repository

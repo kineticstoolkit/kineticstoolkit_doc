@@ -1,6 +1,7 @@
 # Installing Python and Spyder
+% 🟢
 
-There exist a great lot of ways to install Python. To start without installing anything, you could use this [online virtual environment](https://repl.it/languages/Python3) where you can write python commands and see their direct effect.
+There exist numerous ways to install Python. To start without installing anything, you could use this [online virtual environment](https://repl.it/languages/Python3) where you can write python commands and see their direct effect.
 
 At one point, you will need to install Python and its scientific environment on your computer. In our lab, we mainly use the Spyder integrated development environment (IDE), in a conda environment. This is what we suggest in this guide:
 

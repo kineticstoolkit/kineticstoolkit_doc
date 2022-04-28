@@ -1,5 +1,5 @@
 # Pandas basics
 
-```{note}
-TODO
-```
+{{ stub }}
+
+#todo 

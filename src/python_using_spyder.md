@@ -1,10 +1,8 @@
 # Using Spyder
 
-:::{note}
-These screenshots are for Spyder 4. Spyder 5 has a different look and feel, but works the same.
-:::
+{{ incomplete }}
 
-#todo Update the screenshots
+#todo Change screenshots for Spyder 5
 
 Spyder is an integrated development environment (IDE) that was created for a scientific use. Its interface reminds Matlab. Spyder's standard look is shown below:
 
@@ -29,17 +27,23 @@ Section C is the console where you can write python commands directly. This is t
 
 ## Writing code in a console
 
+{{ stub }}
+
 #todo
 
 print("Hello world")
 
 ## Writing code in a script
 
+{{ stub }}
+
 #todo
 
 print("Hello world") and hit play
 
 ## Writing code in a section
+
+{{ stub }}
 
 #todo
 

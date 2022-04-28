@@ -1,4 +1,0 @@
-# Developing Kinetics Toolkit
-
-```{tableofcontents}
-```

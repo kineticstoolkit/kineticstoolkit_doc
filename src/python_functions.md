@@ -1,5 +1,7 @@
 # Functions
 
+{{ stub }}
+
 - def print_addition(a, b): print(a + b);
 - Double-column and indentation as code blocks
 - Good practice: be coherent in the number of spaces. A common practice is to use four spaces, this is the default in Spyder.

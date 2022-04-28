@@ -41,7 +41,7 @@ markers.data
 
 Now we'll take a look at this acquisition using [ktk.Player](api/kineticstoolkit.Player.rst), a matplotlib-based interactive user interface aimed at visualizing markers, rigid bodies and segments in three dimensions.
 
-For the `Player` class to be interactive, you must select an interactive backend for IPython. See the [installation section](../../installing_kinetics_toolkit.md)]] for more information. For non-interactive environments such as Jupyter lab or notebooks, it is also possible to set a point of view and generate a fixed animation. This is what we will do in these tutorials.
+For the `Player` class to be interactive, you must select an interactive backend for IPython. See the [installation section](ktk_installing.md)]] for more information. For non-interactive environments such as Jupyter lab or notebooks, it is also possible to set a point of view and generate a fixed animation. This is what we will do in these tutorials.
 
 Set a point of view:
 

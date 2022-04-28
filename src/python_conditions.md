@@ -1,5 +1,7 @@
 # Conditions and booleans
 
+{{ stub }}
+
 - Booleans and comparisons
 - If, else, elif
 - Logical operators

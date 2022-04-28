@@ -1,5 +1,7 @@
 # Lists
 
+{{ stub }}
+
 - Creating a list
 - Obtaining the length of a list
 - Indexing a list

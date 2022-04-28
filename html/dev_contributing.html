@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>What is Kinetics Toolkit &mdash; Kinetics Toolkit</title>
+  <title>How to contribute &mdash; Kinetics Toolkit</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
       <link rel="stylesheet" href="_static/togglebutton.css" type="text/css" />
@@ -39,8 +39,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Getting started with Python" href="getting_started_with_python.html" />
-    <link rel="prev" title="Getting started" href="getting_started_ktk.html" />
+    <link rel="next" title="Development rules" href="dev_rules.html" />
+    <link rel="prev" title="Citing" href="ktk_citing.html" />
 
 
  
@@ -63,16 +63,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Manual</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="getting_started_ktk.html">Getting started</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">What is Kinetics Toolkit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting_started_with_python.html">Getting started with Python</a></li>
-<li class="toctree-l2"><a class="reference internal" href="installing_kinetics_toolkit.html">Installing Kinetics Toolkit</a></li>
-</ul>
-</li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="ktk_getting_started.html">Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ktk_in_depth.html">In depth</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python.html">Learning Python</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul>
@@ -80,11 +74,17 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="api_functions.html">Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_modules.html">Modules</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Development</span></p>
-<ul>
+<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ktk_citing.html">Citing</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">How to contribute</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dev_rules.html">Development rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev_installing_from_github.html">Installing from GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev_coding_style.html">Coding style</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dev_tutorials.html">Developing tutorials for future features</a></li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub repository</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dev.html">Developing Kinetics Toolkit</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dev_tutorials.html">Tutorial development for stable/unstable features</a></li>
 </ul>
 
         </div>
@@ -101,42 +101,32 @@ const thebe_selector_output = ".output, .cell_output"
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="getting_started_ktk.html">Getting started</a> &raquo;</li>
-      <li>What is Kinetics Toolkit</li>
+      <li>How to contribute</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/ktk_what_is_kinetics_toolkit.md" rel="nofollow"> View page source</a>
+            <a href="_sources/dev_contributing.md" rel="nofollow"> View page source</a>
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="getting_started_ktk.html" class="btn btn-neutral float-left" title="Getting started" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="getting_started_with_python.html" class="btn btn-neutral float-right" title="Getting started with Python" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ktk_citing.html" class="btn btn-neutral float-left" title="Citing" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dev_rules.html" class="btn btn-neutral float-right" title="Development rules" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="tex2jax_ignore mathjax_ignore section" id="what-is-kinetics-toolkit">
-<h1>What is Kinetics Toolkit<a class="headerlink" href="#what-is-kinetics-toolkit" title="Permalink to this headline"></a></h1>
-<div class="section" id="summary">
-<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline"></a></h2>
-<p>Kinetics Toolkit is a Python package for generic biomechanical analysis of human motion that is easily accessible to new programmers. The only prerequisite for using this toolkit is having minimal to moderate skills in Python and Numpy.</p>
-<p>While Kinetics Toolkit provides a dedicated class for containing and manipulating data (<code class="docutils literal notranslate"><span class="pre">TimeSeries</span></code>), it loosely follows a procedural programming paradigm where processes are grouped as interrelated functions in different submodules, which is consistent with how people are generally introduced to programming. Each function has a limited and well-defined scope, making Kinetics Toolkit generic and expandable. Particular care is given to documentation, with extensive tutorials including sample data. Special attention is also given to interoperability with other software programs by using Pandas Dataframes (and therefore CSV files, Excel files, etc.), JSON files or C3D files as intermediate data containers.</p>
-<p>Kinetics Toolkit is accessible at <a class="reference external" href="https://kineticstoolkit.uqam.ca"></a> and is distributed via conda and pip<a class="footnote-reference brackets" href="#id2" id="id1">1</a>.</p>
-</div>
-<div class="section" id="objectives-of-this-project">
-<h2>Objectives of this project<a class="headerlink" href="#objectives-of-this-project" title="Permalink to this headline"></a></h2>
+  <div class="tex2jax_ignore mathjax_ignore section" id="how-to-contribute">
+<h1>How to contribute<a class="headerlink" href="#how-to-contribute" title="Permalink to this headline"></a></h1>
+<p>We remind the objectives of the project:</p>
 <ul class="simple">
-<li><p>Build an intuitive and elegant Python package that leverages the power of biomechanical analysis to people who are not formed in programming or engineering;</p></li>
-<li><p>Build a strong documentation around this package to:</p>
+<li><p>Building an intuitive and elegant Python package that leverages the power of biomechanical analysis to people who are not formed in programming or engineering;</p></li>
+<li><p>Building a strong documentation around this package to:</p>
 <ul>
+<li><p>Teach python basics for biomechanical research;</p></li>
 <li><p>Teach or remind the basic principles of biomechanics;</p></li>
 <li><p>Explain how Kinetics Toolkit implements these principles;</p></li>
 </ul>
 </li>
 </ul>
-</div>
-<div class="section" id="how-to-contribute">
-<h2>How to contribute<a class="headerlink" href="#how-to-contribute" title="Permalink to this headline"></a></h2>
 <p>At the moment, I think Kinetics Toolkit has made a moderate way into its first objective. There is however still much to do. If you find this long-term project appealing and want to contribute, here are different ways to help:</p>
 <ul class="simple">
 <li><p>Try it and tell me your thoughts and ideas on the interface, features and documentation;</p></li>
@@ -146,22 +136,14 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Citing it in your work;</p></li>
 <li><p>Possibly many other ways to help.</p></li>
 </ul>
-<p>A good start would be to check out the <a class="reference external" href="https://felixchenier.uqam.ca/ktk_develop">development website</a> or fork the repository on <a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub</a>.</p>
-</div>
-<div class="section" id="how-to-cite">
-<h2>How to cite<a class="headerlink" href="#how-to-cite" title="Permalink to this headline"></a></h2>
-<p>If you find Kinetics Toolkit useful and want to credit it in your work (which I would much appreciate), then please cite this paper:</p>
-<p>Chénier, F., 2021. Kinetics Toolkit: An Open-Source Python Package to Facilitate Research in Biomechanics.
-<em>Journal of Open Source Software</em> 6(66), 3714. <a class="reference external" href="https://doi.org/10.21105/joss.03714">https://doi.org/10.21105/joss.03714</a></p>
-<hr class="docutils" />
-<p>I hope Kinetics Toolkit may help you in your biomechanical analyses; have a good read!</p>
-<hr class="footnotes docutils" />
-<dl class="footnote brackets">
-<dt class="label" id="id2"><span class="brackets"><a class="fn-backref" href="#id1">1</a></span></dt>
-<dd><p>This summary comes largely from the white paper published in
-<a class="reference external" href="https://joss.theoj.org/papers/10.21105/joss.03714">Journal of Open Source Software</a>.</p>
-</dd>
-</dl>
+<p>A good start would be to clone and start playing with the master branch on <a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub</a>.</p>
+<p>The following sections are resources to help helping:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="dev_rules.html">Development rules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev_installing_from_github.html">Installing from GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev_coding_style.html">Coding style</a></li>
+</ul>
 </div>
 </div>
 
@@ -188,8 +170,8 @@ const thebe_selector_output = ".output, .cell_output"
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="getting_started_ktk.html" class="btn btn-neutral float-left" title="Getting started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="getting_started_with_python.html" class="btn btn-neutral float-right" title="Getting started with Python" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ktk_citing.html" class="btn btn-neutral float-left" title="Citing" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dev_rules.html" class="btn btn-neutral float-right" title="Development rules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

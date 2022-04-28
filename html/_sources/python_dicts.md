@@ -1,5 +1,7 @@
 # Dicts
 
+{{ stub }}
+
 - Concept
 - keys()
 - Looping through the elements of a dictionary

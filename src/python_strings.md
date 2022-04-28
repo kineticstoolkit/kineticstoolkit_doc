@@ -1,5 +1,7 @@
 # Strings
 
+{{ stub }}
+
 - Using single-quotes
 - Using double-quotes
 - Using triple-double-quotes

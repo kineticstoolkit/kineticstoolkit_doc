@@ -12,22 +12,11 @@
 You are currently on Kinetics Toolkit's development website. This website may refer to unreleased and unstable material.
 ```
 
-[Kinetics Toolkit (ktk)](https://kineticstoolkit.uqam.ca) is an open-source, pure-python package of integrated classes and functions that aims to facilitate research in biomechanics. It is mainly addressed to researchers and students in biomechanics with minimal experience in programming, who want to learn processing and controlling their research data using python. A special attention is made on documentation and interoperability with other environments (using pandas Dataframes and JSON files as intermediate data containers).
+[Kinetics Toolkit (ktk)](https://kineticstoolkit.uqam.ca) is:
 
-This is a long term project that is focused not only on the tool itself, but also a lot on learning. Please consult the "What is Kinetics Toolkit" section for more information on the project.
+1. A set of online resources for students and researchers for learning 3D biomechanical data processing using Python;
+2. An open-source Python package that does (only) the heavy-lifting of such processing, so that the users can (and must) concentrate on what data processing they want to perform.
+
+This is a work in progress, but the underlying Python package is well advanced and is already used for research. Please see how you can [contribute](dev_contributing.md) to this project.
 
 ![GIF Animation](https://felixchenier.uqam.ca/wp-content/uploads/2020/05/Sample_ktk.Player_Wheelchair.gif)
-
-Please ask questions and submit bugs or feature requests on the [git-hub issue tracker](https://github.com/felixchenier/kineticstoolkit/issues).
-
-
-:::{ifconfig} release == 'master'
-
-    ```{toctree}
-    :caption: FOR DEVELOPERS
-    :glob:
-
-    99_for_developers/*/00_index
-    ```
-
-:::

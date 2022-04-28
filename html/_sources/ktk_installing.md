@@ -1,10 +1,10 @@
 # Installing Kinetics Toolkit
 
-Kinetics Toolkit is distributed via both [conda-forge](https://anaconda.org/conda-forge/kineticstoolkit) and [PyPi](https://pypi.org/project/kineticstoolkit). The source code is hosted on [git-hub](https://github.com/felixchenier/kineticstoolkit).
+Kinetics Toolkit is distributed via both [conda-forge](https://anaconda.org/conda-forge/kineticstoolkit) and [PyPi](https://pypi.org/project/kineticstoolkit). The source code is hosted on [GitHub](https://github.com/felixchenier/kineticstoolkit).
 
 Since reading c3d files relies on [ezc3d](https://github.com/pyomeca/ezc3d) which binaries are distributed only via conda-forge, the recommended installation method is therefore using conda-forge. If needed, go to the [Miniconda website](https://docs.conda.io/en/latest/miniconda.html) to install a minimal conda installation.
 
-## Install and update Kinetics Toolkit
+## Installing and updating Kinetics Toolkit
 
 In the Anaconda/Miniconda prompt or terminal:
 
@@ -28,7 +28,9 @@ Kinetics Toolkit's interactive functions make use of IPython's integration of Ma
 
 beforehand.
 
-Alternatively, I highly recommend using the Spyder development environment since it is so oriented towards science. To configure Spyder for interactive graphics, go to the Spyder's preferences, to the **IPython console** item, then to the **Graphics** pane. In the **Graphics backend** box, select **Qt5**, then restart Spyder.
+Alternatively, installing the [Spyder](https://www.spyder-ide.org/) development environment is recommended, because of its strong orientation towards science. Kinetics Toolkit is developped using Spyder.
+
+To configure Spyder for interactive graphics, go to the Spyder's preferences, to the **IPython console** item, then to the **Graphics** pane. In the **Graphics backend** box, select **Qt5**, then restart Spyder.
 
 ## Check that Kinetics Toolkit loads
 
@@ -42,4 +44,4 @@ or
 
 ```
 >>> import kineticstoolkit.lab as ktk
-````
+```

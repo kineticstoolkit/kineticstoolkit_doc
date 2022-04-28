@@ -1,5 +1,7 @@
 # Looping (for)
 
+{{ stub }}
+
 - If the number of times is known in advance, the for statement is simpler than the while statement.
 - Repeating an action a given number of times using a range
 - Going over a list

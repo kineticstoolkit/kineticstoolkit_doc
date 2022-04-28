@@ -1,4 +1,7 @@
 # Integration exercises
+
+{{ stub }}
+
 These exercices will be repeated after seing numpy.
 
 ## Calculation of power based on force and velocity

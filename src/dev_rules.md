@@ -1,7 +1,5 @@
 # Development rules
 
-This page is an attempt to guide future collaborators in co-developing Kinetics Toolkit. We will start with the first and most important rule:
-
 ## Rule 1: Code of conduct
 
 Developing should be fun for everyone, and anybody who wants to contribute should be welcomed, guided and respected. As for any collective developement, ideas can clash, friction can happen, and compromises can or cannot be done. However, despite this possible friction, it is of the utmost importance to stay polite, inclusive and respectful.
@@ -12,7 +10,7 @@ Before even starting to develop a new function, one should ask this important qu
 
 We remind that Kinetics Toolkit aims to provide tools for the user to achieve their needs in biomechanical research. Often, the best way to control our data is by learning how to do it instead of using a function performs it for us. In that view, any new feature should start with a discussion on a [feature request issue](https://github.com/felixchenier/kineticstoolkit/issues).
 
-- If a new tutorial is needed, then please contribute to the [kineticstoolkit_doc](https://github.com/felixchenier/kineticstoolkit_doc) repository, that version this website's code.
+- If a new tutorial is needed, then please contribute to the [kineticstoolkit_doc](https://github.com/felixchenier/kineticstoolkit_doc) repository, that versions this website's code.
 - If a new function or module is needed, then continue with this guide.
 
 ## Rule 3: Life cycle of a function, from development to deprecation
@@ -85,7 +83,7 @@ To start the developemnt of a feature, please fork the repository. Then, in your
 
 All of the above should be done before making a pull request:
 
-- The new code must match Kinetics Toolkit's [coding style](dev_coding_style.md).
+- The new code must respect the [coding style](dev_coding_style.md).
 - The feature should be finished, or logical and documented parts of the feature should be finished.
 - The feature's docstring must match its current completion state.
 - The feature's docstring can include examples. If this is the case, they should be testable with `doctest`.

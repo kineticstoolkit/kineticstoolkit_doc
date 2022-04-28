@@ -1,5 +1,7 @@
 # Simple operations
 
+{{ stub }}
+
 - Addition, subtraction
     - print(4 + 3)
     - print(4 - 3)

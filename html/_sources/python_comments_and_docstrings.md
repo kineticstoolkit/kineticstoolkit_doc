@@ -1,5 +1,7 @@
 # Comments and docstrings
 
+{{ stub }}
+
 - Comments
 - Docstrings
     - Use Spyder's help browser or "function_name?" to see the docstring

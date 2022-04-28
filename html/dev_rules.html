@@ -39,8 +39,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Coding style" href="dev_coding_style.html" />
-    <link rel="prev" title="Developer manual" href="dev_manual.html" />
+    <link rel="next" title="Installing from GitHub" href="dev_installing_from_github.html" />
+    <link rel="prev" title="How to contribute" href="dev_contributing.html" />
 
 
  
@@ -64,10 +64,9 @@ const thebe_selector_output = ".output, .cell_output"
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Manual</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="getting_started_ktk.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ktk_getting_started.html">Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ktk_in_depth.html">In depth</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python.html">Learning Python</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul>
@@ -75,17 +74,17 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="api_functions.html">Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_modules.html">Modules</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub repository</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="dev.html">Developing Kinetics Toolkit</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="dev_install_from_github.html">Installing from git-hub</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dev_manual.html">Developer manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ktk_citing.html">Citing</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="dev_contributing.html">How to contribute</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Development rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev_installing_from_github.html">Installing from GitHub</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dev_coding_style.html">Coding style</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="dev_tutorials.html">Tutorial development for stable/unstable features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev_tutorials.html">Developing tutorials for future features</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub repository</a></li>
 </ul>
 
         </div>
@@ -102,14 +101,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="dev.html">Developing Kinetics Toolkit</a> &raquo;</li>
+          <li><a href="dev_contributing.html">How to contribute</a> &raquo;</li>
       <li>Development rules</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/dev_rules.md" rel="nofollow"> View page source</a>
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="dev_manual.html" class="btn btn-neutral float-left" title="Developer manual" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="dev_coding_style.html" class="btn btn-neutral float-right" title="Coding style" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="dev_contributing.html" class="btn btn-neutral float-left" title="How to contribute" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dev_installing_from_github.html" class="btn btn-neutral float-right" title="Installing from GitHub" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
 </div>
@@ -118,7 +117,6 @@ const thebe_selector_output = ".output, .cell_output"
              
   <div class="tex2jax_ignore mathjax_ignore section" id="development-rules">
 <h1>Development rules<a class="headerlink" href="#development-rules" title="Permalink to this headline"></a></h1>
-<p>This page is an attempt to guide future collaborators in co-developing Kinetics Toolkit. We will start with the first and most important rule:</p>
 <div class="section" id="rule-1-code-of-conduct">
 <h2>Rule 1: Code of conduct<a class="headerlink" href="#rule-1-code-of-conduct" title="Permalink to this headline"></a></h2>
 <p>Developing should be fun for everyone, and anybody who wants to contribute should be welcomed, guided and respected. As for any collective developement, ideas can clash, friction can happen, and compromises can or cannot be done. However, despite this possible friction, it is of the utmost importance to stay polite, inclusive and respectful.</p>
@@ -128,7 +126,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>Before even starting to develop a new function, one should ask this important question: <strong>Should this feature really be developed, or should I write a tutorial instead?</strong></p>
 <p>We remind that Kinetics Toolkit aims to provide tools for the user to achieve their needs in biomechanical research. Often, the best way to control our data is by learning how to do it instead of using a function performs it for us. In that view, any new feature should start with a discussion on a <a class="reference external" href="https://github.com/felixchenier/kineticstoolkit/issues">feature request issue</a>.</p>
 <ul class="simple">
-<li><p>If a new tutorial is needed, then please contribute to the <a class="reference external" href="https://github.com/felixchenier/kineticstoolkit_doc">kineticstoolkit_doc</a> repository, that version this website’s code.</p></li>
+<li><p>If a new tutorial is needed, then please contribute to the <a class="reference external" href="https://github.com/felixchenier/kineticstoolkit_doc">kineticstoolkit_doc</a> repository, that versions this website’s code.</p></li>
 <li><p>If a new function or module is needed, then continue with this guide.</p></li>
 </ul>
 </div>
@@ -199,7 +197,7 @@ const thebe_selector_output = ".output, .cell_output"
 <h3>Document and test your feature<a class="headerlink" href="#document-and-test-your-feature" title="Permalink to this headline"></a></h3>
 <p>All of the above should be done before making a pull request:</p>
 <ul class="simple">
-<li><p>The new code must match Kinetics Toolkit’s <a class="reference internal" href="dev_coding_style.html"><span class="doc std std-doc">coding style</span></a>.</p></li>
+<li><p>The new code must respect the <a class="reference internal" href="dev_coding_style.html"><span class="doc std std-doc">coding style</span></a>.</p></li>
 <li><p>The feature should be finished, or logical and documented parts of the feature should be finished.</p></li>
 <li><p>The feature’s docstring must match its current completion state.</p></li>
 <li><p>The feature’s docstring can include examples. If this is the case, they should be testable with <code class="docutils literal notranslate"><span class="pre">doctest</span></code>.</p></li>
@@ -237,8 +235,8 @@ const thebe_selector_output = ".output, .cell_output"
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="dev_manual.html" class="btn btn-neutral float-left" title="Developer manual" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="dev_coding_style.html" class="btn btn-neutral float-right" title="Coding style" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="dev_contributing.html" class="btn btn-neutral float-left" title="How to contribute" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dev_installing_from_github.html" class="btn btn-neutral float-right" title="Installing from GitHub" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

@@ -31,6 +31,22 @@ latex:
 #   use_issues_button: true
 #   use_repository_button: true
 
+parse:
+  myst_substitutions:
+    "stub": |
+      ```{admonition} Section in development
+      This section is still only a stub. Please feel free to [contribute](dev_contributing.md).
+      ```
+    "incomplete": |
+      ```{admonition} Incomplete section
+      Some elements of this section are incomplete or out of date. Please feel free to [contribute](dev_contributing.md).
+      ```
+    "dev": |    
+      ```{warning}
+      This section refers to unstable code. This code may not be tested, and the whole API and behaviour is expected to change in the future. Do not use this code for your research.
+       ```
+
+
 sphinx:
   extra_extensions:
   - 'sphinx.ext.autodoc'     # Document objects using docstrings in API

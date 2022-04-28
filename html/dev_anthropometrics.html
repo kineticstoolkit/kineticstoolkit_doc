@@ -39,8 +39,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Inverse Dynamics" href="inversedynamics.html" />
-    <link rel="prev" title="Tutorial development for stable/unstable features" href="dev_tutorials.html" />
+    <link rel="next" title="Inverse Dynamics" href="dev_inversedynamics.html" />
+    <link rel="prev" title="Developing tutorials for future features" href="dev_tutorials.html" />
 
 
  
@@ -64,10 +64,9 @@ const thebe_selector_output = ".output, .cell_output"
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Manual</span></p>
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="getting_started_ktk.html">Getting started</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ktk_getting_started.html">Getting started</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorials.html">Tutorials</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ktk_in_depth.html">In depth</a></li>
-<li class="toctree-l1"><a class="reference internal" href="python.html">Learning Python</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul>
@@ -75,15 +74,16 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="api_functions.html">Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="api_modules.html">Modules</a></li>
 </ul>
-<p class="caption" role="heading"><span class="caption-text">Development</span></p>
+<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub repository</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dev.html">Developing Kinetics Toolkit</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="dev_tutorials.html">Tutorial development for stable/unstable features</a><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ktk_citing.html">Citing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev_contributing.html">How to contribute</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="dev_tutorials.html">Developing tutorials for future features</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Anthropometrics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="inversedynamics.html">Inverse Dynamics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev_inversedynamics.html">Inverse Dynamics</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub repository</a></li>
 </ul>
 
         </div>
@@ -100,14 +100,14 @@ const thebe_selector_output = ".output, .cell_output"
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="dev_tutorials.html">Tutorial development for stable/unstable features</a> &raquo;</li>
+          <li><a href="dev_tutorials.html">Developing tutorials for future features</a> &raquo;</li>
       <li>Anthropometrics</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="_sources/anthropometrics.md" rel="nofollow"> View page source</a>
+            <a href="_sources/dev_anthropometrics.md" rel="nofollow"> View page source</a>
       </li>
   </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="dev_tutorials.html" class="btn btn-neutral float-left" title="Tutorial development for stable/unstable features" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="inversedynamics.html" class="btn btn-neutral float-right" title="Inverse Dynamics" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="dev_tutorials.html" class="btn btn-neutral float-left" title="Developing tutorials for future features" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dev_inversedynamics.html" class="btn btn-neutral float-right" title="Inverse Dynamics" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
   </div>
   <hr/>
 </div>
@@ -116,11 +116,11 @@ const thebe_selector_output = ".output, .cell_output"
              
   <div class="tex2jax_ignore mathjax_ignore section" id="anthropometrics">
 <h1>Anthropometrics<a class="headerlink" href="#anthropometrics" title="Permalink to this headline"></a></h1>
-<p>The <code class="docutils literal notranslate"><span class="pre">anthropometrics</span></code> module aims to assist the reconstruction of human-specific points of anatomy, to establish trajectories of segment orientations via standardised local coordinate systems, and to estimate the segment’s centers of mass and inertial properties.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>This is an experimental module, its API and behaviour may change in the future.</p>
+<p>This section refers to unstable code. This code may not be tested, and the whole API and behaviour is expected to change in the future. Do not use this code for your research.</p>
 </div>
+<p>The <code class="docutils literal notranslate"><span class="pre">anthropometrics</span></code> module aims to assist the reconstruction of human-specific points of anatomy, to establish trajectories of segment orientations via standardised local coordinate systems, and to estimate the segment’s centers of mass and inertial properties.</p>
 <p>In this tutorial, we will work on a static acquisition where we probed and followed a set of bony landmarks. We will infer joint centers based on these landmarks, then we will estimate the segments’ centers of mass, and finally we will track local coordinate systems for every segment.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -220,7 +220,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/anthropometrics_4_0.png" src="_images/anthropometrics_4_0.png" />
+<img alt="_images/dev_anthropometrics_4_0.png" src="_images/dev_anthropometrics_4_0.png" />
 </div>
 </div>
 <div class="section" id="infer-joint-centers">
@@ -243,7 +243,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/anthropometrics_6_0.png" src="_images/anthropometrics_6_0.png" />
+<img alt="_images/dev_anthropometrics_6_0.png" src="_images/dev_anthropometrics_6_0.png" />
 </div>
 </div>
 <p>Then, we can add the glenohumeral joints and C7T1, which are defined by the thorax segment.</p>
@@ -264,7 +264,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/anthropometrics_8_0.png" src="_images/anthropometrics_8_0.png" />
+<img alt="_images/dev_anthropometrics_8_0.png" src="_images/dev_anthropometrics_8_0.png" />
 </div>
 </div>
 <p>Finally, we add the joint centers for the extremities, which are calculated as the midpoint between their respective lateral and medial bony landmarks.</p>
@@ -285,7 +285,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/anthropometrics_10_0.png" src="_images/anthropometrics_10_0.png" />
+<img alt="_images/dev_anthropometrics_10_0.png" src="_images/dev_anthropometrics_10_0.png" />
 </div>
 </div>
 <p>Now that every joint center is reconstructed based on this static acquisition, we may to include these joint centers into marker clusters so that they can be reconstructed later in an analyzed action.</p>
@@ -407,7 +407,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/anthropometrics_14_0.png" src="_images/anthropometrics_14_0.png" />
+<img alt="_images/dev_anthropometrics_14_0.png" src="_images/dev_anthropometrics_14_0.png" />
 </div>
 </div>
 <div class="section" id="track-local-coordinate-systems">
@@ -428,7 +428,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/anthropometrics_16_0.png" src="_images/anthropometrics_16_0.png" />
+<img alt="_images/dev_anthropometrics_16_0.png" src="_images/dev_anthropometrics_16_0.png" />
 </div>
 </div>
 </div>
@@ -458,8 +458,8 @@ const thebe_selector_output = ".output, .cell_output"
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="dev_tutorials.html" class="btn btn-neutral float-left" title="Tutorial development for stable/unstable features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="inversedynamics.html" class="btn btn-neutral float-right" title="Inverse Dynamics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="dev_tutorials.html" class="btn btn-neutral float-left" title="Developing tutorials for future features" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dev_inversedynamics.html" class="btn btn-neutral float-right" title="Inverse Dynamics" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

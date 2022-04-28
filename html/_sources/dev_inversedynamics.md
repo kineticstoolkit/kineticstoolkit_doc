@@ -13,6 +13,8 @@ kernelspec:
 
 # Inverse Dynamics
 
+{{ dev }}
+
 The [inversedynamics](api/kineticstoolkit.inversedynamics.rst) module calculates the proximal forces and moments based on the segment's kinematics and distal forces and moments, based on the general method published in Dumas et al., 2004 [^1].
 
 [^1]: R. Dumas, R. Aissaoui, and J. A. De Guise, "A 3D generic inverse dynamic method using wrench notation and quaternion algebra," Comput Meth Biomech Biomed Eng, vol. 7, no. 3, pp. 159–166, 2004.
@@ -21,7 +23,7 @@ The results are the forces and moments applied by the distal segment on the
 proximal articulation, in the global coordinates system.
 
 ```{warning}
-This is an experimental module, its API and behaviour may change in the future. This module will be redesigned to make use of the `anthropometrics` module currently in development.
+This module will be redesigned to make use of the `anthropometrics` module currently in development.
 ```
 
 ```{code-cell} ipython3

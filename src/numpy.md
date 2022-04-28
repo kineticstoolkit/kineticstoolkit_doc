@@ -1,5 +1,9 @@
 # Numpy basics
 
+{{ incomplete }}
+
+#todo Write a proper tutorial for biomechanics, with examples.
+
 :::{note}
 This page is a subset from [Jay Alammar](https://jalammar.github.io/)'s excellent tutorial: *Alammar, J (2019). A Visual Intro to NumPy and Data Representation [Blog post]. Retrieved from [](https://jalammar.github.io/visual-numpy/)*
 
@@ -10,7 +14,7 @@ This work is licensed under a [Creative Commons Attribution-NonCommercial-Share
 Please credit and refer to Jay Alammar's work for all this page contents.
 :::
 
-# A Visual Intro to NumPy and Data Representation
+## A Visual Intro to NumPy and Data Representation
 
 ![](https://felixchenier.uqam.ca/wp-content/uploads/2021/02/image.png)
 
