@@ -1,4 +1,4 @@
-# Developing tutorials for future features
+# Developing tutorials
 
 #todo Introduce this section.
 

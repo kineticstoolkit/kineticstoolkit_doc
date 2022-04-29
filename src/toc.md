@@ -13,26 +13,7 @@ parts:
       - file: [](ktk_getting_started.md)
         sections:
 
-          - file: [](python.md)
-            sections:
-              - file: [](python_installing.md)
-              - file: [](python_using_spyder.md)
-              - file: [](python_simple_operations.md)
-              - file: [](python_strings.md)
-              - file: [](python_comments_and_docstrings.md)
-              - file: [](python_functions.md)
-              - file: [](python_conditions.md)
-              - file: [](python_lists.md)
-              - file: [](python_while.md)
-              - file: [](python_for.md)
-              - file: [](python_dicts.md)
-              - file: [](python_more_advanced.md)
-              - file: [](python_integration_exercises.md)
-              - file: [](python_external_tutorials.md)
-              - file: [](numpy.md)
-              - file: [](matplotlib.md)
-              - file: [](pandas.md)
-
+          - file: [](getting_started_python.md)
           - file: [](ktk_installing.md)
 
       - file: [](tutorials.md)
@@ -101,6 +82,27 @@ parts:
 
       - file: [](dev_tutorials.md)
         sections:
+
+          - file: [](python.md)
+            sections:
+              - file: [](python_installing.md)
+              - file: [](python_using_spyder.md)
+              - file: [](python_simple_operations.md)
+              - file: [](python_strings.md)
+              - file: [](python_comments_and_docstrings.md)
+              - file: [](python_functions.md)
+              - file: [](python_conditions.md)
+              - file: [](python_lists.md)
+              - file: [](python_while.md)
+              - file: [](python_for.md)
+              - file: [](python_dicts.md)
+              - file: [](python_more_advanced.md)
+              - file: [](python_integration_exercises.md)
+              - file: [](python_external_tutorials.md)
+              - file: [](numpy.md)
+              - file: [](matplotlib.md)
+              - file: [](pandas.md)
+    
           - file: [](dev_anthropometrics.md)
           - file: [](dev_inversedynamics.md)
 
