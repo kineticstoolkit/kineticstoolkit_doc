@@ -2,16 +2,16 @@
 
 ## Rule 1: Code of conduct
 
-Developing should be fun for everyone, and anybody who wants to contribute should be welcomed, guided and respected. As for any collective developement, ideas can clash, friction can happen, and compromises can or cannot be done. However, despite this possible friction, it is of the utmost importance to stay polite, inclusive and respectful.
+Please make sure to adhere to our [code of conduct](dev_code_of_conduct.md).
 
-## Rule 2: Consider writing tutorials instead of code
+## Rule 2: Consider writing documentation instead of code
 
 Before even starting to develop a new function, one should ask this important question: **Should this feature really be developed, or should I write a tutorial instead?**
 
-We remind that Kinetics Toolkit aims to provide tools for the user to achieve their needs in biomechanical research. Often, the best way to control our data is by learning how to do it instead of using a function performs it for us. In that view, any new feature should start with a discussion on a [feature request issue](https://github.com/felixchenier/kineticstoolkit/issues).
+We remind that Kinetics Toolkit aims to provide tools for the user to achieve their needs in biomechanical research. Often, the best way to control our data is by learning how to do it instead of using a function performs it for us. In that view, any new feature should start with a [discussion](https://github.com/felixchenier/kineticstoolkit/discussions).
 
-- If a new tutorial is needed, then please contribute to the [kineticstoolkit_doc](https://github.com/felixchenier/kineticstoolkit_doc) repository, that versions this website's code.
-- If a new function or module is needed, then continue with this guide.
+- To develop documentation, please contribute to the [kineticstoolkit_doc](https://github.com/felixchenier/kineticstoolkit_doc) repository, that versions this website's code.
+- Otherwise, to develop code, then continue with this guide.
 
 ## Rule 3: Life cycle of a function, from development to deprecation
 

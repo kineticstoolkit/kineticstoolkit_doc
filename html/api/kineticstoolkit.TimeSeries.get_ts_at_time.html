@@ -1,168 +1,1058 @@
 
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>kineticstoolkit.TimeSeries.get_ts_at_time &mdash; Kinetics Toolkit</title>
-      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/togglebutton.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/copybutton.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/mystnb.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/sphinx-thebe.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/stable.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/css/custom.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" type="text/css" />
-      <link rel="stylesheet" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" type="text/css" />
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/doctools.js"></script>
-        <script src="../_static/togglebutton.js"></script>
-        <script src="../_static/clipboard.min.js"></script>
-        <script src="../_static/copybutton.js"></script>
-        <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-        <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
-        <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>kineticstoolkit.TimeSeries.get_ts_at_time &#8212; Kinetics Toolkit</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/stable.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
-        <script async="async" src="../_static/sphinx-thebe.js"></script>
-        <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
-        <script>mermaid.initialize({startOnLoad:true});</script>
-    <script src="../_static/js/theme.js"></script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="kineticstoolkit.TimeSeries.get_ts_before_event" href="kineticstoolkit.TimeSeries.get_ts_before_event.html" />
     <link rel="prev" title="kineticstoolkit.TimeSeries.get_ts_at_event" href="kineticstoolkit.TimeSeries.get_ts_at_event.html" />
 
 
- 
-</head>
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search"  style="background: black" >
-            <a href="../index.html">
-            <img src="../_static/logo.png" class="logo" alt="Logo"/>
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo.png" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Manual
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ktk_getting_started.html">
+   Getting started
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../python.html">
+     Learning Python
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python_installing.html">
+       Installing Python and Spyder
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python_using_spyder.html">
+       Using Spyder
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python_simple_operations.html">
+       Simple operations
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python_strings.html">
+       Strings
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python_comments_and_docstrings.html">
+       Comments and docstrings
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python_functions.html">
+       Functions
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python_conditions.html">
+       Conditions and booleans
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python_lists.html">
+       Lists
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python_while.html">
+       Looping (while)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python_for.html">
+       Looping (for)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python_dicts.html">
+       Dicts
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python_more_advanced.html">
+       More advanced concepts
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python_integration_exercises.html">
+       Integration exercises
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../python_external_tutorials.html">
+       Links to external tutorials
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../numpy.html">
+       Numpy basics
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../matplotlib.html">
+       Matplotlib basics
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../pandas.html">
+       Pandas basics
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ktk_installing.html">
+     Installing Kinetics Toolkit
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../tutorials.html">
+   Tutorials
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../timeseries.html">
+     TimeSeries
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../timeseries_basics.html">
+       TimeSeries Basics
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../timeseries_manipulating.html">
+       Manipulating TimeSeries
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../timeseries_dataframes.html">
+       Converting between TimeSeries and Pandas DataFrames
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../loadsave.html">
+     Saving and loading
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../filters.html">
+     Filtering
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../filters_butter.html">
+       Removing frequencies using a Butterworth filter
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../filters_smooth.html">
+       Smoothing signals using a moving average
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../filters_savgol.html">
+       Smoothing and deriving using a Savitzky-Golay filter
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../filters_median.html">
+       Removing artefacts using a median filter
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../cycles.html">
+     Detecting and normalizing cycles
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../geometry.html">
+     Rigid body geometry
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+    <label for="toctree-checkbox-6">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../geometry_basics.html">
+       Basics of rigid body geometry
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../geometry_dimension_conventions.html">
+       Dimension conventions and first example
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../kinematics.html">
+     Kinematics analysis
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <label for="toctree-checkbox-7">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../kinematics_load_visualize.html">
+       Reading and visualizing marker trajectories
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../kinematics_joint_angles.html">
+       Calculating joint angles from a kinematic acquisition
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../kinematics_reconstructing_occluded_markers.html">
+       Reconstructing occluded markers
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../kinematics_reconstructing_removed_markers.html">
+       Reconstructing removed markers
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../kinematics_reconstructing_probed_points.html">
+       Reconstructing probed points
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../pushrimkinetics.html">
+     Wheelchair kinetics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ktk_conventions.html">
+     Conventions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../ktk_in_depth.html">
+   In depth
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+  <label for="toctree-checkbox-8">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ktk_lab_mode.html">
+     Lab mode
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ktk_release_notes.html">
+     Release Notes
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  API Reference
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../api_classes.html">
+   Classes
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+  <label for="toctree-checkbox-9">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="kineticstoolkit.TimeSeries.html">
+     kineticstoolkit.TimeSeries
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+    <label for="toctree-checkbox-10">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.add_data_info.html">
+       kineticstoolkit.TimeSeries.add_data_info
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.add_event.html">
+       kineticstoolkit.TimeSeries.add_event
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.copy.html">
+       kineticstoolkit.TimeSeries.copy
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.fill_missing_samples.html">
+       kineticstoolkit.TimeSeries.fill_missing_samples
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.from_dataframe.html">
+       kineticstoolkit.TimeSeries.from_dataframe
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.get_event_index.html">
+       kineticstoolkit.TimeSeries.get_event_index
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.get_event_time.html">
+       kineticstoolkit.TimeSeries.get_event_time
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.get_index_after_time.html">
+       kineticstoolkit.TimeSeries.get_index_after_time
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.get_index_at_time.html">
+       kineticstoolkit.TimeSeries.get_index_at_time
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.get_index_before_time.html">
+       kineticstoolkit.TimeSeries.get_index_before_time
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.get_subset.html">
+       kineticstoolkit.TimeSeries.get_subset
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.get_ts_after_event.html">
+       kineticstoolkit.TimeSeries.get_ts_after_event
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.get_ts_after_index.html">
+       kineticstoolkit.TimeSeries.get_ts_after_index
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.get_ts_after_time.html">
+       kineticstoolkit.TimeSeries.get_ts_after_time
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.get_ts_at_event.html">
+       kineticstoolkit.TimeSeries.get_ts_at_event
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       kineticstoolkit.TimeSeries.get_ts_at_time
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.get_ts_before_event.html">
+       kineticstoolkit.TimeSeries.get_ts_before_event
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.get_ts_before_index.html">
+       kineticstoolkit.TimeSeries.get_ts_before_index
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.get_ts_before_time.html">
+       kineticstoolkit.TimeSeries.get_ts_before_time
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.get_ts_between_events.html">
+       kineticstoolkit.TimeSeries.get_ts_between_events
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.get_ts_between_indexes.html">
+       kineticstoolkit.TimeSeries.get_ts_between_indexes
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.get_ts_between_times.html">
+       kineticstoolkit.TimeSeries.get_ts_between_times
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.isnan.html">
+       kineticstoolkit.TimeSeries.isnan
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.merge.html">
+       kineticstoolkit.TimeSeries.merge
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.plot.html">
+       kineticstoolkit.TimeSeries.plot
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.remove_data.html">
+       kineticstoolkit.TimeSeries.remove_data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.remove_data_info.html">
+       kineticstoolkit.TimeSeries.remove_data_info
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.remove_event.html">
+       kineticstoolkit.TimeSeries.remove_event
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.rename_data.html">
+       kineticstoolkit.TimeSeries.rename_data
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.rename_event.html">
+       kineticstoolkit.TimeSeries.rename_event
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.resample.html">
+       kineticstoolkit.TimeSeries.resample
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.shift.html">
+       kineticstoolkit.TimeSeries.shift
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.sort_events.html">
+       kineticstoolkit.TimeSeries.sort_events
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.sync_event.html">
+       kineticstoolkit.TimeSeries.sync_event
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.to_dataframe.html">
+       kineticstoolkit.TimeSeries.to_dataframe
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.trim_events.html">
+       kineticstoolkit.TimeSeries.trim_events
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.ui_add_event.html">
+       kineticstoolkit.TimeSeries.ui_add_event
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.ui_edit_events.html">
+       kineticstoolkit.TimeSeries.ui_edit_events
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.ui_get_ts_between_clicks.html">
+       kineticstoolkit.TimeSeries.ui_get_ts_between_clicks
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.TimeSeries.ui_sync.html">
+       kineticstoolkit.TimeSeries.ui_sync
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="kineticstoolkit.TimeSeriesEvent.html">
+     kineticstoolkit.TimeSeriesEvent
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="kineticstoolkit.Player.html">
+     kineticstoolkit.Player
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+    <label for="toctree-checkbox-11">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.Player.close.html">
+       kineticstoolkit.Player.close
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.Player.to_html5.html">
+       kineticstoolkit.Player.to_html5
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../api_functions.html">
+   Functions
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+  <label for="toctree-checkbox-12">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="kineticstoolkit.load.html">
+     kineticstoolkit.load
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="kineticstoolkit.save.html">
+     kineticstoolkit.save
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../api_modules.html">
+   Modules
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+  <label for="toctree-checkbox-13">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="kineticstoolkit.cycles.html">
+     kineticstoolkit.cycles
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+    <label for="toctree-checkbox-14">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.cycles.detect_cycles.html">
+       kineticstoolkit.cycles.detect_cycles
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.cycles.most_repeatable_cycles.html">
+       kineticstoolkit.cycles.most_repeatable_cycles
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.cycles.stack.html">
+       kineticstoolkit.cycles.stack
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.cycles.time_normalize.html">
+       kineticstoolkit.cycles.time_normalize
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.cycles.unstack.html">
+       kineticstoolkit.cycles.unstack
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="kineticstoolkit.filters.html">
+     kineticstoolkit.filters
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+    <label for="toctree-checkbox-15">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.filters.butter.html">
+       kineticstoolkit.filters.butter
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.filters.deriv.html">
+       kineticstoolkit.filters.deriv
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.filters.median.html">
+       kineticstoolkit.filters.median
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.filters.savgol.html">
+       kineticstoolkit.filters.savgol
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.filters.smooth.html">
+       kineticstoolkit.filters.smooth
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="kineticstoolkit.geometry.html">
+     kineticstoolkit.geometry
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+    <label for="toctree-checkbox-16">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.geometry.create_frames.html">
+       kineticstoolkit.geometry.create_frames
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.geometry.create_transforms.html">
+       kineticstoolkit.geometry.create_transforms
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.geometry.get_angles.html">
+       kineticstoolkit.geometry.get_angles
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.geometry.get_global_coordinates.html">
+       kineticstoolkit.geometry.get_global_coordinates
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.geometry.get_local_coordinates.html">
+       kineticstoolkit.geometry.get_local_coordinates
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.geometry.matmul.html">
+       kineticstoolkit.geometry.matmul
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.geometry.register_points.html">
+       kineticstoolkit.geometry.register_points
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="kineticstoolkit.kinematics.html">
+     kineticstoolkit.kinematics
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+    <label for="toctree-checkbox-17">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.kinematics.create_cluster.html">
+       kineticstoolkit.kinematics.create_cluster
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.kinematics.extend_cluster.html">
+       kineticstoolkit.kinematics.extend_cluster
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.kinematics.read_c3d_file.html">
+       kineticstoolkit.kinematics.read_c3d_file
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.kinematics.read_n3d_file.html">
+       kineticstoolkit.kinematics.read_n3d_file
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.kinematics.track_cluster.html">
+       kineticstoolkit.kinematics.track_cluster
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.kinematics.write_c3d_file.html">
+       kineticstoolkit.kinematics.write_c3d_file
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="kineticstoolkit.pushrimkinetics.html">
+     kineticstoolkit.pushrimkinetics
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+    <label for="toctree-checkbox-18">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.pushrimkinetics.calculate_forces_and_moments.html">
+       kineticstoolkit.pushrimkinetics.calculate_forces_and_moments
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.pushrimkinetics.calculate_power.html">
+       kineticstoolkit.pushrimkinetics.calculate_power
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.pushrimkinetics.calculate_velocity.html">
+       kineticstoolkit.pushrimkinetics.calculate_velocity
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.pushrimkinetics.read_file.html">
+       kineticstoolkit.pushrimkinetics.read_file
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kineticstoolkit.pushrimkinetics.remove_offsets.html">
+       kineticstoolkit.pushrimkinetics.remove_offsets
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="kineticstoolkit.emg.html">
+     kineticstoolkit.emg
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="kineticstoolkit.inversedynamics.html">
+     kineticstoolkit.inversedynamics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="kineticstoolkit.anthropometrics.html">
+     kineticstoolkit.anthropometrics
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p aria-level="2" class="caption" role="heading">
+ <span class="caption-text">
+  Contributing
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../ktk_citing.html">
+   Citing
+  </a>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../dev_contributing.html">
+   How to contribute
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+  <label for="toctree-checkbox-19">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dev_rules.html">
+     Development rules
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dev_code_of_conduct.html">
+     Code of conduct
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dev_installing_from_github.html">
+     Installing from GitHub
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dev_coding_style.html">
+     Coding style
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../dev_tutorials.html">
+   Developing tutorials for future features
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
+  <label for="toctree-checkbox-20">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dev_anthropometrics.html">
+     Anthropometrics
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../dev_inversedynamics.html">
+     Inverse Dynamics
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">
+   GitHub repository
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Manual</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../ktk_getting_started.html">Getting started</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../tutorials.html">Tutorials</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../ktk_in_depth.html">In depth</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">API Reference</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="../api_classes.html">Classes</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="kineticstoolkit.TimeSeries.html">kineticstoolkit.TimeSeries</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.add_data_info.html">kineticstoolkit.TimeSeries.add_data_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.add_event.html">kineticstoolkit.TimeSeries.add_event</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.copy.html">kineticstoolkit.TimeSeries.copy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.fill_missing_samples.html">kineticstoolkit.TimeSeries.fill_missing_samples</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.from_dataframe.html">kineticstoolkit.TimeSeries.from_dataframe</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.get_event_index.html">kineticstoolkit.TimeSeries.get_event_index</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.get_event_time.html">kineticstoolkit.TimeSeries.get_event_time</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.get_index_after_time.html">kineticstoolkit.TimeSeries.get_index_after_time</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.get_index_at_time.html">kineticstoolkit.TimeSeries.get_index_at_time</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.get_index_before_time.html">kineticstoolkit.TimeSeries.get_index_before_time</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.get_subset.html">kineticstoolkit.TimeSeries.get_subset</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.get_ts_after_event.html">kineticstoolkit.TimeSeries.get_ts_after_event</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.get_ts_after_index.html">kineticstoolkit.TimeSeries.get_ts_after_index</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.get_ts_after_time.html">kineticstoolkit.TimeSeries.get_ts_after_time</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.get_ts_at_event.html">kineticstoolkit.TimeSeries.get_ts_at_event</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">kineticstoolkit.TimeSeries.get_ts_at_time</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.get_ts_before_event.html">kineticstoolkit.TimeSeries.get_ts_before_event</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.get_ts_before_index.html">kineticstoolkit.TimeSeries.get_ts_before_index</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.get_ts_before_time.html">kineticstoolkit.TimeSeries.get_ts_before_time</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.get_ts_between_events.html">kineticstoolkit.TimeSeries.get_ts_between_events</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.get_ts_between_indexes.html">kineticstoolkit.TimeSeries.get_ts_between_indexes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.get_ts_between_times.html">kineticstoolkit.TimeSeries.get_ts_between_times</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.isnan.html">kineticstoolkit.TimeSeries.isnan</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.merge.html">kineticstoolkit.TimeSeries.merge</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.plot.html">kineticstoolkit.TimeSeries.plot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.remove_data.html">kineticstoolkit.TimeSeries.remove_data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.remove_data_info.html">kineticstoolkit.TimeSeries.remove_data_info</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.remove_event.html">kineticstoolkit.TimeSeries.remove_event</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.rename_data.html">kineticstoolkit.TimeSeries.rename_data</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.rename_event.html">kineticstoolkit.TimeSeries.rename_event</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.resample.html">kineticstoolkit.TimeSeries.resample</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.shift.html">kineticstoolkit.TimeSeries.shift</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.sort_events.html">kineticstoolkit.TimeSeries.sort_events</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.sync_event.html">kineticstoolkit.TimeSeries.sync_event</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.to_dataframe.html">kineticstoolkit.TimeSeries.to_dataframe</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.trim_events.html">kineticstoolkit.TimeSeries.trim_events</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.ui_add_event.html">kineticstoolkit.TimeSeries.ui_add_event</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.ui_edit_events.html">kineticstoolkit.TimeSeries.ui_edit_events</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.ui_get_ts_between_clicks.html">kineticstoolkit.TimeSeries.ui_get_ts_between_clicks</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kineticstoolkit.TimeSeries.ui_sync.html">kineticstoolkit.TimeSeries.ui_sync</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="kineticstoolkit.TimeSeriesEvent.html">kineticstoolkit.TimeSeriesEvent</a></li>
-<li class="toctree-l2"><a class="reference internal" href="kineticstoolkit.Player.html">kineticstoolkit.Player</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../api_functions.html">Functions</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_modules.html">Modules</a></li>
-</ul>
-<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../ktk_citing.html">Citing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev_contributing.html">How to contribute</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../dev_tutorials.html">Developing tutorials for future features</a></li>
-<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub repository</a></li>
-</ul>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/api/kineticstoolkit.TimeSeries.get_ts_at_time.rst"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.rst</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
 
         </div>
-      </div>
-    </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: black" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Python</a>
-      </nav>
-
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-          <li><a href="../api_classes.html">Classes</a> &raquo;</li>
-          <li><a href="kineticstoolkit.TimeSeries.html">kineticstoolkit.TimeSeries</a> &raquo;</li>
-      <li>kineticstoolkit.TimeSeries.get_ts_at_time</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/api/kineticstoolkit.TimeSeries.get_ts_at_time.rst" rel="nofollow"> View page source</a>
-      </li>
-  </ul><div class="rst-breadcrumbs-buttons" role="navigation" aria-label="Sequential page navigation">
-        <a href="kineticstoolkit.TimeSeries.get_ts_at_event.html" class="btn btn-neutral float-left" title="kineticstoolkit.TimeSeries.get_ts_at_event" accesskey="p"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="kineticstoolkit.TimeSeries.get_ts_before_event.html" class="btn btn-neutral float-right" title="kineticstoolkit.TimeSeries.get_ts_before_event" accesskey="n">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-  </div>
-  <hr/>
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+        </div>
+    </div>
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>kineticstoolkit.TimeSeries.get_ts_at_time</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
   <div class="section" id="kineticstoolkit-timeseries-get-ts-at-time">
-<h1>kineticstoolkit.TimeSeries.get_ts_at_time<a class="headerlink" href="#kineticstoolkit-timeseries-get-ts-at-time" title="Permalink to this headline"></a></h1>
+<h1>kineticstoolkit.TimeSeries.get_ts_at_time<a class="headerlink" href="#kineticstoolkit-timeseries-get-ts-at-time" title="Permalink to this headline">¶</a></h1>
 <dl class="py method">
 <dt class="sig sig-object py" id="kineticstoolkit.TimeSeries.get_ts_at_time">
-<span class="sig-prename descclassname"><span class="pre">TimeSeries.</span></span><span class="sig-name descname"><span class="pre">get_ts_at_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kineticstoolkit/timeseries.html#TimeSeries.get_ts_at_time"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kineticstoolkit.TimeSeries.get_ts_at_time" title="Permalink to this definition"></a></dt>
+<span class="sig-prename descclassname"><span class="pre">TimeSeries.</span></span><span class="sig-name descname"><span class="pre">get_ts_at_time</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kineticstoolkit/timeseries.html#TimeSeries.get_ts_at_time"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#kineticstoolkit.TimeSeries.get_ts_at_time" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get a one-data subset of the TimeSeries at the nearest time.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -218,34 +1108,44 @@ time.</p>
     </script>
     <script>kernelName = 'python3'</script>
 
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="kineticstoolkit.TimeSeries.get_ts_at_event.html" class="btn btn-neutral float-left" title="kineticstoolkit.TimeSeries.get_ts_at_event" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="kineticstoolkit.TimeSeries.get_ts_before_event.html" class="btn btn-neutral float-right" title="kineticstoolkit.TimeSeries.get_ts_before_event" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2021.</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="kineticstoolkit.TimeSeries.get_ts_at_event.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">kineticstoolkit.TimeSeries.get_ts_at_event</p>
         </div>
-      </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+    </a>
+    <a class='right-next' id="next-link" href="kineticstoolkit.TimeSeries.get_ts_before_event.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">kineticstoolkit.TimeSeries.get_ts_before_event</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By Félix Chénier<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
 
-</body>
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
 </html>

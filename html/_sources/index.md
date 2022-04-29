@@ -1,16 +1,21 @@
 # Kinetics Toolkit
 
-*An Open-Source Python Package to Facilitate Research in Biomechanics*
+```{margin}
+<a class="twitter-timeline" data-dnt="true" href="https://twitter.com/KineticsToolkit?ref_src=twsrc%5Etfw">Tweets by KineticsToolkit</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<a href="https://twitter.com/kineticstoolkit?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-dnt="true" data-show-count="false">Follow @kineticstoolkit</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<a href="https://twitter.com/intent/tweet?screen_name=kineticstoolkit&ref_src=twsrc%5Etfw" class="twitter-mention-button" data-dnt="true" data-show-count="false">Tweet to @kineticstoolkit</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+```
+
+*Open-source package and resources to learn biomechanical data processing using Python*
 
 [![JOSS](https://joss.theoj.org/papers/10.21105/joss.03714/status.svg)](https://doi.org/10.21105/joss.03714)
 [![Anaconda](https://anaconda.org/conda-forge/kineticstoolkit/badges/version.svg)](https://anaconda.org/conda-forge/kineticstoolkit)
 [![Latest release](https://anaconda.org/conda-forge/kineticstoolkit/badges/latest_release_date.svg)](https://anaconda.org/conda-forge/kineticstoolkit)
 
 ---
-
-```{admonition} dev note
-You are currently on Kinetics Toolkit's development website. This website may refer to unreleased and unstable material.
-```
 
 [Kinetics Toolkit (ktk)](https://kineticstoolkit.uqam.ca) is:
 

@@ -1,24 +1,31 @@
 # How to contribute
 
-We remind the objectives of the project:
+There is no need to be a developer to contribute to this project. Here are some ways to help:
 
-- Building an intuitive and elegant Python package that leverages the power of biomechanical analysis to people who are not formed in programming or engineering;
+## As a user (or potential user)
 
-- Building a strong documentation around this package to:
-    - Teach python basics for biomechanical research;
-    - Teach or remind the basic principles of biomechanics;
-    - Explain how Kinetics Toolkit implements these principles; 
+- [Install Kinetics Toolkit](ktk_installing.md), browse the [documentation](https://kineticstoolkit.uqam.ca), try it and check how it fits your workflow;
+- Talk about it in your networks;
+- Share your success, make suggestions, propose ideas, etc.:
+    - on the [discussions forum](https://github.com/felixchenier/kineticstoolkit/discussions)
+    - on [Twitter](https://twitter.com/intent/tweet?screen_name=kineticstoolkit&ref_src=twsrc%5Etfw)
+- Report bugs on the [issue tracker](https://github.com/felixchenier/kineticstoolkit/issues);
+- Consider [citing it](ktk_citing.md) in your work;
+- Follow [@kineticstoolkit](https://twitter.com/kineticstoolkit?ref_src=twsrc%5Etfw) on Twitter to stay informed.
 
-At the moment, I think Kinetics Toolkit has made a moderate way into its first objective. There is however still much to do. If you find this long-term project appealing and want to contribute, here are different ways to help:
+The more users, the more we will have a clear understanding of the users' needs.
 
-- Try it and tell me your thoughts and ideas on the interface, features and documentation;
-- Test it and report bugs;
-- Communicate with me to help with documentation;
-- Extend it to develop missing functionality and share the results;
-- Citing it in your work;
-- Possibly many other ways to help.
+## As an instructor
 
-A good start would be to clone and start playing with the master branch on [GitHub](https://github.com/felixchenier/kineticstoolkit).
+- Browse the [documentation](https://kineticstoolkit.uqam.ca);
+- Make suggestions and propose ideas on the documentation, on the [discussions forum](https://github.com/felixchenier/kineticstoolkit/discussions).
+- If you can and want to contribute directly to the website, fork the [documentation repository](https://github.com/felixchenier/kineticstoolkit_doc), correct typos, grammar, add text, screenshots, etc., then PR to rebuild and update the website.
+
+## As a developer
+
+- [Clone the latest master branch](dev_installing_from_github.md) and start playing with the unstable stuff;
+- Make suggestions for improvements, new features, etc. on the [discussions forum](https://github.com/felixchenier/kineticstoolkit/discussions);
+- Develop new code or improve the existing one, after [reading how to contribute code](dev_rules.md).
 
 The following sections are resources to help helping:
 

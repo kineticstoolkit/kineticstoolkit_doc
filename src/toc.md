@@ -95,6 +95,7 @@ parts:
       - file: [](dev_contributing.md)
         sections:
           - file: [](dev_rules.md)
+          - file: [](dev_code_of_conduct.md)
           - file: [](dev_installing_from_github.md)
           - file: [](dev_coding_style.md)
 
