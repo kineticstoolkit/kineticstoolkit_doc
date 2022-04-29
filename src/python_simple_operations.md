@@ -108,7 +108,7 @@ print(a, type(a))
 
 :::{note}
 Keep your exercices, since they will be continuously reused in the following exercices.
-"""
+:::
 
 ### Speed calculation
 
