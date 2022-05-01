@@ -33,10 +33,6 @@ In the figure above, Section B is the script editor. This is where you will be w
 ![](_static/images/spyder_run_toolbar.png)
 ![](_static/images/spyder_run_toolbar_mac.png)
 
-:::{margin} #todo
-Create an exercise admonition CSS.
-:::
-
 :::{admonition} Exercise
 Create a file named `hello_world.py` that prints "Hello World", and run it using the `Run File` button.
 :::
@@ -50,7 +46,7 @@ When scripts start to be long, it can be practical to run only one section of th
 #%%
 ```
 
-:::{admonition} Best practice
+:::{admonition} Good practice
 You can name cells by adding a title next to the separator. This is generally a good idea to keep control of your growing script.
 ```
 #%% Load results from previous acquisition
@@ -63,10 +59,6 @@ You can name cells by adding a title next to the separator. This is generally a 
 
 ```
 :::
-
-```{margin} #todo 
-Create a CSS for best-practice admonition.
-```
 
 You can execute a cell by placing the cursor in that cell, then by clicking on the `Run current cell` (middle button) or `Run current cell and go to the next one` (right button) in the following toolbar:
 
@@ -87,4 +79,8 @@ The corresponding module must be loaded before. We will see later the concept of
 import numpy as np
 ```
 in the console before entering `np.mean` in the help browser.
+:::
+
+:::{margin} #todo 
+Add references for navigating in Spyder
 :::

@@ -1,6 +1,8 @@
 # Tutorials
 
-#todo Introducing the tutorials
+:::{margin} #todo
+Introducing the tutorials
+:::
 
 ```{tableofcontents}
 ```

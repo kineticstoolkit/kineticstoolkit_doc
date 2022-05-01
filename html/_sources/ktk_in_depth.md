@@ -2,8 +2,13 @@
 
 {{ incomplete }}
 
-- #todo Check the relevance of this section
-- #todo Introduce this section
+:::{margin} #todo
+Check the relevance of this section
+:::
+
+:::{margin} #todo
+Introduce this section
+:::
 
 ```{tableofcontents}
 ```

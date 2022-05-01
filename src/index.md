@@ -36,6 +36,6 @@ This is a work in progress, but the underlying Python package is well advanced a
 
 ---
 
-[![](_build/html/_static/images/logo_crir.jpg)](https://crir.ca)
+[![](_static/images/logo_crir.jpg)](https://crir.ca)
 
 :::

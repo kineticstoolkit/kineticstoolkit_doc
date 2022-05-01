@@ -23,7 +23,7 @@ print(4 + 3)
 print(4 - 3)
 ```
 
-:::{tip} Good practice
+:::{admonition} Good practice
 Put spaces between operators (PEP8)
 :::
 
@@ -112,7 +112,9 @@ Keep your exercices, since they will be continuously reused in the following exe
 
 ### Speed calculation
 
-#todo Use realistic values
+:::{margin} #todo
+Use realistic values
+:::
 
 Given the following variables:
   - time_gate1 = 0.0
@@ -121,4 +123,6 @@ Given the following variables:
 
 Write a program that prints the mean velocity of the sprinter between gates 1 and 2.
 
-#todo Make a foldable block with answers.
+:::{margin} #todo
+Make a foldable block with answers.
+:::
