@@ -15,7 +15,7 @@ kernelspec:
 
 In the previous tutorial, we learned how to reconstructed "virtual" markers that are not physically attached to a bony landmark, but that were during a previous acquisition. Sometimes, it is completely impossible to affix a marker on a landmark, for example if the landmark is obstructed with clothes or other objects. In these situation, it may be possible to use a digitizing probe (image below, from optitrack.com) to point landmarks during short acquisitions of a few seconds, and use these probed points to reconstruct the landmarks trajectory during other acquisitions.
 
-![Digitizing probe -height:short](_static/probe-kit.png)
+![Digitizing probe -height:short](_static/images/probe-kit.png)
 
 The whole process is a bit more complex than in the previous tutorials, but the tools provided by Kinetics Toolkit will help. The following example represents such a situation, where the following acquisitions were performed:
 - With a rigid body of three markers affixed to the right arm, an acquisition of a few seconds was recorded while another person touched the medial elbow epicondyle with the tip of the probe. Both were barely moving.

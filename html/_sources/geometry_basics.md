@@ -15,7 +15,7 @@ This tutorial is an introduction or reminder of the basic elements of rigid body
 
 While these notions largely come from the robotics field, they will be approached in the scope of rigid body biomechanics. As such, we will use the posture in Figure 1 all through the tutorial as an example for every introduced notion. To facilitate the comprehension, this is a bidimensional example; however, we will treat it as conventional 3D problem, with all z coordinates being set to zero.
 
-![humerus_intro -height:short](_static/geometry/humerus_intro.png)
+![humerus_intro -height:short](_static/images/humerus_intro.png)
 
 Figure 1. The posture used as an example in this tutorial.
 
@@ -40,7 +40,7 @@ In newton dynamics and at the human scale, it is totally acceptable to define a 
 
 This coordinate system is completely arbitrary: any other origin or set of orthonormal axes would still be perfectly valid. This is the one we chose here, and the one every global coordinate will refer to.
 
-![humerus_intro -height:normal](_static/geometry/humerus_global_coordinates.png)
+![humerus_intro -height:normal](_static/images/humerus_global_coordinates.png)
 
 Figure 2. A global coordinate system
 
@@ -100,13 +100,13 @@ To create such a coordinate system, we need to define where is the origin and or
 - Its y axis is aligned with the humerus, pointing upward;
 - Its z axis points to the right.
 
-![humerus_coordinate_system -height:normal](_static/geometry/humerus_coordinate_system.png)
+![humerus_coordinate_system -height:normal](_static/images/humerus_coordinate_system.png)
 
 Figure 3. Local coordinate system of the humerus.
 
 Now that we defined this local coordinate system, we can come back to the position of interest of Figure 1. Look in Figure 4 how the humerus coordinate system is attached to the humerus and thus moves with it.
 
-![humerus_frame -height:normal](_static/geometry/humerus_frame.png)
+![humerus_frame -height:normal](_static/images/humerus_frame.png)
 
 Figure 4. Expressing the position and orientation of the humerus.
 
@@ -126,7 +126,7 @@ $$
 
 The three first columns of a frame express the frame orientation. They express, in the reference coordinate system, the coordinates of three vectors of length 1 that are respectively oriented toward the x, y and z axes of the local coordinate system. Figure 5 illustrates this concept by showing the difference of orientation between the global and the humerus coordinate systems.
 
-![humerus_orientation -height:normal](_static/geometry/humerus_orientation.png)
+![humerus_orientation -height:normal](_static/images/humerus_orientation.png)
 
 Figure 5. Orientation of the humerus coordinate system.
 

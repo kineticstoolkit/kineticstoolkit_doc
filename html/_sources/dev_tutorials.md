@@ -1,6 +1,8 @@
 # Developing tutorials
 
-#todo Introduce this section.
+:::{margin} #todo
+Introduce this section.
+:::
 
 ```{tableofcontents}
 ```

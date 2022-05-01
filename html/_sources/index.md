@@ -24,3 +24,18 @@ This is a work in progress, but the underlying Python package is well advanced a
 
 
 ![GIF Animation](https://felixchenier.uqam.ca/wp-content/uploads/2020/05/Sample_ktk.Player_Wheelchair.gif)
+
+
+:::{panels}
+:column: col-3
+[![](_static/images/logo_mosa.png)](https://felixchenier.uqam.ca)
+
+---
+
+[![](_static/images/logo_uqam.png)](https://uqam.ca)
+
+---
+
+[![](_build/html/_static/images/logo_crir.jpg)](https://crir.ca)
+
+:::

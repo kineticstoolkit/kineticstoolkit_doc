@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Installing Python and Spyder &#8212; Kinetics Toolkit</title>
+    <title>Installing Python and important scientific packages &#8212; Kinetics Toolkit</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,6 +53,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
+    <link rel="canonical" href="https://kineticstoolkit.uqam.ca/doc/python_installing.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Using Spyder" href="python_using_spyder.html" />
@@ -867,7 +868,7 @@ const thebe_selector_output = ".output, .cell_output"
     <ul class="current">
      <li class="toctree-l3 current active">
       <a class="current reference internal" href="#">
-       Installing Python and Spyder
+       Installing Python and important scientific packages
       </a>
      </li>
      <li class="toctree-l3">
@@ -1060,7 +1061,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Installing Python and Spyder</h1>
+                <h1>Installing Python and important scientific packages</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -1089,10 +1090,10 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="installing-python-and-spyder">
-<h1>Installing Python and Spyder<a class="headerlink" href="#installing-python-and-spyder" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="installing-python-and-important-scientific-packages">
+<h1>Installing Python and important scientific packages<a class="headerlink" href="#installing-python-and-important-scientific-packages" title="Permalink to this headline">¶</a></h1>
 <p>There exist numerous ways to install Python. To start without installing anything, you could use this <a class="reference external" href="https://repl.it/languages/Python3">online virtual environment</a> where you can write python commands and see their direct effect.</p>
-<p>At one point, you will need to install Python and its scientific environment on your computer. In our lab, we mainly use the Spyder integrated development environment (IDE), in a conda environment. This is what we suggest in this guide:</p>
+<p>At one point, you will need to install Python and its scientific environment on your computer. In our lab, we mainly use the <a class="reference external" href="https://spyder-ide.org">Spyder integrated development environment</a>, in a conda environment. This is what we suggest in this guide.</p>
 <div class="section" id="installing-a-conda-distribution">
 <h2>Installing a conda distribution<a class="headerlink" href="#installing-a-conda-distribution" title="Permalink to this headline">¶</a></h2>
 <p>Download and install Anaconda or <a class="reference external" href="https://docs.conda.io/en/latest/miniconda.html">Miniconda</a>.</p>
@@ -1100,10 +1101,13 @@ const thebe_selector_output = ".output, .cell_output"
 <div class="section" id="creating-a-virtual-environment">
 <h2>Creating a virtual environment<a class="headerlink" href="#creating-a-virtual-environment" title="Permalink to this headline">¶</a></h2>
 <p>It is recommended to create a separate environment, so that if you mess up at some point (we all do), you can just delete and recreate your environment. Open an Anaconda Prompt (on Windows) or a terminal (on macOS and Linux) and type these commands one by one.</p>
-<p>This will create a conda environment with the basic requirements to get started in scientific python.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">ktk</span>
-<span class="n">conda</span> <span class="n">activate</span> <span class="n">ktk</span>
-<span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.8</span> <span class="n">numpy</span> <span class="n">matplotlib</span> <span class="n">scipy</span> <span class="n">spyder</span>
+<p>This will create a conda environment with the basic requirements to get started in scientific python, including <a class="reference external" href="https://numpy.org/">Numpy</a>, <a class="reference external" href="https://matplotlib.org/">Matplotlib</a> and <a class="reference external" href="https://pandas.pydata.org/">Pandas</a>.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">ktk</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">python</span><span class="o">=</span><span class="mf">3.8</span> <span class="n">spyder</span> <span class="n">kineticstoolkit</span>
+</pre></div>
+</div>
+<p>To launch Spyder, you can select the Spyder icon on Windows, or enter a terminal on Mac and enter these commands:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">activate</span> <span class="n">ktk</span>
+<span class="n">spyder</span>
 </pre></div>
 </div>
 </div>
@@ -1157,7 +1161,7 @@ const thebe_selector_output = ".output, .cell_output"
     
       By Félix Chénier<br/>
     
-        &copy; Copyright 2021.<br/>
+        &copy; Copyright 2020-2022.<br/>
   </p>
 </footer>
 </main>

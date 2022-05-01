@@ -23,7 +23,7 @@ print(4 + 3)
 print(4 - 3)
 ```
 
-:::{admonition} Good practice
+:::{tip} Good practice
 Put spaces between operators (PEP8)
 :::
 
