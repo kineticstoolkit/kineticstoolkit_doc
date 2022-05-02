@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Simple operations &#8212; Kinetics Toolkit</title>
+    <title>Arithmetics and variables &#8212; Kinetics Toolkit</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,10 +53,10 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
-    <link rel="canonical" href="https://kineticstoolkit.uqam.ca/doc/python_simple_operations.html" />
+    <link rel="canonical" href="https://kineticstoolkit.uqam.ca/doc/python_arithmetics_and_variables.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Strings" href="python_strings.html" />
+    <link rel="next" title="Numbers" href="python_numbers.html" />
     <link rel="prev" title="Getting started with Spyder" href="python_using_spyder.html" />
 
 
@@ -878,7 +878,12 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3 current active">
       <a class="current reference internal" href="#">
-       Simple operations
+       Arithmetics and variables
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_numbers.html">
+       Numbers
       </a>
      </li>
      <li class="toctree-l3">
@@ -1011,7 +1016,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/python_simple_operations.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/python_arithmetics_and_variables.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -1042,46 +1047,19 @@ const thebe_selector_output = ".output, .cell_output"
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#addition-subtraction">
-   Addition, subtraction
+  <a class="reference internal nav-link" href="#arithmetic-operations">
+   Arithmetic operations
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#using-variables">
-   Using variables
+  <a class="reference internal nav-link" href="#variables">
+   Variables
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#numbers-int-float">
-   Numbers: int, float
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#inputing-variables">
-   Inputing variables
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#multiplication-division">
-   Multiplication, division
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exponentiation-and-root">
-   Exponentiation and root
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#integration-exercise">
-   Integration exercise
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#speed-calculation">
-     Speed calculation
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -1093,7 +1071,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Simple operations</h1>
+                <h1>Arithmetics and variables</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -1104,46 +1082,19 @@ const thebe_selector_output = ".output, .cell_output"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#addition-subtraction">
-   Addition, subtraction
+  <a class="reference internal nav-link" href="#arithmetic-operations">
+   Arithmetic operations
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#using-variables">
-   Using variables
+  <a class="reference internal nav-link" href="#variables">
+   Variables
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#numbers-int-float">
-   Numbers: int, float
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#inputing-variables">
-   Inputing variables
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#multiplication-division">
-   Multiplication, division
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exponentiation-and-root">
-   Exponentiation and root
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#integration-exercise">
-   Integration exercise
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#speed-calculation">
-     Speed calculation
-    </a>
-   </li>
-  </ul>
  </li>
 </ul>
 
@@ -1154,14 +1105,11 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="simple-operations">
-<h1>Simple operations<a class="headerlink" href="#simple-operations" title="Permalink to this headline">¶</a></h1>
-<div class="admonition-stub admonition">
-<p class="admonition-title">Section in development</p>
-<p>This section is still only a stub. Please feel free to <a class="reference internal" href="dev_contributing.html"><span class="doc std std-doc">contribute</span></a>.</p>
-</div>
-<div class="section" id="addition-subtraction">
-<h2>Addition, subtraction<a class="headerlink" href="#addition-subtraction" title="Permalink to this headline">¶</a></h2>
+  <div class="tex2jax_ignore mathjax_ignore section" id="arithmetics-and-variables">
+<h1>Arithmetics and variables<a class="headerlink" href="#arithmetics-and-variables" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="arithmetic-operations">
+<h2>Arithmetic operations<a class="headerlink" href="#arithmetic-operations" title="Permalink to this headline">¶</a></h2>
+<p>Any arithmetical operation is performed simply by writing its equation. For example, the most usual arithmetic operators are <code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code> and <code class="docutils literal notranslate"><span class="pre">/</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">4</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span>
@@ -1186,18 +1134,70 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">4</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">4</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.3333333333333333
+</pre></div>
+</div>
+</div>
+</div>
 <div class="admonition-good-practice admonition">
 <p class="admonition-title">Good practice</p>
-<p>Put spaces between operators (PEP8)</p>
+<p>For readability, it is a good practice to put spaces between the operators. To illustrate this practice, look how</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="p">((</span><span class="mi">4</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>is easier to decipher than</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="p">((</span><span class="mi">4</span><span class="o">+</span><span class="mi">2</span><span class="p">)</span><span class="o">/</span><span class="mi">3</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>This is however only a style convention, it is highly subjective, and both forms work equally. This convention is part of <a class="reference external" href="https://pep8.org/">PEP8 - the Style Guide for Python Code</a>. As PEP8 is followed by many Python projects and programmers, it may be useful to have a look at this document if you want to collaborate with other Python programmers in the future. Using a similar and popular convention always helps in collaborating.</p>
 </div>
 </div>
-<div class="section" id="using-variables">
-<h2>Using variables<a class="headerlink" href="#using-variables" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<p>A fundamental concept in programming is the variable. A variable is some space in memory that can store a value. In Python, there is no need to declare or allocate variables. All you have to do to define a variable is to assign it a value using the <code class="docutils literal notranslate"><span class="pre">=</span></code> operator. For example, we could have two variables, <code class="docutils literal notranslate"><span class="pre">a</span></code> and <code class="docutils literal notranslate"><span class="pre">b</span></code>, that both store a different number:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">4</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, we can refer to the value of a variable simply by referring to the variable name:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1207,6 +1207,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
+<p>We can even assign the result of an operation to a new variable:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
@@ -1220,6 +1221,7 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
+<p>Keep in mind that in the last example, we did not tell to Python that <code class="docutils literal notranslate"><span class="pre">c</span></code> must always be equal to <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code>. This is not how a sequential programming language such as Python works. Instead, we told Python, at this instant, to calculate the result of <code class="docutils literal notranslate"><span class="pre">a</span> <span class="pre">+</span> <span class="pre">b</span></code> and to store it in a new variable <code class="docutils literal notranslate"><span class="pre">c</span></code>. The sequential nature of Python (and many other languages) is illustrated with this example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">c</span> <span class="o">+</span> <span class="mi">1</span>
@@ -1233,128 +1235,67 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
+<p>As with the previous example, we told Python to calculate the result of <code class="docutils literal notranslate"><span class="pre">c</span> <span class="pre">+</span> <span class="pre">1</span></code> and to store it in the variable <code class="docutils literal notranslate"><span class="pre">c</span></code>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Python is case-sensitive. This means that <code class="docutils literal notranslate"><span class="pre">a</span></code> is not the same thing as <code class="docutils literal notranslate"><span class="pre">A</span></code>. Similarly,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">Print</span><span class="p">(</span><span class="s2">&quot;Hello world&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">PRINT</span><span class="p">(</span><span class="s2">&quot;Hello world&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>would result in an error because neither <code class="docutils literal notranslate"><span class="pre">Print</span></code> or <code class="docutils literal notranslate"><span class="pre">PRINT</span></code> exists. However,</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello world&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>works.</p>
+</div>
+</div>
+<div class="section" id="exercise">
+<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
+<div class="admonition-exercise admonition">
+<p class="admonition-title">Exercise</p>
+<p>A sprinter runs through two timing gates spaced by 50 m. Each timing gate records the time (in seconds) at which the sprinter pass through it.</p>
+<p><img alt="exercices_illustration -width:normal" src="_images/exercise_timing_gates.png" /></p>
+<p>Given the following program:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">time_gate1</span> <span class="o">=</span> <span class="mf">1.3</span>
+<span class="n">time_gate2</span> <span class="o">=</span> <span class="mf">6.7</span>
+<span class="n">distance_gates12</span> <span class="o">=</span> <span class="mf">50.0</span>
+</pre></div>
+</div>
+<p>Continue this program so that it prints the mean velocity of the sprinter between gates 1 and 2. You can then show a suggested answer by clicking on the plus sign below.</p>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_gate1</span> <span class="o">=</span> <span class="mf">1.3</span>
+<span class="n">time_gate2</span> <span class="o">=</span> <span class="mf">6.7</span>
+<span class="n">distance_gates12</span> <span class="o">=</span> <span class="mf">50.0</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">distance_gates12</span> <span class="o">/</span> <span class="p">(</span><span class="n">time_gate2</span> <span class="o">-</span> <span class="n">time_gate1</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.25925925925926
+</pre></div>
+</div>
+</div>
+</div>
 <div class="admonition-good-practice admonition">
 <p class="admonition-title">Good practice</p>
-<p>Use clear names for variables (PEP8) (distance, duration, speed).</p>
-</div>
-<div class="admonition-good-practice admonition">
-<p class="admonition-title">Good practice</p>
-<p>Use lowercase and underscores for variable names (PEP8).</p>
-</div>
-</div>
-<div class="section" id="numbers-int-float">
-<h2>Numbers: int, float<a class="headerlink" href="#numbers-int-float" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+<p>It is generally a good idea to use names rather than letters for variables. For example, this code:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">velocity</span> <span class="o">=</span> <span class="n">distance</span> <span class="o">/</span> <span class="n">duration</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">velocity</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
-&lt;class &#39;int&#39;&gt;
+<p>is clearer than:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="n">d</span> <span class="o">/</span> <span class="n">t</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
 </pre></div>
 </div>
-</div>
-</div>
-<p>Note that the <code class="docutils literal notranslate"><span class="pre">print</span></code> function can take several inputs:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">;</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">;</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1 &lt;class &#39;int&#39;&gt;
-0.5 &lt;class &#39;float&#39;&gt;
-1.0 &lt;class &#39;float&#39;&gt;
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="inputing-variables">
-<h2>Inputing variables<a class="headerlink" href="#inputing-variables" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span>
-<span class="n">a</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter a number: &quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>We already saw a string in the Hello World example, we will see it in more details in the <a class="reference internal" href="python_strings.html"><span class="doc std std-doc">python_strings</span></a> section.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&quot;Enter a number: &quot;</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="multiplication-division">
-<h2>Multiplication, division<a class="headerlink" href="#multiplication-division" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">*</span> <span class="mi">3</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
-
-<span class="n">a</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">/</span> <span class="mi">3</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
-
-<span class="n">a</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">+</span> <span class="mi">3</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>12 &lt;class &#39;int&#39;&gt;
-1.3333333333333333 &lt;class &#39;float&#39;&gt;
-7 &lt;class &#39;int&#39;&gt;
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="exponentiation-and-root">
-<h2>Exponentiation and root<a class="headerlink" href="#exponentiation-and-root" title="Permalink to this headline">¶</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">**</span> <span class="mi">2</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
-
-<span class="n">a</span> <span class="o">=</span> <span class="mi">4</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>16 &lt;class &#39;int&#39;&gt;
-2.0 &lt;class &#39;float&#39;&gt;
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-<div class="section" id="integration-exercise">
-<h2>Integration exercise<a class="headerlink" href="#integration-exercise" title="Permalink to this headline">¶</a></h2>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Keep your exercices, since they will be continuously reused in the following exercices.</p>
-</div>
-<div class="section" id="speed-calculation">
-<h3>Speed calculation<a class="headerlink" href="#speed-calculation" title="Permalink to this headline">¶</a></h3>
-<div class="margin sidebar">
-<p class="sidebar-title">#todo</p>
-<p>Use realistic values</p>
-</div>
-<p>Given the following variables:</p>
-<ul class="simple">
-<li><p>time_gate1 = 0.0</p></li>
-<li><p>time_gate2 = 5.4</p></li>
-<li><p>distance_gates12 = 50.0</p></li>
-</ul>
-<p>Write a program that prints the mean velocity of the sprinter between gates 1 and 2.</p>
-<div class="margin sidebar">
-<p class="sidebar-title">#todo</p>
-<p>Make a foldable block with answers.</p>
-</div>
+<p>In addition, the <a class="reference external" href="https://pep8.org/">PEP8</a> recommends to use all lower case for variables, and to generally separate multiple words by underscores (<code class="docutils literal notranslate"><span class="pre">_</span></code>), e.g., <code class="docutils literal notranslate"><span class="pre">power</span></code>, <code class="docutils literal notranslate"><span class="pre">mean_power</span></code>, <code class="docutils literal notranslate"><span class="pre">peak_power</span></code>.</p>
 </div>
 </div>
 </div>
@@ -1391,10 +1332,10 @@ const thebe_selector_output = ".output, .cell_output"
             <p class="prev-next-title">Getting started with Spyder</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="python_strings.html" title="next page">
+    <a class='right-next' id="next-link" href="python_numbers.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Strings</p>
+        <p class="prev-next-title">Numbers</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

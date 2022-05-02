@@ -87,7 +87,8 @@ parts:
             sections:
               - file: [](python_installing.md)
               - file: [](python_using_spyder.md)
-              - file: [](python_simple_operations.md)
+              - file: [](python_arithmetics_and_variables.md)
+              - file: [](python_numbers.md)
               - file: [](python_strings.md)
               - file: [](python_comments_and_docstrings.md)
               - file: [](python_functions.md)

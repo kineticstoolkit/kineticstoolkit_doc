@@ -25,6 +25,7 @@ In the figure above, Section A is the console, and is the equivalent of the `>>>
 print("Hello world")
 ```
 
+The print function prints something in the console, and in this very short program, this "something" is "Hello world".
 
 ## Writing code in a script
 
