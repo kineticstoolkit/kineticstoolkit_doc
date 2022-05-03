@@ -31,7 +31,7 @@ print(4 * 3)
 print(4 / 3)
 ```
 
-:::{admonition} Good practice
+:::{goodpractice} Space between operators
 For readability, it is a good practice to put spaces between the operators. To illustrate this practice, look how
 
 ```
@@ -106,7 +106,7 @@ works.
 
 ## Exercise
 
-:::{admonition} Exercise
+:::{exercise} Timing gates
 A sprinter runs through two timing gates spaced by 50 m. Each timing gate records the time (in seconds) at which the sprinter pass through it.
 
 ![exercices_illustration -width:normal](_static/images/exercise_timing_gates.png)
@@ -132,7 +132,7 @@ distance_gates12 = 50.0
 print(distance_gates12 / (time_gate2 - time_gate1))
 ```
 
-:::{admonition} Good practice
+:::{goodpractice} Variable names
 It is generally a good idea to use names rather than letters for variables. For example, this code:
 
 ```

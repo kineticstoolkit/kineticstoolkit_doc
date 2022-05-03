@@ -63,7 +63,7 @@ print(d)
 print(type(d))
 ```
 
-:::{admonition} Exercise
+:::{exercise} Creating integers and floats
 We want to create a variable named `mass` that will contain the mass of a person in kg. This person as a mass of 68 kg. Since this is a physical value that could take any decimal value, but that just happens to be rounded to the unit, we therefore want to create a float:
 
 ```
@@ -149,7 +149,7 @@ print(type(4 ** 2))
 print(type(4.0 ** 2))
 ```
 
-:::{admonition} Exercise
+:::{exercise} Pythagorean theorem
 A sprinter runs a given distance $x$ to the East, then a given distance $y$ to the North (in km). Complete the following program so that it prints the distance $d$ between her starting point and her final destination.
 
 ![exercice_illustration -height:shorter](_static/images/exercice_pythagore.png)
