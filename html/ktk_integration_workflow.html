@@ -6,7 +6,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tutorials &#8212; Kinetics Toolkit</title>
+    <title>Integrating Kinetics Toolkit in your workflow &#8212; Kinetics Toolkit</title>
     
   <link href="_static/css/theme.css" rel="stylesheet">
   <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,11 +53,11 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
-    <link rel="canonical" href="https://kineticstoolkit.uqam.ca/doc/tutorials.html" />
+    <link rel="canonical" href="https://kineticstoolkit.uqam.ca/doc/ktk_integration_workflow.html" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="TimeSeries" href="timeseries.html" />
-    <link rel="prev" title="Installing Kinetics Toolkit" href="ktk_installing.html" />
+    <link rel="next" title="Lab mode" href="ktk_lab_mode.html" />
+    <link rel="prev" title="In depth" href="ktk_in_depth.html" />
 
 
 
@@ -123,11 +123,11 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="tutorials.html">
    Tutorials
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
   <label for="toctree-checkbox-2">
    <i class="fas fa-chevron-down">
    </i>
@@ -273,18 +273,18 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 has-children">
+ <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="ktk_in_depth.html">
    In depth
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
   <label for="toctree-checkbox-7">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="ktk_integration_workflow.html">
+  <ul class="current">
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
      Integrating Kinetics Toolkit in your workflow
     </a>
    </li>
@@ -1021,7 +1021,7 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- ipynb file if we had a myst markdown file -->
         
         <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/tutorials.md"><button type="button"
+        <a class="dropdown-buttons" href="_sources/ktk_integration_workflow.md"><button type="button"
                 class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
                 data-placement="left">.md</button></a>
         <!-- Download PDF via print -->
@@ -1046,6 +1046,24 @@ const thebe_selector_output = ".output, .cell_output"
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show noprint">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instrumentation-and-other-data-processing-software">
+   Instrumentation and other data processing software
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#integration-with-other-python-packages">
+   Integration with other Python packages
+  </a>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -1053,57 +1071,333 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Tutorials</h1>
+                <h1>Integrating Kinetics Toolkit in your workflow</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#instrumentation-and-other-data-processing-software">
+   Instrumentation and other data processing software
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#integration-with-other-python-packages">
+   Integration with other Python packages
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="tutorials">
-<h1>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h1>
-<div class="margin sidebar">
-<p class="sidebar-title">#todo</p>
-<p>Introducing the tutorials</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="integrating-kinetics-toolkit-in-your-workflow">
+<h1>Integrating Kinetics Toolkit in your workflow<a class="headerlink" href="#integrating-kinetics-toolkit-in-your-workflow" title="Permalink to this headline">¶</a></h1>
+<div class="admonition-incomplete-section admonition">
+<p class="admonition-title">Incomplete section</p>
+<p>Some elements of this section are incomplete or out of date. Please feel free to <a class="reference internal" href="dev_contributing.html"><span class="doc std std-doc">contribute</span></a>.</p>
 </div>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="timeseries.html">TimeSeries</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="timeseries_basics.html">TimeSeries Basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="timeseries_manipulating.html">Manipulating TimeSeries</a></li>
-<li class="toctree-l2"><a class="reference internal" href="timeseries_dataframes.html">Converting between TimeSeries and Pandas DataFrames</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="loadsave.html">Saving and loading</a></li>
-<li class="toctree-l1"><a class="reference internal" href="filters.html">Filtering</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="filters_butter.html">Removing frequencies using a Butterworth filter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters_smooth.html">Smoothing signals using a moving average</a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters_savgol.html">Smoothing and deriving using a Savitzky-Golay filter</a></li>
-<li class="toctree-l2"><a class="reference internal" href="filters_median.html">Removing artefacts using a median filter</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="cycles.html">Detecting and normalizing cycles</a></li>
-<li class="toctree-l1"><a class="reference internal" href="geometry.html">Rigid body geometry</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="geometry_basics.html">Basics of rigid body geometry</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geometry_dimension_conventions.html">Dimension conventions and first example</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="kinematics.html">Kinematics analysis</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="kinematics_load_visualize.html">Reading and visualizing marker trajectories</a></li>
-<li class="toctree-l2"><a class="reference internal" href="kinematics_joint_angles.html">Calculating joint angles from a kinematic acquisition</a></li>
-<li class="toctree-l2"><a class="reference internal" href="kinematics_reconstructing_occluded_markers.html">Reconstructing occluded markers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="kinematics_reconstructing_removed_markers.html">Reconstructing removed markers</a></li>
-<li class="toctree-l2"><a class="reference internal" href="kinematics_reconstructing_probed_points.html">Reconstructing probed points</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="pushrimkinetics.html">Wheelchair kinetics</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ktk_conventions.html">Conventions</a></li>
-</ul>
+<p>Kinetics Toolkit is designed to play well with other softwares and packages, to be used as an addition and not as a replacement to existing workflows. Most of the processing is done via the <a class="reference internal" href="api/kineticstoolkit.TimeSeries.html"><span class="doc std std-doc">TimeSeries</span></a> class, which is simply a container time and data expressed as numpy ndarrays. This <a class="reference internal" href="timeseries.html"><span class="doc std std-doc">tutorial</span></a> on TimeSeries will help to understand this class and its associated methods.</p>
+<p>This page shows how to import instrumentation data to a TimeSeries, how to work with other data processing softwares, and how to work with other python packages.</p>
+<div class="section" id="instrumentation-and-other-data-processing-software">
+<h2>Instrumentation and other data processing software<a class="headerlink" href="#instrumentation-and-other-data-processing-software" title="Permalink to this headline">¶</a></h2>
+<p>Kinetics Toolkit does not ties to specific instruments. Using your recording instrumentation, you need to get your data in a compatible file, be it very generic such as csv or txt files, or more specialized such as c3d.</p>
+<p>To import tabular data such as csv, txt or Excel files, you will first use the <a class="reference external" href="https://pandas.pydata.org/">Pandas</a> package to open the data in a DataFrame format. Then, you can import the DataFrame as a TimeSeries using <a class="reference internal" href="api/kineticstoolkit.TimeSeries.from_dataframe.html"><span class="doc std std-doc">TimeSeries.from_dataframe()</span></a>. This <a class="reference internal" href="timeseries_dataframes.html"><span class="doc std std-doc">tutorial</span></a> shows such an example.</p>
+<p>To import motion data from a c3d or n3d file, you will directly use the <a class="reference internal" href="api/kineticstoolkit.kinematics.read_c3d_file.html"><span class="doc std std-doc">ktk.kinematics.read_c3d_file()</span></a> or <a class="reference internal" href="api/kineticstoolkit.kinematics.read_n3d_file.html"><span class="doc std std-doc">ktk.kinematics.read_n3d_file()</span></a> function, which automatically creates a TimeSeries.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To use <a class="reference internal" href="api/kineticstoolkit.kinematics.read_c3d_file.html"><span class="doc std std-doc">ktk.kinematics.read_c3d_file()</span></a>, you must have installed Kinetics Toolkit from conda-forge, or installed the <a class="reference external" href="https://github.com/pyomeca/ezc3d">ezc3d</a> package manually (this package is not available via pip).</p>
 </div>
+<p>You can also export TimeSeries to these file formats, using similar methods. These import/export methods also make it possible to integrate Kinetics Toolkit with other data processing software.</p>
+<p>In addition to importing and exporting, Kinetics Toolkit offer <a class="reference internal" href="api/kineticstoolkit.load.html"><span class="doc std std-doc">ktk.load()</span></a> and <a class="reference internal" href="api/kineticstoolkit.save.html"><span class="doc std std-doc">ktk.save()</span></a> functions that store every standard python types, numpy’s ndarray, pandas’s DataFrame and Series, and ktk’s TimeSeries, in a portable zipped JSON format. See this <a class="reference internal" href="loadsave.html"><span class="doc std std-doc">tutorial</span></a> for more information on these functions.</p>
+<p>The figure belows is a data flow summary of the import, export, load and save methods to transfer data between different file formats.</p>
+<div class="mermaid">
+            flowchart TB
+
+classDef default fill:#fff, stroke:#aaa, text-align:left;
+classDef top_level fill:#fff, stroke:#aaa, stroke-width:2px;
+classDef no_outline fill:#fff, stroke-width:0px;
+classDef kineticstoolkit fill:#96cdea, stroke:#000;
+classDef junction fill:#777, stroke-width:1px, stroke:#000;
+
+%% ----------------------------------------
+%% BLOCKS
+
+instruments[Instruments]:::no_outline
+software1[Other data processing software]:::no_outline
+
+subgraph graph_allfiles1[ ]
+    subgraph graph_files1[Common files]
+        csv1[(csv)]
+        txt1[(txt)]
+        excel1[(Excel)]
+        c3d1[(c3d)]
+        n3d1[(n3d)]
+    end
+    
+    subgraph graph_ktkzip1[Previously saved data]
+        ktkzip1[(ktk.zip)]:::kineticstoolkit
+    end
+end
+class graph_allfiles1 no_outline
+
+subgraph graph_importing_loading[ ]
+    subgraph graph_importing[Importing data]
+        pandas_read[&quot;
+            Pandas' read functions:
+            - pd.read_csv()
+            - pd.read_excel()
+            - etc.&quot;]
+            
+        subgraph graph_ktk_read[ ]
+            ktk_import_dataframe[&quot;ktk.TimeSeries.from_dataframe()&quot;]:::kineticstoolkit
+            ktk_read[&quot;
+                ktk's read functions:
+                - ktk.kinematics.read_c3d()
+                - ktk.kinematics.read_n3d()
+                &quot;]:::kineticstoolkit
+        end
+        class graph_ktk_read no_outline
+        
+        node_timeseries1(( )):::junction
+
+    end
+
+    subgraph graph_loading[Loading data]
+        ktk_load[&quot;ktk.load()&quot;]:::kineticstoolkit
+    end
+
+end
+class graph_importing_loading no_outline
+
+subgraph graph_data[ ]
+    data[Working variables]
+end
+class graph_data no_outline
+class data no_outline
+
+
+subgraph graph_exporting_saving[ ]
+    subgraph graph_exporting[Exporting data]
+    
+        node_timeseries2(( )):::junction
+    
+        ktk_export_dataframe[&quot;ktk.TimeSeries.to_dataframe()&quot;]:::kineticstoolkit        
+        pandas_write[&quot;
+            Pandas' write functions:
+            - pd.write_csv()
+            - pd.write_excel()
+            - etc.&quot;]
+        ktk_write[&quot;ktk.kinematics.write_c3d()&quot;]:::kineticstoolkit
+    end
+    
+    subgraph graph_saving[Saving data]
+        ktk_save[&quot;ktk.save()&quot;]:::kineticstoolkit    
+    end
+
+end
+class graph_exporting_saving no_outline
+
+subgraph graph_allfiles2[ ]
+
+    subgraph graph_files2[Common files]
+        csv2[(csv)]
+        txt2[(txt)]
+        excel2[(Excel)]
+        c3d2[(c3d)]
+    end
+
+    ktkzip2[(ktk.zip)]:::kineticstoolkit
+
+end
+class graph_allfiles2 no_outline
+
+software2[Other data processing software]:::no_outline
+
+
+
+%% ----------------------------------------
+%% CONNECTIONS
+
+
+instruments --&gt; node_graph_files1(( )):::junction --&gt; graph_files1
+software1 --&gt; node_graph_files1
+pandas_read -- DataFrame --&gt; ktk_import_dataframe
+csv1 -- file --&gt; pandas_read
+txt1 -- file --&gt; pandas_read
+excel1 -- file --&gt; pandas_read
+c3d1 -- file --&gt; ktk_read
+n3d1 -- file --&gt; ktk_read
+ktkzip1 -- file --&gt; ktk_load
+ktk_import_dataframe --- node_timeseries1
+ktk_read --- node_timeseries1
+node_timeseries1 -- TimeSeries --&gt; data
+ktk_load -- Python types\nndarray\nSeries\nDataFrame\nTimeSeries --&gt; data
+data -- TimeSeries --- node_timeseries2
+node_timeseries2 --&gt; ktk_export_dataframe
+node_timeseries2 --&gt; ktk_write
+data -- Python types\nndarray\nSeries\nDataFrame\nTimeSeries --&gt; ktk_save
+ktk_export_dataframe -- DataFrame --&gt; pandas_write
+pandas_write -- file --&gt; csv2
+pandas_write -- file --&gt; txt2
+pandas_write -- file --&gt; excel2
+ktk_write -- file --&gt; c3d2
+ktk_save -- file --&gt; ktkzip2
+graph_files2 --&gt; software2
+
+        </div></div>
+<div class="section" id="integration-with-other-python-packages">
+<h2>Integration with other Python packages<a class="headerlink" href="#integration-with-other-python-packages" title="Permalink to this headline">¶</a></h2>
+<div class="mermaid">
+            flowchart LR
+
+classDef default fill:#fff, stroke:#aaa, text-align:left;
+classDef top_level fill:#fff, stroke:#aaa, stroke-width:2px;
+classDef no_outline fill:#fff, stroke-width:0px;
+classDef kineticstoolkit fill:#96cdea, stroke:#000;
+classDef junction fill:#777, stroke-width:1px, stroke:#000;
+
+%% ----------------------------------------
+%% BLOCKS
+
+subgraph graph_processing_timeseries[Processing TimeSeries directly]
+    direction LR
+
+    filters[&quot;
+        Filtering:
+        - ktk.filters.butter()
+        - ktk.filters.smooth()
+        - ktk.filters.deriv()
+        - etc.
+    &quot;]:::kineticstoolkit
+    
+    timeseries[&quot;
+        TimeSeries operations:
+        - TimeSeries.add_event()
+        - TimeSeries.merge()
+        - TimeSeries.get_subset()
+        - TimeSeries.get_ts_before_event()
+        - TimeSeries.get_ts_after_event()
+        - TimeSeries.get_ts_between_events()
+        - TimeSeries.ui_sync()
+        - TimeSeries.ui_edit()
+        - etc.
+    &quot;]:::kineticstoolkit
+    
+    cycles[&quot;
+        Cycles:
+        - ktk.cycles.detect_cycles()
+        - ktk.cycles.time_normalize()
+        - etc.
+    &quot;]:::kineticstoolkit
+    
+    kinematics[&quot;
+        Kinematics:
+        - ktk.kinematics.create_cluster()
+        - ktk.kinematics.extend_cluster()
+        - ktk.kinematics.track_cluster()
+        - etc.
+    &quot;]:::kineticstoolkit
+    
+    subgraph graph_processing_pandas[Any operation on pandas' DataFrame via:]
+        to_from_dataframe[&quot;
+            - ktk.TimeSeries.to_dataframe()
+            - ktk.TimeSeries.from_dataframe()&quot;]:::kineticstoolkit
+    end
+    
+end
+
+subgraph graph_processing_timeseries_data[Processing TimeSeries' data attribute]
+    direction LR
+
+    geometry[&quot;
+        Geometrical operations:
+        - ktk.geometry.create_frames()
+        - ktk.geometry.get_local_coordinates()
+        - ktk.geometry.get_global_coordinates()
+        - ktk.geometry.get_angles()
+        - etc.
+    &quot;]:::kineticstoolkit
+    
+    processing_ndarray[&quot;
+        Any operation on numpy's ndarray:
+        - numpy
+        - scipy
+        - lots of other packages
+    &quot;]
+    
+end
+
+data[Working variables]:::no_outline
+
+subgraph graph_visualizing[Visualizing data]
+direction LR
+
+    subgraph graph_visualizing_timeseries[Visualizing TimeSeries directly]
+        direction LR
+        
+        visualize_plot[&quot;
+            Plot with events
+            using Matplotlib:
+            - ktk.TimeSeries.plot()
+        &quot;]:::kineticstoolkit
+
+        visualize_player[&quot;
+            Interconnected markers
+            in 3D viewer:
+            - ktk.Player
+        &quot;]:::kineticstoolkit
+    end
+    
+    subgraph graph_visualizing_timeseries_data[Visualizing TimeSeries' data attribute]
+        direction LR
+
+        visualize_matplotlib[&quot;
+            Plot using Matplotlib:
+            - plt.plot()
+            - plt.fill_between()
+            - etc.
+        &quot;]
+
+        visualize_other[&quot;
+            Visualize ndarray
+            using other packages:
+            - plotly
+            - bokeh
+            - etc.
+        &quot;]
+    end
+
+end
+
+
+%% ----------------------------------------
+%% CONNECTIONS
+
+graph_processing_timeseries -- TimeSeries &lt;--&gt; data
+
+graph_processing_timeseries_data -- &quot;
+    TimeSeries.data
+    (ndarray)
+    &quot; &lt;--&gt; data
+
+data -- TimeSeries --&gt; graph_visualizing_timeseries
+
+data -- &quot;
+    TimeSeries.data
+    (ndarray)
+    &quot; --&gt; graph_visualizing_timeseries_data
+
+        </div></div>
 </div>
 
     <script type="text/x-thebe-config">
@@ -1131,17 +1425,17 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="ktk_installing.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="ktk_in_depth.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Installing Kinetics Toolkit</p>
+            <p class="prev-next-title">In depth</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="timeseries.html" title="next page">
+    <a class='right-next' id="next-link" href="ktk_lab_mode.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">TimeSeries</p>
+        <p class="prev-next-title">Lab mode</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
