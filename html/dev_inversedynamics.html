@@ -1,15 +1,16 @@
 
-
 <!DOCTYPE html>
 
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Inverse Dynamics &#8212; Kinetics Toolkit</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -19,32 +20,32 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/css/stable.css" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -57,11 +58,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Extensions" href="dev_extensions.html" />
+    <link rel="next" title="Extensions" href="extensions.html" />
     <link rel="prev" title="Anthropometrics" href="dev_anthropometrics.html" />
-
-
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -69,7 +67,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -78,9 +90,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -975,7 +988,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="dev_extensions.html">
+    <a class="reference internal" href="extensions.html">
      Extensions
     </a>
    </li>
@@ -989,12 +1002,17 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
-</div>
-
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
 </div>
 
 
@@ -1002,61 +1020,117 @@ const thebe_selector_output = ".output, .cell_output"
 
 
           
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
     
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
+    <div class="header-article row sticky-top noprint">
         
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/dev_inversedynamics.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/dev_inversedynamics.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
     </div>
 </div>
 
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#loading-sample-data">
    Loading sample data
@@ -1133,12 +1207,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Inverse Dynamics</h1>
@@ -1231,11 +1304,12 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="inverse-dynamics">
-<h1>Inverse Dynamics<a class="headerlink" href="#inverse-dynamics" title="Permalink to this headline">¶</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="inverse-dynamics">
+<h1>Inverse Dynamics<a class="headerlink" href="#inverse-dynamics" title="Permalink to this headline">#</a></h1>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This section refers to unstable code. This code may not be tested, and the whole API and behaviour is expected to change in the future. Do not use this code for your research.</p>
@@ -1255,8 +1329,8 @@ proximal articulation, in the global coordinates system.</p>
 </div>
 </div>
 </div>
-<div class="section" id="loading-sample-data">
-<h2>Loading sample data<a class="headerlink" href="#loading-sample-data" title="Permalink to this headline">¶</a></h2>
+<section id="loading-sample-data">
+<h2>Loading sample data<a class="headerlink" href="#loading-sample-data" title="Permalink to this headline">#</a></h2>
 <p>In this tutorial, we will load propulsion data from a sprint in Wheelchair Basketball. Kinetics were recorded using an instrumented wheel (SmartWheel) and kinematics were recorded using an optoelectronic system (Optitrack). Both are synchronized.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1401,9 +1475,9 @@ proximal articulation, in the global coordinates system.</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="put-everything-relevant-into-one-synchronized-timeseries">
-<h2>Put everything relevant into one, synchronized TimeSeries<a class="headerlink" href="#put-everything-relevant-into-one-synchronized-timeseries" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="put-everything-relevant-into-one-synchronized-timeseries">
+<h2>Put everything relevant into one, synchronized TimeSeries<a class="headerlink" href="#put-everything-relevant-into-one-synchronized-timeseries" title="Permalink to this headline">#</a></h2>
 <p>We will now create a single TimeSeries with every relevant signal. Note that for kinematics, we use <code class="docutils literal notranslate"><span class="pre">merge</span></code> instead of simply copying the data, because kinetics and kinematics have different sampling rate and therefore the data have different lengths. Merging takes care of resampling.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1454,9 +1528,9 @@ proximal articulation, in the global coordinates system.</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="calculate-the-force-and-moments-at-the-wrist">
-<h2>Calculate the force and moments at the wrist<a class="headerlink" href="#calculate-the-force-and-moments-at-the-wrist" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="calculate-the-force-and-moments-at-the-wrist">
+<h2>Calculate the force and moments at the wrist<a class="headerlink" href="#calculate-the-force-and-moments-at-the-wrist" title="Permalink to this headline">#</a></h2>
 <p>The same calculation is done on every segment, from distal to proximal. We begin with the segment ‘Wheel’ with the point of force application at the hub (since the measured values are referred at the hub).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1502,8 +1576,8 @@ proximal articulation, in the global coordinates system.</p>
 </div>
 </div>
 </div>
-<div class="section" id="calculate-the-com-position-of-the-wheel-segment">
-<h3>Calculate the COM position of the wheel segment<a class="headerlink" href="#calculate-the-com-position-of-the-wheel-segment" title="Permalink to this headline">¶</a></h3>
+<section id="calculate-the-com-position-of-the-wheel-segment">
+<h3>Calculate the COM position of the wheel segment<a class="headerlink" href="#calculate-the-com-position-of-the-wheel-segment" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">inversedynamics</span><span class="o">.</span><span class="n">calculate_com_position</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">inertial_constants</span><span class="p">)</span>
@@ -1525,9 +1599,9 @@ proximal articulation, in the global coordinates system.</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="calculate-the-com-acceleration-of-the-wheel-segment">
-<h3>Calculate the COM acceleration of the wheel segment<a class="headerlink" href="#calculate-the-com-acceleration-of-the-wheel-segment" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="calculate-the-com-acceleration-of-the-wheel-segment">
+<h3>Calculate the COM acceleration of the wheel segment<a class="headerlink" href="#calculate-the-com-acceleration-of-the-wheel-segment" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">inversedynamics</span><span class="o">.</span><span class="n">calculate_com_acceleration</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="s1">&#39;butter&#39;</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
@@ -1550,9 +1624,9 @@ proximal articulation, in the global coordinates system.</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="calculate-the-wheel-segment-s-angles-around-the-global-x-y-and-z-axes">
-<h3>Calculate the wheel segment’s angles around the global x, y and z axes<a class="headerlink" href="#calculate-the-wheel-segment-s-angles-around-the-global-x-y-and-z-axes" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="calculate-the-wheel-segment-s-angles-around-the-global-x-y-and-z-axes">
+<h3>Calculate the wheel segment’s angles around the global x, y and z axes<a class="headerlink" href="#calculate-the-wheel-segment-s-angles-around-the-global-x-y-and-z-axes" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">inversedynamics</span><span class="o">.</span><span class="n">calculate_segment_angles</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
@@ -1576,9 +1650,9 @@ proximal articulation, in the global coordinates system.</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="calculate-the-segment-s-angular-velocity-and-acceleration-around-the-global-x-y-and-z-axes">
-<h3>Calculate the segment’s angular velocity and acceleration around the global x, y and z axes<a class="headerlink" href="#calculate-the-segment-s-angular-velocity-and-acceleration-around-the-global-x-y-and-z-axes" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="calculate-the-segment-s-angular-velocity-and-acceleration-around-the-global-x-y-and-z-axes">
+<h3>Calculate the segment’s angular velocity and acceleration around the global x, y and z axes<a class="headerlink" href="#calculate-the-segment-s-angular-velocity-and-acceleration-around-the-global-x-y-and-z-axes" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">inversedynamics</span><span class="o">.</span><span class="n">calculate_segment_rotation_rates</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="s1">&#39;butter&#39;</span><span class="p">,</span> <span class="n">fc</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
@@ -1604,9 +1678,9 @@ proximal articulation, in the global coordinates system.</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="finally-calculate-the-proximal-forces-and-moments">
-<h3>Finally, calculate the proximal forces and moments<a class="headerlink" href="#finally-calculate-the-proximal-forces-and-moments" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="finally-calculate-the-proximal-forces-and-moments">
+<h3>Finally, calculate the proximal forces and moments<a class="headerlink" href="#finally-calculate-the-proximal-forces-and-moments" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">inversedynamics</span><span class="o">.</span><span class="n">calculate_proximal_wrench</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">inertial_constants</span><span class="p">)</span>
@@ -1635,9 +1709,9 @@ proximal articulation, in the global coordinates system.</p>
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="add-the-calculated-distal-forces-and-moments-to-the-ts-all-timeseries">
-<h3>Add the calculated distal forces and moments to the ts_all TimeSeries<a class="headerlink" href="#add-the-calculated-distal-forces-and-moments-to-the-ts-all-timeseries" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="add-the-calculated-distal-forces-and-moments-to-the-ts-all-timeseries">
+<h3>Add the calculated distal forces and moments to the ts_all TimeSeries<a class="headerlink" href="#add-the-calculated-distal-forces-and-moments-to-the-ts-all-timeseries" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts_all</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;WristForces&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;ProximalForces&#39;</span><span class="p">]</span>
@@ -1670,10 +1744,10 @@ proximal articulation, in the global coordinates system.</p>
 <img alt="_images/dev_inversedynamics_25_0.png" src="_images/dev_inversedynamics_25_0.png" />
 </div>
 </div>
-</div>
-</div>
-<div class="section" id="calculate-the-force-and-moments-at-the-elbow">
-<h2>Calculate the force and moments at the elbow<a class="headerlink" href="#calculate-the-force-and-moments-at-the-elbow" title="Permalink to this headline">¶</a></h2>
+</section>
+</section>
+<section id="calculate-the-force-and-moments-at-the-elbow">
+<h2>Calculate the force and moments at the elbow<a class="headerlink" href="#calculate-the-force-and-moments-at-the-elbow" title="Permalink to this headline">#</a></h2>
 <p>The method is identical for the other segments. However, for these segments, we will define inertial constants based on anthropometric tables.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1747,9 +1821,9 @@ proximal articulation, in the global coordinates system.</p>
 <img alt="_images/dev_inversedynamics_29_0.png" src="_images/dev_inversedynamics_29_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="calculate-the-force-and-moments-at-the-shoulder">
-<h2>Calculate the force and moments at the shoulder<a class="headerlink" href="#calculate-the-force-and-moments-at-the-shoulder" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="calculate-the-force-and-moments-at-the-shoulder">
+<h2>Calculate the force and moments at the shoulder<a class="headerlink" href="#calculate-the-force-and-moments-at-the-shoulder" title="Permalink to this headline">#</a></h2>
 <p>We proceed exactly as for the elbow.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1823,9 +1897,9 @@ proximal articulation, in the global coordinates system.</p>
 <img alt="_images/dev_inversedynamics_33_0.png" src="_images/dev_inversedynamics_33_0.png" />
 </div>
 </div>
-</div>
-<div class="section" id="get-the-forces-and-moments-in-the-local-coordinate-system">
-<h2>Get the forces and moments in the local coordinate system<a class="headerlink" href="#get-the-forces-and-moments-in-the-local-coordinate-system" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="get-the-forces-and-moments-in-the-local-coordinate-system">
+<h2>Get the forces and moments in the local coordinate system<a class="headerlink" href="#get-the-forces-and-moments-in-the-local-coordinate-system" title="Permalink to this headline">#</a></h2>
 <p>Please note that every force and moment we just calculated is expressed in global coordinates, which is of limited value for interpretation. It is much more useful to express these data in local coordinates. Several conventions may be used, here we will express the shoulder forces in the trunk coordinate system, and the shoulder moments in the humeral coordinate system.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1850,8 +1924,8 @@ proximal articulation, in the global coordinates system.</p>
 </div>
 </div>
 </div>
-<div class="section" id="local-forces">
-<h3>Local forces<a class="headerlink" href="#local-forces" title="Permalink to this headline">¶</a></h3>
+<section id="local-forces">
+<h3>Local forces<a class="headerlink" href="#local-forces" title="Permalink to this headline">#</a></h3>
 <p>Let’s plot the shoulder forces in the trunk reference frame:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1868,9 +1942,9 @@ proximal articulation, in the global coordinates system.</p>
 <img alt="_images/dev_inversedynamics_37_1.png" src="_images/dev_inversedynamics_37_1.png" />
 </div>
 </div>
-</div>
-<div class="section" id="local-moments">
-<h3>Local moments<a class="headerlink" href="#local-moments" title="Permalink to this headline">¶</a></h3>
+</section>
+<section id="local-moments">
+<h3>Local moments<a class="headerlink" href="#local-moments" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">local_joint_dynamics</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;Moments&#39;</span><span class="p">)</span>
@@ -1893,9 +1967,9 @@ proximal articulation, in the global coordinates system.</p>
 <dd><p>R. Dumas, R. Aissaoui, and J. A. De Guise, “A 3D generic inverse dynamic method using wrench notation and quaternion algebra,” Comput Meth Biomech Biomed Eng, vol. 7, no. 3, pp. 159–166, 2004.</p>
 </dd>
 </dl>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1919,9 +1993,11 @@ proximal articulation, in the global coordinates system.</p>
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="dev_anthropometrics.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1929,7 +2005,7 @@ proximal articulation, in the global coordinates system.</p>
             <p class="prev-next-title">Anthropometrics</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="dev_extensions.html" title="next page">
+    <a class='right-next' id="next-link" href="extensions.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Extensions</p>
@@ -1937,24 +2013,28 @@ proximal articulation, in the global coordinates system.</p>
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Félix Chénier<br/>
+  
+      &copy; Copyright 2020-2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Félix Chénier<br/>
-    
-        &copy; Copyright 2020-2022.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

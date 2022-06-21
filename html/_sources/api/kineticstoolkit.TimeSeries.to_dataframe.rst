@@ -1,4 +1,4 @@
-kineticstoolkit.TimeSeries.to\_dataframe
+﻿kineticstoolkit.TimeSeries.to\_dataframe
 ========================================
 
 .. currentmodule:: kineticstoolkit

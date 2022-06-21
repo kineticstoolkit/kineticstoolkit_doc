@@ -1,15 +1,16 @@
 
-
 <!DOCTYPE html>
 
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Release Notes &#8212; Kinetics Toolkit</title>
     
-  <link href="_static/css/theme.css" rel="stylesheet">
-  <link href="_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -19,32 +20,32 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=62ba249389abaaa9ffc34bf36a076bdc1d65ee18" type="text/css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="_static/css/stable.css" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="_static/js/index.be7d3bbb2ef33a8344ce.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
     <script src="_static/underscore.js"></script>
     <script src="_static/doctools.js"></script>
-    <script src="_static/togglebutton.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=f31d14ad54b65d19161ba51d4ffff3a77ae00456"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script src="_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
 const thebe_selector_input = "pre"
@@ -59,9 +60,6 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Classes" href="api_classes.html" />
     <link rel="prev" title="Lab mode" href="ktk_lab_mode.html" />
-
-
-
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -69,7 +67,21 @@ const thebe_selector_output = ".output, .cell_output"
     <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -78,9 +90,10 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -975,7 +988,7 @@ const thebe_selector_output = ".output, .cell_output"
     </a>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="dev_extensions.html">
+    <a class="reference internal" href="extensions.html">
      Extensions
     </a>
    </li>
@@ -989,12 +1002,17 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
-</div>
-
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
 </div>
 
 
@@ -1002,61 +1020,117 @@ const thebe_selector_output = ".output, .cell_output"
 
 
           
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
     
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
-            
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
+    <div class="header-article row sticky-top noprint">
         
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="_sources/ktk_release_notes.md"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.md</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-                onclick="printPdf(this)" data-toggle="tooltip" data-placement="left">.pdf</button>
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/ktk_release_notes.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
     </div>
 </div>
 
-            <!-- Source interaction buttons -->
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
-            </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#version-0-7-april-2022">
    Version 0.7 (April 2022)
@@ -1094,12 +1168,11 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
                 <h1>Release Notes</h1>
@@ -1153,13 +1226,14 @@ const thebe_selector_output = ".output, .cell_output"
                     </div>
                 </div>
             </div>
-            
+            <main id="main-content" role="main">
+                
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="release-notes">
-<h1>Release Notes<a class="headerlink" href="#release-notes" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="version-0-7-april-2022">
-<h2>Version 0.7 (April 2022)<a class="headerlink" href="#version-0-7-april-2022" title="Permalink to this headline">¶</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="release-notes">
+<h1>Release Notes<a class="headerlink" href="#release-notes" title="Permalink to this headline">#</a></h1>
+<section id="version-0-7-april-2022">
+<h2>Version 0.7 (April 2022)<a class="headerlink" href="#version-0-7-april-2022" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>New feature: Marker reconstruction using point clusters, using <code class="docutils literal notranslate"><span class="pre">kinematics.create_cluster()</span></code>, <code class="docutils literal notranslate"><span class="pre">kinematics.extend_cluster()</span></code>, <code class="docutils literal notranslate"><span class="pre">kinematics.track_cluster()</span></code>.</p></li>
 <li><p>New feature: Added the new <code class="docutils literal notranslate"><span class="pre">doc</span></code> module, which allows downloading sample data on the fly to reproduce every step of the tutorials.</p></li>
@@ -1170,9 +1244,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Improvement: Renamed <code class="docutils literal notranslate"><span class="pre">segments</span></code> for <code class="docutils literal notranslate"><span class="pre">interconnections</span></code> in Player, to avoid confusion between a body segment and a group of interconnections between arbitrary points.</p></li>
 <li><p><strong>Breaking change</strong>: New default for <code class="docutils literal notranslate"><span class="pre">TimeSeries.merge</span></code>’s <code class="docutils literal notranslate"><span class="pre">overwrite</span></code> option. It changed from True to False.</p></li>
 </ul>
-</div>
-<div class="section" id="version-0-6-august-2021">
-<h2>Version 0.6 (August 2021)<a class="headerlink" href="#version-0-6-august-2021" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="version-0-6-august-2021">
+<h2>Version 0.6 (August 2021)<a class="headerlink" href="#version-0-6-august-2021" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>~~New feature: Rigid body tracking and reconstruction of virtual markers in module <code class="docutils literal notranslate"><span class="pre">kinematics</span></code>: functions <code class="docutils literal notranslate"><span class="pre">define_rigid_body()</span></code>, <code class="docutils literal notranslate"><span class="pre">define_virtual_marker()</span></code>, and <code class="docutils literal notranslate"><span class="pre">track_rigid_body()</span></code>.~~</p></li>
 <li><p>New feature: Interactive method to edit events in a TimeSeries: method <code class="docutils literal notranslate"><span class="pre">TimeSeries.ui_edit_events()</span></code>.</p></li>
@@ -1197,9 +1271,9 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 <p><strong>Please do not update to 0.6 until you are ready to find and modify those statements in your current code</strong>.</p>
-</div>
-<div class="section" id="version-0-5-june-2021">
-<h2>Version 0.5 (June 2021)<a class="headerlink" href="#version-0-5-june-2021" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="version-0-5-june-2021">
+<h2>Version 0.5 (June 2021)<a class="headerlink" href="#version-0-5-june-2021" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>New feature: Coordinate system origins are now clickable in Player.</p></li>
 <li><p>Improvement: Most TimeSeries arguments can now be used either by position or keyword (removed superflous slash operators in signatures).</p></li>
@@ -1207,9 +1281,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p>Bug fixes.</p></li>
 <li><p><strong>Breaking change:</strong> <code class="docutils literal notranslate"><span class="pre">cycle.detect_cycles</span></code> was changed back to experimental. Its argument pairs xxxx1, xxxx2 have been changed to sequences [xxxx1, xxxx2] in prevision of possible cycle detections with more than 2 phases, or even only one phase. This method is now experimental because it may be separated into different functions (one to detect cycles, another to search cycles with given criteria, and another to remove found cycles).</p></li>
 </ul>
-</div>
-<div class="section" id="version-0-4-april-2021">
-<h2>Version 0.4 (April 2021)<a class="headerlink" href="#version-0-4-april-2021" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="version-0-4-april-2021">
+<h2>Version 0.4 (April 2021)<a class="headerlink" href="#version-0-4-april-2021" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>New feature: Added the <code class="docutils literal notranslate"><span class="pre">geometry</span></code> module to perform rigid body geometry operations such as creating frames, homogeneous transforms, multiplying series of matrices, converting from local to global coordinates and vice-versa, and extracting Euler angles from homogeneous transforms.</p></li>
 <li><p>New feature: Added the <code class="docutils literal notranslate"><span class="pre">span</span></code> option to <code class="docutils literal notranslate"><span class="pre">cycles.time_normalize</span></code>, so that cycles can be normalized between other ranges than 0% to 100%. Both reducing span (e.g., 10% to 90%) and increasing span (e.g., -25 to 125%) work.</p></li>
@@ -1221,9 +1295,9 @@ const thebe_selector_output = ".output, .cell_output"
 <li><p><strong>Breaking change</strong>: The default behaviour for <code class="docutils literal notranslate"><span class="pre">TimeSeries.remove_event</span></code> changed when no occurrence is defined. Previously, only the first occurrence was removed. Now every occurrence is removed.</p></li>
 <li><p><strong>Breaking change:</strong> In <code class="docutils literal notranslate"><span class="pre">cycles.time_normalize</span></code>, the way to time-normalize between two events of the same name changed from <code class="docutils literal notranslate"><span class="pre">event_name,</span> <span class="pre">_</span></code> to <code class="docutils literal notranslate"><span class="pre">event_name,</span> <span class="pre">event_name</span></code>.</p></li>
 </ul>
-</div>
-<div class="section" id="version-0-3-october-2020">
-<h2>Version 0.3 (October 2020)<a class="headerlink" href="#version-0-3-october-2020" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="version-0-3-october-2020">
+<h2>Version 0.3 (October 2020)<a class="headerlink" href="#version-0-3-october-2020" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>New feature: Added the <code class="docutils literal notranslate"><span class="pre">cycles</span></code> module to detect, time-normalize and stack cycles (e.g., gait cycles, wheelchair propulsion cycles, etc.)</p></li>
 <li><p>New feature: Added the <code class="docutils literal notranslate"><span class="pre">pushrimkinetics</span></code> module to read files from instrumented wheelchair wheels, reconstruct the pushrim kinetics,
@@ -1238,9 +1312,9 @@ parameters of wheelchair propulsion.</p></li>
 <li><p><strong>Breaking change:</strong> The module name has been changed from <code class="docutils literal notranslate"><span class="pre">ktk</span></code> to <code class="docutils literal notranslate"><span class="pre">kineticstoolkit</span></code>. Importing using <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">ktk</span></code> is now deprecated and the standard way to import is now either <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">kineticstoolkit</span> <span class="pre">as</span> <span class="pre">ktk</span></code> or <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">kineticstoolkit.lab</span> <span class="pre">as</span> <span class="pre">ktk</span></code>.</p></li>
 <li><p><strong>Breaking change:</strong> Now importing Kinetics Toolkit does not change IPython’s representation of dicts or matplotlib’s defaults. This allows using ktk’s functions without modifying the current working environment. The old behaviour is now the lab mode and is the recommended way to import Kinetics Toolkit in an IPython-based environment: <code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">kineticstoolkit.lab</span> <span class="pre">as</span> <span class="pre">ktk</span></code>.</p></li>
 </ul>
-</div>
-<div class="section" id="version-0-2-august-2020">
-<h2>Version 0.2 (August 2020)<a class="headerlink" href="#version-0-2-august-2020" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="version-0-2-august-2020">
+<h2>Version 0.2 (August 2020)<a class="headerlink" href="#version-0-2-august-2020" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>New feature: Added the functions <code class="docutils literal notranslate"><span class="pre">ktk.load</span></code> and <code class="docutils literal notranslate"><span class="pre">ktk.save</span></code>.</p></li>
 <li><p>New feature: Introduced the <code class="docutils literal notranslate"><span class="pre">ktk.zip</span></code> file format.</p></li>
@@ -1255,16 +1329,16 @@ parameters of wheelchair propulsion.</p></li>
 <li><p><strong>Breaking change:</strong> <code class="docutils literal notranslate"><span class="pre">TimeSeries.from_dataframe()</span></code> is now a class function and not an instance method anymore. Therefore we need to call <code class="docutils literal notranslate"><span class="pre">ktk.TimeSeries.from_dataframe(dataframe)</span></code> instead of <code class="docutils literal notranslate"><span class="pre">ktk.TimeSeries().from_dataframe(dataframe)</span></code>.</p></li>
 <li><p><strong>Breaking change:</strong> Now depends on python 3.8 instead of 3.7.</p></li>
 </ul>
-</div>
-<div class="section" id="version-0-1-may-2020">
-<h2>Version 0.1 (May 2020)<a class="headerlink" href="#version-0-1-may-2020" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="version-0-1-may-2020">
+<h2>Version 0.1 (May 2020)<a class="headerlink" href="#version-0-1-may-2020" title="Permalink to this headline">#</a></h2>
 <ul class="simple">
 <li><p>New feature: Added the <code class="docutils literal notranslate"><span class="pre">TimeSeries</span></code> class.</p></li>
 <li><p>New feature: Added the <code class="docutils literal notranslate"><span class="pre">kinematics</span></code> module, to read c3d and n3d files.</p></li>
 <li><p>New feature: Added the <code class="docutils literal notranslate"><span class="pre">Player</span></code> class, to view markers in 3d.</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1288,9 +1362,11 @@ parameters of wheelchair propulsion.</p></li>
 
               </div>
               
-            
-                <!-- Previous / next buttons -->
-<div class='prev-next-area'> 
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
     <a class='left-prev' id="prev-link" href="ktk_lab_mode.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
@@ -1306,24 +1382,28 @@ parameters of wheelchair propulsion.</p></li>
     <i class="fas fa-angle-right"></i>
     </a>
 </div>
-            
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-  <p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Félix Chénier<br/>
+  
+      &copy; Copyright 2020-2022.<br/>
+</p>
+        </footer>
+    </div>
     
-      By Félix Chénier<br/>
-    
-        &copy; Copyright 2020-2022.<br/>
-  </p>
-</footer>
-</main>
+</div>
 
 
       </div>
     </div>
   
-  <script src="_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
 
   </body>
 </html>

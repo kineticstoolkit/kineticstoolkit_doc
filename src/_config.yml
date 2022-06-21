@@ -67,8 +67,10 @@ sphinx:
   - 'sphinxcontrib.mermaid'
   - 'myst_nb'
   - 'custom-directives'
+#  - 'sphinx_sitemap'
 
   config:
+    html_baseurl: 'https://kineticstoolkit.uqam.ca/doc'
     mermaid_output_format: raw
     add_module_names: False
     autosummary_generate: True
@@ -83,7 +85,7 @@ sphinx:
     napoleon_use_ivar: False
     napoleon_use_param: True
     napoleon_use_rtype: True
-    templates_path: ['_templates']
+#    templates_path: ['_templates']
     html_favicon: favicon.ico
     exclude_patterns:
       - '_build'
@@ -93,6 +95,7 @@ sphinx:
       - 'api/external.*'
       - 'api/kineticstoolkit.external.*'
       - 'toc.md'
+      - '_templates'
 
     html_theme_options:
       'logo_only': True  # default False

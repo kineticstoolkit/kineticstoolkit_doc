@@ -1,4 +1,4 @@
-kineticstoolkit.TimeSeries.add\_data\_info
+﻿kineticstoolkit.TimeSeries.add\_data\_info
 ==========================================
 
 .. currentmodule:: kineticstoolkit

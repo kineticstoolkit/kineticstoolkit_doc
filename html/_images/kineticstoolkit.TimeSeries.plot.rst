@@ -1,4 +1,4 @@
-kineticstoolkit.TimeSeries.plot
+﻿kineticstoolkit.TimeSeries.plot
 ===============================
 
 .. currentmodule:: kineticstoolkit

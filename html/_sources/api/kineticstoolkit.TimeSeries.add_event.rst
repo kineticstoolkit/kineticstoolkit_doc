@@ -1,4 +1,4 @@
-kineticstoolkit.TimeSeries.add\_event
+﻿kineticstoolkit.TimeSeries.add\_event
 =====================================
 
 .. currentmodule:: kineticstoolkit

@@ -1,4 +1,4 @@
-kineticstoolkit.Player.to\_html5
+﻿kineticstoolkit.Player.to\_html5
 ================================
 
 .. currentmodule:: kineticstoolkit

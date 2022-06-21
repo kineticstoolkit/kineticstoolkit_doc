@@ -1,4 +1,9 @@
+#!/bin/zsh
+
 ./update_toc.py
+
+cp src/_templates/* `python -c "import sphinx_book_theme as sbt; import os; print(os.path.dirname(sbt.__file__) + '/theme/sphinx_book_theme/components/')"`
+
 jupyter-book build src
 rm -fR html
 cp -R src/_build/html .

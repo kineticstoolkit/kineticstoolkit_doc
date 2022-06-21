@@ -1,4 +1,4 @@
-kineticstoolkit.TimeSeries.get\_ts\_between\_times
+﻿kineticstoolkit.TimeSeries.get\_ts\_between\_times
 ==================================================
 
 .. currentmodule:: kineticstoolkit

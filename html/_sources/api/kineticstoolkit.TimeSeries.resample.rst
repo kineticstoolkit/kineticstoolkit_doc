@@ -1,4 +1,4 @@
-kineticstoolkit.TimeSeries.resample
+﻿kineticstoolkit.TimeSeries.resample
 ===================================
 
 .. currentmodule:: kineticstoolkit

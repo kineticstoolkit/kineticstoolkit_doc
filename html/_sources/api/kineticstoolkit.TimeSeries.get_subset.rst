@@ -1,4 +1,4 @@
-kineticstoolkit.TimeSeries.get\_subset
+﻿kineticstoolkit.TimeSeries.get\_subset
 ======================================
 
 .. currentmodule:: kineticstoolkit

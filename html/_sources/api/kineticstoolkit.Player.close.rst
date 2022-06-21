@@ -1,4 +1,4 @@
-kineticstoolkit.Player.close
+﻿kineticstoolkit.Player.close
 ============================
 
 .. currentmodule:: kineticstoolkit

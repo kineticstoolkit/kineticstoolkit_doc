@@ -1,4 +1,4 @@
-kineticstoolkit.TimeSeries.sort\_events
+﻿kineticstoolkit.TimeSeries.sort\_events
 =======================================
 
 .. currentmodule:: kineticstoolkit
