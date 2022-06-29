@@ -2,28 +2,9 @@
 
 ## Standard Python conventions
 
-We try, when possible, to match the guidelines presented in these documents:
+Coding style is [black](https://black.readthedocs.io/en/stable) with 79-character lines. Docstrings style is [Numpy Docstring](https://numpydoc.readthedocs.io/en/latest/format.html).
 
-- [Style Guide for Python Code (PEP8)](https://pep8.org);
-- [Numpy Docstring](https://numpydoc.readthedocs.io/en/latest/format.html).
-
-Those are precious references and all other sections are additions to these references. Integrated desktop environments may help programmers to follow these conventions. For example, in Spyder, one could enable:
-
-- In `Preferences : Completion in linting : Code style and formatting : Code style`, check `Enable code style linting` to enable PEP8 linting;
-- In `Preferences : Completion in linting : Code style and formatting : Code formatting`, Select `autopep8` and check `Autoformat files on save` to ensure minimal PEP8 compliance at all times;
-- In `Preferences : Completion in linting : Docstring style`, check `Enable Docstring style linting` and select `Numpy`  to enable Numpy docstring linting.
-
-## Quote style
-
-Strings are single-quoted or double-quoted following their meaning:
-
-- Most strings, particularly strings that behave as identifiers, have single quotes:
-    - `kinetics['Forces'] = [0, 0, 0, 0]`
-- Strings that contain text in the form of readable sentences have double quotes:
-    - `warnings.warn("This sample contains missing data")`
-    - `dictionary['key'] = "Please select an option."`
-
-### Naming conventions
+## Naming conventions
 
 The following PEP8 conventions are used:
 
@@ -48,7 +29,7 @@ In addition, the following convention is used:
     - contents['Forces'], kinematics.data['UpperArmR']
     - dataframe.columns = ['SolidTire', 'InflatableTire']
 
-### Type hints
+## Type hints
 
 Kinetics Toolkit is type-hinted, with static type checking performed by `mypy`. It does not use python 3.9 contained types yet, and therefore relies on the standard `typing` library.
 

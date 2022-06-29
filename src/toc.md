@@ -108,6 +108,7 @@ parts:
           - file: [](dev_anthropometrics.md)
           - file: [](dev_inversedynamics.md)
           - file: [](extensions.md)
+          - file: [](dev_extensions.md)
 
       - url: https://github.com/felixchenier/kineticstoolkit
         title: GitHub repository

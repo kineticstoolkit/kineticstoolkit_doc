@@ -13,7 +13,22 @@ We remind that Kinetics Toolkit aims to provide tools for the user to achieve th
 - To develop documentation, please contribute to the [kineticstoolkit_doc](https://github.com/felixchenier/kineticstoolkit_doc) repository, that versions this website's code.
 - Otherwise, to develop code, then continue with this guide.
 
-## Rule 3: Life cycle of a function, from development to deprecation
+## Rule 3: For new features, consider writing an extension
+
+Kinetics Toolkit supports extensions. This means you can program and distribute your own functions withing ktk, while keeping in full control and property of your code. Extensions are a good way to test new features and evaluate if they should or shouldn't become part of the core library.
+
+## Rule 4: Contributing code to the core library
+
+To contribute code to the core library, please use the usual method of forking, writing, testing, and writing a pull request that is described [here](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models).
+
+Before creating a pull request, please ensure that:
+
+- The new code respects the [coding style](dev_coding_style.md).
+- Your new code is tested using proper unit tests.
+
+To ensure that this is the case, run `ktk.dev.run_tests()`. You should get no error.
+
+## Rule 5: Life cycle of a function of the core library, from development to deprecation
 
 New public functions appear and live in the following order:
 
@@ -72,25 +87,3 @@ def deprecated_function_name(arguments: str) --> None:
 
 ```
 
-
-## Rule 4: Forks and branches
-
-### Fork and create a feature branches
-
-To start the developemnt of a feature, please fork the repository. Then, in your fork, create a feature branch: `feature/[FEATURE_NAME]` from the `master` branch.
-
-### Document and test your feature
-
-All of the above should be done before making a pull request:
-
-- The new code must respect the [coding style](dev_coding_style.md).
-- The feature should be finished, or logical and documented parts of the feature should be finished.
-- The feature's docstring must match its current completion state.
-- The feature's docstring can include examples. If this is the case, they should be testable with `doctest`.
-- The feature includes unit tests.
-
-While on the feature branch, `ktk.dev.run_tests()` should run with success. This function runs `autopep8`, `mypy`, and every unit test. It is okay to have some warnings (some tests target edge cases that trigger warnings), but no error.
-
-### Create a pull request
-
-When everything is done and passes, it is time to create a pull request. I will then test your feature. If everything is good, I'll merge your pull request and merge the feature into the `master` branch.

@@ -37,4 +37,3 @@ class GoodPractice(Admonition):
 def setup(app):
     app.add_directive("exercise", Exercise)
     app.add_directive("goodpractice", GoodPractice)
-

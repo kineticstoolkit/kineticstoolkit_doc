@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.13.1
+    jupytext_version: 1.13.8
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -15,7 +15,7 @@ kernelspec:
 
 The [cycles](api/kineticstoolkit.cycles.rst) module allows detecting cycles in TimeSeries, time-normalize these cycles and find the most repeatable ones.
 
-In this tutorial, we will use kinetics data from wheelchair propulsion using a csv file.
+In this tutorial, we will use kinetics data from wheelchair propulsion.
 
 ```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
@@ -23,13 +23,11 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Load the instrumented wheel's csv file
-ts = ktk.pushrimkinetics.read_file(
-    ktk.doc.download('pushrimkinetics_propulsion.csv'),
-    file_format='smartwheel',
-)
+# Load the instrumented wheel data
 
-ts.data
+ts = ktk.load(
+    ktk.doc.download('wheelchair_kinetics.ktk.zip')
+)
 ```
 
 At this point, we have a TimeSeries that contains several signals, including forces and moments.
