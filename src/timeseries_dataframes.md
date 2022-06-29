@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.13.1
+    jupytext_version: 1.13.8
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -46,8 +46,8 @@ First, by opening it as a Pandas DataFrame using `pd.read_csv()`, then by conver
 ```{code-cell} ipython3
 ts = ktk.TimeSeries.from_dataframe(
     pd.read_csv(
-        ktk.doc.download('timeseries_dataframe_example1.csv'),
-        index_col='Time',
+        ktk.doc.download("timeseries_dataframe_example1.csv"),
+        index_col="Time",
     )
 )
 
@@ -82,8 +82,8 @@ In this second example, we will import the following csv file:
 ```{code-cell} ipython3
 ts = ktk.TimeSeries.from_dataframe(
     pd.read_csv(
-        ktk.doc.download('timeseries_dataframe_example2.csv'),
-        index_col='Time',
+        ktk.doc.download("timeseries_dataframe_example2.csv"),
+        index_col="Time",
     )
 )
 
@@ -100,8 +100,8 @@ A trick to combine the three force components into a single signal is to rename 
 
 ```{code-cell} ipython3
 df = pd.read_csv(
-    ktk.doc.download('timeseries_dataframe_example2.csv'),
-    index_col='Time',
+    ktk.doc.download("timeseries_dataframe_example2.csv"),
+    index_col="Time",
 )
 
 df
@@ -110,7 +110,7 @@ df
 Now, we rename the columns using indexing:
 
 ```{code-cell} ipython3
-df.columns = ['Forces[0]', 'Forces[1]', 'Forces[2]', 'Position']
+df.columns = ["Forces[0]", "Forces[1]", "Forces[2]", "Position"]
 
 df
 ```
@@ -124,7 +124,7 @@ ts.data
 ```
 
 ```{code-cell} ipython3
-ts.data['Forces']
+ts.data["Forces"]
 ```
 
 For series of arrays with more than one dimension, the brackets would have multiple indexes. For example, a series of Nx4x4 homogeneous matrices would require 16 columns and the indexes would go from [0,0] to [3,3].
@@ -137,7 +137,7 @@ In this example, we will read 3d marker positions from a sample `c3d` file, and 
 
 ```{code-cell} ipython3
 markers = ktk.kinematics.read_c3d_file(
-    ktk.doc.download('kinematics_basket_sprint.c3d')
+    ktk.doc.download("kinematics_basket_sprint.c3d")
 )
 
 markers
@@ -158,7 +158,7 @@ df
 Then we export this DataFrame to a `csv` file. Let's print the first 3 lines of this file:
 
 ```{code-cell} ipython3
-df.to_csv('output.csv', index_label='Time')
+df.to_csv("output.csv", index_label="Time")
 
 !head -3 output.csv
 ```

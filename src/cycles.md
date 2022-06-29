@@ -25,18 +25,16 @@ import matplotlib.pyplot as plt
 
 # Load the instrumented wheel data
 
-ts = ktk.load(
-    ktk.doc.download('wheelchair_kinetics.ktk.zip')
-)
+ts = ktk.load(ktk.doc.download("wheelchair_kinetics.ktk.zip"))
 ```
 
 At this point, we have a TimeSeries that contains several signals, including forces and moments.
 
 ```{code-cell} ipython3
 plt.subplot(2, 1, 1)
-ts.plot('Forces')
+ts.plot("Forces")
 plt.subplot(2, 1, 2)
-ts.plot('Moments')
+ts.plot("Moments")
 plt.tight_layout()
 ```
 
@@ -47,8 +45,8 @@ The [cycles.detect_cycles()](api/kineticstoolkit.cycles.detect_cycles.rst) funct
 We first calculate it based on the three force components and we add it as a new data of the TimeSeries.
 
 ```{code-cell} ipython3
-ts.data['Ftot'] = np.sqrt(np.sum(ts.data['Forces'] ** 2, 1))
-ts.plot(['Forces', 'Ftot'])
+ts.data["Ftot"] = np.sqrt(np.sum(ts.data["Forces"] ** 2, 1))
+ts.plot(["Forces", "Ftot"])
 plt.tight_layout()
 ```
 
@@ -56,11 +54,9 @@ Now let see how detecting cycles works. We will define the threshold values in F
 
 ```{code-cell} ipython3
 test = ktk.cycles.detect_cycles(
-    ts, 'Ftot',
-    event_names=['push', 'recovery'],
-    thresholds=[10, 5]
+    ts, "Ftot", event_names=["push", "recovery"], thresholds=[10, 5]
 )
-test.plot(['Forces', 'Ftot'])
+test.plot(["Forces", "Ftot"])
 plt.tight_layout()
 ```
 
@@ -69,12 +65,12 @@ We observe that most cycles are well identified, but a short spike at the beginn
 ```{code-cell} ipython3
 test = ktk.cycles.detect_cycles(
     ts,
-    'Ftot',
-    event_names=['push', 'recovery'],
+    "Ftot",
+    event_names=["push", "recovery"],
     thresholds=[10, 5],
-    min_durations=[0.2, 0.2]
+    min_durations=[0.2, 0.2],
 )
-test.plot(['Forces', 'Ftot'])
+test.plot(["Forces", "Ftot"])
 plt.tight_layout()
 ```
 
@@ -83,13 +79,13 @@ Now the synchronization spike has been ignored. However we also see that the two
 ```{code-cell} ipython3
 ts_with_events = ktk.cycles.detect_cycles(
     ts,
-    'Ftot',
-    event_names=['push', 'recovery'],
+    "Ftot",
+    event_names=["push", "recovery"],
     thresholds=[10, 5],
     min_durations=[0.2, 0.2],
-    min_peak_heights=[50, -np.Inf]
+    min_peak_heights=[50, -np.Inf],
 )
-ts_with_events.plot(['Forces', 'Ftot'])
+ts_with_events.plot(["Forces", "Ftot"])
 plt.tight_layout()
 ```
 
@@ -104,22 +100,24 @@ We observe an `_` event at about 27 seconds. There are in fact such `_` events a
 Once the cycles have been detected, we can time-normalize these cycles using [cycles.time_normalize()](api/kineticstoolkit.cycles.time_normalize.rst) to get them on the same time scale (a percentage of the cycle). Each of the 12 complete cycles is then time-normalized from 0 to 100%, with cycles being multiples of 100%.
 
 ```{code-cell} ipython3
-ts_normalized_on_cycle = ktk.cycles.time_normalize(ts_with_events, 'push', '_')
-plt.subplot(2,1,1)
-ts_normalized_on_cycle.plot(['Forces', 'Ftot'])
-plt.subplot(2,1,2)
-ts_normalized_on_cycle.plot('Moments')
+ts_normalized_on_cycle = ktk.cycles.time_normalize(ts_with_events, "push", "_")
+plt.subplot(2, 1, 1)
+ts_normalized_on_cycle.plot(["Forces", "Ftot"])
+plt.subplot(2, 1, 2)
+ts_normalized_on_cycle.plot("Moments")
 plt.tight_layout()
 ```
 
 To time-normalize only during the push phase, we define the cycle end as `recovery` instead of `_`. Each of the **13** complete pushes is then normalized from 0 to 100% of the push.
 
 ```{code-cell} ipython3
-ts_normalized_on_push = ktk.cycles.time_normalize(ts_with_events, 'push', 'recovery')
-plt.subplot(2,1,1)
-ts_normalized_on_push.plot(['Forces', 'Ftot'])
-plt.subplot(2,1,2)
-ts_normalized_on_push.plot('Moments')
+ts_normalized_on_push = ktk.cycles.time_normalize(
+    ts_with_events, "push", "recovery"
+)
+plt.subplot(2, 1, 1)
+ts_normalized_on_push.plot(["Forces", "Ftot"])
+plt.subplot(2, 1, 2)
+ts_normalized_on_push.plot("Moments")
 plt.tight_layout()
 ```
 
@@ -127,15 +125,12 @@ It is also possible to include data before 0% and after 100% using the `span` pa
 
 ```{code-cell} ipython3
 ts_normalized_on_push_with_span = ktk.cycles.time_normalize(
-    ts_with_events,
-    'push',
-    'recovery',
-    span=[-20, 125]
+    ts_with_events, "push", "recovery", span=[-20, 125]
 )
-plt.subplot(2,1,1)
-ts_normalized_on_push_with_span.plot(['Forces', 'Ftot'])
-plt.subplot(2,1,2)
-ts_normalized_on_push_with_span.plot('Moments')
+plt.subplot(2, 1, 1)
+ts_normalized_on_push_with_span.plot(["Forces", "Ftot"])
+plt.subplot(2, 1, 2)
+ts_normalized_on_push_with_span.plot("Moments")
 plt.tight_layout()
 ```
 
@@ -157,12 +152,10 @@ The first dimension of each dictionary's entry corresponds to the cycles. It now
 ```{code-cell} ipython3
 # Plot every cycles
 for i_cycle in range(13):
-    plt.plot(data['Ftot'][i_cycle], label=f"Cycle {i_cycle}")
-    
+    plt.plot(data["Ftot"][i_cycle], label=f"Cycle {i_cycle}")
+
 # Plot the average cycle
-plt.plot(
-    np.mean(data['Ftot'], axis=0),
-    'k:', linewidth=4, label="Average")
+plt.plot(np.mean(data["Ftot"], axis=0), "k:", linewidth=4, label="Average")
 
 plt.legend()
 plt.tight_layout()
@@ -173,7 +166,7 @@ plt.tight_layout()
 In the previous step, we calculated an average cycle. However, this average cycle was calculated on cycles that were very different between each other. We can use the [cycles.most_repeatable_cycles()](api/kineticstoolkit.cycles.most_repeatable_cycles.rst) function to obtain an ordered list from the most repeatable cycles to the most different one. Here, we will base this analysis on the `Ftot` signal.
 
 ```{code-cell} ipython3
-index = ktk.cycles.most_repeatable_cycles(data['Ftot'])
+index = ktk.cycles.most_repeatable_cycles(data["Ftot"])
 index
 ```
 
@@ -182,14 +175,14 @@ We see that cycles 12 (last) and 0 (first) were expectedly found as the least re
 ```{code-cell} ipython3
 # Plot every cycles
 for i_cycle in index[0:5]:
-    plt.plot(data['Ftot'][i_cycle], label=f"Cycle {i_cycle}")
-    
+    plt.plot(data["Ftot"][i_cycle], label=f"Cycle {i_cycle}")
+
 # Plot the average cycle
 plt.plot(
-    np.mean(data['Ftot'][index[0:5]], axis=0),
-    'k:',
+    np.mean(data["Ftot"][index[0:5]], axis=0),
+    "k:",
     linewidth=4,
-    label="Average"
+    label="Average",
 )
 
 plt.legend()

@@ -3,6 +3,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.13.8
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -29,7 +31,7 @@ Integers and floats are stored differently in memory, and it is sometimes import
 
 A variable is defined as an `int` if its assigned value does not contain a decimal point:
 
-```{code-cell}
+```{code-cell} ipython3
 a = 3
 
 print(a)
@@ -38,7 +40,7 @@ print(type(a))
 
 A variable is defined as a `float` if its assigned value contains a decimal point:
 
-```{code-cell}
+```{code-cell} ipython3
 b = 1.7
 
 print(b)
@@ -47,7 +49,7 @@ print(type(b))
 
 A variable can be converted from an `int` to a `float` using the `float()` function:
 
-```{code-cell}
+```{code-cell} ipython3
 c = float(a)
 
 print(c)
@@ -56,7 +58,7 @@ print(type(c))
 
 A variable can be converted from a `float` to an `int` using the `int()` function. Please note, however, that the decimal component of the number is lost:
 
-```{code-cell}
+```{code-cell} ipython3
 d = int(b)
 
 print(d)
@@ -78,7 +80,7 @@ How would you create the following variables?
 - `emg_max`: The EMG value measured during a maximal isometric contraction, which is 34 μV.
 :::
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [hide-cell]
 
 hip_height = 1.0
@@ -91,7 +93,7 @@ emg_max = 34.0
 
 When we perform operation between different types, Python may convert the types by itself to be sure that the result has the correct type. For example, adding an int and a float results in a float:
 
-```{code-cell}
+```{code-cell} ipython3
 a = 2 + 4.5
 
 print(type(a))
@@ -99,7 +101,7 @@ print(type(a))
 
 However, adding an int and another int results in an int:
 
-```{code-cell}
+```{code-cell} ipython3
 b = 2 + 4
 
 print(type(b))
@@ -107,7 +109,7 @@ print(type(b))
 
 A particular case is the division, which always results in a float, even if we divide two integers, and even if the result is round:
 
-```{code-cell}
+```{code-cell} ipython3
 c = 4 / 2
 
 print(type(c))
@@ -115,7 +117,7 @@ print(type(c))
 
 Therefore, to be sure that the result of a division is an int, we can cast the result as an int:
 
-```{code-cell}
+```{code-cell} ipython3
 d = int(4 / 2)
 
 print(type(d))
@@ -125,13 +127,13 @@ print(type(d))
 
 A last arithmetical operation is the exponentiation. Raising a value to a power is done using the `**` operator. For example, to calculate $4^2$, we would write:
 
-```{code-cell}
-print(4 ** 2)
+```{code-cell} ipython3
+print(4**2)
 ```
 
 For roots, we can exponententiate to the inverse. For example, to calculate $\sqrt{4}$, we would write:
 
-```{code-cell}
+```{code-cell} ipython3
 print(4 ** (1 / 2))
 ```
 
@@ -141,12 +143,12 @@ Later in these tutorials, when we will start using [numpy](numpy.md), we will se
 
 Exponentiation follows the same type convention as the multiplication: using only integers will results in an integer, and as soon as one of the operands is a float, the result is a float.
 
-```{code-cell}
-print(type(4 ** 2))
+```{code-cell} ipython3
+print(type(4**2))
 ```
 
-```{code-cell}
-print(type(4.0 ** 2))
+```{code-cell} ipython3
+print(type(4.0**2))
 ```
 
 :::{exercise} Pythagorean theorem
@@ -160,12 +162,12 @@ y = 0.7
 ```
 :::
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [hide-cell]
 
 x = 2.5
 y = 0.7
-d = (x ** 2 + y ** 2) ** (1 / 2)
+d = (x**2 + y**2) ** (1 / 2)
 
 print(d)
 ```

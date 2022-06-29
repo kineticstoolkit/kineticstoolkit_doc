@@ -3,6 +3,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.13.8
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -13,7 +15,7 @@ kernelspec:
 
 In this tutorial, we will visualize the kinematics of an athlete who propelled a racing wheelchair on a training roller during 10 seconds. In this acquisition, the marker trajectories were saved as a `c3d` file.
 
-```{code-cell}
+```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
 ```
 
@@ -23,9 +25,9 @@ The [kinematics](api/kineticstoolkit.kinematics.rst) module provide the function
 
 For example:
 
-```{code-cell}
+```{code-cell} ipython3
 markers = ktk.kinematics.read_c3d_file(
-    ktk.doc.download('kinematics_racing_full.c3d')
+    ktk.doc.download("kinematics_racing_full.c3d")
 )
 
 markers
@@ -33,7 +35,7 @@ markers
 
 We see that this acquisition has 46 markers. Each data key corresponds to the trajectory of one marker:
 
-```{code-cell}
+```{code-cell} ipython3
 markers.data
 ```
 
@@ -45,21 +47,23 @@ For the `Player` class to be interactive, you must select an interactive backend
 
 Set a point of view:
 
-```{code-cell}
+```{code-cell} ipython3
 viewing_options = {
-    'zoom': 3.5,
-    'azimuth': 0.8,
-    'elevation': 0.16,
-    'translation': (0.2, -0.7)
+    "zoom": 3.5,
+    "azimuth": 0.8,
+    "elevation": 0.16,
+    "translation": (0.2, -0.7),
 }
 ```
 
 Visualize the markers (note that the call to `to_html5` is only required in inline matplotlib environments such as Jupyter lab or notebooks):
 
-```{code-cell}
+```{code-cell} ipython3
 player = ktk.Player(markers, **viewing_options)
 
-player.to_html5(start_time=0, stop_time=1)  # Show only one second of acquisition
+player.to_html5(
+    start_time=0, stop_time=1
+)  # Show only one second of acquisition
 ```
 
 Note the colored global reference frame on the bottom. This reference frame and every other (as we will create in the next tutorial) follow the same standard color scheme:
@@ -72,38 +76,44 @@ Note the colored global reference frame on the bottom. This reference frame and 
 
 To ease the visualization, it is often practical to interconnect markers with lines. Here, we will create links between the right arm markers and between the right forearm markers.
 
-```{code-cell}
+```{code-cell} ipython3
 interconnections = dict()  # Will contain all segment definitions
 
 # Right arm
-interconnections['ArmR'] = {
-    
+interconnections["ArmR"] = {
     # Segment color in [red, green, blue] (each between 0 et 1)
-    'Color': [1, 0.25, 0],
-    
+    "Color": [1, 0.25, 0],
     # List of links, defined by marker names
-    'Links': [['AcromionR', 'MedialEpicondyleR'],
-              ['AcromionR', 'LateralEpicondyleR'],
-              ['AcromionR', 'OlecraneR']]
+    "Links": [
+        ["AcromionR", "MedialEpicondyleR"],
+        ["AcromionR", "LateralEpicondyleR"],
+        ["AcromionR", "OlecraneR"],
+    ],
 }
 
 # Right forearm
-interconnections['ForearmR'] = {
-    'Color': [1, 0.5, 0],
-    'Links': [['MedialEpicondyleR', 'RadialStyloidR'],
-              ['MedialEpicondyleR', 'UlnarStyloidR'],
-              ['LateralEpicondyleR', 'RadialStyloidR'],
-              ['LateralEpicondyleR', 'UlnarStyloidR'],
-              ['OlecraneR', 'RadialStyloidR'],
-              ['OlecraneR', 'UlnarStyloidR'],
-              ['UlnarStyloidR', 'RadialStyloidR']]
+interconnections["ForearmR"] = {
+    "Color": [1, 0.5, 0],
+    "Links": [
+        ["MedialEpicondyleR", "RadialStyloidR"],
+        ["MedialEpicondyleR", "UlnarStyloidR"],
+        ["LateralEpicondyleR", "RadialStyloidR"],
+        ["LateralEpicondyleR", "UlnarStyloidR"],
+        ["OlecraneR", "RadialStyloidR"],
+        ["OlecraneR", "UlnarStyloidR"],
+        ["UlnarStyloidR", "RadialStyloidR"],
+    ],
 }
 ```
 
 Now we can load a Player again with the segments we just defined:
 
 ```{code-cell} ipython3
-player = ktk.Player(markers, interconnections=interconnections, **viewing_options)
+player = ktk.Player(
+    markers, interconnections=interconnections, **viewing_options
+)
 
-player.to_html5(start_time=0, stop_time=1)  # Show only one second of acquisition
+player.to_html5(
+    start_time=0, stop_time=1
+)  # Show only one second of acquisition
 ```

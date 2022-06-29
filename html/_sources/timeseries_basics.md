@@ -3,6 +3,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.13.8
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -23,36 +25,36 @@ TimeSeries are largely inspired by Matlab's `timeseries` and `tscollection`. Eve
 
 A TimeSeries in its simplest form contains a time vector and at least one data series. For example:
 
-```{code-cell}
+```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
 import numpy as np
 
 ts = ktk.TimeSeries()
 ts.time = np.arange(0, 10, 0.1)  # 10 seconds at 10 Hz
-ts.data['Sinus'] = np.sin(ts.time)
+ts.data["Sinus"] = np.sin(ts.time)
 
 ts
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 ts.data
 ```
 
 TimeSeries can be [plotted](api/kineticstoolkit.TimeSeries.plot.rst) directly using Matplotlib:
 
-```{code-cell}
+```{code-cell} ipython3
 ts.plot()
 ```
 
 A TimeSeries can contain many independent data that share a same time vector:
 
-```{code-cell}
-ts.data['Cosinus'] = np.cos(ts.time)
+```{code-cell} ipython3
+ts.data["Cosinus"] = np.cos(ts.time)
 
 ts.data
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 ts.plot()
 ```
 
@@ -80,19 +82,17 @@ M_x(N-1) & M_y(N-1) & M_z(N-1) & 0
 \end{bmatrix}
 $$
 
-```{code-cell}
-ts = ktk.load(
-    ktk.doc.download('timeseries_example.ktk.zip')
-)
+```{code-cell} ipython3
+ts = ktk.load(ktk.doc.download("timeseries_example.ktk.zip"))
 
 ts
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 ts.data
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 ts.plot()
 ```
 
@@ -106,20 +106,20 @@ ts.time_info
 
 Similarly, the `data_info` property associates metadata to data. This property is a dictionary of dictionaries, where the outer key corresponds to the data key, and the inner key is the metadata. The ![TimeSeries.add_data_info()](api/kineticstoolkit.TimeSeries.add_data_info.rst) method eases the management of `data_info`.
 
-```{code-cell}
-ts = ts.add_data_info('Forces', 'Unit', 'N')
-ts = ts.add_data_info('Moments', 'Unit', 'Nm')
+```{code-cell} ipython3
+ts = ts.add_data_info("Forces", "Unit", "N")
+ts = ts.add_data_info("Moments", "Unit", "Nm")
 
 ts.data_info
 ```
 
-```{code-cell}
-ts.data_info['Forces']
+```{code-cell} ipython3
+ts.data_info["Forces"]
 ```
 
 Unless explicitly mentioned, metadata is not used for calculation and is optional. It is simply a way to clarify the data by adding information to it. Some functions however read metadata: for example, the ![TimeSeries.plot()](api/kineticstoolkit.TimeSeries.plot.rst) method looks for possible `Unit` metadata and prints it on the y axis.
 
-```{code-cell}
+```{code-cell} ipython3
 ts.plot()
 ```
 
@@ -134,27 +134,27 @@ There are several ways to edit the events of a TimeSeries:
 
 In this tutorial, we will add the events manually.
 
-```{code-cell}
-ts = ts.add_event(4.35, 'sync')
-ts = ts.add_event(8.56, 'push')
-ts = ts.add_event(9.93, 'recovery')
-ts = ts.add_event(10.50, 'push')
-ts = ts.add_event(11.12, 'recovery')
-ts = ts.add_event(11.78, 'push')
-ts = ts.add_event(12.33, 'recovery')
-ts = ts.add_event(13.39, 'push')
-ts = ts.add_event(13.88, 'recovery')
-ts = ts.add_event(14.86, 'push')
-ts = ts.add_event(15.30, 'recovery')
+```{code-cell} ipython3
+ts = ts.add_event(4.35, "sync")
+ts = ts.add_event(8.56, "push")
+ts = ts.add_event(9.93, "recovery")
+ts = ts.add_event(10.50, "push")
+ts = ts.add_event(11.12, "recovery")
+ts = ts.add_event(11.78, "push")
+ts = ts.add_event(12.33, "recovery")
+ts = ts.add_event(13.39, "push")
+ts = ts.add_event(13.88, "recovery")
+ts = ts.add_event(14.86, "push")
+ts = ts.add_event(15.30, "recovery")
 ```
 
 These 11 events are now added to the TimeSeries' list of events:
 
-```{code-cell}
+```{code-cell} ipython3
 ts
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 ts.events
 ```
 
@@ -168,7 +168,7 @@ ts.plot()
 
 Let's see how we can make use of these events. First, the `sync` event may be set to the time origin, which could be useful to sync this TimeSeries with other instrumentation. This can be done using the ![TimeSeries.sync_event()](api/kineticstoolkit.TimeSeries.sync_event.rst) function, which shifts the TimeSeries' time and every event's time accordingly.
 
-```{code-cell}
-ts = ts.sync_event('sync')
+```{code-cell} ipython3
+ts = ts.sync_event("sync")
 ts.plot()
 ```

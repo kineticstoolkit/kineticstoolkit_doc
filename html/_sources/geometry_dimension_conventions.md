@@ -3,6 +3,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.13.8
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -42,14 +44,14 @@ Since most signals in Kinetics Toolkit as considered as a series, always ensure 
 
 A quick way to convert a constant array to a series is to use numpy's `newaxis`:
 
-```{code-cell}
+```{code-cell} ipython3
 import numpy as np
 
 one_matrix = np.eye(4)
 one_matrix
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 series_of_one_matrix = one_matrix[np.newaxis]
 series_of_one_matrix
 ```
@@ -65,7 +67,7 @@ We know the lenght of the arm is 38 cm, and we want to express the position of t
 
 First, let's express the elbow position in the humerus coordinate system.
 
-```{code-cell}
+```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
 
 local_elbow_position = np.array([[0, -0.38, 0, 1]])
@@ -75,17 +77,16 @@ local_elbow_position
 
 Now, we create the frame representing the position and orientation of the humerus coordinate system. Since we know these position and orientation, then we will create this frame as an homogeneous transform from the global to the humerus coordinate system, using the [geometry.create_transforms()](api/kineticstoolkit.geometry.create_transforms.rst) function:
 
-```{code-cell}
+```{code-cell} ipython3
 humerus_frame = ktk.geometry.create_transforms(
-    seq = 'z',
-    angles = [np.deg2rad(30)],
-    translations = [[0.15, 0.70, 0]])
+    seq="z", angles=[np.deg2rad(30)], translations=[[0.15, 0.70, 0]]
+)
 
 humerus_frame
 ```
 
 Now we can express the local elbow position in the global coordinate system:
 
-```{code-cell}
+```{code-cell} ipython3
 ktk.geometry.get_global_coordinates(local_elbow_position, humerus_frame)
 ```

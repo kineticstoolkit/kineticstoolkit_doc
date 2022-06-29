@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.13.1
+    jupytext_version: 1.13.8
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -23,12 +23,10 @@ import matplotlib.pyplot as plt
 We will first load some noisy data:
 
 ```{code-cell} ipython3
-ts = ktk.load(
-    ktk.doc.download('filters_types_of_noise.ktk.zip')
-)
+ts = ktk.load(ktk.doc.download("filters_types_of_noise.ktk.zip"))
 
 # Plot it
-ts.plot(['clean', 'quantized'], marker='.')
+ts.plot(["clean", "quantized"], marker=".")
 plt.grid(True)
 plt.tight_layout()
 ```
@@ -40,10 +38,12 @@ Let's try to smooth the non-derived signal using a second-order Savitzky-Golay f
 ```{code-cell} ipython3
 filtered = ktk.filters.savgol(ts, poly_order=2, window_length=7)
 
-ts.plot(['clean', 'quantized'], marker='.', linestyle='--')
-filtered.plot(['quantized'], marker='.', color='k')
+ts.plot(["clean", "quantized"], marker=".", linestyle="--")
+filtered.plot(["quantized"], marker=".", color="k")
 
-plt.title('Smoothed signal using a Savitzky-Golay filter of order=2 and window_length=7')
+plt.title(
+    "Smoothed signal using a Savitzky-Golay filter of order=2 and window_length=7"
+)
 plt.grid(True)
 plt.tight_layout()
 ```
@@ -57,7 +57,7 @@ This sort of signal that suffers from bad resolution is very difficult to deriva
 derivate = ktk.filters.deriv(ts)
 
 # Plot it
-derivate.plot(['clean', 'quantized'], marker='.')
+derivate.plot(["clean", "quantized"], marker=".")
 plt.grid(True)
 plt.tight_layout()
 ```
@@ -66,13 +66,17 @@ Since the Savitzky-Golay filter fits a polynom instead of just smoothing the sig
 
 ```{code-cell} ipython3
 # Filter and derivate
-derivate_savgol = ktk.filters.savgol(ts, poly_order=2, window_length=7, deriv=1)
+derivate_savgol = ktk.filters.savgol(
+    ts, poly_order=2, window_length=7, deriv=1
+)
 
 # Plot it
-derivate.plot(['clean', 'quantized'], marker='.', linestyle='--')
-derivate_savgol.plot('quantized', marker='.', color='k')
+derivate.plot(["clean", "quantized"], marker=".", linestyle="--")
+derivate_savgol.plot("quantized", marker=".", color="k")
 
-plt.title('Derived signal using a Savitzky-Golay filter of order=2 and window_length=7 (black)')
+plt.title(
+    "Derived signal using a Savitzky-Golay filter of order=2 and window_length=7 (black)"
+)
 plt.grid(True)
 plt.tight_layout()
 ```

@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.13.1
+    jupytext_version: 1.13.8
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -33,12 +33,11 @@ import numpy as np
 
 # Probing acquisition
 markers_probing = ktk.kinematics.read_c3d_file(
-    ktk.doc.download('kinematics_racing_probing_medial_epicondyle_R.c3d')
+    ktk.doc.download("kinematics_racing_probing_medial_epicondyle_R.c3d")
 )
-markers_probing = markers_probing.get_subset([
-    'ArmR1', 'ArmR2', 'ArmR3',
-    'Probe1', 'Probe2', 'Probe3', 'Probe4'
-])
+markers_probing = markers_probing.get_subset(
+    ["ArmR1", "ArmR2", "ArmR3", "Probe1", "Probe2", "Probe3", "Probe4"]
+)
 
 markers_probing.data
 ```
@@ -46,13 +45,9 @@ markers_probing.data
 ```{code-cell} ipython3
 # Propulsion acquisition
 markers_propulsion = ktk.kinematics.read_c3d_file(
-    ktk.doc.download('kinematics_racing_propulsion.c3d')
+    ktk.doc.download("kinematics_racing_propulsion.c3d")
 )
-markers_propulsion = markers_propulsion.get_subset([
-    'ArmR1',
-    'ArmR2',
-    'ArmR3',
-])
+markers_propulsion = markers_propulsion.get_subset(["ArmR1", "ArmR2", "ArmR3"])
 
 markers_propulsion.data
 ```
@@ -70,16 +65,11 @@ We will use these known coordinates to create a cluster as in the previous tutor
 
 ```{code-cell} ipython3
 probe = {
-    'ProbeTip': np.array(
-        [[0.0, 0.0, 0.0, 1.0]]),
-    'Probe1': np.array(
-        [[0.0021213, -0.0158328, 0.0864285, 1.0]]),
-    'Probe2': np.array(
-        [[0.0021213, 0.0158508, 0.0864285, 1.0]]),
-    'Probe3': np.array(
-        [[0.0020575, 0.0160096, 0.1309445, 1.0]]),
-    'Probe4': np.array(
-        [[0.0021213, 0.0161204, 0.1754395, 1.0]]),
+    "ProbeTip": np.array([[0.0, 0.0, 0.0, 1.0]]),
+    "Probe1": np.array([[0.0021213, -0.0158328, 0.0864285, 1.0]]),
+    "Probe2": np.array([[0.0021213, 0.0158508, 0.0864285, 1.0]]),
+    "Probe3": np.array([[0.0020575, 0.0160096, 0.1309445, 1.0]]),
+    "Probe4": np.array([[0.0021213, 0.0161204, 0.1754395, 1.0]]),
 }
 ```
 
@@ -99,9 +89,9 @@ reconstructed_probe_markers_during_probing.data
 Since we reconstructed the trajectory of the probe tip during the probing acquisition, we can now consider that this trajectory is the same as if a real marker had been affixed on the medial epicondyle.
 
 ```{code-cell} ipython3
-markers_probing.data['MedialEpicondyleR'] = (
-    reconstructed_probe_markers_during_probing.data['ProbeTip']
-)
+markers_probing.data[
+    "MedialEpicondyleR"
+] = reconstructed_probe_markers_during_probing.data["ProbeTip"]
 
 markers_probing.data
 ```
@@ -112,14 +102,14 @@ We are now in the same situation as the beginning of the previous tutorial. We c
 
 ```{code-cell} ipython3
 cluster = ktk.kinematics.create_cluster(
-    markers_probing,
-    ['ArmR1', 'ArmR2', 'ArmR3', 'MedialEpicondyleR'])
+    markers_probing, ["ArmR1", "ArmR2", "ArmR3", "MedialEpicondyleR"]
+)
 
 # Print the cluster contents
-print(cluster['ArmR1'])
-print(cluster['ArmR2'])
-print(cluster['ArmR3'])
-print(cluster['MedialEpicondyleR'])
+print(cluster["ArmR1"])
+print(cluster["ArmR2"])
+print(cluster["ArmR3"])
+print(cluster["MedialEpicondyleR"])
 ```
 
 ## Tracking the cluster to reconstruct a "virtual" marker for the epicondyle
@@ -134,11 +124,11 @@ reconstructed_markers_propulsion = ktk.kinematics.track_cluster(
 
 # Plot the results
 plt.subplot(2, 2, 1)
-reconstructed_markers_propulsion.plot('ArmR1')
+reconstructed_markers_propulsion.plot("ArmR1")
 plt.subplot(2, 2, 2)
-reconstructed_markers_propulsion.plot('ArmR2')
+reconstructed_markers_propulsion.plot("ArmR2")
 plt.subplot(2, 2, 3)
-reconstructed_markers_propulsion.plot('ArmR3')
+reconstructed_markers_propulsion.plot("ArmR3")
 plt.subplot(2, 2, 4)
-reconstructed_markers_propulsion.plot('MedialEpicondyleR')
+reconstructed_markers_propulsion.plot("MedialEpicondyleR")
 ```

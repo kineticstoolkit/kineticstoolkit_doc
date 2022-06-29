@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.13.1
+    jupytext_version: 1.13.8
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -23,12 +23,10 @@ import matplotlib.pyplot as plt
 We begin by loading some sample data:
 
 ```{code-cell} ipython3
-ts_noisy = ktk.load(
-    ktk.doc.download('filters_noisy_signals.ktk.zip')
-)
+ts_noisy = ktk.load(ktk.doc.download("filters_noisy_signals.ktk.zip"))
 
 ts_noisy.plot()
-plt.title('Noisy signals')
+plt.title("Noisy signals")
 plt.tight_layout()
 ```
 
@@ -39,18 +37,18 @@ Here is an example of how to filter out high frequencies using a no-lag Butterwo
 ```{code-cell} ipython3
 plt.subplot(1, 3, 1)
 ts_noisy.plot()
-plt.title('Before filtering')
+plt.title("Before filtering")
 
 plt.subplot(1, 3, 2)
 temp = ktk.filters.butter(ts_noisy, fc=20)
 temp.plot()
-plt.title('Low-pass 2nd order at 20 Hz')
+plt.title("Low-pass 2nd order at 20 Hz")
 plt.tight_layout()
 
 plt.subplot(1, 3, 3)
 temp = ktk.filters.butter(ts_noisy, fc=4)
 temp.plot()
-plt.title('Low-pass 2nd order at 4 Hz')
+plt.title("Low-pass 2nd order at 4 Hz")
 plt.tight_layout()
 ```
 
@@ -63,12 +61,12 @@ Here is an example of how to filter out low frequencies using a no-lag Butterwor
 ```{code-cell} ipython3
 plt.subplot(1, 2, 1)
 ts_noisy.plot()
-plt.title('Before filtering')
+plt.title("Before filtering")
 
 plt.subplot(1, 2, 2)
-temp = ktk.filters.butter(ts_noisy, btype='highpass', fc=60)
+temp = ktk.filters.butter(ts_noisy, btype="highpass", fc=60)
 temp.plot()
-plt.title('High-pass 2nd order at 60 Hz')
+plt.title("High-pass 2nd order at 60 Hz")
 plt.tight_layout()
 ```
 

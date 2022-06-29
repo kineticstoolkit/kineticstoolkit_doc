@@ -3,6 +3,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.13.8
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -18,26 +20,26 @@ Contrarily to Matlab with its `.mat` file, python does not come with a single st
 
 These functions are straightforward to use:
 
-```{code-cell}
+```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
 import numpy as np
 
 variable = {
-    'some_array': np.arange(0, 5, 0.5),
-    'some_text': 'hello',
+    "some_array": np.arange(0, 5, 0.5),
+    "some_text": "hello",
 }
 ```
 
 Saving the variable:
 
-```{code-cell}
-ktk.save('filename.ktk.zip', variable)
+```{code-cell} ipython3
+ktk.save("filename.ktk.zip", variable)
 ```
 
 Loading back the variable:
 
-```{code-cell}
-loaded_variable = ktk.load('filename.ktk.zip')
+```{code-cell} ipython3
+loaded_variable = ktk.load("filename.ktk.zip")
 
 loaded_variable
 ```

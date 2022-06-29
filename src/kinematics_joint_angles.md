@@ -3,6 +3,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.13.8
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -25,7 +27,7 @@ Such an analysis is composed of the following steps:
 
 **Step 5.** We interpret these Euler angle as rotations around anatomical axes.
 
-```{code-cell}
+```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
 ```
 
@@ -36,39 +38,45 @@ We proceed exactly as in the previous tutorial:
 ```{code-cell} ipython3
 # Read the markers
 markers = ktk.kinematics.read_c3d_file(
-    ktk.doc.download('kinematics_racing_full.c3d')
+    ktk.doc.download("kinematics_racing_full.c3d")
 )
 
 # Set the point of view for 3D visualization
 viewing_options = {
-    'zoom': 3.5,
-    'azimuth': 0.8,
-    'elevation': 0.16,
-    'translation': (0.2, -0.7)
+    "zoom": 3.5,
+    "azimuth": 0.8,
+    "elevation": 0.16,
+    "translation": (0.2, -0.7),
 }
 
 # Interconnect markers for easier visualization
 interconnections = {
-    'ArmR': {
-        'Color': [1, 0.25, 0],
-        'Links': [['AcromionR', 'MedialEpicondyleR'],
-                  ['AcromionR', 'LateralEpicondyleR'],
-                  ['AcromionR', 'OlecraneR']]
+    "ArmR": {
+        "Color": [1, 0.25, 0],
+        "Links": [
+            ["AcromionR", "MedialEpicondyleR"],
+            ["AcromionR", "LateralEpicondyleR"],
+            ["AcromionR", "OlecraneR"],
+        ],
     },
-    'ForearmR': {
-        'Color': [1, 0.5, 0],
-        'Links': [['MedialEpicondyleR', 'RadialStyloidR'],
-                  ['MedialEpicondyleR', 'UlnarStyloidR'],
-                  ['LateralEpicondyleR', 'RadialStyloidR'],
-                  ['LateralEpicondyleR', 'UlnarStyloidR'],
-                  ['OlecraneR', 'RadialStyloidR'],
-                  ['OlecraneR', 'UlnarStyloidR'],
-                  ['UlnarStyloidR', 'RadialStyloidR']]
-    }
+    "ForearmR": {
+        "Color": [1, 0.5, 0],
+        "Links": [
+            ["MedialEpicondyleR", "RadialStyloidR"],
+            ["MedialEpicondyleR", "UlnarStyloidR"],
+            ["LateralEpicondyleR", "RadialStyloidR"],
+            ["LateralEpicondyleR", "UlnarStyloidR"],
+            ["OlecraneR", "RadialStyloidR"],
+            ["OlecraneR", "UlnarStyloidR"],
+            ["UlnarStyloidR", "RadialStyloidR"],
+        ],
+    },
 }
 
 # Create the player
-player = ktk.Player(markers, interconnections=interconnections, **viewing_options)
+player = ktk.Player(
+    markers, interconnections=interconnections, **viewing_options
+)
 
 # Show one second (only needed in Notebooks)
 player.to_html5(start_time=0, stop_time=1)
@@ -88,24 +96,24 @@ Following the ISB recommendations, the local coordinate system for the humerus i
 
 We don't have a marker for the glenohumeral join, but we have one for the acromion. We will approximate GH by the acromion.
 
-```{code-cell}
-origin = markers.data['AcromionR']
+```{code-cell} ipython3
+origin = markers.data["AcromionR"]
 ```
 
 **2. The y axis is the line between GH and the midpoint of EL (lateral elbow epicondyle) and EM (medial elbow epicondyle), pointing to GH**
 
-```{code-cell}
-y = (markers.data['AcromionR'] -
-     0.5 * (markers.data['LateralEpicondyleR'] +
-            markers.data['MedialEpicondyleR']))
+```{code-cell} ipython3
+y = markers.data["AcromionR"] - 0.5 * (
+    markers.data["LateralEpicondyleR"] + markers.data["MedialEpicondyleR"]
+)
 ```
 
 **3. The x axis is the normal to the GH-EL-EM plane, pointing forward**
 
-Since x is normal to the GH-EL-EM plane, this plane is a yz plane. We need to define a second vector (other than y) to form this yz plane.  
+Since x is normal to the GH-EL-EM plane, this plane is a yz plane. We need to define a second vector (other than y) to form this yz plane.
 
-```{code-cell}
-yz = markers.data['LateralEpicondyleR'] - markers.data['MedialEpicondyleR']
+```{code-cell} ipython3
+yz = markers.data["LateralEpicondyleR"] - markers.data["MedialEpicondyleR"]
 ```
 
 Note that the direction of the yz vector is important. For the plane normal to be forward, the cross product of y and yz must also point forward. In this case, following the [right-hand/screw rule](https://en.wikipedia.org/wiki/Right-hand_rule), y (upward) cross yz (right) effectively yields a forward vector.
@@ -118,22 +126,22 @@ We have now defined everything to create the series of humerus frame.
 
 We first create an empty TimeSeries for our frames:
 
-```{code-cell}
+```{code-cell} ipython3
 frames = ktk.TimeSeries(time=markers.time)
 ```
 
 Now, we will create the `ArmR` frame series.
 
-```{code-cell}
-frames.data['ArmR'] = ktk.geometry.create_frames(
-            origin=origin, y=y, yz=yz)
+```{code-cell} ipython3
+frames.data["ArmR"] = ktk.geometry.create_frames(origin=origin, y=y, yz=yz)
 ```
 
 Let's visualize it:
 
-```{code-cell}
-player = ktk.Player(markers, frames,
-                    interconnections=interconnections, **viewing_options)
+```{code-cell} ipython3
+player = ktk.Player(
+    markers, frames, interconnections=interconnections, **viewing_options
+)
 
 # Show one second in this Jupyter notebook
 player.to_html5(start_time=0, stop_time=1)
@@ -145,16 +153,18 @@ We will now proceed with the exact same steps to create the forearm coordinate s
 
 **1. The origin is US (ulnar styloid process).**
 
-```{code-cell}
-origin = markers.data['UlnarStyloidR']
+```{code-cell} ipython3
+origin = markers.data["UlnarStyloidR"]
 ```
 
 **2. The y axis is the line between US and the midpoint between EL and EM, pointing proximally.**
 
-```{code-cell}
-y = (0.5 * (markers.data['LateralEpicondyleR'] +
-            markers.data['MedialEpicondyleR']) -
-     markers.data['UlnarStyloidR'])
+```{code-cell} ipython3
+y = (
+    0.5
+    * (markers.data["LateralEpicondyleR"] + markers.data["MedialEpicondyleR"])
+    - markers.data["UlnarStyloidR"]
+)
 ```
 
 **3. The x axis is the line perpendicular to the plane through US, RS, and the midpoint between EL and EM, pointing forward.**
@@ -163,22 +173,22 @@ y = (0.5 * (markers.data['LateralEpicondyleR'] +
 
 This means that US, RS and the elbow center make an yz plane. Since z will point to the right in anatomical position, we will create a yz vector that points grossly to the right in anatomical position.
 
-```{code-cell}
-yz = markers.data['RadialStyloidR'] - markers.data['UlnarStyloidR']
+```{code-cell} ipython3
+yz = markers.data["RadialStyloidR"] - markers.data["UlnarStyloidR"]
 ```
 
 We are now ready to create the `ForearmR` frame series.
 
-```{code-cell}
-frames.data['ForearmR'] = ktk.geometry.create_frames(
-            origin=origin, y=y, yz=yz)
+```{code-cell} ipython3
+frames.data["ForearmR"] = ktk.geometry.create_frames(origin=origin, y=y, yz=yz)
 ```
 
 Let's visualize our markers with both new frames:
 
-```{code-cell}
-player = ktk.Player(markers, frames,
-                    interconnections=interconnections, **viewing_options)
+```{code-cell} ipython3
+player = ktk.Player(
+    markers, frames, interconnections=interconnections, **viewing_options
+)
 
 # Show one second in this Jupyter notebook
 player.to_html5(start_time=0, stop_time=1)
@@ -188,10 +198,9 @@ player.to_html5(start_time=0, stop_time=1)
 
 Now that we have expressed frames for both the arm and forearm, we can find the homogeneous transform between both frames. This is equivalent to expressing the forearm frame in the local coordinates system of the arm.
 
-```{code-cell}
+```{code-cell} ipython3
 arm_to_forearm = ktk.geometry.get_local_coordinates(
-    frames.data['ForearmR'],
-    frames.data['ArmR']
+    frames.data["ForearmR"], frames.data["ArmR"]
 )
 
 arm_to_forearm
@@ -209,8 +218,8 @@ We now have a series of homogeneous matrices, from which we will now extract Eul
 
 These rotations are relative to moving axes (every other rotation is performed around a new frame generated by the previous rotation). Therefore, we will use 'ZXY' (capital letters - see [geometry.get_angles()](api/kineticstoolkit.geometry.get_angles.rst) for the conventions) as the sequence of rotations.
 
-```{code-cell}
-euler_angles = ktk.geometry.get_angles(arm_to_forearm, 'ZXY', degrees=True)
+```{code-cell} ipython3
+euler_angles = ktk.geometry.get_angles(arm_to_forearm, "ZXY", degrees=True)
 
 euler_angles
 ```
@@ -219,14 +228,14 @@ euler_angles
 
 Now that we calculated the angles, we create a last TimeSeries that represents the meaning of these angles.
 
-```{code-cell}
+```{code-cell} ipython3
 angles = ktk.TimeSeries(time=markers.time)
 
-angles.data['Elbow flexion'] = euler_angles[:, 0]
-angles.data['Forearm pronation'] = euler_angles[:, 2]
+angles.data["Elbow flexion"] = euler_angles[:, 0]
+angles.data["Forearm pronation"] = euler_angles[:, 2]
 
-angles = angles.add_data_info('Elbow flexion', 'Unit', 'deg')
-angles = angles.add_data_info('Forearm pronation', 'Unit', 'deg')
+angles = angles.add_data_info("Elbow flexion", "Unit", "deg")
+angles = angles.add_data_info("Forearm pronation", "Unit", "deg")
 
 angles.plot()
 ```

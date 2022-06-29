@@ -276,11 +276,6 @@ const thebe_selector_output = ".output, .cell_output"
     </ul>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="pushrimkinetics.html">
-     Wheelchair kinetics
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="ktk_conventions.html">
      Conventions
     </a>
@@ -642,11 +637,28 @@ const thebe_selector_output = ".output, .cell_output"
     </ul>
    </li>
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="api/kineticstoolkit.filters.html">
-     kineticstoolkit.filters
+    <a class="reference internal" href="api/kineticstoolkit.doc.html">
+     kineticstoolkit.doc
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
     <label for="toctree-checkbox-14">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/kineticstoolkit.doc.download.html">
+       kineticstoolkit.doc.download
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="api/kineticstoolkit.filters.html">
+     kineticstoolkit.filters
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+    <label for="toctree-checkbox-15">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -682,8 +694,8 @@ const thebe_selector_output = ".output, .cell_output"
     <a class="reference internal" href="api/kineticstoolkit.geometry.html">
      kineticstoolkit.geometry
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
-    <label for="toctree-checkbox-15">
+    <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+    <label for="toctree-checkbox-16">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -729,8 +741,8 @@ const thebe_selector_output = ".output, .cell_output"
     <a class="reference internal" href="api/kineticstoolkit.kinematics.html">
      kineticstoolkit.kinematics
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
-    <label for="toctree-checkbox-16">
+    <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+    <label for="toctree-checkbox-17">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -767,21 +779,6 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
     </ul>
    </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="api/kineticstoolkit.emg.html">
-     kineticstoolkit.emg
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="api/kineticstoolkit.inversedynamics.html">
-     kineticstoolkit.inversedynamics
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="api/kineticstoolkit.anthropometrics.html">
-     kineticstoolkit.anthropometrics
-    </a>
-   </li>
   </ul>
  </li>
 </ul>
@@ -800,8 +797,8 @@ const thebe_selector_output = ".output, .cell_output"
   <a class="reference internal" href="dev_contributing.html">
    How to contribute
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
-  <label for="toctree-checkbox-17">
+  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+  <label for="toctree-checkbox-18">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -830,10 +827,10 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="dev_tutorials.html">
-   Developing tutorials
+   Tutorials in development
   </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
-  <label for="toctree-checkbox-18">
+  <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+  <label for="toctree-checkbox-19">
    <i class="fas fa-chevron-down">
    </i>
   </label>
@@ -842,8 +839,8 @@ const thebe_selector_output = ".output, .cell_output"
     <a class="reference internal" href="python.html">
      Learning Python - In construction
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
-    <label for="toctree-checkbox-19">
+    <input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
+    <label for="toctree-checkbox-20">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -1225,39 +1222,45 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the markers</span>
 <span class="n">markers</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">kinematics</span><span class="o">.</span><span class="n">read_c3d_file</span><span class="p">(</span>
-    <span class="n">ktk</span><span class="o">.</span><span class="n">doc</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;kinematics_racing_full.c3d&#39;</span><span class="p">)</span>
+    <span class="n">ktk</span><span class="o">.</span><span class="n">doc</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;kinematics_racing_full.c3d&quot;</span><span class="p">)</span>
 <span class="p">)</span>
 
 <span class="c1"># Set the point of view for 3D visualization</span>
 <span class="n">viewing_options</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;zoom&#39;</span><span class="p">:</span> <span class="mf">3.5</span><span class="p">,</span>
-    <span class="s1">&#39;azimuth&#39;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span>
-    <span class="s1">&#39;elevation&#39;</span><span class="p">:</span> <span class="mf">0.16</span><span class="p">,</span>
-    <span class="s1">&#39;translation&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.7</span><span class="p">)</span>
+    <span class="s2">&quot;zoom&quot;</span><span class="p">:</span> <span class="mf">3.5</span><span class="p">,</span>
+    <span class="s2">&quot;azimuth&quot;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span>
+    <span class="s2">&quot;elevation&quot;</span><span class="p">:</span> <span class="mf">0.16</span><span class="p">,</span>
+    <span class="s2">&quot;translation&quot;</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.7</span><span class="p">),</span>
 <span class="p">}</span>
 
 <span class="c1"># Interconnect markers for easier visualization</span>
 <span class="n">interconnections</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;ArmR&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;Color&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-        <span class="s1">&#39;Links&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;AcromionR&#39;</span><span class="p">,</span> <span class="s1">&#39;MedialEpicondyleR&#39;</span><span class="p">],</span>
-                  <span class="p">[</span><span class="s1">&#39;AcromionR&#39;</span><span class="p">,</span> <span class="s1">&#39;LateralEpicondyleR&#39;</span><span class="p">],</span>
-                  <span class="p">[</span><span class="s1">&#39;AcromionR&#39;</span><span class="p">,</span> <span class="s1">&#39;OlecraneR&#39;</span><span class="p">]]</span>
+    <span class="s2">&quot;ArmR&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;Color&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="s2">&quot;Links&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">[</span><span class="s2">&quot;AcromionR&quot;</span><span class="p">,</span> <span class="s2">&quot;MedialEpicondyleR&quot;</span><span class="p">],</span>
+            <span class="p">[</span><span class="s2">&quot;AcromionR&quot;</span><span class="p">,</span> <span class="s2">&quot;LateralEpicondyleR&quot;</span><span class="p">],</span>
+            <span class="p">[</span><span class="s2">&quot;AcromionR&quot;</span><span class="p">,</span> <span class="s2">&quot;OlecraneR&quot;</span><span class="p">],</span>
+        <span class="p">],</span>
     <span class="p">},</span>
-    <span class="s1">&#39;ForearmR&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;Color&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
-        <span class="s1">&#39;Links&#39;</span><span class="p">:</span> <span class="p">[[</span><span class="s1">&#39;MedialEpicondyleR&#39;</span><span class="p">,</span> <span class="s1">&#39;RadialStyloidR&#39;</span><span class="p">],</span>
-                  <span class="p">[</span><span class="s1">&#39;MedialEpicondyleR&#39;</span><span class="p">,</span> <span class="s1">&#39;UlnarStyloidR&#39;</span><span class="p">],</span>
-                  <span class="p">[</span><span class="s1">&#39;LateralEpicondyleR&#39;</span><span class="p">,</span> <span class="s1">&#39;RadialStyloidR&#39;</span><span class="p">],</span>
-                  <span class="p">[</span><span class="s1">&#39;LateralEpicondyleR&#39;</span><span class="p">,</span> <span class="s1">&#39;UlnarStyloidR&#39;</span><span class="p">],</span>
-                  <span class="p">[</span><span class="s1">&#39;OlecraneR&#39;</span><span class="p">,</span> <span class="s1">&#39;RadialStyloidR&#39;</span><span class="p">],</span>
-                  <span class="p">[</span><span class="s1">&#39;OlecraneR&#39;</span><span class="p">,</span> <span class="s1">&#39;UlnarStyloidR&#39;</span><span class="p">],</span>
-                  <span class="p">[</span><span class="s1">&#39;UlnarStyloidR&#39;</span><span class="p">,</span> <span class="s1">&#39;RadialStyloidR&#39;</span><span class="p">]]</span>
-    <span class="p">}</span>
+    <span class="s2">&quot;ForearmR&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;Color&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+        <span class="s2">&quot;Links&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">[</span><span class="s2">&quot;MedialEpicondyleR&quot;</span><span class="p">,</span> <span class="s2">&quot;RadialStyloidR&quot;</span><span class="p">],</span>
+            <span class="p">[</span><span class="s2">&quot;MedialEpicondyleR&quot;</span><span class="p">,</span> <span class="s2">&quot;UlnarStyloidR&quot;</span><span class="p">],</span>
+            <span class="p">[</span><span class="s2">&quot;LateralEpicondyleR&quot;</span><span class="p">,</span> <span class="s2">&quot;RadialStyloidR&quot;</span><span class="p">],</span>
+            <span class="p">[</span><span class="s2">&quot;LateralEpicondyleR&quot;</span><span class="p">,</span> <span class="s2">&quot;UlnarStyloidR&quot;</span><span class="p">],</span>
+            <span class="p">[</span><span class="s2">&quot;OlecraneR&quot;</span><span class="p">,</span> <span class="s2">&quot;RadialStyloidR&quot;</span><span class="p">],</span>
+            <span class="p">[</span><span class="s2">&quot;OlecraneR&quot;</span><span class="p">,</span> <span class="s2">&quot;UlnarStyloidR&quot;</span><span class="p">],</span>
+            <span class="p">[</span><span class="s2">&quot;UlnarStyloidR&quot;</span><span class="p">,</span> <span class="s2">&quot;RadialStyloidR&quot;</span><span class="p">],</span>
+        <span class="p">],</span>
+    <span class="p">},</span>
 <span class="p">}</span>
 
 <span class="c1"># Create the player</span>
-<span class="n">player</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">Player</span><span class="p">(</span><span class="n">markers</span><span class="p">,</span> <span class="n">interconnections</span><span class="o">=</span><span class="n">interconnections</span><span class="p">,</span> <span class="o">**</span><span class="n">viewing_options</span><span class="p">)</span>
+<span class="n">player</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">Player</span><span class="p">(</span>
+    <span class="n">markers</span><span class="p">,</span> <span class="n">interconnections</span><span class="o">=</span><span class="n">interconnections</span><span class="p">,</span> <span class="o">**</span><span class="n">viewing_options</span>
+<span class="p">)</span>
 
 <span class="c1"># Show one second (only needed in Notebooks)</span>
 <span class="n">player</span><span class="o">.</span><span class="n">to_html5</span><span class="p">(</span><span class="n">start_time</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop_time</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -2614,7 +2617,7 @@ AAAAAExhdmY1OS4xNi4xMDA=
 <p>We don’t have a marker for the glenohumeral join, but we have one for the acromion. We will approximate GH by the acromion.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">origin</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;AcromionR&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">origin</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;AcromionR&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -2622,9 +2625,9 @@ AAAAAExhdmY1OS4xNi4xMDA=
 <p><strong>2. The y axis is the line between GH and the midpoint of EL (lateral elbow epicondyle) and EM (medial elbow epicondyle), pointing to GH</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;AcromionR&#39;</span><span class="p">]</span> <span class="o">-</span>
-     <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;LateralEpicondyleR&#39;</span><span class="p">]</span> <span class="o">+</span>
-            <span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;MedialEpicondyleR&#39;</span><span class="p">]))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;AcromionR&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span>
+    <span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;LateralEpicondyleR&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;MedialEpicondyleR&quot;</span><span class="p">]</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2633,7 +2636,7 @@ AAAAAExhdmY1OS4xNi4xMDA=
 <p>Since x is normal to the GH-EL-EM plane, this plane is a yz plane. We need to define a second vector (other than y) to form this yz plane.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">yz</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;LateralEpicondyleR&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;MedialEpicondyleR&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">yz</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;LateralEpicondyleR&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;MedialEpicondyleR&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -2653,8 +2656,7 @@ AAAAAExhdmY1OS4xNi4xMDA=
 <p>Now, we will create the <code class="docutils literal notranslate"><span class="pre">ArmR</span></code> frame series.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frames</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;ArmR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">create_frames</span><span class="p">(</span>
-            <span class="n">origin</span><span class="o">=</span><span class="n">origin</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">yz</span><span class="o">=</span><span class="n">yz</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frames</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;ArmR&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">create_frames</span><span class="p">(</span><span class="n">origin</span><span class="o">=</span><span class="n">origin</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">yz</span><span class="o">=</span><span class="n">yz</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2662,8 +2664,9 @@ AAAAAExhdmY1OS4xNi4xMDA=
 <p>Let’s visualize it:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">player</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">Player</span><span class="p">(</span><span class="n">markers</span><span class="p">,</span> <span class="n">frames</span><span class="p">,</span>
-                    <span class="n">interconnections</span><span class="o">=</span><span class="n">interconnections</span><span class="p">,</span> <span class="o">**</span><span class="n">viewing_options</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">player</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">Player</span><span class="p">(</span>
+    <span class="n">markers</span><span class="p">,</span> <span class="n">frames</span><span class="p">,</span> <span class="n">interconnections</span><span class="o">=</span><span class="n">interconnections</span><span class="p">,</span> <span class="o">**</span><span class="n">viewing_options</span>
+<span class="p">)</span>
 
 <span class="c1"># Show one second in this Jupyter notebook</span>
 <span class="n">player</span><span class="o">.</span><span class="n">to_html5</span><span class="p">(</span><span class="n">start_time</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop_time</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -4099,7 +4102,7 @@ AAAAAAAAAAAALWlsc3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTkuMTYuMTAw
 <p><strong>1. The origin is US (ulnar styloid process).</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">origin</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;UlnarStyloidR&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">origin</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;UlnarStyloidR&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -4107,9 +4110,11 @@ AAAAAAAAAAAALWlsc3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTkuMTYuMTAw
 <p><strong>2. The y axis is the line between US and the midpoint between EL and EM, pointing proximally.</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;LateralEpicondyleR&#39;</span><span class="p">]</span> <span class="o">+</span>
-            <span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;MedialEpicondyleR&#39;</span><span class="p">])</span> <span class="o">-</span>
-     <span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;UlnarStyloidR&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="mf">0.5</span>
+    <span class="o">*</span> <span class="p">(</span><span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;LateralEpicondyleR&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;MedialEpicondyleR&quot;</span><span class="p">])</span>
+    <span class="o">-</span> <span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;UlnarStyloidR&quot;</span><span class="p">]</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -4119,7 +4124,7 @@ AAAAAAAAAAAALWlsc3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTkuMTYuMTAw
 <p>This means that US, RS and the elbow center make an yz plane. Since z will point to the right in anatomical position, we will create a yz vector that points grossly to the right in anatomical position.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">yz</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;RadialStyloidR&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;UlnarStyloidR&#39;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">yz</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;RadialStyloidR&quot;</span><span class="p">]</span> <span class="o">-</span> <span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;UlnarStyloidR&quot;</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -4127,8 +4132,7 @@ AAAAAAAAAAAALWlsc3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTkuMTYuMTAw
 <p>We are now ready to create the <code class="docutils literal notranslate"><span class="pre">ForearmR</span></code> frame series.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frames</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;ForearmR&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">create_frames</span><span class="p">(</span>
-            <span class="n">origin</span><span class="o">=</span><span class="n">origin</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">yz</span><span class="o">=</span><span class="n">yz</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">frames</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;ForearmR&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">create_frames</span><span class="p">(</span><span class="n">origin</span><span class="o">=</span><span class="n">origin</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">yz</span><span class="o">=</span><span class="n">yz</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -4136,8 +4140,9 @@ AAAAAAAAAAAALWlsc3QAAAAlqXRvbwAAAB1kYXRhAAAAAQAAAABMYXZmNTkuMTYuMTAw
 <p>Let’s visualize our markers with both new frames:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">player</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">Player</span><span class="p">(</span><span class="n">markers</span><span class="p">,</span> <span class="n">frames</span><span class="p">,</span>
-                    <span class="n">interconnections</span><span class="o">=</span><span class="n">interconnections</span><span class="p">,</span> <span class="o">**</span><span class="n">viewing_options</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">player</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">Player</span><span class="p">(</span>
+    <span class="n">markers</span><span class="p">,</span> <span class="n">frames</span><span class="p">,</span> <span class="n">interconnections</span><span class="o">=</span><span class="n">interconnections</span><span class="p">,</span> <span class="o">**</span><span class="n">viewing_options</span>
+<span class="p">)</span>
 
 <span class="c1"># Show one second in this Jupyter notebook</span>
 <span class="n">player</span><span class="o">.</span><span class="n">to_html5</span><span class="p">(</span><span class="n">start_time</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stop_time</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -5632,8 +5637,7 @@ dG9vAAAAHWRhdGEAAAABAAAAAExhdmY1OS4xNi4xMDA=
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arm_to_forearm</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">get_local_coordinates</span><span class="p">(</span>
-    <span class="n">frames</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;ForearmR&#39;</span><span class="p">],</span>
-    <span class="n">frames</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;ArmR&#39;</span><span class="p">]</span>
+    <span class="n">frames</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;ForearmR&quot;</span><span class="p">],</span> <span class="n">frames</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;ArmR&quot;</span><span class="p">]</span>
 <span class="p">)</span>
 
 <span class="n">arm_to_forearm</span>
@@ -5686,7 +5690,7 @@ dG9vAAAAHWRhdGEAAAABAAAAAExhdmY1OS4xNi4xMDA=
 <p>These rotations are relative to moving axes (every other rotation is performed around a new frame generated by the previous rotation). Therefore, we will use ‘ZXY’ (capital letters - see <a class="reference internal" href="api/kineticstoolkit.geometry.get_angles.html"><span class="doc std std-doc">geometry.get_angles()</span></a> for the conventions) as the sequence of rotations.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">euler_angles</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">get_angles</span><span class="p">(</span><span class="n">arm_to_forearm</span><span class="p">,</span> <span class="s1">&#39;ZXY&#39;</span><span class="p">,</span> <span class="n">degrees</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">euler_angles</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">get_angles</span><span class="p">(</span><span class="n">arm_to_forearm</span><span class="p">,</span> <span class="s2">&quot;ZXY&quot;</span><span class="p">,</span> <span class="n">degrees</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="n">euler_angles</span>
 </pre></div>
@@ -5712,11 +5716,11 @@ dG9vAAAAHWRhdGEAAAABAAAAAExhdmY1OS4xNi4xMDA=
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">angles</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">TimeSeries</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">markers</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
 
-<span class="n">angles</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Elbow flexion&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">euler_angles</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
-<span class="n">angles</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Forearm pronation&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">euler_angles</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
+<span class="n">angles</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Elbow flexion&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">euler_angles</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">angles</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Forearm pronation&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">euler_angles</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
 
-<span class="n">angles</span> <span class="o">=</span> <span class="n">angles</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="s1">&#39;Elbow flexion&#39;</span><span class="p">,</span> <span class="s1">&#39;Unit&#39;</span><span class="p">,</span> <span class="s1">&#39;deg&#39;</span><span class="p">)</span>
-<span class="n">angles</span> <span class="o">=</span> <span class="n">angles</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="s1">&#39;Forearm pronation&#39;</span><span class="p">,</span> <span class="s1">&#39;Unit&#39;</span><span class="p">,</span> <span class="s1">&#39;deg&#39;</span><span class="p">)</span>
+<span class="n">angles</span> <span class="o">=</span> <span class="n">angles</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="s2">&quot;Elbow flexion&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">,</span> <span class="s2">&quot;deg&quot;</span><span class="p">)</span>
+<span class="n">angles</span> <span class="o">=</span> <span class="n">angles</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="s2">&quot;Forearm pronation&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">,</span> <span class="s2">&quot;deg&quot;</span><span class="p">)</span>
 
 <span class="n">angles</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>

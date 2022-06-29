@@ -276,11 +276,6 @@ const thebe_selector_output = ".output, .cell_output"
     </ul>
    </li>
    <li class="toctree-l2">
-    <a class="reference internal" href="pushrimkinetics.html">
-     Wheelchair kinetics
-    </a>
-   </li>
-   <li class="toctree-l2">
     <a class="reference internal" href="ktk_conventions.html">
      Conventions
     </a>
@@ -1183,9 +1178,7 @@ title="Print to PDF"
 
 <span class="c1"># Load the instrumented wheel data</span>
 
-<span class="n">ts</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
-    <span class="n">ktk</span><span class="o">.</span><span class="n">doc</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;wheelchair_kinetics.ktk.zip&#39;</span><span class="p">)</span>
-<span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">ktk</span><span class="o">.</span><span class="n">doc</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;wheelchair_kinetics.ktk.zip&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1194,9 +1187,9 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">ts</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;Forces&#39;</span><span class="p">)</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s2">&quot;Forces&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="n">ts</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;Moments&#39;</span><span class="p">)</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s2">&quot;Moments&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1211,8 +1204,8 @@ title="Print to PDF"
 <p>We first calculate it based on the three force components and we add it as a new data of the TimeSeries.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Ftot&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Forces&#39;</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<span class="n">ts</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="s1">&#39;Forces&#39;</span><span class="p">,</span> <span class="s1">&#39;Ftot&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Ftot&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Forces&quot;</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="s2">&quot;Forces&quot;</span><span class="p">,</span> <span class="s2">&quot;Ftot&quot;</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1225,11 +1218,9 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">cycles</span><span class="o">.</span><span class="n">detect_cycles</span><span class="p">(</span>
-    <span class="n">ts</span><span class="p">,</span> <span class="s1">&#39;Ftot&#39;</span><span class="p">,</span>
-    <span class="n">event_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;push&#39;</span><span class="p">,</span> <span class="s1">&#39;recovery&#39;</span><span class="p">],</span>
-    <span class="n">thresholds</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
+    <span class="n">ts</span><span class="p">,</span> <span class="s2">&quot;Ftot&quot;</span><span class="p">,</span> <span class="n">event_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;push&quot;</span><span class="p">,</span> <span class="s2">&quot;recovery&quot;</span><span class="p">],</span> <span class="n">thresholds</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 <span class="p">)</span>
-<span class="n">test</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="s1">&#39;Forces&#39;</span><span class="p">,</span> <span class="s1">&#39;Ftot&#39;</span><span class="p">])</span>
+<span class="n">test</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="s2">&quot;Forces&quot;</span><span class="p">,</span> <span class="s2">&quot;Ftot&quot;</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1243,12 +1234,12 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">cycles</span><span class="o">.</span><span class="n">detect_cycles</span><span class="p">(</span>
     <span class="n">ts</span><span class="p">,</span>
-    <span class="s1">&#39;Ftot&#39;</span><span class="p">,</span>
-    <span class="n">event_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;push&#39;</span><span class="p">,</span> <span class="s1">&#39;recovery&#39;</span><span class="p">],</span>
+    <span class="s2">&quot;Ftot&quot;</span><span class="p">,</span>
+    <span class="n">event_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;push&quot;</span><span class="p">,</span> <span class="s2">&quot;recovery&quot;</span><span class="p">],</span>
     <span class="n">thresholds</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
-    <span class="n">min_durations</span><span class="o">=</span><span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">]</span>
+    <span class="n">min_durations</span><span class="o">=</span><span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">],</span>
 <span class="p">)</span>
-<span class="n">test</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="s1">&#39;Forces&#39;</span><span class="p">,</span> <span class="s1">&#39;Ftot&#39;</span><span class="p">])</span>
+<span class="n">test</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="s2">&quot;Forces&quot;</span><span class="p">,</span> <span class="s2">&quot;Ftot&quot;</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1262,13 +1253,13 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts_with_events</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">cycles</span><span class="o">.</span><span class="n">detect_cycles</span><span class="p">(</span>
     <span class="n">ts</span><span class="p">,</span>
-    <span class="s1">&#39;Ftot&#39;</span><span class="p">,</span>
-    <span class="n">event_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;push&#39;</span><span class="p">,</span> <span class="s1">&#39;recovery&#39;</span><span class="p">],</span>
+    <span class="s2">&quot;Ftot&quot;</span><span class="p">,</span>
+    <span class="n">event_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;push&quot;</span><span class="p">,</span> <span class="s2">&quot;recovery&quot;</span><span class="p">],</span>
     <span class="n">thresholds</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
     <span class="n">min_durations</span><span class="o">=</span><span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">],</span>
-    <span class="n">min_peak_heights</span><span class="o">=</span><span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">Inf</span><span class="p">]</span>
+    <span class="n">min_peak_heights</span><span class="o">=</span><span class="p">[</span><span class="mi">50</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">Inf</span><span class="p">],</span>
 <span class="p">)</span>
-<span class="n">ts_with_events</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="s1">&#39;Forces&#39;</span><span class="p">,</span> <span class="s1">&#39;Ftot&#39;</span><span class="p">])</span>
+<span class="n">ts_with_events</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="s2">&quot;Forces&quot;</span><span class="p">,</span> <span class="s2">&quot;Ftot&quot;</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1289,11 +1280,11 @@ title="Print to PDF"
 <p>Once the cycles have been detected, we can time-normalize these cycles using <a class="reference internal" href="api/kineticstoolkit.cycles.time_normalize.html"><span class="doc std std-doc">cycles.time_normalize()</span></a> to get them on the same time scale (a percentage of the cycle). Each of the 12 complete cycles is then time-normalized from 0 to 100%, with cycles being multiples of 100%.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts_normalized_on_cycle</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">cycles</span><span class="o">.</span><span class="n">time_normalize</span><span class="p">(</span><span class="n">ts_with_events</span><span class="p">,</span> <span class="s1">&#39;push&#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">ts_normalized_on_cycle</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="s1">&#39;Forces&#39;</span><span class="p">,</span> <span class="s1">&#39;Ftot&#39;</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">ts_normalized_on_cycle</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;Moments&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts_normalized_on_cycle</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">cycles</span><span class="o">.</span><span class="n">time_normalize</span><span class="p">(</span><span class="n">ts_with_events</span><span class="p">,</span> <span class="s2">&quot;push&quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ts_normalized_on_cycle</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="s2">&quot;Forces&quot;</span><span class="p">,</span> <span class="s2">&quot;Ftot&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">ts_normalized_on_cycle</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s2">&quot;Moments&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1305,11 +1296,13 @@ title="Print to PDF"
 <p>To time-normalize only during the push phase, we define the cycle end as <code class="docutils literal notranslate"><span class="pre">recovery</span></code> instead of <code class="docutils literal notranslate"><span class="pre">_</span></code>. Each of the <strong>13</strong> complete pushes is then normalized from 0 to 100% of the push.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts_normalized_on_push</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">cycles</span><span class="o">.</span><span class="n">time_normalize</span><span class="p">(</span><span class="n">ts_with_events</span><span class="p">,</span> <span class="s1">&#39;push&#39;</span><span class="p">,</span> <span class="s1">&#39;recovery&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">ts_normalized_on_push</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="s1">&#39;Forces&#39;</span><span class="p">,</span> <span class="s1">&#39;Ftot&#39;</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">ts_normalized_on_push</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;Moments&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts_normalized_on_push</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">cycles</span><span class="o">.</span><span class="n">time_normalize</span><span class="p">(</span>
+    <span class="n">ts_with_events</span><span class="p">,</span> <span class="s2">&quot;push&quot;</span><span class="p">,</span> <span class="s2">&quot;recovery&quot;</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ts_normalized_on_push</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="s2">&quot;Forces&quot;</span><span class="p">,</span> <span class="s2">&quot;Ftot&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">ts_normalized_on_push</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s2">&quot;Moments&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1322,15 +1315,12 @@ title="Print to PDF"
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts_normalized_on_push_with_span</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">cycles</span><span class="o">.</span><span class="n">time_normalize</span><span class="p">(</span>
-    <span class="n">ts_with_events</span><span class="p">,</span>
-    <span class="s1">&#39;push&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;recovery&#39;</span><span class="p">,</span>
-    <span class="n">span</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">125</span><span class="p">]</span>
+    <span class="n">ts_with_events</span><span class="p">,</span> <span class="s2">&quot;push&quot;</span><span class="p">,</span> <span class="s2">&quot;recovery&quot;</span><span class="p">,</span> <span class="n">span</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">20</span><span class="p">,</span> <span class="mi">125</span><span class="p">]</span>
 <span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">ts_normalized_on_push_with_span</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="s1">&#39;Forces&#39;</span><span class="p">,</span> <span class="s1">&#39;Ftot&#39;</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">ts_normalized_on_push_with_span</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;Moments&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ts_normalized_on_push_with_span</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="s2">&quot;Forces&quot;</span><span class="p">,</span> <span class="s2">&quot;Ftot&quot;</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">ts_normalized_on_push_with_span</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s2">&quot;Moments&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1370,12 +1360,10 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot every cycles</span>
 <span class="k">for</span> <span class="n">i_cycle</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">13</span><span class="p">):</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Ftot&#39;</span><span class="p">][</span><span class="n">i_cycle</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Cycle </span><span class="si">{</span><span class="n">i_cycle</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Ftot&quot;</span><span class="p">][</span><span class="n">i_cycle</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Cycle </span><span class="si">{</span><span class="n">i_cycle</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
 <span class="c1"># Plot the average cycle</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Ftot&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
-    <span class="s1">&#39;k:&#39;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Average&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Ftot&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="s2">&quot;k:&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Average&quot;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
@@ -1392,7 +1380,7 @@ title="Print to PDF"
 <p>In the previous step, we calculated an average cycle. However, this average cycle was calculated on cycles that were very different between each other. We can use the <a class="reference internal" href="api/kineticstoolkit.cycles.most_repeatable_cycles.html"><span class="doc std std-doc">cycles.most_repeatable_cycles()</span></a> function to obtain an ordered list from the most repeatable cycles to the most different one. Here, we will base this analysis on the <code class="docutils literal notranslate"><span class="pre">Ftot</span></code> signal.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">index</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">cycles</span><span class="o">.</span><span class="n">most_repeatable_cycles</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Ftot&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">index</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">cycles</span><span class="o">.</span><span class="n">most_repeatable_cycles</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Ftot&quot;</span><span class="p">])</span>
 <span class="n">index</span>
 </pre></div>
 </div>
@@ -1408,14 +1396,14 @@ title="Print to PDF"
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot every cycles</span>
 <span class="k">for</span> <span class="n">i_cycle</span> <span class="ow">in</span> <span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]:</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Ftot&#39;</span><span class="p">][</span><span class="n">i_cycle</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Cycle </span><span class="si">{</span><span class="n">i_cycle</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    
+    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Ftot&quot;</span><span class="p">][</span><span class="n">i_cycle</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;Cycle </span><span class="si">{</span><span class="n">i_cycle</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
 <span class="c1"># Plot the average cycle</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
-    <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Ftot&#39;</span><span class="p">][</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
-    <span class="s1">&#39;k:&#39;</span><span class="p">,</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Ftot&quot;</span><span class="p">][</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span>
+    <span class="s2">&quot;k:&quot;</span><span class="p">,</span>
     <span class="n">linewidth</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
-    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Average&quot;</span>
+    <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Average&quot;</span><span class="p">,</span>
 <span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>

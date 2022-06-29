@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.13.1
+    jupytext_version: 1.13.8
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -23,12 +23,10 @@ import matplotlib.pyplot as plt
 We will first load some noisy data:
 
 ```{code-cell} ipython3
-ts = ktk.load(
-    ktk.doc.download('filters_types_of_noise.ktk.zip')
-)
+ts = ktk.load(ktk.doc.download("filters_types_of_noise.ktk.zip"))
 
 # Plot it
-ts.plot(['clean', 'artefacts'], marker='.')
+ts.plot(["clean", "artefacts"], marker=".")
 plt.grid(True)
 plt.tight_layout()
 ```
@@ -38,11 +36,13 @@ We clearly see the bad values here. We can remove most of those by applying a me
 ```{code-cell} ipython3
 filtered = ktk.filters.median(ts, window_length=3)
 
-ts.plot(['clean', 'artefacts'], marker='.')
+ts.plot(["clean", "artefacts"], marker=".")
 
-filtered.plot('artefacts', marker='.', color='k')
+filtered.plot("artefacts", marker=".", color="k")
 
-plt.title('Removing most of the artefact using a median filter with a window length of 3 (black curve)')
+plt.title(
+    "Removing most of the artefact using a median filter with a window length of 3 (black curve)"
+)
 plt.grid(True)
 plt.tight_layout()
 ```
@@ -52,11 +52,13 @@ Most artefacts were removed, but not the ones at 30 and 31 seconds. This is beca
 ```{code-cell} ipython3
 filtered = ktk.filters.median(ts, window_length=5)
 
-ts.plot(['clean', 'artefacts'], marker='.')
+ts.plot(["clean", "artefacts"], marker=".")
 
-filtered.plot('artefacts', marker='.', color='k')
+filtered.plot("artefacts", marker=".", color="k")
 
-plt.title('Removing most of the artefact using a median filter with a window length of 5 (black curve)')
+plt.title(
+    "Removing most of the artefact using a median filter with a window length of 5 (black curve)"
+)
 plt.grid(True)
 plt.tight_layout()
 ```

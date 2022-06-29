@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.13.1
+    jupytext_version: 1.13.8
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -31,42 +31,41 @@ import numpy as np
 
 # Static acquisition
 markers_static = ktk.kinematics.read_c3d_file(
-    ktk.doc.download('kinematics_racing_static.c3d')
+    ktk.doc.download("kinematics_racing_static.c3d")
 )
-markers_static = markers_static.get_subset([
-    'ArmL1',
-    'ArmL2',
-    'ArmL3',
-    'LateralEpicondyleL',
-])
+markers_static = markers_static.get_subset(
+    ["ArmL1", "ArmL2", "ArmL3", "LateralEpicondyleL"]
+)
 plt.subplot(2, 2, 1)
-markers_static.plot('ArmL1')
+markers_static.plot("ArmL1")
 plt.subplot(2, 2, 2)
-markers_static.plot('ArmL2')
+markers_static.plot("ArmL2")
 plt.subplot(2, 2, 3)
-markers_static.plot('ArmL3')
+markers_static.plot("ArmL3")
 plt.subplot(2, 2, 4)
-markers_static.plot('LateralEpicondyleL')
-plt.suptitle('Static acquisition')
+markers_static.plot("LateralEpicondyleL")
+plt.suptitle("Static acquisition")
 
 
 # Propulsion acquisition
 markers_propulsion = ktk.kinematics.read_c3d_file(
-    ktk.doc.download('kinematics_racing_propulsion.c3d')
+    ktk.doc.download("kinematics_racing_propulsion.c3d")
 )
-markers_propulsion = markers_propulsion.get_subset([
-    'ArmL1',
-    'ArmL2',
-    'ArmL3',
-])
+markers_propulsion = markers_propulsion.get_subset(
+    [
+        "ArmL1",
+        "ArmL2",
+        "ArmL3",
+    ]
+)
 plt.figure()
 plt.subplot(2, 2, 1)
-markers_propulsion.plot('ArmL1')
+markers_propulsion.plot("ArmL1")
 plt.subplot(2, 2, 2)
-markers_propulsion.plot('ArmL2')
+markers_propulsion.plot("ArmL2")
 plt.subplot(2, 2, 3)
-markers_propulsion.plot('ArmL3')
-plt.suptitle('Propulsion acquisition')
+markers_propulsion.plot("ArmL3")
+plt.suptitle("Propulsion acquisition")
 ```
 
 ## Creating a cluster of markers
@@ -76,14 +75,14 @@ The idea is very similar to the previous tutorial, where we reconstructed missin
 ```{code-cell} ipython3
 cluster = ktk.kinematics.create_cluster(
     markers_static,
-    ['ArmL1', 'ArmL2', 'ArmL3', 'LateralEpicondyleL'],
+    ["ArmL1", "ArmL2", "ArmL3", "LateralEpicondyleL"],
 )
 
 # Print the cluster contents
-print(cluster['ArmL1'])
-print(cluster['ArmL2'])
-print(cluster['ArmL3'])
-print(cluster['LateralEpicondyleL'])
+print(cluster["ArmL1"])
+print(cluster["ArmL2"])
+print(cluster["ArmL3"])
+print(cluster["LateralEpicondyleL"])
 ```
 
 ## Tracking the cluster to reconstruct a "virtual" marker for the epicondyle
@@ -98,11 +97,11 @@ reconstructed_markers_propulsion = ktk.kinematics.track_cluster(
 
 # Plot the results
 plt.subplot(2, 2, 1)
-reconstructed_markers_propulsion.plot('ArmL1')
+reconstructed_markers_propulsion.plot("ArmL1")
 plt.subplot(2, 2, 2)
-reconstructed_markers_propulsion.plot('ArmL2')
+reconstructed_markers_propulsion.plot("ArmL2")
 plt.subplot(2, 2, 3)
-reconstructed_markers_propulsion.plot('ArmL3')
+reconstructed_markers_propulsion.plot("ArmL3")
 plt.subplot(2, 2, 4)
-reconstructed_markers_propulsion.plot('LateralEpicondyleL')
+reconstructed_markers_propulsion.plot("LateralEpicondyleL")
 ```

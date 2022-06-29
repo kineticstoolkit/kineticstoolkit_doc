@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.13.1
+    jupytext_version: 1.13.8
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -23,12 +23,10 @@ import matplotlib.pyplot as plt
 We will first load some noisy data:
 
 ```{code-cell} ipython3
-ts = ktk.load(
-    ktk.doc.download('filters_types_of_noise.ktk.zip')
-)
+ts = ktk.load(ktk.doc.download("filters_types_of_noise.ktk.zip"))
 
 # Plot it
-ts.plot(['clean', 'periodic_noise'], marker='.')
+ts.plot(["clean", "periodic_noise"], marker=".")
 plt.grid(True)
 plt.tight_layout()
 ```
@@ -38,11 +36,11 @@ In this signal, we observe that appart from random noise, there seems to be a pe
 ```{code-cell} ipython3
 filtered = ktk.filters.smooth(ts, window_length=5)
 
-ts.plot(['clean', 'periodic_noise'], marker='.')
+ts.plot(["clean", "periodic_noise"], marker=".")
 
-filtered.plot('periodic_noise', marker='.', color='k')
+filtered.plot("periodic_noise", marker=".", color="k")
 
-plt.title('Removing the fast, constant rate variation (black curve)')
+plt.title("Removing the fast, constant rate variation (black curve)")
 plt.grid(True)
 plt.tight_layout()
 ```

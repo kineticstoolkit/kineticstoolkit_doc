@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.13.1
+    jupytext_version: 1.13.8
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -34,7 +34,7 @@ In this tutorial, we will see how to use these methods to manage a TimeSeries of
 import kineticstoolkit.lab as ktk
 
 markers = ktk.kinematics.read_c3d_file(
-    ktk.doc.download('kinematics_basket_sprint.c3d')
+    ktk.doc.download("kinematics_basket_sprint.c3d")
 )
 
 markers
@@ -70,7 +70,7 @@ The [TimeSeries.get_subset()](api/kineticstoolkit.TimeSeries.get_subset.rst) met
 
 ```{code-cell} ipython3
 markers_subset = markers.get_subset(
-    ['BodyL:AcromionL', 'BodyL:LateralEpicondyleL']
+    ["BodyL:AcromionL", "BodyL:LateralEpicondyleL"]
 )
 
 markers_subset.data
@@ -79,9 +79,7 @@ markers_subset.data
 To merge two TimeSeries together, we use the [TimeSeries.merge()](api/kineticstoolkit.TimeSeries.merge.rst). For example, if we wanted to add the marker `BodyL:HandL` to this subset:
 
 ```{code-cell} ipython3
-markers_subset = markers_subset.merge(
-    markers.get_subset('BodyL:HandL')
-)
+markers_subset = markers_subset.merge(markers.get_subset("BodyL:HandL"))
 
 markers_subset.data
 ```
@@ -132,22 +130,20 @@ ts.plot()
 A very powerful method to split a TimeSeries is to use events. For this example, we will rebuilt the wheelchair kinetics TimeSeries of the previous tutorial.
 
 ```{code-cell} ipython3
-ts = ktk.load(
-    ktk.doc.download('timeseries_example.ktk.zip')
-)
+ts = ktk.load(ktk.doc.download("timeseries_example.ktk.zip"))
 
-ts = ts.add_event(4.35, 'sync')
-ts = ts.add_event(8.56, 'push')
-ts = ts.add_event(9.93, 'recovery')
-ts = ts.add_event(10.50, 'push')
-ts = ts.add_event(11.12, 'recovery')
-ts = ts.add_event(11.78, 'push')
-ts = ts.add_event(12.33, 'recovery')
-ts = ts.add_event(13.39, 'push')
-ts = ts.add_event(13.88, 'recovery')
-ts = ts.add_event(14.86, 'push')
-ts = ts.add_event(15.30, 'recovery')
-ts = ts.sync_event('sync')
+ts = ts.add_event(4.35, "sync")
+ts = ts.add_event(8.56, "push")
+ts = ts.add_event(9.93, "recovery")
+ts = ts.add_event(10.50, "push")
+ts = ts.add_event(11.12, "recovery")
+ts = ts.add_event(11.78, "push")
+ts = ts.add_event(12.33, "recovery")
+ts = ts.add_event(13.39, "push")
+ts = ts.add_event(13.88, "recovery")
+ts = ts.add_event(14.86, "push")
+ts = ts.add_event(15.30, "recovery")
+ts = ts.sync_event("sync")
 
 ts.plot()
 ```
@@ -161,7 +157,7 @@ If we want to analyze data of the four first pushes and get rid of any other dat
 # inclusive=True to ensure that the push 0 and push 4 events are included in
 # the resulting time vector
 first_four_pushes = ts.get_ts_between_events(
-    'push', 'push', 0, 4, inclusive=True
+    "push", "push", 0, 4, inclusive=True
 )
 
 # Remove events not inside the resulting time vector
@@ -174,7 +170,7 @@ We could also, for instance, extract only the push phase of the second cycle:
 
 ```{code-cell} ipython3
 second_push_phase = ts.get_ts_between_events(
-    'push', 'recovery', 1, 1, inclusive=True
+    "push", "recovery", 1, 1, inclusive=True
 )
 
 second_push_phase = second_push_phase.trim_events()
