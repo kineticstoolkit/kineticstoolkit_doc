@@ -11,6 +11,11 @@ kernelspec:
   name: python3
 ---
 
+```{code-cell} ipython3
+:tags: [remove-cell]
+%matplotlib inline
+```
+
 # Inverse Dynamics
 
 {{ dev }}

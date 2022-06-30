@@ -11,6 +11,11 @@ kernelspec:
   name: python3
 ---
 
+```{code-cell} ipython3
+:tags: [remove-cell]
+%matplotlib inline
+```
+
 # Reconstructing removed markers
 
 Rigid bodies affixed to segments are generally used to reconstruct points where it is difficult or impossible to affix a real marker. For example, if a marker would be at risk of falling during the action, it can be installed during a short calibration acquisition, and then removed during the action.
@@ -45,7 +50,7 @@ markers_static.plot("ArmL3")
 plt.subplot(2, 2, 4)
 markers_static.plot("LateralEpicondyleL")
 plt.suptitle("Static acquisition")
-
+plt.tight_layout()
 
 # Propulsion acquisition
 markers_propulsion = ktk.kinematics.read_c3d_file(
@@ -66,6 +71,7 @@ markers_propulsion.plot("ArmL2")
 plt.subplot(2, 2, 3)
 markers_propulsion.plot("ArmL3")
 plt.suptitle("Propulsion acquisition")
+plt.tight_layout()
 ```
 
 ## Creating a cluster of markers
@@ -104,4 +110,5 @@ plt.subplot(2, 2, 3)
 reconstructed_markers_propulsion.plot("ArmL3")
 plt.subplot(2, 2, 4)
 reconstructed_markers_propulsion.plot("LateralEpicondyleL")
+plt.tight_layout()
 ```

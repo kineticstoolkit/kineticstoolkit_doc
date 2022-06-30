@@ -9,6 +9,11 @@ kernelspec:
   name: python3
 ---
 
+```{code-cell} ipython3
+:tags: [remove-cell]
+%matplotlib inline
+```
+
 # Arithmetics and variables
 
 ## Arithmetic operations

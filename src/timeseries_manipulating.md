@@ -11,11 +11,16 @@ kernelspec:
   name: python3
 ---
 
+```{code-cell} ipython3
+:tags: [remove-cell]
+%matplotlib inline
+```
+
 # Manipulating TimeSeries
 
-The TimeSeries come with various method to copy, split, extract or combine data:
+TimeSeries have various method to copy, split, extract or combine data:
 
-- [TimeSeries.copy()](api/kineticstoolkit.TimeSeries.copy.rst) to make a deep copy of a TimeSeries;
+- [TimeSeries.copy()](api/kineticstoolkit.TimeSeries.copy.rst) to make a deep copy of the TimeSeries instance;
 - [TimeSeries.get_subset()](api/kineticstoolkit.TimeSeries.get_subset.rst) to make a deep copy of a TimeSeries, but only with a selected subset of data;
 - [TimeSeries.merge()](api/kineticstoolkit.TimeSeries.merge.rst) to merge two TimeSeries with a same time vector together;
 - [TimeSeries.get_ts_before_index()](api/kineticstoolkit.TimeSeries.get_ts_before_index.rst),
@@ -56,7 +61,7 @@ markers_copy = markers.copy()
 markers_copy
 ```
 
-Interestingly, [TimeSeries.copy()](api/kineticstoolkit.TimeSeries.copy.rst) has different arguments to select which attributes to copy. For instance, if we want to create an empty TimeSeries, but with the same time and events as the source, we could use:
+[TimeSeries.copy()](api/kineticstoolkit.TimeSeries.copy.rst) has different arguments to select which attributes to copy. For instance, if we want to create an empty TimeSeries, but with the same time and events as the source, we could use:
 
 ```{code-cell} ipython3
 markers_copy = markers.copy(copy_data=False, copy_data_info=False)

@@ -11,6 +11,11 @@ kernelspec:
   name: python3
 ---
 
+```{code-cell} ipython3
+:tags: [remove-cell]
+%matplotlib inline
+```
+
 # Converting between TimeSeries and Pandas DataFrames
 
 To ensure a great compatibility between Kinetics Toolkit and other frameworks, TimeSeries can be converted from and to Pandas DataFrame using the [TimeSeries.from_dataframe()](api/kineticstoolkit.TimeSeries.from_dataframe.rst) and [TimeSeries.to_dataframe()](api/kineticstoolkit.TimeSeries.to_dataframe.rst) methods, and thus benefit from the myriad of options offered by Pandas.

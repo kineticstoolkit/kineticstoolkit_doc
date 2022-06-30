@@ -11,6 +11,11 @@ kernelspec:
   name: python3
 ---
 
+```{code-cell} ipython3
+:tags: [remove-cell]
+%matplotlib inline
+```
+
 # Removing frequencies using a Butterworth filter
 
 The Butterworth filter may be the most used filter in biomechanics. It targets ranges of frequencies to remove from the signal's frequency spectrum. A classic use is to estimate the frequency range of both the data and noise, then use the filter to keep most of the data's frequency range while filtering out most of the noise's frequency range. In this tutorial, we will see how to apply Butterworth filters on TimeSeries data, using the [filters.butter()](api/kineticstoolkit.filters.butter.rst) function.
@@ -71,7 +76,3 @@ plt.tight_layout()
 ```
 
 As expected, only the transitions are kept; all the stable parts of the signal were removed.
-
-## Real-world example using electromyographic data
-
-#TODO

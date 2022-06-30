@@ -11,6 +11,11 @@ kernelspec:
   name: python3
 ---
 
+```{code-cell} ipython3
+:tags: [remove-cell]
+%matplotlib inline
+```
+
 # Calculating joint angles from a kinematic acquisition
 
 In this tutorial, we will calculate the elbow joint angles in the acquisition presented in the previous section. At the end of the tutorial, we will plot curves of elbow flexion and pronation angles during the complete acquisition.
@@ -36,18 +41,12 @@ import kineticstoolkit.lab as ktk
 We proceed exactly as in the previous tutorial:
 
 ```{code-cell} ipython3
+:tags: [remove-output]
+
 # Read the markers
 markers = ktk.kinematics.read_c3d_file(
     ktk.doc.download("kinematics_racing_full.c3d")
 )
-
-# Set the point of view for 3D visualization
-viewing_options = {
-    "zoom": 3.5,
-    "azimuth": 0.8,
-    "elevation": 0.16,
-    "translation": (0.2, -0.7),
-}
 
 # Interconnect markers for easier visualization
 interconnections = {
@@ -71,6 +70,22 @@ interconnections = {
             ["UlnarStyloidR", "RadialStyloidR"],
         ],
     },
+}
+
+# Visualize in the player
+ktk.Player(markers, interconnections=interconnections)
+
+```
+
+```{code-cell} ipython3
+:tags: [remove-input]
+
+# Set the point of view for 3D visualization
+viewing_options = {
+    "zoom": 3.5,
+    "azimuth": 0.8,
+    "elevation": 0.16,
+    "translation": (0.2, -0.7),
 }
 
 # Create the player
@@ -139,6 +154,16 @@ frames.data["ArmR"] = ktk.geometry.create_frames(origin=origin, y=y, yz=yz)
 Let's visualize it:
 
 ```{code-cell} ipython3
+:tags: [remove-output]
+
+ktk.Player(
+    markers, frames, interconnections=interconnections
+)
+```
+
+```{code-cell} ipython3
+:tags: [remove-input]
+
 player = ktk.Player(
     markers, frames, interconnections=interconnections, **viewing_options
 )
@@ -186,6 +211,16 @@ frames.data["ForearmR"] = ktk.geometry.create_frames(origin=origin, y=y, yz=yz)
 Let's visualize our markers with both new frames:
 
 ```{code-cell} ipython3
+:tags: [remove-output]
+
+ktk.Player(
+    markers, frames, interconnections=interconnections
+)
+```
+
+```{code-cell} ipython3
+:tags: [remove-input]
+
 player = ktk.Player(
     markers, frames, interconnections=interconnections, **viewing_options
 )

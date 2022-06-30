@@ -15,6 +15,8 @@ parts:
 
           - file: [](getting_started_python.md)
           - file: [](ktk_installing.md)
+          - file: [](ktk_lab_mode.md)
+
 
       - file: [](tutorials.md)
         sections:
@@ -49,17 +51,10 @@ parts:
               - file: [](kinematics_reconstructing_removed_markers.md)
               - file: [](kinematics_reconstructing_probed_points.md)
 
-          - file: [](pushrimkinetics.md)
-
           - file: [](ktk_conventions.md)
+          - file: [](extensions.md)
 
         #-- End tutorials
-
-      - file: [](ktk_in_depth.md)
-        sections:
-          - file: [](ktk_integration_workflow.md)
-          - file: [](ktk_lab_mode.md)
-          - file: [](ktk_release_notes.md)
 
 ## API Reference
   - caption: "API Reference"
@@ -67,6 +62,7 @@ parts:
       - file: [](api_classes.md)
       - file: [](api_functions.md)
       - file: [](api_modules.md)
+      - file: [](ktk_release_notes.md)
 
 ## Contributing
   - caption: "Contributing"
@@ -107,7 +103,6 @@ parts:
     
           - file: [](dev_anthropometrics.md)
           - file: [](dev_inversedynamics.md)
-          - file: [](extensions.md)
           - file: [](dev_extensions.md)
 
       - url: https://github.com/felixchenier/kineticstoolkit

@@ -11,6 +11,11 @@ kernelspec:
   name: python3
 ---
 
+```{code-cell} ipython3
+:tags: [remove-cell]
+%matplotlib inline
+```
+
 # Dimension conventions and first example
 
 In the [geometry](api/kineticstoolkit.geometry.rst) module and in most of Kinetics Toolkit's module:

@@ -11,6 +11,11 @@ kernelspec:
   name: python3
 ---
 
+```{code-cell} ipython3
+:tags: [remove-cell]
+%matplotlib inline
+```
+
 # Reconstructing probed points
 
 In the previous tutorial, we learned how to reconstructed "virtual" markers that are not physically attached to a bony landmark, but that were during a previous acquisition. Sometimes, it is completely impossible to affix a marker on a landmark, for example if the landmark is obstructed with clothes or other objects. In these situation, it may be possible to use a digitizing probe (image below, from optitrack.com) to point landmarks during short acquisitions of a few seconds, and use these probed points to reconstruct the landmarks trajectory during other acquisitions.
@@ -131,4 +136,5 @@ plt.subplot(2, 2, 3)
 reconstructed_markers_propulsion.plot("ArmR3")
 plt.subplot(2, 2, 4)
 reconstructed_markers_propulsion.plot("MedialEpicondyleR")
+plt.tight_layout()
 ```

@@ -11,6 +11,11 @@ kernelspec:
   name: python3
 ---
 
+```{code-cell} ipython3
+:tags: [remove-cell]
+%matplotlib inline
+```
+
 # Reading and visualizing marker trajectories
 
 In this tutorial, we will visualize the kinematics of an athlete who propelled a racing wheelchair on a training roller during 10 seconds. In this acquisition, the marker trajectories were saved as a `c3d` file.
@@ -43,28 +48,38 @@ markers.data
 
 Now we'll take a look at this acquisition using [ktk.Player](api/kineticstoolkit.Player.rst), a matplotlib-based interactive user interface aimed at visualizing markers, rigid bodies and segments in three dimensions.
 
-For the `Player` class to be interactive, you must select an interactive backend for IPython. See the [installation section](ktk_installing.md)]] for more information. For non-interactive environments such as Jupyter lab or notebooks, it is also possible to set a point of view and generate a fixed animation. This is what we will do in these tutorials.
+For the `Player` class to be interactive, you must select an interactive backend for IPython. See the [installation section](ktk_installing.md) for more information. As a reminder, you allow interactive figures using:
 
-Set a point of view:
+```
+%matplotlib qt5
+```
+
+Then, to visualize the markers:
 
 ```{code-cell} ipython3
+:tags: [remove-output]
+
+ktk.Player(markers)
+```
+
+```{code-cell} ipython3
+:tags: [remove-input]
+
 viewing_options = {
     "zoom": 3.5,
     "azimuth": 0.8,
     "elevation": 0.16,
     "translation": (0.2, -0.7),
 }
-```
 
-Visualize the markers (note that the call to `to_html5` is only required in inline matplotlib environments such as Jupyter lab or notebooks):
-
-```{code-cell} ipython3
 player = ktk.Player(markers, **viewing_options)
 
 player.to_html5(
     start_time=0, stop_time=1
 )  # Show only one second of acquisition
 ```
+
+In the Player window, press space to start the video, zoom and drag with the mouse, or press `h` in the Player window for additional help.
 
 Note the colored global reference frame on the bottom. This reference frame and every other (as we will create in the next tutorial) follow the same standard color scheme:
 
@@ -109,6 +124,14 @@ interconnections["ForearmR"] = {
 Now we can load a Player again with the segments we just defined:
 
 ```{code-cell} ipython3
+:tags: [remove-output]
+
+ktk.Player(markers, interconnections=interconnections)
+```
+
+```{code-cell} ipython3
+:tags: [remove-input]
+
 player = ktk.Player(
     markers, interconnections=interconnections, **viewing_options
 )

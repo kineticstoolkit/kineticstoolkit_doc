@@ -11,6 +11,11 @@ kernelspec:
   name: python3
 ---
 
+```{code-cell} ipython3
+:tags: [remove-cell]
+%matplotlib inline
+```
+
 # TimeSeries Basics
 
 TimeSeries are largely inspired by Matlab's `timeseries` and `tscollection`. Every TimeSeries contains the following attributes:

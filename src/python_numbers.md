@@ -11,6 +11,11 @@ kernelspec:
   name: python3
 ---
 
+```{code-cell} ipython3
+:tags: [remove-cell]
+%matplotlib inline
+```
+
 # Numbers
 
 From the beginning, we referred to numbers simply as "numbers". In reality, numbers belong to different sets. In Python, we have three sets:

@@ -11,6 +11,11 @@ kernelspec:
   name: python3
 ---
 
+```{code-cell} ipython3
+:tags: [remove-cell]
+%matplotlib inline
+```
+
 # Smoothing and deriving using a Savitzky-Golay filter
 
 The Savitzky-Golay filter is a generalization of the moving average. Instead of taking the mean of the n points of a moving window, the Savitzky-Golay filter fits a polynomial over each window. It is a powerful filter for data that is heavily quantized, particularly if we want to derivate these data. In this tutorial, we will see how to apply Savitzky-Golay filters on TimeSeries data, using the [filters.savgol()](api/kineticstoolkit.filters.savgol.rst) function.

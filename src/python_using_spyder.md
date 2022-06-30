@@ -9,6 +9,11 @@ kernelspec:
   name: python3
 ---
 
+```{code-cell} ipython3
+:tags: [remove-cell]
+%matplotlib inline
+```
+
 # Getting started with Spyder
 
 [Spyder](https://spyder-ide.org) is an open-source integrated development environment (IDE) that was created explicitely for a scientific use. For those who are used to Matlab, its interface should immediately look familiar. Spyder's standard look is shown below:

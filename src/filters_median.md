@@ -11,6 +11,11 @@ kernelspec:
   name: python3
 ---
 
+```{code-cell} ipython3
+:tags: [remove-cell]
+%matplotlib inline
+```
+
 # Removing artefacts using a median filter
 
 Sometimes, time-series data is filled with bad measures that really stand out from other data. If such data are impossible to remove at the source and there are not too many of those, then the median filter is a simple way to filter such artefacts. In this tutorial, we will see how to apply a median filter on TimeSeries data, using the [filters.median()](api/kineticstoolkit.filters.median.rst) function.

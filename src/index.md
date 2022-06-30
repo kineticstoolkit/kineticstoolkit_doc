@@ -1,6 +1,6 @@
 
 ```{margin}
-<a class="twitter-timeline" data-dnt="true" href="https://twitter.com/KineticsToolkit?ref_src=twsrc%5Etfw">Tweets by KineticsToolkit</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<a class="twitter-timeline" data-width="285" data-height="800" data-dnt="true" href="https://twitter.com/KineticsToolkit?ref_src=twsrc%5Etfw">Tweets by KineticsToolkit</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 <a href="https://twitter.com/kineticstoolkit?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-dnt="true" data-show-count="false">Follow @kineticstoolkit</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 

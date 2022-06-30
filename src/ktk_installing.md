@@ -37,11 +37,9 @@ To configure Spyder for interactive graphics, go to the Spyder's preferences, to
 The last step is to verify that you are able to import Kinetics Toolkit in an interactive IPython console. This should work without error:
 
 ```
->>> import kineticstoolkit as ktk
+>>> import kineticstoolkit
 ```
 
-or
-
-```
->>> import kineticstoolkit.lab as ktk
-```
+:::{note}
+The first import can take several seconds; subsequent imports are much faster.
+:::
