@@ -1,6 +1,6 @@
 # Developing extensions
 
-Long story short, any installed package whose name begins with `kineticstoolkit_` is considered as an extension to Kinetics Toolkit. Its contents will be imported in the `ktk.ext` namespace.
+Long story short, any installed package which name begins with `kineticstoolkit_` is considered as an extension to Kinetics Toolkit. The [ktk.import_extensions()](api/kineticstoolkit.import_extensions.rst) function will find it and import it into the `ktk.ext` namespace.
 
 If you want to develop and share your own extensions, but do not know how to share python modules or packages, we provide a template and guidelines to get you on road, using the `pip git+https` installation method.
 
@@ -46,9 +46,9 @@ author_email = "chenier.felix@uqam.ca"
 assert some_variable == some_contents
 ```
 
-**Step 9:** Check that your extension works. In a terminal, change directory to the toplevel of your repository, then run `pytest`. All your test functions should be launched and pass.
+**Step 9:** Check that your extension works. Simply running the `test_extension.py` file should start `pytest` and run your test functions.
 
-**Step 10:** Edit `README.md` to include installation and usage instructions.
+**Step 10:** Edit `README.md` to include installation and usage instructions. You can also upload a Jupyter tutorial that shows your extension in action.
 
 **Step 11:** Commit and push your changes.
 

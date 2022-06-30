@@ -1146,23 +1146,15 @@ title="Print to PDF"
 <p>Kinetics Toolkit provides very generic functions that should apply to a wide variety of use cases. For more specific use cases, or to quickly develop and share new features, we provide a simple extension mechanism.</p>
 <section id="installing-extensions">
 <h2>Installing extensions<a class="headerlink" href="#installing-extensions" title="Permalink to this headline">#</a></h2>
-<p>Here is a list of known extensions. Follow the link for a detailed description, tutorials, and installation procedure. Please <a class="reference external" href="https://github.com/felixchenier/kineticstoolkit/discussions">contact us</a> to add your own extension to this list.</p>
+<p>Here are links to known extensions, where you can find a detailed description, tutorials, and installation procedure. Please <a class="reference external" href="https://github.com/felixchenier/kineticstoolkit/discussions">contact us</a> to add your own extension to this list.</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit_pushrimkinetics">pushrimkinetics</a>: Provide functions to process kinetic data from instrumented wheelchair wheels. Replaces the former <code class="docutils literal notranslate"><span class="pre">ktk.pushrimkinetics</span></code> module that is now deprecated.</p></li>
+<li><p><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit_pushrimkinetics">pushrimkinetics</a>: Provide functions to process kinetic data from instrumented wheelchair wheels. Replaces the former <code class="docutils literal notranslate"><span class="pre">ktk.pushrimkinetics</span></code> module that is being moved out from the core library.</p></li>
 </ul>
 </section>
 <section id="using-extensions">
 <h2>Using extensions<a class="headerlink" href="#using-extensions" title="Permalink to this headline">#</a></h2>
-<p>If you imported Kinetics Toolkit in lab mode:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">kineticstoolkit.lab</span> <span class="k">as</span> <span class="nn">ktk</span>
-</pre></div>
-</div>
-<p>then the contents of all installed extensions is available under the <code class="docutils literal notranslate"><span class="pre">ktk.ext</span></code> namespace. Type <code class="docutils literal notranslate"><span class="pre">dir(ktk.ext)</span></code> to know what extensions are available.</p>
-<p>If you imported Kinetics Toolkit directly, you need to manually load the extensions:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">kineticstoolkit</span> <span class="k">as</span> <span class="nn">ktk</span>
-<span class="n">ktk</span><span class="o">.</span><span class="n">ext</span><span class="o">.</span><span class="n">load_extensions</span><span class="p">()</span>
-</pre></div>
-</div>
+<p>Use the <a class="reference internal" href="api/kineticstoolkit.import_extensions.html"><span class="doc std std-doc">ktk.import_extensions()</span></a> to import all installed extensions into the <code class="docutils literal notranslate"><span class="pre">ktk.ext</span></code> namespace. For example, if you installed the pushrimkinetics extension above, then its functions will be available as <code class="docutils literal notranslate"><span class="pre">ktk.ext.pushrimkinetics.read_smartwheel()</span></code>, <code class="docutils literal notranslate"><span class="pre">ktk.ext.pushrimkinetics.calculate_power()</span></code>, etc.</p>
+<p>If you imported Kinetics Toolkit in <a class="reference internal" href="ktk_lab_mode.html"><span class="doc std std-doc">lab mode</span></a>, the extensions are already imported, no need to use <a class="reference internal" href="api/kineticstoolkit.import_extensions.html"><span class="doc std std-doc">ktk.import_extensions()</span></a>.</p>
 </section>
 <section id="developing-extensions">
 <h2>Developing extensions<a class="headerlink" href="#developing-extensions" title="Permalink to this headline">#</a></h2>
