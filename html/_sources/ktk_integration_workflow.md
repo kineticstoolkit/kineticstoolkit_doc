@@ -25,7 +25,7 @@ In addition to importing and exporting, Kinetics Toolkit offer [ktk.load()](api/
 The figure belows is a data flow summary of the import, export, load and save methods to transfer data between different file formats.
 
 
-```{mermaid}
+```mermaid
 flowchart TB
 
 classDef default fill:#fff, stroke:#aaa, text-align:left;
@@ -165,7 +165,7 @@ graph_files2 --> software2
 
 
 
-```{mermaid}
+```mermaid
 flowchart LR
 
 classDef default fill:#fff, stroke:#aaa, text-align:left;

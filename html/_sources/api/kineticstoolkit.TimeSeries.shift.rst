@@ -1,4 +1,4 @@
-﻿kineticstoolkit.TimeSeries.shift
+kineticstoolkit.TimeSeries.shift
 ================================
 
 .. currentmodule:: kineticstoolkit

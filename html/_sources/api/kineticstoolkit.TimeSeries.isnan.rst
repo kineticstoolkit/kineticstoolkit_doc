@@ -1,4 +1,4 @@
-﻿kineticstoolkit.TimeSeries.isnan
+kineticstoolkit.TimeSeries.isnan
 ================================
 
 .. currentmodule:: kineticstoolkit

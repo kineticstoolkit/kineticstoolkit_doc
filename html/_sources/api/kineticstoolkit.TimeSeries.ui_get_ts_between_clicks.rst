@@ -1,4 +1,4 @@
-﻿kineticstoolkit.TimeSeries.ui\_get\_ts\_between\_clicks
+kineticstoolkit.TimeSeries.ui\_get\_ts\_between\_clicks
 =======================================================
 
 .. currentmodule:: kineticstoolkit

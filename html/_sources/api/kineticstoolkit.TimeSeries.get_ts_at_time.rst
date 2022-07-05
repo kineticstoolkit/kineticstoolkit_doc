@@ -1,4 +1,4 @@
-﻿kineticstoolkit.TimeSeries.get\_ts\_at\_time
+kineticstoolkit.TimeSeries.get\_ts\_at\_time
 ============================================
 
 .. currentmodule:: kineticstoolkit

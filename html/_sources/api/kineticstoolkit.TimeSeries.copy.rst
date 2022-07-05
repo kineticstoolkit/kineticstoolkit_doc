@@ -1,4 +1,4 @@
-﻿kineticstoolkit.TimeSeries.copy
+kineticstoolkit.TimeSeries.copy
 ===============================
 
 .. currentmodule:: kineticstoolkit

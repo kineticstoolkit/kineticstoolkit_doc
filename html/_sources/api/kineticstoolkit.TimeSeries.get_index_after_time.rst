@@ -1,4 +1,4 @@
-﻿kineticstoolkit.TimeSeries.get\_index\_after\_time
+kineticstoolkit.TimeSeries.get\_index\_after\_time
 ==================================================
 
 .. currentmodule:: kineticstoolkit

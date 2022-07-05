@@ -1,4 +1,4 @@
-﻿kineticstoolkit.TimeSeries.merge
+kineticstoolkit.TimeSeries.merge
 ================================
 
 .. currentmodule:: kineticstoolkit

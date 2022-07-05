@@ -1,4 +1,4 @@
-﻿kineticstoolkit.TimeSeries.remove\_event
+kineticstoolkit.TimeSeries.remove\_event
 ========================================
 
 .. currentmodule:: kineticstoolkit

@@ -1,4 +1,4 @@
-﻿kineticstoolkit.TimeSeries.ui\_sync
+kineticstoolkit.TimeSeries.ui\_sync
 ===================================
 
 .. currentmodule:: kineticstoolkit

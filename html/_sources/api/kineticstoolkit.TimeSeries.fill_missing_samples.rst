@@ -1,4 +1,4 @@
-﻿kineticstoolkit.TimeSeries.fill\_missing\_samples
+kineticstoolkit.TimeSeries.fill\_missing\_samples
 =================================================
 
 .. currentmodule:: kineticstoolkit

@@ -1,4 +1,4 @@
-﻿kineticstoolkit.TimeSeries.remove\_data
+kineticstoolkit.TimeSeries.remove\_data
 =======================================
 
 .. currentmodule:: kineticstoolkit

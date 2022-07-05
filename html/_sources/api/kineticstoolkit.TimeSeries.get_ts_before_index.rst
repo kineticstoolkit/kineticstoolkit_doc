@@ -1,4 +1,4 @@
-﻿kineticstoolkit.TimeSeries.get\_ts\_before\_index
+kineticstoolkit.TimeSeries.get\_ts\_before\_index
 =================================================
 
 .. currentmodule:: kineticstoolkit

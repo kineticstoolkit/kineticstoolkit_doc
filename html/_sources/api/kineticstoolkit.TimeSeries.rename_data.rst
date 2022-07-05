@@ -1,4 +1,4 @@
-﻿kineticstoolkit.TimeSeries.rename\_data
+kineticstoolkit.TimeSeries.rename\_data
 =======================================
 
 .. currentmodule:: kineticstoolkit
