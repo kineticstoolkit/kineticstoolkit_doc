@@ -50,7 +50,6 @@
       ~TimeSeries.sync_event
       ~TimeSeries.to_dataframe
       ~TimeSeries.trim_events
-      ~TimeSeries.ui_add_event
       ~TimeSeries.ui_edit_events
       ~TimeSeries.ui_get_ts_between_clicks
       ~TimeSeries.ui_sync

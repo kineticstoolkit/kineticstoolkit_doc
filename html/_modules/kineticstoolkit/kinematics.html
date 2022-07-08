@@ -495,11 +495,6 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../api/kineticstoolkit.TimeSeries.ui_add_event.html">
-       kineticstoolkit.TimeSeries.ui_add_event
-      </a>
-     </li>
-     <li class="toctree-l3">
       <a class="reference internal" href="../../api/kineticstoolkit.TimeSeries.ui_edit_events.html">
        kineticstoolkit.TimeSeries.ui_edit_events
       </a>
@@ -709,6 +704,11 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="../../api/kineticstoolkit.geometry.isnan.html">
+       kineticstoolkit.geometry.isnan
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="../../api/kineticstoolkit.geometry.matmul.html">
        kineticstoolkit.geometry.matmul
       </a>
@@ -738,11 +738,6 @@ const thebe_selector_output = ".output, .cell_output"
      <li class="toctree-l3">
       <a class="reference internal" href="../../api/kineticstoolkit.kinematics.extend_cluster.html">
        kineticstoolkit.kinematics.extend_cluster
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../api/kineticstoolkit.kinematics.read_c3d_file.html">
-       kineticstoolkit.kinematics.read_c3d_file
       </a>
      </li>
      <li class="toctree-l3">
@@ -1042,8 +1037,8 @@ title="Fullscreen mode"
 
 
 <span class="kn">import</span> <span class="nn">kineticstoolkit.geometry</span> <span class="k">as</span> <span class="nn">geometry</span>
-<span class="kn">from</span> <span class="nn">kineticstoolkit</span> <span class="kn">import</span> <span class="n">TimeSeries</span>
-<span class="kn">from</span> <span class="nn">kineticstoolkit.decorators</span> <span class="kn">import</span> <span class="n">unstable</span><span class="p">,</span> <span class="n">directory</span><span class="p">,</span> <span class="n">deprecated</span>
+<span class="kn">from</span> <span class="nn">kineticstoolkit</span> <span class="kn">import</span> <span class="n">TimeSeries</span><span class="p">,</span> <span class="n">read_c3d</span>
+<span class="kn">from</span> <span class="nn">kineticstoolkit.decorators</span> <span class="kn">import</span> <span class="n">deprecated</span>
 <span class="kn">from</span> <span class="nn">os.path</span> <span class="kn">import</span> <span class="n">exists</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Union</span>
 <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
@@ -1053,7 +1048,25 @@ title="Fullscreen mode"
 <span class="kn">import</span> <span class="nn">struct</span>  <span class="c1"># To unpack data from N3D files</span>
 
 
-<div class="viewcode-block" id="read_c3d_file"><a class="viewcode-back" href="../../api/kineticstoolkit.kinematics.read_c3d_file.html#kineticstoolkit.kinematics.read_c3d_file">[docs]</a><span class="k">def</span> <span class="nf">read_c3d_file</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
+<span class="k">def</span> <span class="fm">__dir__</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">[</span>
+        <span class="s2">&quot;write_c3d_file&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;read_n3d_file&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;create_cluster&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;extend_cluster&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;track_cluster&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+
+
+<span class="nd">@deprecated</span><span class="p">(</span>
+    <span class="n">since</span><span class="o">=</span><span class="s2">&quot;0.9&quot;</span><span class="p">,</span>
+    <span class="n">until</span><span class="o">=</span><span class="s2">&quot;2024&quot;</span><span class="p">,</span>
+    <span class="n">details</span><span class="o">=</span><span class="p">(</span>
+        <span class="s2">&quot;Please use the ktk.read_c3d() function that is more powerful &quot;</span>
+        <span class="s2">&quot;since it can also read force platforms and analog data.&quot;</span>
+    <span class="p">),</span>
+<span class="p">)</span>
+<span class="k">def</span> <span class="nf">read_c3d_file</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Read markers from a C3D file.</span>
 
@@ -1061,6 +1074,10 @@ title="Fullscreen mode"
 <span class="sd">    corresponds to a data key. Each marker position is expressed in this form:</span>
 
 <span class="sd">    array([[x0, y0, z0, 1.], [x1, y1, z1, 1.], [x2, y2, z2, 1.], ...])</span>
+
+<span class="sd">    Note</span>
+<span class="sd">    ----</span>
+<span class="sd">    This function may become deprecated in the future.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1081,56 +1098,7 @@ title="Fullscreen mode"
 <span class="sd">      possible that read_c3d_file misses some corner cases.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="kn">import</span> <span class="nn">ezc3d</span>
-    <span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ModuleNotFoundError</span><span class="p">(</span>
-            <span class="s2">&quot;The optional module ezc3d is not installed, but it is required &quot;</span>
-            <span class="s2">&quot;to use this function. Please install it using: &quot;</span>
-            <span class="s2">&quot;conda install -c conda-forge ezc3d&quot;</span>
-        <span class="p">)</span>
-
-    <span class="c1"># Create the reader</span>
-    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-        <span class="n">reader</span> <span class="o">=</span> <span class="n">ezc3d</span><span class="o">.</span><span class="n">c3d</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2"> was not found.&quot;</span><span class="p">)</span>
-
-    <span class="c1"># Create the output timeseries</span>
-    <span class="n">output</span> <span class="o">=</span> <span class="n">TimeSeries</span><span class="p">()</span>
-
-    <span class="c1"># Get the marker label names and create a timeseries data entry for each</span>
-    <span class="c1"># Get the labels</span>
-    <span class="n">labels</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">][</span><span class="s2">&quot;POINT&quot;</span><span class="p">][</span><span class="s2">&quot;LABELS&quot;</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">]</span>
-    <span class="n">n_frames</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">][</span><span class="s2">&quot;POINT&quot;</span><span class="p">][</span><span class="s2">&quot;FRAMES&quot;</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">point_rate</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">][</span><span class="s2">&quot;POINT&quot;</span><span class="p">][</span><span class="s2">&quot;RATE&quot;</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">point_unit</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">][</span><span class="s2">&quot;POINT&quot;</span><span class="p">][</span><span class="s2">&quot;UNITS&quot;</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-
-    <span class="k">if</span> <span class="n">point_unit</span> <span class="o">==</span> <span class="s2">&quot;mm&quot;</span><span class="p">:</span>
-        <span class="n">point_factor</span> <span class="o">=</span> <span class="mf">0.001</span>
-    <span class="k">elif</span> <span class="n">point_unit</span> <span class="o">==</span> <span class="s2">&quot;m&quot;</span><span class="p">:</span>
-        <span class="n">point_factor</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Point unit must be &#39;m&#39; or &#39;mm&#39;.&quot;</span><span class="p">))</span>
-
-    <span class="n">n_labels</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">i_label</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_labels</span><span class="p">):</span>
-        <span class="c1"># Strip leading and ending spaces</span>
-        <span class="n">labels</span><span class="p">[</span><span class="n">i_label</span><span class="p">]</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">i_label</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-
-        <span class="n">label_name</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">i_label</span><span class="p">]</span>
-
-        <span class="n">output</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">label_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
-            <span class="p">[</span><span class="n">point_factor</span><span class="p">,</span> <span class="n">point_factor</span><span class="p">,</span> <span class="n">point_factor</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-            <span class="o">*</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;points&quot;</span><span class="p">][:,</span> <span class="n">i_label</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">T</span>
-        <span class="p">)</span>
-
-        <span class="n">output</span> <span class="o">=</span> <span class="n">output</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="n">label_name</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">)</span>
-
-    <span class="c1"># Create the timeseries time vector</span>
-    <span class="n">output</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_frames</span><span class="p">)</span> <span class="o">/</span> <span class="n">point_rate</span>
-
-    <span class="k">return</span> <span class="n">output</span></div>
+    <span class="k">return</span> <span class="n">read_c3d</span><span class="p">(</span><span class="n">filename</span><span class="p">)[</span><span class="s2">&quot;Points&quot;</span><span class="p">]</span>
 
 
 <div class="viewcode-block" id="write_c3d_file"><a class="viewcode-back" href="../../api/kineticstoolkit.kinematics.write_c3d_file.html#kineticstoolkit.kinematics.write_c3d_file">[docs]</a><span class="k">def</span> <span class="nf">write_c3d_file</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">markers</span><span class="p">:</span> <span class="n">TimeSeries</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -1579,7 +1547,6 @@ title="Fullscreen mode"
     <span class="k">return</span> <span class="n">unit</span>
 
 
-<span class="nd">@unstable</span>
 <span class="k">def</span> <span class="nf">write_trc_file</span><span class="p">(</span><span class="n">markers</span><span class="p">:</span> <span class="n">TimeSeries</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Export a markers TimeSeries to OpenSim&#39;s TRC file format.</span>
@@ -1639,7 +1606,6 @@ title="Fullscreen mode"
 
 
 <span class="c1"># %% Deprecated</span>
-<span class="nd">@unstable</span>
 <span class="nd">@deprecated</span><span class="p">(</span>
     <span class="n">since</span><span class="o">=</span><span class="s2">&quot;master&quot;</span><span class="p">,</span> <span class="n">until</span><span class="o">=</span><span class="s2">&quot;January 2023&quot;</span><span class="p">,</span> <span class="n">details</span><span class="o">=</span><span class="s2">&quot;Use create_cluster().&quot;</span>
 <span class="p">)</span>
@@ -1668,7 +1634,6 @@ title="Fullscreen mode"
     <span class="k">return</span> <span class="n">create_cluster</span><span class="p">(</span><span class="n">kinematics</span><span class="p">,</span> <span class="n">marker_names</span><span class="p">)</span>
 
 
-<span class="nd">@unstable</span>
 <span class="nd">@deprecated</span><span class="p">(</span>
     <span class="n">since</span><span class="o">=</span><span class="s2">&quot;master&quot;</span><span class="p">,</span> <span class="n">until</span><span class="o">=</span><span class="s2">&quot;January 2023&quot;</span><span class="p">,</span> <span class="n">details</span><span class="o">=</span><span class="s2">&quot;Use track_clusters().&quot;</span>
 <span class="p">)</span>
@@ -1721,7 +1686,6 @@ title="Fullscreen mode"
     <span class="p">)</span>
 
 
-<span class="nd">@unstable</span>
 <span class="nd">@deprecated</span><span class="p">(</span>
     <span class="n">since</span><span class="o">=</span><span class="s2">&quot;master&quot;</span><span class="p">,</span> <span class="n">until</span><span class="o">=</span><span class="s2">&quot;January 2023&quot;</span><span class="p">,</span> <span class="n">details</span><span class="o">=</span><span class="s2">&quot;No replacement yet.&quot;</span>
 <span class="p">)</span>
@@ -1767,7 +1731,6 @@ title="Fullscreen mode"
     <span class="k">return</span> <span class="n">out</span>
 
 
-<span class="nd">@unstable</span>
 <span class="nd">@deprecated</span><span class="p">(</span>
     <span class="n">since</span><span class="o">=</span><span class="s2">&quot;master&quot;</span><span class="p">,</span> <span class="n">until</span><span class="o">=</span><span class="s2">&quot;January 2023&quot;</span><span class="p">,</span> <span class="n">details</span><span class="o">=</span><span class="s2">&quot;Use extend_cluster().&quot;</span>
 <span class="p">)</span>
@@ -1825,16 +1788,6 @@ title="Fullscreen mode"
     <span class="n">local_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">local_points</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
 
     <span class="k">return</span> <span class="n">local_points</span>
-
-
-<span class="c1"># %% Footer</span>
-
-
-<span class="n">module_locals</span> <span class="o">=</span> <span class="nb">locals</span><span class="p">()</span>
-
-
-<span class="k">def</span> <span class="fm">__dir__</span><span class="p">():</span>
-    <span class="k">return</span> <span class="n">directory</span><span class="p">(</span><span class="n">module_locals</span><span class="p">)</span>
 </pre></div>
 
               </div>

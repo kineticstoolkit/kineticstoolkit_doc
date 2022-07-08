@@ -495,11 +495,6 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../api/kineticstoolkit.TimeSeries.ui_add_event.html">
-       kineticstoolkit.TimeSeries.ui_add_event
-      </a>
-     </li>
-     <li class="toctree-l3">
       <a class="reference internal" href="../../api/kineticstoolkit.TimeSeries.ui_edit_events.html">
        kineticstoolkit.TimeSeries.ui_edit_events
       </a>
@@ -709,6 +704,11 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
+      <a class="reference internal" href="../../api/kineticstoolkit.geometry.isnan.html">
+       kineticstoolkit.geometry.isnan
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="../../api/kineticstoolkit.geometry.matmul.html">
        kineticstoolkit.geometry.matmul
       </a>
@@ -738,11 +738,6 @@ const thebe_selector_output = ".output, .cell_output"
      <li class="toctree-l3">
       <a class="reference internal" href="../../api/kineticstoolkit.kinematics.extend_cluster.html">
        kineticstoolkit.kinematics.extend_cluster
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="../../api/kineticstoolkit.kinematics.read_c3d_file.html">
-       kineticstoolkit.kinematics.read_c3d_file
       </a>
      </li>
      <li class="toctree-l3">
@@ -1047,10 +1042,22 @@ title="Fullscreen mode"
 <span class="n">__license__</span> <span class="o">=</span> <span class="s2">&quot;Apache 2.0&quot;</span>
 
 
+<span class="k">def</span> <span class="fm">__dir__</span><span class="p">():</span>
+    <span class="k">return</span> <span class="p">[</span>
+        <span class="s2">&quot;matmul&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;create_transforms&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;get_angles&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;create_frames&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;get_local_coordinates&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;get_global_coordinates&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;isnan&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;register_points&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+
+
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">scipy.spatial.transform</span> <span class="k">as</span> <span class="nn">transform</span>
 <span class="kn">import</span> <span class="nn">kineticstoolkit.external.icp</span> <span class="k">as</span> <span class="nn">icp</span>
-<span class="kn">from</span> <span class="nn">kineticstoolkit.decorators</span> <span class="kn">import</span> <span class="n">unstable</span><span class="p">,</span> <span class="n">directory</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span>
 
 
@@ -1526,8 +1533,7 @@ title="Fullscreen mode"
     <span class="k">return</span> <span class="n">global_coordinates</span></div>
 
 
-<span class="nd">@unstable</span>
-<span class="k">def</span> <span class="nf">isnan</span><span class="p">(</span><span class="nb">input</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="o">/</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<div class="viewcode-block" id="isnan"><a class="viewcode-back" href="../../api/kineticstoolkit.geometry.isnan.html#kineticstoolkit.geometry.isnan">[docs]</a><span class="k">def</span> <span class="nf">isnan</span><span class="p">(</span><span class="nb">input</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="o">/</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Check which samples has at least one NaN.</span>
 
@@ -1546,7 +1552,7 @@ title="Fullscreen mode"
     <span class="n">temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
     <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">temp</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
         <span class="n">temp</span> <span class="o">=</span> <span class="n">temp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
-    <span class="k">return</span> <span class="n">temp</span>
+    <span class="k">return</span> <span class="n">temp</span></div>
 
 
 <span class="k">def</span> <span class="nf">_match_size</span><span class="p">(</span>
@@ -1639,13 +1645,6 @@ title="Fullscreen mode"
             <span class="n">T</span><span class="p">[</span><span class="n">i_sample</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
 
     <span class="k">return</span> <span class="n">T</span></div>
-
-
-<span class="n">module_locals</span> <span class="o">=</span> <span class="nb">locals</span><span class="p">()</span>
-
-
-<span class="k">def</span> <span class="fm">__dir__</span><span class="p">():</span>  <span class="c1"># pragma: no cover</span>
-    <span class="k">return</span> <span class="n">directory</span><span class="p">(</span><span class="n">module_locals</span><span class="p">)</span>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>

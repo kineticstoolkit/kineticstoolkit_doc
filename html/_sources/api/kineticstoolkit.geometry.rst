@@ -20,6 +20,7 @@
       get_angles
       get_global_coordinates
       get_local_coordinates
+      isnan
       matmul
       register_points
    
