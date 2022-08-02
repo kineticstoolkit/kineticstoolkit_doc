@@ -1,4 +1,4 @@
-# Matplotlib basics
+# 🚧 Matplotlib
 
 {{ stub }}
 

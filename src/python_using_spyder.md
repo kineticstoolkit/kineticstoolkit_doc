@@ -3,6 +3,8 @@ jupytext:
   text_representation:
     extension: .md
     format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.14.0
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -11,6 +13,7 @@ kernelspec:
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
+
 %matplotlib inline
 ```
 
@@ -26,7 +29,7 @@ kernelspec:
 
 In the figure above, Section A is the console, and is the equivalent of the `>>>` console that we regularly see in tutorials. Any command that you enter here is executed immediately, and the output is returned just below. You can try it with the most ubiquitous example in computer science: "Hello World". Try typing this command in the console:
 
-```{code-cell}
+```{code-cell} ipython3
 print("Hello world")
 ```
 
@@ -44,6 +47,10 @@ Create a file named `hello_world.py` that prints "Hello World", and run it using
 :::
 
 
+## Comments
+
+For now, our first program have only one line, it is really not hard to understand. As our programs grow over time, we need to document them as they complexify. To this effect, any text that follows `#` is considered by Python as a comment, and is not executed. Usually, we use comments to explain what is the objective of a section of code.
+
 ## Writing code in a cell
 
 When scripts start to be long, it can be practical to run only one section of the script at a time. Scripts can be split into cells using this sequence of characters which acts as a separator:
@@ -52,7 +59,9 @@ When scripts start to be long, it can be practical to run only one section of th
 #%%
 ```
 
-:::{goodpractice} Cells
+Since it starts with `#`, it is simply a special case of Python comment.
+
+:::{good-practice} Cells
 You can name cells by adding a title next to the separator. This is generally a good idea to keep control of your growing script.
 ```
 #%% Load results from previous acquisition
@@ -87,6 +96,9 @@ import numpy as np
 in the console before entering `np.mean` in the help browser.
 :::
 
-:::{margin}
- #todo Add references for navigating in Spyder
-:::
+Note that you can also get help in the command line, by terminating a function by `?`:
+
+```{code-cell} ipython3
+import numpy as np
+np.mean?
+```

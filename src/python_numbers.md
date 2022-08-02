@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.13.8
+    jupytext_version: 1.14.0
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -13,6 +13,7 @@ kernelspec:
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
+
 %matplotlib inline
 ```
 
@@ -162,16 +163,16 @@ A sprinter runs a given distance $x$ to the East, then a given distance $y$ to t
 ![exercice_illustration -height:shorter](_static/images/exercice_pythagore.png)
 
 ```
-x = 2.5
-y = 0.7
+x = 2.5  # in meters
+y = 0.7  # in meters
 ```
 :::
 
 ```{code-cell} ipython3
 :tags: [hide-cell]
 
-x = 2.5
-y = 0.7
+x = 2.5  # in meters
+y = 0.7  # in meters
 d = (x**2 + y**2) ** (1 / 2)
 
 print(d)

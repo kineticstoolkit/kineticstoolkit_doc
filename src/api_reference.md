@@ -1,6 +1,4 @@
-# 🚧 Python
-
-{{ stub }}
+# API Reference
 
 ```{tableofcontents}
 ```

@@ -16,7 +16,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# TimeSeries Basics
+# TimeSeries basics
 
 TimeSeries are largely inspired by Matlab's `timeseries` and `tscollection`. Every TimeSeries contains the following attributes:
 

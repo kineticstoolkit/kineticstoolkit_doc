@@ -1,5 +1,0 @@
-# Pandas basics
-
-{{ stub }}
-
-#todo 

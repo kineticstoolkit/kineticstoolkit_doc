@@ -16,7 +16,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# Detecting and normalizing cycles
+# Detecting and normalizing Cycles
 
 The [cycles](api/kineticstoolkit.cycles.rst) module allows detecting cycles in TimeSeries, time-normalize these cycles and find the most repeatable ones.
 

@@ -1,4 +1,4 @@
-# Pandas basics
+# 🚧 Pandas
 
 {{ stub }}
 

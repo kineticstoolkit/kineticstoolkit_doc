@@ -1,4 +1,4 @@
-# Rigid body geometry
+# 3D rigid body geometry
 
 The [geometry](api/kineticstoolkit.geometry.rst) module simplifies the calculation of linear algebric operations on series of points, vectors and transformation matrices.
 
