@@ -1,0 +1,2086 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>kineticstoolkit.player &#8212; Kinetics Toolkit</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://kineticstoolkit.uqam.ca/doc/_modules/kineticstoolkit/player.html" />
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../../_static/logo.png" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../ktk_manual.html">
+   Manual
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../ktk_overview.html">
+     An overview of Kinetics Toolkit
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../ktk_installing.html">
+     Installing and importing
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../timeseries.html">
+     TimeSeries
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../timeseries_basics.html">
+       TimeSeries basics
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../timeseries_manipulating.html">
+       Manipulating TimeSeries
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../timeseries_dataframes.html">
+       Converting between TimeSeries and Pandas DataFrames
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../loadsave.html">
+     Saving and loading
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../filters.html">
+     Filtering
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../filters_butter.html">
+       Removing frequencies using a Butterworth filter
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../filters_smooth.html">
+       Smoothing signals using a moving average
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../filters_savgol.html">
+       Smoothing and deriving using a Savitzky-Golay filter
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../filters_median.html">
+       Removing artefacts using a median filter
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../cycles.html">
+     Detecting and normalizing cycles
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../geometry.html">
+     3D rigid body geometry
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../geometry_basics.html">
+       Basics of rigid body geometry
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../geometry_dimension_conventions.html">
+       Dimension conventions and first example
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../kinematics.html">
+     Kinematics analysis
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../kinematics_load_visualize.html">
+       Reading and visualizing marker trajectories
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../kinematics_joint_angles.html">
+       Calculating joint angles from a kinematic acquisition
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../kinematics_reconstructing_occluded_markers.html">
+       Reconstructing occluded markers
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../kinematics_reconstructing_removed_markers.html">
+       Reconstructing removed markers
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../kinematics_reconstructing_probed_points.html">
+       Reconstructing probed points
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../extensions.html">
+     Extensions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../api_reference.html">
+   API Reference
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../ktk_conventions.html">
+     Conventions
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../api_classes.html">
+     Classes
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <label for="toctree-checkbox-7">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../api/ktk.TimeSeries.html">
+       ktk.TimeSeries
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+      <label for="toctree-checkbox-8">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.add_data_info.html">
+         ktk.TimeSeries.add_data_info
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.add_event.html">
+         ktk.TimeSeries.add_event
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.copy.html">
+         ktk.TimeSeries.copy
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.fill_missing_samples.html">
+         ktk.TimeSeries.fill_missing_samples
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.from_dataframe.html">
+         ktk.TimeSeries.from_dataframe
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.get_event_index.html">
+         ktk.TimeSeries.get_event_index
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.get_event_time.html">
+         ktk.TimeSeries.get_event_time
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.get_index_after_time.html">
+         ktk.TimeSeries.get_index_after_time
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.get_index_at_time.html">
+         ktk.TimeSeries.get_index_at_time
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.get_index_before_time.html">
+         ktk.TimeSeries.get_index_before_time
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.get_subset.html">
+         ktk.TimeSeries.get_subset
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_after_event.html">
+         ktk.TimeSeries.get_ts_after_event
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_after_index.html">
+         ktk.TimeSeries.get_ts_after_index
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_after_time.html">
+         ktk.TimeSeries.get_ts_after_time
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_at_event.html">
+         ktk.TimeSeries.get_ts_at_event
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_at_time.html">
+         ktk.TimeSeries.get_ts_at_time
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_before_event.html">
+         ktk.TimeSeries.get_ts_before_event
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_before_index.html">
+         ktk.TimeSeries.get_ts_before_index
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_before_time.html">
+         ktk.TimeSeries.get_ts_before_time
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_between_events.html">
+         ktk.TimeSeries.get_ts_between_events
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_between_indexes.html">
+         ktk.TimeSeries.get_ts_between_indexes
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_between_times.html">
+         ktk.TimeSeries.get_ts_between_times
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.isnan.html">
+         ktk.TimeSeries.isnan
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.merge.html">
+         ktk.TimeSeries.merge
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.plot.html">
+         ktk.TimeSeries.plot
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.remove_data.html">
+         ktk.TimeSeries.remove_data
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.remove_data_info.html">
+         ktk.TimeSeries.remove_data_info
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.remove_event.html">
+         ktk.TimeSeries.remove_event
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.rename_data.html">
+         ktk.TimeSeries.rename_data
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.rename_event.html">
+         ktk.TimeSeries.rename_event
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.resample.html">
+         ktk.TimeSeries.resample
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.shift.html">
+         ktk.TimeSeries.shift
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.sort_events.html">
+         ktk.TimeSeries.sort_events
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.sync_event.html">
+         ktk.TimeSeries.sync_event
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.to_dataframe.html">
+         ktk.TimeSeries.to_dataframe
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.trim_events.html">
+         ktk.TimeSeries.trim_events
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.ui_edit_events.html">
+         ktk.TimeSeries.ui_edit_events
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.ui_get_ts_between_clicks.html">
+         ktk.TimeSeries.ui_get_ts_between_clicks
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.ui_sync.html">
+         ktk.TimeSeries.ui_sync
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../api/ktk.TimeSeriesEvent.html">
+       ktk.TimeSeriesEvent
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../api/ktk.Player.html">
+       ktk.Player
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+      <label for="toctree-checkbox-9">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.Player.close.html">
+         ktk.Player.close
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.Player.to_html5.html">
+         ktk.Player.to_html5
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../api_functions.html">
+     Functions
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+    <label for="toctree-checkbox-10">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../api/ktk.load.html">
+       ktk.load
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../api/ktk.save.html">
+       ktk.save
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../api/ktk.import_extensions.html">
+       ktk.import_extensions
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../api_modules.html">
+     Modules
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+    <label for="toctree-checkbox-11">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../api/ktk.cycles.html">
+       ktk.cycles
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+      <label for="toctree-checkbox-12">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.cycles.detect_cycles.html">
+         ktk.cycles.detect_cycles
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.cycles.most_repeatable_cycles.html">
+         ktk.cycles.most_repeatable_cycles
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.cycles.stack.html">
+         ktk.cycles.stack
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.cycles.time_normalize.html">
+         ktk.cycles.time_normalize
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.cycles.unstack.html">
+         ktk.cycles.unstack
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../api/ktk.doc.html">
+       ktk.doc
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+      <label for="toctree-checkbox-13">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.doc.download.html">
+         ktk.doc.download
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../api/ktk.filters.html">
+       ktk.filters
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+      <label for="toctree-checkbox-14">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.filters.butter.html">
+         ktk.filters.butter
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.filters.deriv.html">
+         ktk.filters.deriv
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.filters.median.html">
+         ktk.filters.median
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.filters.savgol.html">
+         ktk.filters.savgol
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.filters.smooth.html">
+         ktk.filters.smooth
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../api/ktk.geometry.html">
+       ktk.geometry
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+      <label for="toctree-checkbox-15">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.geometry.create_frames.html">
+         ktk.geometry.create_frames
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.geometry.create_transforms.html">
+         ktk.geometry.create_transforms
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.geometry.get_angles.html">
+         ktk.geometry.get_angles
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.geometry.get_global_coordinates.html">
+         ktk.geometry.get_global_coordinates
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.geometry.get_local_coordinates.html">
+         ktk.geometry.get_local_coordinates
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.geometry.isnan.html">
+         ktk.geometry.isnan
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.geometry.matmul.html">
+         ktk.geometry.matmul
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.geometry.register_points.html">
+         ktk.geometry.register_points
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../api/ktk.kinematics.html">
+       ktk.kinematics
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+      <label for="toctree-checkbox-16">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.kinematics.create_cluster.html">
+         ktk.kinematics.create_cluster
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.kinematics.extend_cluster.html">
+         ktk.kinematics.extend_cluster
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.kinematics.read_n3d_file.html">
+         ktk.kinematics.read_n3d_file
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.kinematics.track_cluster.html">
+         ktk.kinematics.track_cluster
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.kinematics.write_c3d_file.html">
+         ktk.kinematics.write_c3d_file
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dev_extensions.html">
+     Developing extensions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../ktk_release_notes.html">
+     Release Notes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../dev_contributing.html">
+   How to contribute
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+  <label for="toctree-checkbox-17">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../ktk_citing.html">
+     Citing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dev_rules.html">
+     Development rules
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dev_code_of_conduct.html">
+     Code of conduct
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dev_installing_from_github.html">
+     Installing from GitHub
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../dev_coding_style.html">
+     Coding style
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">
+     GitHub repository
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../python_for_beginners.html">
+   For beginners
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+  <label for="toctree-checkbox-18">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../python_getting_started.html">
+     Getting started with Python
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+    <label for="toctree-checkbox-19">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_installing.html">
+       Installing Python, Spyder and the most important scientific packages
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_configuring_spyder.html">
+       Configuring Spyder
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_using_spyder.html">
+       Using Spyder
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="../../python.html">
+     The Python language
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
+    <label for="toctree-checkbox-20">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_arithmetics_and_variables.html">
+       Arithmetics and variables
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_numbers.html">
+       Numbers
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_strings.html">
+       Strings basics
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="../../python_functions.html">
+       Functions
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/>
+      <label for="toctree-checkbox-21">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../python_functions_syntax.html">
+         🚧 Function syntax
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../python_functions_good_practice.html">
+         🚧 Good practices with functions
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../python_function_keywords.html">
+         🚧 Keyword arguments
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_conditions.html">
+       🚧 Conditions and booleans
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_lists.html">
+       🚧 Lists
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_while.html">
+       🚧 Looping (while)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_for.html">
+       🚧 Looping (for)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_dicts.html">
+       🚧 Dicts
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_string_operations.html">
+       🚧 String operations
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_more_advanced.html">
+       🚧 More advanced concepts
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_integration_exercises.html">
+       🚧 Integration exercises
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../numpy.html">
+     🚧 Numpy
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../matplotlib.html">
+     🚧 Matplotlib
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../pandas.html">
+     🚧 Pandas
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1></h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <h1>Source code for kineticstoolkit.player</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python3</span>
+<span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright 2020 Félix Chénier</span>
+
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Provides the Player class to visualize markers and rigid bodies in 3d.</span>
+
+<span class="sd">The Player class is accessible directly from the toplevel Kinetics Toolkit</span>
+<span class="sd">namespace (i.e., ktk.Player).</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;Félix Chénier&quot;</span>
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">&quot;Copyright (C) 2020 Félix Chénier&quot;</span>
+<span class="n">__email__</span> <span class="o">=</span> <span class="s2">&quot;chenier.felix@uqam.ca&quot;</span>
+<span class="n">__license__</span> <span class="o">=</span> <span class="s2">&quot;Apache 2.0&quot;</span>
+
+
+<span class="kn">from</span> <span class="nn">kineticstoolkit.timeseries</span> <span class="kn">import</span> <span class="n">TimeSeries</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">animation</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Optional</span>
+
+<span class="c1"># To fit the new viewpoint on selecting a new marker</span>
+<span class="kn">import</span> <span class="nn">scipy.optimize</span> <span class="k">as</span> <span class="nn">optim</span>
+
+
+<div class="viewcode-block" id="Player"><a class="viewcode-back" href="../../api/ktk.Player.html#ktk.Player">[docs]</a><span class="k">class</span> <span class="nc">Player</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A class that allows visualizing markers and rigid bodies in 3D.</span>
+
+<span class="sd">    player = ktk.Player(parameters) creates and launches a Player</span>
+<span class="sd">    instance.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    *ts</span>
+<span class="sd">        Contains the markers and rigid bodies to visualize, where each data</span>
+<span class="sd">        key is either a marker position expressed as Nx4 array (N=time),</span>
+<span class="sd">        or a rigid body pose expressed as a Nx4x4 array. Multiple TimeSeries</span>
+<span class="sd">        can be provided, e.g., ktk.Player(markers, rigid_bodies)</span>
+
+<span class="sd">    interconnections</span>
+<span class="sd">        Optional. Each key corresponds to an inerconnection between markers,</span>
+<span class="sd">        where one interconnection is another dict with the following keys:</span>
+
+<span class="sd">        - Links: list of list of 2 str, where each str is a marker</span>
+<span class="sd">          name. For example, to link Marker1 to Marker2 and</span>
+<span class="sd">          Marker1 to Marker3, Links would be:</span>
+<span class="sd">          [[&#39;Marker1&#39;, &#39;Marker2&#39;], [&#39;Marker1&#39;, &#39;Marker3&#39;]]</span>
+
+<span class="sd">        - Color: character or tuple that represents the color of the</span>
+<span class="sd">          link. Color must be a valid value for matplotlib&#39;s</span>
+<span class="sd">          plots.</span>
+
+<span class="sd">    current_index</span>
+<span class="sd">        Optional. Sets the inital index number to show.</span>
+
+<span class="sd">    marker_radius</span>
+<span class="sd">        Optional. Sets the marker radius as defined by matplotlib.</span>
+
+<span class="sd">    axis_length</span>
+<span class="sd">        Optional. Sets the rigid body size in meters.</span>
+
+<span class="sd">    zoom</span>
+<span class="sd">        Optional. Sets the initial camera zoom.</span>
+
+<span class="sd">    azimuth</span>
+<span class="sd">        Optional. Sets the initial camera azimuth in radians.</span>
+
+<span class="sd">    elevation</span>
+<span class="sd">        Optional. Sets the initial camera elevation in radians.</span>
+
+<span class="sd">    translation</span>
+<span class="sd">        Optional. Sets the initial camera translation (panning).</span>
+
+<span class="sd">    target</span>
+<span class="sd">        Optional. Sets the camera target in meters.</span>
+
+<span class="sd">    track</span>
+<span class="sd">        Optional. False to keep the scene static, True to track the last</span>
+<span class="sd">        selected marker when changing index.</span>
+
+<span class="sd">    perspective</span>
+<span class="sd">        Optional. True to draw the scene using perspective, False to draw the</span>
+<span class="sd">        scene orthogonally.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="n">ts</span><span class="p">:</span> <span class="n">TimeSeries</span><span class="p">,</span>
+        <span class="n">interconnections</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{},</span>
+        <span class="n">current_index</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="n">marker_radius</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.008</span><span class="p">,</span>
+        <span class="n">axis_length</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.1</span><span class="p">,</span>
+        <span class="n">axis_width</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">3.0</span><span class="p">,</span>
+        <span class="n">interconnection_width</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.5</span><span class="p">,</span>
+        <span class="n">zoom</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+        <span class="n">azimuth</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+        <span class="n">elevation</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span>
+        <span class="n">translation</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+        <span class="n">target</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+        <span class="n">track</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">perspective</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="p">):</span>
+
+        <span class="c1"># Allow older variable names</span>
+        <span class="k">if</span> <span class="s2">&quot;segments&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="ow">and</span> <span class="n">interconnections</span> <span class="o">==</span> <span class="p">{}:</span>
+            <span class="n">interconnections</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;segments&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s2">&quot;segment_width&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">interconnection_width</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;segment_width&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s2">&quot;current_frame&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">current_index</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;current_frame&quot;</span><span class="p">]</span>
+
+        <span class="c1"># ---------------------------------------------------------------</span>
+        <span class="c1"># Set self.n_indexes and self.time, and verify that we have at least</span>
+        <span class="c1"># markers or rigid bodies.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">ts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">time</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_indexes</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ts</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+
+        <span class="c1"># ---------------------------------------------------------------</span>
+        <span class="c1"># Assign the markers and rigid bodies</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">markers</span> <span class="o">=</span> <span class="n">TimeSeries</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rigid_bodies</span> <span class="o">=</span> <span class="n">TimeSeries</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">one_ts</span> <span class="ow">in</span> <span class="n">ts</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">one_ts</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">one_ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">==</span> <span class="p">(</span><span class="mi">4</span><span class="p">,):</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">one_ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+                    <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">one_ts</span><span class="o">.</span><span class="n">data_info</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">markers</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">one_ts</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+
+                <span class="k">elif</span> <span class="n">one_ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">==</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
+
+                    <span class="c1"># Add the frames</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">rigid_bodies</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">one_ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+                    <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">one_ts</span><span class="o">.</span><span class="n">data_info</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">rigid_bodies</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">one_ts</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span>
+                            <span class="n">key</span>
+                        <span class="p">]</span>
+
+                    <span class="c1"># Add the frame origins as &quot;markers&quot;</span>
+                    <span class="n">key_label</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;[</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">] origin&quot;</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key_label</span><span class="p">]</span> <span class="o">=</span> <span class="n">one_ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">][:,</span> <span class="p">:,</span> <span class="mi">3</span><span class="p">]</span>
+                    <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">one_ts</span><span class="o">.</span><span class="n">data_info</span><span class="p">:</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">markers</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">key_label</span><span class="p">]</span> <span class="o">=</span> <span class="n">one_ts</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span>
+                            <span class="n">key</span>
+                        <span class="p">]</span>
+
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                        <span class="s2">&quot;TimeSeries data must be of shape Nx4 &quot;</span>
+                        <span class="s2">&quot;(markers) or Nx4x4 (rigid bodies)&quot;</span>
+                    <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_select_none</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">last_selected_marker</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+
+        <span class="c1"># Add the origin to the rigid bodies</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">rigid_bodies</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Global&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:],</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_indexes</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span>
+        <span class="p">)</span>
+
+        <span class="c1"># ---------------------------------------------------------------</span>
+        <span class="c1"># Assign the interconnections</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interconnections</span> <span class="o">=</span> <span class="n">interconnections</span>
+
+        <span class="c1"># ---------------------------------------------------------------</span>
+        <span class="c1"># Other initalizations</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">current_index</span> <span class="o">=</span> <span class="n">current_index</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">marker_radius</span> <span class="o">=</span> <span class="n">marker_radius</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">axis_length</span> <span class="o">=</span> <span class="n">axis_length</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">axis_width</span> <span class="o">=</span> <span class="n">axis_width</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interconnection_width</span> <span class="o">=</span> <span class="n">interconnection_width</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">zoom</span> <span class="o">=</span> <span class="n">zoom</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">azimuth</span> <span class="o">=</span> <span class="n">azimuth</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">elevation</span> <span class="o">=</span> <span class="n">elevation</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">target</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">track</span> <span class="o">=</span> <span class="n">track</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">translation</span> <span class="o">=</span> <span class="n">translation</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">perspective</span> <span class="o">=</span> <span class="n">perspective</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">playback_speed</span> <span class="o">=</span> <span class="mf">1.0</span>  <span class="c1"># 0.0 to show all samples</span>
+        <span class="c1">#  self.anim = None  # Will initialize in _create_figure</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">objects</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>  <span class="c1"># type: Dict[str, Any]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_colors</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;r&quot;</span><span class="p">,</span> <span class="s2">&quot;g&quot;</span><span class="p">,</span> <span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;c&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;PlotMarkers&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_colors</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;PlotMarkers&quot;</span><span class="p">][</span><span class="n">color</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Not selected</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;PlotMarkers&quot;</span><span class="p">][</span><span class="n">color</span> <span class="o">+</span> <span class="s2">&quot;s&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Selected</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;PlotRigidBodiesX&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;PlotRigidBodiesY&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;PlotRigidBodiesZ&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;PlotGroundPlane&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;PlotInterconnections&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Figure&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Axes&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Help&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>  <span class="c1"># type: Dict[str, Any]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;ShiftPressed&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;MouseLeftPressed&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;MouseMiddlePressed&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;MouseRightPressed&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;MousePositionOnPress&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;MousePositionOnMiddlePress&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;MousePositionOnRightPress&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;TranslationOnMousePress&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;AzimutOnMousePress&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;ElevationOnMousePress&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;SelfTimeOnPlay&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;SystemTimeOnLastUpdate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_help_text</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;</span>
+<span class="s2">            ktk.Player help</span>
+<span class="s2">            ----------------------------------------------------</span>
+<span class="s2">            KEYBOARD COMMANDS</span>
+<span class="s2">            show/hide this help : h</span>
+<span class="s2">            previous index      : left</span>
+<span class="s2">            next index          : right</span>
+<span class="s2">            previous second     : shift+left</span>
+<span class="s2">            next second         : shift+right</span>
+<span class="s2">            play/pause          : space</span>
+<span class="s2">            2x playback speed   : +</span>
+<span class="s2">            0.5x playback speed : -</span>
+<span class="s2">            toggle track        : t</span>
+<span class="s2">            toggle perspective  : d (depth)</span>
+<span class="s2">            ----------------------------------------------------</span>
+<span class="s2">            MOUSE COMMANDS</span>
+<span class="s2">            select a marker     : left-click</span>
+<span class="s2">            3d rotate           : left-drag</span>
+<span class="s2">            pan                 : middle-drag or shift+left-drag</span>
+<span class="s2">            zoom                : right-drag or wheel</span>
+<span class="s2">            &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_create_figure</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_create_interconnections</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_create_markers</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_create_ground_plane</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_first_refresh</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="fm">__dir__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="s2">&quot;to_html5&quot;</span><span class="p">,</span> <span class="s2">&quot;close&quot;</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">_create_figure</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Create the player&#39;s figure.&quot;&quot;&quot;</span>
+        <span class="c1"># Create the figure and axes</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Figure&quot;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Axes&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span>
+            <span class="n">num</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="n">facecolor</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;w&quot;</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Remove the toolbar</span>
+        <span class="k">try</span><span class="p">:</span>  <span class="c1"># Try, setVisible method not always there</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Figure&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">toolbar</span><span class="o">.</span><span class="n">setVisible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+
+        <span class="c1"># Add the title</span>
+        <span class="n">title_obj</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Player&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">setp</span><span class="p">(</span><span class="n">title_obj</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>  <span class="c1"># Set a green title</span>
+
+        <span class="c1"># Remove the background for faster plotting</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Axes&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_axis_off</span><span class="p">()</span>
+
+        <span class="c1"># Add the animation timer</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">anim</span> <span class="o">=</span> <span class="n">animation</span><span class="o">.</span><span class="n">FuncAnimation</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Figure&quot;</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">_on_timer</span><span class="p">,</span> <span class="n">interval</span><span class="o">=</span><span class="mi">33</span>
+        <span class="p">)</span>  <span class="c1"># 30 ips</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="c1"># Connect the callback functions</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Figure&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">mpl_connect</span><span class="p">(</span><span class="s2">&quot;pick_event&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_on_pick</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Figure&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">mpl_connect</span><span class="p">(</span>
+            <span class="s2">&quot;key_press_event&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_on_key</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Figure&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">mpl_connect</span><span class="p">(</span>
+            <span class="s2">&quot;key_release_event&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_on_release</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Figure&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">mpl_connect</span><span class="p">(</span>
+            <span class="s2">&quot;scroll_event&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_on_scroll</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Figure&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">mpl_connect</span><span class="p">(</span>
+            <span class="s2">&quot;button_press_event&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_on_mouse_press</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Figure&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">mpl_connect</span><span class="p">(</span>
+            <span class="s2">&quot;button_release_event&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_on_mouse_release</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Figure&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">mpl_connect</span><span class="p">(</span>
+            <span class="s2">&quot;motion_notify_event&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_on_mouse_motion</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_create_interconnections</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Create the interconnections plots in the player&#39;s figure.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">interconnections</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">interconnection</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">interconnections</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;PlotInterconnections&quot;</span><span class="p">][</span>
+                    <span class="n">interconnection</span>
+                <span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Axes&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>
+                    <span class="s2">&quot;-&quot;</span><span class="p">,</span>
+                    <span class="n">c</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">interconnections</span><span class="p">[</span><span class="n">interconnection</span><span class="p">][</span><span class="s2">&quot;Color&quot;</span><span class="p">],</span>
+                    <span class="n">linewidth</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">interconnection_width</span><span class="p">,</span>
+                <span class="p">)[</span>
+                    <span class="mi">0</span>
+                <span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">_create_markers</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Create the markers plots in the player&#39;s figure.&quot;&quot;&quot;</span>
+        <span class="n">colors</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;r&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+            <span class="s2">&quot;g&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+            <span class="s2">&quot;b&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+            <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+            <span class="s2">&quot;m&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+            <span class="s2">&quot;c&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+            <span class="s2">&quot;w&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">],</span>
+        <span class="p">}</span>
+
+        <span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_colors</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;PlotMarkers&quot;</span><span class="p">][</span><span class="n">color</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Axes&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span>
+                <span class="s2">&quot;.&quot;</span><span class="p">,</span>
+                <span class="n">c</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">color</span><span class="p">],</span>
+                <span class="n">markersize</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+                <span class="n">pickradius</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
+                <span class="n">picker</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_colors</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;PlotMarkers&quot;</span><span class="p">][</span><span class="n">color</span> <span class="o">+</span> <span class="s2">&quot;s&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span>
+                <span class="s2">&quot;Axes&quot;</span>
+            <span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="s2">&quot;.&quot;</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="n">colors</span><span class="p">[</span><span class="n">color</span><span class="p">],</span> <span class="n">markersize</span><span class="o">=</span><span class="mi">12</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">_create_ground_plane</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Create the ground plane matrix</span>
+        <span class="n">gp_size</span> <span class="o">=</span> <span class="mi">30</span>  <span class="c1"># blocks</span>
+        <span class="n">gp_div</span> <span class="o">=</span> <span class="mi">4</span>  <span class="c1"># blocks per meter</span>
+        <span class="n">gp_x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">block</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span>
+                    <span class="p">[</span><span class="o">-</span><span class="n">gp_size</span> <span class="o">/</span> <span class="n">gp_div</span><span class="p">,</span> <span class="n">gp_size</span> <span class="o">/</span> <span class="n">gp_div</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="n">gp_size</span>
+                <span class="p">),</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">gp_size</span> <span class="o">/</span> <span class="n">gp_div</span><span class="p">,</span> <span class="n">gp_size</span> <span class="o">/</span> <span class="n">gp_div</span><span class="p">,</span> <span class="n">gp_size</span><span class="p">),</span>
+                    <span class="mi">3</span><span class="p">,</span>
+                <span class="p">),</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+        <span class="n">gp_y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">6</span> <span class="o">*</span> <span class="n">gp_size</span><span class="p">)</span>
+        <span class="n">gp_z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">block</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="n">gp_size</span> <span class="o">/</span> <span class="n">gp_div</span><span class="p">,</span> <span class="n">gp_size</span> <span class="o">/</span> <span class="n">gp_div</span><span class="p">,</span> <span class="n">gp_size</span><span class="p">),</span>
+                    <span class="mi">3</span><span class="p">,</span>
+                <span class="p">),</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">tile</span><span class="p">(</span>
+                    <span class="p">[</span><span class="o">-</span><span class="n">gp_size</span> <span class="o">/</span> <span class="n">gp_div</span><span class="p">,</span> <span class="n">gp_size</span> <span class="o">/</span> <span class="n">gp_div</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">],</span> <span class="n">gp_size</span>
+                <span class="p">),</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+        <span class="n">gp_1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">6</span> <span class="o">*</span> <span class="n">gp_size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_ground_plane</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="n">gp_x</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">],</span>
+                <span class="n">gp_y</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">],</span>
+                <span class="n">gp_z</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">],</span>
+                <span class="n">gp_1</span><span class="p">[:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">],</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_first_refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Draw the stuff and set the axis size.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_update_plots</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">_get_projection</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">points_3d</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get a 3d --&gt; 2d projection of a list of points.</span>
+
+<span class="sd">        The method uses the class&#39;s camera variables to project a list of</span>
+<span class="sd">        3d points onto a 2d canvas.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        points_3d</span>
+<span class="sd">            Nx4 array, where the first dimension is the number of points</span>
+<span class="sd">            and  the second dimension is (x, y, z, 1).</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">            Nx2 array, where the first dimension is the number of points and</span>
+<span class="sd">            the second dimension is (x, y) to be ploted on a 2d graphic.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># ------------------------------------------------------------</span>
+        <span class="c1"># Create the rotation matrix to convert the lab&#39;s coordinates</span>
+        <span class="c1"># (x anterior, y up, z right) to the camera coordinates (x right,</span>
+        <span class="c1"># y up, z deep)</span>
+
+        <span class="n">R</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+                <span class="p">[</span>
+                    <span class="p">[</span><span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">zoom</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">zoom</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                <span class="p">]</span>
+            <span class="p">)</span>
+            <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+                <span class="p">[</span>
+                    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">translation</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span>  <span class="c1"># Pan</span>
+                    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">translation</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span>
+                    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                <span class="p">]</span>
+            <span class="p">)</span>
+            <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+                <span class="p">[</span>
+                    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">cos</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">elevation</span><span class="p">),</span> <span class="n">sin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">elevation</span><span class="p">),</span> <span class="mi">0</span><span class="p">],</span>
+                    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">sin</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">elevation</span><span class="p">),</span> <span class="n">cos</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">elevation</span><span class="p">),</span> <span class="mi">0</span><span class="p">],</span>
+                    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                <span class="p">]</span>
+            <span class="p">)</span>
+            <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+                <span class="p">[</span>
+                    <span class="p">[</span><span class="n">cos</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">azimuth</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="n">sin</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">azimuth</span><span class="p">),</span> <span class="mi">0</span><span class="p">],</span>
+                    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                    <span class="p">[</span><span class="n">sin</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">azimuth</span><span class="p">),</span> <span class="mi">0</span><span class="p">,</span> <span class="n">cos</span><span class="p">(</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">azimuth</span><span class="p">),</span> <span class="mi">0</span><span class="p">],</span>
+                    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                <span class="p">]</span>
+            <span class="p">)</span>
+            <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+                <span class="p">[</span>
+                    <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="mi">0</span><span class="p">]],</span>  <span class="c1"># Rotate around target</span>
+                    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="mi">1</span><span class="p">]],</span>
+                    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="p">[</span><span class="mi">2</span><span class="p">]],</span>
+                    <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                <span class="p">]</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Add a first dimension to R and match first dimension of points_3d</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">R</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="p">:],</span> <span class="n">points_3d</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="c1"># Rotate points.</span>
+        <span class="n">rotated_points_3d</span> <span class="o">=</span> <span class="n">R</span> <span class="o">@</span> <span class="n">points_3d</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+        <span class="n">rotated_points_3d</span> <span class="o">=</span> <span class="n">rotated_points_3d</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span>
+
+        <span class="c1"># Apply perspective.</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">perspective</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="c1"># This uses an ugly magical constant but it works fine for now.</span>
+            <span class="n">denom</span> <span class="o">=</span> <span class="n">rotated_points_3d</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">/</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">5</span>
+            <span class="n">rotated_points_3d</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">rotated_points_3d</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">denom</span>
+            <span class="n">rotated_points_3d</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">rotated_points_3d</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">denom</span>
+            <span class="k">with</span> <span class="n">np</span><span class="o">.</span><span class="n">errstate</span><span class="p">(</span><span class="n">invalid</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">):</span>
+                <span class="n">to_remove</span> <span class="o">=</span> <span class="n">denom</span> <span class="o">&lt;</span> <span class="mf">1e-12</span>
+            <span class="n">rotated_points_3d</span><span class="p">[</span><span class="n">to_remove</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+            <span class="n">rotated_points_3d</span><span class="p">[</span><span class="n">to_remove</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Scale to match the point of view</span>
+            <span class="n">rotated_points_3d</span> <span class="o">/=</span> <span class="mi">5</span>
+
+        <span class="c1"># Return only x and y</span>
+        <span class="k">return</span> <span class="n">rotated_points_3d</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">_update_markers_and_interconnections</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Get a Nx4 matrices of every marker at the current index</span>
+        <span class="n">markers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">markers</span>
+        <span class="k">if</span> <span class="n">markers</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">n_markers</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+        <span class="n">markers_data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>  <span class="c1"># Used to draw the markers with different colors</span>
+        <span class="n">interconnection_markers</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>  <span class="c1"># Used to draw the interconnections</span>
+
+        <span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_colors</span><span class="p">:</span>
+            <span class="n">markers_data</span><span class="p">[</span><span class="n">color</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="n">n_markers</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+            <span class="n">markers_data</span><span class="p">[</span><span class="n">color</span><span class="p">][:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+            <span class="n">markers_data</span><span class="p">[</span><span class="n">color</span> <span class="o">+</span> <span class="s2">&quot;s&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="n">n_markers</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+            <span class="n">markers_data</span><span class="p">[</span><span class="n">color</span> <span class="o">+</span> <span class="s2">&quot;s&quot;</span><span class="p">][:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+        <span class="k">if</span> <span class="n">n_markers</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">i_marker</span><span class="p">,</span> <span class="n">marker</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">):</span>
+
+                <span class="c1"># Get this marker&#39;s color</span>
+                <span class="k">if</span> <span class="p">(</span>
+                    <span class="n">marker</span> <span class="ow">in</span> <span class="n">markers</span><span class="o">.</span><span class="n">data_info</span>
+                    <span class="ow">and</span> <span class="s2">&quot;Color&quot;</span> <span class="ow">in</span> <span class="n">markers</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">marker</span><span class="p">]</span>
+                <span class="p">):</span>
+                    <span class="n">color</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">marker</span><span class="p">][</span><span class="s2">&quot;Color&quot;</span><span class="p">]</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;w&quot;</span>
+
+                <span class="n">these_coordinates</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">marker</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">current_index</span><span class="p">]</span>
+                <span class="n">markers_data</span><span class="p">[</span><span class="n">color</span><span class="p">][</span><span class="n">i_marker</span><span class="p">]</span> <span class="o">=</span> <span class="n">these_coordinates</span>
+                <span class="n">interconnection_markers</span><span class="p">[</span><span class="n">marker</span><span class="p">]</span> <span class="o">=</span> <span class="n">these_coordinates</span>
+
+        <span class="c1"># Update the markers plot</span>
+        <span class="k">for</span> <span class="n">color</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_colors</span><span class="p">:</span>
+            <span class="c1"># Unselected markers</span>
+            <span class="n">markers_data</span><span class="p">[</span><span class="n">color</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_projection</span><span class="p">(</span><span class="n">markers_data</span><span class="p">[</span><span class="n">color</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;PlotMarkers&quot;</span><span class="p">][</span><span class="n">color</span><span class="p">]</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span>
+                <span class="n">markers_data</span><span class="p">[</span><span class="n">color</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">markers_data</span><span class="p">[</span><span class="n">color</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="p">)</span>
+
+            <span class="c1"># Selected markers</span>
+            <span class="n">markers_data</span><span class="p">[</span><span class="n">color</span> <span class="o">+</span> <span class="s2">&quot;s&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_projection</span><span class="p">(</span>
+                <span class="n">markers_data</span><span class="p">[</span><span class="n">color</span> <span class="o">+</span> <span class="s2">&quot;s&quot;</span><span class="p">]</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;PlotMarkers&quot;</span><span class="p">][</span><span class="n">color</span> <span class="o">+</span> <span class="s2">&quot;s&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span>
+                <span class="n">markers_data</span><span class="p">[</span><span class="n">color</span> <span class="o">+</span> <span class="s2">&quot;s&quot;</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">],</span>
+                <span class="n">markers_data</span><span class="p">[</span><span class="n">color</span> <span class="o">+</span> <span class="s2">&quot;s&quot;</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">],</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Draw the interconnections</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">interconnections</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">interconnection</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">interconnections</span><span class="p">:</span>
+                <span class="n">n_links</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">interconnections</span><span class="p">[</span><span class="n">interconnection</span><span class="p">][</span><span class="s2">&quot;Links&quot;</span><span class="p">])</span>
+                <span class="n">coordinates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">3</span> <span class="o">*</span> <span class="n">n_links</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+                <span class="n">coordinates</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+                <span class="k">for</span> <span class="n">i_link</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_links</span><span class="p">):</span>
+                    <span class="n">marker1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interconnections</span><span class="p">[</span><span class="n">interconnection</span><span class="p">][</span><span class="s2">&quot;Links&quot;</span><span class="p">][</span>
+                        <span class="n">i_link</span>
+                    <span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="n">marker2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interconnections</span><span class="p">[</span><span class="n">interconnection</span><span class="p">][</span><span class="s2">&quot;Links&quot;</span><span class="p">][</span>
+                        <span class="n">i_link</span>
+                    <span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+                    <span class="k">if</span> <span class="n">marker1</span> <span class="ow">in</span> <span class="n">interconnection_markers</span><span class="p">:</span>
+                        <span class="n">coordinates</span><span class="p">[</span><span class="mi">3</span> <span class="o">*</span> <span class="n">i_link</span><span class="p">]</span> <span class="o">=</span> <span class="n">interconnection_markers</span><span class="p">[</span>
+                            <span class="n">marker1</span>
+                        <span class="p">]</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">coordinates</span><span class="p">[</span><span class="mi">3</span> <span class="o">*</span> <span class="n">i_link</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+                    <span class="k">if</span> <span class="n">marker2</span> <span class="ow">in</span> <span class="n">interconnection_markers</span><span class="p">:</span>
+                        <span class="n">coordinates</span><span class="p">[</span><span class="mi">3</span> <span class="o">*</span> <span class="n">i_link</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">interconnection_markers</span><span class="p">[</span>
+                            <span class="n">marker2</span>
+                        <span class="p">]</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">coordinates</span><span class="p">[</span><span class="mi">3</span> <span class="o">*</span> <span class="n">i_link</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+                <span class="n">coordinates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_projection</span><span class="p">(</span><span class="n">coordinates</span><span class="p">)</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;PlotInterconnections&quot;</span><span class="p">][</span><span class="n">interconnection</span><span class="p">]</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span>
+                    <span class="n">coordinates</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">coordinates</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+                <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_update_plots</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Update the plots, or draw it if not plot has been drawn before.&quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_update_markers_and_interconnections</span><span class="p">()</span>
+
+        <span class="c1"># Get three (3N)x4 matrices (for x, y and z lines) for the rigid bodies</span>
+        <span class="c1"># at the current index</span>
+        <span class="n">rigid_bodies</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rigid_bodies</span>
+        <span class="n">n_rigid_bodies</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">rigid_bodies</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">rbx_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="n">n_rigid_bodies</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+        <span class="n">rby_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="n">n_rigid_bodies</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+        <span class="n">rbz_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">([</span><span class="n">n_rigid_bodies</span> <span class="o">*</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
+
+        <span class="k">for</span> <span class="n">i_rigid_body</span><span class="p">,</span> <span class="n">rigid_body</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">rigid_bodies</span><span class="o">.</span><span class="n">data</span><span class="p">):</span>
+            <span class="c1"># Origin</span>
+            <span class="n">rbx_data</span><span class="p">[</span><span class="n">i_rigid_body</span> <span class="o">*</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">rigid_bodies</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">rigid_body</span><span class="p">][</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">current_index</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">3</span>
+            <span class="p">]</span>
+            <span class="n">rby_data</span><span class="p">[</span><span class="n">i_rigid_body</span> <span class="o">*</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">rigid_bodies</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">rigid_body</span><span class="p">][</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">current_index</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">3</span>
+            <span class="p">]</span>
+            <span class="n">rbz_data</span><span class="p">[</span><span class="n">i_rigid_body</span> <span class="o">*</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">rigid_bodies</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">rigid_body</span><span class="p">][</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">current_index</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">3</span>
+            <span class="p">]</span>
+            <span class="c1"># Direction</span>
+            <span class="n">rbx_data</span><span class="p">[</span><span class="n">i_rigid_body</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">rigid_bodies</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">rigid_body</span><span class="p">][</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">current_index</span>
+            <span class="p">]</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">axis_length</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+            <span class="n">rby_data</span><span class="p">[</span><span class="n">i_rigid_body</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">rigid_bodies</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">rigid_body</span><span class="p">][</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">current_index</span>
+            <span class="p">]</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">axis_length</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+            <span class="n">rbz_data</span><span class="p">[</span><span class="n">i_rigid_body</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">rigid_bodies</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">rigid_body</span><span class="p">][</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">current_index</span>
+            <span class="p">]</span> <span class="o">@</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">axis_length</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+            <span class="c1"># NaN to cut the line between the different rigid bodies</span>
+            <span class="n">rbx_data</span><span class="p">[</span><span class="n">i_rigid_body</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+            <span class="n">rby_data</span><span class="p">[</span><span class="n">i_rigid_body</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+            <span class="n">rbz_data</span><span class="p">[</span><span class="n">i_rigid_body</span> <span class="o">*</span> <span class="mi">3</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+
+        <span class="c1"># Update the ground plane</span>
+        <span class="n">gp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_projection</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_ground_plane</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;PlotGroundPlane&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># Create the plot</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;PlotGroundPlane&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Axes&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+                <span class="n">gp</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">gp</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="p">[</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">],</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span>
+            <span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># Update the plot</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;PlotGroundPlane&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span><span class="n">gp</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">gp</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>
+
+        <span class="c1"># Create or update the rigid bodies plot</span>
+        <span class="n">rbx_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_projection</span><span class="p">(</span><span class="n">rbx_data</span><span class="p">)</span>
+        <span class="n">rby_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_projection</span><span class="p">(</span><span class="n">rby_data</span><span class="p">)</span>
+        <span class="n">rbz_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_projection</span><span class="p">(</span><span class="n">rbz_data</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;PlotRigidBodiesX&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># Create the plot</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;PlotRigidBodiesX&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Axes&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+                <span class="n">rbx_data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span>
+                <span class="n">rbx_data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+                <span class="n">c</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">,</span>
+                <span class="n">linewidth</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">axis_width</span><span class="p">,</span>
+            <span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;PlotRigidBodiesY&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Axes&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+                <span class="n">rby_data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span>
+                <span class="n">rby_data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+                <span class="n">c</span><span class="o">=</span><span class="s2">&quot;g&quot;</span><span class="p">,</span>
+                <span class="n">linewidth</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">axis_width</span><span class="p">,</span>
+            <span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;PlotRigidBodiesZ&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Axes&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+                <span class="n">rbz_data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span>
+                <span class="n">rbz_data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span>
+                <span class="n">c</span><span class="o">=</span><span class="s2">&quot;b&quot;</span><span class="p">,</span>
+                <span class="n">linewidth</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">axis_width</span><span class="p">,</span>
+            <span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>  <span class="c1"># Update the plot</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;PlotRigidBodiesX&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span>
+                <span class="n">rbx_data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">rbx_data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;PlotRigidBodiesY&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span>
+                <span class="n">rby_data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">rby_data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;PlotRigidBodiesZ&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span>
+                <span class="n">rbz_data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">rbz_data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Update the window title</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Figure&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">manager</span><span class="o">.</span><span class="n">set_window_title</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">current_index</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">n_indexes</span><span class="si">}</span><span class="s2">: &quot;</span>
+                <span class="o">+</span> <span class="s2">&quot;</span><span class="si">%2.2f</span><span class="s2"> s.&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">current_index</span><span class="p">]</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Figure&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">draw</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_set_new_target</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Set new target and adapts translation and zoom consequently.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">target</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="n">initial_translation</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">translation</span><span class="p">)</span>
+        <span class="n">initial_zoom</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">zoom</span><span class="p">)</span>
+        <span class="n">initial_target</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">target</span><span class="p">)</span>
+
+        <span class="n">n_markers</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+        <span class="n">markers</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">n_markers</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+        <span class="k">for</span> <span class="n">i_marker</span><span class="p">,</span> <span class="n">marker</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">):</span>
+            <span class="n">markers</span><span class="p">[</span><span class="n">i_marker</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">marker</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">current_index</span><span class="p">]</span>
+
+        <span class="n">initial_projected_markers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_projection</span><span class="p">(</span><span class="n">markers</span><span class="p">)</span>
+        <span class="c1"># Do not consider markers that are not in the screen</span>
+        <span class="n">initial_projected_markers</span><span class="p">[</span>
+            <span class="n">initial_projected_markers</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">1.5</span>
+        <span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        <span class="n">initial_projected_markers</span><span class="p">[</span>
+            <span class="n">initial_projected_markers</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">1.5</span>
+        <span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        <span class="n">initial_projected_markers</span><span class="p">[</span>
+            <span class="n">initial_projected_markers</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">1.0</span>
+        <span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        <span class="n">initial_projected_markers</span><span class="p">[</span>
+            <span class="n">initial_projected_markers</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mf">1.0</span>
+        <span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">target</span>
+
+        <span class="k">def</span> <span class="nf">error_function</span><span class="p">(</span><span class="nb">input</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">translation</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">zoom</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+            <span class="n">new_projected_markers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_projection</span><span class="p">(</span><span class="n">markers</span><span class="p">)</span>
+            <span class="n">error</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span>
+                <span class="p">(</span><span class="n">initial_projected_markers</span> <span class="o">-</span> <span class="n">new_projected_markers</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="n">error</span>
+
+        <span class="n">res</span> <span class="o">=</span> <span class="n">optim</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span>
+            <span class="n">error_function</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">translation</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">zoom</span><span class="p">))</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">res</span><span class="o">.</span><span class="n">success</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">translation</span> <span class="o">=</span> <span class="n">initial_translation</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">zoom</span> <span class="o">=</span> <span class="n">initial_zoom</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">initial_target</span>
+
+    <span class="c1"># ------------------------------------</span>
+    <span class="c1"># Helper functions</span>
+    <span class="k">def</span> <span class="nf">_set_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Set current index to a given index and update plots.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">index</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_indexes</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">current_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_indexes</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">index</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">current_index</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">current_index</span> <span class="o">=</span> <span class="n">index</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">track</span> <span class="ow">is</span> <span class="kc">True</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">markers</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">new_target</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">last_selected_marker</span><span class="p">][</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">current_index</span>
+            <span class="p">]</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">new_target</span><span class="p">)):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">new_target</span>
+
+    <span class="k">def</span> <span class="nf">_set_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Set current index to a given time and update plots.&quot;&quot;&quot;</span>
+        <span class="n">index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">-</span> <span class="n">time</span><span class="p">)))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_set_index</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_select_none</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Deselect every markers.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">markers</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">marker</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="c1"># Keep 1st character, remove the possible &#39;s&#39;</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">markers</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">marker</span><span class="p">][</span>
+                        <span class="s2">&quot;Color&quot;</span>
+                    <span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">markers</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">marker</span><span class="p">][</span><span class="s2">&quot;Color&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+                <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">markers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">markers</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span>
+                        <span class="n">marker</span><span class="p">,</span> <span class="s2">&quot;Color&quot;</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span>
+                    <span class="p">)</span>
+
+<div class="viewcode-block" id="Player.close"><a class="viewcode-back" href="../../api/ktk.Player.close.html#ktk.Player.close">[docs]</a>    <span class="k">def</span> <span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;Close the Player and its associated window.&quot;&quot;&quot;</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Figure&quot;</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">objects</span> <span class="o">=</span> <span class="p">{}</span></div>
+
+    <span class="c1"># ------------------------------------</span>
+    <span class="c1"># Callbacks</span>
+    <span class="k">def</span> <span class="nf">_on_close</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
+        <span class="c1"># Release all references to objects</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_on_timer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">_</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="c1"># We check self.running because the garbage collector may take time</span>
+            <span class="c1"># before deleting the animation timer, and unreferencing the</span>
+            <span class="c1"># animation timer is the recommended way to deactivate a timer.</span>
+            <span class="sd">&quot;&quot;&quot;Callback for the animation timer object.&quot;&quot;&quot;</span>
+            <span class="n">current_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_index</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_set_time</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">current_index</span><span class="p">]</span>
+                <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">playback_speed</span>
+                <span class="o">*</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;SystemTimeOnLastUpdate&quot;</span><span class="p">])</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">current_index</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_index</span><span class="p">:</span>
+                <span class="c1"># The time wasn&#39;t enough to advance a frame. Articifically</span>
+                <span class="c1"># advance a frame.</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_set_index</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;SystemTimeOnLastUpdate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_update_plots</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">anim</span><span class="o">.</span><span class="n">event_source</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_on_pick</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>  <span class="c1"># pragma: no cover</span>
+        <span class="sd">&quot;&quot;&quot;Callback for marker selection.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">mouseevent</span><span class="o">.</span><span class="n">button</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">ind</span>
+            <span class="n">selected_marker</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Axes&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">selected_marker</span><span class="p">)</span>
+
+            <span class="c1"># Mark selected</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_select_none</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">markers</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">selected_marker</span><span class="p">][</span><span class="s2">&quot;Color&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">markers</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">selected_marker</span><span class="p">][</span><span class="s2">&quot;Color&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;s&quot;</span>
+            <span class="p">)</span>
+
+            <span class="c1"># Set as new target</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">last_selected_marker</span> <span class="o">=</span> <span class="n">selected_marker</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_set_new_target</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">selected_marker</span><span class="p">][</span><span class="bp">self</span><span class="o">.</span><span class="n">current_index</span><span class="p">]</span>
+            <span class="p">)</span>
+            <span class="n">marker_position</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">selected_marker</span><span class="p">][</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">current_index</span>
+            <span class="p">]</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">_update_plots</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_on_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>  <span class="c1"># pragma: no cover</span>
+        <span class="sd">&quot;&quot;&quot;Callback for keyboard key pressed.&quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">key</span> <span class="o">==</span> <span class="s2">&quot; &quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;SystemTimeOnLastUpdate&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;SelfTimeOnPlay&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">current_index</span><span class="p">]</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">anim</span><span class="o">.</span><span class="n">event_source</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="kc">False</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">anim</span><span class="o">.</span><span class="n">event_source</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+
+        <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;left&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_set_index</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_index</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;shift+left&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_set_time</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">current_index</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;right&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_set_index</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_index</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;shift+right&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_set_time</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">current_index</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;-&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">playback_speed</span> <span class="o">/=</span> <span class="mi">2</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Axes&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Playback set to </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">playback_speed</span><span class="si">}</span><span class="s2">x&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;+&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">playback_speed</span> <span class="o">*=</span> <span class="mi">2</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Axes&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Playback set to </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">playback_speed</span><span class="si">}</span><span class="s2">x&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;h&quot;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Help&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Help&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Axes&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span>
+                    <span class="o">-</span><span class="mf">1.5</span><span class="p">,</span>
+                    <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_help_text</span><span class="p">,</span>
+                    <span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span>
+                    <span class="n">fontfamily</span><span class="o">=</span><span class="s2">&quot;monospace&quot;</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Help&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">remove</span><span class="p">()</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Help&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;d&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">perspective</span> <span class="o">=</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">perspective</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">perspective</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Axes&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Camera set to perspective&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Axes&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Camera set to orthogonal&quot;</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;t&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">track</span> <span class="o">=</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">track</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">track</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Axes&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Marker tracking activated&quot;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Axes&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Marker tracking deactivated&quot;</span><span class="p">)</span>
+
+        <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;shift&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;ShiftPressed&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_update_plots</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_on_release</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>  <span class="c1"># pragma: no cover</span>
+        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;shift&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;ShiftPressed&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="nf">_on_scroll</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>  <span class="c1"># pragma: no cover</span>
+        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">button</span> <span class="o">==</span> <span class="s2">&quot;up&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">zoom</span> <span class="o">*=</span> <span class="mf">1.05</span>
+        <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">button</span> <span class="o">==</span> <span class="s2">&quot;down&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">zoom</span> <span class="o">/=</span> <span class="mf">1.05</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_update_plots</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">_on_mouse_press</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>  <span class="c1"># pragma: no cover</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">last_selected_marker</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_set_new_target</span><span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">last_selected_marker</span><span class="p">][</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">current_index</span>
+                <span class="p">]</span>
+            <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;TranslationOnMousePress&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">translation</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;AzimutOnMousePress&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">azimuth</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;ElevationOnMousePress&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">elevation</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;ZoomOnMousePress&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">zoom</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;MousePositionOnPress&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">event</span><span class="o">.</span><span class="n">y</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">button</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;MouseLeftPressed&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">button</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;MouseMiddlePressed&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">button</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;MouseRightPressed&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
+
+    <span class="k">def</span> <span class="nf">_on_mouse_release</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>  <span class="c1"># pragma: no cover</span>
+        <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">button</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;MouseLeftPressed&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">button</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;MouseMiddlePressed&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">elif</span> <span class="n">event</span><span class="o">.</span><span class="n">button</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;MouseRightPressed&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span> <span class="nf">_on_mouse_motion</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>  <span class="c1"># pragma: no cover</span>
+        <span class="c1"># Pan:</span>
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;MouseLeftPressed&quot;</span><span class="p">]</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;ShiftPressed&quot;</span><span class="p">]</span>
+        <span class="p">)</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;MouseMiddlePressed&quot;</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">translation</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;TranslationOnMousePress&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+                <span class="o">+</span> <span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;MousePositionOnPress&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+                <span class="o">/</span> <span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">zoom</span><span class="p">),</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;TranslationOnMousePress&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+                <span class="o">+</span> <span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;MousePositionOnPress&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+                <span class="o">/</span> <span class="p">(</span><span class="mi">100</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">zoom</span><span class="p">),</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_update_plots</span><span class="p">()</span>
+
+        <span class="c1"># Rotation:</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;MouseLeftPressed&quot;</span><span class="p">]</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;ShiftPressed&quot;</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">azimuth</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;AzimutOnMousePress&quot;</span><span class="p">]</span>
+                <span class="o">-</span> <span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;MousePositionOnPress&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="mi">250</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">elevation</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;ElevationOnMousePress&quot;</span><span class="p">]</span>
+                <span class="o">-</span> <span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;MousePositionOnPress&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mi">250</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_update_plots</span><span class="p">()</span>
+
+        <span class="c1"># Zoom:</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;MouseRightPressed&quot;</span><span class="p">]:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">zoom</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;ZoomOnMousePress&quot;</span><span class="p">]</span>
+                <span class="o">+</span> <span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span><span class="p">[</span><span class="s2">&quot;MousePositionOnPress&quot;</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="mi">250</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_update_plots</span><span class="p">()</span>
+
+<div class="viewcode-block" id="Player.to_html5"><a class="viewcode-back" href="../../api/ktk.Player.to_html5.html#ktk.Player.to_html5">[docs]</a>    <span class="k">def</span> <span class="nf">to_html5</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">start_index</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">stop_index</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">start_time</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">stop_time</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create an html5 video for displaying in Jupyter notebooks.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        start_index</span>
+<span class="sd">            Start index in the exported video. Default is the beginning.</span>
+
+<span class="sd">        stop_index</span>
+<span class="sd">            Stop index in the exported video. Negative numbers to count from</span>
+<span class="sd">            the end. Default is the end.</span>
+
+<span class="sd">        start_time</span>
+<span class="sd">            Start time in the exported video. Default is the beginning.</span>
+<span class="sd">            Ignored if start_index is set.</span>
+
+<span class="sd">        stop_time</span>
+<span class="sd">            Stop time in the exported video. Default is the end.</span>
+<span class="sd">            Ignored if stop_index is set.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        A matplotlib animation object for displaying as html5.</span>
+
+<span class="sd">        Warnings</span>
+<span class="sd">        --------</span>
+<span class="sd">        This function, which has been introduced in 0.4, is still experimental</span>
+<span class="sd">        and may change signature or behaviour in the future.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Allow old arguments</span>
+        <span class="k">if</span> <span class="s2">&quot;start_frame&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">start_index</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;start_frame&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s2">&quot;stop_frame&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="n">stop_index</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;stop_frame&quot;</span><span class="p">]</span>
+
+        <span class="n">mpl</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s2">&quot;animation.html&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;html5&quot;</span>
+
+        <span class="k">if</span> <span class="n">start_index</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">start_time</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">start_index</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">start_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">)))</span>
+
+        <span class="k">if</span> <span class="n">stop_index</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">stop_time</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">stop_index</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">stop_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">-</span> <span class="n">stop_time</span><span class="p">)))</span>
+
+        <span class="k">if</span> <span class="n">stop_index</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">stop_index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_indexes</span> <span class="o">+</span> <span class="n">stop_index</span> <span class="o">+</span> <span class="mi">1</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">playback_speed</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Figure&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_size_inches</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">)</span>  <span class="c1"># Half size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_set_index</span><span class="p">(</span><span class="n">start_index</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">running</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">anim</span><span class="o">.</span><span class="n">save_count</span> <span class="o">=</span> <span class="n">stop_index</span> <span class="o">-</span> <span class="n">start_index</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">anim</span><span class="o">.</span><span class="n">event_source</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;Figure&quot;</span><span class="p">])</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">anim</span></div></div>
+</pre></div>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Félix Chénier<br/>
+  
+      &copy; Copyright 2020-2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>
