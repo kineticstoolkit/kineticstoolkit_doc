@@ -2523,10 +2523,9 @@ title="Fullscreen mode"
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        float</span>
-<span class="sd">            The sample rate in samples per second. If time is empty, a value</span>
-<span class="sd">            of 0 is returned. If time has only one data, or if sample rate is</span>
-<span class="sd">            variable, or if time is not monotonously increasing, a value of -1</span>
-<span class="sd">            is returned.</span>
+<span class="sd">            The sample rate in samples per second. If time is empty or has only one</span>
+<span class="sd">            data, or if sample rate is variable, or if time is not monotonously</span>
+<span class="sd">            increasing, a value of np.nan is returned.</span>
 
 <span class="sd">        Warning</span>
 <span class="sd">        -------</span>
@@ -2534,16 +2533,14 @@ title="Fullscreen mode"
 <span class="sd">        experimental and may change in the future.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">return</span> <span class="mi">0</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
 
         <span class="n">deltas</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">deltas</span><span class="p">,</span> <span class="p">[</span><span class="n">deltas</span><span class="p">[</span><span class="mi">0</span><span class="p">]]):</span>
             <span class="k">return</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">deltas</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span></div>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span></div>
 
 <div class="viewcode-block" id="TimeSeries.get_index_at_time"><a class="viewcode-back" href="../../api/ktk.TimeSeries.get_index_at_time.html#ktk.TimeSeries.get_index_at_time">[docs]</a>    <span class="k">def</span> <span class="nf">get_index_at_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>

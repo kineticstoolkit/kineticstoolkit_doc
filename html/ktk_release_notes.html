@@ -1087,6 +1087,11 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-9-august-2022">
+   Version 0.9 (August 2022)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#version-0-8-june-2022">
    Version 0.8 (June 2022)
   </a>
@@ -1146,6 +1151,11 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-9-august-2022">
+   Version 0.9 (August 2022)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#version-0-8-june-2022">
    Version 0.8 (June 2022)
   </a>
@@ -1197,6 +1207,18 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="release-notes">
 <h1>Release Notes<a class="headerlink" href="#release-notes" title="Permalink to this headline">#</a></h1>
+<section id="version-0-9-august-2022">
+<h2>Version 0.9 (August 2022)<a class="headerlink" href="#version-0-9-august-2022" title="Permalink to this headline">#</a></h2>
+<ul class="simple">
+<li><p>New feature: <a class="reference internal" href="api/ktk.TimeSeries.resample.html"><span class="doc std std-doc">ktk.TimeSeries.resample</span></a> to resample a TimeSeries on a new time vector, with the method of your choice (sample-and-hold, linear, spline, etc.)</p></li>
+<li><p>New feature: <a class="reference internal" href="api/ktk.TimeSeries.get_sample_rate.html"><span class="doc std std-doc">ktk.TimeSeries.get_sample_rate</span></a> returns the TimeSeries sample rate, or NaN if the sample rate is not constant.</p></li>
+<li><p>New feature: <a class="reference internal" href="api/ktk.read_c3d.html"><span class="doc std std-doc">ktk.read_c3d</span></a> replaces <code class="docutils literal notranslate"><span class="pre">ktk.kinematics.read_c3d_file</span></code>, and now reads analogs and events in addition to points.</p></li>
+<li><p>New feature: <a class="reference internal" href="api/ktk.write_c3d.html"><span class="doc std std-doc">ktk.write_c3d</span></a> replaces <code class="docutils literal notranslate"><span class="pre">ktk.kinematics.write_c3d_file</span></code>, and now writes analogs and events in addition to points.</p></li>
+<li><p>Deprecation: <code class="docutils literal notranslate"><span class="pre">ktk.kinematics.read_n3d_file</span></code> was moved to the <a class="reference external" href="https://github.com/felixchenier/kineticstoolkit_n3d">n3d extension</a>.</p></li>
+<li><p>Bugfix: c3d files with accented characters in path should now be readable on Windows.</p></li>
+<li><p><strong>Possibly breaking change</strong>: Standard key name for unit was changed from “Unit” to “unit” in TimeSeries. KTK.ZIP files saved with “Unit” will be read with “unit”. Please check your code if you rely on this key name and make the adjustments. More info: <a class="reference external" href="https://github.com/felixchenier/kineticstoolkit/issues/111">https://github.com/felixchenier/kineticstoolkit/issues/111</a></p></li>
+</ul>
+</section>
 <section id="version-0-8-june-2022">
 <h2>Version 0.8 (June 2022)<a class="headerlink" href="#version-0-8-june-2022" title="Permalink to this headline">#</a></h2>
 <ul class="simple">

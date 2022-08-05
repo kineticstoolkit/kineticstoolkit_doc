@@ -1,5 +1,15 @@
 # Release Notes
 
+## Version 0.9 (August 2022)
+
+- New feature: [ktk.TimeSeries.resample](api/ktk.TimeSeries.resample.rst) to resample a TimeSeries on a new time vector, with the method of your choice (sample-and-hold, linear, spline, etc.)
+- New feature: [ktk.TimeSeries.get_sample_rate](api/ktk.TimeSeries.get_sample_rate.rst) returns the TimeSeries sample rate, or NaN if the sample rate is not constant.
+- New feature: [ktk.read_c3d](api/ktk.read_c3d.rst) replaces `ktk.kinematics.read_c3d_file`, and now reads analogs and events in addition to points.
+- New feature: [ktk.write_c3d](api/ktk.write_c3d.rst) replaces `ktk.kinematics.write_c3d_file`, and now writes analogs and events in addition to points.
+- Deprecation: `ktk.kinematics.read_n3d_file` was moved to the [n3d extension](https://github.com/felixchenier/kineticstoolkit_n3d).
+- Bugfix: c3d files with accented characters in path should now be readable on Windows.
+- **Possibly breaking change**: Standard key name for unit was changed from "Unit" to "unit" in TimeSeries. KTK.ZIP files saved with "Unit" will be read with "unit". Please check your code if you rely on this key name and make the adjustments. More info: https://github.com/felixchenier/kineticstoolkit/issues/111
+
 ## Version 0.8 (June 2022)
 
 - New feature: [Extension support](extensions.md).
