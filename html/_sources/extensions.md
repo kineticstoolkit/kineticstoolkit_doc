@@ -6,6 +6,7 @@ Kinetics Toolkit provides very generic functions that should apply to a wide var
 
 Here are links to known extensions, where you can find a detailed description, tutorials, and installation procedure. Please [contact us](https://github.com/felixchenier/kineticstoolkit/discussions) to add your own extension to this list.
 
+- [n3d](https://github.com/felixchenier/kineticstoolkit_n3d): Provide the `read_n3d` function to read Optotrak n3d acquisition files.
 - [pushrimkinetics](https://github.com/felixchenier/kineticstoolkit_pushrimkinetics): Provide functions to process kinetic data from instrumented wheelchair wheels. Replaces the former `ktk.pushrimkinetics` module that is being moved out from the core library.
 
 ## Using extensions

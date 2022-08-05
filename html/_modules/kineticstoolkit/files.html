@@ -345,6 +345,11 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.get_sample_rate.html">
+         ktk.TimeSeries.get_sample_rate
+        </a>
+       </li>
+       <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.get_subset.html">
          ktk.TimeSeries.get_subset
         </a>
@@ -531,6 +536,11 @@ const thebe_selector_output = ".output, .cell_output"
     </label>
     <ul>
      <li class="toctree-l3">
+      <a class="reference internal" href="../../api/ktk.import_extensions.html">
+       ktk.import_extensions
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="../../api/ktk.load.html">
        ktk.load
       </a>
@@ -541,8 +551,18 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../api/ktk.import_extensions.html">
-       ktk.import_extensions
+      <a class="reference internal" href="../../api/ktk.read_c3d.html">
+       ktk.read_c3d
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../api/ktk.write_c3d.html">
+       ktk.write_c3d
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../api/ktk.change_defaults.html">
+       ktk.change_defaults
       </a>
      </li>
     </ul>
@@ -721,18 +741,8 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.kinematics.read_n3d_file.html">
-         ktk.kinematics.read_n3d_file
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.kinematics.track_cluster.html">
          ktk.kinematics.track_cluster
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.kinematics.write_c3d_file.html">
-         ktk.kinematics.write_c3d_file
         </a>
        </li>
       </ul>
@@ -1074,7 +1084,7 @@ title="Fullscreen mode"
 <span class="kn">import</span> <span class="nn">getpass</span>
 <span class="kn">import</span> <span class="nn">zipfile</span>
 
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Optional</span>
 
 
 <span class="k">def</span> <span class="fm">__dir__</span><span class="p">():</span>  <span class="c1"># pragma: no cover</span>
@@ -1216,7 +1226,17 @@ title="Fullscreen mode"
             <span class="n">out</span> <span class="o">=</span> <span class="n">TimeSeries</span><span class="p">()</span>
             <span class="n">out</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">])</span>
             <span class="n">out</span><span class="o">.</span><span class="n">time_info</span> <span class="o">=</span> <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;time_info&quot;</span><span class="p">]</span>
+
+            <span class="c1"># Added on 2022/08/05</span>
+            <span class="c1"># Change &quot;Unit&quot; for &quot;unit&quot; in time_info and data_info</span>
+            <span class="c1"># https://github.com/felixchenier/kineticstoolkit/issues/111</span>
+            <span class="k">if</span> <span class="s2">&quot;Unit&quot;</span> <span class="ow">in</span> <span class="n">out</span><span class="o">.</span><span class="n">time_info</span><span class="p">:</span>
+                <span class="n">out</span><span class="o">.</span><span class="n">time_info</span><span class="p">[</span><span class="s2">&quot;unit&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">time_info</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;Unit&quot;</span><span class="p">)</span>
             <span class="n">out</span><span class="o">.</span><span class="n">data_info</span> <span class="o">=</span> <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;data_info&quot;</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">out</span><span class="o">.</span><span class="n">data_info</span><span class="p">:</span>
+                <span class="k">if</span> <span class="s2">&quot;Unit&quot;</span> <span class="ow">in</span> <span class="n">out</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">key</span><span class="p">]:</span>
+                    <span class="n">out</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s2">&quot;unit&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;Unit&quot;</span><span class="p">)</span>
+
             <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]:</span>
                 <span class="n">out</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="n">key</span><span class="p">])</span>
             <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;events&quot;</span><span class="p">]:</span>
@@ -1290,32 +1310,22 @@ title="Fullscreen mode"
         <span class="k">return</span> <span class="n">data</span></div>
 
 
-<span class="k">def</span> <span class="nf">read_c3d</span><span class="p">(</span>
+<div class="viewcode-block" id="read_c3d"><a class="viewcode-back" href="../../api/ktk.read_c3d.html#ktk.read_c3d">[docs]</a><span class="k">def</span> <span class="nf">read_c3d</span><span class="p">(</span>
     <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
+    <span class="n">extract_force_plates</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="n">convert_point_unit</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="n">convert_moment_unit</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">TimeSeries</span><span class="p">]:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Read point and analog data from a C3D file.</span>
 
-<span class="sd">    Point positions are returned in a TimeSeries in output[&#39;Points&#39;], where</span>
-<span class="sd">    each marker corresponds to a data key. Each marker position is expressed</span>
+<span class="sd">    Point positions are returned in a TimeSeries in output[&#39;points&#39;], where</span>
+<span class="sd">    each point corresponds to a data key. Each point position is expressed</span>
 <span class="sd">    as a Nx4 point series.</span>
 
-<span class="sd">    If the C3D file contains force platform data, it is returned as a</span>
-<span class="sd">    TimeSeries in output[&#39;Platforms&#39;]. The available signals are, for example:</span>
-<span class="sd">        - &#39;Forces0&#39;: Nx4 series of force vectors on platform 0.</span>
-<span class="sd">        - &#39;Forces1&#39;: Nx4 series of force vectors on platform 1.</span>
-<span class="sd">        - &#39;Forces2&#39;: Nx4 series of force vectors on platform 2.</span>
-<span class="sd">        - ...</span>
-<span class="sd">        - &#39;Moments0&#39;: Nx4 series of moment vectors on platform 0.</span>
-<span class="sd">        - &#39;Moments1&#39;: Nx4 series of moment vectors on platform 2.</span>
-<span class="sd">        - &#39;Moments2&#39;: Nx4 series of moment vectors on platform 3.</span>
-<span class="sd">        - ...</span>
-
 <span class="sd">    If the C3D file contains analog data, it is returned as a TimeSeries in</span>
-<span class="sd">    output[&#39;Analogs&#39;]. Each analog signal is expressed as an unidimensional</span>
+<span class="sd">    output[&#39;analogs&#39;]. Each analog signal is expressed as an unidimensional</span>
 <span class="sd">    series of length N.</span>
 
 <span class="sd">    Parameters</span>
@@ -1333,11 +1343,25 @@ title="Fullscreen mode"
 <span class="sd">    -----</span>
 <span class="sd">    - This function relies on `ezc3d`, which is available on</span>
 <span class="sd">      conda-forge and on git-hub. Please install ezc3d before using</span>
-<span class="sd">      read_c3d_file. https://github.com/pyomeca/ezc3d</span>
+<span class="sd">      read_c3d. https://github.com/pyomeca/ezc3d</span>
 
 <span class="sd">    - As for any instrument, please check that your data loads correctly on</span>
 <span class="sd">      your first use (e.g., sampling frequency, position unit). It is</span>
 <span class="sd">      possible that read_c3d misses some corner cases.</span>
+
+<span class="sd">    - Experimental feature: If the C3D file contains force plate data and</span>
+<span class="sd">      extract_force_plates is True, these data are returned as a TimeSeries in</span>
+<span class="sd">      output[&#39;force_plates&#39;]. The available signals are, for example:</span>
+
+<span class="sd">        - &#39;forces0&#39;: Nx4 series of force vectors on platform 0.</span>
+<span class="sd">        - &#39;forces1&#39;: Nx4 series of force vectors on platform 1.</span>
+<span class="sd">        - &#39;forces2&#39;: Nx4 series of force vectors on platform 2.</span>
+<span class="sd">        - ...</span>
+<span class="sd">        - &#39;moments0&#39;: Nx4 series of moment vectors on platform 0.</span>
+<span class="sd">        - &#39;moments1&#39;: Nx4 series of moment vectors on platform 2.</span>
+<span class="sd">        - &#39;moments2&#39;: Nx4 series of moment vectors on platform 3.</span>
+<span class="sd">        - ...</span>
+<span class="sd">      This experimental feature could be modified or removed in the future.</span>
 
 <span class="sd">    Warning</span>
 <span class="sd">    -------</span>
@@ -1356,7 +1380,21 @@ title="Fullscreen mode"
 
     <span class="c1"># Create the reader</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filename</span><span class="p">):</span>
-        <span class="n">reader</span> <span class="o">=</span> <span class="n">ezc3d</span><span class="o">.</span><span class="n">c3d</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">extract_forceplat_data</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">reader</span> <span class="o">=</span> <span class="n">ezc3d</span><span class="o">.</span><span class="n">c3d</span><span class="p">(</span>
+                <span class="n">filename</span><span class="p">,</span> <span class="n">extract_forceplat_data</span><span class="o">=</span><span class="n">extract_force_plates</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">OSError</span><span class="p">:</span>
+            <span class="c1"># Maybe there&#39;s an invalid character in filename.</span>
+            <span class="c1"># Try to workaround</span>
+            <span class="c1"># https://github.com/pyomeca/ezc3d/issues/252</span>
+            <span class="n">tempfile</span> <span class="o">=</span> <span class="n">kineticstoolkit</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">temp_folder</span> <span class="o">+</span> <span class="s2">&quot;/temp.c3d&quot;</span>
+            <span class="n">shutil</span><span class="o">.</span><span class="n">copyfile</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">tempfile</span><span class="p">)</span>
+            <span class="n">reader</span> <span class="o">=</span> <span class="n">ezc3d</span><span class="o">.</span><span class="n">c3d</span><span class="p">(</span>
+                <span class="n">tempfile</span><span class="p">,</span> <span class="n">extract_forceplat_data</span><span class="o">=</span><span class="n">extract_force_plates</span>
+            <span class="p">)</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">tempfile</span><span class="p">)</span>
+
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;File </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2"> was not found.&quot;</span><span class="p">)</span>
 
@@ -1396,15 +1434,15 @@ title="Fullscreen mode"
         <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Point unit is </span><span class="si">{</span><span class="n">point_unit</span><span class="si">}</span><span class="s2"> instead of meters.&quot;</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">i_label</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_points</span><span class="p">):</span>
-        <span class="c1"># Strip leading and ending spaces</span>
+        <span class="c1"># Make sure it&#39;s UTF8, and strip leading and ending spaces</span>
         <span class="n">label</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">i_label</span><span class="p">]</span>
-        <span class="n">key</span> <span class="o">=</span> <span class="n">label</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="n">label</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span> <span class="s2">&quot;ignore&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">label</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
             <span class="n">points</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
                 <span class="p">[</span><span class="n">point_factor</span><span class="p">,</span> <span class="n">point_factor</span><span class="p">,</span> <span class="n">point_factor</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
                 <span class="o">*</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;points&quot;</span><span class="p">][:,</span> <span class="n">i_label</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">T</span>
             <span class="p">)</span>
-            <span class="n">points</span> <span class="o">=</span> <span class="n">points</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">,</span> <span class="n">point_unit</span><span class="p">)</span>
+            <span class="n">points</span> <span class="o">=</span> <span class="n">points</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;unit&quot;</span><span class="p">,</span> <span class="n">point_unit</span><span class="p">)</span>
 
     <span class="n">points</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="p">(</span>
         <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">points</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="n">point_rate</span> <span class="o">+</span> <span class="n">start_time</span>
@@ -1415,7 +1453,7 @@ title="Fullscreen mode"
         <span class="n">points</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="n">event_times</span><span class="p">[</span><span class="n">i_event</span><span class="p">],</span> <span class="n">event_name</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">points</span><span class="o">.</span><span class="n">sort_events</span><span class="p">(</span><span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-    <span class="n">output</span><span class="p">[</span><span class="s2">&quot;Points&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">points</span>
+    <span class="n">output</span><span class="p">[</span><span class="s2">&quot;points&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">points</span>
 
     <span class="c1"># ---------------------------------</span>
     <span class="c1"># Create the analogs TimeSeries</span>
@@ -1433,11 +1471,14 @@ title="Fullscreen mode"
         <span class="k">for</span> <span class="n">i_label</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_analogs</span><span class="p">):</span>
             <span class="c1"># Strip leading and ending spaces</span>
             <span class="n">label</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">i_label</span><span class="p">]</span>
-            <span class="n">key</span> <span class="o">=</span> <span class="n">label</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="n">label</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span> <span class="s2">&quot;ignore&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
             <span class="n">analogs</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;analogs&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">,</span> <span class="n">i_label</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
             <span class="k">if</span> <span class="n">units</span><span class="p">[</span><span class="n">i_label</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
                 <span class="n">analogs</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span>
-                    <span class="n">key</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">,</span> <span class="n">units</span><span class="p">[</span><span class="n">i_label</span><span class="p">],</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span>
+                    <span class="n">key</span><span class="p">,</span>
+                    <span class="s2">&quot;unit&quot;</span><span class="p">,</span>
+                    <span class="n">units</span><span class="p">[</span><span class="n">i_label</span><span class="p">]</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span> <span class="s2">&quot;ignore&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">),</span>
+                    <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                 <span class="p">)</span>
 
         <span class="n">analogs</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="p">(</span>
@@ -1449,11 +1490,11 @@ title="Fullscreen mode"
             <span class="n">analogs</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="n">event_times</span><span class="p">[</span><span class="n">i_event</span><span class="p">],</span> <span class="n">event_name</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">analogs</span><span class="o">.</span><span class="n">sort_events</span><span class="p">(</span><span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-        <span class="n">output</span><span class="p">[</span><span class="s2">&quot;Analogs&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">analogs</span>
+        <span class="n">output</span><span class="p">[</span><span class="s2">&quot;analogs&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">analogs</span>
 
     <span class="c1"># ---------------------------------</span>
     <span class="c1"># Create the platforms TimeSeries</span>
-    <span class="k">if</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;platform&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="p">[]:</span>
+    <span class="k">if</span> <span class="n">extract_force_plates</span> <span class="ow">and</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;platform&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="p">[]:</span>
 
         <span class="n">platforms</span> <span class="o">=</span> <span class="n">TimeSeries</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">analogs</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>  <span class="c1"># type: ignore</span>
 
@@ -1467,12 +1508,12 @@ title="Fullscreen mode"
                     <span class="sa">f</span><span class="s2">&quot;Force unit is </span><span class="si">{</span><span class="n">force_unit</span><span class="si">}</span><span class="s2"> instead of newtons.&quot;</span>
                 <span class="p">)</span>
 
-            <span class="n">key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Forces</span><span class="si">{</span><span class="n">i_platform</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;forces</span><span class="si">{</span><span class="n">i_platform</span><span class="si">}</span><span class="s2">&quot;</span>
             <span class="n">platforms</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">platforms</span><span class="o">.</span><span class="n">time</span><span class="p">),</span> <span class="mi">4</span><span class="p">))</span>
             <span class="n">platforms</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;platform&quot;</span><span class="p">][</span>
                 <span class="n">i_platform</span>
             <span class="p">][</span><span class="s2">&quot;force&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
-            <span class="n">platforms</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">,</span> <span class="n">force_unit</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">platforms</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;unit&quot;</span><span class="p">,</span> <span class="n">force_unit</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
             <span class="n">moment_unit</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;platform&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;unit_moment&quot;</span><span class="p">]</span>
 
@@ -1485,13 +1526,13 @@ title="Fullscreen mode"
                 <span class="n">moment_factor</span> <span class="o">=</span> <span class="mi">1</span>
                 <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Moment unit is </span><span class="si">{</span><span class="n">moment_unit</span><span class="si">}</span><span class="s2"> instead of Nm.&quot;</span><span class="p">)</span>
 
-            <span class="n">key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Moments</span><span class="si">{</span><span class="n">i_platform</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;moments</span><span class="si">{</span><span class="n">i_platform</span><span class="si">}</span><span class="s2">&quot;</span>
             <span class="n">platforms</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">platforms</span><span class="o">.</span><span class="n">time</span><span class="p">),</span> <span class="mi">4</span><span class="p">))</span>
             <span class="n">platforms</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
                 <span class="n">moment_factor</span>
                 <span class="o">*</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;platform&quot;</span><span class="p">][</span><span class="n">i_platform</span><span class="p">][</span><span class="s2">&quot;moment&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
             <span class="p">)</span>
-            <span class="n">platforms</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">,</span> <span class="n">moment_unit</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">platforms</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;unit&quot;</span><span class="p">,</span> <span class="n">moment_unit</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
         <span class="c1"># Add events</span>
         <span class="k">for</span> <span class="n">i_event</span><span class="p">,</span> <span class="n">event_name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">event_names</span><span class="p">):</span>
@@ -1500,9 +1541,106 @@ title="Fullscreen mode"
             <span class="p">)</span>
         <span class="n">platforms</span><span class="o">.</span><span class="n">sort_events</span><span class="p">(</span><span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-        <span class="n">output</span><span class="p">[</span><span class="s2">&quot;Platforms&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">platforms</span>
+        <span class="n">output</span><span class="p">[</span><span class="s2">&quot;force_plates&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">platforms</span>
 
-    <span class="k">return</span> <span class="n">output</span>
+    <span class="k">return</span> <span class="n">output</span></div>
+
+
+<div class="viewcode-block" id="write_c3d"><a class="viewcode-back" href="../../api/ktk.write_c3d.html#ktk.write_c3d">[docs]</a><span class="k">def</span> <span class="nf">write_c3d</span><span class="p">(</span>
+    <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">points</span><span class="p">:</span> <span class="n">TimeSeries</span><span class="p">,</span> <span class="n">analogs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">TimeSeries</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Write points and analog data to a C3D file.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    filename</span>
+<span class="sd">        Path of the C3D file</span>
+
+<span class="sd">    points</span>
+<span class="sd">        Points trajectories, where each point corresponds to a data key.</span>
+<span class="sd">        Each point position is expressed as an Nx4 point series. Events from</span>
+<span class="sd">        this TimeSeries are also added to the c3d.</span>
+
+<span class="sd">    analogs</span>
+<span class="sd">        Optional. Analog signals, where each data key is an unidimensional</span>
+<span class="sd">        array. Events from this TimeSeries are not added to the c3d.</span>
+
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    This function relies on `ezc3d`, which is available on</span>
+<span class="sd">    conda-forge and on git-hub. Please install ezc3d before using</span>
+<span class="sd">    write_c3d. https://github.com/pyomeca/ezc3d</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span> <span class="nn">ezc3d</span>
+    <span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ModuleNotFoundError</span><span class="p">(</span>
+            <span class="s2">&quot;The optional module ezc3d is not installed, but it is required &quot;</span>
+            <span class="s2">&quot;to use this function. Please install it using: &quot;</span>
+            <span class="s2">&quot;conda install -c conda-forge ezc3d&quot;</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Create an empty c3d structure</span>
+    <span class="n">c3d</span> <span class="o">=</span> <span class="n">ezc3d</span><span class="o">.</span><span class="n">c3d</span><span class="p">()</span>
+
+    <span class="c1"># Add the points</span>
+    <span class="n">marker_list</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">marker_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="o">.</span><span class="n">data</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="o">.</span><span class="n">time</span><span class="p">)))</span>
+
+    <span class="k">for</span> <span class="n">i_marker</span><span class="p">,</span> <span class="n">marker</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">points</span><span class="o">.</span><span class="n">data</span><span class="p">):</span>
+        <span class="n">marker_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">marker</span><span class="p">)</span>
+        <span class="n">marker_data</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">i_marker</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">points</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">marker</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="n">marker_data</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">i_marker</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">points</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">marker</span><span class="p">][:,</span> <span class="mi">1</span><span class="p">]</span>
+        <span class="n">marker_data</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="n">i_marker</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">points</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">marker</span><span class="p">][:,</span> <span class="mi">2</span><span class="p">]</span>
+        <span class="n">marker_data</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="n">i_marker</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">points</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">marker</span><span class="p">][:,</span> <span class="mi">3</span><span class="p">]</span>
+
+    <span class="c1"># Fill point data</span>
+    <span class="n">c3d</span><span class="p">[</span><span class="s2">&quot;header&quot;</span><span class="p">][</span><span class="s2">&quot;points&quot;</span><span class="p">][</span><span class="s2">&quot;first_frame&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span>
+        <span class="n">points</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">points</span><span class="o">.</span><span class="n">get_sample_rate</span><span class="p">()</span>
+    <span class="p">)</span>
+    <span class="n">c3d</span><span class="o">.</span><span class="n">add_parameter</span><span class="p">(</span><span class="s2">&quot;POINT&quot;</span><span class="p">,</span> <span class="s2">&quot;RATE&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">points</span><span class="o">.</span><span class="n">get_sample_rate</span><span class="p">()])</span>
+    <span class="n">c3d</span><span class="o">.</span><span class="n">add_parameter</span><span class="p">(</span><span class="s2">&quot;POINT&quot;</span><span class="p">,</span> <span class="s2">&quot;LABELS&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">marker_list</span><span class="p">)])</span>
+    <span class="n">c3d</span><span class="o">.</span><span class="n">add_parameter</span><span class="p">(</span><span class="s2">&quot;POINT&quot;</span><span class="p">,</span> <span class="s2">&quot;UNITS&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">)</span>
+
+    <span class="n">c3d</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;points&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">marker_data</span>
+
+    <span class="c1"># Fill analog data</span>
+    <span class="k">if</span> <span class="n">analogs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+
+        <span class="n">c3d</span><span class="o">.</span><span class="n">add_parameter</span><span class="p">(</span><span class="s2">&quot;ANALOG&quot;</span><span class="p">,</span> <span class="s2">&quot;LABELS&quot;</span><span class="p">,</span> <span class="nb">list</span><span class="p">(</span><span class="n">analogs</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+        <span class="n">c3d</span><span class="o">.</span><span class="n">add_parameter</span><span class="p">(</span><span class="s2">&quot;ANALOG&quot;</span><span class="p">,</span> <span class="s2">&quot;RATE&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">analogs</span><span class="o">.</span><span class="n">get_sample_rate</span><span class="p">()])</span>
+        <span class="n">c3d</span><span class="o">.</span><span class="n">add_parameter</span><span class="p">(</span>
+            <span class="s2">&quot;ANALOG&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;UNITS&quot;</span><span class="p">,</span>
+            <span class="p">[</span>
+                <span class="n">analogs</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s2">&quot;unit&quot;</span><span class="p">]</span>
+                <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">analogs</span><span class="o">.</span><span class="n">data_info</span>
+                <span class="ow">and</span> <span class="s2">&quot;unit&quot;</span> <span class="ow">in</span> <span class="n">analogs</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+                <span class="k">else</span> <span class="s2">&quot;&quot;</span>
+                <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">analogs</span><span class="o">.</span><span class="n">data</span>
+            <span class="p">],</span>
+        <span class="p">)</span>
+        <span class="n">c3d</span><span class="o">.</span><span class="n">add_parameter</span><span class="p">(</span><span class="s2">&quot;ANALOG&quot;</span><span class="p">,</span> <span class="s2">&quot;USED&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">analogs</span><span class="o">.</span><span class="n">data</span><span class="p">)])</span>
+
+        <span class="n">analog_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">analogs</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">analogs</span><span class="o">.</span><span class="n">data</span><span class="p">])</span>
+        <span class="n">c3d</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;analogs&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">analog_data</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+
+    <span class="c1"># Write the data</span>
+    <span class="n">c3d</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+
+    <span class="c1"># ---------------------------------</span>
+    <span class="c1"># Add the events</span>
+    <span class="n">c3d</span> <span class="o">=</span> <span class="n">ezc3d</span><span class="o">.</span><span class="n">c3d</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">points</span><span class="o">.</span><span class="n">events</span><span class="p">:</span>
+        <span class="n">c3d</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span>
+            <span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="n">event</span><span class="o">.</span><span class="n">time</span> <span class="o">//</span> <span class="mi">60</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="mi">60</span><span class="p">)],</span> <span class="n">label</span><span class="o">=</span><span class="n">event</span><span class="o">.</span><span class="n">name</span>
+        <span class="p">)</span>
+
+    <span class="c1"># Write the data again</span>
+    <span class="c1"># (workaround https://github.com/pyomeca/ezc3d/issues/263)</span>
+    <span class="n">c3d</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span></div>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>

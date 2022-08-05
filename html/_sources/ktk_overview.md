@@ -4,11 +4,11 @@ Kinetics Toolkit is designed to play well with other softwares and packages, to 
 
 ## Getting your data in
 
-(green in figure below)
+(orange in figure below)
 
 Kinetics Toolkit does not ties to specific instruments. Using your recording instrumentation, you need to get your data in a compatible file, be it very generic such as `csv` or `txt` files, or more specialized such as `c3d`.
 
-Any data that can be read as a Pandas DataFrame (e.g., `csv`, `txt`, Excel, SQL) can be converted to a TimeSeries using [](api/ktk.TimeSeries.from_dataframe.rst). This [tutorial](timeseries_dataframes.md) shows an example. To import motion data from a `c3d` or `n3d` file, use the [](api/ktk.kinematics.read_c3d_file.rst) or [](api/ktk.kinematics.read_n3d_file.rst) function.
+Any data that can be read as a Pandas DataFrame (e.g., `csv`, `txt`, Excel, SQL) can be converted to a TimeSeries using [](api/ktk.TimeSeries.from_dataframe.rst). This [tutorial](timeseries_dataframes.md) shows an example. To import motion data from a `c3d` file, use the [](api/ktk.read_c3d.rst) function.
 
 In addition to importing and exporting, Kinetics Toolkit offers [](api/ktk.load.rst) and [](api/ktk.save.rst) functions, which store standard python types, NumPy arrays, basic Pandas' DataFrames and Series, and ktk's TimeSeries in a portable zipped `json` format. See this [tutorial](loadsave.md) for more information.
 
@@ -35,6 +35,6 @@ If applicable, you can also use your current functions:
 
 ## Getting your data out
 
-(orange in figure above)
+(red in figure above)
 
-Once your data are processed, you can export it to other formats to process it using other software, using a similar method that you took to import those in a first place: use [](api/ktk.kinematics.write_c3d_file.rst) for `c3d`, or Pandas' `to_` methods for saving `csv`, `txt`, Excel, etc., via the [](api/ktk.TimeSeries.to_dataframe.rst) method. You can also save your variables using [](api/ktk.save.rst) for short-term to long-term storage.
+Once your data are processed, you can export it to other formats to process it using other software, using a similar method that you took to import those in a first place: use [](api/ktk.write_c3d.rst) for `c3d`, or Pandas' `to_` methods for saving `csv`, `txt`, Excel, etc., via the [](api/ktk.TimeSeries.to_dataframe.rst) method. You can also save your variables using [](api/ktk.save.rst) for short-term to long-term storage.

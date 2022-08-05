@@ -141,9 +141,9 @@ For saving a TimeSeries to a `csv`, we create a DataFrame using the  [](api/ktk.
 In this example, we will read 3d marker positions from a sample `c3d` file, and export these positions to a `csv` file. We first read the `c3d` file using the [](api/ktk.kinematics.rst) module. This results in a TimeSeries with 26 markers:
 
 ```{code-cell} ipython3
-markers = ktk.kinematics.read_c3d_file(
+markers = ktk.read_c3d(
     ktk.doc.download("kinematics_basket_sprint.c3d")
-)
+)['points']
 
 markers
 ```

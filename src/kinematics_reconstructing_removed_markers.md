@@ -35,9 +35,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Static acquisition
-markers_static = ktk.kinematics.read_c3d_file(
+markers_static = ktk.read_c3d(
     ktk.doc.download("kinematics_racing_static.c3d")
-)
+)["points"]
 markers_static = markers_static.get_subset(
     ["ArmL1", "ArmL2", "ArmL3", "LateralEpicondyleL"]
 )
@@ -53,9 +53,9 @@ plt.suptitle("Static acquisition")
 plt.tight_layout()
 
 # Propulsion acquisition
-markers_propulsion = ktk.kinematics.read_c3d_file(
+markers_propulsion = ktk.read_c3d(
     ktk.doc.download("kinematics_racing_propulsion.c3d")
-)
+)["points"]
 markers_propulsion = markers_propulsion.get_subset(
     [
         "ArmL1",

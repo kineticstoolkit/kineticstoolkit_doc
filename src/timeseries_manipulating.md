@@ -33,14 +33,14 @@ TimeSeries have various method to copy, split, extract or combine data:
   [](api/ktk.TimeSeries.get_ts_after_event.rst),
   [](api/ktk.TimeSeries.get_ts_between_events.rst) to split a TimeSeries in time following specific criteria.
 
-In this tutorial, we will see how to use these methods to manage a TimeSeries of marker trajectories. We will start by loading a sample `c3d` file with some marker trajectories. This example has 26 markers with 3678 samples recorded at 120 Hz.
+In this tutorial, we will see how to use these methods to manage a TimeSeries of marker trajectories. We will start by loading a sample `c3d` file with some marker trajectories, using [](api/ktk.read_c3d.rst). This example has 26 markers with 3678 samples recorded at 120 Hz.
 
 ```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
 
-markers = ktk.kinematics.read_c3d_file(
+markers = ktk.read_c3d(
     ktk.doc.download("kinematics_basket_sprint.c3d")
-)
+)['points']
 
 markers
 ```

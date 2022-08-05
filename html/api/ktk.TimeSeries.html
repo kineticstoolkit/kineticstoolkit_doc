@@ -348,6 +348,11 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
+        <a class="reference internal" href="ktk.TimeSeries.get_sample_rate.html">
+         ktk.TimeSeries.get_sample_rate
+        </a>
+       </li>
+       <li class="toctree-l4">
         <a class="reference internal" href="ktk.TimeSeries.get_subset.html">
          ktk.TimeSeries.get_subset
         </a>
@@ -534,6 +539,11 @@ const thebe_selector_output = ".output, .cell_output"
     </label>
     <ul>
      <li class="toctree-l3">
+      <a class="reference internal" href="ktk.import_extensions.html">
+       ktk.import_extensions
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="ktk.load.html">
        ktk.load
       </a>
@@ -544,8 +554,18 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="ktk.import_extensions.html">
-       ktk.import_extensions
+      <a class="reference internal" href="ktk.read_c3d.html">
+       ktk.read_c3d
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="ktk.write_c3d.html">
+       ktk.write_c3d
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="ktk.change_defaults.html">
+       ktk.change_defaults
       </a>
      </li>
     </ul>
@@ -724,18 +744,8 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="ktk.kinematics.read_n3d_file.html">
-         ktk.kinematics.read_n3d_file
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="ktk.kinematics.track_cluster.html">
          ktk.kinematics.track_cluster
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="ktk.kinematics.write_c3d_file.html">
-         ktk.kinematics.write_c3d_file
         </a>
        </li>
       </ul>
@@ -1082,7 +1092,7 @@ title="Print to PDF"
 <h1>ktk.TimeSeries<a class="headerlink" href="#ktk-timeseries" title="Permalink to this headline">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="ktk.TimeSeries">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TimeSeries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([],</span> <span class="pre">dtype=float64)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'Unit':</span> <span class="pre">'s'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kineticstoolkit/timeseries.html#TimeSeries"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ktk.TimeSeries" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TimeSeries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">array([],</span> <span class="pre">dtype=float64)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'unit':</span> <span class="pre">'s'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kineticstoolkit/timeseries.html#TimeSeries"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ktk.TimeSeries" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class that implements TimeSeries.</p>
 <p>This class implements a Timeseries in a way that resembles the timeseries
@@ -1188,91 +1198,94 @@ data_info attribute could indicate the unit of data[‘Forces’]:</p>
 <tr class="row-even"><td><p><a class="reference internal" href="ktk.TimeSeries.get_index_before_time.html#ktk.TimeSeries.get_index_before_time" title="ktk.TimeSeries.get_index_before_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_index_before_time</span></code></a></p></td>
 <td><p>Get the time index that is just before the specified time.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ktk.TimeSeries.get_subset.html#ktk.TimeSeries.get_subset" title="ktk.TimeSeries.get_subset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_subset</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ktk.TimeSeries.get_sample_rate.html#ktk.TimeSeries.get_sample_rate" title="ktk.TimeSeries.get_sample_rate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_sample_rate</span></code></a></p></td>
+<td><p>Get the sample rate in samples/s.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="ktk.TimeSeries.get_subset.html#ktk.TimeSeries.get_subset" title="ktk.TimeSeries.get_subset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_subset</span></code></a></p></td>
 <td><p>Return a subset of the TimeSeries.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ktk.TimeSeries.get_ts_after_event.html#ktk.TimeSeries.get_ts_after_event" title="ktk.TimeSeries.get_ts_after_event"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ts_after_event</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ktk.TimeSeries.get_ts_after_event.html#ktk.TimeSeries.get_ts_after_event" title="ktk.TimeSeries.get_ts_after_event"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ts_after_event</span></code></a></p></td>
 <td><p>Get a subset of the TimeSeries after the specified event.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ktk.TimeSeries.get_ts_after_index.html#ktk.TimeSeries.get_ts_after_index" title="ktk.TimeSeries.get_ts_after_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ts_after_index</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ktk.TimeSeries.get_ts_after_index.html#ktk.TimeSeries.get_ts_after_index" title="ktk.TimeSeries.get_ts_after_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ts_after_index</span></code></a></p></td>
 <td><p>Get a subset of the TimeSeries after the specified time index.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ktk.TimeSeries.get_ts_after_time.html#ktk.TimeSeries.get_ts_after_time" title="ktk.TimeSeries.get_ts_after_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ts_after_time</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ktk.TimeSeries.get_ts_after_time.html#ktk.TimeSeries.get_ts_after_time" title="ktk.TimeSeries.get_ts_after_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ts_after_time</span></code></a></p></td>
 <td><p>Get a subset of the TimeSeries after the specified time.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ktk.TimeSeries.get_ts_at_event.html#ktk.TimeSeries.get_ts_at_event" title="ktk.TimeSeries.get_ts_at_event"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ts_at_event</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ktk.TimeSeries.get_ts_at_event.html#ktk.TimeSeries.get_ts_at_event" title="ktk.TimeSeries.get_ts_at_event"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ts_at_event</span></code></a></p></td>
 <td><p>Get a one-data subset of the TimeSeries at the event's nearest time.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ktk.TimeSeries.get_ts_at_time.html#ktk.TimeSeries.get_ts_at_time" title="ktk.TimeSeries.get_ts_at_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ts_at_time</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ktk.TimeSeries.get_ts_at_time.html#ktk.TimeSeries.get_ts_at_time" title="ktk.TimeSeries.get_ts_at_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ts_at_time</span></code></a></p></td>
 <td><p>Get a one-data subset of the TimeSeries at the nearest time.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ktk.TimeSeries.get_ts_before_event.html#ktk.TimeSeries.get_ts_before_event" title="ktk.TimeSeries.get_ts_before_event"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ts_before_event</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ktk.TimeSeries.get_ts_before_event.html#ktk.TimeSeries.get_ts_before_event" title="ktk.TimeSeries.get_ts_before_event"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ts_before_event</span></code></a></p></td>
 <td><p>Get a subset of the TimeSeries before the specified event.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ktk.TimeSeries.get_ts_before_index.html#ktk.TimeSeries.get_ts_before_index" title="ktk.TimeSeries.get_ts_before_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ts_before_index</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ktk.TimeSeries.get_ts_before_index.html#ktk.TimeSeries.get_ts_before_index" title="ktk.TimeSeries.get_ts_before_index"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ts_before_index</span></code></a></p></td>
 <td><p>Get a subset of the TimeSeries before the specified time index.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ktk.TimeSeries.get_ts_before_time.html#ktk.TimeSeries.get_ts_before_time" title="ktk.TimeSeries.get_ts_before_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ts_before_time</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ktk.TimeSeries.get_ts_before_time.html#ktk.TimeSeries.get_ts_before_time" title="ktk.TimeSeries.get_ts_before_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ts_before_time</span></code></a></p></td>
 <td><p>Get a subset of the TimeSeries before the specified time.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ktk.TimeSeries.get_ts_between_events.html#ktk.TimeSeries.get_ts_between_events" title="ktk.TimeSeries.get_ts_between_events"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ts_between_events</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ktk.TimeSeries.get_ts_between_events.html#ktk.TimeSeries.get_ts_between_events" title="ktk.TimeSeries.get_ts_between_events"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ts_between_events</span></code></a></p></td>
 <td><p>Get a subset of the TimeSeries between two specified events.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ktk.TimeSeries.get_ts_between_indexes.html#ktk.TimeSeries.get_ts_between_indexes" title="ktk.TimeSeries.get_ts_between_indexes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ts_between_indexes</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ktk.TimeSeries.get_ts_between_indexes.html#ktk.TimeSeries.get_ts_between_indexes" title="ktk.TimeSeries.get_ts_between_indexes"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ts_between_indexes</span></code></a></p></td>
 <td><p>Get a subset of the TimeSeries before two specified time indexes.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ktk.TimeSeries.get_ts_between_times.html#ktk.TimeSeries.get_ts_between_times" title="ktk.TimeSeries.get_ts_between_times"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ts_between_times</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ktk.TimeSeries.get_ts_between_times.html#ktk.TimeSeries.get_ts_between_times" title="ktk.TimeSeries.get_ts_between_times"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_ts_between_times</span></code></a></p></td>
 <td><p>Get a subset of the TimeSeries between two specified times.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ktk.TimeSeries.isnan.html#ktk.TimeSeries.isnan" title="ktk.TimeSeries.isnan"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isnan</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ktk.TimeSeries.isnan.html#ktk.TimeSeries.isnan" title="ktk.TimeSeries.isnan"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isnan</span></code></a></p></td>
 <td><p>Return a boolean array of missing samples.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ktk.TimeSeries.merge.html#ktk.TimeSeries.merge" title="ktk.TimeSeries.merge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ktk.TimeSeries.merge.html#ktk.TimeSeries.merge" title="ktk.TimeSeries.merge"><code class="xref py py-obj docutils literal notranslate"><span class="pre">merge</span></code></a></p></td>
 <td><p>Merge the TimeSeries with another TimeSeries.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ktk.TimeSeries.plot.html#ktk.TimeSeries.plot" title="ktk.TimeSeries.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ktk.TimeSeries.plot.html#ktk.TimeSeries.plot" title="ktk.TimeSeries.plot"><code class="xref py py-obj docutils literal notranslate"><span class="pre">plot</span></code></a></p></td>
 <td><p>Plot the TimeSeries in the current matplotlib figure.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ktk.TimeSeries.remove_data.html#ktk.TimeSeries.remove_data" title="ktk.TimeSeries.remove_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_data</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ktk.TimeSeries.remove_data.html#ktk.TimeSeries.remove_data" title="ktk.TimeSeries.remove_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_data</span></code></a></p></td>
 <td><p>Remove a data key and its associated metadata.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ktk.TimeSeries.remove_data_info.html#ktk.TimeSeries.remove_data_info" title="ktk.TimeSeries.remove_data_info"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_data_info</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ktk.TimeSeries.remove_data_info.html#ktk.TimeSeries.remove_data_info" title="ktk.TimeSeries.remove_data_info"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_data_info</span></code></a></p></td>
 <td><p>Remove metadata from a TimeSeries' data.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ktk.TimeSeries.remove_event.html#ktk.TimeSeries.remove_event" title="ktk.TimeSeries.remove_event"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_event</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ktk.TimeSeries.remove_event.html#ktk.TimeSeries.remove_event" title="ktk.TimeSeries.remove_event"><code class="xref py py-obj docutils literal notranslate"><span class="pre">remove_event</span></code></a></p></td>
 <td><p>Remove an event occurrence or all events of a same name.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ktk.TimeSeries.rename_data.html#ktk.TimeSeries.rename_data" title="ktk.TimeSeries.rename_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rename_data</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ktk.TimeSeries.rename_data.html#ktk.TimeSeries.rename_data" title="ktk.TimeSeries.rename_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rename_data</span></code></a></p></td>
 <td><p>Rename a key in data and data_info.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ktk.TimeSeries.rename_event.html#ktk.TimeSeries.rename_event" title="ktk.TimeSeries.rename_event"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rename_event</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ktk.TimeSeries.rename_event.html#ktk.TimeSeries.rename_event" title="ktk.TimeSeries.rename_event"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rename_event</span></code></a></p></td>
 <td><p>Rename an event occurrence or all events of a same name.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ktk.TimeSeries.resample.html#ktk.TimeSeries.resample" title="ktk.TimeSeries.resample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resample</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ktk.TimeSeries.resample.html#ktk.TimeSeries.resample" title="ktk.TimeSeries.resample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">resample</span></code></a></p></td>
 <td><p>Resample the TimeSeries.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ktk.TimeSeries.shift.html#ktk.TimeSeries.shift" title="ktk.TimeSeries.shift"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shift</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ktk.TimeSeries.shift.html#ktk.TimeSeries.shift" title="ktk.TimeSeries.shift"><code class="xref py py-obj docutils literal notranslate"><span class="pre">shift</span></code></a></p></td>
 <td><p>Shift time and events.time.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ktk.TimeSeries.sort_events.html#ktk.TimeSeries.sort_events" title="ktk.TimeSeries.sort_events"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sort_events</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ktk.TimeSeries.sort_events.html#ktk.TimeSeries.sort_events" title="ktk.TimeSeries.sort_events"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sort_events</span></code></a></p></td>
 <td><p>Sorts the TimeSeries' events from the earliest to the latest.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ktk.TimeSeries.sync_event.html#ktk.TimeSeries.sync_event" title="ktk.TimeSeries.sync_event"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sync_event</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ktk.TimeSeries.sync_event.html#ktk.TimeSeries.sync_event" title="ktk.TimeSeries.sync_event"><code class="xref py py-obj docutils literal notranslate"><span class="pre">sync_event</span></code></a></p></td>
 <td><p>Shift time and events.time so that this event is at the new time zero.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ktk.TimeSeries.to_dataframe.html#ktk.TimeSeries.to_dataframe" title="ktk.TimeSeries.to_dataframe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_dataframe</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ktk.TimeSeries.to_dataframe.html#ktk.TimeSeries.to_dataframe" title="ktk.TimeSeries.to_dataframe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_dataframe</span></code></a></p></td>
 <td><p>Create a DataFrame by reshaping all data to one bidimensional table.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ktk.TimeSeries.trim_events.html#ktk.TimeSeries.trim_events" title="ktk.TimeSeries.trim_events"><code class="xref py py-obj docutils literal notranslate"><span class="pre">trim_events</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ktk.TimeSeries.trim_events.html#ktk.TimeSeries.trim_events" title="ktk.TimeSeries.trim_events"><code class="xref py py-obj docutils literal notranslate"><span class="pre">trim_events</span></code></a></p></td>
 <td><p>Delete the events that are outside the TimeSeries' time vector.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ktk.TimeSeries.ui_edit_events.html#ktk.TimeSeries.ui_edit_events" title="ktk.TimeSeries.ui_edit_events"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ui_edit_events</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ktk.TimeSeries.ui_edit_events.html#ktk.TimeSeries.ui_edit_events" title="ktk.TimeSeries.ui_edit_events"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ui_edit_events</span></code></a></p></td>
 <td><p>Edit events interactively.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ktk.TimeSeries.ui_get_ts_between_clicks.html#ktk.TimeSeries.ui_get_ts_between_clicks" title="ktk.TimeSeries.ui_get_ts_between_clicks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ui_get_ts_between_clicks</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ktk.TimeSeries.ui_get_ts_between_clicks.html#ktk.TimeSeries.ui_get_ts_between_clicks" title="ktk.TimeSeries.ui_get_ts_between_clicks"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ui_get_ts_between_clicks</span></code></a></p></td>
 <td><p>Get a subset of the TimeSeries between two mouse clicks.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ktk.TimeSeries.ui_sync.html#ktk.TimeSeries.ui_sync" title="ktk.TimeSeries.ui_sync"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ui_sync</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ktk.TimeSeries.ui_sync.html#ktk.TimeSeries.ui_sync" title="ktk.TimeSeries.ui_sync"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ui_sync</span></code></a></p></td>
 <td><p>Synchronize one or two TimeSeries by shifting their time.</p></td>
 </tr>
 </tbody>

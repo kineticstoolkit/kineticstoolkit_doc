@@ -348,6 +348,11 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
+        <a class="reference internal" href="ktk.TimeSeries.get_sample_rate.html">
+         ktk.TimeSeries.get_sample_rate
+        </a>
+       </li>
+       <li class="toctree-l4">
         <a class="reference internal" href="ktk.TimeSeries.get_subset.html">
          ktk.TimeSeries.get_subset
         </a>
@@ -534,6 +539,11 @@ const thebe_selector_output = ".output, .cell_output"
     </label>
     <ul>
      <li class="toctree-l3">
+      <a class="reference internal" href="ktk.import_extensions.html">
+       ktk.import_extensions
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="ktk.load.html">
        ktk.load
       </a>
@@ -544,8 +554,18 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="ktk.import_extensions.html">
-       ktk.import_extensions
+      <a class="reference internal" href="ktk.read_c3d.html">
+       ktk.read_c3d
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="ktk.write_c3d.html">
+       ktk.write_c3d
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="ktk.change_defaults.html">
+       ktk.change_defaults
       </a>
      </li>
     </ul>
@@ -724,18 +744,8 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="ktk.kinematics.read_n3d_file.html">
-         ktk.kinematics.read_n3d_file
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="ktk.kinematics.track_cluster.html">
          ktk.kinematics.track_cluster
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="ktk.kinematics.write_c3d_file.html">
-         ktk.kinematics.write_c3d_file
         </a>
        </li>
       </ul>
@@ -1097,11 +1107,11 @@ can be provided, e.g., ktk.Player(markers, rigid_bodies)</p></li>
 <li><p><strong>interconnections</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]]) – <p>Optional. Each key corresponds to an inerconnection between markers,
 where one interconnection is another dict with the following keys:</p>
 <ul>
-<li><p>Links: list of list of 2 str, where each str is a marker
+<li><p>’links’: list of list of 2 str, where each str is a marker
 name. For example, to link Marker1 to Marker2 and
 Marker1 to Marker3, Links would be:
 [[‘Marker1’, ‘Marker2’], [‘Marker1’, ‘Marker3’]]</p></li>
-<li><p>Color: character or tuple that represents the color of the
+<li><p>’color’: character or tuple that represents the color of the
 link. Color must be a valid value for matplotlib’s
 plots.</p></li>
 </ul>

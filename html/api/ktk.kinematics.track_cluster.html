@@ -55,8 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="ktk.kinematics.write_c3d_file" href="ktk.kinematics.write_c3d_file.html" />
-    <link rel="prev" title="ktk.kinematics.read_n3d_file" href="ktk.kinematics.read_n3d_file.html" />
+    <link rel="next" title="Developing extensions" href="../dev_extensions.html" />
+    <link rel="prev" title="ktk.kinematics.extend_cluster" href="ktk.kinematics.extend_cluster.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -348,6 +348,11 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
+        <a class="reference internal" href="ktk.TimeSeries.get_sample_rate.html">
+         ktk.TimeSeries.get_sample_rate
+        </a>
+       </li>
+       <li class="toctree-l4">
         <a class="reference internal" href="ktk.TimeSeries.get_subset.html">
          ktk.TimeSeries.get_subset
         </a>
@@ -534,6 +539,11 @@ const thebe_selector_output = ".output, .cell_output"
     </label>
     <ul>
      <li class="toctree-l3">
+      <a class="reference internal" href="ktk.import_extensions.html">
+       ktk.import_extensions
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="ktk.load.html">
        ktk.load
       </a>
@@ -544,8 +554,18 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="ktk.import_extensions.html">
-       ktk.import_extensions
+      <a class="reference internal" href="ktk.read_c3d.html">
+       ktk.read_c3d
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="ktk.write_c3d.html">
+       ktk.write_c3d
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="ktk.change_defaults.html">
+       ktk.change_defaults
       </a>
      </li>
     </ul>
@@ -723,19 +743,9 @@ const thebe_selector_output = ".output, .cell_output"
          ktk.kinematics.extend_cluster
         </a>
        </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="ktk.kinematics.read_n3d_file.html">
-         ktk.kinematics.read_n3d_file
-        </a>
-       </li>
        <li class="toctree-l4 current active">
         <a class="current reference internal" href="#">
          ktk.kinematics.track_cluster
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="ktk.kinematics.write_c3d_file.html">
-         ktk.kinematics.write_c3d_file
         </a>
        </li>
       </ul>
@@ -1082,7 +1092,7 @@ title="Print to PDF"
 <h1>ktk.kinematics.track_cluster<a class="headerlink" href="#ktk-kinematics-track-cluster" title="Permalink to this headline">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="ktk.kinematics.track_cluster">
-<span class="sig-name descname"><span class="pre">track_cluster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">markers</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cluster</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_lcs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lcs_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'LCS'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ktk/kinematics.html#track_cluster"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ktk.kinematics.track_cluster" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">track_cluster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">markers</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cluster</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_lcs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lcs_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lcs'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ktk/kinematics.html#track_cluster"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ktk.kinematics.track_cluster" title="Permalink to this definition">#</a></dt>
 <dd><p>Fit a cluster to a TimeSeries of point trajectories.</p>
 <p>Fits a cluster to a TimeSeries and reconstructs a solidified version of
 all the points defined in this cluster.</p>
@@ -1100,7 +1110,7 @@ may change signature or behaviour in the future.</p>
 TimeSeries, that is the Nx4x4 frame series corresponding to the
 tracked cluster’s local coordinate system. The default is False.</p></li>
 <li><p><strong>lcs_name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Optional. Name of the TimeSeries data entry for the tracked local
-coordinate system. The default is ‘LCS’.</p></li>
+coordinate system. The default is ‘lcs’.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1141,17 +1151,17 @@ coordinate system. The default is ‘LCS’.</p></li>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="ktk.kinematics.read_n3d_file.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="ktk.kinematics.extend_cluster.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">ktk.kinematics.read_n3d_file</p>
+            <p class="prev-next-title">ktk.kinematics.extend_cluster</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="ktk.kinematics.write_c3d_file.html" title="next page">
+    <a class='right-next' id="next-link" href="../dev_extensions.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">ktk.kinematics.write_c3d_file</p>
+        <p class="prev-next-title">Developing extensions</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

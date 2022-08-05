@@ -18,10 +18,10 @@ kernelspec:
 
 # Reconstructing occluded markers
 
-Often in kinematics acquisition, we affix rigid bodies containing several markers on the person's segments. These bodies have a minimum of three markers and allows reconstructing a complete local coordinate system for a given body segment. The importance of these rigid bodies will become clearer in the next tutotials.
+Often in kinematics acquisition, we affix rigid bodies containing several markers on the person's segments. These bodies have a minimum of three markers and allows reconstructing a complete local coordinate system for a given body segment. The importance of these rigid bodies will become clearer in the next tutorials.
 
-```{admonition} dev note
-TODO Add a picture of a rigid body
+```{margin}
+#todo Add a picture of a rigid body
 ```
 
 It is often useful to have more than three markers on each rigid body, so that in case of occlusion (one marker is hidden and not recorded by the cameras) we can reconstruct its position using the position of every other marker. 
@@ -37,9 +37,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 import kineticstoolkit.lab as ktk
 
-markers = ktk.kinematics.read_c3d_file(
+markers = ktk.read_c3d(
     ktk.doc.download("kinematics_basket_sprint.c3d")
-)
+)["points"]
 
 markers = markers.get_subset(
     ["ArmL:Marker1", "ArmL:Marker2", "ArmL:Marker3", "ArmL:Marker4"]

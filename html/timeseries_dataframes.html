@@ -348,6 +348,11 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_sample_rate.html">
+         ktk.TimeSeries.get_sample_rate
+        </a>
+       </li>
+       <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.TimeSeries.get_subset.html">
          ktk.TimeSeries.get_subset
         </a>
@@ -534,6 +539,11 @@ const thebe_selector_output = ".output, .cell_output"
     </label>
     <ul>
      <li class="toctree-l3">
+      <a class="reference internal" href="api/ktk.import_extensions.html">
+       ktk.import_extensions
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="api/ktk.load.html">
        ktk.load
       </a>
@@ -544,8 +554,18 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="api/ktk.import_extensions.html">
-       ktk.import_extensions
+      <a class="reference internal" href="api/ktk.read_c3d.html">
+       ktk.read_c3d
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/ktk.write_c3d.html">
+       ktk.write_c3d
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/ktk.change_defaults.html">
+       ktk.change_defaults
       </a>
      </li>
     </ul>
@@ -724,18 +744,8 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="api/ktk.kinematics.read_n3d_file.html">
-         ktk.kinematics.read_n3d_file
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.kinematics.track_cluster.html">
          ktk.kinematics.track_cluster
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api/ktk.kinematics.write_c3d_file.html">
-         ktk.kinematics.write_c3d_file
         </a>
        </li>
       </ul>
@@ -1566,18 +1576,15 @@ title="Print to PDF"
 <p>In this example, we will read 3d marker positions from a sample <code class="docutils literal notranslate"><span class="pre">c3d</span></code> file, and export these positions to a <code class="docutils literal notranslate"><span class="pre">csv</span></code> file. We first read the <code class="docutils literal notranslate"><span class="pre">c3d</span></code> file using the <a class="reference internal" href="api/ktk.kinematics.html"><span class="doc std std-doc">ktk.kinematics</span></a> module. This results in a TimeSeries with 26 markers:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">markers</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">kinematics</span><span class="o">.</span><span class="n">read_c3d_file</span><span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">markers</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">read_c3d</span><span class="p">(</span>
     <span class="n">ktk</span><span class="o">.</span><span class="n">doc</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;kinematics_basket_sprint.c3d&quot;</span><span class="p">)</span>
-<span class="p">)</span>
+<span class="p">)[</span><span class="s1">&#39;points&#39;</span><span class="p">]</span>
 
 <span class="n">markers</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FutureWarning [/var/folders/7v/g5_ntzfx35v4ck07wflynw640000gp/T/ipykernel_56651/3525529901.py:1] The function read_c3d_file is deprecated since 0.9 and is scheduled to be removed in 2024. Please use the ktk.read_c3d() function that is more powerful since it can also read force platforms and analog data.
-</pre></div>
-</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TimeSeries with attributes:
          time: &lt;array of shape (3678,)&gt;
          data: &lt;dict with 26 entries&gt;

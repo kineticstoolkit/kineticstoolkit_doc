@@ -46,7 +46,7 @@ Backslash tells Python that the character following the backslash is a special c
 
 If the string should include both `'` and `"`, then it is impossible to select a correct delimiter. Backslashing a quote character (`\'`, `\"`) tells python that this really is a character, and not a delimiter. For instance:
 
-```{code-cell}
+```{code-cell} ipython3
 example1 = "I didn't found \"E = mc2\", Einstein did."
 example2 = 'I didn\'t found "E = mc2", Einstein did.'
 
@@ -58,7 +58,7 @@ print(example2)
 
 Newline characters are inserted using `\n`:
 
-```{code-cell}
+```{code-cell} ipython3
 example_string = "I ate your sandwich.\nIt was good."
 
 print(example_string)
@@ -68,7 +68,7 @@ print(example_string)
 
 As for quotes, if we do want to include a backslash in the string, we need to backslash the backslash (`\\`):
 
-```{code-cell}
+```{code-cell} ipython3
 file_path = "C:\\Windows\\temp.sys"
 
 print(file_path)
@@ -85,8 +85,7 @@ Python provides another type string delimiter: the triple-quote. A string define
 
 The most popular use for triple-quotes are [docstrings](python_functions_good_practice.md) docstrings, which will be seen later.
 
-
-```{code-cell}
+```{code-cell} ipython3
 example_string = """I ate your sandwich.
 It was good."""
 
@@ -118,7 +117,7 @@ Try different ways to create each variables.
 
 :::
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [hide-cell]
 
 # a)
@@ -147,7 +146,7 @@ str = '''I received this strange message:
 
 Normally, we want our code to fit in a given width and avoid lines that are too long. Following this advice may be difficult when creating long strings. There is however a way to express a continuous string on multiple lines, by enclosing multiple strings in parentheses.
 
-```{code-cell}
+```{code-cell} ipython3
 long_string = (
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do "
     "eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim "
@@ -162,7 +161,7 @@ print(long_string)
 
 We often use strings to report results. For instance, if we calculated the ankle moment, one way of reporting it would be to use two `print` calls:
 
-```{code-cell}
+```{code-cell} ipython3
 ankle_moment = 100.1  # (for instance)
 
 print("The calculated moment at the ankle in Nm is:")
@@ -171,7 +170,7 @@ print(ankle_moment)
 
 A better way would be to create a string that includes the result, such as "The calculated ankle moment is 100.1 Nm." Including variables into strings is easily done using f-strings. These strings are called this was because we prefix the quotes with the letter `f`. With f-strings, Python evaluates the content between curly braces `{}` and replaces this content by its evaluation.
 
-```{code-cell}
+```{code-cell} ipython3
 # Here, we create the sentence above.
 the_string = (
     f"The calculated ankle moment is {ankle_moment} Nm."

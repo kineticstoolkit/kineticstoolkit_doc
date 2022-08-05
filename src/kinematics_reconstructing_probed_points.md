@@ -37,9 +37,9 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 # Probing acquisition
-markers_probing = ktk.kinematics.read_c3d_file(
+markers_probing = ktk.read_c3d(
     ktk.doc.download("kinematics_racing_probing_medial_epicondyle_R.c3d")
-)
+)["points"]
 markers_probing = markers_probing.get_subset(
     ["ArmR1", "ArmR2", "ArmR3", "Probe1", "Probe2", "Probe3", "Probe4"]
 )
@@ -49,9 +49,9 @@ markers_probing.data
 
 ```{code-cell} ipython3
 # Propulsion acquisition
-markers_propulsion = ktk.kinematics.read_c3d_file(
+markers_propulsion = ktk.read_c3d(
     ktk.doc.download("kinematics_racing_propulsion.c3d")
-)
+)["points"]
 markers_propulsion = markers_propulsion.get_subset(["ArmR1", "ArmR2", "ArmR3"])
 
 markers_propulsion.data

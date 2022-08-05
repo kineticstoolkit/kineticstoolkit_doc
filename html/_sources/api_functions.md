@@ -9,9 +9,11 @@
    :recursive:
    :toctree: api
 
+   import_extensions
    load
    save
-   import_extensions
+   read_c3d
+   write_c3d
    change_defaults
 
 ```

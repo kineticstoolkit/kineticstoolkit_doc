@@ -348,6 +348,11 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_sample_rate.html">
+         ktk.TimeSeries.get_sample_rate
+        </a>
+       </li>
+       <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.TimeSeries.get_subset.html">
          ktk.TimeSeries.get_subset
         </a>
@@ -534,6 +539,11 @@ const thebe_selector_output = ".output, .cell_output"
     </label>
     <ul>
      <li class="toctree-l3">
+      <a class="reference internal" href="api/ktk.import_extensions.html">
+       ktk.import_extensions
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="api/ktk.load.html">
        ktk.load
       </a>
@@ -544,8 +554,18 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="api/ktk.import_extensions.html">
-       ktk.import_extensions
+      <a class="reference internal" href="api/ktk.read_c3d.html">
+       ktk.read_c3d
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/ktk.write_c3d.html">
+       ktk.write_c3d
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/ktk.change_defaults.html">
+       ktk.change_defaults
       </a>
      </li>
     </ul>
@@ -724,18 +744,8 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="api/ktk.kinematics.read_n3d_file.html">
-         ktk.kinematics.read_n3d_file
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.kinematics.track_cluster.html">
          ktk.kinematics.track_cluster
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api/ktk.kinematics.write_c3d_file.html">
-         ktk.kinematics.write_c3d_file
         </a>
        </li>
       </ul>
@@ -1140,9 +1150,9 @@ title="Print to PDF"
 <p>Kinetics Toolkit is designed to play well with other softwares and packages, to be used as an addition and not as a replacement to existing workflows. Most of the data processing is done via the <a class="reference internal" href="api/ktk.TimeSeries.html"><span class="doc std std-doc">ktk.TimeSeries</span></a> class, which is a container for time (<code class="docutils literal notranslate"><span class="pre">np.array</span></code>), data (<code class="docutils literal notranslate"><span class="pre">Dict[np.array]</span></code>), events and metadata. This <a class="reference internal" href="timeseries.html"><span class="doc std std-doc">tutorial</span></a> on TimeSeries will help to understand this class and its associated methods.</p>
 <section id="getting-your-data-in">
 <h2>Getting your data in<a class="headerlink" href="#getting-your-data-in" title="Permalink to this headline">#</a></h2>
-<p>(green in figure below)</p>
+<p>(orange in figure below)</p>
 <p>Kinetics Toolkit does not ties to specific instruments. Using your recording instrumentation, you need to get your data in a compatible file, be it very generic such as <code class="docutils literal notranslate"><span class="pre">csv</span></code> or <code class="docutils literal notranslate"><span class="pre">txt</span></code> files, or more specialized such as <code class="docutils literal notranslate"><span class="pre">c3d</span></code>.</p>
-<p>Any data that can be read as a Pandas DataFrame (e.g., <code class="docutils literal notranslate"><span class="pre">csv</span></code>, <code class="docutils literal notranslate"><span class="pre">txt</span></code>, Excel, SQL) can be converted to a TimeSeries using <a class="reference internal" href="api/ktk.TimeSeries.from_dataframe.html"><span class="doc std std-doc">ktk.TimeSeries.from_dataframe</span></a>. This <a class="reference internal" href="timeseries_dataframes.html"><span class="doc std std-doc">tutorial</span></a> shows an example. To import motion data from a <code class="docutils literal notranslate"><span class="pre">c3d</span></code> or <code class="docutils literal notranslate"><span class="pre">n3d</span></code> file, use the <span class="xref myst"></span> or <a class="reference internal" href="api/ktk.kinematics.read_n3d_file.html"><span class="doc std std-doc">ktk.kinematics.read_n3d_file</span></a> function.</p>
+<p>Any data that can be read as a Pandas DataFrame (e.g., <code class="docutils literal notranslate"><span class="pre">csv</span></code>, <code class="docutils literal notranslate"><span class="pre">txt</span></code>, Excel, SQL) can be converted to a TimeSeries using <a class="reference internal" href="api/ktk.TimeSeries.from_dataframe.html"><span class="doc std std-doc">ktk.TimeSeries.from_dataframe</span></a>. This <a class="reference internal" href="timeseries_dataframes.html"><span class="doc std std-doc">tutorial</span></a> shows an example. To import motion data from a <code class="docutils literal notranslate"><span class="pre">c3d</span></code> file, use the <a class="reference internal" href="api/ktk.read_c3d.html"><span class="doc std std-doc">ktk.read_c3d</span></a> function.</p>
 <p>In addition to importing and exporting, Kinetics Toolkit offers <a class="reference internal" href="api/ktk.load.html"><span class="doc std std-doc">ktk.load</span></a> and <a class="reference internal" href="api/ktk.save.html"><span class="doc std std-doc">ktk.save</span></a> functions, which store standard python types, NumPy arrays, basic Pandas’ DataFrames and Series, and ktk’s TimeSeries in a portable zipped <code class="docutils literal notranslate"><span class="pre">json</span></code> format. See this <a class="reference internal" href="loadsave.html"><span class="doc std std-doc">tutorial</span></a> for more information.</p>
 <p><img alt="Kinetics Toolkit dataflow -width:full" src="_images/ktk_dataflow.png" /></p>
 </section>
@@ -1167,8 +1177,8 @@ title="Print to PDF"
 </section>
 <section id="getting-your-data-out">
 <h2>Getting your data out<a class="headerlink" href="#getting-your-data-out" title="Permalink to this headline">#</a></h2>
-<p>(orange in figure above)</p>
-<p>Once your data are processed, you can export it to other formats to process it using other software, using a similar method that you took to import those in a first place: use <a class="reference internal" href="api/ktk.kinematics.write_c3d_file.html"><span class="doc std std-doc">ktk.kinematics.write_c3d_file</span></a> for <code class="docutils literal notranslate"><span class="pre">c3d</span></code>, or Pandas’ <code class="docutils literal notranslate"><span class="pre">to_</span></code> methods for saving <code class="docutils literal notranslate"><span class="pre">csv</span></code>, <code class="docutils literal notranslate"><span class="pre">txt</span></code>, Excel, etc., via the <a class="reference internal" href="api/ktk.TimeSeries.to_dataframe.html"><span class="doc std std-doc">ktk.TimeSeries.to_dataframe</span></a> method. You can also save your variables using <a class="reference internal" href="api/ktk.save.html"><span class="doc std std-doc">ktk.save</span></a> for short-term to long-term storage.</p>
+<p>(red in figure above)</p>
+<p>Once your data are processed, you can export it to other formats to process it using other software, using a similar method that you took to import those in a first place: use <a class="reference internal" href="api/ktk.write_c3d.html"><span class="doc std std-doc">ktk.write_c3d</span></a> for <code class="docutils literal notranslate"><span class="pre">c3d</span></code>, or Pandas’ <code class="docutils literal notranslate"><span class="pre">to_</span></code> methods for saving <code class="docutils literal notranslate"><span class="pre">csv</span></code>, <code class="docutils literal notranslate"><span class="pre">txt</span></code>, Excel, etc., via the <a class="reference internal" href="api/ktk.TimeSeries.to_dataframe.html"><span class="doc std std-doc">ktk.TimeSeries.to_dataframe</span></a> method. You can also save your variables using <a class="reference internal" href="api/ktk.save.html"><span class="doc std std-doc">ktk.save</span></a> for short-term to long-term storage.</p>
 </section>
 </section>
 

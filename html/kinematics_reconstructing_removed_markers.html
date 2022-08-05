@@ -348,6 +348,11 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_sample_rate.html">
+         ktk.TimeSeries.get_sample_rate
+        </a>
+       </li>
+       <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.TimeSeries.get_subset.html">
          ktk.TimeSeries.get_subset
         </a>
@@ -534,6 +539,11 @@ const thebe_selector_output = ".output, .cell_output"
     </label>
     <ul>
      <li class="toctree-l3">
+      <a class="reference internal" href="api/ktk.import_extensions.html">
+       ktk.import_extensions
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="api/ktk.load.html">
        ktk.load
       </a>
@@ -544,8 +554,18 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="api/ktk.import_extensions.html">
-       ktk.import_extensions
+      <a class="reference internal" href="api/ktk.read_c3d.html">
+       ktk.read_c3d
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/ktk.write_c3d.html">
+       ktk.write_c3d
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/ktk.change_defaults.html">
+       ktk.change_defaults
       </a>
      </li>
     </ul>
@@ -724,18 +744,8 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="api/ktk.kinematics.read_n3d_file.html">
-         ktk.kinematics.read_n3d_file
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.kinematics.track_cluster.html">
          ktk.kinematics.track_cluster
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api/ktk.kinematics.write_c3d_file.html">
-         ktk.kinematics.write_c3d_file
         </a>
        </li>
       </ul>
@@ -1154,9 +1164,9 @@ title="Print to PDF"
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="c1"># Static acquisition</span>
-<span class="n">markers_static</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">kinematics</span><span class="o">.</span><span class="n">read_c3d_file</span><span class="p">(</span>
+<span class="n">markers_static</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">read_c3d</span><span class="p">(</span>
     <span class="n">ktk</span><span class="o">.</span><span class="n">doc</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;kinematics_racing_static.c3d&quot;</span><span class="p">)</span>
-<span class="p">)</span>
+<span class="p">)[</span><span class="s2">&quot;points&quot;</span><span class="p">]</span>
 <span class="n">markers_static</span> <span class="o">=</span> <span class="n">markers_static</span><span class="o">.</span><span class="n">get_subset</span><span class="p">(</span>
     <span class="p">[</span><span class="s2">&quot;ArmL1&quot;</span><span class="p">,</span> <span class="s2">&quot;ArmL2&quot;</span><span class="p">,</span> <span class="s2">&quot;ArmL3&quot;</span><span class="p">,</span> <span class="s2">&quot;LateralEpicondyleL&quot;</span><span class="p">]</span>
 <span class="p">)</span>
@@ -1172,9 +1182,9 @@ title="Print to PDF"
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 
 <span class="c1"># Propulsion acquisition</span>
-<span class="n">markers_propulsion</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">kinematics</span><span class="o">.</span><span class="n">read_c3d_file</span><span class="p">(</span>
+<span class="n">markers_propulsion</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">read_c3d</span><span class="p">(</span>
     <span class="n">ktk</span><span class="o">.</span><span class="n">doc</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;kinematics_racing_propulsion.c3d&quot;</span><span class="p">)</span>
-<span class="p">)</span>
+<span class="p">)[</span><span class="s2">&quot;points&quot;</span><span class="p">]</span>
 <span class="n">markers_propulsion</span> <span class="o">=</span> <span class="n">markers_propulsion</span><span class="o">.</span><span class="n">get_subset</span><span class="p">(</span>
     <span class="p">[</span>
         <span class="s2">&quot;ArmL1&quot;</span><span class="p">,</span>
@@ -1195,14 +1205,8 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FutureWarning [/var/folders/7v/g5_ntzfx35v4ck07wflynw640000gp/T/ipykernel_56678/2083330125.py:6] The function read_c3d_file is deprecated since 0.9 and is scheduled to be removed in 2024. Please use the ktk.read_c3d() function that is more powerful since it can also read force platforms and analog data.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FutureWarning [/var/folders/7v/g5_ntzfx35v4ck07wflynw640000gp/T/ipykernel_56678/2083330125.py:24] The function read_c3d_file is deprecated since 0.9 and is scheduled to be removed in 2024. Please use the ktk.read_c3d() function that is more powerful since it can also read force platforms and analog data.
-</pre></div>
-</div>
-<img alt="_images/kinematics_reconstructing_removed_markers_2_2.png" src="_images/kinematics_reconstructing_removed_markers_2_2.png" />
-<img alt="_images/kinematics_reconstructing_removed_markers_2_3.png" src="_images/kinematics_reconstructing_removed_markers_2_3.png" />
+<img alt="_images/kinematics_reconstructing_removed_markers_2_0.png" src="_images/kinematics_reconstructing_removed_markers_2_0.png" />
+<img alt="_images/kinematics_reconstructing_removed_markers_2_1.png" src="_images/kinematics_reconstructing_removed_markers_2_1.png" />
 </div>
 </div>
 </section>

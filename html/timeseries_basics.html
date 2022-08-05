@@ -350,6 +350,11 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_sample_rate.html">
+         ktk.TimeSeries.get_sample_rate
+        </a>
+       </li>
+       <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.TimeSeries.get_subset.html">
          ktk.TimeSeries.get_subset
         </a>
@@ -536,6 +541,11 @@ const thebe_selector_output = ".output, .cell_output"
     </label>
     <ul>
      <li class="toctree-l3">
+      <a class="reference internal" href="api/ktk.import_extensions.html">
+       ktk.import_extensions
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="api/ktk.load.html">
        ktk.load
       </a>
@@ -546,8 +556,18 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="api/ktk.import_extensions.html">
-       ktk.import_extensions
+      <a class="reference internal" href="api/ktk.read_c3d.html">
+       ktk.read_c3d
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/ktk.write_c3d.html">
+       ktk.write_c3d
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/ktk.change_defaults.html">
+       ktk.change_defaults
       </a>
      </li>
     </ul>
@@ -726,18 +746,8 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="api/ktk.kinematics.read_n3d_file.html">
-         ktk.kinematics.read_n3d_file
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.kinematics.track_cluster.html">
          ktk.kinematics.track_cluster
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api/ktk.kinematics.write_c3d_file.html">
-         ktk.kinematics.write_c3d_file
         </a>
        </li>
       </ul>
@@ -1171,7 +1181,7 @@ title="Print to PDF"
 
 <span class="n">ts</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">TimeSeries</span><span class="p">()</span>
 <span class="n">ts</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>  <span class="c1"># 10 seconds at 10 Hz</span>
-<span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Sinus&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;sinus&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
 
 <span class="n">ts</span>
 </pre></div>
@@ -1196,7 +1206,7 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-    &#39;Sinus&#39;: &lt;array of shape (100,)&gt;
+    &#39;sinus&#39;: &lt;array of shape (100,)&gt;
 }
 </pre></div>
 </div>
@@ -1216,7 +1226,7 @@ title="Print to PDF"
 <p>A TimeSeries can contain many independent data that share a same time vector:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Cosinus&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;cosinus&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
 
 <span class="n">ts</span><span class="o">.</span><span class="n">data</span>
 </pre></div>
@@ -1224,8 +1234,8 @@ title="Print to PDF"
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-      &#39;Sinus&#39;: &lt;array of shape (100,)&gt;
-    &#39;Cosinus&#39;: &lt;array of shape (100,)&gt;
+      &#39;sinus&#39;: &lt;array of shape (100,)&gt;
+    &#39;cosinus&#39;: &lt;array of shape (100,)&gt;
 }
 </pre></div>
 </div>
@@ -1310,7 +1320,7 @@ M_x(N-1) &amp; M_y(N-1) &amp; M_z(N-1) &amp; 0
 </section>
 <section id="metadata">
 <h2>Metadata<a class="headerlink" href="#metadata" title="Permalink to this headline">#</a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">time_info</span></code> property associates metadata to the time vector. It is a dictionary where each key is the name of one metadata. By default, <code class="docutils literal notranslate"><span class="pre">time_info</span></code> includes the <code class="docutils literal notranslate"><span class="pre">Unit</span></code> metadata, which corresponds to <code class="docutils literal notranslate"><span class="pre">s</span></code>. Any other metadata can be added by adding new keys in <code class="docutils literal notranslate"><span class="pre">time_info</span></code>.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">time_info</span></code> property associates metadata to the time vector. It is a dictionary where each key is the name of one metadata. By default, <code class="docutils literal notranslate"><span class="pre">time_info</span></code> includes the <code class="docutils literal notranslate"><span class="pre">unit</span></code> metadata, which corresponds to <code class="docutils literal notranslate"><span class="pre">s</span></code>. Any other metadata can be added by adding new keys in <code class="docutils literal notranslate"><span class="pre">time_info</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">time_info</span>
@@ -1319,7 +1329,7 @@ M_x(N-1) &amp; M_y(N-1) &amp; M_z(N-1) &amp; 0
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-    &#39;Unit&#39;: &#39;s&#39;
+    &#39;unit&#39;: &#39;s&#39;
 }
 </pre></div>
 </div>
@@ -1328,8 +1338,8 @@ M_x(N-1) &amp; M_y(N-1) &amp; M_z(N-1) &amp; 0
 <p>Similarly, the <code class="docutils literal notranslate"><span class="pre">data_info</span></code> property associates metadata to data. This property is a dictionary of dictionaries, where the outer key corresponds to the data key, and the inner key is the metadata. The <a class="reference internal" href="api/ktk.TimeSeries.add_data_info.html"><span class="doc std std-doc">ktk.TimeSeries.add_data_info</span></a> method eases the management of <code class="docutils literal notranslate"><span class="pre">data_info</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="s2">&quot;Forces&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">,</span> <span class="s2">&quot;N&quot;</span><span class="p">)</span>
-<span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="s2">&quot;Moments&quot;</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">,</span> <span class="s2">&quot;Nm&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="s2">&quot;Forces&quot;</span><span class="p">,</span> <span class="s2">&quot;unit&quot;</span><span class="p">,</span> <span class="s2">&quot;N&quot;</span><span class="p">)</span>
+<span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="s2">&quot;Moments&quot;</span><span class="p">,</span> <span class="s2">&quot;unit&quot;</span><span class="p">,</span> <span class="s2">&quot;Nm&quot;</span><span class="p">)</span>
 
 <span class="n">ts</span><span class="o">.</span><span class="n">data_info</span>
 </pre></div>
@@ -1352,7 +1362,7 @@ M_x(N-1) &amp; M_y(N-1) &amp; M_z(N-1) &amp; 0
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-    &#39;Unit&#39;: &#39;N&#39;
+    &#39;unit&#39;: &#39;N&#39;
 }
 </pre></div>
 </div>

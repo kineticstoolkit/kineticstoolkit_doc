@@ -345,6 +345,11 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.get_sample_rate.html">
+         ktk.TimeSeries.get_sample_rate
+        </a>
+       </li>
+       <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.get_subset.html">
          ktk.TimeSeries.get_subset
         </a>
@@ -531,6 +536,11 @@ const thebe_selector_output = ".output, .cell_output"
     </label>
     <ul>
      <li class="toctree-l3">
+      <a class="reference internal" href="../../api/ktk.import_extensions.html">
+       ktk.import_extensions
+      </a>
+     </li>
+     <li class="toctree-l3">
       <a class="reference internal" href="../../api/ktk.load.html">
        ktk.load
       </a>
@@ -541,8 +551,18 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="../../api/ktk.import_extensions.html">
-       ktk.import_extensions
+      <a class="reference internal" href="../../api/ktk.read_c3d.html">
+       ktk.read_c3d
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../api/ktk.write_c3d.html">
+       ktk.write_c3d
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../api/ktk.change_defaults.html">
+       ktk.change_defaults
       </a>
      </li>
     </ul>
@@ -721,18 +741,8 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.kinematics.read_n3d_file.html">
-         ktk.kinematics.read_n3d_file
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.kinematics.track_cluster.html">
          ktk.kinematics.track_cluster
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.kinematics.write_c3d_file.html">
-         ktk.kinematics.write_c3d_file
         </a>
        </li>
       </ul>
@@ -1441,7 +1451,7 @@ title="Fullscreen mode"
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">time</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([]),</span>
-        <span class="n">time_info</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;s&quot;</span><span class="p">},</span>
+        <span class="n">time_info</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;s&quot;</span><span class="p">},</span>
         <span class="n">data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span>
         <span class="n">data_info</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{},</span>
         <span class="n">events</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">TimeSeriesEvent</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span>
@@ -2433,13 +2443,13 @@ title="Fullscreen mode"
             <span class="p">)</span>
 
         <span class="c1"># Add labels</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (&quot;</span> <span class="o">+</span> <span class="n">ts</span><span class="o">.</span><span class="n">time_info</span><span class="p">[</span><span class="s2">&quot;Unit&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (&quot;</span> <span class="o">+</span> <span class="n">ts</span><span class="o">.</span><span class="n">time_info</span><span class="p">[</span><span class="s2">&quot;unit&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span><span class="p">)</span>
 
         <span class="c1"># Make unique list of units</span>
         <span class="n">unit_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">ts</span><span class="o">.</span><span class="n">data_info</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="n">ts</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">data</span><span class="p">]:</span>
-                <span class="k">if</span> <span class="n">info</span> <span class="o">==</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">info</span> <span class="o">==</span> <span class="s2">&quot;unit&quot;</span><span class="p">:</span>
                     <span class="n">unit_set</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">data</span><span class="p">][</span><span class="n">info</span><span class="p">])</span>
         <span class="c1"># Plot this list</span>
         <span class="n">unit_str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
@@ -2505,6 +2515,35 @@ title="Fullscreen mode"
             <span class="n">axes</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span>
                 <span class="n">loc</span><span class="o">=</span><span class="n">legend_location</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">1</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span> <span class="o">/</span> <span class="mi">40</span><span class="p">)</span>
             <span class="p">)</span>  <span class="c1"># Max 40 items per line</span></div>
+
+<div class="viewcode-block" id="TimeSeries.get_sample_rate"><a class="viewcode-back" href="../../api/ktk.TimeSeries.get_sample_rate.html#ktk.TimeSeries.get_sample_rate">[docs]</a>    <span class="k">def</span> <span class="nf">get_sample_rate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the sample rate in samples/s.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        float</span>
+<span class="sd">            The sample rate in samples per second. If time is empty, a value</span>
+<span class="sd">            of 0 is returned. If time has only one data, or if sample rate is</span>
+<span class="sd">            variable, or if time is not monotonously increasing, a value of -1</span>
+<span class="sd">            is returned.</span>
+
+<span class="sd">        Warning</span>
+<span class="sd">        -------</span>
+<span class="sd">        This feature, which has been introduced in version 0.9, is still</span>
+<span class="sd">        experimental and may change in the future.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="mi">0</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+
+        <span class="n">deltas</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">deltas</span><span class="p">,</span> <span class="p">[</span><span class="n">deltas</span><span class="p">[</span><span class="mi">0</span><span class="p">]]):</span>
+            <span class="k">return</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">deltas</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span></div>
 
 <div class="viewcode-block" id="TimeSeries.get_index_at_time"><a class="viewcode-back" href="../../api/ktk.TimeSeries.get_index_at_time.html#ktk.TimeSeries.get_index_at_time">[docs]</a>    <span class="k">def</span> <span class="nf">get_index_at_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>

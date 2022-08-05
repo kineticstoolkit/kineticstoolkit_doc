@@ -21,6 +21,7 @@ kernelspec:
 
 For those who are used to Matlab, Spyder's interface should immediately look familiar. Spyder's standard look is shown below:
 
+(fig:screenshot)=
 ![](_static/images/spyder_screenshot.png)
 
 
