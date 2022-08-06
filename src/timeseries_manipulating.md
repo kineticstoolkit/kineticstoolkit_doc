@@ -40,7 +40,7 @@ import kineticstoolkit.lab as ktk
 
 markers = ktk.read_c3d(
     ktk.doc.download("kinematics_basket_sprint.c3d")
-)['points']
+)["Points"]
 
 markers
 ```

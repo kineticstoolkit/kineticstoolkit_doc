@@ -46,21 +46,21 @@ We proceed exactly as in the previous tutorial:
 # Read the markers
 markers = ktk.read_c3d(
     ktk.doc.download("kinematics_racing_full.c3d")
-)["points"]
+)["Points"]
 
 # Interconnect markers for easier visualization
 interconnections = {
     "ArmR": {
-        "color": [1, 0.25, 0],
-        "links": [
+        "Color": [1, 0.25, 0],
+        "Links": [
             ["AcromionR", "MedialEpicondyleR"],
             ["AcromionR", "LateralEpicondyleR"],
             ["AcromionR", "OlecraneR"],
         ],
     },
     "ForearmR": {
-        "color": [1, 0.5, 0],
-        "links": [
+        "Color": [1, 0.5, 0],
+        "Links": [
             ["MedialEpicondyleR", "RadialStyloidR"],
             ["MedialEpicondyleR", "UlnarStyloidR"],
             ["LateralEpicondyleR", "RadialStyloidR"],

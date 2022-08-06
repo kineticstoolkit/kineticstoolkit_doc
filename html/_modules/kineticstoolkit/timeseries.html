@@ -805,7 +805,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../python_for_beginners.html">
-   For beginners
+   Learning Python for biomechanics
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
   <label for="toctree-checkbox-18">
@@ -1451,7 +1451,7 @@ title="Fullscreen mode"
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">time</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([]),</span>
-        <span class="n">time_info</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;unit&quot;</span><span class="p">:</span> <span class="s2">&quot;s&quot;</span><span class="p">},</span>
+        <span class="n">time_info</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;s&quot;</span><span class="p">},</span>
         <span class="n">data</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span>
         <span class="n">data_info</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{},</span>
         <span class="n">events</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">TimeSeriesEvent</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span>
@@ -2443,13 +2443,13 @@ title="Fullscreen mode"
             <span class="p">)</span>
 
         <span class="c1"># Add labels</span>
-        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (&quot;</span> <span class="o">+</span> <span class="n">ts</span><span class="o">.</span><span class="n">time_info</span><span class="p">[</span><span class="s2">&quot;unit&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (&quot;</span> <span class="o">+</span> <span class="n">ts</span><span class="o">.</span><span class="n">time_info</span><span class="p">[</span><span class="s2">&quot;Unit&quot;</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;)&quot;</span><span class="p">)</span>
 
         <span class="c1"># Make unique list of units</span>
         <span class="n">unit_set</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">ts</span><span class="o">.</span><span class="n">data_info</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">info</span> <span class="ow">in</span> <span class="n">ts</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">data</span><span class="p">]:</span>
-                <span class="k">if</span> <span class="n">info</span> <span class="o">==</span> <span class="s2">&quot;unit&quot;</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">info</span> <span class="o">==</span> <span class="s2">&quot;Unit&quot;</span><span class="p">:</span>
                     <span class="n">unit_set</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">data</span><span class="p">][</span><span class="n">info</span><span class="p">])</span>
         <span class="c1"># Plot this list</span>
         <span class="n">unit_str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>

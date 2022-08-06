@@ -808,7 +808,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../python_for_beginners.html">
-   For beginners
+   Learning Python for biomechanics
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
   <label for="toctree-checkbox-18">
@@ -1094,11 +1094,11 @@ title="Print to PDF"
 <dt class="sig sig-object py" id="ktk.read_c3d">
 <span class="sig-name descname"><span class="pre">read_c3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">extract_force_plates</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convert_point_unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convert_moment_unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kineticstoolkit/files.html#read_c3d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ktk.read_c3d" title="Permalink to this definition">#</a></dt>
 <dd><p>Read point and analog data from a C3D file.</p>
-<p>Point positions are returned in a TimeSeries in output[‘points’], where
+<p>Point positions are returned in a TimeSeries in output[“Points”], where
 each point corresponds to a data key. Each point position is expressed
 as a Nx4 point series.</p>
 <p>If the C3D file contains analog data, it is returned as a TimeSeries in
-output[‘analogs’]. Each analog signal is expressed as an unidimensional
+output[“Analogs”]. Each analog signal is expressed as an unidimensional
 series of length N.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -1122,16 +1122,16 @@ your first use (e.g., sampling frequency, position unit). It is
 possible that read_c3d misses some corner cases.</p></li>
 <li><p>Experimental feature: If the C3D file contains force plate data and
 extract_force_plates is True, these data are returned as a TimeSeries in
-output[‘force_plates’]. The available signals are, for example:</p>
+output[“force_plates”]. The available signals are, for example:</p>
 <blockquote>
 <div><ul class="simple">
-<li><p>‘forces0’: Nx4 series of force vectors on platform 0.</p></li>
-<li><p>‘forces1’: Nx4 series of force vectors on platform 1.</p></li>
-<li><p>‘forces2’: Nx4 series of force vectors on platform 2.</p></li>
+<li><p>‘Forces0’: Nx4 series of force vectors on platform 0.</p></li>
+<li><p>‘Forces1’: Nx4 series of force vectors on platform 1.</p></li>
+<li><p>‘Forces2’: Nx4 series of force vectors on platform 2.</p></li>
 <li><p>…</p></li>
-<li><p>‘moments0’: Nx4 series of moment vectors on platform 0.</p></li>
-<li><p>‘moments1’: Nx4 series of moment vectors on platform 2.</p></li>
-<li><p>‘moments2’: Nx4 series of moment vectors on platform 3.</p></li>
+<li><p>‘Moments0’: Nx4 series of moment vectors on platform 0.</p></li>
+<li><p>‘Moments1’: Nx4 series of moment vectors on platform 2.</p></li>
+<li><p>‘Moments2’: Nx4 series of moment vectors on platform 3.</p></li>
 <li><p>…</p></li>
 </ul>
 </div></blockquote>

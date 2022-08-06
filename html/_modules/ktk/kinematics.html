@@ -805,7 +805,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../python_for_beginners.html">
-   For beginners
+   Learning Python for biomechanics
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
   <label for="toctree-checkbox-18">
@@ -1297,7 +1297,7 @@ title="Fullscreen mode"
     <span class="n">cluster</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">include_lcs</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-    <span class="n">lcs_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;lcs&quot;</span><span class="p">,</span>
+    <span class="n">lcs_name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;LCS&quot;</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Fit a cluster to a TimeSeries of point trajectories.</span>
@@ -1322,7 +1322,7 @@ title="Fullscreen mode"
 <span class="sd">        tracked cluster&#39;s local coordinate system. The default is False.</span>
 <span class="sd">    lcs_name</span>
 <span class="sd">        Optional. Name of the TimeSeries data entry for the tracked local</span>
-<span class="sd">        coordinate system. The default is &#39;lcs&#39;.</span>
+<span class="sd">        coordinate system. The default is &#39;LCS&#39;.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -1341,7 +1341,7 @@ title="Fullscreen mode"
             <span class="n">cluster</span><span class="p">[</span><span class="n">marker</span><span class="p">],</span> <span class="n">frames</span>
         <span class="p">)</span>
         <span class="k">if</span> <span class="n">unit</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">out</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="n">marker</span><span class="p">,</span> <span class="s2">&quot;unit&quot;</span><span class="p">,</span> <span class="n">unit</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">out</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="n">marker</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">,</span> <span class="n">unit</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">include_lcs</span><span class="p">:</span>
         <span class="n">out</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">lcs_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">frames</span>
@@ -1381,7 +1381,7 @@ title="Fullscreen mode"
     <span class="n">unit</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="k">for</span> <span class="n">marker</span> <span class="ow">in</span> <span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">this_unit</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">marker</span><span class="p">][</span><span class="s2">&quot;unit&quot;</span><span class="p">]</span>
+            <span class="n">this_unit</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">marker</span><span class="p">][</span><span class="s2">&quot;Unit&quot;</span><span class="p">]</span>
         <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
             <span class="n">this_unit</span> <span class="o">=</span> <span class="kc">None</span>
 
@@ -1676,7 +1676,7 @@ title="Fullscreen mode"
 <span class="sd">      possible that read_c3d_file misses some corner cases.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">read_c3d</span><span class="p">(</span><span class="n">filename</span><span class="p">)[</span><span class="s2">&quot;points&quot;</span><span class="p">]</span>
+    <span class="k">return</span> <span class="n">read_c3d</span><span class="p">(</span><span class="n">filename</span><span class="p">)[</span><span class="s2">&quot;Points&quot;</span><span class="p">]</span>
 
 
 <span class="nd">@deprecated</span><span class="p">(</span>
@@ -1787,7 +1787,7 @@ title="Fullscreen mode"
                     <span class="p">]</span>
                 <span class="p">]</span>
             <span class="p">)</span>
-            <span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="s2">&quot;unit&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">)</span>
+            <span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">ts</span>
 </pre></div>

@@ -39,7 +39,7 @@ import kineticstoolkit.lab as ktk
 
 markers = ktk.read_c3d(
     ktk.doc.download("kinematics_basket_sprint.c3d")
-)["points"]
+)["Points"]
 
 markers = markers.get_subset(
     ["ArmL:Marker1", "ArmL:Marker2", "ArmL:Marker3", "ArmL:Marker4"]

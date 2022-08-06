@@ -805,7 +805,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../python_for_beginners.html">
-   For beginners
+   Learning Python for biomechanics
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
   <label for="toctree-checkbox-18">
@@ -1226,17 +1226,7 @@ title="Fullscreen mode"
             <span class="n">out</span> <span class="o">=</span> <span class="n">TimeSeries</span><span class="p">()</span>
             <span class="n">out</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">])</span>
             <span class="n">out</span><span class="o">.</span><span class="n">time_info</span> <span class="o">=</span> <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;time_info&quot;</span><span class="p">]</span>
-
-            <span class="c1"># Added on 2022/08/05</span>
-            <span class="c1"># Change &quot;Unit&quot; for &quot;unit&quot; in time_info and data_info</span>
-            <span class="c1"># https://github.com/felixchenier/kineticstoolkit/issues/111</span>
-            <span class="k">if</span> <span class="s2">&quot;Unit&quot;</span> <span class="ow">in</span> <span class="n">out</span><span class="o">.</span><span class="n">time_info</span><span class="p">:</span>
-                <span class="n">out</span><span class="o">.</span><span class="n">time_info</span><span class="p">[</span><span class="s2">&quot;unit&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">time_info</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;Unit&quot;</span><span class="p">)</span>
             <span class="n">out</span><span class="o">.</span><span class="n">data_info</span> <span class="o">=</span> <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;data_info&quot;</span><span class="p">]</span>
-            <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">out</span><span class="o">.</span><span class="n">data_info</span><span class="p">:</span>
-                <span class="k">if</span> <span class="s2">&quot;Unit&quot;</span> <span class="ow">in</span> <span class="n">out</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">key</span><span class="p">]:</span>
-                    <span class="n">out</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s2">&quot;unit&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;Unit&quot;</span><span class="p">)</span>
-
             <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">]:</span>
                 <span class="n">out</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">obj</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="n">key</span><span class="p">])</span>
             <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;events&quot;</span><span class="p">]:</span>
@@ -1320,12 +1310,12 @@ title="Fullscreen mode"
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Read point and analog data from a C3D file.</span>
 
-<span class="sd">    Point positions are returned in a TimeSeries in output[&#39;points&#39;], where</span>
+<span class="sd">    Point positions are returned in a TimeSeries in output[&quot;Points&quot;], where</span>
 <span class="sd">    each point corresponds to a data key. Each point position is expressed</span>
 <span class="sd">    as a Nx4 point series.</span>
 
 <span class="sd">    If the C3D file contains analog data, it is returned as a TimeSeries in</span>
-<span class="sd">    output[&#39;analogs&#39;]. Each analog signal is expressed as an unidimensional</span>
+<span class="sd">    output[&quot;Analogs&quot;]. Each analog signal is expressed as an unidimensional</span>
 <span class="sd">    series of length N.</span>
 
 <span class="sd">    Parameters</span>
@@ -1351,15 +1341,15 @@ title="Fullscreen mode"
 
 <span class="sd">    - Experimental feature: If the C3D file contains force plate data and</span>
 <span class="sd">      extract_force_plates is True, these data are returned as a TimeSeries in</span>
-<span class="sd">      output[&#39;force_plates&#39;]. The available signals are, for example:</span>
+<span class="sd">      output[&quot;force_plates&quot;]. The available signals are, for example:</span>
 
-<span class="sd">        - &#39;forces0&#39;: Nx4 series of force vectors on platform 0.</span>
-<span class="sd">        - &#39;forces1&#39;: Nx4 series of force vectors on platform 1.</span>
-<span class="sd">        - &#39;forces2&#39;: Nx4 series of force vectors on platform 2.</span>
+<span class="sd">        - &#39;Forces0&#39;: Nx4 series of force vectors on platform 0.</span>
+<span class="sd">        - &#39;Forces1&#39;: Nx4 series of force vectors on platform 1.</span>
+<span class="sd">        - &#39;Forces2&#39;: Nx4 series of force vectors on platform 2.</span>
 <span class="sd">        - ...</span>
-<span class="sd">        - &#39;moments0&#39;: Nx4 series of moment vectors on platform 0.</span>
-<span class="sd">        - &#39;moments1&#39;: Nx4 series of moment vectors on platform 2.</span>
-<span class="sd">        - &#39;moments2&#39;: Nx4 series of moment vectors on platform 3.</span>
+<span class="sd">        - &#39;Moments0&#39;: Nx4 series of moment vectors on platform 0.</span>
+<span class="sd">        - &#39;Moments1&#39;: Nx4 series of moment vectors on platform 2.</span>
+<span class="sd">        - &#39;Moments2&#39;: Nx4 series of moment vectors on platform 3.</span>
 <span class="sd">        - ...</span>
 
 <span class="sd">    Warning</span>
@@ -1441,7 +1431,7 @@ title="Fullscreen mode"
                 <span class="p">[</span><span class="n">point_factor</span><span class="p">,</span> <span class="n">point_factor</span><span class="p">,</span> <span class="n">point_factor</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
                 <span class="o">*</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;points&quot;</span><span class="p">][:,</span> <span class="n">i_label</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">T</span>
             <span class="p">)</span>
-            <span class="n">points</span> <span class="o">=</span> <span class="n">points</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;unit&quot;</span><span class="p">,</span> <span class="n">point_unit</span><span class="p">)</span>
+            <span class="n">points</span> <span class="o">=</span> <span class="n">points</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">,</span> <span class="n">point_unit</span><span class="p">)</span>
 
     <span class="n">points</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="p">(</span>
         <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">points</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="n">point_rate</span> <span class="o">+</span> <span class="n">start_time</span>
@@ -1452,7 +1442,7 @@ title="Fullscreen mode"
         <span class="n">points</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="n">event_times</span><span class="p">[</span><span class="n">i_event</span><span class="p">],</span> <span class="n">event_name</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     <span class="n">points</span><span class="o">.</span><span class="n">sort_events</span><span class="p">(</span><span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-    <span class="n">output</span><span class="p">[</span><span class="s2">&quot;points&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">points</span>
+    <span class="n">output</span><span class="p">[</span><span class="s2">&quot;Points&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">points</span>
 
     <span class="c1"># ---------------------------------</span>
     <span class="c1"># Create the analogs TimeSeries</span>
@@ -1475,7 +1465,7 @@ title="Fullscreen mode"
             <span class="k">if</span> <span class="n">units</span><span class="p">[</span><span class="n">i_label</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
                 <span class="n">analogs</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span>
                     <span class="n">key</span><span class="p">,</span>
-                    <span class="s2">&quot;unit&quot;</span><span class="p">,</span>
+                    <span class="s2">&quot;Unit&quot;</span><span class="p">,</span>
                     <span class="n">units</span><span class="p">[</span><span class="n">i_label</span><span class="p">]</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span> <span class="s2">&quot;ignore&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">),</span>
                     <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                 <span class="p">)</span>
@@ -1489,7 +1479,7 @@ title="Fullscreen mode"
             <span class="n">analogs</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="n">event_times</span><span class="p">[</span><span class="n">i_event</span><span class="p">],</span> <span class="n">event_name</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">analogs</span><span class="o">.</span><span class="n">sort_events</span><span class="p">(</span><span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-        <span class="n">output</span><span class="p">[</span><span class="s2">&quot;analogs&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">analogs</span>
+        <span class="n">output</span><span class="p">[</span><span class="s2">&quot;Analogs&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">analogs</span>
 
     <span class="c1"># ---------------------------------</span>
     <span class="c1"># Create the platforms TimeSeries</span>
@@ -1507,12 +1497,12 @@ title="Fullscreen mode"
                     <span class="sa">f</span><span class="s2">&quot;Force unit is </span><span class="si">{</span><span class="n">force_unit</span><span class="si">}</span><span class="s2"> instead of newtons.&quot;</span>
                 <span class="p">)</span>
 
-            <span class="n">key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;forces</span><span class="si">{</span><span class="n">i_platform</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Forces</span><span class="si">{</span><span class="n">i_platform</span><span class="si">}</span><span class="s2">&quot;</span>
             <span class="n">platforms</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">platforms</span><span class="o">.</span><span class="n">time</span><span class="p">),</span> <span class="mi">4</span><span class="p">))</span>
             <span class="n">platforms</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;platform&quot;</span><span class="p">][</span>
                 <span class="n">i_platform</span>
             <span class="p">][</span><span class="s2">&quot;force&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
-            <span class="n">platforms</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;unit&quot;</span><span class="p">,</span> <span class="n">force_unit</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">platforms</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">,</span> <span class="n">force_unit</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
             <span class="n">moment_unit</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;platform&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;unit_moment&quot;</span><span class="p">]</span>
 
@@ -1525,13 +1515,13 @@ title="Fullscreen mode"
                 <span class="n">moment_factor</span> <span class="o">=</span> <span class="mi">1</span>
                 <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Moment unit is </span><span class="si">{</span><span class="n">moment_unit</span><span class="si">}</span><span class="s2"> instead of Nm.&quot;</span><span class="p">)</span>
 
-            <span class="n">key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;moments</span><span class="si">{</span><span class="n">i_platform</span><span class="si">}</span><span class="s2">&quot;</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Moments</span><span class="si">{</span><span class="n">i_platform</span><span class="si">}</span><span class="s2">&quot;</span>
             <span class="n">platforms</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">platforms</span><span class="o">.</span><span class="n">time</span><span class="p">),</span> <span class="mi">4</span><span class="p">))</span>
             <span class="n">platforms</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
                 <span class="n">moment_factor</span>
                 <span class="o">*</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;platform&quot;</span><span class="p">][</span><span class="n">i_platform</span><span class="p">][</span><span class="s2">&quot;moment&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
             <span class="p">)</span>
-            <span class="n">platforms</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;unit&quot;</span><span class="p">,</span> <span class="n">moment_unit</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">platforms</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">,</span> <span class="n">moment_unit</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
         <span class="c1"># Add events</span>
         <span class="k">for</span> <span class="n">i_event</span><span class="p">,</span> <span class="n">event_name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">event_names</span><span class="p">):</span>
@@ -1540,7 +1530,7 @@ title="Fullscreen mode"
             <span class="p">)</span>
         <span class="n">platforms</span><span class="o">.</span><span class="n">sort_events</span><span class="p">(</span><span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-        <span class="n">output</span><span class="p">[</span><span class="s2">&quot;force_plates&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">platforms</span>
+        <span class="n">output</span><span class="p">[</span><span class="s2">&quot;ForcePlates&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">platforms</span>
 
     <span class="k">return</span> <span class="n">output</span></div>
 
@@ -1614,9 +1604,9 @@ title="Fullscreen mode"
             <span class="s2">&quot;ANALOG&quot;</span><span class="p">,</span>
             <span class="s2">&quot;UNITS&quot;</span><span class="p">,</span>
             <span class="p">[</span>
-                <span class="n">analogs</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s2">&quot;unit&quot;</span><span class="p">]</span>
+                <span class="n">analogs</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s2">&quot;Unit&quot;</span><span class="p">]</span>
                 <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">analogs</span><span class="o">.</span><span class="n">data_info</span>
-                <span class="ow">and</span> <span class="s2">&quot;unit&quot;</span> <span class="ow">in</span> <span class="n">analogs</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+                <span class="ow">and</span> <span class="s2">&quot;Unit&quot;</span> <span class="ow">in</span> <span class="n">analogs</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
                 <span class="k">else</span> <span class="s2">&quot;&quot;</span>
                 <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">analogs</span><span class="o">.</span><span class="n">data</span>
             <span class="p">],</span>

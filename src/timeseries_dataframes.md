@@ -143,7 +143,7 @@ In this example, we will read 3d marker positions from a sample `c3d` file, and 
 ```{code-cell} ipython3
 markers = ktk.read_c3d(
     ktk.doc.download("kinematics_basket_sprint.c3d")
-)['points']
+)["Points"]
 
 markers
 ```

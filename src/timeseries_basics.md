@@ -36,7 +36,7 @@ import numpy as np
 
 ts = ktk.TimeSeries()
 ts.time = np.arange(0, 10, 0.1)  # 10 seconds at 10 Hz
-ts.data["sinus"] = np.sin(ts.time)
+ts.data["Sinus"] = np.sin(ts.time)
 
 ts
 ```
@@ -54,7 +54,7 @@ ts.plot()
 A TimeSeries can contain many independent data that share a same time vector:
 
 ```{code-cell} ipython3
-ts.data["cosinus"] = np.cos(ts.time)
+ts.data["Cosinus"] = np.cos(ts.time)
 
 ts.data
 ```
@@ -112,8 +112,8 @@ ts.time_info
 Similarly, the `data_info` property associates metadata to data. This property is a dictionary of dictionaries, where the outer key corresponds to the data key, and the inner key is the metadata. The [](api/ktk.TimeSeries.add_data_info.rst) method eases the management of `data_info`.
 
 ```{code-cell} ipython3
-ts = ts.add_data_info("Forces", "unit", "N")
-ts = ts.add_data_info("Moments", "unit", "Nm")
+ts = ts.add_data_info("Forces", "Unit", "N")
+ts = ts.add_data_info("Moments", "Unit", "Nm")
 
 ts.data_info
 ```

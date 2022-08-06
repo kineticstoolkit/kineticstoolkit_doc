@@ -30,7 +30,7 @@ import kineticstoolkit.lab as ktk
 ```{code-cell} ipython3
 markers = ktk.read_c3d(
     ktk.doc.download("kinematics_racing_full.c3d")
-)["points"]
+)["Points"]
 
 markers
 ```
@@ -94,9 +94,9 @@ interconnections = dict()  # Will contain all segment definitions
 # Right arm
 interconnections["ArmR"] = {
     # Segment color in [red, green, blue] (each between 0 et 1)
-    "color": [1, 0.25, 0],
+    "Color": [1, 0.25, 0],
     # List of links, defined by marker names
-    "links": [
+    "Links": [
         ["AcromionR", "MedialEpicondyleR"],
         ["AcromionR", "LateralEpicondyleR"],
         ["AcromionR", "OlecraneR"],
@@ -105,8 +105,8 @@ interconnections["ArmR"] = {
 
 # Right forearm
 interconnections["ForearmR"] = {
-    "color": [1, 0.5, 0],
-    "links": [
+    "Color": [1, 0.5, 0],
+    "Links": [
         ["MedialEpicondyleR", "RadialStyloidR"],
         ["MedialEpicondyleR", "UlnarStyloidR"],
         ["LateralEpicondyleR", "RadialStyloidR"],
