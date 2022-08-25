@@ -213,7 +213,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../geometry_dimension_conventions.html">
-       Dimension conventions and first example
+       Dimension conventions
       </a>
      </li>
     </ul>
@@ -808,7 +808,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../python_for_beginners.html">
-   Learning Python for biomechanics
+   🚧 Learning Python for biomechanics
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
   <label for="toctree-checkbox-18">
@@ -1093,19 +1093,10 @@ title="Print to PDF"
 <dl class="py function">
 <dt class="sig sig-object py" id="ktk.geometry.get_angles">
 <span class="sig-name descname"><span class="pre">get_angles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">T</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seq</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degrees</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">flip</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ktk/geometry.html#get_angles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ktk.geometry.get_angles" title="Permalink to this definition">#</a></dt>
-<dd><p>Represent a series of transformation matrices as series of Euler angles.</p>
-<p>This function is a wrapper for scipy.transform.Rotation.as_euler. Please
-consult scipy help for the complete docstring.</p>
-<p>Euler angles suffer from the problem of gimbal lock, where the
-representation loses a degree of freedom and it is not possible to
-determine the first and third angles uniquely. In this case, a warning is
-raised, and the third angle is set to zero. Note however that the returned
-angles still represent the correct rotation.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This function, which has been introduced in 0.4, is still experimental and
-may change signature or behaviour in the future.</p>
-</div>
+<dd><p>Extract Euler angles from a series of homogeneous matrices.</p>
+<p>In case of gimbal lock, a warning is raised, and the third angle is set to
+zero. Note however that the returned angles still represent the correct
+rotation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1114,50 +1105,53 @@ may change signature or behaviour in the future.</p>
 rotations (moving axes), or {‘x’, ‘y’, ‘z’} for extrinsic rotations
 (fixed axes). Adjacent axes cannot be the same. Extrinsic and
 intrinsic rotations cannot be mixed in one function call.</p></li>
-<li><p><strong>degrees</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – Returned angles are in degrees if this flag is True, else they are in
+<li><p><strong>degrees</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – If True, the returned angles are in degrees. If False, they are in
 radians. Default is False.</p></li>
-<li><p><strong>flip</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – <p>Return an alternate sequence with the second angle inverted, that
-leads to the same rotation matrices. More specifically:</p>
-<p>First angle belongs to [-180, 180] degrees (both inclusive)</p>
-<dl class="simple">
-<dt>Second angle belongs to:</dt><dd><ul>
-<li><dl class="simple">
-<dt>Default case (alt_angles = False):</dt><dd><ul>
-<li><p>[-90, 90] degrees if all axes are different (like xyz)</p></li>
-<li><p>[0, 180] degrees if first and third axes are the same
-(like zxz)</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-<li><dl class="simple">
-<dt>Alternate case (alt_angles = True):</dt><dd><ul>
-<li><p>[-180, -90], [90, 180] degrees if all axes are different
-(like xyz)</p></li>
-<li><p>[-180, 0] degrees if first and third axes are the same
-(like zxz)</p></li>
-</ul>
-</dd>
-</dl>
-</li>
-</ul>
-</dd>
-</dl>
-<p>Third angle belongs to [-180, 180] degrees (both inclusive)</p>
-<p>One rationale for adding this special case is the calculation
-of shoulder angles: when following the ISB recommendation (YXY), X
-corresponds to the negative elevation and thus we expect to get
-negative values for Y. In this case, just use alt_angles = True.</p>
-</p></li>
+<li><p><strong>flip</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – Return an alternate sequence with the second angle inverted, but that
+leads to the same rotation matrices. See below for more information.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A Tx3 array of Euler angles.</p>
+<dd class="field-even"><p>An Nx3 series of Euler angles, with the second dimension containing
+the first, second and third angles, respectively.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>np.ndarray</p>
 </dd>
 </dl>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
+<p>The range of the returned angles is dependant on the <cite>flip</cite> parameter. If
+<cite>flip</cite> is False:</p>
+<ul>
+<li><p>First angle belongs to [-180, 180] degrees (both inclusive)</p></li>
+<li><p>Second angle belongs to:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>[-90, 90] degrees if all axes are different. e.g., xyz</p></li>
+<li><p>[0, 180] degrees if first and third axes are the same e.g., zxz</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Third angle belongs to [-180, 180] degrees (both inclusive)</p></li>
+</ul>
+<p>If <cite>flip</cite> is True:</p>
+<ul>
+<li><p>First angle belongs to [-180, 180] degrees (both inclusive)</p></li>
+<li><p>Second angle belongs to:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>[-180, -90], [90, 180] degrees if all axes are different. e.g., xyz</p></li>
+<li><p>[-180, 0] degrees if first and third axes are the same e.g., zxz</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>Third angle belongs to [-180, 180] degrees (both inclusive)</p></li>
+</ul>
+<p>This function is a wrapper for scipy.transform.Rotation.as_euler. Please
+consult scipy help for more help on intrinsic/extrinsic angles and the
+<cite>seq</cite> parameter.</p>
+</div>
 </dd></dl>
 
 </section>

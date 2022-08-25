@@ -213,7 +213,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../geometry_dimension_conventions.html">
-       Dimension conventions and first example
+       Dimension conventions
       </a>
      </li>
     </ul>
@@ -808,7 +808,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../python_for_beginners.html">
-   Learning Python for biomechanics
+   🚧 Learning Python for biomechanics
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
   <label for="toctree-checkbox-18">
@@ -1095,10 +1095,8 @@ title="Print to PDF"
 <span class="sig-name descname"><span class="pre">matmul</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">op1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">op2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ktk/geometry.html#matmul"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ktk.geometry.matmul" title="Permalink to this definition">#</a></dt>
 <dd><p>Matrix multiplication between series of matrices.</p>
 <p>This function is a wrapper for numpy’s matmul function (operator &#64;), that
-helps numpy to understand Kinetics Toolkit’s convention that the first
-dimension always corresponds to time.</p>
-<p>It aligns and create additionnal dimensions if needed to avoid dimension
-mismatch errors.</p>
+uses Kinetics Toolkit’s convention that the first dimension always
+corresponds to time, to broadcast time correctly between operands.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1107,12 +1105,24 @@ mismatch errors.</p>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>The product, as a series of Nx4 or Nx4xM matrices.</p>
+<dd class="field-even"><p>The product, usually as a series of Nx4 or Nx4xM matrices.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>np.ndarray</p>
 </dd>
 </dl>
+<p class="rubric">Example</p>
+<p>A matrix multiplication between one matrix and a series of 3 vectors
+results in a series of 3 vectors.</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">kineticstoolkit</span> <span class="k">as</span> <span class="nn">ktk</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mat_series</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[[</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">vec_series</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">6.0</span><span class="p">,</span> <span class="mf">7.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">8.0</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">mat_series</span><span class="p">,</span> <span class="n">vec_series</span><span class="p">)</span>
+<span class="go">array([[ 8.,  5.],</span>
+<span class="go">       [12.,  7.],</span>
+<span class="go">       [16.,  9.]])</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </section>

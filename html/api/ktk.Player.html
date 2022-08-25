@@ -213,7 +213,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../geometry_dimension_conventions.html">
-       Dimension conventions and first example
+       Dimension conventions
       </a>
      </li>
     </ul>
@@ -808,7 +808,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../python_for_beginners.html">
-   Learning Python for biomechanics
+   🚧 Learning Python for biomechanics
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
   <label for="toctree-checkbox-18">
@@ -1095,23 +1095,47 @@ title="Print to PDF"
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Player</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">ts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interconnections</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">marker_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.008</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interconnection_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zoom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">azimuth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elevation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">track</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">perspective</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kineticstoolkit/player.html#Player"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ktk.Player" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class that allows visualizing markers and rigid bodies in 3D.</p>
-<p>player = ktk.Player(parameters) creates and launches a Player
-instance.</p>
+<p><code class="docutils literal notranslate"><span class="pre">player</span> <span class="pre">=</span> <span class="pre">ktk.Player(parameters)</span></code> creates and launches an interactive
+Player instance. Once the window is open, pressing <code class="docutils literal notranslate"><span class="pre">h</span></code> brings this help
+overlay:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ktk</span><span class="o">.</span><span class="n">Player</span> <span class="n">help</span>
+<span class="o">----------------------------------------------------</span>
+<span class="n">KEYBOARD</span> <span class="n">COMMANDS</span>
+<span class="n">show</span><span class="o">/</span><span class="n">hide</span> <span class="n">this</span> <span class="n">help</span> <span class="p">:</span> <span class="n">h</span>
+<span class="n">previous</span> <span class="n">index</span>      <span class="p">:</span> <span class="n">left</span>
+<span class="nb">next</span> <span class="n">index</span>          <span class="p">:</span> <span class="n">right</span>
+<span class="n">previous</span> <span class="n">second</span>     <span class="p">:</span> <span class="n">shift</span><span class="o">+</span><span class="n">left</span>
+<span class="nb">next</span> <span class="n">second</span>         <span class="p">:</span> <span class="n">shift</span><span class="o">+</span><span class="n">right</span>
+<span class="n">play</span><span class="o">/</span><span class="n">pause</span>          <span class="p">:</span> <span class="n">space</span>
+<span class="mi">2</span><span class="n">x</span> <span class="n">playback</span> <span class="n">speed</span>   <span class="p">:</span> <span class="o">+</span>
+<span class="mf">0.5</span><span class="n">x</span> <span class="n">playback</span> <span class="n">speed</span> <span class="p">:</span> <span class="o">-</span>
+<span class="n">toggle</span> <span class="n">track</span>        <span class="p">:</span> <span class="n">t</span>
+<span class="n">toggle</span> <span class="n">perspective</span>  <span class="p">:</span> <span class="n">d</span> <span class="p">(</span><span class="n">depth</span><span class="p">)</span>
+<span class="o">----------------------------------------------------</span>
+<span class="n">MOUSE</span> <span class="n">COMMANDS</span>
+<span class="n">select</span> <span class="n">a</span> <span class="n">marker</span>     <span class="p">:</span> <span class="n">left</span><span class="o">-</span><span class="n">click</span>
+<span class="mi">3</span><span class="n">d</span> <span class="n">rotate</span>           <span class="p">:</span> <span class="n">left</span><span class="o">-</span><span class="n">drag</span>
+<span class="n">pan</span>                 <span class="p">:</span> <span class="n">middle</span><span class="o">-</span><span class="n">drag</span> <span class="ow">or</span> <span class="n">shift</span><span class="o">+</span><span class="n">left</span><span class="o">-</span><span class="n">drag</span>
+<span class="n">zoom</span>                <span class="p">:</span> <span class="n">right</span><span class="o">-</span><span class="n">drag</span> <span class="ow">or</span> <span class="n">wheel</span>
+</pre></div>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>*ts</strong> – Contains the markers and rigid bodies to visualize, where each data
-key is either a marker position expressed as Nx4 array (N=time),
-or a rigid body pose expressed as a Nx4x4 array. Multiple TimeSeries
-can be provided, e.g., ktk.Player(markers, rigid_bodies)</p></li>
+key is either a marker position expressed as Nx4 array, or a frame
+expressed as a Nx4x4 array. Multiple TimeSeries can be provided.</p></li>
 <li><p><strong>interconnections</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]]) – <p>Optional. Each key corresponds to an inerconnection between markers,
 where one interconnection is another dict with the following keys:</p>
 <ul>
-<li><p>Links: list of list of 2 str, where each str is a marker
+<li><p><code class="docutils literal notranslate"><span class="pre">Links</span></code>: list of lists of 2 strings, where each string is a marker
 name. For example, to link Marker1 to Marker2 and
-Marker1 to Marker3, Links would be:
-[[‘Marker1’, ‘Marker2’], [‘Marker1’, ‘Marker3’]]</p></li>
-<li><p>Color: character or tuple that represents the color of the
+Marker1 to Marker3, Links would be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="s1">&#39;Marker1&#39;</span><span class="p">,</span> <span class="s1">&#39;Marker2&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Marker1&#39;</span><span class="p">,</span> <span class="s1">&#39;Marker3&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Color</span></code>: character or tuple that represents the color of the
 link. Color must be a valid value for matplotlib’s
 plots.</p></li>
 </ul>
@@ -1131,6 +1155,10 @@ scene orthogonally.</p></li>
 </ul>
 </dd>
 </dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Matplotlib must be in interactive mode.</p>
+</div>
 <p class="rubric">Methods</p>
 <table class="autosummary longtable table autosummary">
 <colgroup>

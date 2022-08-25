@@ -213,7 +213,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../geometry_dimension_conventions.html">
-       Dimension conventions and first example
+       Dimension conventions
       </a>
      </li>
     </ul>
@@ -808,7 +808,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../python_for_beginners.html">
-   Learning Python for biomechanics
+   🚧 Learning Python for biomechanics
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
   <label for="toctree-checkbox-18">
@@ -1110,6 +1110,30 @@ original TimeSeries intact. The default is False.</p></li>
 <dd class="field-odd"><p><a class="reference internal" href="ktk.TimeSeries.html#ktk.TimeSeries" title="ktk.TimeSeries">TimeSeries</a></p>
 </dd>
 </dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="ktk.TimeSeries.sync_event.html#ktk.TimeSeries.sync_event" title="ktk.TimeSeries.sync_event"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.TimeSeries.sync_event</span></code></a>, <a class="reference internal" href="ktk.TimeSeries.ui_sync.html#ktk.TimeSeries.ui_sync" title="ktk.TimeSeries.ui_sync"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.TimeSeries.ui_sync</span></code></a></p>
+</div>
+<p class="rubric">Example</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">TimeSeries</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">3.5</span><span class="p">,</span> <span class="s2">&quot;start&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span><span class="o">.</span><span class="n">time</span>
+<span class="go">array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span><span class="o">.</span><span class="n">events</span>
+<span class="go">[TimeSeriesEvent(time=3.5, name=&#39;start&#39;)]</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="mf">2.0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span><span class="o">.</span><span class="n">time</span>
+<span class="go">array([ 2.,  3.,  4.,  5.,  6.,  7.,  8.,  9., 10., 11.])</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span><span class="o">.</span><span class="n">events</span>
+<span class="go">[TimeSeriesEvent(time=5.5, name=&#39;start&#39;)]</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </section>

@@ -213,7 +213,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../geometry_dimension_conventions.html">
-       Dimension conventions and first example
+       Dimension conventions
       </a>
      </li>
     </ul>
@@ -808,7 +808,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../python_for_beginners.html">
-   Learning Python for biomechanics
+   🚧 Learning Python for biomechanics
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
   <label for="toctree-checkbox-18">
@@ -1094,8 +1094,8 @@ title="Print to PDF"
 <dt class="sig sig-object py" id="ktk.import_extensions">
 <span class="sig-name descname"><span class="pre">import_extensions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ktk.import_extensions" title="Permalink to this definition">#</a></dt>
 <dd><p>Import all installed kineticstoolkit extensions.</p>
-<p>Any module that begins by <cite>kineticstoolkit_</cite> and that is on PYTHONPATH will
-be imported in the kineticstoolkit.ext namespace.</p>
+<p>Any module that begins by <code class="docutils literal notranslate"><span class="pre">kineticstoolkit_</span></code> and that is on PYTHONPATH
+will be imported in the <code class="docutils literal notranslate"><span class="pre">kineticstoolkit.ext</span></code> namespace.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>None</strong> – </p>
@@ -1108,6 +1108,21 @@ be imported in the kineticstoolkit.ext namespace.</p>
 <p class="admonition-title">Warning</p>
 <p>This function, which has been introduced in 0.8, is still experimental and
 may change signature or behaviour in the future.</p>
+</div>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
+<p>This function is called automatically if Kinetics Toolkit is imported in
+lab mode:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">kineticstoolkit.lab</span> <span class="k">as</span> <span class="nn">ktk</span>
+</pre></div>
+</div>
+<p>If your extension is not imported, try importing it manually before
+reporting a bug:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">kineticstoolkit_EXTENSION_NAME</span>
+</pre></div>
+</div>
+<p>If your extension doesn’t import, you need to edit your PYTHONPATH or to
+check that the extension is correctly installed.</p>
 </div>
 </dd></dl>
 

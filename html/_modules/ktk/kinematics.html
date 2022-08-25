@@ -210,7 +210,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../../geometry_dimension_conventions.html">
-       Dimension conventions and first example
+       Dimension conventions
       </a>
      </li>
     </ul>
@@ -805,7 +805,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../python_for_beginners.html">
-   Learning Python for biomechanics
+   🚧 Learning Python for biomechanics
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
   <label for="toctree-checkbox-18">
@@ -1205,11 +1205,6 @@ title="Fullscreen mode"
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Create a cluster definition based on a static acquisition.</span>
 
-<span class="sd">    Warning</span>
-<span class="sd">    -------</span>
-<span class="sd">    This function, which has been introduced in 0.7, is still experimental and</span>
-<span class="sd">    may change signature or behaviour in the future.</span>
-
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    markers</span>
@@ -1222,6 +1217,16 @@ title="Fullscreen mode"
 <span class="sd">    Dict</span>
 <span class="sd">        Dictionary where each entry represents the local position of a marker</span>
 <span class="sd">        in an arbitrary coordinate system.</span>
+
+<span class="sd">    Warning</span>
+<span class="sd">    -------</span>
+<span class="sd">    This function, which has been introduced in 0.7, is still experimental and</span>
+<span class="sd">    may change signature or behaviour in the future.</span>
+
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    ktk.kinematics.extend_cluster</span>
+<span class="sd">    ktk.kinematics.track_cluster</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">n_samples</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">markers</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
@@ -1261,11 +1266,6 @@ title="Fullscreen mode"
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Add a point to an existing cluster.</span>
 
-<span class="sd">    Warning</span>
-<span class="sd">    -------</span>
-<span class="sd">    This function, which has been introduced in 0.7, is still experimental and</span>
-<span class="sd">    may change signature or behaviour in the future.</span>
-
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    markers</span>
@@ -1279,7 +1279,17 @@ title="Fullscreen mode"
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    Dict[str, np.ndarray]</span>
-<span class="sd">        The cluster with the added point.</span>
+<span class="sd">        A copy of the initial cluster, with the added point.</span>
+
+<span class="sd">    Warning</span>
+<span class="sd">    -------</span>
+<span class="sd">    This function, which has been introduced in 0.7, is still experimental and</span>
+<span class="sd">    may change signature or behaviour in the future.</span>
+
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    ktk.kinematics.create_cluster</span>
+<span class="sd">    ktk.kinematics.track_cluster</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">cluster</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">cluster</span><span class="p">)</span>
@@ -1302,13 +1312,8 @@ title="Fullscreen mode"
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Fit a cluster to a TimeSeries of point trajectories.</span>
 
-<span class="sd">    Fits a cluster to a TimeSeries and reconstructs a solidified version of</span>
-<span class="sd">    all the points defined in this cluster.</span>
-
-<span class="sd">    Warning</span>
-<span class="sd">    -------</span>
-<span class="sd">    This function, which has been introduced in 0.7, is still experimental and</span>
-<span class="sd">    may change signature or behaviour in the future.</span>
+<span class="sd">    This function fits a cluster to a TimeSeries and reconstructs a solidified</span>
+<span class="sd">    version of all the points defined in this cluster.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1328,6 +1333,16 @@ title="Fullscreen mode"
 <span class="sd">    -------</span>
 <span class="sd">    TimeSeries</span>
 <span class="sd">        A TimeSeries with the trajectories of all cluster points.</span>
+
+<span class="sd">    Warning</span>
+<span class="sd">    -------</span>
+<span class="sd">    This function, which has been introduced in 0.7, is still experimental and</span>
+<span class="sd">    may change signature or behaviour in the future.</span>
+
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    ktk.kinematics.create_cluster</span>
+<span class="sd">    ktk.kinematics.track_cluster</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">out</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">copy_data</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">copy_data_info</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -1408,6 +1423,12 @@ title="Fullscreen mode"
 
 <span class="sd">    filename</span>
 <span class="sd">        Name of the trc file to create.</span>
+
+<span class="sd">    Warning</span>
+<span class="sd">    -------</span>
+<span class="sd">    This function may eventually move either to the base namespace like</span>
+<span class="sd">    write_c3d_file, or to an opensim extension that is currently being</span>
+<span class="sd">    developed.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">markers</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Dimension conventions and first example &#8212; Kinetics Toolkit</title>
+    <title>Dimension conventions &#8212; Kinetics Toolkit</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -213,7 +213,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3 current active">
       <a class="current reference internal" href="#">
-       Dimension conventions and first example
+       Dimension conventions
       </a>
      </li>
     </ul>
@@ -808,7 +808,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="python_for_beginners.html">
-   Learning Python for biomechanics
+   🚧 Learning Python for biomechanics
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
   <label for="toctree-checkbox-18">
@@ -1092,18 +1092,23 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#series-of-points-series-of-vectors">
-   Series of points, series of vectors
+  <a class="reference internal nav-link" href="#series-of-points">
+   Series of points
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#series-of-groups-of-points-series-of-groups-of-vectors">
-   Series of groups of points, series of groups of vectors
+  <a class="reference internal nav-link" href="#series-of-vectors">
+   Series of vectors
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#series-of-frames-homogeneous-transforms">
-   Series of frames/homogeneous transforms
+  <a class="reference internal nav-link" href="#series-of-point-clouds">
+   Series of point clouds
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#series-of-frames-or-homogeneous-transforms">
+   Series of frames or homogeneous transforms
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -1125,7 +1130,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Dimension conventions and first example</h1>
+                <h1>Dimension conventions</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -1141,18 +1146,23 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#series-of-points-series-of-vectors">
-   Series of points, series of vectors
+  <a class="reference internal nav-link" href="#series-of-points">
+   Series of points
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#series-of-groups-of-points-series-of-groups-of-vectors">
-   Series of groups of points, series of groups of vectors
+  <a class="reference internal nav-link" href="#series-of-vectors">
+   Series of vectors
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#series-of-frames-homogeneous-transforms">
-   Series of frames/homogeneous transforms
+  <a class="reference internal nav-link" href="#series-of-point-clouds">
+   Series of point clouds
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#series-of-frames-or-homogeneous-transforms">
+   Series of frames or homogeneous transforms
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -1175,31 +1185,81 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="dimension-conventions-and-first-example">
-<h1>Dimension conventions and first example<a class="headerlink" href="#dimension-conventions-and-first-example" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="dimension-conventions">
+<h1>Dimension conventions<a class="headerlink" href="#dimension-conventions" title="Permalink to this headline">#</a></h1>
 <p>In the <a class="reference internal" href="api/ktk.geometry.html"><span class="doc std std-doc">ktk.geometry</span></a> module and in most of Kinetics Toolkit’s module:</p>
 <ul class="simple">
 <li><p>Every point, vector or matrix, and in many case even scalar, is considered as a <strong>series</strong>.</p></li>
 <li><p>The first dimension of any series corresponds to <strong>time</strong>.</p></li>
 </ul>
-<p>To understand better how to express scalars, coordinates (points, vectors, frames) and homogeneous transforms as series, please refer to the following pictures:</p>
+<p>This is emphasized in the following examples:</p>
 <section id="series-of-scalars">
 <h2>Series of scalars<a class="headerlink" href="#series-of-scalars" title="Permalink to this headline">#</a></h2>
-<p><img alt="Series of m scalars -width:half" src="_images/series_of_m_scalars.png" /></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">x</span><span class="p">(</span><span class="n">t0</span><span class="p">),</span> <span class="n">x</span><span class="p">(</span><span class="n">t1</span><span class="p">),</span> <span class="n">x</span><span class="p">(</span><span class="n">t2</span><span class="p">),</span> <span class="o">...</span><span class="p">]</span>
+</pre></div>
+</div>
 </section>
-<section id="series-of-points-series-of-vectors">
-<h2>Series of points, series of vectors<a class="headerlink" href="#series-of-points-series-of-vectors" title="Permalink to this headline">#</a></h2>
-<p><img alt="Series of m points -width:half" src="_images/series_of_m_points.png" />
-<img alt="Series of m vectors -width:half" src="_images/series_of_m_vectors.png" /></p>
+<section id="series-of-points">
+<h2>Series of points<a class="headerlink" href="#series-of-points" title="Permalink to this headline">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">[</span><span class="n">x</span><span class="p">(</span><span class="n">t0</span><span class="p">),</span> <span class="n">y</span><span class="p">(</span><span class="n">t0</span><span class="p">),</span> <span class="n">z</span><span class="p">(</span><span class="n">t0</span><span class="p">),</span> <span class="mf">1.0</span><span class="p">],</span>
+    <span class="p">[</span><span class="n">x</span><span class="p">(</span><span class="n">t1</span><span class="p">),</span> <span class="n">y</span><span class="p">(</span><span class="n">t1</span><span class="p">),</span> <span class="n">z</span><span class="p">(</span><span class="n">t1</span><span class="p">),</span> <span class="mf">1.0</span><span class="p">],</span>
+    <span class="p">[</span><span class="n">x</span><span class="p">(</span><span class="n">t2</span><span class="p">),</span> <span class="n">y</span><span class="p">(</span><span class="n">t2</span><span class="p">),</span> <span class="n">z</span><span class="p">(</span><span class="n">t2</span><span class="p">),</span> <span class="mf">1.0</span><span class="p">],</span>
+    <span class="p">[</span> <span class="o">...</span> <span class="p">,</span>  <span class="o">...</span> <span class="p">,</span>  <span class="o">...</span> <span class="p">,</span> <span class="o">...</span><span class="p">],</span>
+<span class="p">]</span> 
+</pre></div>
+</div>
 </section>
-<section id="series-of-groups-of-points-series-of-groups-of-vectors">
-<h2>Series of groups of points, series of groups of vectors<a class="headerlink" href="#series-of-groups-of-points-series-of-groups-of-vectors" title="Permalink to this headline">#</a></h2>
-<p><img alt="Series of m groups of n points -width:half" src="_images/series_of_m_groups_of_n_points.png" />
-<img alt="Series of m groups of n vectors -width:half" src="_images/series_of_m_groups_of_n_vectors.png" /></p>
+<section id="series-of-vectors">
+<h2>Series of vectors<a class="headerlink" href="#series-of-vectors" title="Permalink to this headline">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">[</span><span class="n">x</span><span class="p">(</span><span class="n">t0</span><span class="p">),</span> <span class="n">y</span><span class="p">(</span><span class="n">t0</span><span class="p">),</span> <span class="n">z</span><span class="p">(</span><span class="n">t0</span><span class="p">),</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">[</span><span class="n">x</span><span class="p">(</span><span class="n">t1</span><span class="p">),</span> <span class="n">y</span><span class="p">(</span><span class="n">t1</span><span class="p">),</span> <span class="n">z</span><span class="p">(</span><span class="n">t1</span><span class="p">),</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">[</span><span class="n">x</span><span class="p">(</span><span class="n">t2</span><span class="p">),</span> <span class="n">y</span><span class="p">(</span><span class="n">t2</span><span class="p">),</span> <span class="n">z</span><span class="p">(</span><span class="n">t2</span><span class="p">),</span> <span class="mf">0.0</span><span class="p">],</span>
+    <span class="p">[</span> <span class="o">...</span> <span class="p">,</span>  <span class="o">...</span> <span class="p">,</span>  <span class="o">...</span> <span class="p">,</span> <span class="o">...</span><span class="p">],</span>
+<span class="p">]</span> 
+</pre></div>
+</div>
 </section>
-<section id="series-of-frames-homogeneous-transforms">
-<h2>Series of frames/homogeneous transforms<a class="headerlink" href="#series-of-frames-homogeneous-transforms" title="Permalink to this headline">#</a></h2>
-<p><img alt="Series of m transformation matrices -width:wider" src="_images/series_of_m_transformation_matrices.png" /></p>
+<section id="series-of-point-clouds">
+<h2>Series of point clouds<a class="headerlink" href="#series-of-point-clouds" title="Permalink to this headline">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">[</span>
+        <span class="p">[</span><span class="n">x0</span><span class="p">(</span><span class="n">t0</span><span class="p">),</span> <span class="n">x1</span><span class="p">(</span><span class="n">t0</span><span class="p">),</span> <span class="n">x2</span><span class="p">(</span><span class="n">t0</span><span class="p">),</span> <span class="o">...</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">y0</span><span class="p">(</span><span class="n">t0</span><span class="p">),</span> <span class="n">y1</span><span class="p">(</span><span class="n">t0</span><span class="p">),</span> <span class="n">y2</span><span class="p">(</span><span class="n">t0</span><span class="p">),</span> <span class="o">...</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">z0</span><span class="p">(</span><span class="n">t0</span><span class="p">),</span> <span class="n">z1</span><span class="p">(</span><span class="n">t0</span><span class="p">),</span> <span class="n">z2</span><span class="p">(</span><span class="n">t0</span><span class="p">),</span> <span class="o">...</span><span class="p">],</span>
+        <span class="p">[</span>   <span class="mf">1.0</span><span class="p">,</span>    <span class="mf">1.0</span><span class="p">,</span>    <span class="mf">1.0</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span>
+    <span class="p">],</span>
+    <span class="p">[</span>
+        <span class="p">[</span><span class="n">x0</span><span class="p">(</span><span class="n">t1</span><span class="p">),</span> <span class="n">x1</span><span class="p">(</span><span class="n">t1</span><span class="p">),</span> <span class="n">x2</span><span class="p">(</span><span class="n">t1</span><span class="p">),</span> <span class="o">...</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">y0</span><span class="p">(</span><span class="n">t1</span><span class="p">),</span> <span class="n">y1</span><span class="p">(</span><span class="n">t1</span><span class="p">),</span> <span class="n">y2</span><span class="p">(</span><span class="n">t1</span><span class="p">),</span> <span class="o">...</span><span class="p">],</span>
+        <span class="p">[</span><span class="n">z0</span><span class="p">(</span><span class="n">t1</span><span class="p">),</span> <span class="n">z1</span><span class="p">(</span><span class="n">t1</span><span class="p">),</span> <span class="n">z2</span><span class="p">(</span><span class="n">t1</span><span class="p">),</span> <span class="o">...</span><span class="p">],</span>
+        <span class="p">[</span>   <span class="mf">1.0</span><span class="p">,</span>    <span class="mf">1.0</span><span class="p">,</span>    <span class="mf">1.0</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span>
+    <span class="p">],</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</section>
+<section id="series-of-frames-or-homogeneous-transforms">
+<h2>Series of frames or homogeneous transforms<a class="headerlink" href="#series-of-frames-or-homogeneous-transforms" title="Permalink to this headline">#</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">[</span>
+        <span class="p">[</span><span class="n">R00</span><span class="p">(</span><span class="n">t0</span><span class="p">),</span> <span class="n">R01</span><span class="p">(</span><span class="n">t0</span><span class="p">),</span> <span class="n">R02</span><span class="p">(</span><span class="n">t0</span><span class="p">),</span> <span class="n">Tx</span><span class="p">(</span><span class="n">t0</span><span class="p">)],</span>
+        <span class="p">[</span><span class="n">R10</span><span class="p">(</span><span class="n">t0</span><span class="p">),</span> <span class="n">R11</span><span class="p">(</span><span class="n">t0</span><span class="p">),</span> <span class="n">R12</span><span class="p">(</span><span class="n">t0</span><span class="p">),</span> <span class="n">Ty</span><span class="p">(</span><span class="n">t0</span><span class="p">)],</span>
+        <span class="p">[</span><span class="n">R20</span><span class="p">(</span><span class="n">t0</span><span class="p">),</span> <span class="n">R21</span><span class="p">(</span><span class="n">t0</span><span class="p">),</span> <span class="n">R22</span><span class="p">(</span><span class="n">t0</span><span class="p">),</span> <span class="n">Tz</span><span class="p">(</span><span class="n">t0</span><span class="p">)],</span>
+        <span class="p">[</span>    <span class="mf">0.0</span><span class="p">,</span>     <span class="mf">0.0</span><span class="p">,</span>     <span class="mf">0.0</span><span class="p">,</span>    <span class="mf">1.0</span><span class="p">],</span>
+    <span class="p">],</span>
+    <span class="p">[</span>
+        <span class="p">[</span><span class="n">R00</span><span class="p">(</span><span class="n">t1</span><span class="p">),</span> <span class="n">R01</span><span class="p">(</span><span class="n">t1</span><span class="p">),</span> <span class="n">R02</span><span class="p">(</span><span class="n">t1</span><span class="p">),</span> <span class="n">Tx</span><span class="p">(</span><span class="n">t1</span><span class="p">)],</span>
+        <span class="p">[</span><span class="n">R10</span><span class="p">(</span><span class="n">t1</span><span class="p">),</span> <span class="n">R11</span><span class="p">(</span><span class="n">t1</span><span class="p">),</span> <span class="n">R12</span><span class="p">(</span><span class="n">t1</span><span class="p">),</span> <span class="n">Ty</span><span class="p">(</span><span class="n">t1</span><span class="p">)],</span>
+        <span class="p">[</span><span class="n">R20</span><span class="p">(</span><span class="n">t1</span><span class="p">),</span> <span class="n">R21</span><span class="p">(</span><span class="n">t1</span><span class="p">),</span> <span class="n">R22</span><span class="p">(</span><span class="n">t1</span><span class="p">),</span> <span class="n">Tz</span><span class="p">(</span><span class="n">t1</span><span class="p">)],</span>
+        <span class="p">[</span>    <span class="mf">0.0</span><span class="p">,</span>     <span class="mf">0.0</span><span class="p">,</span>     <span class="mf">0.0</span><span class="p">,</span>    <span class="mf">1.0</span><span class="p">],</span>
+    <span class="p">],</span>
+    <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </section>
 <section id="working-with-constants">
 <h2>Working with constants<a class="headerlink" href="#working-with-constants" title="Permalink to this headline">#</a></h2>

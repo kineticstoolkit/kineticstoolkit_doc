@@ -210,7 +210,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../../geometry_dimension_conventions.html">
-       Dimension conventions and first example
+       Dimension conventions
       </a>
      </li>
     </ul>
@@ -805,7 +805,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../python_for_beginners.html">
-   Learning Python for biomechanics
+   🚧 Learning Python for biomechanics
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
   <label for="toctree-checkbox-18">
@@ -1089,27 +1089,48 @@ title="Fullscreen mode"
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A class that allows visualizing markers and rigid bodies in 3D.</span>
 
-<span class="sd">    player = ktk.Player(parameters) creates and launches a Player</span>
-<span class="sd">    instance.</span>
+<span class="sd">    ``player = ktk.Player(parameters)`` creates and launches an interactive</span>
+<span class="sd">    Player instance. Once the window is open, pressing ``h`` brings this help</span>
+<span class="sd">    overlay::</span>
+
+<span class="sd">            ktk.Player help</span>
+<span class="sd">            ----------------------------------------------------</span>
+<span class="sd">            KEYBOARD COMMANDS</span>
+<span class="sd">            show/hide this help : h</span>
+<span class="sd">            previous index      : left</span>
+<span class="sd">            next index          : right</span>
+<span class="sd">            previous second     : shift+left</span>
+<span class="sd">            next second         : shift+right</span>
+<span class="sd">            play/pause          : space</span>
+<span class="sd">            2x playback speed   : +</span>
+<span class="sd">            0.5x playback speed : -</span>
+<span class="sd">            toggle track        : t</span>
+<span class="sd">            toggle perspective  : d (depth)</span>
+<span class="sd">            ----------------------------------------------------</span>
+<span class="sd">            MOUSE COMMANDS</span>
+<span class="sd">            select a marker     : left-click</span>
+<span class="sd">            3d rotate           : left-drag</span>
+<span class="sd">            pan                 : middle-drag or shift+left-drag</span>
+<span class="sd">            zoom                : right-drag or wheel</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    *ts</span>
 <span class="sd">        Contains the markers and rigid bodies to visualize, where each data</span>
-<span class="sd">        key is either a marker position expressed as Nx4 array (N=time),</span>
-<span class="sd">        or a rigid body pose expressed as a Nx4x4 array. Multiple TimeSeries</span>
-<span class="sd">        can be provided, e.g., ktk.Player(markers, rigid_bodies)</span>
+<span class="sd">        key is either a marker position expressed as Nx4 array, or a frame</span>
+<span class="sd">        expressed as a Nx4x4 array. Multiple TimeSeries can be provided.</span>
 
 <span class="sd">    interconnections</span>
 <span class="sd">        Optional. Each key corresponds to an inerconnection between markers,</span>
 <span class="sd">        where one interconnection is another dict with the following keys:</span>
 
-<span class="sd">        - Links: list of list of 2 str, where each str is a marker</span>
+<span class="sd">        - ``Links``: list of lists of 2 strings, where each string is a marker</span>
 <span class="sd">          name. For example, to link Marker1 to Marker2 and</span>
-<span class="sd">          Marker1 to Marker3, Links would be:</span>
-<span class="sd">          [[&#39;Marker1&#39;, &#39;Marker2&#39;], [&#39;Marker1&#39;, &#39;Marker3&#39;]]</span>
+<span class="sd">          Marker1 to Marker3, Links would be::</span>
 
-<span class="sd">        - Color: character or tuple that represents the color of the</span>
+<span class="sd">              [[&#39;Marker1&#39;, &#39;Marker2&#39;], [&#39;Marker1&#39;, &#39;Marker3&#39;]]</span>
+
+<span class="sd">        - ``Color``: character or tuple that represents the color of the</span>
 <span class="sd">          link. Color must be a valid value for matplotlib&#39;s</span>
 <span class="sd">          plots.</span>
 
@@ -1144,6 +1165,10 @@ title="Fullscreen mode"
 <span class="sd">    perspective</span>
 <span class="sd">        Optional. True to draw the scene using perspective, False to draw the</span>
 <span class="sd">        scene orthogonally.</span>
+
+<span class="sd">    Note</span>
+<span class="sd">    ----</span>
+<span class="sd">    Matplotlib must be in interactive mode.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 

@@ -210,7 +210,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../../geometry_dimension_conventions.html">
-       Dimension conventions and first example
+       Dimension conventions
       </a>
      </li>
     </ul>
@@ -805,7 +805,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../python_for_beginners.html">
-   Learning Python for biomechanics
+   🚧 Learning Python for biomechanics
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
   <label for="toctree-checkbox-18">
@@ -1120,14 +1120,10 @@ title="Fullscreen mode"
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Apply a Savitzky-Golay filter on a TimeSeries.</span>
 
-<span class="sd">    On n-dimensional data, filtering occurs on the first axis (time).</span>
-
-<span class="sd">    Notes</span>
-<span class="sd">    -----</span>
-<span class="sd">    - The sampling rate must be constant.</span>
-<span class="sd">    - If the TimeSeries contains missing samples, a warning is issued, missing</span>
-<span class="sd">      samples are interpolated using a first-order interpolation before</span>
-<span class="sd">      filtering, and then replaced by NaNs in the filtered signal.</span>
+<span class="sd">    Filtering occurs on the first axis (time). If the TimeSeries contains</span>
+<span class="sd">    missing samples, a warning is issued, missing samples are interpolated</span>
+<span class="sd">    using a first-order interpolation before filtering, and then replaced by</span>
+<span class="sd">    np.nan in the filtered signal.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1146,12 +1142,18 @@ title="Fullscreen mode"
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    TimeSeries</span>
-<span class="sd">        A copy of the input TimeSeries, which each data filtered.</span>
+<span class="sd">        A copy of the input TimeSeries, which each data being filtered.</span>
 
 <span class="sd">    Raises</span>
 <span class="sd">    ------</span>
-<span class="sd">    ValueError if sample rate is not constant, or if there is no data to</span>
-<span class="sd">    filter.</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If sample rate is not constant, or if there is no data to</span>
+<span class="sd">        filter.</span>
+
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    ktk.filters.smooth</span>
+<span class="sd">    ktk.filters.median</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">_validate_input</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
@@ -1189,14 +1191,10 @@ title="Fullscreen mode"
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Apply a smoothing (moving average) filter on a TimeSeries.</span>
 
-<span class="sd">    On n-dimensional data, filtering occurs on the first axis (time).</span>
-
-<span class="sd">    Notes</span>
-<span class="sd">    -----</span>
-<span class="sd">    - The sampling rate must be constant.</span>
-<span class="sd">    - If the TimeSeries contains missing samples, a warning is issued, missing</span>
-<span class="sd">      samples are interpolated using a first-order interpolation before</span>
-<span class="sd">      filtering, and then replaced by NaNs in the filtered signal.</span>
+<span class="sd">    Filtering occurs on the first axis (time). If the TimeSeries contains</span>
+<span class="sd">    missing samples, a warning is issued, missing samples are interpolated</span>
+<span class="sd">    using a first-order interpolation before filtering, and then replaced by</span>
+<span class="sd">    np.nan in the filtered signal.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1206,10 +1204,21 @@ title="Fullscreen mode"
 <span class="sd">        The length of the filter window. window_length must be a positive</span>
 <span class="sd">        odd integer less or equal than the length of the TimeSeries.</span>
 
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    TimeSeries</span>
+<span class="sd">        A copy of the input TimeSeries, which each data being filtered.</span>
+
 <span class="sd">    Raises</span>
 <span class="sd">    ------</span>
-<span class="sd">    ValueError if sample rate is not constant, or if there is no data to</span>
-<span class="sd">    filter.</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If sample rate is not constant, or if there is no data to</span>
+<span class="sd">        filter.</span>
+
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    ktk.filters.savgol</span>
+<span class="sd">    ktk.filters.median</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">_validate_input</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
@@ -1230,14 +1239,10 @@ title="Fullscreen mode"
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Apply a Butterworth filter to a TimeSeries.</span>
 
-<span class="sd">    On n-dimensional data, filtering occurs on the first axis (time).</span>
-
-<span class="sd">    Note</span>
-<span class="sd">    ----</span>
-<span class="sd">    - The sampling rate must be constant.</span>
-<span class="sd">    - If the TimeSeries contains missing samples, a warning is issued, missing</span>
-<span class="sd">      samples are interpolated using a first-order interpolation before</span>
-<span class="sd">      filtering, and then replaced by NaNs in the filtered signal.</span>
+<span class="sd">    Filtering occurs on the first axis (time). If the TimeSeries contains</span>
+<span class="sd">    missing samples, a warning is issued, missing samples are interpolated</span>
+<span class="sd">    using a first-order interpolation before filtering, and then replaced by</span>
+<span class="sd">    np.nan in the filtered signal.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1248,18 +1253,25 @@ title="Fullscreen mode"
 <span class="sd">        (lowpass, highpass), or a sequence of two floats (e.g., [10., 13.])</span>
 <span class="sd">        for two-frequency filters (bandpass, bandstop).</span>
 <span class="sd">    order</span>
-<span class="sd">        Optional. Order of the filter.</span>
+<span class="sd">        Optional. Order of the filter. Default is 2.</span>
 <span class="sd">    btype</span>
-<span class="sd">        Optional. {&#39;lowpass&#39;, &#39;highpass&#39;, &#39;bandpass&#39;, &#39;bandstop&#39;}.</span>
+<span class="sd">        Optional. Can be either &#39;lowpass&#39;, &#39;highpass&#39;, &#39;bandpass&#39; or</span>
+<span class="sd">        &#39;bandstop&#39;. Default is &#39;lowpass&#39;.</span>
 <span class="sd">    filtfilt</span>
 <span class="sd">        Optional. If True, the filter is applied two times in reverse direction</span>
 <span class="sd">        to eliminate time lag. If False, the filter is applied only in forward</span>
-<span class="sd">        direction.</span>
+<span class="sd">        direction. Default is True.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    TimeSeries</span>
+<span class="sd">        A copy of the input TimeSeries, which each data being filtered.</span>
 
 <span class="sd">    Raises</span>
 <span class="sd">    ------</span>
-<span class="sd">    ValueError if sample rate is not constant, or if there is no data to</span>
-<span class="sd">    filter.</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If sample rate is not constant, or if there is no data to</span>
+<span class="sd">        filter.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">_validate_input</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
@@ -1296,11 +1308,8 @@ title="Fullscreen mode"
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculate the nth numerical derivative.</span>
 
-<span class="sd">    On n-dimensional data, filtering occurs on the first axis (time).</span>
-
-<span class="sd">    Notes</span>
-<span class="sd">    -----</span>
-<span class="sd">    - The sample rate must be constant.</span>
+<span class="sd">    Filtering occurs on the first axis (time). The sample rate must be</span>
+<span class="sd">    constant.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1313,13 +1322,14 @@ title="Fullscreen mode"
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    TimeSeries</span>
-<span class="sd">        A copy of the input TimeSeries, with n less points than the original</span>
-<span class="sd">        one.</span>
+<span class="sd">        A copy of the input TimeSeries, which each data being derived. The</span>
+<span class="sd">        length of the resulting TimeSeries is one less than `ts`.</span>
 
 <span class="sd">    Raises</span>
 <span class="sd">    ------</span>
-<span class="sd">    ValueError if sample rate is not constant, or if there is no data to</span>
-<span class="sd">    filter.</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If sample rate is not constant, or if there is no data to</span>
+<span class="sd">        filter.</span>
 
 <span class="sd">    Example</span>
 <span class="sd">    -------</span>
@@ -1368,7 +1378,7 @@ title="Fullscreen mode"
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculate a moving median.</span>
 
-<span class="sd">    On n-dimensional data, filtering occurs on the first axis (time).</span>
+<span class="sd">    Filtering occurs on the first axis (time).</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1377,6 +1387,11 @@ title="Fullscreen mode"
 
 <span class="sd">    window_length</span>
 <span class="sd">        Optional. Kernel size, must be odd. The default is 3.</span>
+
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    ktk.butter.smooth</span>
+<span class="sd">    ktk.butter.savgol</span>
 
 <span class="sd">    Example</span>
 <span class="sd">    -------</span>

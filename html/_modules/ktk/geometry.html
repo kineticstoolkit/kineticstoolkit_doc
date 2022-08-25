@@ -210,7 +210,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../../geometry_dimension_conventions.html">
-       Dimension conventions and first example
+       Dimension conventions
       </a>
      </li>
     </ul>
@@ -805,7 +805,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../python_for_beginners.html">
-   Learning Python for biomechanics
+   🚧 Learning Python for biomechanics
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
   <label for="toctree-checkbox-18">
@@ -1063,7 +1063,7 @@ title="Fullscreen mode"
 <span class="sd">Note</span>
 <span class="sd">----</span>
 <span class="sd">As a convention, the first dimension of every array is always N and corresponds</span>
-<span class="sd">to time. For constants, use a length of 1 as the first dimension.</span>
+<span class="sd">to time.</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 
@@ -1097,11 +1097,8 @@ title="Fullscreen mode"
 <span class="sd">    Matrix multiplication between series of matrices.</span>
 
 <span class="sd">    This function is a wrapper for numpy&#39;s matmul function (operator @), that</span>
-<span class="sd">    helps numpy to understand Kinetics Toolkit&#39;s convention that the first</span>
-<span class="sd">    dimension always corresponds to time.</span>
-
-<span class="sd">    It aligns and create additionnal dimensions if needed to avoid dimension</span>
-<span class="sd">    mismatch errors.</span>
+<span class="sd">    uses Kinetics Toolkit&#39;s convention that the first dimension always</span>
+<span class="sd">    corresponds to time, to broadcast time correctly between operands.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1113,7 +1110,20 @@ title="Fullscreen mode"
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    np.ndarray</span>
-<span class="sd">        The product, as a series of Nx4 or Nx4xM matrices.</span>
+<span class="sd">        The product, usually as a series of Nx4 or Nx4xM matrices.</span>
+
+<span class="sd">    Example</span>
+<span class="sd">    -------</span>
+<span class="sd">    A matrix multiplication between one matrix and a series of 3 vectors</span>
+<span class="sd">    results in a series of 3 vectors.</span>
+
+<span class="sd">    &gt;&gt;&gt; import kineticstoolkit as ktk</span>
+<span class="sd">    &gt;&gt;&gt; mat_series = np.array([[[2.0, 0.0], [0.0, 1.0]]])</span>
+<span class="sd">    &gt;&gt;&gt; vec_series = np.array([[4.0, 5.0], [6.0, 7.0], [8.0, 9.0]])</span>
+<span class="sd">    &gt;&gt;&gt; ktk.geometry.matmul(mat_series, vec_series)</span>
+<span class="sd">    array([[ 8.,  5.],</span>
+<span class="sd">           [12.,  7.],</span>
+<span class="sd">           [16.,  9.]])</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -1142,16 +1152,10 @@ title="Fullscreen mode"
     <span class="n">seq</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">angles</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">translations</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="o">*</span><span class="p">,</span>
     <span class="n">degrees</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Create an Nx4x4 series of homogeneous transforms.</span>
-
-<span class="sd">    Warning</span>
-<span class="sd">    -------</span>
-<span class="sd">    This function, which has been introduced in 0.4, is still experimental and</span>
-<span class="sd">    may change signature or behaviour in the future.</span>
+<span class="sd">    Create an Nx4x4 series of homogeneous transforms based on angle sequences.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1163,26 +1167,23 @@ title="Fullscreen mode"
 <span class="sd">        Required if angles is specified.</span>
 
 <span class="sd">    angles</span>
-<span class="sd">        Optional array_like, shape (N,) or (N, [1 or 2 or 3]).</span>
-<span class="sd">        Angles are specified in radians (degrees is False) or degrees (degrees</span>
-<span class="sd">        is True).</span>
+<span class="sd">        Optional array_like of shape (N,) or (N, [1 or 2 or 3]). Angles are</span>
+<span class="sd">        specified in radians (if degrees is False) or degrees (if degrees is</span>
+<span class="sd">        True).</span>
 
-<span class="sd">        For a single character seq, angles can be:</span>
+<span class="sd">        For a single-character `seq`, `angles` can be:</span>
 
-<span class="sd">            - array_like with shape (N,), where each angle[i] corresponds to a</span>
-<span class="sd">              single rotation</span>
-<span class="sd">            - array_like with shape (N, 1), where each angle[i, 0] corresponds</span>
-<span class="sd">              to a single rotation</span>
+<span class="sd">        - array_like with shape (N,), where each `angle[i]` corresponds to a</span>
+<span class="sd">          single rotation;</span>
+<span class="sd">        - array_like with shape (N, 1), where each `angle[i, 0]` corresponds</span>
+<span class="sd">          to a single rotation.</span>
 
-<span class="sd">        For 2- and 3-character wide seq, angles can be:</span>
-
-<span class="sd">            - array_like with shape (W,) where W is the width of seq, which</span>
-<span class="sd">              corresponds to a single rotation with W axes</span>
-<span class="sd">            - array_like with shape (N, W) where each angle[i] corresponds to</span>
-<span class="sd">              a sequence of Euler angles describing a single rotation</span>
+<span class="sd">        For 2- and 3-character `seq`, `angles` is an array_like with shape</span>
+<span class="sd">        (N, W) where each `angle[i, :]` corresponds to a sequence of Euler</span>
+<span class="sd">        angles and W is the length of `seq`.</span>
 
 <span class="sd">    translations</span>
-<span class="sd">        Optional float or array_like, shape (N, 3) or (N, 4). This corresponds</span>
+<span class="sd">        Optional array_like or shape (N, 3) or (N, 4). This corresponds</span>
 <span class="sd">        to the translation part of the generated series of homogeneous</span>
 <span class="sd">        transforms.</span>
 
@@ -1193,6 +1194,10 @@ title="Fullscreen mode"
 <span class="sd">    -------</span>
 <span class="sd">    np.ndarray</span>
 <span class="sd">        An Nx4x4 series of homogeneous transforms.</span>
+
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    ktk.geometry.create_frames</span>
 
 <span class="sd">    Example</span>
 <span class="sd">    -------</span>
@@ -1248,21 +1253,11 @@ title="Fullscreen mode"
     <span class="n">T</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">seq</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">degrees</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">flip</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Represent a series of transformation matrices as series of Euler angles.</span>
+<span class="sd">    Extract Euler angles from a series of homogeneous matrices.</span>
 
-<span class="sd">    This function is a wrapper for scipy.transform.Rotation.as_euler. Please</span>
-<span class="sd">    consult scipy help for the complete docstring.</span>
-
-<span class="sd">    Euler angles suffer from the problem of gimbal lock, where the</span>
-<span class="sd">    representation loses a degree of freedom and it is not possible to</span>
-<span class="sd">    determine the first and third angles uniquely. In this case, a warning is</span>
-<span class="sd">    raised, and the third angle is set to zero. Note however that the returned</span>
-<span class="sd">    angles still represent the correct rotation.</span>
-
-<span class="sd">    Warning</span>
-<span class="sd">    -------</span>
-<span class="sd">    This function, which has been introduced in 0.4, is still experimental and</span>
-<span class="sd">    may change signature or behaviour in the future.</span>
+<span class="sd">    In case of gimbal lock, a warning is raised, and the third angle is set to</span>
+<span class="sd">    zero. Note however that the returned angles still represent the correct</span>
+<span class="sd">    rotation.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1276,38 +1271,45 @@ title="Fullscreen mode"
 <span class="sd">        intrinsic rotations cannot be mixed in one function call.</span>
 
 <span class="sd">    degrees</span>
-<span class="sd">        Returned angles are in degrees if this flag is True, else they are in</span>
+<span class="sd">        If True, the returned angles are in degrees. If False, they are in</span>
 <span class="sd">        radians. Default is False.</span>
 
 <span class="sd">    flip</span>
-<span class="sd">        Return an alternate sequence with the second angle inverted, that</span>
-<span class="sd">        leads to the same rotation matrices. More specifically:</span>
-
-<span class="sd">        First angle belongs to [-180, 180] degrees (both inclusive)</span>
-
-<span class="sd">        Second angle belongs to:</span>
-<span class="sd">            - Default case (alt_angles = False):</span>
-<span class="sd">                - [-90, 90] degrees if all axes are different (like xyz)</span>
-<span class="sd">                - [0, 180] degrees if first and third axes are the same</span>
-<span class="sd">                  (like zxz)</span>
-<span class="sd">            - Alternate case (alt_angles = True):</span>
-<span class="sd">                - [-180, -90], [90, 180] degrees if all axes are different</span>
-<span class="sd">                  (like xyz)</span>
-<span class="sd">                - [-180, 0] degrees if first and third axes are the same</span>
-<span class="sd">                  (like zxz)</span>
-
-<span class="sd">        Third angle belongs to [-180, 180] degrees (both inclusive)</span>
-
-<span class="sd">        One rationale for adding this special case is the calculation</span>
-<span class="sd">        of shoulder angles: when following the ISB recommendation (YXY), X</span>
-<span class="sd">        corresponds to the negative elevation and thus we expect to get</span>
-<span class="sd">        negative values for Y. In this case, just use alt_angles = True.</span>
+<span class="sd">        Return an alternate sequence with the second angle inverted, but that</span>
+<span class="sd">        leads to the same rotation matrices. See below for more information.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    np.ndarray</span>
-<span class="sd">        A Tx3 array of Euler angles.</span>
+<span class="sd">        An Nx3 series of Euler angles, with the second dimension containing</span>
+<span class="sd">        the first, second and third angles, respectively.</span>
 
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    The range of the returned angles is dependant on the `flip` parameter. If</span>
+<span class="sd">    `flip` is False:</span>
+
+<span class="sd">    - First angle belongs to [-180, 180] degrees (both inclusive)</span>
+<span class="sd">    - Second angle belongs to:</span>
+
+<span class="sd">        - [-90, 90] degrees if all axes are different. e.g., xyz</span>
+<span class="sd">        - [0, 180] degrees if first and third axes are the same e.g., zxz</span>
+
+<span class="sd">    - Third angle belongs to [-180, 180] degrees (both inclusive)</span>
+
+<span class="sd">    If `flip` is True:</span>
+
+<span class="sd">    - First angle belongs to [-180, 180] degrees (both inclusive)</span>
+<span class="sd">    - Second angle belongs to:</span>
+
+<span class="sd">        - [-180, -90], [90, 180] degrees if all axes are different. e.g., xyz</span>
+<span class="sd">        - [-180, 0] degrees if first and third axes are the same e.g., zxz</span>
+
+<span class="sd">    - Third angle belongs to [-180, 180] degrees (both inclusive)</span>
+
+<span class="sd">    This function is a wrapper for scipy.transform.Rotation.as_euler. Please</span>
+<span class="sd">    consult scipy help for more help on intrinsic/extrinsic angles and the</span>
+<span class="sd">    `seq` parameter.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">R</span> <span class="o">=</span> <span class="n">transform</span><span class="o">.</span><span class="n">Rotation</span><span class="o">.</span><span class="n">from_matrix</span><span class="p">(</span><span class="n">T</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
@@ -1339,85 +1341,41 @@ title="Fullscreen mode"
     <span class="n">yz</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Create a Nx4x4 series of frames based on series of points and vectors.</span>
-
-<span class="sd">    Create reference frames based on points and vectors and return this series</span>
-<span class="sd">    of reference frames as a series of transformation matrices.</span>
-
-<span class="sd">    This function&#39;s behaviour is better explained using an example. We will</span>
-<span class="sd">    create reference frames for the right humerus, based on the recommendations</span>
-<span class="sd">    of the International Society of Biomechanics [1]. Lets say we have</span>
-<span class="sd">    constructed series of points for the glenohumeral joint (GH), lateral elbow</span>
-<span class="sd">    epicondyle (EL) and medial elbow epicondyle (EM). Following the ISB:</span>
-
-<span class="sd">        1. The origin is GH;</span>
-<span class="sd">        2. The y axis is the line between GH and the midpoint of EL and EM,</span>
-<span class="sd">           pointing to GH;</span>
-<span class="sd">        3. The x axis is the normal to the GH-EL-EM plane, pointing forward;</span>
-<span class="sd">           which means that GH-EL-EM is a yz plane.</span>
-<span class="sd">        4. The z axis is perpendicular to x and y, pointing to the right.</span>
-
-<span class="sd">    Therefore:</span>
-
-<span class="sd">        1. origin = GH</span>
-<span class="sd">        2. y = GH - (EL + EM) / 2</span>
-<span class="sd">        3. yz = EL - EM  # The x axis is formed by cross(y, yz)</span>
-<span class="sd">        4. reference_frames = ktk.geometry.create_reference_frames(</span>
-<span class="sd">            origin=origin, y=y, yz=yz)</span>
-
-<span class="sd">    Warning</span>
-<span class="sd">    -------</span>
-<span class="sd">    This function, which has been introduced in 0.4, is still experimental and</span>
-<span class="sd">    may change signature or behaviour in the future.</span>
+<span class="sd">    Create an Nx4x4 series of frames based on series of points and vectors.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    origin</span>
 <span class="sd">        A series of N points (Nx4) that corresponds to the origin of the</span>
-<span class="sd">        returned reference frames.</span>
+<span class="sd">        series of frames to be created.</span>
 
 <span class="sd">    x|y|z</span>
-<span class="sd">        A series of N vectors (Nx4) that are aligned toward the {x|y|z}</span>
-<span class="sd">        axis of the returned reference frames.</span>
+<span class="sd">        Define either `x`, `y` or `z`. A series of N vectors (Nx4) that</span>
+<span class="sd">        are aligned toward the {x|y|z} series of frames to be created.</span>
 
 <span class="sd">    xy|xz</span>
-<span class="sd">        When x is specified, a series of N vectors (Nx4) in the {xy|xz} plane</span>
-<span class="sd">        of the returned reference frames.</span>
+<span class="sd">        Only if `x` is specified. A series of N vectors (Nx4) in the {xy|xz}</span>
+<span class="sd">        plane of the series of frames to be created. As a rule of thumb, use</span>
+<span class="sd">        a series of N vectors that correspond roughly to the {z|-y} axis.</span>
 
 <span class="sd">    xy|yz</span>
-<span class="sd">        When y is specified, a series of N vectors (Nx4) in the {xy|yz} plane</span>
-<span class="sd">        of the returned reference frames.</span>
+<span class="sd">        Only if `y` is specified. A series of N vectors (Nx4) in the {xy|yz}</span>
+<span class="sd">        plane of the series of frames to be created. As a rule of thumb, use</span>
+<span class="sd">        a series of N vectors that correspond roughly to the {z|x} axis.</span>
 
 <span class="sd">    xz|yz</span>
-<span class="sd">        When z is specified, a series of N vectors (Nx4) in the {xz|yz} plane</span>
-<span class="sd">        of the returned reference frames.</span>
+<span class="sd">        Only if `z` is specified. A series of N vectors (Nx4) in the {xz|yz}</span>
+<span class="sd">        plane of the series of frames to be created. As a rule of thumb, use</span>
+<span class="sd">        a series of N vectors that correspond roughly to the {-y|x} axis.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    np.ndarray</span>
-<span class="sd">        Series of transformation matrices (Nx4x4).</span>
+<span class="sd">        Series of frames (Nx4x4).</span>
 
-<span class="sd">    Examples</span>
+<span class="sd">    See also</span>
 <span class="sd">    --------</span>
-<span class="sd">    Create a translated reference frame using 3 points:</span>
-
-<span class="sd">        &gt;&gt;&gt; import kineticstoolkit.lab as ktk</span>
-<span class="sd">        &gt;&gt;&gt; origin = [[2., 2., 2., 1.]]</span>
-<span class="sd">        &gt;&gt;&gt; x = [[10., 0., 0., 0.]]</span>
-<span class="sd">        &gt;&gt;&gt; xy = [[10., 10., 0., 0.]]</span>
-<span class="sd">        &gt;&gt;&gt; rf = ktk.geometry.create_frames(origin, x=x, xy=xy)</span>
-<span class="sd">        &gt;&gt;&gt; rf</span>
-<span class="sd">        array([[[1., 0., 0., 2.],</span>
-<span class="sd">                [0., 1., 0., 2.],</span>
-<span class="sd">                [0., 0., 1., 2.],</span>
-<span class="sd">                [0., 0., 0., 1.]]])</span>
-
-<span class="sd">    References</span>
-<span class="sd">    ----------</span>
-<span class="sd">    1. G. Wu et al., &quot;ISB recommendation on definitions of joint</span>
-<span class="sd">       coordinate systems of various joints for the reporting of human joint</span>
-<span class="sd">       motion - Part II: shoulder, elbow, wrist and hand,&quot; Journal of</span>
-<span class="sd">       Biomechanics, vol. 38, no. 5, pp. 981--992, 2005.</span>
+<span class="sd">    ktk.geometry.create_transforms</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -1499,6 +1457,10 @@ title="Fullscreen mode"
 <span class="sd">        Series of local coordinates in the same shape than</span>
 <span class="sd">        `global_coordinates`.</span>
 
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    ktk.geometry.get_global_coordinates</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">n_samples</span> <span class="o">=</span> <span class="n">global_coordinates</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
@@ -1558,6 +1520,10 @@ title="Fullscreen mode"
 <span class="sd">        Series of global coordinates in the same shape than</span>
 <span class="sd">        `local_coordinates`.</span>
 
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    ktk.geometry.get_local_coordinates</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">global_coordinates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">local_coordinates</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
     <span class="n">global_coordinates</span> <span class="o">=</span> <span class="n">matmul</span><span class="p">(</span><span class="n">reference_frames</span><span class="p">,</span> <span class="n">local_coordinates</span><span class="p">)</span>
@@ -1599,8 +1565,8 @@ title="Fullscreen mode"
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    2x np.ndarray</span>
-<span class="sd">        References or copies of op1 and op2 now matched in size.</span>
+<span class="sd">    Tuple of two np.ndarray</span>
+<span class="sd">        op1 and op2, now matched in size.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">op1</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
@@ -1621,11 +1587,6 @@ title="Fullscreen mode"
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Find the homogeneous transforms between two series of point clouds.</span>
 
-<span class="sd">    Warning</span>
-<span class="sd">    -------</span>
-<span class="sd">    This function, which has been introduced in 0.4, is still experimental and</span>
-<span class="sd">    may change signature or behaviour in the future.</span>
-
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    global_points : array of shape Nx4xM</span>
@@ -1639,6 +1600,12 @@ title="Fullscreen mode"
 <span class="sd">    np.ndarray</span>
 <span class="sd">        Array of shape Nx4x4, expressing a series of 4x4 homogeneous</span>
 <span class="sd">        transforms.</span>
+
+<span class="sd">    Warning</span>
+<span class="sd">    -------</span>
+<span class="sd">    This function, which has been introduced in 0.4, is still experimental and</span>
+<span class="sd">    may change signature or behaviour in the future. Namely, the names of the</span>
+<span class="sd">    parameters may change in the future.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">n_samples</span> <span class="o">=</span> <span class="n">global_points</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>

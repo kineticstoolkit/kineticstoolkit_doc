@@ -210,7 +210,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../../geometry_dimension_conventions.html">
-       Dimension conventions and first example
+       Dimension conventions
       </a>
      </li>
     </ul>
@@ -805,7 +805,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../python_for_beginners.html">
-   Learning Python for biomechanics
+   🚧 Learning Python for biomechanics
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
   <label for="toctree-checkbox-18">
@@ -1095,7 +1095,6 @@ title="Fullscreen mode"
     <span class="n">max_durations</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">Inf</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">Inf</span><span class="p">],</span>
     <span class="n">min_peak_heights</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">Inf</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">Inf</span><span class="p">],</span>
     <span class="n">max_peak_heights</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">Inf</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">Inf</span><span class="p">],</span>
-    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Detect cycles in a TimeSeries based on a dual threshold approach.</span>
@@ -1103,32 +1102,28 @@ title="Fullscreen mode"
 <span class="sd">    This function detects biphasic cycles and identifies the transitions as</span>
 <span class="sd">    new events in the output TimeSeries. These new events are named:</span>
 
-<span class="sd">    - `event_name1`:</span>
+<span class="sd">    - event_names[0]:</span>
 <span class="sd">      corresponds to the start of phase 1</span>
-<span class="sd">    - `event_name2`:</span>
+<span class="sd">    - event_names[1]:</span>
 <span class="sd">      corresponds to the start of phase 2</span>
 <span class="sd">    - &#39;_&#39;:</span>
 <span class="sd">      corresponds to the end of the cycle.</span>
-
-<span class="sd">    Warning</span>
-<span class="sd">    -------</span>
-<span class="sd">    This function, which has been introduced in 0.4, is still experimental and</span>
-<span class="sd">    may change signature or behaviour in the future.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    ts</span>
 <span class="sd">        TimeSeries to analyze.</span>
 <span class="sd">    data_key</span>
-<span class="sd">        Name of the data key to analyze in the TimeSeries.</span>
+<span class="sd">        Name of the data key to analyze in the TimeSeries. This data must be</span>
+<span class="sd">        unidimensional.</span>
 <span class="sd">    event_names</span>
-<span class="sd">        Optional. Name of the events to add in the output TimeSeries. Default</span>
-<span class="sd">        is [&#39;phase1&#39;, &#39;phase2&#39;].</span>
+<span class="sd">        Optional. Event names to add in the output TimeSeries. Default is</span>
+<span class="sd">        [&#39;phase1&#39;, &#39;phase2&#39;].</span>
 <span class="sd">    thresholds</span>
-<span class="sd">        Optional. Value to cross to register phase changes. Default is</span>
+<span class="sd">        Optional. Values to cross to register phase changes. Default is</span>
 <span class="sd">        [0., 1.].</span>
 <span class="sd">    directions</span>
-<span class="sd">        Optional. Direction to cross thresholds to register phase changes.</span>
+<span class="sd">        Optional. Directions to cross thresholds to register phase changes.</span>
 <span class="sd">        Either [&#39;rising&#39;, &#39;falling&#39;] or [&#39;falling&#39;, &#39;rising&#39;]. Default is</span>
 <span class="sd">        [&#39;rising&#39;, &#39;falling&#39;].</span>
 <span class="sd">    min_durations</span>
@@ -1146,7 +1141,7 @@ title="Fullscreen mode"
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    TimeSeries</span>
-<span class="sd">        A copy of ts with the events added.</span>
+<span class="sd">        A copy of `ts` with the events added.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># lowercase directions[0] once</span>
@@ -1233,7 +1228,6 @@ title="Fullscreen mode"
 
 <div class="viewcode-block" id="time_normalize"><a class="viewcode-back" href="../../api/ktk.cycles.time_normalize.html#ktk.cycles.time_normalize">[docs]</a><span class="k">def</span> <span class="nf">time_normalize</span><span class="p">(</span>
     <span class="n">ts</span><span class="p">:</span> <span class="n">TimeSeries</span><span class="p">,</span>
-    <span class="o">/</span><span class="p">,</span>
     <span class="n">event_name1</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">event_name2</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
@@ -1269,19 +1263,20 @@ title="Fullscreen mode"
 <span class="sd">    TimeSeries</span>
 <span class="sd">        A new TimeSeries where each cycle has been time-normalized.</span>
 
-<span class="sd">    Notes</span>
-<span class="sd">    -----</span>
+<span class="sd">    Warning</span>
+<span class="sd">    -------</span>
 <span class="sd">    The span argument is experimental and has been introduced in version 0.4.</span>
-<span class="sd">    Use it to define which normalized points to include in the output</span>
-<span class="sd">    TimeSeries. For example, to normalize in percents and to include only data</span>
-<span class="sd">    from 10 to 90% of each cycle, assign 100 to n_points and [10, 90] to span.</span>
-<span class="sd">    The resulting TimeSeries will then be expressed in percents and wrap each</span>
-<span class="sd">    80 points. It is also possible to include pre-cycle or post-cycle data.</span>
-<span class="sd">    For example, to normalize in percents and to include 20% pre-cycle and 15%</span>
-<span class="sd">    post-cycle, assign 100 to n_points and [-20, 15] to span. The resulting</span>
-<span class="sd">    TimeSeries will then wrap each 135 points with the cycles starting at 20,</span>
-<span class="sd">    155, etc. and ending at 119, 254, etc. For each cycle, events outside the</span>
-<span class="sd">    0-100% spans are ignored.</span>
+<span class="sd">    **The following behaviour may change in the future**. Don&#39;t rely on it in</span>
+<span class="sd">    long-term scripts for now. You can use it to define which normalized</span>
+<span class="sd">    points to include in the output TimeSeries. For example, to normalize in</span>
+<span class="sd">    percents and to include only data from 10 to 90% of each cycle, assign</span>
+<span class="sd">    100 to n_points and [10, 90] to span. The resulting TimeSeries will then</span>
+<span class="sd">    be expressed in percents and wrap each 80 points. It is also possible to</span>
+<span class="sd">    include pre-cycle or post-cycle data. For example, to normalize in</span>
+<span class="sd">    percents and to include 20% pre-cycle and 15% post-cycle, assign 100 to</span>
+<span class="sd">    n_points and [-20, 15] to span. The resulting TimeSeries will then wrap</span>
+<span class="sd">    each 135 points with the cycles starting at 20, 155, etc. and ending at</span>
+<span class="sd">    119, 254, etc. For each cycle, events outside the 0-100% spans are ignored.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># Optional span</span>
@@ -1430,12 +1425,12 @@ title="Fullscreen mode"
     <span class="k">return</span> <span class="n">dest_ts</span></div>
 
 
-<div class="viewcode-block" id="stack"><a class="viewcode-back" href="../../api/ktk.cycles.stack.html#ktk.cycles.stack">[docs]</a><span class="k">def</span> <span class="nf">stack</span><span class="p">(</span><span class="n">ts</span><span class="p">:</span> <span class="n">TimeSeries</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span> <span class="n">n_points</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<div class="viewcode-block" id="stack"><a class="viewcode-back" href="../../api/ktk.cycles.stack.html#ktk.cycles.stack">[docs]</a><span class="k">def</span> <span class="nf">stack</span><span class="p">(</span><span class="n">ts</span><span class="p">:</span> <span class="n">TimeSeries</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">n_points</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Stack time-normalized TimeSeries&#39; data into a dict of arrays.</span>
 
 <span class="sd">    This methods returns the data of a time-normalized TimeSeries as a dict</span>
-<span class="sd">    where each key corresponds to a TimeSeries&#39; data, and contains a numpy</span>
+<span class="sd">    where each key corresponds to a TimeSeries&#39; data key, and contains a numpy</span>
 <span class="sd">    array where the first dimension is the cycle, the second dimension is the</span>
 <span class="sd">    percentage of cycle, and the other dimensions are the data itself.</span>
 
@@ -1453,7 +1448,7 @@ title="Fullscreen mode"
 
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
-<span class="sd">    kineticstoolkit.cycles.unstack</span>
+<span class="sd">    ktk.cycles.unstack</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">time</span><span class="p">),</span> <span class="n">n_points</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
@@ -1587,10 +1582,7 @@ title="Fullscreen mode"
 <span class="sd">    last cycles, then the last-removed cycle, and so on. If two cycles are as</span>
 <span class="sd">    equivalently repeatable, they are returned in order of appearance.</span>
 
-<span class="sd">    Note</span>
-<span class="sd">    ----</span>
 <span class="sd">    Cycles that include at least one NaN are excluded.</span>
-
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>

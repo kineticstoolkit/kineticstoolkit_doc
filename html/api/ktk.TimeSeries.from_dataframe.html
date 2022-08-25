@@ -213,7 +213,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../geometry_dimension_conventions.html">
-       Dimension conventions and first example
+       Dimension conventions
       </a>
      </li>
     </ul>
@@ -808,7 +808,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../python_for_beginners.html">
-   Learning Python for biomechanics
+   🚧 Learning Python for biomechanics
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
   <label for="toctree-checkbox-18">
@@ -1094,26 +1094,61 @@ title="Print to PDF"
 <dt class="sig sig-object py" id="ktk.TimeSeries.from_dataframe">
 <span class="sig-prename descclassname"><span class="pre">TimeSeries.</span></span><span class="sig-name descname"><span class="pre">from_dataframe</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kineticstoolkit/timeseries.html#TimeSeries.from_dataframe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ktk.TimeSeries.from_dataframe" title="Permalink to this definition">#</a></dt>
 <dd><p>Create a new TimeSeries from a Pandas Dataframe.</p>
+<p>Data in column which names end with bracketed indices such as
+[0], [1], [0,0], [0,1], etc. are converted to multidimensional
+arrays. For example, if a DataFrame has these column names:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;Forces[0]&#39;</span><span class="p">,</span> <span class="s1">&#39;Forces[1]&#39;</span><span class="p">,</span> <span class="s1">&#39;Forces[2]&#39;</span><span class="p">,</span> <span class="s1">&#39;Forces[3]&#39;</span>
+</pre></div>
+</div>
+<p>then a single data key is created (‘Forces’) and the shape of the
+data is Nx4.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>dataframe</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">DataFrame</span></code>) – A Pandas DataFrame where the index corresponds to time, and
-where each column corresponds to a data key. As special cases,
-data in column which names end with bracketed indices such as
-[0], [1], [0,0], [0,1], etc. are converted to multidimensional
-arrays. For example, if a DataFrame has these column names:
-[‘Forces[0]’, ‘Forces[1]’, ‘Forces[2]’, ‘Forces[3]’],
-then a single data key is created (Forces) and the data itself
-will be of shape Nx4, N being the number of samples (the length
-of the DataFrame).</p>
+where each column corresponds to a data key.</p>
 </dd>
-</dl>
-<p class="rubric">Example</p>
-<p>ts = ktk.TimeSeries.from_dataframe(the_dataframe)</p>
-<dl class="field-list simple">
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The converted TimeSeries.</p>
+</dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="ktk.TimeSeries.html#ktk.TimeSeries" title="kineticstoolkit.timeseries.TimeSeries"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeSeries</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="ktk.TimeSeries.html#ktk.TimeSeries" title="ktk.TimeSeries">TimeSeries</a></p>
 </dd>
 </dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="ktk.TimeSeries.to_dataframe.html#ktk.TimeSeries.to_dataframe" title="ktk.TimeSeries.to_dataframe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.TimeSeries.to_dataframe</span></code></a></p>
+</div>
+<p class="rubric">Examples</p>
+<p>Example with unidimensional data:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">],</span> <span class="p">[</span><span class="mf">5.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;data1&#39;</span><span class="p">,</span> <span class="s1">&#39;data2&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span>
+<span class="go">   data1  data2</span>
+<span class="go">0    1.0    2.0</span>
+<span class="go">1    3.0    4.0</span>
+<span class="go">2    5.0    6.0</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">TimeSeries</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span><span class="o">.</span><span class="n">data</span>
+<span class="go">{&#39;data1&#39;: array([1., 3., 5.]), &#39;data2&#39;: array([2., 4., 6.])}</span>
+</pre></div>
+</div>
+<p>Example with multidimensional data:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;data[0]&#39;</span><span class="p">,</span> <span class="s1">&#39;data[1]&#39;</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span>
+<span class="go">   data[0]  data[1]</span>
+<span class="go">0      1.0      2.0</span>
+<span class="go">1      3.0      4.0</span>
+<span class="go">2      5.0      6.0</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">TimeSeries</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span><span class="o">.</span><span class="n">data</span>
+<span class="go">{&#39;data&#39;: array([[1., 2.], [3., 4.], [5., 6.]])}</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </section>

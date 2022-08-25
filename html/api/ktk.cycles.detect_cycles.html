@@ -213,7 +213,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../geometry_dimension_conventions.html">
-       Dimension conventions and first example
+       Dimension conventions
       </a>
      </li>
     </ul>
@@ -808,7 +808,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../python_for_beginners.html">
-   Learning Python for biomechanics
+   🚧 Learning Python for biomechanics
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
   <label for="toctree-checkbox-18">
@@ -1092,33 +1092,29 @@ title="Print to PDF"
 <h1>ktk.cycles.detect_cycles<a class="headerlink" href="#ktk-cycles-detect-cycles" title="Permalink to this headline">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="ktk.cycles.detect_cycles">
-<span class="sig-name descname"><span class="pre">detect_cycles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_key</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['phase1',</span> <span class="pre">'phase2']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thresholds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0.0,</span> <span class="pre">1.0]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['rising',</span> <span class="pre">'falling']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_durations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0.0,</span> <span class="pre">0.0]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_durations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[inf,</span> <span class="pre">inf]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_peak_heights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[-</span> <span class="pre">inf,</span> <span class="pre">-</span> <span class="pre">inf]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_peak_heights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[inf,</span> <span class="pre">inf]</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ktk/cycles.html#detect_cycles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ktk.cycles.detect_cycles" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">detect_cycles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_key</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">event_names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['phase1',</span> <span class="pre">'phase2']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">thresholds</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0.0,</span> <span class="pre">1.0]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">directions</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">['rising',</span> <span class="pre">'falling']</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_durations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[0.0,</span> <span class="pre">0.0]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_durations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[inf,</span> <span class="pre">inf]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_peak_heights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[-</span> <span class="pre">inf,</span> <span class="pre">-</span> <span class="pre">inf]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_peak_heights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[inf,</span> <span class="pre">inf]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ktk/cycles.html#detect_cycles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ktk.cycles.detect_cycles" title="Permalink to this definition">#</a></dt>
 <dd><p>Detect cycles in a TimeSeries based on a dual threshold approach.</p>
 <p>This function detects biphasic cycles and identifies the transitions as
 new events in the output TimeSeries. These new events are named:</p>
 <ul class="simple">
-<li><p><cite>event_name1</cite>:
+<li><p>event_names[0]:
 corresponds to the start of phase 1</p></li>
-<li><p><cite>event_name2</cite>:
+<li><p>event_names[1]:
 corresponds to the start of phase 2</p></li>
 <li><p>‘_’:
 corresponds to the end of the cycle.</p></li>
 </ul>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This function, which has been introduced in 0.4, is still experimental and
-may change signature or behaviour in the future.</p>
-</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>ts</strong> (<a class="reference internal" href="ktk.TimeSeries.html#ktk.TimeSeries" title="kineticstoolkit.timeseries.TimeSeries"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeSeries</span></code></a>) – TimeSeries to analyze.</p></li>
-<li><p><strong>data_key</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Name of the data key to analyze in the TimeSeries.</p></li>
-<li><p><strong>event_names</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – Optional. Name of the events to add in the output TimeSeries. Default
-is [‘phase1’, ‘phase2’].</p></li>
-<li><p><strong>thresholds</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]) – Optional. Value to cross to register phase changes. Default is
+<li><p><strong>data_key</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Name of the data key to analyze in the TimeSeries. This data must be
+unidimensional.</p></li>
+<li><p><strong>event_names</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – Optional. Event names to add in the output TimeSeries. Default is
+[‘phase1’, ‘phase2’].</p></li>
+<li><p><strong>thresholds</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]) – Optional. Values to cross to register phase changes. Default is
 [0., 1.].</p></li>
-<li><p><strong>directions</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – Optional. Direction to cross thresholds to register phase changes.
+<li><p><strong>directions</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]) – Optional. Directions to cross thresholds to register phase changes.
 Either [‘rising’, ‘falling’] or [‘falling’, ‘rising’]. Default is
 [‘rising’, ‘falling’].</p></li>
 <li><p><strong>min_durations</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>]) – Optional. Minimal phase durations in seconds. Default is [0., 0.].</p></li>
@@ -1131,7 +1127,7 @@ Either [‘rising’, ‘falling’] or [‘falling’, ‘rising’]. Default i
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A copy of ts with the events added.</p>
+<dd class="field-even"><p>A copy of <cite>ts</cite> with the events added.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference internal" href="ktk.TimeSeries.html#ktk.TimeSeries" title="ktk.TimeSeries">TimeSeries</a></p>

@@ -213,7 +213,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../geometry_dimension_conventions.html">
-       Dimension conventions and first example
+       Dimension conventions
       </a>
      </li>
     </ul>
@@ -808,7 +808,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../python_for_beginners.html">
-   Learning Python for biomechanics
+   🚧 Learning Python for biomechanics
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
   <label for="toctree-checkbox-18">
@@ -1102,13 +1102,16 @@ title="Print to PDF"
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>The index in the time vector. If no value is after the
-specified time, a value of np.nan is returned.</p>
+<dd class="field-even"><p>The index in the time vector, or nan if the time vector is empty.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>int</p>
+<dd class="field-odd"><p>int or float</p>
 </dd>
 </dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="ktk.TimeSeries.get_index_at_time.html#ktk.TimeSeries.get_index_at_time" title="ktk.TimeSeries.get_index_at_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.TimeSeries.get_index_at_time</span></code></a>, <a class="reference internal" href="ktk.TimeSeries.get_index_before_time.html#ktk.TimeSeries.get_index_before_time" title="ktk.TimeSeries.get_index_before_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.TimeSeries.get_index_before_time</span></code></a></p>
+</div>
 <p class="rubric">Example</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">TimeSeries</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">]))</span>
 </pre></div>

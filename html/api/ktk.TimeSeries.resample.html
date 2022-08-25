@@ -213,7 +213,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../geometry_dimension_conventions.html">
-       Dimension conventions and first example
+       Dimension conventions
       </a>
      </li>
     </ul>
@@ -808,7 +808,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../python_for_beginners.html">
-   Learning Python for biomechanics
+   🚧 Learning Python for biomechanics
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
   <label for="toctree-checkbox-18">
@@ -1117,6 +1117,24 @@ original TimeSeries intact. The default is False.</p></li>
 <dd class="field-odd"><p><a class="reference internal" href="ktk.TimeSeries.html#ktk.TimeSeries" title="ktk.TimeSeries">TimeSeries</a></p>
 </dd>
 </dl>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>While it is possible to resample series of points or vectors,
+attempting to resample a series of homogeneous matrices would likely
+produce non-homogeneous matrices, and as a result, transforms would not
+be rigid anymore. This function can’t detect if you attempt to resample
+series of homogeneous matrices, and therefore won’t generate an
+error or warning.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This function, which was introduced in version 0.9, is still
+experimental and may slightly change behaviour in future versions.</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="ktk.TimeSeries.get_sample_rate.html#ktk.TimeSeries.get_sample_rate" title="ktk.TimeSeries.get_sample_rate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.TimeSeries.get_sample_rate</span></code></a></p>
+</div>
 <p class="rubric">Example</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">TimeSeries</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">6.</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">time</span> <span class="o">**</span> <span class="mi">2</span>
@@ -1144,18 +1162,6 @@ original TimeSeries intact. The default is False.</p></li>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;data_with_nans&#39;</span><span class="p">]</span>
 <span class="go">array([ 0. ,  0.5,  1. ,  2.5,  4. ,  nan,  nan,  nan, 16. , 20.5, 25. ])</span>
 </pre></div>
-</div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This function, which was introduced in version 0.9, is still
-experimental and may slightly change behaviour in future versions.</p>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Please note that while it is possible to resample series of points
-or vectors, it is impossible to resample a series of homogeneous
-matrices directly. This function won’t generate a warning or error
-if you do.</p>
 </div>
 </dd></dl>
 

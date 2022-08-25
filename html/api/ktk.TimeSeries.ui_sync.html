@@ -213,7 +213,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../geometry_dimension_conventions.html">
-       Dimension conventions and first example
+       Dimension conventions
       </a>
      </li>
     </ul>
@@ -808,7 +808,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../python_for_beginners.html">
-   Learning Python for biomechanics
+   🚧 Learning Python for biomechanics
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
   <label for="toctree-checkbox-18">
@@ -1098,20 +1098,14 @@ title="Print to PDF"
 interface asks the user to click on the time to set to zero.</p>
 <p>If another TimeSeries is given, an interactive interface allows
 synchronizing both TimeSeries together.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This function, which has been introduced in 0.1, is still experimental
-and may change signature or behaviour in the future.</p>
-</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>data_keys</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – Optional. The data keys to plot. If kept tempy, all data is
-plotted.</p></li>
-<li><p><strong>ts2</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<a class="reference internal" href="ktk.TimeSeries.html#ktk.TimeSeries" title="kineticstoolkit.timeseries.TimeSeries"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeSeries</span></code></a>]) – Optional. A second TimeSeries that contains both a recognizable
-zero-time event and a common event with the first TimeSeries.</p></li>
+<li><p><strong>data_keys</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – Optional. The data keys to plot. If empty, all data is plotted.</p></li>
+<li><p><strong>ts2</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<a class="reference internal" href="ktk.TimeSeries.html#ktk.TimeSeries" title="kineticstoolkit.timeseries.TimeSeries"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeSeries</span></code></a>]) – Optional. A second TimeSeries to be synced to the first one. This
+TimeSeries is modified in place.</p></li>
 <li><p><strong>data_keys2</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]) – Optional. The data keys from the second TimeSeries to plot. If
-kept tempy, all data is plotted.</p></li>
+empty, all data is plotted.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1121,9 +1115,18 @@ kept tempy, all data is plotted.</p></li>
 <dd class="field-odd"><p><a class="reference internal" href="ktk.TimeSeries.html#ktk.TimeSeries" title="ktk.TimeSeries">TimeSeries</a></p>
 </dd>
 </dl>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>The TimeSeries ts2 is modified in place.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This function, which has been introduced in 0.1, is still experimental
+and may change signature or behaviour in the future.</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="ktk.TimeSeries.sync_event.html#ktk.TimeSeries.sync_event" title="ktk.TimeSeries.sync_event"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.TimeSeries.sync_event</span></code></a>, <a class="reference internal" href="ktk.TimeSeries.shift.html#ktk.TimeSeries.shift" title="ktk.TimeSeries.shift"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.TimeSeries.shift</span></code></a></p>
+</div>
+<div class="admonition-notes admonition">
+<p class="admonition-title">Notes</p>
+<p>Matplotlib must be in interactive mode for this method to work.</p>
 </div>
 </dd></dl>
 

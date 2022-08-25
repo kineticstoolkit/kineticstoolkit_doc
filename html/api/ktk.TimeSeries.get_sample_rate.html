@@ -213,7 +213,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../geometry_dimension_conventions.html">
-       Dimension conventions and first example
+       Dimension conventions
       </a>
      </li>
     </ul>
@@ -808,7 +808,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../python_for_beginners.html">
-   Learning Python for biomechanics
+   🚧 Learning Python for biomechanics
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
   <label for="toctree-checkbox-18">
@@ -1096,9 +1096,9 @@ title="Print to PDF"
 <dd><p>Get the sample rate in samples/s.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>The sample rate in samples per second. If time is empty or has only one
-data, or if sample rate is variable, or if time is not monotonously
-increasing, a value of np.nan is returned.</p>
+<dd class="field-odd"><p>The sample rate in samples per second. If time is empty or has only
+one data, or if sample rate is variable, or if time is not
+monotonously increasing, a value of np.nan is returned.</p>
 </dd>
 <dt class="field-even">Return type</dt>
 <dd class="field-even"><p>float</p>
@@ -1107,7 +1107,14 @@ increasing, a value of np.nan is returned.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This feature, which has been introduced in version 0.9, is still
-experimental and may change in the future.</p>
+experimental and may change in the future. In particular, the value
+returned if the sample rate is not constant: it is np.nan in all cases
+for now, but it could change in the future based on discussions and
+particular use cases.</p>
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="ktk.TimeSeries.resample.html#ktk.TimeSeries.resample" title="ktk.TimeSeries.resample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.TimeSeries.resample</span></code></a></p>
 </div>
 </dd></dl>
 

@@ -213,7 +213,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../geometry_dimension_conventions.html">
-       Dimension conventions and first example
+       Dimension conventions
       </a>
      </li>
     </ul>
@@ -808,7 +808,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../python_for_beginners.html">
-   Learning Python for biomechanics
+   🚧 Learning Python for biomechanics
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
   <label for="toctree-checkbox-18">
@@ -1103,23 +1103,26 @@ title="Print to PDF"
 </ul>
 </dd>
 </dl>
-<p class="rubric">Example</p>
-<p>If a TimeSeries <cite>ts</cite>’ data attribute as keys ‘Forces’, ‘Moments’ and
-‘Angle’, then:</p>
-<blockquote>
-<div><p>ts.plot()</p>
-</div></blockquote>
-<p>plots all data (Forces, Moments and Angle), whereas:</p>
-<blockquote>
-<div><p>ts.plot([‘Forces’, ‘Moments’])</p>
-</div></blockquote>
-<p>plots only the forces and moments, without plotting the angle.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>Additional positional and keyboard arguments are passed to
-matplotlib’s pyplot.plot function:</p>
-<blockquote>
-<div><p>ts.plot([‘Forces’], ‘–‘)</p>
-</div></blockquote>
+matplotlib’s <code class="docutils literal notranslate"><span class="pre">pyplot.plot</span></code> function:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="s1">&#39;Forces&#39;</span><span class="p">],</span> <span class="s1">&#39;--&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>plots the forces using a dashed line style.</p>
+</div>
+<p class="rubric">Example</p>
+<p>For a TimeSeries <code class="docutils literal notranslate"><span class="pre">ts</span></code> with data keys being ‘Forces’, ‘Moments’ and
+‘Angle’:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>plots all data (Forces, Moments and Angle), whereas:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="s1">&#39;Forces&#39;</span><span class="p">,</span> <span class="s1">&#39;Moments&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>plots only the forces and moments, without plotting the angle.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></p>

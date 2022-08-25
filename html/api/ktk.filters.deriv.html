@@ -213,7 +213,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../geometry_dimension_conventions.html">
-       Dimension conventions and first example
+       Dimension conventions
       </a>
      </li>
     </ul>
@@ -808,7 +808,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../python_for_beginners.html">
-   Learning Python for biomechanics
+   🚧 Learning Python for biomechanics
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
   <label for="toctree-checkbox-18">
@@ -1094,13 +1094,8 @@ title="Print to PDF"
 <dt class="sig sig-object py" id="ktk.filters.deriv">
 <span class="sig-name descname"><span class="pre">deriv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ts</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ktk/filters.html#deriv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ktk.filters.deriv" title="Permalink to this definition">#</a></dt>
 <dd><p>Calculate the nth numerical derivative.</p>
-<p>On n-dimensional data, filtering occurs on the first axis (time).</p>
-<div class="admonition-notes admonition">
-<p class="admonition-title">Notes</p>
-<ul class="simple">
-<li><p>The sample rate must be constant.</p></li>
-</ul>
-</div>
+<p>Filtering occurs on the first axis (time). The sample rate must be
+constant.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1109,17 +1104,15 @@ title="Print to PDF"
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A copy of the input TimeSeries, with n less points than the original
-one.</p>
+<dd class="field-even"><p>A copy of the input TimeSeries, which each data being derived. The
+length of the resulting TimeSeries is one less than <cite>ts</cite>.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference internal" href="ktk.TimeSeries.html#ktk.TimeSeries" title="ktk.TimeSeries">TimeSeries</a></p>
 </dd>
 <dt class="field-even">Raises</dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>ValueError if sample rate is not constant</strong><strong>, or </strong><strong>if there is no data to</strong> – </p></li>
-<li><p><strong>filter.</strong> – </p></li>
-</ul>
+<dd class="field-even"><p><strong>ValueError</strong> – If sample rate is not constant, or if there is no data to
+    filter.</p>
 </dd>
 </dl>
 <p class="rubric">Example</p>

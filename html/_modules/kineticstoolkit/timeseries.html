@@ -210,7 +210,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../../geometry_dimension_conventions.html">
-       Dimension conventions and first example
+       Dimension conventions
       </a>
      </li>
     </ul>
@@ -805,7 +805,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../../python_for_beginners.html">
-   Learning Python for biomechanics
+   🚧 Learning Python for biomechanics
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
   <label for="toctree-checkbox-18">
@@ -1354,8 +1354,8 @@ title="Fullscreen mode"
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Define an event in a timeseries.</span>
 
-<span class="sd">    This class is rarely used by itself, it is easier to use the `TimeSeries``</span>
-<span class="sd">    methods to deal with events.</span>
+<span class="sd">    This class is rarely used by itself, it is easier to use `TimeSeries`&#39;</span>
+<span class="sd">    methods to manage events.</span>
 
 <span class="sd">    Example</span>
 <span class="sd">    -------</span>
@@ -1413,10 +1413,7 @@ title="Fullscreen mode"
 
 <div class="viewcode-block" id="TimeSeries"><a class="viewcode-back" href="../../api/ktk.TimeSeries.html#ktk.TimeSeries">[docs]</a><span class="k">class</span> <span class="nc">TimeSeries</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    A class that implements TimeSeries.</span>
-
-<span class="sd">    This class implements a Timeseries in a way that resembles the timeseries</span>
-<span class="sd">    and tscollection found in Matlab.</span>
+<span class="sd">    A class that holds time, data series, events and metadata.</span>
 
 <span class="sd">    Attributes</span>
 <span class="sd">    ----------</span>
@@ -1432,9 +1429,9 @@ title="Fullscreen mode"
 
 <span class="sd">    data_info : Dict[str, Dict[str, Any]]</span>
 <span class="sd">        Contains facultative metadata relative to data. For example, the</span>
-<span class="sd">        data_info attribute could indicate the unit of data[&#39;Forces&#39;]:</span>
+<span class="sd">        data_info attribute could indicate the unit of data[&#39;Forces&#39;]::</span>
 
-<span class="sd">        data[&#39;Forces&#39;] = {&#39;Unit&#39;: &#39;N&#39;}.</span>
+<span class="sd">            data[&#39;Forces&#39;] = {&#39;Unit&#39;: &#39;N&#39;}</span>
 
 <span class="sd">        To facilitate the management of data_info, please use</span>
 <span class="sd">        `ktk.TimeSeries.add_data_info`.</span>
@@ -1444,7 +1441,7 @@ title="Fullscreen mode"
 
 <span class="sd">    Example</span>
 <span class="sd">    -------</span>
-<span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries(time=np.arange(0,100))</span>
+<span class="sd">    &gt;&gt;&gt; ts = ktk.TimeSeries(time=np.arange(0,100))</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -1618,14 +1615,49 @@ title="Fullscreen mode"
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create a DataFrame by reshaping all data to one bidimensional table.</span>
 
+<span class="sd">        Undimensional data is converted to a single column, and two-dimensional</span>
+<span class="sd">        (or more) data are converted to multiple columns with the additional</span>
+<span class="sd">        dimensions in brackets. The TimeSeries&#39;s events and metadata such as</span>
+<span class="sd">        `time_info` and `data_info` are not included in the resulting</span>
+<span class="sd">        DataFrame.</span>
+
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        DataFrame</span>
-<span class="sd">            DataFrame with the index as the TimeSeries&#39; time. Vector data are</span>
-<span class="sd">            converted to single columns, and two-dimensional (or more) data are</span>
-<span class="sd">            converted to multiple columns with the additional dimensions in</span>
-<span class="sd">            brackets. The TimeSeries&#39;s events and metadata such as time_info</span>
-<span class="sd">            and data_info are not included in the resulting DataFrame.</span>
+<span class="sd">        pd.DataFrame</span>
+<span class="sd">            DataFrame with the index as the TimeSeries&#39; time.</span>
+
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.from_dataframe</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Example with unidimensional data:</span>
+
+<span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries(time=np.arange(3) / 10)</span>
+<span class="sd">        &gt;&gt;&gt; ts.data[&#39;Data&#39;] = np.array([0.0, 2.0, 3.0])</span>
+<span class="sd">        &gt;&gt;&gt; ts.to_dataframe()</span>
+<span class="sd">             Data</span>
+<span class="sd">        0.0   0.0</span>
+<span class="sd">        0.1   2.0</span>
+<span class="sd">        0.2   3.0</span>
+
+<span class="sd">        Example with multidimensional data:</span>
+
+<span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries(time=np.arange(4) / 10)</span>
+<span class="sd">        &gt;&gt;&gt; ts.data[&#39;Data&#39;] = np.repeat([[0.0, 2.0, 3.0]], 4, axis=0)</span>
+<span class="sd">        &gt;&gt;&gt; ts.data[&#39;Data&#39;]</span>
+<span class="sd">        array([[0., 2., 3.],</span>
+<span class="sd">               [0., 2., 3.],</span>
+<span class="sd">               [0., 2., 3.],</span>
+<span class="sd">               [0., 2., 3.]])</span>
+
+<span class="sd">        &gt;&gt;&gt; ts.to_dataframe()</span>
+<span class="sd">              Data[0]  Data[1]  Data[2]</span>
+<span class="sd">         0.0      0.0      2.0      3.0</span>
+<span class="sd">         0.1      0.0      2.0      3.0</span>
+<span class="sd">         0.2      0.0      2.0      3.0</span>
+<span class="sd">         0.3      0.0      2.0      3.0</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">df</span> <span class="o">=</span> <span class="n">dict_of_arrays_to_dataframe</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
@@ -1636,22 +1668,59 @@ title="Fullscreen mode"
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create a new TimeSeries from a Pandas Dataframe.</span>
 
+<span class="sd">        Data in column which names end with bracketed indices such as</span>
+<span class="sd">        [0], [1], [0,0], [0,1], etc. are converted to multidimensional</span>
+<span class="sd">        arrays. For example, if a DataFrame has these column names::</span>
+
+<span class="sd">            &#39;Forces[0]&#39;, &#39;Forces[1]&#39;, &#39;Forces[2]&#39;, &#39;Forces[3]&#39;</span>
+
+<span class="sd">        then a single data key is created (&#39;Forces&#39;) and the shape of the</span>
+<span class="sd">        data is Nx4.</span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        dataframe</span>
 <span class="sd">            A Pandas DataFrame where the index corresponds to time, and</span>
-<span class="sd">            where each column corresponds to a data key. As special cases,</span>
-<span class="sd">            data in column which names end with bracketed indices such as</span>
-<span class="sd">            [0], [1], [0,0], [0,1], etc. are converted to multidimensional</span>
-<span class="sd">            arrays. For example, if a DataFrame has these column names:</span>
-<span class="sd">            [&#39;Forces[0]&#39;, &#39;Forces[1]&#39;, &#39;Forces[2]&#39;, &#39;Forces[3]&#39;],</span>
-<span class="sd">            then a single data key is created (Forces) and the data itself</span>
-<span class="sd">            will be of shape Nx4, N being the number of samples (the length</span>
-<span class="sd">            of the DataFrame).</span>
+<span class="sd">            where each column corresponds to a data key.</span>
 
-<span class="sd">        Example</span>
+<span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">            ts = ktk.TimeSeries.from_dataframe(the_dataframe)</span>
+<span class="sd">        TimeSeries</span>
+<span class="sd">            The converted TimeSeries.</span>
+
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.to_dataframe</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        Example with unidimensional data:</span>
+
+<span class="sd">        &gt;&gt;&gt; import pandas as pd</span>
+<span class="sd">        &gt;&gt;&gt; df = pd.DataFrame([[1., 2.], [3., 4.], [5., 6.]])</span>
+<span class="sd">        &gt;&gt;&gt; df.columns = [&#39;data1&#39;, &#39;data2&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; df</span>
+<span class="sd">           data1  data2</span>
+<span class="sd">        0    1.0    2.0</span>
+<span class="sd">        1    3.0    4.0</span>
+<span class="sd">        2    5.0    6.0</span>
+
+<span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries.from_dataframe(df)</span>
+<span class="sd">        &gt;&gt;&gt; ts.data</span>
+<span class="sd">        {&#39;data1&#39;: array([1., 3., 5.]), &#39;data2&#39;: array([2., 4., 6.])}</span>
+
+<span class="sd">        Example with multidimensional data:</span>
+
+<span class="sd">        &gt;&gt;&gt; df.columns = [&#39;data[0]&#39;, &#39;data[1]&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; df</span>
+<span class="sd">           data[0]  data[1]</span>
+<span class="sd">        0      1.0      2.0</span>
+<span class="sd">        1      3.0      4.0</span>
+<span class="sd">        2      5.0      6.0</span>
+
+<span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries.from_dataframe(df)</span>
+<span class="sd">        &gt;&gt;&gt; ts.data</span>
+<span class="sd">        {&#39;data&#39;: array([[1., 2.], [3., 4.], [5., 6.]])}</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">ts</span> <span class="o">=</span> <span class="n">TimeSeries</span><span class="p">()</span>
@@ -1688,15 +1757,15 @@ title="Fullscreen mode"
 <span class="sd">        TimeSeries</span>
 <span class="sd">            The TimeSeries with the added data info.</span>
 
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.remove_data_info</span>
+
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
-<span class="sd">        We create a TimeSeries with some data info:</span>
-
 <span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries()</span>
 <span class="sd">        &gt;&gt;&gt; ts = ts.add_data_info(&#39;Forces&#39;, &#39;Unit&#39;, &#39;N&#39;)</span>
 <span class="sd">        &gt;&gt;&gt; ts = ts.add_data_info(&#39;Marker1&#39;, &#39;Color&#39;, [43, 2, 255])</span>
-
-<span class="sd">        Let&#39;s see the result:</span>
 
 <span class="sd">        &gt;&gt;&gt; ts.data_info[&#39;Forces&#39;]</span>
 <span class="sd">        {&#39;Unit&#39;: &#39;N&#39;}</span>
@@ -1734,9 +1803,13 @@ title="Fullscreen mode"
 <span class="sd">        TimeSeries</span>
 <span class="sd">            The TimeSeries with the removed data info.</span>
 
-<span class="sd">        Note</span>
-<span class="sd">        ----</span>
+<span class="sd">        Caution</span>
+<span class="sd">        -------</span>
 <span class="sd">        No warning or exception is raised if the data key does not exist.</span>
+
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.add_data_info</span>
 
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
@@ -1778,6 +1851,14 @@ title="Fullscreen mode"
 <span class="sd">        -------</span>
 <span class="sd">        TimeSeries</span>
 <span class="sd">            The TimeSeries with the renamed data.</span>
+
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.remove_data</span>
+
+<span class="sd">        Caution</span>
+<span class="sd">        -------</span>
+<span class="sd">        No warning or exception is raised if the data key does not exist.</span>
 
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
@@ -1831,9 +1912,13 @@ title="Fullscreen mode"
 <span class="sd">        TimeSeries</span>
 <span class="sd">            The TimeSeries with the removed data.</span>
 
-<span class="sd">        Note</span>
-<span class="sd">        ----</span>
+<span class="sd">        Caution</span>
+<span class="sd">        -------</span>
 <span class="sd">        No warning or exception is raised if the data key does not exist.</span>
+
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.rename_data</span>
 
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
@@ -1891,6 +1976,14 @@ title="Fullscreen mode"
 <span class="sd">        TimeSeries</span>
 <span class="sd">            A copy of the TimeSeries with the added event.</span>
 
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.rename_event</span>
+<span class="sd">        ktk.TimeSeries.remove_event</span>
+<span class="sd">        ktk.TimeSeries.sort_events</span>
+<span class="sd">        ktk.TimeSeries.trim_events</span>
+<span class="sd">        ktk.TimeSeries.ui_edit_events</span>
+
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
 <span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries()</span>
@@ -1904,6 +1997,13 @@ title="Fullscreen mode"
 <span class="sd">         TimeSeriesEvent(time=2.3, name=&#39;event2&#39;)]</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;name must be a string.&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;time must be a number.&quot;</span><span class="p">)</span>
+
         <span class="n">ts</span> <span class="o">=</span> <span class="bp">self</span> <span class="k">if</span> <span class="n">in_place</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="n">ts</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">TimeSeriesEvent</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">name</span><span class="p">))</span>
         <span class="k">return</span> <span class="n">ts</span></div>
@@ -1938,6 +2038,18 @@ title="Fullscreen mode"
 <span class="sd">        -------</span>
 <span class="sd">        TimeSeries</span>
 <span class="sd">            The TimeSeries with the renamed event.</span>
+
+<span class="sd">        Caution</span>
+<span class="sd">        -------</span>
+<span class="sd">        No warning or exception is raised if the event does not exist.</span>
+
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.add_event</span>
+<span class="sd">        ktk.TimeSeries.remove_event</span>
+<span class="sd">        ktk.TimeSeries.sort_events</span>
+<span class="sd">        ktk.TimeSeries.trim_events</span>
+<span class="sd">        ktk.TimeSeries.ui_edit_events</span>
 
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
@@ -2015,6 +2127,18 @@ title="Fullscreen mode"
 <span class="sd">        TimeSeries</span>
 <span class="sd">            The TimeSeries with the removed event.</span>
 
+<span class="sd">        Caution</span>
+<span class="sd">        -------</span>
+<span class="sd">        No warning or exception is raised if the event does not exist.</span>
+
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.add_event</span>
+<span class="sd">        ktk.TimeSeries.rename_event</span>
+<span class="sd">        ktk.TimeSeries.sort_events</span>
+<span class="sd">        ktk.TimeSeries.trim_events</span>
+<span class="sd">        ktk.TimeSeries.ui_edit_events</span>
+
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
 <span class="sd">        &gt;&gt;&gt; # Instanciate a timeseries with some events</span>
@@ -2065,20 +2189,15 @@ title="Fullscreen mode"
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Edit events interactively.</span>
 
-<span class="sd">        Warning</span>
-<span class="sd">        -------</span>
-<span class="sd">        This function, which has been introduced in 0.6, is still experimental</span>
-<span class="sd">        and may change signature or behaviour in the future.</span>
-
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        name</span>
 <span class="sd">            Optional. The name of the event(s) to add. May be a string</span>
-<span class="sd">            or a list of strings. Event names can also be defined</span>
-<span class="sd">            interactively.</span>
+<span class="sd">            or a list of strings. These events appear on their own buttons</span>
+<span class="sd">            &quot;add `name`&quot;. Event names can also be defined interactively.</span>
 <span class="sd">        data_keys</span>
 <span class="sd">            Optional. A signal name of list of signal name to be plotted,</span>
-<span class="sd">            similar to the data_keys argument of ktk.TimeSeries.plot().</span>
+<span class="sd">            similar to the data_keys argument of ktk.TimeSeries.plot.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -2086,6 +2205,19 @@ title="Fullscreen mode"
 <span class="sd">            The original TimeSeries with the modified events. If</span>
 <span class="sd">            the operation was cancelled by the user, this is a pure copy of</span>
 <span class="sd">            the original TimeSeries.</span>
+
+<span class="sd">        Warning</span>
+<span class="sd">        -------</span>
+<span class="sd">        This function, which has been introduced in 0.6, is still experimental</span>
+<span class="sd">        and may change signature or behaviour in the future.</span>
+
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.add_event</span>
+<span class="sd">        ktk.TimeSeries.rename_event</span>
+<span class="sd">        ktk.TimeSeries.remove_event</span>
+<span class="sd">        ktk.TimeSeries.sort_events</span>
+<span class="sd">        ktk.TimeSeries.trim_events</span>
 
 <span class="sd">        Note</span>
 <span class="sd">        ----</span>
@@ -2266,6 +2398,14 @@ title="Fullscreen mode"
 <span class="sd">        TimeSeries</span>
 <span class="sd">            The TimeSeries with the sorted events.</span>
 
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.add_event</span>
+<span class="sd">        ktk.TimeSeries.rename_event</span>
+<span class="sd">        ktk.TimeSeries.remove_event</span>
+<span class="sd">        ktk.TimeSeries.trim_events</span>
+<span class="sd">        ktk.TimeSeries.ui_edit_events</span>
+
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
 <span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries(time=np.arange(100)/10)</span>
@@ -2378,25 +2518,27 @@ title="Fullscreen mode"
 <span class="sd">        legend</span>
 <span class="sd">            Optional. True to plot a legend, False otherwise.</span>
 
-<span class="sd">        Example</span>
-<span class="sd">        -------</span>
-<span class="sd">        If a TimeSeries `ts`&#39; data attribute as keys &#39;Forces&#39;, &#39;Moments&#39; and</span>
-<span class="sd">        &#39;Angle&#39;, then:</span>
-
-<span class="sd">            ts.plot()</span>
-
-<span class="sd">        plots all data (Forces, Moments and Angle), whereas:</span>
-
-<span class="sd">            ts.plot([&#39;Forces&#39;, &#39;Moments&#39;])</span>
-
-<span class="sd">        plots only the forces and moments, without plotting the angle.</span>
-
+<span class="sd">        Note</span>
+<span class="sd">        ----</span>
 <span class="sd">        Additional positional and keyboard arguments are passed to</span>
-<span class="sd">        matplotlib&#39;s pyplot.plot function:</span>
+<span class="sd">        matplotlib&#39;s ``pyplot.plot`` function::</span>
 
 <span class="sd">            ts.plot([&#39;Forces&#39;], &#39;--&#39;)</span>
 
 <span class="sd">        plots the forces using a dashed line style.</span>
+
+<span class="sd">        Example</span>
+<span class="sd">        -------</span>
+<span class="sd">        For a TimeSeries ``ts`` with data keys being &#39;Forces&#39;, &#39;Moments&#39; and</span>
+<span class="sd">        &#39;Angle&#39;::</span>
+
+<span class="sd">            ts.plot()</span>
+
+<span class="sd">        plots all data (Forces, Moments and Angle), whereas::</span>
+
+<span class="sd">            ts.plot([&#39;Forces&#39;, &#39;Moments&#39;])</span>
+
+<span class="sd">        plots only the forces and moments, without plotting the angle.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># Private argument _raise_on_no_data: Raise a ValueError instead of</span>
@@ -2523,14 +2665,21 @@ title="Fullscreen mode"
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        float</span>
-<span class="sd">            The sample rate in samples per second. If time is empty or has only one</span>
-<span class="sd">            data, or if sample rate is variable, or if time is not monotonously</span>
-<span class="sd">            increasing, a value of np.nan is returned.</span>
+<span class="sd">            The sample rate in samples per second. If time is empty or has only</span>
+<span class="sd">            one data, or if sample rate is variable, or if time is not</span>
+<span class="sd">            monotonously increasing, a value of np.nan is returned.</span>
 
 <span class="sd">        Warning</span>
 <span class="sd">        -------</span>
 <span class="sd">        This feature, which has been introduced in version 0.9, is still</span>
-<span class="sd">        experimental and may change in the future.</span>
+<span class="sd">        experimental and may change in the future. In particular, the value</span>
+<span class="sd">        returned if the sample rate is not constant: it is np.nan in all cases</span>
+<span class="sd">        for now, but it could change in the future based on discussions and</span>
+<span class="sd">        particular use cases.</span>
+
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.resample</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
@@ -2553,8 +2702,13 @@ title="Fullscreen mode"
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        int</span>
+<span class="sd">        int or float</span>
 <span class="sd">            The index in the time vector.</span>
+
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.get_index_before_time</span>
+<span class="sd">        ktk.TimeSeries.get_index_after_time</span>
 
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
@@ -2587,9 +2741,13 @@ title="Fullscreen mode"
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        int</span>
-<span class="sd">            The index in the time vector. If no value is before the specified</span>
-<span class="sd">            time, a value of np.nan is returned.</span>
+<span class="sd">        int or float</span>
+<span class="sd">            The index in the time vector, or nan if the time vector is empty.</span>
+
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.get_index_at_time</span>
+<span class="sd">        ktk.TimeSeries.get_index_after_time</span>
 
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
@@ -2614,12 +2772,12 @@ title="Fullscreen mode"
 <span class="sd">        0</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># Edge case</span>
-        <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Edge cases</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        <span class="k">else</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">inclusive</span> <span class="ow">and</span> <span class="n">time</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
                 <span class="k">return</span> <span class="mi">0</span>
-        <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>  <span class="c1"># If time was empty</span>
-            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
 
         <span class="c1"># Other cases</span>
         <span class="n">diff</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">time</span><span class="p">)</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span>
@@ -2653,9 +2811,13 @@ title="Fullscreen mode"
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        int</span>
-<span class="sd">            The index in the time vector. If no value is after the</span>
-<span class="sd">            specified time, a value of np.nan is returned.</span>
+<span class="sd">        int or float</span>
+<span class="sd">            The index in the time vector, or nan if the time vector is empty.</span>
+
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.get_index_at_time</span>
+<span class="sd">        ktk.TimeSeries.get_index_before_time</span>
 
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
@@ -2680,12 +2842,12 @@ title="Fullscreen mode"
 <span class="sd">        4</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># Edge case</span>
-        <span class="k">try</span><span class="p">:</span>
+        <span class="c1"># Edge cases</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+        <span class="k">else</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">inclusive</span> <span class="ow">and</span> <span class="n">time</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">1</span>
-        <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>  <span class="c1"># If time was empty</span>
-            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
 
         <span class="c1"># Other cases</span>
         <span class="n">diff</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">-</span> <span class="nb">float</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
@@ -2704,7 +2866,9 @@ title="Fullscreen mode"
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span></div>
 
-<div class="viewcode-block" id="TimeSeries.get_event_index"><a class="viewcode-back" href="../../api/ktk.TimeSeries.get_event_index.html#ktk.TimeSeries.get_event_index">[docs]</a>    <span class="k">def</span> <span class="nf">get_event_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">occurrence</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<div class="viewcode-block" id="TimeSeries.get_event_index"><a class="viewcode-back" href="../../api/ktk.TimeSeries.get_event_index.html#ktk.TimeSeries.get_event_index">[docs]</a>    <span class="k">def</span> <span class="nf">get_event_index</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">occurrence</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the index of a given occurrence of an event name.</span>
 
@@ -2718,9 +2882,27 @@ title="Fullscreen mode"
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        int</span>
+<span class="sd">        int or np.nan</span>
 <span class="sd">            The index of the event or np.nan if no event found.</span>
 
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries()</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(1.0, &#39;cycle_start&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(1.5, &#39;cycle_start&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(2.0, &#39;cycle_start&#39;)</span>
+
+<span class="sd">        &gt;&gt;&gt; ts.get_event_index(&#39;cycle_start&#39;)</span>
+<span class="sd">        0</span>
+
+<span class="sd">        &gt;&gt;&gt; ts.get_event_index(&#39;cycle_start&#39;, 0)</span>
+<span class="sd">        0</span>
+
+<span class="sd">        &gt;&gt;&gt; ts.get_event_index(&#39;cycle_start&#39;, 1)</span>
+<span class="sd">        1</span>
+
+<span class="sd">        &gt;&gt;&gt; ts.get_event_index(&#39;cycle_start&#39;, 3)</span>
+<span class="sd">        nan</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">occurrence</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">occurrence</span><span class="p">)</span>
 
@@ -2758,8 +2940,8 @@ title="Fullscreen mode"
 <span class="sd">        name</span>
 <span class="sd">            Name of the event to look for in the events list.</span>
 <span class="sd">        occurrence</span>
-<span class="sd">             Optional. i_th occurence of the event to look for in the events</span>
-<span class="sd">             list, starting at 0.</span>
+<span class="sd">            Optional. i_th occurence of the event to look for in the events</span>
+<span class="sd">            list, starting at 0.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -2793,7 +2975,7 @@ title="Fullscreen mode"
 
 <div class="viewcode-block" id="TimeSeries.get_ts_at_time"><a class="viewcode-back" href="../../api/ktk.TimeSeries.get_ts_at_time.html#ktk.TimeSeries.get_ts_at_time">[docs]</a>    <span class="k">def</span> <span class="nf">get_ts_at_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;TimeSeries&quot;</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Get a one-data subset of the TimeSeries at the nearest time.</span>
+<span class="sd">        Get a one-data TimeSeries at the nearest time.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -2805,6 +2987,13 @@ title="Fullscreen mode"
 <span class="sd">        TimeSeries</span>
 <span class="sd">            A TimeSeries of length 1, at the time neasest to the specified</span>
 <span class="sd">            time.</span>
+
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.get_ts_at_event</span>
+<span class="sd">        ktk.TimeSeries.get_ts_before_time</span>
+<span class="sd">        ktk.TimeSeries.get_ts_after_time</span>
+<span class="sd">        ktk.TimeSeries.get_ts_between_times</span>
 
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
@@ -2831,7 +3020,7 @@ title="Fullscreen mode"
 
 <div class="viewcode-block" id="TimeSeries.get_ts_at_event"><a class="viewcode-back" href="../../api/ktk.TimeSeries.get_ts_at_event.html#ktk.TimeSeries.get_ts_at_event">[docs]</a>    <span class="k">def</span> <span class="nf">get_ts_at_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">occurrence</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;TimeSeries&quot;</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Get a one-data subset of the TimeSeries at the event&#39;s nearest time.</span>
+<span class="sd">        Get a one-data TimeSeries at the event&#39;s nearest time.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -2846,6 +3035,13 @@ title="Fullscreen mode"
 <span class="sd">        TimeSeries</span>
 <span class="sd">            A TimeSeries of length 1, at the event&#39;s nearest time.</span>
 
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.get_ts_at_time</span>
+<span class="sd">        ktk.TimeSeries.get_ts_before_event</span>
+<span class="sd">        ktk.TimeSeries.get_ts_after_event</span>
+<span class="sd">        ktk.TimeSeries.get_ts_between_events</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">time</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_event_time</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">occurrence</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_ts_at_time</span><span class="p">(</span><span class="n">time</span><span class="p">)</span></div>
@@ -2854,7 +3050,7 @@ title="Fullscreen mode"
         <span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">inclusive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;TimeSeries&quot;</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Get a subset of the TimeSeries before the specified time index.</span>
+<span class="sd">        Get a TimeSeries before the specified time index.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -2867,6 +3063,13 @@ title="Fullscreen mode"
 <span class="sd">        -------</span>
 <span class="sd">        TimeSeries</span>
 <span class="sd">            A new TimeSeries that fulfils the specified conditions.</span>
+
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.get_ts_before_time</span>
+<span class="sd">        ktk.TimeSeries.get_ts_before_event</span>
+<span class="sd">        ktk.TimeSeries.get_ts_after_index</span>
+<span class="sd">        ktk.TimeSeries.get_ts_between_indexes</span>
 
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
@@ -2903,7 +3106,7 @@ title="Fullscreen mode"
         <span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">inclusive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;TimeSeries&quot;</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Get a subset of the TimeSeries after the specified time index.</span>
+<span class="sd">        Get a TimeSeries after the specified time index.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -2916,6 +3119,13 @@ title="Fullscreen mode"
 <span class="sd">        -------</span>
 <span class="sd">        TimeSeries</span>
 <span class="sd">            A new TimeSeries that fulfils the specified conditions.</span>
+
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.get_ts_after_time</span>
+<span class="sd">        ktk.TimeSeries.get_ts_after_event</span>
+<span class="sd">        ktk.TimeSeries.get_ts_before_index</span>
+<span class="sd">        ktk.TimeSeries.get_ts_between_indexes</span>
 
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
@@ -2949,7 +3159,7 @@ title="Fullscreen mode"
         <span class="bp">self</span><span class="p">,</span> <span class="n">index1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">index2</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">inclusive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;TimeSeries&quot;</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Get a subset of the TimeSeries before two specified time indexes.</span>
+<span class="sd">        Get a TimeSeries between two specified time indexes.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -2962,6 +3172,14 @@ title="Fullscreen mode"
 <span class="sd">        -------</span>
 <span class="sd">        TimeSeries</span>
 <span class="sd">            A new TimeSeries that fulfils the specified conditions.</span>
+
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.get_ts_between_times</span>
+<span class="sd">        ktk.TimeSeries.get_ts_between_events</span>
+<span class="sd">        ktk.TimeSeries.ui_get_ts_between_clicks</span>
+<span class="sd">        ktk.TimeSeries.get_ts_before_index</span>
+<span class="sd">        ktk.TimeSeries.get_ts_after_index</span>
 
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
@@ -2994,7 +3212,7 @@ title="Fullscreen mode"
         <span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">inclusive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;TimeSeries&quot;</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Get a subset of the TimeSeries before the specified time.</span>
+<span class="sd">        Get a TimeSeries before the specified time.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -3007,6 +3225,13 @@ title="Fullscreen mode"
 <span class="sd">        -------</span>
 <span class="sd">        TimeSeries</span>
 <span class="sd">            A new TimeSeries that fulfils the specified conditions.</span>
+
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.get_ts_before_index</span>
+<span class="sd">        ktk.TimeSeries.get_ts_before_event</span>
+<span class="sd">        ktk.TimeSeries.get_ts_after_time</span>
+<span class="sd">        ktk.TimeSeries.get_ts_between_times</span>
 
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
@@ -3036,7 +3261,7 @@ title="Fullscreen mode"
         <span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">inclusive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;TimeSeries&quot;</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Get a subset of the TimeSeries after the specified time.</span>
+<span class="sd">        Get a TimeSeries after the specified time.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -3049,6 +3274,13 @@ title="Fullscreen mode"
 <span class="sd">        -------</span>
 <span class="sd">        TimeSeries</span>
 <span class="sd">            A new TimeSeries that fulfils the specified conditions.</span>
+
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.get_ts_after_index</span>
+<span class="sd">        ktk.TimeSeries.get_ts_after_event</span>
+<span class="sd">        ktk.TimeSeries.get_ts_before_time</span>
+<span class="sd">        ktk.TimeSeries.get_ts_between_times</span>
 
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
@@ -3080,7 +3312,7 @@ title="Fullscreen mode"
         <span class="bp">self</span><span class="p">,</span> <span class="n">time1</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">time2</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">inclusive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;TimeSeries&quot;</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Get a subset of the TimeSeries between two specified times.</span>
+<span class="sd">        Get a TimeSeries between two specified times.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -3093,6 +3325,14 @@ title="Fullscreen mode"
 <span class="sd">        -------</span>
 <span class="sd">        TimeSeries</span>
 <span class="sd">            A new TimeSeries that fulfils the specified conditions.</span>
+
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.get_ts_between_indexes</span>
+<span class="sd">        ktk.TimeSeries.get_ts_between_events</span>
+<span class="sd">        ktk.TimeSeries.ui_get_ts_between_clicks</span>
+<span class="sd">        ktk.TimeSeries.get_ts_before_time</span>
+<span class="sd">        ktk.TimeSeries.get_ts_after_time</span>
 
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
@@ -3118,7 +3358,7 @@ title="Fullscreen mode"
         <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">occurrence</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">inclusive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;TimeSeries&quot;</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Get a subset of the TimeSeries before the specified event.</span>
+<span class="sd">        Get a TimeSeries before the specified event.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -3134,6 +3374,13 @@ title="Fullscreen mode"
 <span class="sd">        -------</span>
 <span class="sd">        TimeSeries</span>
 <span class="sd">            A new TimeSeries that fulfils the specified conditions.</span>
+
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.get_ts_before_index</span>
+<span class="sd">        ktk.TimeSeries.get_ts_before_time</span>
+<span class="sd">        ktk.TimeSeries.get_ts_after_event</span>
+<span class="sd">        ktk.TimeSeries.get_ts_between_events</span>
 
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
@@ -3163,7 +3410,7 @@ title="Fullscreen mode"
         <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">occurrence</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">inclusive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;TimeSeries&quot;</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Get a subset of the TimeSeries after the specified event.</span>
+<span class="sd">        Get a TimeSeries after the specified event.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -3179,6 +3426,13 @@ title="Fullscreen mode"
 <span class="sd">        -------</span>
 <span class="sd">        TimeSeries</span>
 <span class="sd">            A new TimeSeries that fulfils the specified conditions.</span>
+
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.get_ts_after_index</span>
+<span class="sd">        ktk.TimeSeries.get_ts_after_time</span>
+<span class="sd">        ktk.TimeSeries.get_ts_before_event</span>
+<span class="sd">        ktk.TimeSeries.get_ts_between_events</span>
 
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
@@ -3214,7 +3468,7 @@ title="Fullscreen mode"
         <span class="n">inclusive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;TimeSeries&quot;</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Get a subset of the TimeSeries between two specified events.</span>
+<span class="sd">        Get a TimeSeries between two specified events.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -3230,6 +3484,14 @@ title="Fullscreen mode"
 <span class="sd">        -------</span>
 <span class="sd">        TimeSeries</span>
 <span class="sd">            A new TimeSeries that fulfils the specified conditions.</span>
+
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.get_ts_between_indexes</span>
+<span class="sd">        ktk.TimeSeries.get_ts_between_times</span>
+<span class="sd">        ktk.TimeSeries.ui_get_ts_between_clicks</span>
+<span class="sd">        ktk.TimeSeries.get_ts_before_event</span>
+<span class="sd">        ktk.TimeSeries.get_ts_after_event</span>
 
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
@@ -3255,7 +3517,7 @@ title="Fullscreen mode"
         <span class="bp">self</span><span class="p">,</span> <span class="n">data_keys</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">[],</span> <span class="o">*</span><span class="p">,</span> <span class="n">inclusive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;TimeSeries&quot;</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Get a subset of the TimeSeries between two mouse clicks.</span>
+<span class="sd">        Get a TimeSeries between two mouse clicks.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -3269,6 +3531,16 @@ title="Fullscreen mode"
 <span class="sd">        -------</span>
 <span class="sd">        TimeSeries</span>
 <span class="sd">            A new TimeSeries that fulfils the specified conditions.</span>
+
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.get_ts_between_indexes</span>
+<span class="sd">        ktk.TimeSeries.get_ts_between_times</span>
+<span class="sd">        ktk.TimeSeries.get_ts_between_events</span>
+
+<span class="sd">        Note</span>
+<span class="sd">        ----</span>
+<span class="sd">        Matplotlib must be in interactive mode for this method to work.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
@@ -3300,6 +3572,22 @@ title="Fullscreen mode"
 <span class="sd">            A boolean array of the same size as the time vector, where True</span>
 <span class="sd">            values represent missing samples (samples that contain at least</span>
 <span class="sd">            one nan value).</span>
+
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.fill_missing_samples</span>
+
+<span class="sd">        Example</span>
+<span class="sd">        -------</span>
+<span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries(time=np.arange(4))</span>
+<span class="sd">        &gt;&gt;&gt; ts.data[&#39;Data&#39;] = np.zeros((4, 2))</span>
+<span class="sd">        &gt;&gt;&gt; ts.data[&#39;Data&#39;][2, :] = np.nan</span>
+<span class="sd">        &gt;&gt;&gt; ts.data</span>
+<span class="sd">        {&#39;Data&#39;: array([[ 0.,  0.], [ 0.,  0.], [nan, nan], [ 0.,  0.]])}</span>
+
+<span class="sd">        &gt;&gt;&gt; ts.isnan(&#39;Data&#39;)</span>
+<span class="sd">        array([False, False,  True, False])</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">data_key</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="c1"># Reduce the dimension of values while keeping the time dimension.</span>
@@ -3315,14 +3603,7 @@ title="Fullscreen mode"
         <span class="n">in_place</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">&quot;TimeSeries&quot;</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Fill missing samples with the given method.</span>
-
-<span class="sd">        The sample rate must be constant.</span>
-
-<span class="sd">        Warning</span>
-<span class="sd">        -------</span>
-<span class="sd">        This function, which has been introduced in 0.1, is still experimental</span>
-<span class="sd">        and may change signature or behaviour in the future.</span>
+<span class="sd">        Fill missing samples using a given method.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -3344,7 +3625,26 @@ title="Fullscreen mode"
 <span class="sd">        TimeSeries</span>
 <span class="sd">            The TimeSeries with the missing samples filled.</span>
 
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the sample rate is not constant.</span>
+
+<span class="sd">        Warning</span>
+<span class="sd">        -------</span>
+<span class="sd">        This function, which has been introduced in 0.1, is still experimental</span>
+<span class="sd">        and may change signature or behaviour in the future. In particular,</span>
+<span class="sd">        the desired behaviour of `max_missing_samples` is still to be precised</span>
+<span class="sd">        for points where the criteria is not met.</span>
+
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.isnan</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_sample_rate</span><span class="p">()):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The sample rate must be constant.&quot;</span><span class="p">)</span>
+
         <span class="n">ts_out</span> <span class="o">=</span> <span class="bp">self</span> <span class="k">if</span> <span class="n">in_place</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="n">max_missing_samples</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">max_missing_samples</span><span class="p">)</span>
 
@@ -3393,6 +3693,28 @@ title="Fullscreen mode"
 <span class="sd">        TimeSeries</span>
 <span class="sd">            The TimeSeries with the time being shifted.</span>
 
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.sync_event</span>
+<span class="sd">        ktk.TimeSeries.ui_sync</span>
+
+<span class="sd">        Example</span>
+<span class="sd">        -------</span>
+<span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries(time=np.arange(10))</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(3.5, &quot;start&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; ts.time</span>
+<span class="sd">        array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</span>
+
+<span class="sd">        &gt;&gt;&gt; ts.events</span>
+<span class="sd">        [TimeSeriesEvent(time=3.5, name=&#39;start&#39;)]</span>
+
+<span class="sd">        &gt;&gt;&gt; ts = ts.shift(2.0)</span>
+<span class="sd">        &gt;&gt;&gt; ts.time</span>
+<span class="sd">        array([ 2.,  3.,  4.,  5.,  6.,  7.,  8.,  9., 10., 11.])</span>
+
+<span class="sd">        &gt;&gt;&gt; ts.events</span>
+<span class="sd">        [TimeSeriesEvent(time=5.5, name=&#39;start&#39;)]</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">ts</span> <span class="o">=</span> <span class="bp">self</span> <span class="k">if</span> <span class="n">in_place</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">ts</span><span class="o">.</span><span class="n">events</span><span class="p">:</span>
@@ -3422,6 +3744,28 @@ title="Fullscreen mode"
 <span class="sd">        TimeSeries</span>
 <span class="sd">            The TimeSeries with the time being shifted.</span>
 
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.shift</span>
+<span class="sd">        ktk.TimeSeries.ui_sync</span>
+
+<span class="sd">        Example</span>
+<span class="sd">        -------</span>
+<span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries(time=np.arange(10))</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(3.5, &quot;sync&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; ts.events</span>
+<span class="sd">        [TimeSeriesEvent(time=3.5, name=&#39;sync&#39;)]</span>
+
+<span class="sd">        &gt;&gt;&gt; ts.time</span>
+<span class="sd">        array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</span>
+
+<span class="sd">        &gt;&gt;&gt; ts = ts.sync_event(&quot;sync&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; ts.events</span>
+<span class="sd">        [TimeSeriesEvent(time=0.0, name=&#39;sync&#39;)]</span>
+
+<span class="sd">        &gt;&gt;&gt; ts.time</span>
+<span class="sd">        array([-3.5, -2.5, -1.5, -0.5,  0.5,  1.5,  2.5,  3.5,  4.5,  5.5])</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">ts</span> <span class="o">=</span> <span class="bp">self</span> <span class="k">if</span> <span class="n">in_place</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="n">ts</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="o">-</span><span class="n">ts</span><span class="o">.</span><span class="n">get_event_time</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">occurrence</span><span class="p">),</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -3442,6 +3786,14 @@ title="Fullscreen mode"
 <span class="sd">        -------</span>
 <span class="sd">        TimeSeries</span>
 <span class="sd">            The TimeSeries without the trimmed events.</span>
+
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.add_event</span>
+<span class="sd">        ktk.TimeSeries.rename_event</span>
+<span class="sd">        ktk.TimeSeries.remove_event</span>
+<span class="sd">        ktk.TimeSeries.sort_events</span>
+<span class="sd">        ktk.TimeSeries.ui_edit_events</span>
 
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
@@ -3495,31 +3847,35 @@ title="Fullscreen mode"
 <span class="sd">        If another TimeSeries is given, an interactive interface allows</span>
 <span class="sd">        synchronizing both TimeSeries together.</span>
 
-<span class="sd">        Warning</span>
-<span class="sd">        -------</span>
-<span class="sd">        This function, which has been introduced in 0.1, is still experimental</span>
-<span class="sd">        and may change signature or behaviour in the future.</span>
-
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        data_keys</span>
-<span class="sd">            Optional. The data keys to plot. If kept tempy, all data is</span>
-<span class="sd">            plotted.</span>
+<span class="sd">            Optional. The data keys to plot. If empty, all data is plotted.</span>
 <span class="sd">        ts2</span>
-<span class="sd">            Optional. A second TimeSeries that contains both a recognizable</span>
-<span class="sd">            zero-time event and a common event with the first TimeSeries.</span>
+<span class="sd">            Optional. A second TimeSeries to be synced to the first one. This</span>
+<span class="sd">            TimeSeries is modified in place.</span>
 <span class="sd">        data_keys2</span>
 <span class="sd">            Optional. The data keys from the second TimeSeries to plot. If</span>
-<span class="sd">            kept tempy, all data is plotted.</span>
+<span class="sd">            empty, all data is plotted.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        TimeSeries</span>
 <span class="sd">            A copy of the TimeSeries after synchronization.</span>
 
-<span class="sd">        Note</span>
-<span class="sd">        ----</span>
-<span class="sd">        The TimeSeries ts2 is modified in place.</span>
+<span class="sd">        Warning</span>
+<span class="sd">        -------</span>
+<span class="sd">        This function, which has been introduced in 0.1, is still experimental</span>
+<span class="sd">        and may change signature or behaviour in the future.</span>
+
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.sync_event</span>
+<span class="sd">        ktk.TimeSeries.shift</span>
+
+<span class="sd">        Notes</span>
+<span class="sd">        -----</span>
+<span class="sd">        Matplotlib must be in interactive mode for this method to work.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">ts1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -3661,6 +4017,10 @@ title="Fullscreen mode"
 <span class="sd">        TimeSeries</span>
 <span class="sd">            A copy of the TimeSeries, minus the unspecified data keys.</span>
 
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.merge</span>
+
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
 <span class="sd">            &gt;&gt;&gt; ts = ktk.TimeSeries(time = np.arange(10))</span>
@@ -3730,6 +4090,24 @@ title="Fullscreen mode"
 <span class="sd">        TimeSeries</span>
 <span class="sd">            The TimeSeries with a new sample rate.</span>
 
+<span class="sd">        Caution</span>
+<span class="sd">        -------</span>
+<span class="sd">        While it is possible to resample series of points or vectors,</span>
+<span class="sd">        attempting to resample a series of homogeneous matrices would likely</span>
+<span class="sd">        produce non-homogeneous matrices, and as a result, transforms would not</span>
+<span class="sd">        be rigid anymore. This function can&#39;t detect if you attempt to resample</span>
+<span class="sd">        series of homogeneous matrices, and therefore won&#39;t generate an</span>
+<span class="sd">        error or warning.</span>
+
+<span class="sd">        Warning</span>
+<span class="sd">        -------</span>
+<span class="sd">        This function, which was introduced in version 0.9, is still</span>
+<span class="sd">        experimental and may slightly change behaviour in future versions.</span>
+
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.get_sample_rate</span>
+
 <span class="sd">        Example</span>
 <span class="sd">        --------</span>
 <span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries(time=np.arange(6.))</span>
@@ -3753,18 +4131,6 @@ title="Fullscreen mode"
 
 <span class="sd">        &gt;&gt;&gt; ts.data[&#39;data_with_nans&#39;]</span>
 <span class="sd">        array([ 0. ,  0.5,  1. ,  2.5,  4. ,  nan,  nan,  nan, 16. , 20.5, 25. ])</span>
-
-<span class="sd">        Warning</span>
-<span class="sd">        -------</span>
-<span class="sd">        This function, which was introduced in version 0.9, is still</span>
-<span class="sd">        experimental and may slightly change behaviour in future versions.</span>
-
-<span class="sd">        Note</span>
-<span class="sd">        ----</span>
-<span class="sd">        Please note that while it is possible to resample series of points</span>
-<span class="sd">        or vectors, it is impossible to resample a series of homogeneous</span>
-<span class="sd">        matrices directly. This function won&#39;t generate a warning or error</span>
-<span class="sd">        if you do.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">ts</span> <span class="o">=</span> <span class="bp">self</span> <span class="k">if</span> <span class="n">in_place</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -3868,10 +4234,14 @@ title="Fullscreen mode"
 <span class="sd">        TimeSeries</span>
 <span class="sd">            The merged TimeSeries.</span>
 
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.get_subset</span>
+
 <span class="sd">        Note</span>
 <span class="sd">        ----</span>
 <span class="sd">        The behaviour of the resampling option is not settled yet. At the</span>
-<span class="sd">        moment, a linear reseampling is performed, but this may change in the</span>
+<span class="sd">        moment, a linear resampling is performed, but this may change in the</span>
 <span class="sd">        future.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>

@@ -213,7 +213,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../geometry_dimension_conventions.html">
-       Dimension conventions and first example
+       Dimension conventions
       </a>
      </li>
     </ul>
@@ -808,7 +808,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../python_for_beginners.html">
-   Learning Python for biomechanics
+   🚧 Learning Python for biomechanics
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
   <label for="toctree-checkbox-18">
@@ -1094,16 +1094,10 @@ title="Print to PDF"
 <dt class="sig sig-object py" id="ktk.filters.butter">
 <span class="sig-name descname"><span class="pre">butter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ts</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fc</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">btype</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'lowpass'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filtfilt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ktk/filters.html#butter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ktk.filters.butter" title="Permalink to this definition">#</a></dt>
 <dd><p>Apply a Butterworth filter to a TimeSeries.</p>
-<p>On n-dimensional data, filtering occurs on the first axis (time).</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<ul class="simple">
-<li><p>The sampling rate must be constant.</p></li>
-<li><p>If the TimeSeries contains missing samples, a warning is issued, missing
-samples are interpolated using a first-order interpolation before
-filtering, and then replaced by NaNs in the filtered signal.</p></li>
-</ul>
-</div>
+<p>Filtering occurs on the first axis (time). If the TimeSeries contains
+missing samples, a warning is issued, missing samples are interpolated
+using a first-order interpolation before filtering, and then replaced by
+np.nan in the filtered signal.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1111,21 +1105,23 @@ filtering, and then replaced by NaNs in the filtered signal.</p></li>
 <li><p><strong>fc</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Sequence</span></code>]) – Cut-off frequency in Hz. This is a float for single-frequency filters
 (lowpass, highpass), or a sequence of two floats (e.g., [10., 13.])
 for two-frequency filters (bandpass, bandstop).</p></li>
-<li><p><strong>order</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Optional. Order of the filter.</p></li>
-<li><p><strong>btype</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Optional. {‘lowpass’, ‘highpass’, ‘bandpass’, ‘bandstop’}.</p></li>
+<li><p><strong>order</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>) – Optional. Order of the filter. Default is 2.</p></li>
+<li><p><strong>btype</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Optional. Can be either ‘lowpass’, ‘highpass’, ‘bandpass’ or
+‘bandstop’. Default is ‘lowpass’.</p></li>
 <li><p><strong>filtfilt</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – Optional. If True, the filter is applied two times in reverse direction
 to eliminate time lag. If False, the filter is applied only in forward
-direction.</p></li>
+direction. Default is True.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>ValueError if sample rate is not constant</strong><strong>, or </strong><strong>if there is no data to</strong> – </p></li>
-<li><p><strong>filter.</strong> – </p></li>
-</ul>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A copy of the input TimeSeries, which each data being filtered.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="ktk.TimeSeries.html#ktk.TimeSeries" title="kineticstoolkit.timeseries.TimeSeries"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeSeries</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="ktk.TimeSeries.html#ktk.TimeSeries" title="ktk.TimeSeries">TimeSeries</a></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If sample rate is not constant, or if there is no data to
+    filter.</p>
 </dd>
 </dl>
 </dd></dl>

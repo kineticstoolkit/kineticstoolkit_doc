@@ -16,32 +16,85 @@ kernelspec:
 %matplotlib inline
 ```
 
-# Dimension conventions and first example
+# Dimension conventions
 
 In the [](api/ktk.geometry.rst) module and in most of Kinetics Toolkit's module:
 
 - Every point, vector or matrix, and in many case even scalar, is considered as a **series**.
 - The first dimension of any series corresponds to **time**.
 
-To understand better how to express scalars, coordinates (points, vectors, frames) and homogeneous transforms as series, please refer to the following pictures:
+This is emphasized in the following examples:
 
 ## Series of scalars
 
-![Series of m scalars -width:half](_static/images/series_of_m_scalars.png)
+```
+[x(t0), x(t1), x(t2), ...]
+```
 
-## Series of points, series of vectors
 
-![Series of m points -width:half](_static/images/series_of_m_points.png)
-![Series of m vectors -width:half](_static/images/series_of_m_vectors.png)
+## Series of points
 
-## Series of groups of points, series of groups of vectors
+```
+[
+    [x(t0), y(t0), z(t0), 1.0],
+    [x(t1), y(t1), z(t1), 1.0],
+    [x(t2), y(t2), z(t2), 1.0],
+    [ ... ,  ... ,  ... , ...],
+] 
+```
 
-![Series of m groups of n points -width:half](_static/images/series_of_m_groups_of_n_points.png)
- ![Series of m groups of n vectors -width:half](_static/images/series_of_m_groups_of_n_vectors.png)
+## Series of vectors
 
-## Series of frames/homogeneous transforms
+```
+[
+    [x(t0), y(t0), z(t0), 0.0],
+    [x(t1), y(t1), z(t1), 0.0],
+    [x(t2), y(t2), z(t2), 0.0],
+    [ ... ,  ... ,  ... , ...],
+] 
+```
 
-![Series of m transformation matrices -width:wider](_static/images/series_of_m_transformation_matrices.png)
+## Series of point clouds
+
+```
+[
+    [
+        [x0(t0), x1(t0), x2(t0), ...],
+        [y0(t0), y1(t0), y2(t0), ...],
+        [z0(t0), z1(t0), z2(t0), ...],
+        [   1.0,    1.0,    1.0, ...],
+    ],
+    [
+        [x0(t1), x1(t1), x2(t1), ...],
+        [y0(t1), y1(t1), y2(t1), ...],
+        [z0(t1), z1(t1), z2(t1), ...],
+        [   1.0,    1.0,    1.0, ...],
+    ],
+    ...
+}
+```
+
+## Series of frames or homogeneous transforms
+
+```
+[
+    [
+        [R00(t0), R01(t0), R02(t0), Tx(t0)],
+        [R10(t0), R11(t0), R12(t0), Ty(t0)],
+        [R20(t0), R21(t0), R22(t0), Tz(t0)],
+        [    0.0,     0.0,     0.0,    1.0],
+    ],
+    [
+        [R00(t1), R01(t1), R02(t1), Tx(t1)],
+        [R10(t1), R11(t1), R12(t1), Ty(t1)],
+        [R20(t1), R21(t1), R22(t1), Tz(t1)],
+        [    0.0,     0.0,     0.0,    1.0],
+    ],
+    ...
+}
+```
+
+
 
 ## Working with constants
 

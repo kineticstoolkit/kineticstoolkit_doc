@@ -213,7 +213,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../geometry_dimension_conventions.html">
-       Dimension conventions and first example
+       Dimension conventions
       </a>
      </li>
     </ul>
@@ -808,7 +808,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../python_for_beginners.html">
-   Learning Python for biomechanics
+   🚧 Learning Python for biomechanics
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
   <label for="toctree-checkbox-18">
@@ -1092,13 +1092,8 @@ title="Print to PDF"
 <h1>ktk.geometry.create_transforms<a class="headerlink" href="#ktk-geometry-create-transforms" title="Permalink to this headline">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="ktk.geometry.create_transforms">
-<span class="sig-name descname"><span class="pre">create_transforms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degrees</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ktk/geometry.html#create_transforms"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ktk.geometry.create_transforms" title="Permalink to this definition">#</a></dt>
-<dd><p>Create an Nx4x4 series of homogeneous transforms.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This function, which has been introduced in 0.4, is still experimental and
-may change signature or behaviour in the future.</p>
-</div>
+<span class="sig-name descname"><span class="pre">create_transforms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degrees</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ktk/geometry.html#create_transforms"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ktk.geometry.create_transforms" title="Permalink to this definition">#</a></dt>
+<dd><p>Create an Nx4x4 series of homogeneous transforms based on angle sequences.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1107,29 +1102,21 @@ belonging to the set {‘X’, ‘Y’, ‘Z’} for intrinsic rotations (moving
 axes), or {‘x’, ‘y’, ‘z’} for extrinsic rotations (fixed axes).
 Extrinsic and intrinsic rotations cannot be mixed in one function call.
 Required if angles is specified.</p></li>
-<li><p><strong>angles</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]) – <p>Optional array_like, shape (N,) or (N, [1 or 2 or 3]).
-Angles are specified in radians (degrees is False) or degrees (degrees
-is True).</p>
-<p>For a single character seq, angles can be:</p>
-<blockquote>
-<div><ul>
-<li><p>array_like with shape (N,), where each angle[i] corresponds to a
-single rotation</p></li>
-<li><p>array_like with shape (N, 1), where each angle[i, 0] corresponds
-to a single rotation</p></li>
+<li><p><strong>angles</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]) – <p>Optional array_like of shape (N,) or (N, [1 or 2 or 3]). Angles are
+specified in radians (if degrees is False) or degrees (if degrees is
+True).</p>
+<p>For a single-character <cite>seq</cite>, <cite>angles</cite> can be:</p>
+<ul>
+<li><p>array_like with shape (N,), where each <cite>angle[i]</cite> corresponds to a
+single rotation;</p></li>
+<li><p>array_like with shape (N, 1), where each <cite>angle[i, 0]</cite> corresponds
+to a single rotation.</p></li>
 </ul>
-</div></blockquote>
-<p>For 2- and 3-character wide seq, angles can be:</p>
-<blockquote>
-<div><ul>
-<li><p>array_like with shape (W,) where W is the width of seq, which
-corresponds to a single rotation with W axes</p></li>
-<li><p>array_like with shape (N, W) where each angle[i] corresponds to
-a sequence of Euler angles describing a single rotation</p></li>
-</ul>
-</div></blockquote>
+<p>For 2- and 3-character <cite>seq</cite>, <cite>angles</cite> is an array_like with shape
+(N, W) where each <cite>angle[i, :]</cite> corresponds to a sequence of Euler
+angles and W is the length of <cite>seq</cite>.</p>
 </p></li>
-<li><p><strong>translations</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]) – Optional float or array_like, shape (N, 3) or (N, 4). This corresponds
+<li><p><strong>translations</strong> (<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]) – Optional array_like or shape (N, 3) or (N, 4). This corresponds
 to the translation part of the generated series of homogeneous
 transforms.</p></li>
 <li><p><strong>degrees</strong> – If True, then the given angles are in degrees. Default is False.</p></li>
@@ -1142,6 +1129,10 @@ transforms.</p></li>
 <dd class="field-odd"><p>np.ndarray</p>
 </dd>
 </dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="ktk.geometry.create_frames.html#ktk.geometry.create_frames" title="ktk.geometry.create_frames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.geometry.create_frames</span></code></a></p>
+</div>
 <p class="rubric">Example</p>
 <p>Create a series of two homogeneous transforms that rotates 0, then 90
 degrees around x:</p>

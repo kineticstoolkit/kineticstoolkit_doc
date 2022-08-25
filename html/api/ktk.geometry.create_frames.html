@@ -213,7 +213,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../geometry_dimension_conventions.html">
-       Dimension conventions and first example
+       Dimension conventions
       </a>
      </li>
     </ul>
@@ -808,7 +808,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../python_for_beginners.html">
-   Learning Python for biomechanics
+   🚧 Learning Python for biomechanics
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
   <label for="toctree-checkbox-18">
@@ -1093,86 +1093,35 @@ title="Print to PDF"
 <dl class="py function">
 <dt class="sig sig-object py" id="ktk.geometry.create_frames">
 <span class="sig-name descname"><span class="pre">create_frames</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">origin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">z</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yz</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ktk/geometry.html#create_frames"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ktk.geometry.create_frames" title="Permalink to this definition">#</a></dt>
-<dd><p>Create a Nx4x4 series of frames based on series of points and vectors.</p>
-<p>Create reference frames based on points and vectors and return this series
-of reference frames as a series of transformation matrices.</p>
-<p>This function’s behaviour is better explained using an example. We will
-create reference frames for the right humerus, based on the recommendations
-of the International Society of Biomechanics [1]. Lets say we have
-constructed series of points for the glenohumeral joint (GH), lateral elbow
-epicondyle (EL) and medial elbow epicondyle (EM). Following the ISB:</p>
-<blockquote>
-<div><ol class="arabic simple">
-<li><p>The origin is GH;</p></li>
-<li><p>The y axis is the line between GH and the midpoint of EL and EM,
-pointing to GH;</p></li>
-<li><p>The x axis is the normal to the GH-EL-EM plane, pointing forward;
-which means that GH-EL-EM is a yz plane.</p></li>
-<li><p>The z axis is perpendicular to x and y, pointing to the right.</p></li>
-</ol>
-</div></blockquote>
-<p>Therefore:</p>
-<blockquote>
-<div><ol class="arabic simple">
-<li><p>origin = GH</p></li>
-<li><p>y = GH - (EL + EM) / 2</p></li>
-<li><p>yz = EL - EM  # The x axis is formed by cross(y, yz)</p></li>
-<li><dl class="simple">
-<dt>reference_frames = ktk.geometry.create_reference_frames(</dt><dd><p>origin=origin, y=y, yz=yz)</p>
-</dd>
-</dl>
-</li>
-</ol>
-</div></blockquote>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This function, which has been introduced in 0.4, is still experimental and
-may change signature or behaviour in the future.</p>
-</div>
+<dd><p>Create an Nx4x4 series of frames based on series of points and vectors.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>origin</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – A series of N points (Nx4) that corresponds to the origin of the
-returned reference frames.</p></li>
-<li><p><strong>x</strong><strong>|</strong><strong>y</strong><strong>|</strong><strong>z</strong> – A series of N vectors (Nx4) that are aligned toward the {x|y|z}
-axis of the returned reference frames.</p></li>
-<li><p><strong>xy</strong><strong>|</strong><strong>xz</strong> – When x is specified, a series of N vectors (Nx4) in the {xy|xz} plane
-of the returned reference frames.</p></li>
-<li><p><strong>xy</strong><strong>|</strong><strong>yz</strong> – When y is specified, a series of N vectors (Nx4) in the {xy|yz} plane
-of the returned reference frames.</p></li>
-<li><p><strong>xz</strong><strong>|</strong><strong>yz</strong> – When z is specified, a series of N vectors (Nx4) in the {xz|yz} plane
-of the returned reference frames.</p></li>
+series of frames to be created.</p></li>
+<li><p><strong>x</strong><strong>|</strong><strong>y</strong><strong>|</strong><strong>z</strong> – Define either <cite>x</cite>, <cite>y</cite> or <cite>z</cite>. A series of N vectors (Nx4) that
+are aligned toward the {x|y|z} series of frames to be created.</p></li>
+<li><p><strong>xy</strong><strong>|</strong><strong>xz</strong> – Only if <cite>x</cite> is specified. A series of N vectors (Nx4) in the {xy|xz}
+plane of the series of frames to be created. As a rule of thumb, use
+a series of N vectors that correspond roughly to the {z|-y} axis.</p></li>
+<li><p><strong>xy</strong><strong>|</strong><strong>yz</strong> – Only if <cite>y</cite> is specified. A series of N vectors (Nx4) in the {xy|yz}
+plane of the series of frames to be created. As a rule of thumb, use
+a series of N vectors that correspond roughly to the {z|x} axis.</p></li>
+<li><p><strong>xz</strong><strong>|</strong><strong>yz</strong> – Only if <cite>z</cite> is specified. A series of N vectors (Nx4) in the {xz|yz}
+plane of the series of frames to be created. As a rule of thumb, use
+a series of N vectors that correspond roughly to the {-y|x} axis.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Series of transformation matrices (Nx4x4).</p>
+<dd class="field-even"><p>Series of frames (Nx4x4).</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>np.ndarray</p>
 </dd>
 </dl>
-<p class="rubric">Examples</p>
-<p>Create a translated reference frame using 3 points:</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">kineticstoolkit.lab</span> <span class="k">as</span> <span class="nn">ktk</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">origin</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">]]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">10.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">]]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">xy</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">10.</span><span class="p">,</span> <span class="mf">10.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">]]</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">rf</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">create_frames</span><span class="p">(</span><span class="n">origin</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">xy</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">rf</span>
-<span class="go">array([[[1., 0., 0., 2.],</span>
-<span class="go">        [0., 1., 0., 2.],</span>
-<span class="go">        [0., 0., 1., 2.],</span>
-<span class="go">        [0., 0., 0., 1.]]])</span>
-</pre></div>
-</div>
-<div class="admonition-references admonition">
-<p class="admonition-title">References</p>
-<ol class="arabic simple">
-<li><p>G. Wu et al., “ISB recommendation on definitions of joint
-coordinate systems of various joints for the reporting of human joint
-motion - Part II: shoulder, elbow, wrist and hand,” Journal of
-Biomechanics, vol. 38, no. 5, pp. 981–992, 2005.</p></li>
-</ol>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="ktk.geometry.create_transforms.html#ktk.geometry.create_transforms" title="ktk.geometry.create_transforms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.geometry.create_transforms</span></code></a></p>
 </div>
 </dd></dl>
 

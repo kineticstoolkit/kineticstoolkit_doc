@@ -213,7 +213,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../geometry_dimension_conventions.html">
-       Dimension conventions and first example
+       Dimension conventions
       </a>
      </li>
     </ul>
@@ -808,7 +808,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../python_for_beginners.html">
-   Learning Python for biomechanics
+   🚧 Learning Python for biomechanics
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
   <label for="toctree-checkbox-18">
@@ -1094,16 +1094,10 @@ title="Print to PDF"
 <dt class="sig sig-object py" id="ktk.filters.smooth">
 <span class="sig-name descname"><span class="pre">smooth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ts</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window_length</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ktk/filters.html#smooth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ktk.filters.smooth" title="Permalink to this definition">#</a></dt>
 <dd><p>Apply a smoothing (moving average) filter on a TimeSeries.</p>
-<p>On n-dimensional data, filtering occurs on the first axis (time).</p>
-<div class="admonition-notes admonition">
-<p class="admonition-title">Notes</p>
-<ul class="simple">
-<li><p>The sampling rate must be constant.</p></li>
-<li><p>If the TimeSeries contains missing samples, a warning is issued, missing
-samples are interpolated using a first-order interpolation before
-filtering, and then replaced by NaNs in the filtered signal.</p></li>
-</ul>
-</div>
+<p>Filtering occurs on the first axis (time). If the TimeSeries contains
+missing samples, a warning is issued, missing samples are interpolated
+using a first-order interpolation before filtering, and then replaced by
+np.nan in the filtered signal.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -1112,16 +1106,21 @@ filtering, and then replaced by NaNs in the filtered signal.</p></li>
 odd integer less or equal than the length of the TimeSeries.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Raises</dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>ValueError if sample rate is not constant</strong><strong>, or </strong><strong>if there is no data to</strong> – </p></li>
-<li><p><strong>filter.</strong> – </p></li>
-</ul>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A copy of the input TimeSeries, which each data being filtered.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference internal" href="ktk.TimeSeries.html#ktk.TimeSeries" title="kineticstoolkit.timeseries.TimeSeries"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeSeries</span></code></a></p>
+<dd class="field-odd"><p><a class="reference internal" href="ktk.TimeSeries.html#ktk.TimeSeries" title="ktk.TimeSeries">TimeSeries</a></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If sample rate is not constant, or if there is no data to
+    filter.</p>
 </dd>
 </dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="ktk.filters.savgol.html#ktk.filters.savgol" title="ktk.filters.savgol"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.filters.savgol</span></code></a>, <a class="reference internal" href="ktk.filters.median.html#ktk.filters.median" title="ktk.filters.median"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.filters.median</span></code></a></p>
+</div>
 </dd></dl>
 
 </section>

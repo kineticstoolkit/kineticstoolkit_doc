@@ -213,7 +213,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../geometry_dimension_conventions.html">
-       Dimension conventions and first example
+       Dimension conventions
       </a>
      </li>
     </ul>
@@ -808,7 +808,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="../python_for_beginners.html">
-   Learning Python for biomechanics
+   🚧 Learning Python for biomechanics
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
   <label for="toctree-checkbox-18">
@@ -1096,25 +1096,28 @@ title="Print to PDF"
 <dd><p>Enable Kinetics Toolkit’s lab goodies.</p>
 <p>This function does not affect Kinetics Toolkit’s inner working. It exists
 mostly for cosmetic reasons, so that working with ktk in an IPython console
-(e.g., Spyder, Jupyter) is more enjoyable, at least to the developer’s
-taste. It changes defaults and is not reversible in a given session. The
-usual way to call it is right after importing Kinetics Toolkit.</p>
+(e.g., Spyder, Jupyter) is more enjoyable. It changes IPython, Matplotlib
+and numpy’s defaults for the current session only. The usual way to call
+it is right after importing Kinetics Toolkit.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>change_ipython_dict_repr</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – <p>Optional. True to summarize defaults dict printouts in IPython. When
 False, dict printouts look like:</p>
-<blockquote>
-<div><p>{‘data1’: array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16,
-17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]),
-‘data2’: array([  0,   1,   4,   9,  16,  25,  36,  49,  64,  81, 100, 121, 144,
-169, 196, 225, 256, 289, 324, 361, 400, 441, 484, 529, 576, 625,
-676, 729, 784, 841])}</p>
-</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;data1&#39;</span><span class="p">:</span> <span class="n">array</span><span class="p">([</span> <span class="mi">0</span><span class="p">,</span>  <span class="mi">1</span><span class="p">,</span>  <span class="mi">2</span><span class="p">,</span>  <span class="mi">3</span><span class="p">,</span>  <span class="mi">4</span><span class="p">,</span>  <span class="mi">5</span><span class="p">,</span>  <span class="mi">6</span><span class="p">,</span>  <span class="mi">7</span><span class="p">,</span>  <span class="mi">8</span><span class="p">,</span>  <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span>
+                 <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">29</span><span class="p">]),</span>
+ <span class="s1">&#39;data2&#39;</span><span class="p">:</span> <span class="n">array</span><span class="p">([</span>  <span class="mi">0</span><span class="p">,</span>   <span class="mi">1</span><span class="p">,</span>   <span class="mi">4</span><span class="p">,</span>   <span class="mi">9</span><span class="p">,</span>  <span class="mi">16</span><span class="p">,</span>  <span class="mi">25</span><span class="p">,</span>  <span class="mi">36</span><span class="p">,</span>  <span class="mi">49</span><span class="p">,</span>  <span class="mi">64</span><span class="p">,</span>  <span class="mi">81</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">121</span><span class="p">,</span> <span class="mi">144</span><span class="p">,</span>
+                 <span class="mi">169</span><span class="p">,</span> <span class="mi">196</span><span class="p">,</span> <span class="mi">225</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">289</span><span class="p">,</span> <span class="mi">324</span><span class="p">,</span> <span class="mi">361</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">441</span><span class="p">,</span> <span class="mi">484</span><span class="p">,</span> <span class="mi">529</span><span class="p">,</span> <span class="mi">576</span><span class="p">,</span> <span class="mi">625</span><span class="p">,</span>
+                  <span class="mi">676</span><span class="p">,</span> <span class="mi">729</span><span class="p">,</span> <span class="mi">784</span><span class="p">,</span> <span class="mi">841</span><span class="p">])}</span>
+</pre></div>
+</div>
 <p>When True, dict printouts look like:</p>
-<blockquote>
-<div><p>{‘data1’: &lt;array of shape (30,)&gt; ‘data2’: &lt;array of shape (30,)&gt;}</p>
-</div></blockquote>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s1">&#39;data1&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">array</span> <span class="n">of</span> <span class="n">shape</span> <span class="p">(</span><span class="mi">30</span><span class="p">,)</span><span class="o">&gt;</span>
+    <span class="s1">&#39;data2&#39;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">array</span> <span class="n">of</span> <span class="n">shape</span> <span class="p">(</span><span class="mi">30</span><span class="p">,)</span><span class="o">&gt;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </p></li>
 <li><p><strong>change_matplotlib_defaults</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – Optional. True to change default figure size, autolayout, dpi, line
 width and color order in Matplotlib. The dpi and figure size are
@@ -1132,6 +1135,14 @@ format with file and line number.</p></li>
 <dd class="field-even"><p>None</p>
 </dd>
 </dl>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This function is called automatically when importing Kinetics Toolkit in
+lab mode:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">kineticstoolkit.lab</span> <span class="k">as</span> <span class="nn">ktk</span>
+</pre></div>
+</div>
+</div>
 </dd></dl>
 
 </section>
