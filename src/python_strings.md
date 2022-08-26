@@ -76,14 +76,13 @@ print(file_path)
 
 ## Triple-quotes
 
-Python provides another type string delimiter: the triple-quote. A string defined by triple-quotes can integrate both single and double quotes in a same string without using backslash. Line breaks are also saved in the string. Both triple-single-quotes and triple-double-quotes work equally:
+Python provides another type string delimiter: the triple-quote. A string defined by triple-quotes can integrate both single and double quotes in a same string without using backslash. Line breaks are also saved in the string.
 
 ```
-'''I didn't invent "E = mc2", that's Einstein's thing.'''
 """I didn't invent "E = mc2", that's Einstein's thing."""
 ```
 
-The most popular use for triple-quotes are [docstrings](python_functions_good_practice.md) docstrings, which will be seen later.
+The most popular use for triple-quotes are [docstrings](python_functions_docstrings.md) docstrings, which will be seen later.
 
 ```{code-cell} ipython3
 example_string = """I ate your sandwich.
@@ -168,7 +167,7 @@ print("The calculated moment at the ankle in Nm is:")
 print(ankle_moment)
 ```
 
-A better way would be to create a string that includes the result, such as "The calculated ankle moment is 100.1 Nm." Including variables into strings is easily done using f-strings. These strings are called this was because we prefix the quotes with the letter `f`. With f-strings, Python evaluates the content between curly braces `{}` and replaces this content by its evaluation.
+A more readable way would be to create a single string that includes the result, for instance "The calculated ankle moment is 100.1 Nm." Including variables into strings is easily done using f-strings. F-strings are called this was because we prefix the quotes with the letter `f`. With f-strings, Python evaluates the content between curly braces `{}` and replaces this content by its evaluation.
 
 ```{code-cell} ipython3
 # Here, we create the sentence above.
@@ -178,4 +177,12 @@ the_string = (
 
 # And here, we print it.
 print(the_string)
+```
+
+Sometimes, when we include a float into an f-string, you may want to select to which precision we want this float to print. This can be done using `:.xf` just after the expression in braces, where `x` is the number of digits after the decimal point. For instance:
+
+```{code-cell}
+print(f"The calculated ankle moment is {ankle_moment:.0f} Nm.")
+print(f"The calculated ankle moment is {ankle_moment:.2f} Nm.")
+print(f"The calculated ankle moment is {ankle_moment:.5f} Nm.")
 ```

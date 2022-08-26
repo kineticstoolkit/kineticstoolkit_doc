@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>🚧 Good practices with functions &#8212; Kinetics Toolkit</title>
+    <title>Arguments and default values &#8212; Kinetics Toolkit</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -51,12 +51,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://kineticstoolkit.uqam.ca/doc/python_functions_good_practice.html" />
+    <link rel="canonical" href="https://kineticstoolkit.uqam.ca/doc/python_functions_keywords_defaults.html" />
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="🚧 Keyword arguments" href="python_function_keywords.html" />
-    <link rel="prev" title="🚧 Function syntax" href="python_functions_syntax.html" />
+    <link rel="next" title="🚧 Conditions and booleans" href="python_conditions.html" />
+    <link rel="prev" title="Docstrings" href="python_functions_docstrings.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -833,7 +833,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="python_configuring_spyder.html">
-       Configuring Spyder
+       Configuring Spyder for Python biomechanics
       </a>
      </li>
      <li class="toctree-l3">
@@ -880,17 +880,17 @@ const thebe_selector_output = ".output, .cell_output"
       <ul class="current">
        <li class="toctree-l4">
         <a class="reference internal" href="python_functions_syntax.html">
-         🚧 Function syntax
+         Function syntax
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="python_functions_docstrings.html">
+         Docstrings
         </a>
        </li>
        <li class="toctree-l4 current active">
         <a class="current reference internal" href="#">
-         🚧 Good practices with functions
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="python_function_keywords.html">
-         🚧 Keyword arguments
+         Arguments and default values
         </a>
        </li>
       </ul>
@@ -1027,7 +1027,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/python_functions_good_practice.md"
+        <a href="_sources/python_functions_keywords_defaults.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -1087,18 +1087,18 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#argument-names">
-   Argument names
+  <a class="reference internal nav-link" href="#list-of-arguments">
+   List of arguments
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#docstring">
-   Docstring
+  <a class="reference internal nav-link" href="#keyword-arguments">
+   Keyword arguments
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#typing">
-   Typing
+  <a class="reference internal nav-link" href="#optional-arguments-arguments-with-default-values">
+   Optional arguments (arguments with default values)
   </a>
  </li>
 </ul>
@@ -1110,7 +1110,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>🚧 Good practices with functions</h1>
+                <h1>Arguments and default values</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -1121,18 +1121,18 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#argument-names">
-   Argument names
+  <a class="reference internal nav-link" href="#list-of-arguments">
+   List of arguments
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#docstring">
-   Docstring
+  <a class="reference internal nav-link" href="#keyword-arguments">
+   Keyword arguments
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#typing">
-   Typing
+  <a class="reference internal nav-link" href="#optional-arguments-arguments-with-default-values">
+   Optional arguments (arguments with default values)
   </a>
  </li>
 </ul>
@@ -1145,122 +1145,331 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="good-practices-with-functions">
-<h1>🚧 Good practices with functions<a class="headerlink" href="#good-practices-with-functions" title="Permalink to this headline">#</a></h1>
-<p>We theoretically saw enough contents on functions to be able to follow with other concepts. However, although the solutions to the previous exercises do work, they are far from being clear.</p>
-<p>For example, in the suggested answser for the function <code class="docutils literal notranslate"><span class="pre">format_info()</span></code> (exercise above):</p>
-<ul class="simple">
-<li><p>The aim of the function is not defined</p></li>
-<li><p>The list and order of the required arguments is not described</p></li>
-<li><p>The return value is not described</p></li>
-</ul>
-<p>As consequence, using this function is very prone to error. Keep in mind that code is wrote once by often one programmer, but read many times by often many other programmers. An undocumented function is usually clear to the programmer while it is being written; but will it still be clear when read by another person, or even by the same programmer months later?</p>
-<p>Before switching to other programming concept, it is important to know how to well define and document your functions. This is not just good practice, this is very important to avoid errors that may generate bad results and therefore bad conclusions.</p>
-<section id="argument-names">
-<h2>Argument names<a class="headerlink" href="#argument-names" title="Permalink to this headline">#</a></h2>
-<p>The biggest issue with the function from the last exercise is the name of its arguments, that ranges from <code class="docutils literal notranslate"><span class="pre">var1</span></code> to <code class="docutils literal notranslate"><span class="pre">var6</span></code> instead of being meaningful. In reality, it is possible to give any name to these arguments. Appreciate how both the signature and implementation of the function are clearer:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="arguments-and-default-values">
+<h1>Arguments and default values<a class="headerlink" href="#arguments-and-default-values" title="Permalink to this headline">#</a></h1>
+<section id="list-of-arguments">
+<h2>List of arguments<a class="headerlink" href="#list-of-arguments" title="Permalink to this headline">#</a></h2>
+<p>Up to now, we called functions using a list of arguments: each argument was assigned using its order. For instance, in this function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">format_info</span><span class="p">(</span><span class="n">i_participant</span><span class="p">,</span> <span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">weight</span><span class="p">):</span>
-
-    <span class="n">output</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="s2">&quot;=============</span><span class="se">\n</span><span class="s2">&quot;</span>
-        <span class="sa">f</span><span class="s2">&quot;Participant </span><span class="si">{</span><span class="n">i_participant</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">first_name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">last_name</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
-        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old</span><span class="se">\n</span><span class="s2">&quot;</span>
-        <span class="sa">f</span><span class="s2">&quot;Height: </span><span class="si">{</span><span class="n">height</span><span class="si">}</span><span class="s2"> m</span><span class="se">\n</span><span class="s2">&quot;</span>
-        <span class="sa">f</span><span class="s2">&quot;Weight: </span><span class="si">{</span><span class="n">weight</span><span class="si">}</span><span class="s2"> kg</span><span class="se">\n</span><span class="s2">&quot;</span>
-        <span class="sa">f</span><span class="s2">&quot;BMI: </span><span class="si">{</span><span class="n">weight</span> <span class="o">/</span> <span class="p">(</span><span class="n">height</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
-        <span class="s2">&quot;=============&quot;</span>
-    <span class="p">)</span>
-    <span class="k">return</span> <span class="n">output</span>
-
-
-<span class="nb">print</span><span class="p">(</span><span class="n">format_info</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Catherina&quot;</span><span class="p">,</span> <span class="s2">&quot;Smith&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">50.2</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_full_name</span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Print the full name of a person.&quot;&quot;&quot;</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">first_name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">last_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>We know that the first argument should be the first name, followed by the last name. Therefore, we would call this function using:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">print_full_name</span><span class="p">(</span><span class="s2">&quot;Catherina&quot;</span><span class="p">,</span> <span class="s2">&quot;Smith&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=============
-Participant 1: Catherina Smith
-20 years old
-Height: 1.5 m
-Weight: 50.2 kg
-BMI: 22.311111111111114
-=============
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Catherina Smith
 </pre></div>
 </div>
 </div>
 </div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>Arguments vs Parameters
-In the different references found on the web, we often see both the terms “argument” and “parameter” for function inputs. Both terms are equivalent and will be referred by both words from now on.</p>
-</div>
 </section>
-<section id="docstring">
-<h2>Docstring<a class="headerlink" href="#docstring" title="Permalink to this headline">#</a></h2>
-<p>The docstring is literally a <strong>string</strong> that <strong>doc</strong>uments your function. While any code without a docstring will stay run, it is almost mandatory in any code other than very simple scripts, because this is what really tells what the function does, what its parameters are, and what it returns. Docstrings usually use triple-double-quote strings, and are placed just below the function signature. A good docstring for the last function would be:</p>
+<section id="keyword-arguments">
+<h2>Keyword arguments<a class="headerlink" href="#keyword-arguments" title="Permalink to this headline">#</a></h2>
+<p>In Python, it is also possible to call functions using keyword arguments. To this effect, we directly assign values to the argument names using <code class="docutils literal notranslate"><span class="pre">=</span></code> signs. This can make the code still clearer:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">format_info</span><span class="p">(</span><span class="n">i_participant</span><span class="p">,</span> <span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">weight</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">print_full_name</span><span class="p">(</span><span class="n">first_name</span><span class="o">=</span><span class="s2">&quot;Catherina&quot;</span><span class="p">,</span> <span class="n">last_name</span><span class="o">=</span><span class="s2">&quot;Smith&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Catherina Smith
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that keyword arguments can be assigned in any order:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">print_full_name</span><span class="p">(</span><span class="n">last_name</span><span class="o">=</span><span class="s2">&quot;Smith&quot;</span><span class="p">,</span> <span class="n">first_name</span><span class="o">=</span><span class="s2">&quot;Catherina&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Catherina Smith
+</pre></div>
+</div>
+</div>
+</div>
+<p>For very simple functions, using keyword arguments is not that useful. However, some functions may have lost of arguments, with many of them being optional. For example, let’s look at the signature of Pandas’ <code class="docutils literal notranslate"><span class="pre">read_csv</span></code> function (we will use Pandas later in this book):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+    <span class="n">filepath_or_buffer</span><span class="p">,</span>
+    <span class="n">sep</span><span class="o">=</span><span class="n">NoDefault</span><span class="o">.</span><span class="n">no_default</span><span class="p">,</span>
+    <span class="n">delimiter</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">header</span><span class="o">=</span><span class="s1">&#39;infer&#39;</span><span class="p">,</span>
+    <span class="n">names</span><span class="o">=</span><span class="n">NoDefault</span><span class="o">.</span><span class="n">no_default</span><span class="p">,</span>
+    <span class="n">index_col</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">usecols</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">squeeze</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">prefix</span><span class="o">=</span><span class="n">NoDefault</span><span class="o">.</span><span class="n">no_default</span><span class="p">,</span>
+    <span class="n">mangle_dupe_cols</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">engine</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">converters</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">true_values</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">false_values</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">skipinitialspace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">skiprows</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">skipfooter</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">nrows</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">na_values</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">keep_default_na</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">na_filter</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">skip_blank_lines</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">parse_dates</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">infer_datetime_format</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">keep_date_col</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">date_parser</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">dayfirst</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">cache_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">iterator</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">chunksize</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">compression</span><span class="o">=</span><span class="s1">&#39;infer&#39;</span><span class="p">,</span>
+    <span class="n">thousands</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">decimal</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span>
+    <span class="n">lineterminator</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">quotechar</span><span class="o">=</span><span class="s1">&#39;&quot;&#39;</span><span class="p">,</span>
+    <span class="n">quoting</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">doublequote</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">escapechar</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">comment</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">encoding</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">encoding_errors</span><span class="o">=</span><span class="s1">&#39;strict&#39;</span><span class="p">,</span>
+    <span class="n">dialect</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">error_bad_lines</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">warn_bad_lines</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">on_bad_lines</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">delim_whitespace</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">low_memory</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">memory_map</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">float_precision</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">storage_options</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>It has lots of arguments, most of them being optional. In this case, it makes no sense to remember the order of every argument, and using keyword arguments is much preferred.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It is possible to use both lists of arguments and keyword arguments in a same function call. We begin with the list of arguments, which are being assigned based on their order, and we end with keyword arguments. For instance:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pandas</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="optional-arguments-arguments-with-default-values">
+<h2>Optional arguments (arguments with default values)<a class="headerlink" href="#optional-arguments-arguments-with-default-values" title="Permalink to this headline">#</a></h2>
+<p>In the <code class="docutils literal notranslate"><span class="pre">pandas.read_csv</span></code> example above, the only needed argument is the name of the csv file to read. Every other argument has a default value, and exists only to modify the default behaviour of the function.</p>
+<p>Let’s examine this concept with a simpler function. We define the following function that calculates the ground reaction force based on the acceleration and mass of a person’s center of mass:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">GRAVITATIONAL_CONSTANT</span> <span class="o">=</span> <span class="mf">9.81</span>  <span class="c1"># m/s2</span>
+
+
+<span class="k">def</span> <span class="nf">calculate_reaction_force</span><span class="p">(</span><span class="n">mass</span><span class="p">,</span> <span class="n">acceleration</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Format the provided information into a human-readable string.</span>
+<span class="sd">    Calculate the vertical reaction force based on the mass and acceleration.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    i_participant (int)</span>
-<span class="sd">        Identifier for the participant</span>
-<span class="sd">    first_name (str)</span>
-<span class="sd">        First name (given name) of the participant</span>
-<span class="sd">    last_name (str)</span>
-<span class="sd">        Last name (surname) of the participant</span>
-<span class="sd">    age (float)</span>
-<span class="sd">        Age of the participant, in years</span>
-<span class="sd">    height (float)</span>
-<span class="sd">        Height of the participant, in meters</span>
-<span class="sd">    weight (float)</span>
-<span class="sd">        Weight of the participant, in kg</span>
+<span class="sd">    mass : float</span>
+<span class="sd">        Mass of the person in kg.</span>
+<span class="sd">    acceleration : float</span>
+<span class="sd">        Acceleration of the center of mass of the person, in m/s2.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    str</span>
-<span class="sd">        A human-readable string based on the provided information.</span>
+<span class="sd">    float</span>
+<span class="sd">        The ground reaction force, in N.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">output</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="s2">&quot;=============</span><span class="se">\n</span><span class="s2">&quot;</span>
-        <span class="sa">f</span><span class="s2">&quot;Participant </span><span class="si">{</span><span class="n">i_participant</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">first_name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">last_name</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
-        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old</span><span class="se">\n</span><span class="s2">&quot;</span>
-        <span class="sa">f</span><span class="s2">&quot;Height: </span><span class="si">{</span><span class="n">height</span><span class="si">}</span><span class="s2"> m</span><span class="se">\n</span><span class="s2">&quot;</span>
-        <span class="sa">f</span><span class="s2">&quot;Weight: </span><span class="si">{</span><span class="n">weight</span><span class="si">}</span><span class="s2"> kg</span><span class="se">\n</span><span class="s2">&quot;</span>
-        <span class="sa">f</span><span class="s2">&quot;BMI: </span><span class="si">{</span><span class="n">weight</span> <span class="o">/</span> <span class="p">(</span><span class="n">height</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
-        <span class="s2">&quot;=============&quot;</span>
-    <span class="p">)</span>
-    <span class="k">return</span> <span class="n">output</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">mass</span> <span class="o">*</span> <span class="n">acceleration</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">mass</span> <span class="o">*</span> <span class="n">GRAVITATIONAL_CONSTANT</span><span class="p">)</span>
+
+
+<span class="c1"># Test the function</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">calculate_reaction_force</span><span class="p">(</span><span class="n">mass</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">acceleration</span><span class="o">=</span><span class="mf">3.5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>798.6
 </pre></div>
 </div>
 </div>
 </div>
-<p>As you notice, we now have more lines of documentation than lines of code. This is not unusual, and this is not a bad practice. After all, a well-documented, simple code is much better than an undocumented, complex code!</p>
-<p>You do not need to search your function’s code to read its docstring. As soon as the function is defined, its docstring becomes available using the diverses methods to consult help. Try executing the last function definition, then:</p>
-<ol class="simple">
-<li><p>Type <code class="docutils literal notranslate"><span class="pre">format_info</span></code> in Spyder’s help browser. Our docstring appears, all well-formatted:</p></li>
-</ol>
-<p><img alt="Spyder help -width:wider" src="_images/python_function_spyder_help.png" /></p>
-<ol class="simple">
-<li><p>Type <code class="docutils literal notranslate"><span class="pre">format_info?</span></code> in the console. The signature and docstring appear:</p></li>
-</ol>
+<div class="admonition-good-practice admonition">
+<p class="admonition-title">Good practice: Constants</p>
+<p>Note the different conventions used for GRAVITATIONAL_CONSTANT.</p>
+<p><strong>No magic constants</strong>: Instead of writing plainly 9.81 in the function’s return statement, we defined the gravity using a name, and we used that name in the equation. We generally want to avoid “magical” constants here and there: we call them “magical” because after time, we tend to not remember what are those for, other than “magically” making the function work. Using named constants is a good way to auto-document the code and better understanding it later.</p>
+<p><strong>Definition at top of file</strong>: Since a constant is by definition constant, it may be defined anywhere before it’s first use. However, it is common practice to define all constants once and at a same obvious place.</p>
+<p><strong>CAPITAL_CASE</strong>: In Python, there is no clear distinction between a variable and a constant. To create constants, we simply assign constant values to variables that we never modify later. To emphesize that a constant should not be modified in any means, it is common practice to user CAPITAL_CASE to define constants, and lower_case to define standard variables.</p>
+</div>
+<p>Although this function works very well as is, we may be interested in generalizing it for different gravitational constants, to simulate a similar task in a different gravity. In this case, GRAVITATIONAL_CONSTANT could become a parameter of the function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>format_info<span class="o">?</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_reaction_force</span><span class="p">(</span><span class="n">mass</span><span class="p">,</span> <span class="n">acceleration</span><span class="p">,</span> <span class="n">gravitational_constant</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the ground reaction force based on the mass and acceleration.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    mass : float</span>
+<span class="sd">        Mass of the person in kg.</span>
+<span class="sd">    acceleration : float</span>
+<span class="sd">        Acceleration of the center of mass of the person, in m/s2.</span>
+<span class="sd">    gravitational_constant : float</span>
+<span class="sd">        Gravitational constant, in m/s2. Default is 9.81.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        The ground reaction force, in N.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">mass</span> <span class="o">*</span> <span class="n">acceleration</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">mass</span> <span class="o">*</span> <span class="n">gravitational_constant</span><span class="p">)</span>
+
+
+<span class="c1"># Test the function:</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="n">calculate_reaction_force</span><span class="p">(</span>
+        <span class="n">mass</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">acceleration</span><span class="o">=</span><span class="mf">3.5</span><span class="p">,</span> <span class="n">gravitational_constant</span><span class="o">=</span><span class="mf">9.81</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span>
+    <span class="n">calculate_reaction_force</span><span class="p">(</span>
+        <span class="n">mass</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">acceleration</span><span class="o">=</span><span class="mf">3.5</span><span class="p">,</span> <span class="n">gravitational_constant</span><span class="o">=</span><span class="mf">5.2</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>798.6
+522.0
 </pre></div>
 </div>
 </div>
 </div>
-</section>
-<section id="typing">
-<h2>Typing<a class="headerlink" href="#typing" title="Permalink to this headline">#</a></h2>
-<p>#todo</p>
+<p>However, since most of the time, the gravitational constant really is 9.81 m/s², then we may want to assign it a default value. This is done by using an equal <code class="docutils literal notranslate"><span class="pre">=</span></code> sign in the signature:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_reaction_force</span><span class="p">(</span><span class="n">mass</span><span class="p">,</span> <span class="n">acceleration</span><span class="p">,</span> <span class="n">gravitational_constant</span><span class="o">=</span><span class="mf">9.81</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the ground reaction force based on the mass and acceleration.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    mass : float</span>
+<span class="sd">        Mass of the person in kg.</span>
+<span class="sd">    acceleration : float</span>
+<span class="sd">        Acceleration of the center of mass of the person, in m/s2.</span>
+<span class="sd">    gravitational_constant : float</span>
+<span class="sd">        Gravitational constant, in m/s2. Default is 9.81.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        The ground reaction force, in N.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">mass</span> <span class="o">*</span> <span class="n">acceleration</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">mass</span> <span class="o">*</span> <span class="n">gravitational_constant</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now, on earth, the function works exactly as the original one, without having to specify a gravitational constant:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">calculate_reaction_force</span><span class="p">(</span><span class="n">mass</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">acceleration</span><span class="o">=</span><span class="mf">3.5</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>798.6
+</pre></div>
+</div>
+</div>
+</div>
+<p>but it also adds the possibility to assign another gravitational constant:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span>
+    <span class="n">calculate_reaction_force</span><span class="p">(</span>
+        <span class="n">mass</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span> <span class="n">acceleration</span><span class="o">=</span><span class="mf">3.5</span><span class="p">,</span> <span class="n">gravitational_constant</span><span class="o">=</span><span class="mf">5.2</span>
+    <span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>522.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-exercise admonition">
+<p class="admonition-title">Exercise: Timing gates</p>
+<p>We will redo the example of section <a class="reference internal" href="python_arithmetics_and_variables.html"><span class="doc std std-doc">Arithmetics and variables</span></a>, but this time using a proper function.</p>
+<p>A sprinter runs through two timing gates spaced by 50 m. Each timing gate records the time (in seconds) at which the sprinter passes through it.</p>
+<p><img alt="exercices_illustration -width:normal" src="_images/exercise_timing_gates.png" /></p>
+<p>Write a function named <code class="docutils literal notranslate"><span class="pre">calculate_speed</span></code>, that takes as an argument the time of each timing gate, and that returns the mean velocity of the sprinter between gates 1 and 2, such that calling:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">calculate_speed</span><span class="p">(</span><span class="mf">1.3</span><span class="p">,</span> <span class="mf">6.7</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>prints a value of 9.2593.</p>
+<p>In addition, this function should accommodate alternate distances between the timing gates:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">calculate_speed</span><span class="p">(</span><span class="mf">1.3</span><span class="p">,</span> <span class="mf">6.7</span><span class="p">,</span> <span class="n">distance_gates12</span><span class="o">=</span><span class="mi">75</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Do not forget to include a docstring to your function.</p>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_speed</span><span class="p">(</span><span class="n">time_gate1</span><span class="p">,</span> <span class="n">time_gate2</span><span class="p">,</span> <span class="n">distance_gates12</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the average velocity between two timing gates.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    time_gate1, time_gate2 : float</span>
+<span class="sd">        Time at which the athlete passed through the gate, in seconds.</span>
+<span class="sd">    distance_gates12 : float</span>
+<span class="sd">        Optional. Distance between both timing gates, in meters. Default is 50.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        The velocity, in m/s.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">return</span> <span class="n">distance_gates12</span> <span class="o">/</span> <span class="p">(</span><span class="n">time_gate2</span> <span class="o">-</span> <span class="n">time_gate1</span><span class="p">)</span>
+
+
+<span class="c1"># Test the function:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">calculate_speed</span><span class="p">(</span><span class="mf">1.3</span><span class="p">,</span> <span class="mf">6.7</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">calculate_speed</span><span class="p">(</span><span class="mf">1.3</span><span class="p">,</span> <span class="mf">6.7</span><span class="p">,</span> <span class="n">distance_gates12</span><span class="o">=</span><span class="mi">75</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.25925925925926
+13.888888888888888
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -1291,17 +1500,17 @@ In the different references found on the web, we often see both the terms “arg
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="python_functions_syntax.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="python_functions_docstrings.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">🚧 Function syntax</p>
+            <p class="prev-next-title">Docstrings</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="python_function_keywords.html" title="next page">
+    <a class='right-next' id="next-link" href="python_conditions.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">🚧 Keyword arguments</p>
+        <p class="prev-next-title">🚧 Conditions and booleans</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

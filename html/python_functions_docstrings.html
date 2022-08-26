@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>🚧 Keyword arguments &#8212; Kinetics Toolkit</title>
+    <title>Docstrings &#8212; Kinetics Toolkit</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -51,12 +51,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://kineticstoolkit.uqam.ca/doc/python_function_keywords.html" />
+    <link rel="canonical" href="https://kineticstoolkit.uqam.ca/doc/python_functions_docstrings.html" />
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="🚧 Conditions and booleans" href="python_conditions.html" />
-    <link rel="prev" title="🚧 Good practices with functions" href="python_functions_good_practice.html" />
+    <link rel="next" title="Arguments and default values" href="python_functions_keywords_defaults.html" />
+    <link rel="prev" title="Function syntax" href="python_functions_syntax.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -833,7 +833,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="python_configuring_spyder.html">
-       Configuring Spyder
+       Configuring Spyder for Python biomechanics
       </a>
      </li>
      <li class="toctree-l3">
@@ -880,17 +880,17 @@ const thebe_selector_output = ".output, .cell_output"
       <ul class="current">
        <li class="toctree-l4">
         <a class="reference internal" href="python_functions_syntax.html">
-         🚧 Function syntax
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="python_functions_good_practice.html">
-         🚧 Good practices with functions
+         Function syntax
         </a>
        </li>
        <li class="toctree-l4 current active">
         <a class="current reference internal" href="#">
-         🚧 Keyword arguments
+         Docstrings
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="python_functions_keywords_defaults.html">
+         Arguments and default values
         </a>
        </li>
       </ul>
@@ -1027,7 +1027,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/python_function_keywords.md"
+        <a href="_sources/python_functions_docstrings.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -1087,8 +1087,8 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#long-lines-of-arguments">
-   Long lines of arguments
+  <a class="reference internal nav-link" href="#consulting-docstrings">
+   Consulting docstrings
   </a>
  </li>
 </ul>
@@ -1100,7 +1100,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>🚧 Keyword arguments</h1>
+                <h1>Docstrings</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -1111,8 +1111,8 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#long-lines-of-arguments">
-   Long lines of arguments
+  <a class="reference internal nav-link" href="#consulting-docstrings">
+   Consulting docstrings
   </a>
  </li>
 </ul>
@@ -1125,67 +1125,11 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="keyword-arguments">
-<h1>🚧 Keyword arguments<a class="headerlink" href="#keyword-arguments" title="Permalink to this headline">#</a></h1>
-<div class="admonition-stub admonition">
-<p class="admonition-title">Section in development</p>
-<p>This section is still in heavy development. Your <a class="reference internal" href="dev_contributing.html"><span class="doc std std-doc">suggestions</span></a> are welcome.</p>
-</div>
-<p>Up to now, we only used list of arguments: each value from the function call is assigned to a function argument by its order. It is also possible to call functions with keyword arguments. This has the advantage of being still clearer in the code that calls the function. For example, this function:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_full_name</span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">first_name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">last_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>can be called either using a list of arguments:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">print_full_name</span><span class="p">(</span><span class="s2">&quot;Catherina&quot;</span><span class="p">,</span> <span class="s2">&quot;Smith&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Catherina Smith
-</pre></div>
-</div>
-</div>
-</div>
-<p>or keyword arguments, in either order:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">print_full_name</span><span class="p">(</span><span class="n">first_name</span><span class="o">=</span><span class="s2">&quot;Catherina&quot;</span><span class="p">,</span> <span class="n">last_name</span><span class="o">=</span><span class="s2">&quot;Smith&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Catherina Smith
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">print_full_name</span><span class="p">(</span><span class="n">last_name</span><span class="o">=</span><span class="s2">&quot;Smith&quot;</span><span class="p">,</span> <span class="n">first_name</span><span class="o">=</span><span class="s2">&quot;Catherina&quot;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Catherina Smith
-</pre></div>
-</div>
-</div>
-</div>
-<div class="admonition-good-practice admonition">
-<p class="admonition-title">Good practice: No space between keyword-arguments and value</p>
-<p>Note the absence of space between the argument name and its value. Although it would also work and be perfectly valid with spaces, this form is a common coding style that is defined in PEP8.</p>
-</div>
-<section id="long-lines-of-arguments">
-<h2>Long lines of arguments<a class="headerlink" href="#long-lines-of-arguments" title="Permalink to this headline">#</a></h2>
-<p>When a function has a lot of arguments, and that we assign these arguments using keywords, the resulting lines may become very long. It is possible to write a Python instruction on multiple lines. As long as a parenthesis is open, Python considers that the function is not terminated, and continues reading the next lines until the last parenthesis is closed.</p>
-<p>For instance, the code you wrote in the last exercise could be called using keywords, on multiple lines, using:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="docstrings">
+<h1>Docstrings<a class="headerlink" href="#docstrings" title="Permalink to this headline">#</a></h1>
+<p>We theoretically know enough on functions to follow on with other concepts. However, although the solutions to the previous exercises do work, they could be much more documented. Keep in mind that code is wrote once by often one programmer, but is read many times after, by many users and other programmers. An undocumented function is usually clear to the programmer while it is being written; but will it still be clear when read by another person, or even by the same programmer months later?</p>
+<p>Docstrings may be the best thing to document functions and reduce the risk of long-term error.</p>
+<p>A docstring is literally a <strong>string</strong> that <strong>doc</strong>uments a function. While being facultative, it is almost mandatory in any code other than very simple scripts, because this is what really tells what the function does, what its parameters are, and what it returns. A standard docstrings is a triple-quote string placed just below the function signature. A good docstring for the <code class="docutils literal notranslate"><span class="pre">format_info</span></code> function of the last section would be:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">format_info</span><span class="p">(</span><span class="n">i_participant</span><span class="p">,</span> <span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">weight</span><span class="p">):</span>
@@ -1194,17 +1138,17 @@ title="Print to PDF"
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    i_participant (int)</span>
+<span class="sd">    i_participant : int</span>
 <span class="sd">        Identifier for the participant</span>
-<span class="sd">    first_name (str)</span>
+<span class="sd">    first_name : str</span>
 <span class="sd">        First name (given name) of the participant</span>
-<span class="sd">    last_name (str)</span>
+<span class="sd">    last_name : str</span>
 <span class="sd">        Last name (surname) of the participant</span>
-<span class="sd">    age (float)</span>
+<span class="sd">    age : float</span>
 <span class="sd">        Age of the participant, in years</span>
-<span class="sd">    height (float)</span>
+<span class="sd">    height : float</span>
 <span class="sd">        Height of the participant, in meters</span>
-<span class="sd">    weight (float)</span>
+<span class="sd">    weight : float</span>
 <span class="sd">        Weight of the participant, in kg</span>
 
 <span class="sd">    Returns</span>
@@ -1219,63 +1163,64 @@ title="Print to PDF"
         <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="sa">f</span><span class="s2">&quot;Height: </span><span class="si">{</span><span class="n">height</span><span class="si">}</span><span class="s2"> m</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="sa">f</span><span class="s2">&quot;Weight: </span><span class="si">{</span><span class="n">weight</span><span class="si">}</span><span class="s2"> kg</span><span class="se">\n</span><span class="s2">&quot;</span>
-        <span class="sa">f</span><span class="s2">&quot;BMI: </span><span class="si">{</span><span class="n">weight</span> <span class="o">/</span> <span class="p">(</span><span class="n">height</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;BMI: </span><span class="si">{</span><span class="n">weight</span> <span class="o">/</span> <span class="p">(</span><span class="n">height</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="s2">&quot;=============&quot;</span>
     <span class="p">)</span>
     <span class="k">return</span> <span class="n">output</span>
-    
-<span class="nb">print</span><span class="p">(</span>
-    <span class="n">format_info</span><span class="p">(</span>
-        <span class="n">i_participant</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-        <span class="n">first_name</span><span class="o">=</span><span class="s2">&quot;Catherina&quot;</span><span class="p">,</span>
-        <span class="n">last_name</span><span class="o">=</span><span class="s2">&quot;Smith&quot;</span><span class="p">,</span>
-        <span class="n">age</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
-        <span class="n">height</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span>
-        <span class="n">weight</span><span class="o">=</span><span class="mf">50.2</span><span class="p">,</span>
-    <span class="p">)</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>=============
-Participant 1: Catherina Smith
-20 years old
-Height: 1.5 m
-Weight: 50.2 kg
-BMI: 22.311111111111114
-=============
 </pre></div>
 </div>
 </div>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>This is the same concept that we saw in <a class="reference internal" href="python_strings.html"><span class="doc std std-doc">Strings basics</span></a>, where long strings are created using multiple strings delimited by parentheses.</p>
+<p>The standard used for this docstring is <a class="reference external" href="https://numpydoc.readthedocs.io/en/latest/format.html">numpydoc</a>. There is no real need to follow this specific style, but since it is used by the major Python packages in numerical analysis (NumPy, Pandas, Matplotlib, SciPy), then we chose to also follow this style in Kinetics Toolkit and in this book.</p>
 </div>
-<ul class="simple">
-<li><p>Default values: def print_addition(a, b, c=0): print(a + b + c);</p>
-<ul>
-<li><p>print_addition(2, 4)</p></li>
-<li><p>print_addition(2, 4, 6)</p></li>
-<li><p>print_addition(a=2, b=4, c=6)</p></li>
-</ul>
-</li>
-<li><p>Returning values</p>
-<ul>
-<li><p>def print_addition(a, b, c=0): total = a + b + c; return total;</p></li>
-<li><p>print(print_addition(2, 4, 6))</p></li>
-</ul>
-</li>
-<li><p>Good practice in naming functions: active form and lowercase with underscores (PEP8).</p></li>
-<li><p>Integration exercise: speed calculation</p>
-<ul>
-<li><p>Program a function that will make this code work as expected:</p></li>
-<li><p>print(calculate_speed(0.0, 5.4, 50.0))</p></li>
-<li><p>print(calculate_speed(time_gate1=0.0, time_gate2=5.4, distances_gates12=50.0))</p></li>
-</ul>
-</li>
-</ul>
+<p>As you notice, we now have more lines of documentation than lines of code. This is not unusual, and this is not a bad practice. After all, a well-documented, simple code is much better than an undocumented, complex code!</p>
+<section id="consulting-docstrings">
+<h2>Consulting docstrings<a class="headerlink" href="#consulting-docstrings" title="Permalink to this headline">#</a></h2>
+<p>Since they are so ubiquitous, docstrings can be read without having to open the function’s source code. Try executing the last function definition, then:</p>
+<ol class="simple">
+<li><p>Type <code class="docutils literal notranslate"><span class="pre">format_info</span></code> in Spyder’s help browser. The docstring appears, all well-formatted:</p></li>
+</ol>
+<p><img alt="Spyder help -width:wider" src="_images/python_function_spyder_help.png" /></p>
+<ol class="simple">
+<li><p>Or type <code class="docutils literal notranslate"><span class="pre">help(format_info)</span></code> in the console:</p></li>
+</ol>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">format_info</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function format_info in module __main__:
+
+format_info(i_participant, first_name, last_name, age, height, weight)
+    Format the provided information into a human-readable string.
+    
+    Parameters
+    ----------
+    i_participant : int
+        Identifier for the participant
+    first_name : str
+        First name (given name) of the participant
+    last_name : str
+        Last name (surname) of the participant
+    age : float
+        Age of the participant, in years
+    height : float
+        Height of the participant, in meters
+    weight : float
+        Weight of the participant, in kg
+    
+    Returns
+    -------
+    str
+        A human-readable string based on the provided information.
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -1306,17 +1251,17 @@ BMI: 22.311111111111114
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="python_functions_good_practice.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="python_functions_syntax.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">🚧 Good practices with functions</p>
+            <p class="prev-next-title">Function syntax</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="python_conditions.html" title="next page">
+    <a class='right-next' id="next-link" href="python_functions_keywords_defaults.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">🚧 Conditions and booleans</p>
+        <p class="prev-next-title">Arguments and default values</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

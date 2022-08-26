@@ -56,7 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="The Python language" href="python.html" />
-    <link rel="prev" title="Configuring Spyder" href="python_configuring_spyder.html" />
+    <link rel="prev" title="Configuring Spyder for Python biomechanics" href="python_configuring_spyder.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -833,7 +833,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="python_configuring_spyder.html">
-       Configuring Spyder
+       Configuring Spyder for Python biomechanics
       </a>
      </li>
      <li class="toctree-l3 current active">
@@ -880,17 +880,17 @@ const thebe_selector_output = ".output, .cell_output"
       <ul>
        <li class="toctree-l4">
         <a class="reference internal" href="python_functions_syntax.html">
-         🚧 Function syntax
+         Function syntax
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="python_functions_good_practice.html">
-         🚧 Good practices with functions
+        <a class="reference internal" href="python_functions_docstrings.html">
+         Docstrings
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="python_function_keywords.html">
-         🚧 Keyword arguments
+        <a class="reference internal" href="python_functions_keywords_defaults.html">
+         Arguments and default values
         </a>
        </li>
       </ul>
@@ -1240,11 +1240,118 @@ title="Print to PDF"
 </div>
 <p>in the console before entering <code class="docutils literal notranslate"><span class="pre">np.mean</span></code> in the help browser.</p>
 </div>
-<p>Note that you can also get help in the command line, by terminating a function by <code class="docutils literal notranslate"><span class="pre">?</span></code>:</p>
+<p>Note that you can also get help in the command line, using the <code class="docutils literal notranslate"><span class="pre">help</span></code> function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-np.mean<span class="o">?</span>
+<span class="n">help</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Help on function mean in module numpy:
+
+mean(a, axis=None, dtype=None, out=None, keepdims=&lt;no value&gt;, *, where=&lt;no value&gt;)
+    Compute the arithmetic mean along the specified axis.
+    
+    Returns the average of the array elements.  The average is taken over
+    the flattened array by default, otherwise over the specified axis.
+    `float64` intermediate and return values are used for integer inputs.
+    
+    Parameters
+    ----------
+    a : array_like
+        Array containing numbers whose mean is desired. If `a` is not an
+        array, a conversion is attempted.
+    axis : None or int or tuple of ints, optional
+        Axis or axes along which the means are computed. The default is to
+        compute the mean of the flattened array.
+    
+        .. versionadded:: 1.7.0
+    
+        If this is a tuple of ints, a mean is performed over multiple axes,
+        instead of a single axis or all the axes as before.
+    dtype : data-type, optional
+        Type to use in computing the mean.  For integer inputs, the default
+        is `float64`; for floating point inputs, it is the same as the
+        input dtype.
+    out : ndarray, optional
+        Alternate output array in which to place the result.  The default
+        is ``None``; if provided, it must have the same shape as the
+        expected output, but the type will be cast if necessary.
+        See :ref:`ufuncs-output-type` for more details.
+    
+    keepdims : bool, optional
+        If this is set to True, the axes which are reduced are left
+        in the result as dimensions with size one. With this option,
+        the result will broadcast correctly against the input array.
+    
+        If the default value is passed, then `keepdims` will not be
+        passed through to the `mean` method of sub-classes of
+        `ndarray`, however any non-default value will be.  If the
+        sub-class&#39; method does not implement `keepdims` any
+        exceptions will be raised.
+    
+    where : array_like of bool, optional
+        Elements to include in the mean. See `~numpy.ufunc.reduce` for details.
+    
+        .. versionadded:: 1.20.0
+    
+    Returns
+    -------
+    m : ndarray, see dtype parameter above
+        If `out=None`, returns a new array containing the mean values,
+        otherwise a reference to the output array is returned.
+    
+    See Also
+    --------
+    average : Weighted average
+    std, var, nanmean, nanstd, nanvar
+    
+    Notes
+    -----
+    The arithmetic mean is the sum of the elements along the axis divided
+    by the number of elements.
+    
+    Note that for floating-point input, the mean is computed using the
+    same precision the input has.  Depending on the input data, this can
+    cause the results to be inaccurate, especially for `float32` (see
+    example below).  Specifying a higher-precision accumulator using the
+    `dtype` keyword can alleviate this issue.
+    
+    By default, `float16` results are computed using `float32` intermediates
+    for extra precision.
+    
+    Examples
+    --------
+    &gt;&gt;&gt; a = np.array([[1, 2], [3, 4]])
+    &gt;&gt;&gt; np.mean(a)
+    2.5
+    &gt;&gt;&gt; np.mean(a, axis=0)
+    array([2., 3.])
+    &gt;&gt;&gt; np.mean(a, axis=1)
+    array([1.5, 3.5])
+    
+    In single precision, `mean` can be inaccurate:
+    
+    &gt;&gt;&gt; a = np.zeros((2, 512*512), dtype=np.float32)
+    &gt;&gt;&gt; a[0, :] = 1.0
+    &gt;&gt;&gt; a[1, :] = 0.1
+    &gt;&gt;&gt; np.mean(a)
+    0.54999924
+    
+    Computing the mean in float64 is more accurate:
+    
+    &gt;&gt;&gt; np.mean(a, dtype=np.float64)
+    0.55000000074505806 # may vary
+    
+    Specifying a where argument:
+    
+    &gt;&gt;&gt; a = np.array([[5, 9, 13], [14, 10, 12], [11, 15, 19]])
+    &gt;&gt;&gt; np.mean(a)
+    12.0
+    &gt;&gt;&gt; np.mean(a, where=[[True], [False], [False]])
+    9.0
 </pre></div>
 </div>
 </div>
@@ -1283,7 +1390,7 @@ np.mean<span class="o">?</span>
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Configuring Spyder</p>
+            <p class="prev-next-title">Configuring Spyder for Python biomechanics</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="python.html" title="next page">

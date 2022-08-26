@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Configuring Spyder &#8212; Kinetics Toolkit</title>
+    <title>Configuring Spyder for Python biomechanics &#8212; Kinetics Toolkit</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -833,7 +833,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3 current active">
       <a class="current reference internal" href="#">
-       Configuring Spyder
+       Configuring Spyder for Python biomechanics
       </a>
      </li>
      <li class="toctree-l3">
@@ -880,17 +880,17 @@ const thebe_selector_output = ".output, .cell_output"
       <ul>
        <li class="toctree-l4">
         <a class="reference internal" href="python_functions_syntax.html">
-         🚧 Function syntax
+         Function syntax
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="python_functions_good_practice.html">
-         🚧 Good practices with functions
+        <a class="reference internal" href="python_functions_docstrings.html">
+         Docstrings
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="python_function_keywords.html">
-         🚧 Keyword arguments
+        <a class="reference internal" href="python_functions_keywords_defaults.html">
+         Arguments and default values
         </a>
        </li>
       </ul>
@@ -1110,7 +1110,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Configuring Spyder</h1>
+                <h1>Configuring Spyder for Python biomechanics</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -1145,24 +1145,27 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="configuring-spyder">
-<h1>Configuring Spyder<a class="headerlink" href="#configuring-spyder" title="Permalink to this headline">#</a></h1>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>These steps are facultative, but may help you in the long term.</p>
-</div>
+  <section class="tex2jax_ignore mathjax_ignore" id="configuring-spyder-for-python-biomechanics">
+<h1>Configuring Spyder for Python biomechanics<a class="headerlink" href="#configuring-spyder-for-python-biomechanics" title="Permalink to this headline">#</a></h1>
 <p>Spyder just works out of the box. However, we suggest to use these alternative settings, which we believe are helpful to get on track as fast as possible in writing great code and processing biomechanical data.</p>
 <section id="interactive-graphics">
 <h2>Interactive graphics<a class="headerlink" href="#interactive-graphics" title="Permalink to this headline">#</a></h2>
-<p>By default, figures are plotted in a static pane which does not support interactive features such as zooming, panning or clicking. To configure Spyder for interactive graphics, go to the Spyder’s preferences, to the <strong>IPython console</strong> item, then to the <strong>Graphics</strong> pane. In the <strong>Graphics backend</strong> box, select <strong>Qt5</strong>. Restart Spyder.</p>
+<p>By default, figures are plotted in a static pane which does not support interactive features such as zooming, panning or clicking. It is however much more convenient to use interactive graphics.</p>
+<p>To configure Spyder for interactive graphics, go to the Spyder’s preferences, to the <strong>IPython console</strong> item, then to the <strong>Graphics</strong> pane. In the <strong>Graphics backend</strong> box, select <strong>Qt5</strong>. Restart Spyder.</p>
 </section>
 <section id="automatic-code-style">
 <h2>Automatic code style<a class="headerlink" href="#automatic-code-style" title="Permalink to this headline">#</a></h2>
-<p>While most Python code is generally readable, there are still many official and unofficial rules that define how code “should” look. For example, we usually put spaces between operators, no more than two blank lines between statements, etc. To focus on learning what to code, and not how code should look, we recommend to use the <a class="reference external" href="https://black.readthedocs.io">Black</a> formatter. Go to the Spyder’s preferences, to the <strong>Completion and linting</strong> item, then to the <strong>Code style and formatting</strong> pane. In the <strong>Code formatting</strong> box, select <strong>black</strong> and check <strong>Autoformat files on save</strong>. Now, your code will always respect most common style rules.</p>
+<p>While most Python code is generally readable, there are still many official and unofficial rules that define how code “should” look. For example, we usually put spaces between operators, no more than two blank lines between statements, etc. To focus on learning what to code, and not how code should look, we recommend to use the <a class="reference external" href="https://black.readthedocs.io">Black</a> formatter.</p>
+<p>Go to the Spyder’s preferences, to the <strong>Completion and linting</strong> item, then to the <strong>Code style and formatting</strong> pane. In the <strong>Code formatting</strong> box, select <strong>black</strong> and check <strong>Autoformat files on save</strong>. Now, your code will always respect most common style rules.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In this interactive book, we assume that you are using automatic code style, and therefore there will be very little content on code styling.</p>
+</div>
 </section>
 <section id="docstring-linting">
 <h2>Docstring linting<a class="headerlink" href="#docstring-linting" title="Permalink to this headline">#</a></h2>
-<p>If you start writing lots of functions, you will want your functions to be <a class="reference internal" href="python_functions_good_practice.html"><span class="doc std std-doc">well documented</span></a>. To help you in this objective, activate Docstring linting. This shows hints in the editor to help you to code good docstrings. Go to the Spyder’s preferences, to the <strong>Completion and linting</strong> item, then to the <strong>Docstring style</strong> pane. Check <strong>Enable docstring type linting</strong> and choose <strong>Numpy</strong> in the selection box.</p>
+<p>If you start writing lots of functions, you will want your functions to be <a class="reference internal" href="python_functions_docstrings.html"><span class="doc std std-doc">well documented</span></a>. To help you in this objective, activate Docstring linting. This shows hints in the editor to help you to code good docstrings.</p>
+<p>Go to the Spyder’s preferences, to the <strong>Completion and linting</strong> item, then to the <strong>Docstring style</strong> pane. Check <strong>Enable docstring type linting</strong> and choose <strong>Numpy</strong> in the selection box.</p>
 </section>
 </section>
 

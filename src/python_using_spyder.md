@@ -96,9 +96,9 @@ import numpy as np
 in the console before entering `np.mean` in the help browser.
 :::
 
-Note that you can also get help in the command line, by terminating a function by `?`:
+Note that you can also get help in the command line, using the `help` function:
 
 ```{code-cell} ipython3
 import numpy as np
-np.mean?
+help(np.mean)
 ```

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>🚧 Function syntax &#8212; Kinetics Toolkit</title>
+    <title>Function syntax &#8212; Kinetics Toolkit</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -57,7 +57,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="🚧 Good practices with functions" href="python_functions_good_practice.html" />
+    <link rel="next" title="Docstrings" href="python_functions_docstrings.html" />
     <link rel="prev" title="Functions" href="python_functions.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -835,7 +835,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="python_configuring_spyder.html">
-       Configuring Spyder
+       Configuring Spyder for Python biomechanics
       </a>
      </li>
      <li class="toctree-l3">
@@ -882,17 +882,17 @@ const thebe_selector_output = ".output, .cell_output"
       <ul class="current">
        <li class="toctree-l4 current active">
         <a class="current reference internal" href="#">
-         🚧 Function syntax
+         Function syntax
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="python_functions_good_practice.html">
-         🚧 Good practices with functions
+        <a class="reference internal" href="python_functions_docstrings.html">
+         Docstrings
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="python_function_keywords.html">
-         🚧 Keyword arguments
+        <a class="reference internal" href="python_functions_keywords_defaults.html">
+         Arguments and default values
         </a>
        </li>
       </ul>
@@ -1094,6 +1094,11 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#argument-names">
+   Argument names
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#return-values">
    Return values
   </a>
@@ -1119,7 +1124,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>🚧 Function syntax</h1>
+                <h1>Function syntax</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -1132,6 +1137,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#signature-and-implementation">
    Signature and implementation
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#argument-names">
+   Argument names
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -1162,7 +1172,7 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="function-syntax">
-<h1>🚧 Function syntax<a class="headerlink" href="#function-syntax" title="Permalink to this headline">#</a></h1>
+<h1>Function syntax<a class="headerlink" href="#function-syntax" title="Permalink to this headline">#</a></h1>
 <p>In Python, functions are defined using this syntax:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">function_name</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="o">...</span><span class="p">):</span>
     <span class="c1"># operation1</span>
@@ -1206,18 +1216,40 @@ The sum of both variables is 13.
 </div>
 </div>
 </div>
+<div class="admonition-good-practice admonition">
+<p class="admonition-title">Good practice: Function naming</p>
+<p>Usually, function names start with an active verb that tells what action is performed by the function. PEP8 also recommends that function names be written in lower_case with words separated by underscores, like with variables.</p>
+</div>
 <section id="signature-and-implementation">
 <h2>Signature and implementation<a class="headerlink" href="#signature-and-implementation" title="Permalink to this headline">#</a></h2>
-<p>Note that the function definition (the line that starts with <code class="docutils literal notranslate"><span class="pre">def</span></code>) is terminated by a colon (<code class="docutils literal notranslate"><span class="pre">:</span></code>). This line is the <strong>function signature</strong>. It tells how to use the function. We now know that the function is called <code class="docutils literal notranslate"><span class="pre">print_sum</span></code>, that it takes two arguments, and that it returns nothing.</p>
-<p>A colon signifies that the following lines will be a code block, which is simply a series of lines that belong to a same group. In the case of a function, this code block is the <strong>function implementation</strong>. This is the lines to be executed when the function is called.</p>
-<p>In Python, code blocks are delimited by their indentation. Every line of a code block must be indented with the same number of spaces.</p>
+<p>The first line of the function definition is called the <strong>function signature</strong>. It defines how to use the function. We now know that the function is called <code class="docutils literal notranslate"><span class="pre">print_sum</span></code>, that it takes two arguments, and that it returns nothing.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In the different references found on the web, we often see both the terms “argument” and “parameter” for function inputs. Both terms are equivalent and will be referred by both words from now on.</p>
+</div>
+<p>Note the colon <code class="docutils literal notranslate"><span class="pre">:</span></code> that terminates the function signature. A colon signifies that the following lines will be a code block, which is simply a series of lines that belong to a same group. In the case of a function, this code block is the <strong>function implementation</strong>. This is the lines to be executed when the function is called. In Python, code blocks are delimited by their indentation. Every line of a code block must be indented with the same number of spaces.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Since indentation is so important in Python, practically all Python editors include keyboard shortcuts to indent or outdent code blocks. Check in the settings of your editor to learn or change these shortcut following your tastes.</p>
+<p>Since indentation is so important in Python, practically all Python editors include keyboard shortcuts to indent or outdent code blocks. In Spyder, select a group of lines that you want to indent or outdent, then press <code class="docutils literal notranslate"><span class="pre">Tab</span></code> to indent, or <code class="docutils literal notranslate"><span class="pre">Shift+Tab</span></code> to outdent.</p>
+</div>
+</section>
+<section id="argument-names">
+<h2>Argument names<a class="headerlink" href="#argument-names" title="Permalink to this headline">#</a></h2>
+<p>In the <code class="docutils literal notranslate"><span class="pre">print_sum</span></code> example, we used <code class="docutils literal notranslate"><span class="pre">arg1</span></code> and <code class="docutils literal notranslate"><span class="pre">arg2</span></code> as argument names. In reality, any name will work equally. For instance, we could also use <code class="docutils literal notranslate"><span class="pre">first</span></code> and <code class="docutils literal notranslate"><span class="pre">second</span></code>, as long as we refer to these names in the implementation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_sum</span><span class="p">(</span><span class="n">first</span><span class="p">,</span> <span class="n">second</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hi!&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The first variable is </span><span class="si">{</span><span class="n">first</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The second variable is </span><span class="si">{</span><span class="n">second</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The sum of both variables is </span><span class="si">{</span><span class="n">first</span> <span class="o">+</span> <span class="n">second</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 <div class="admonition-good-practice admonition">
-<p class="admonition-title">Good practice: Number of spaces</p>
-<p>Try to be coherent with the number of space you use for defining code blocks. Although you can select either tabs or spaces, and the number of spaces you want, a common practice is to always use four spaces for indents, which is the default in Spyder.</p>
+<p class="admonition-title">Good practice: Clear argument names</p>
+<p>It is very important to use clear names for function arguments. Argument names are selected using the same best practices as standard <a class="reference internal" href="python_arithmetics_and_variables.html"><span class="doc std std-doc">variable</span></a> names.</p>
 </div>
 <div class="admonition-exercise admonition">
 <p class="admonition-title">Exercise: Printing information</p>
@@ -1236,22 +1268,19 @@ BMI: 22.31
 </pre></div>
 </div>
 <p>Note that the body-mass index (BMI) is calculated using <span class="math notranslate nohighlight">\(\text{weight}/\text{height}^2\)</span>.</p>
+<p>Please use clear names for your function’s arguments.</p>
 </div>
-<aside class="margin sidebar">
-<p class="sidebar-title"></p>
-<p>#todo Add float formatting in f-strings</p>
-</aside>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_info</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span><span class="p">,</span> <span class="n">arg4</span><span class="p">,</span> <span class="n">arg5</span><span class="p">,</span> <span class="n">arg6</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=============&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Participant </span><span class="si">{</span><span class="n">arg1</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">arg2</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">arg3</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">arg4</span><span class="si">}</span><span class="s2"> years old&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Height: </span><span class="si">{</span><span class="n">arg5</span><span class="si">}</span><span class="s2"> m&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Weight: </span><span class="si">{</span><span class="n">arg6</span><span class="si">}</span><span class="s2"> kg&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;BMI: </span><span class="si">{</span><span class="n">arg6</span> <span class="o">/</span> <span class="p">(</span><span class="n">arg5</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=============&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_info</span><span class="p">(</span><span class="n">i_participant</span><span class="p">,</span> <span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">weight</span><span class="p">):</span>
 
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=============&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Participant </span><span class="si">{</span><span class="n">i_participant</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">first_name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">last_name</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Height: </span><span class="si">{</span><span class="n">height</span><span class="si">}</span><span class="s2"> m&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Weight: </span><span class="si">{</span><span class="n">weight</span><span class="si">}</span><span class="s2"> kg&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;BMI: </span><span class="si">{</span><span class="n">weight</span> <span class="o">/</span> <span class="p">(</span><span class="n">height</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;=============&quot;</span><span class="p">)</span>
 
 <span class="n">print_info</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Catherina&quot;</span><span class="p">,</span> <span class="s2">&quot;Smith&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">50.2</span><span class="p">)</span>
 </pre></div>
@@ -1263,7 +1292,7 @@ Participant 1: Catherina Smith
 20 years old
 Height: 1.5 m
 Weight: 50.2 kg
-BMI: 22.311111111111114
+BMI: 22.31
 =============
 </pre></div>
 </div>
@@ -1315,8 +1344,29 @@ BMI: 22.311111111111114
 </div>
 <p>The inner function call calls <code class="docutils literal notranslate"><span class="pre">calculate_sum()</span></code> with arguments 2 and 6. The function executes and returns 8. Then, the outer function call calls <code class="docutils literal notranslate"><span class="pre">calculate_sum()</span></code> with arguments 8 and 5. The function executes again and this time returns 13. The <code class="docutils literal notranslate"><span class="pre">print()</span></code> function therefore prints 13.</p>
 <div class="admonition-exercise admonition">
+<p class="admonition-title">Exercise: Calculating Body-Mass Index (BMI)</p>
+<p>Program a function called <code class="docutils literal notranslate"><span class="pre">calculate_bmi</span></code> that takes a person’s height and weight as arguments, and that returns the body-mass index, knowing that <span class="math notranslate nohighlight">\(\text{BMI} = \text{weight}/\text{height}^2\)</span>.</p>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_bmi</span><span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">weight</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">weight</span> <span class="o">/</span> <span class="p">(</span><span class="n">height</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+
+
+<span class="c1"># Let&#39;s test the function:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">calculate_bmi</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">50.2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>22.311111111111114
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition-exercise admonition">
 <p class="admonition-title">Exercise: Printing information (cont’d)</p>
-<p>Based on the function <code class="docutils literal notranslate"><span class="pre">print_sum()</span></code> that you created in the last example, create a function <code class="docutils literal notranslate"><span class="pre">format_info()</span></code> which does not print the information, but instead creates an equivalent string and returns it, so that:</p>
+<p>Based on the function <code class="docutils literal notranslate"><span class="pre">print_info</span></code> that you created in a previous example, create a new function <code class="docutils literal notranslate"><span class="pre">format_info</span></code> which does not print the information, but instead creates an equivalent string and returns it, so that:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">format_info</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Catherina&quot;</span><span class="p">,</span> <span class="s2">&quot;Smith&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">50.2</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -1330,19 +1380,20 @@ BMI: 22.31
 =============
 </pre></div>
 </div>
+<p>Instead of calculating the BMI manually in the function, use a call to the <code class="docutils literal notranslate"><span class="pre">calculate_bmi</span></code> function that you just wrote in the previous example.</p>
 <p>Tip: you may want to return to the section on <a class="reference internal" href="python_strings.html"><span class="doc std std-doc">strings</span></a> for a refresh on how to create long strings, and how to add line breaks in strings.</p>
 </div>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">format_info</span><span class="p">(</span><span class="n">arg1</span><span class="p">,</span> <span class="n">arg2</span><span class="p">,</span> <span class="n">arg3</span><span class="p">,</span> <span class="n">arg4</span><span class="p">,</span> <span class="n">arg5</span><span class="p">,</span> <span class="n">arg6</span><span class="p">):</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">format_info</span><span class="p">(</span><span class="n">i_participant</span><span class="p">,</span> <span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">,</span> <span class="n">age</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">weight</span><span class="p">):</span>
 
     <span class="n">output</span> <span class="o">=</span> <span class="p">(</span>
         <span class="s2">&quot;=============</span><span class="se">\n</span><span class="s2">&quot;</span>
-        <span class="sa">f</span><span class="s2">&quot;Participant </span><span class="si">{</span><span class="n">arg1</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">arg2</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">arg3</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
-        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">arg4</span><span class="si">}</span><span class="s2"> years old</span><span class="se">\n</span><span class="s2">&quot;</span>
-        <span class="sa">f</span><span class="s2">&quot;Height: </span><span class="si">{</span><span class="n">arg5</span><span class="si">}</span><span class="s2"> m</span><span class="se">\n</span><span class="s2">&quot;</span>
-        <span class="sa">f</span><span class="s2">&quot;Weight: </span><span class="si">{</span><span class="n">arg6</span><span class="si">}</span><span class="s2"> kg</span><span class="se">\n</span><span class="s2">&quot;</span>
-        <span class="sa">f</span><span class="s2">&quot;BMI: </span><span class="si">{</span><span class="n">arg6</span> <span class="o">/</span> <span class="p">(</span><span class="n">arg5</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;Participant </span><span class="si">{</span><span class="n">i_participant</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">first_name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">last_name</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">age</span><span class="si">}</span><span class="s2"> years old</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;Height: </span><span class="si">{</span><span class="n">height</span><span class="si">}</span><span class="s2"> m</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;Weight: </span><span class="si">{</span><span class="n">weight</span><span class="si">}</span><span class="s2"> kg</span><span class="se">\n</span><span class="s2">&quot;</span>
+        <span class="sa">f</span><span class="s2">&quot;BMI: </span><span class="si">{</span><span class="n">calculate_bmi</span><span class="p">(</span><span class="n">height</span><span class="p">,</span> <span class="n">weight</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span>
         <span class="s2">&quot;=============&quot;</span>
     <span class="p">)</span>
     <span class="k">return</span> <span class="n">output</span>
@@ -1358,15 +1409,11 @@ Participant 1: Catherina Smith
 20 years old
 Height: 1.5 m
 Weight: 50.2 kg
-BMI: 22.311111111111114
+BMI: 22.31
 =============
 </pre></div>
 </div>
 </div>
-</div>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Please note that although the solutions to these exercises do work, they are far from being clear and do not respect good practices in programming. Be sure to read the <a class="reference internal" href="python_functions_good_practice.html"><span class="doc std std-doc">next section</span></a> to know how to write <strong>good</strong> code, that works both now <strong>and</strong> in the future.</p>
 </div>
 </section>
 </section>
@@ -1406,10 +1453,10 @@ BMI: 22.311111111111114
             <p class="prev-next-title">Functions</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="python_functions_good_practice.html" title="next page">
+    <a class='right-next' id="next-link" href="python_functions_docstrings.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">🚧 Good practices with functions</p>
+        <p class="prev-next-title">Docstrings</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

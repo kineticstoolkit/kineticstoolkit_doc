@@ -72,8 +72,8 @@ chapters:
           - file: [](python_functions.md)
             sections:
               - file: [](python_functions_syntax.md)
-              - file: [](python_functions_good_practice.md)
-              - file: [](python_function_keywords.md)
+              - file: [](python_functions_docstrings.md)
+              - file: [](python_functions_keywords_defaults.md)
           - file: [](python_conditions.md)
           - file: [](python_lists.md)
           - file: [](python_while.md)

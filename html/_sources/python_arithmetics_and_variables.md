@@ -99,7 +99,7 @@ works.
 ## Exercise
 
 :::{exercise} Timing gates
-A sprinter runs through two timing gates spaced by 50 m. Each timing gate records the time (in seconds) at which the sprinter pass through it.
+A sprinter runs through two timing gates spaced by 50 m. Each timing gate records the time (in seconds) at which the sprinter passes through it.
 
 ![exercices_illustration -width:normal](_static/images/exercise_timing_gates.png)
 

@@ -833,7 +833,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="python_configuring_spyder.html">
-       Configuring Spyder
+       Configuring Spyder for Python biomechanics
       </a>
      </li>
      <li class="toctree-l3">
@@ -880,17 +880,17 @@ const thebe_selector_output = ".output, .cell_output"
       <ul>
        <li class="toctree-l4">
         <a class="reference internal" href="python_functions_syntax.html">
-         🚧 Function syntax
+         Function syntax
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="python_functions_good_practice.html">
-         🚧 Good practices with functions
+        <a class="reference internal" href="python_functions_docstrings.html">
+         Docstrings
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="python_function_keywords.html">
-         🚧 Keyword arguments
+        <a class="reference internal" href="python_functions_keywords_defaults.html">
+         Arguments and default values
         </a>
        </li>
       </ul>
@@ -1326,12 +1326,11 @@ It was good.
 </section>
 <section id="triple-quotes">
 <h2>Triple-quotes<a class="headerlink" href="#triple-quotes" title="Permalink to this headline">#</a></h2>
-<p>Python provides another type string delimiter: the triple-quote. A string defined by triple-quotes can integrate both single and double quotes in a same string without using backslash. Line breaks are also saved in the string. Both triple-single-quotes and triple-double-quotes work equally:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;I didn&#39;t invent &quot;E = mc2&quot;, that&#39;s Einstein&#39;s thing.&#39;&#39;&#39;</span>
-<span class="sd">&quot;&quot;&quot;I didn&#39;t invent &quot;E = mc2&quot;, that&#39;s Einstein&#39;s thing.&quot;&quot;&quot;</span>
+<p>Python provides another type string delimiter: the triple-quote. A string defined by triple-quotes can integrate both single and double quotes in a same string without using backslash. Line breaks are also saved in the string.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;I didn&#39;t invent &quot;E = mc2&quot;, that&#39;s Einstein&#39;s thing.&quot;&quot;&quot;</span>
 </pre></div>
 </div>
-<p>The most popular use for triple-quotes are <a class="reference internal" href="python_functions_good_practice.html"><span class="doc std std-doc">docstrings</span></a> docstrings, which will be seen later.</p>
+<p>The most popular use for triple-quotes are <a class="reference internal" href="python_functions_docstrings.html"><span class="doc std std-doc">docstrings</span></a> docstrings, which will be seen later.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">example_string</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;I ate your sandwich.</span>
@@ -1440,7 +1439,7 @@ Measured moment: 34 Nm
 </div>
 </div>
 </div>
-<p>A better way would be to create a string that includes the result, such as “The calculated ankle moment is 100.1 Nm.” Including variables into strings is easily done using f-strings. These strings are called this was because we prefix the quotes with the letter <code class="docutils literal notranslate"><span class="pre">f</span></code>. With f-strings, Python evaluates the content between curly braces <code class="docutils literal notranslate"><span class="pre">{}</span></code> and replaces this content by its evaluation.</p>
+<p>A more readable way would be to create a single string that includes the result, for instance “The calculated ankle moment is 100.1 Nm.” Including variables into strings is easily done using f-strings. F-strings are called this was because we prefix the quotes with the letter <code class="docutils literal notranslate"><span class="pre">f</span></code>. With f-strings, Python evaluates the content between curly braces <code class="docutils literal notranslate"><span class="pre">{}</span></code> and replaces this content by its evaluation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Here, we create the sentence above.</span>
@@ -1455,6 +1454,23 @@ Measured moment: 34 Nm
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The calculated ankle moment is 100.1 Nm.
+</pre></div>
+</div>
+</div>
+</div>
+<p>Sometimes, when we include a float into an f-string, you may want to select to which precision we want this float to print. This can be done using <code class="docutils literal notranslate"><span class="pre">:.xf</span></code> just after the expression in braces, where <code class="docutils literal notranslate"><span class="pre">x</span></code> is the number of digits after the decimal point. For instance:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The calculated ankle moment is </span><span class="si">{</span><span class="n">ankle_moment</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2"> Nm.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The calculated ankle moment is </span><span class="si">{</span><span class="n">ankle_moment</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> Nm.&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;The calculated ankle moment is </span><span class="si">{</span><span class="n">ankle_moment</span><span class="si">:</span><span class="s2">.5f</span><span class="si">}</span><span class="s2"> Nm.&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>The calculated ankle moment is 100 Nm.
+The calculated ankle moment is 100.10 Nm.
+The calculated ankle moment is 100.10000 Nm.
 </pre></div>
 </div>
 </div>
