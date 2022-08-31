@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="🚧 Conditions and booleans" href="python_conditions.html" />
+    <link rel="next" title="Conditions and booleans" href="python_conditions.html" />
     <link rel="prev" title="Docstrings" href="python_functions_docstrings.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -897,7 +897,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="python_conditions.html">
-       🚧 Conditions and booleans
+       Conditions and booleans
       </a>
      </li>
      <li class="toctree-l3">
@@ -937,15 +937,79 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
     </ul>
    </li>
-   <li class="toctree-l2">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="numpy.html">
      🚧 Numpy
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
+    <label for="toctree-checkbox-22">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy_import.html">
+       🚧 Import
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy_ndarray.html">
+       🚧 N-dimensional arrays
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy_indexing.html">
+       🚧 Indexing and slicing
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy_comparisons.html">
+       🚧 Comparisons
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy_combining.html">
+       🚧 Combining arrays
+      </a>
+     </li>
+    </ul>
    </li>
-   <li class="toctree-l2">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="matplotlib.html">
      🚧 Matplotlib
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
+    <label for="toctree-checkbox-23">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="matplotlib_plot.html">
+       🚧 Line plots
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="matplotlib_scatter.html">
+       🚧 Scatter plots
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="matplotlib_labels.html">
+       🚧 Labels
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="matplotlib_axis.html">
+       🚧 Axis
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="matplotlib_ginput.html">
+       🚧 Graphical input
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="pandas.html">
@@ -1087,8 +1151,8 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#list-of-arguments">
-   List of arguments
+  <a class="reference internal nav-link" href="#positional-arguments">
+   Positional arguments
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -1099,6 +1163,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#optional-arguments-arguments-with-default-values">
    Optional arguments (arguments with default values)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
   </a>
  </li>
 </ul>
@@ -1121,8 +1190,8 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#list-of-arguments">
-   List of arguments
+  <a class="reference internal nav-link" href="#positional-arguments">
+   Positional arguments
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -1133,6 +1202,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#optional-arguments-arguments-with-default-values">
    Optional arguments (arguments with default values)
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
   </a>
  </li>
 </ul>
@@ -1147,9 +1221,9 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="arguments-and-default-values">
 <h1>Arguments and default values<a class="headerlink" href="#arguments-and-default-values" title="Permalink to this headline">#</a></h1>
-<section id="list-of-arguments">
-<h2>List of arguments<a class="headerlink" href="#list-of-arguments" title="Permalink to this headline">#</a></h2>
-<p>Up to now, we called functions using a list of arguments: each argument was assigned using its order. For instance, in this function:</p>
+<section id="positional-arguments">
+<h2>Positional arguments<a class="headerlink" href="#positional-arguments" title="Permalink to this headline">#</a></h2>
+<p>Up to now, we called functions using an ordered list of arguments: each argument was assigned using its position. For instance, in this function:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">print_full_name</span><span class="p">(</span><span class="n">first_name</span><span class="p">,</span> <span class="n">last_name</span><span class="p">):</span>
@@ -1418,8 +1492,9 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<div class="admonition-exercise admonition">
-<p class="admonition-title">Exercise: Timing gates</p>
+</section>
+<section id="exercise">
+<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">#</a></h2>
 <p>We will redo the example of section <a class="reference internal" href="python_arithmetics_and_variables.html"><span class="doc std std-doc">Arithmetics and variables</span></a>, but this time using a proper function.</p>
 <p>A sprinter runs through two timing gates spaced by 50 m. Each timing gate records the time (in seconds) at which the sprinter passes through it.</p>
 <p><img alt="exercices_illustration -width:normal" src="_images/exercise_timing_gates.png" /></p>
@@ -1433,7 +1508,6 @@ title="Print to PDF"
 </pre></div>
 </div>
 <p>Do not forget to include a docstring to your function.</p>
-</div>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_speed</span><span class="p">(</span><span class="n">time_gate1</span><span class="p">,</span> <span class="n">time_gate2</span><span class="p">,</span> <span class="n">distance_gates12</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
@@ -1510,7 +1584,7 @@ title="Print to PDF"
     <a class='right-next' id="next-link" href="python_conditions.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">🚧 Conditions and booleans</p>
+        <p class="prev-next-title">Conditions and booleans</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

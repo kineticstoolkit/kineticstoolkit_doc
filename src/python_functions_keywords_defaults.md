@@ -13,9 +13,9 @@ kernelspec:
 
 # Arguments and default values
 
-## List of arguments
+## Positional arguments
 
-Up to now, we called functions using a list of arguments: each argument was assigned using its order. For instance, in this function:
+Up to now, we called functions using an ordered list of arguments: each argument was assigned using its position. For instance, in this function:
 
 ```{code-cell} ipython3
 def print_full_name(first_name, last_name):
@@ -237,7 +237,8 @@ print(
 )
 ```
 
-:::{exercise} Timing gates
+
+## Exercise
 
 We will redo the example of section [](python_arithmetics_and_variables.md), but this time using a proper function.
 
@@ -260,7 +261,7 @@ calculate_speed(1.3, 6.7, distance_gates12=75)
 ```
 
 Do not forget to include a docstring to your function.
-:::
+
 
 ```{code-cell} ipython3
 :tags: [hide-cell]

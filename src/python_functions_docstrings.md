@@ -58,7 +58,7 @@ def format_info(i_participant, first_name, last_name, age, height, weight):
 ```
 
 :::{note}
-The style used for this docstring is [numpydoc](https://numpydoc.readthedocs.io/en/latest/format.html). There is no real need to follow this specific style, but since it is used by most major Python packages in numerical analysis (NumPy, Pandas, Matplotlib, SciPy), then we chose to also follow this style in Kinetics Toolkit and in this book.
+The style used for this docstring is [numpydoc](https://numpydoc.readthedocs.io/en/latest/format.html). There is no real need to follow this specific style over another one, but since it is used by most major Python packages in numerical analysis (NumPy, Pandas, Matplotlib, SciPy), then we chose to also follow this style in Kinetics Toolkit and in this book.
 :::
 
 As you notice, we now have more lines of documentation than lines of code. This is not unusual, and this is not a bad practice. After all, a well-documented, simple code is much better than an undocumented, complex code!

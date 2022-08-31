@@ -83,6 +83,18 @@ chapters:
           - file: [](python_more_advanced.md)
           - file: [](python_integration_exercises.md)
       - file: [](numpy.md)
+        sections:
+          - file: [](numpy_import.md)
+          - file: [](numpy_ndarray.md)
+          - file: [](numpy_indexing.md)
+          - file: [](numpy_comparisons.md)
+          - file: [](numpy_combining.md)
       - file: [](matplotlib.md)
+        sections:
+          - file: [](matplotlib_plot.md)
+          - file: [](matplotlib_scatter.md)
+          - file: [](matplotlib_labels.md)
+          - file: [](matplotlib_axis.md)
+          - file: [](matplotlib_ginput.md)
       - file: [](pandas.md)
 

@@ -27,13 +27,34 @@ For those who are used to Matlab, Spyder's interface should immediately look fam
 
 ## Writing code in a console
 
-In the figure above, Section A is the console, and is the equivalent of the `>>>` console that we regularly see in tutorials. Any command that you enter here is executed immediately, and the output is returned just below. You can try it with the most ubiquitous example in computer science: "Hello World". Try typing this command in the console:
+In the figure above, Section A is the console, and is the equivalent of the `>>>` console that we regularly see in tutorials. Any command that you enter here is executed immediately, and the output is returned just below.
+
+You can try it with a very simple calculation:
+
+```{code-cell} ipython3
+1 + 2
+```
+
+You can also write multiple-line commands using CTRL+Enter. Both are executed, but only the result from the last command is printed:
+
+```{code-cell} ipython3
+1 + 2
+3 + 4
+```
+
+To tell Python to actually print something, and not only the result of the last operation, we use the `print` function:
+
+```{code-cell} ipython3
+print(1 + 2)
+print(3 + 4)
+```
+
+The `print` function works with any contents, be it numbers or words. Here is the most ubiquitous example in computer science: "Hello World". Try typing this command in the console:
 
 ```{code-cell} ipython3
 print("Hello world")
 ```
 
-The print function prints something in the console, and in this very short program, this "something" is "Hello world".
 
 ## Writing code in a script
 
@@ -42,9 +63,8 @@ In the figure above, Section B is the script editor. This is where you will be w
 ![](_static/images/spyder_run_toolbar.png)
 ![](_static/images/spyder_run_toolbar_mac.png)
 
-:::{exercise} Hello world
+## Exercise 1
 Create a file named `hello_world.py` that prints "Hello World", and run it using the `Run File` button.
-:::
 
 
 ## Comments
@@ -80,9 +100,9 @@ You can execute a cell by placing the cursor in that cell, then by clicking on t
 ![](_static/images/spyder_run_toolbar.png)
 ![](_static/images/spyder_run_toolbar_mac.png)
 
-:::{exercise} Cells
+## Exercise 2
+
 Create a file named `hello_north_south.py` that contains two cells. A first cell prints "Hello north", and a second cell prints "Hello south". Run the cell of your choice using the toolbar icons.
-:::
 
 ## Getting help
 

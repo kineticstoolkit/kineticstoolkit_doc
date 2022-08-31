@@ -897,7 +897,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="python_conditions.html">
-       🚧 Conditions and booleans
+       Conditions and booleans
       </a>
      </li>
      <li class="toctree-l3">
@@ -937,15 +937,79 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
     </ul>
    </li>
-   <li class="toctree-l2">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="numpy.html">
      🚧 Numpy
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
+    <label for="toctree-checkbox-22">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy_import.html">
+       🚧 Import
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy_ndarray.html">
+       🚧 N-dimensional arrays
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy_indexing.html">
+       🚧 Indexing and slicing
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy_comparisons.html">
+       🚧 Comparisons
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy_combining.html">
+       🚧 Combining arrays
+      </a>
+     </li>
+    </ul>
    </li>
-   <li class="toctree-l2">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="matplotlib.html">
      🚧 Matplotlib
     </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
+    <label for="toctree-checkbox-23">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="matplotlib_plot.html">
+       🚧 Line plots
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="matplotlib_scatter.html">
+       🚧 Scatter plots
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="matplotlib_labels.html">
+       🚧 Labels
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="matplotlib_axis.html">
+       🚧 Axis
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="matplotlib_ginput.html">
+       🚧 Graphical input
+      </a>
+     </li>
+    </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="pandas.html">
@@ -1097,6 +1161,11 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-1">
+   Exercise 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#comments">
    Comments
   </a>
@@ -1104,6 +1173,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#writing-code-in-a-cell">
    Writing code in a cell
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-2">
+   Exercise 2
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -1141,6 +1215,11 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-1">
+   Exercise 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#comments">
    Comments
   </a>
@@ -1148,6 +1227,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#writing-code-in-a-cell">
    Writing code in a cell
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-2">
+   Exercise 2
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -1171,7 +1255,50 @@ title="Print to PDF"
 <p id="fig-screenshot"><img alt="" src="_images/spyder_screenshot.png" /></p>
 <section id="writing-code-in-a-console">
 <h2>Writing code in a console<a class="headerlink" href="#writing-code-in-a-console" title="Permalink to this headline">#</a></h2>
-<p>In the figure above, Section A is the console, and is the equivalent of the <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code> console that we regularly see in tutorials. Any command that you enter here is executed immediately, and the output is returned just below. You can try it with the most ubiquitous example in computer science: “Hello World”. Try typing this command in the console:</p>
+<p>In the figure above, Section A is the console, and is the equivalent of the <code class="docutils literal notranslate"><span class="pre">&gt;&gt;&gt;</span></code> console that we regularly see in tutorials. Any command that you enter here is executed immediately, and the output is returned just below.</p>
+<p>You can try it with a very simple calculation:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+</pre></div>
+</div>
+</div>
+</div>
+<p>You can also write multiple-line commands using CTRL+Enter. Both are executed, but only the result from the last command is printed:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7
+</pre></div>
+</div>
+</div>
+</div>
+<p>To tell Python to actually print something, and not only the result of the last operation, we use the <code class="docutils literal notranslate"><span class="pre">print</span></code> function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3
+7
+</pre></div>
+</div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">print</span></code> function works with any contents, be it numbers or words. Here is the most ubiquitous example in computer science: “Hello World”. Try typing this command in the console:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello world&quot;</span><span class="p">)</span>
@@ -1184,17 +1311,16 @@ title="Print to PDF"
 </div>
 </div>
 </div>
-<p>The print function prints something in the console, and in this very short program, this “something” is “Hello world”.</p>
 </section>
 <section id="writing-code-in-a-script">
 <h2>Writing code in a script<a class="headerlink" href="#writing-code-in-a-script" title="Permalink to this headline">#</a></h2>
 <p>In the figure above, Section B is the script editor. This is where you will be writing most of your code. It is simply a text editor that allows saving our code (in a .py text file) to execute it all together later. You can execute a script by clicking on the <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">File</span></code> button (leftmost in the following toolbar, which can have different looks according to your configuration):</p>
 <p><img alt="" src="_images/spyder_run_toolbar.png" />
 <img alt="" src="_images/spyder_run_toolbar_mac.png" /></p>
-<div class="admonition-exercise admonition">
-<p class="admonition-title">Exercise: Hello world</p>
+</section>
+<section id="exercise-1">
+<h2>Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">#</a></h2>
 <p>Create a file named <code class="docutils literal notranslate"><span class="pre">hello_world.py</span></code> that prints “Hello World”, and run it using the <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">File</span></code> button.</p>
-</div>
 </section>
 <section id="comments">
 <h2>Comments<a class="headerlink" href="#comments" title="Permalink to this headline">#</a></h2>
@@ -1224,10 +1350,10 @@ title="Print to PDF"
 <p>You can execute a cell by placing the cursor in that cell, then by clicking on the <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">current</span> <span class="pre">cell</span></code> (middle button) or <code class="docutils literal notranslate"><span class="pre">Run</span> <span class="pre">current</span> <span class="pre">cell</span> <span class="pre">and</span> <span class="pre">go</span> <span class="pre">to</span> <span class="pre">the</span> <span class="pre">next</span> <span class="pre">one</span></code> (right button) in the following toolbar:</p>
 <p><img alt="" src="_images/spyder_run_toolbar.png" />
 <img alt="" src="_images/spyder_run_toolbar_mac.png" /></p>
-<div class="admonition-exercise admonition">
-<p class="admonition-title">Exercise: Cells</p>
+</section>
+<section id="exercise-2">
+<h2>Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">#</a></h2>
 <p>Create a file named <code class="docutils literal notranslate"><span class="pre">hello_north_south.py</span></code> that contains two cells. A first cell prints “Hello north”, and a second cell prints “Hello south”. Run the cell of your choice using the toolbar icons.</p>
-</div>
 </section>
 <section id="getting-help">
 <h2>Getting help<a class="headerlink" href="#getting-help" title="Permalink to this headline">#</a></h2>

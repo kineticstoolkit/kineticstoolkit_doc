@@ -2,4 +2,5 @@
 
 {{ stub }}
 
-#todo 
+```{tableofcontents}
+```

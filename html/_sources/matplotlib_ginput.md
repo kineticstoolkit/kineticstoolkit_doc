@@ -1,0 +1,3 @@
+# 🚧 Graphical input
+
+{{stub}}

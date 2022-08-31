@@ -91,7 +91,8 @@ It was good."""
 print(example_string)
 ```
 
-:::{exercise} Creating various strings
+## Exercise
+
 Create a code that creates the variable `str` in such a way that `print(str)` gives:
 
 a)
@@ -113,8 +114,6 @@ d)
     "ValueError('C:\temp unfound')"
 
 Try different ways to create each variables.
-
-:::
 
 ```{code-cell} ipython3
 :tags: [hide-cell]

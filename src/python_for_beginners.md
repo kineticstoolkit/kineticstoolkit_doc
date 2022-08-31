@@ -30,13 +30,9 @@ This manual is written to be read from begin to start, and is filled with exampl
 print("And this is the result of the code")
 ```
 
-It also contains exercises that look like this:
-
-:::{exercise} An example of exercise
+It also contains exercises:
 
 You are asked to program a one-line script that writes "Hello world!" to the console. When you are done, click the button below to see an example of such code.
-
-:::
 
 ```{code-cell}
 :tags: [hide-cell]

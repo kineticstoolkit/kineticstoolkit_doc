@@ -6,6 +6,9 @@
 Write a proper tutorial for biomechanics, with examples.
 :::
 
+```{tableofcontents}
+```
+
 :::{note}
 This page is a subset from [Jay Alammar](https://jalammar.github.io/)'s excellent tutorial: *Alammar, J (2019). A Visual Intro to NumPy and Data Representation [Blog post]. Retrieved from [](https://jalammar.github.io/visual-numpy/)*
 

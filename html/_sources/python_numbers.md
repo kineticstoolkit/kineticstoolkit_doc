@@ -71,7 +71,9 @@ print(d)
 print(type(d))
 ```
 
-:::{exercise} Creating integers and floats
+
+## Exercise 1
+
 We want to create a variable named `mass` that will contain the mass of a person in kg. This person as a mass of 68 kg. Since this is a physical value that could take any decimal value, but that just happens to be rounded to the unit, we therefore want to create a float:
 
 ```
@@ -84,7 +86,6 @@ How would you create the following variables?
 - `i_trial`: The trial number where someone reached the highest isometric contraction, which is 3.
 - `n_trials`: The total number of trials someone tried to reach the highest isometric contraction, which is 4.
 - `emg_max`: The EMG value measured during a maximal isometric contraction, which is 34 μV.
-:::
 
 ```{code-cell} ipython3
 :tags: [hide-cell]
@@ -102,7 +103,7 @@ When we perform operation between different types, Python may convert the types 
 ```{code-cell} ipython3
 a = 2 + 4.5
 
-print(type(a))
+type(a)
 ```
 
 However, adding an int and another int results in an int:
@@ -110,7 +111,7 @@ However, adding an int and another int results in an int:
 ```{code-cell} ipython3
 b = 2 + 4
 
-print(type(b))
+type(b)
 ```
 
 A particular case is the division, which always results in a float, even if we divide two integers, and even if the result is round:
@@ -118,7 +119,7 @@ A particular case is the division, which always results in a float, even if we d
 ```{code-cell} ipython3
 c = 4 / 2
 
-print(type(c))
+type(c)
 ```
 
 Therefore, to be sure that the result of a division is an int, we can cast the result as an int:
@@ -126,7 +127,7 @@ Therefore, to be sure that the result of a division is an int, we can cast the r
 ```{code-cell} ipython3
 d = int(4 / 2)
 
-print(type(d))
+type(d)
 ```
 
 ## Exponentiation
@@ -134,13 +135,13 @@ print(type(d))
 A last arithmetical operation is the exponentiation. Raising a value to a power is done using the `**` operator. For example, to calculate $4^2$, we would write:
 
 ```{code-cell} ipython3
-print(4**2)
+4**2
 ```
 
 For roots, we can exponententiate to the inverse. For example, to calculate $\sqrt{4}$, we would write:
 
 ```{code-cell} ipython3
-print(4 ** (1 / 2))
+4 ** (1 / 2)
 ```
 
 :::{note}
@@ -150,15 +151,17 @@ Later in these tutorials, when we will start using [numpy](numpy.md), we will se
 Exponentiation follows the same type convention as the multiplication: using only integers will results in an integer, and as soon as one of the operands is a float, the result is a float.
 
 ```{code-cell} ipython3
-print(type(4**2))
+type(4**2)
 ```
 
 ```{code-cell} ipython3
-print(type(4.0**2))
+type(4.0**2)
 ```
 
-:::{exercise} Pythagorean theorem
-A sprinter runs a given distance $x$ to the East, then a given distance $y$ to the North (in km). Complete the following program so that it prints the distance $d$ between her starting point and her final destination.
+
+## Exercise 2
+
+A sprinter runs a given distance $x$ to the East, then a given distance $y$ to the North (in km). Use the Pythagorean theorem to complete the following program so that it prints the distance $d$ between her starting point and her final destination.
 
 ![exercice_illustration -height:shorter](_static/images/exercice_pythagore.png)
 
@@ -166,7 +169,6 @@ A sprinter runs a given distance $x$ to the East, then a given distance $y$ to t
 x = 2.5  # in meters
 y = 0.7  # in meters
 ```
-:::
 
 ```{code-cell} ipython3
 :tags: [hide-cell]

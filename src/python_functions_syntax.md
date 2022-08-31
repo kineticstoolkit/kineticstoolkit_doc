@@ -77,7 +77,8 @@ def print_sum(first, second):
 It is very important to use clear names for function arguments. Argument names are selected using the same best practices as standard [variable](python_arithmetics_and_variables.md) names.
 :::
 
-:::{exercise} Printing information
+## Exercise 1
+
 Using the function `print_sum()` as an example, create a function `print_info()` which, when it is called using:
 
 ```
@@ -97,8 +98,6 @@ then it prints this:
 Note that the body-mass index (BMI) is calculated using $\text{weight}/\text{height}^2$.
 
 Please use clear names for your function's arguments.
-
-:::
 
 ```{code-cell}
 :tags: [hide-cell]
@@ -146,9 +145,9 @@ print(calculate_sum(calculate_sum(2, 6), 5))
 The inner function call calls `calculate_sum()` with arguments 2 and 6. The function executes and returns 8. Then, the outer function call calls `calculate_sum()` with arguments 8 and 5. The function executes again and this time returns 13. The `print()` function therefore prints 13.
 
 
-:::{exercise} Calculating Body-Mass Index (BMI)
+## Exercise 2
+
 Program a function called `calculate_bmi` that takes a person's height and weight as arguments, and that returns the body-mass index, knowing that $\text{BMI} = \text{weight}/\text{height}^2$.
-:::
 
 ```{code-cell}
 :tags: [hide-cell]
@@ -161,7 +160,9 @@ def calculate_bmi(height, weight):
 print(calculate_bmi(1.5, 50.2))
 ```
 
-:::{exercise} Printing information (cont'd)
+
+## Exercise 3
+
 Based on the function `print_info` that you created in a previous example, create a new function `format_info` which does not print the information, but instead creates an equivalent string and returns it, so that:
 
 ```
@@ -180,8 +181,8 @@ prints this:
 
 Instead of calculating the BMI manually in the function, use a call to the `calculate_bmi` function that you just wrote in the previous example.
 
-Tip: you may want to return to the section on [strings](python_strings.md) for a refresh on how to create long strings, and how to add line breaks in strings.
-
+:::{tip}
+You may want to return to the section on [strings](python_strings.md) for a refresh on how to create long strings, and how to add line breaks in strings.
 :::
 
 ```{code-cell}

@@ -10,10 +10,10 @@
 - Appending data to a list
 - Mutability: contrarily to ints, floats and strings, modifying a list modifies it everywhere, including in a calling function.
 - Tuple: an immutable list
-- Integration exercise: There are 4 timing gates on a track, and the athletes went through the whole track 3 times. Therefore we have a list of 12 times. Write a line that returns:
-    - the first time of the list
-    - the last time of the list
-    - a list of two elements that contain the first and last times
-    - a list of four elements that corresponds to the four laps of the first timing gate.
-    - a list of four elements that corresponds to the four laps of the second timing gate.
+- Integration exercise: We have a list where the 3 first data are maximal elevation angles for the shoulder, the 3 next are maximal internal rotation, and the 3 next are maximal external rotation. Therefore we have a list of 12 measurements. Write a line that returns:
+    - a list of the 3 measurement of maximal elevation
+    - a list of the 3 measurement of maximal internal rotation
+    - the maximal elevation
+    - the maximal external rotation
+    - a list of length 3 that contains the maximal value of each assessment
 - List comprehension will be viewed later.

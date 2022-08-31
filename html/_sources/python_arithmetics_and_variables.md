@@ -24,19 +24,19 @@ kernelspec:
 Any arithmetical operation is performed simply by writing its equation. For example, the most usual arithmetic operators are `+`, `-`, `*` and `/`:
 
 ```{code-cell} ipython3
-print(4 + 3)
+4 + 3
 ```
 
 ```{code-cell} ipython3
-print(4 - 3)
+4 - 3
 ```
 
 ```{code-cell} ipython3
-print(4 * 3)
+4 * 3
 ```
 
 ```{code-cell} ipython3
-print(4 / 3)
+4 / 3
 ```
 
 ## Variables
@@ -51,11 +51,11 @@ b = 3
 Now, we can refer to the value of a variable simply by referring to the variable name:
 
 ```{code-cell} ipython3
-print(a + 1)
+a + 1
 ```
 
 ```{code-cell} ipython3
-print(a + b)
+a + b
 ```
 
 We can even assign the result of an operation to a new variable:
@@ -96,9 +96,26 @@ print("Hello world")
 works.
 :::
 
+
+:::{good-practice} Variable names
+It is generally a good idea to use names rather than letters for variables. For example, this code:
+
+```
+velocity = distance / duration
+```
+
+is clearer than:
+
+```
+v = d / t
+```
+
+In addition, the [PEP8](https://pep8.org/) recommends to use all lower case for variables, and to generally separate multiple words by underscores (`_`), e.g., `power`, `mean_power`, `peak_power`.
+
+:::
+
 ## Exercise
 
-:::{exercise} Timing gates
 A sprinter runs through two timing gates spaced by 50 m. Each timing gate records the time (in seconds) at which the sprinter passes through it.
 
 ![exercices_illustration -width:normal](_static/images/exercise_timing_gates.png)
@@ -112,7 +129,6 @@ distance_gates12 = 50.0  # in meters
 ```
 
 Continue this program so that it prints the mean velocity of the sprinter between gates 1 and 2. You can then show a suggested answer by clicking on the plus sign below.
-:::
 
 ```{code-cell} ipython3
 :tags: [hide-cell]
@@ -124,20 +140,3 @@ distance_gates12 = 50.0  # in meters
 print(distance_gates12 / (time_gate2 - time_gate1))
 ```
 
-:::{good-practice} Variable names
-It is generally a good idea to use names rather than letters for variables. For example, this code:
-
-```
-velocity = distance / duration
-print(velocity)
-```
-
-is clearer than:
-
-```
-v = d / t
-print(v)
-```
-
-In addition, the [PEP8](https://pep8.org/) recommends to use all lower case for variables, and to generally separate multiple words by underscores (`_`), e.g., `power`, `mean_power`, `peak_power`.
-:::
