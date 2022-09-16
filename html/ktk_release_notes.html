@@ -1151,14 +1151,26 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#version-0-9-1-september-2022">
-   Version 0.9.1 (September 2022)
+  <a class="reference internal nav-link" href="#version-0-9">
+   Version 0.9
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#version-0-9-august-2022">
-   Version 0.9 (August 2022)
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#september-2022">
+     0.9.2 (September 2022)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     0.9.1 (September 2022)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#august-2022">
+     0.9.0 (August 2022)
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#version-0-8-june-2022">
@@ -1220,14 +1232,26 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#version-0-9-1-september-2022">
-   Version 0.9.1 (September 2022)
+  <a class="reference internal nav-link" href="#version-0-9">
+   Version 0.9
   </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#version-0-9-august-2022">
-   Version 0.9 (August 2022)
-  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#september-2022">
+     0.9.2 (September 2022)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#id1">
+     0.9.1 (September 2022)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#august-2022">
+     0.9.0 (August 2022)
+    </a>
+   </li>
+  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#version-0-8-june-2022">
@@ -1281,14 +1305,22 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="release-notes">
 <h1>Release Notes<a class="headerlink" href="#release-notes" title="Permalink to this headline">#</a></h1>
-<section id="version-0-9-1-september-2022">
-<h2>Version 0.9.1 (September 2022)<a class="headerlink" href="#version-0-9-1-september-2022" title="Permalink to this headline">#</a></h2>
+<section id="version-0-9">
+<h2>Version 0.9<a class="headerlink" href="#version-0-9" title="Permalink to this headline">#</a></h2>
+<section id="september-2022">
+<h3>0.9.2 (September 2022)<a class="headerlink" href="#september-2022" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>Bugfix: Resolved an error in <a class="reference internal" href="api/ktk.read_c3d.html"><span class="doc std std-doc">ktk.read_c3d</span></a> where reading would fail on c3d files with empty events.</p></li>
+</ul>
+</section>
+<section id="id1">
+<h3>0.9.1 (September 2022)<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>New feature: <a class="reference internal" href="api/ktk.Player.html"><span class="doc std std-doc">ktk.Player</span></a> now has a <code class="docutils literal notranslate"><span class="pre">up</span></code> parameter. Before, the ground plane was xz with y being up. Now, any ground plane can be used, by choosing <code class="docutils literal notranslate"><span class="pre">up</span></code> among {‘x’, ‘y’, ‘z’, ‘-x’, ‘-y’, ‘-z’}.</p></li>
 </ul>
 </section>
-<section id="version-0-9-august-2022">
-<h2>Version 0.9 (August 2022)<a class="headerlink" href="#version-0-9-august-2022" title="Permalink to this headline">#</a></h2>
+<section id="august-2022">
+<h3>0.9.0 (August 2022)<a class="headerlink" href="#august-2022" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>New feature: <a class="reference internal" href="api/ktk.TimeSeries.resample.html"><span class="doc std std-doc">ktk.TimeSeries.resample</span></a> to resample a TimeSeries on a new time vector, with the method of your choice (sample-and-hold, linear, spline, etc.)</p></li>
 <li><p>New feature: <a class="reference internal" href="api/ktk.TimeSeries.get_sample_rate.html"><span class="doc std std-doc">ktk.TimeSeries.get_sample_rate</span></a> returns the TimeSeries sample rate, or NaN if the sample rate is not constant.</p></li>
@@ -1298,6 +1330,7 @@ title="Print to PDF"
 <li><p>Improvement: All docstrings were rewritten to be clearer, to better comply to the numpydoc standard, to provide better examples, and to refer to similar functions (“see also” statements).</p></li>
 <li><p>Bugfix: c3d files with accented characters in path should now be readable on Windows.</p></li>
 </ul>
+</section>
 </section>
 <section id="version-0-8-june-2022">
 <h2>Version 0.8 (June 2022)<a class="headerlink" href="#version-0-8-june-2022" title="Permalink to this headline">#</a></h2>

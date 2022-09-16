@@ -1516,11 +1516,11 @@ title="Fullscreen mode"
 
     <span class="c1"># ---------------------------------</span>
     <span class="c1"># List the events</span>
-    <span class="k">if</span> <span class="s2">&quot;EVENT&quot;</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">]:</span>
+    <span class="k">try</span><span class="p">:</span>
         <span class="n">event_names</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">][</span><span class="s2">&quot;EVENT&quot;</span><span class="p">][</span><span class="s2">&quot;LABELS&quot;</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">]</span>
         <span class="n">event_times</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">][</span><span class="s2">&quot;EVENT&quot;</span><span class="p">][</span><span class="s2">&quot;TIMES&quot;</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
         <span class="n">event_times</span> <span class="o">=</span> <span class="n">event_times</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">+</span> <span class="n">event_times</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
-    <span class="k">else</span><span class="p">:</span>
+    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
         <span class="n">event_names</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">event_times</span> <span class="o">=</span> <span class="p">[]</span>
 
