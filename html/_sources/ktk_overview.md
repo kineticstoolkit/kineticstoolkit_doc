@@ -31,7 +31,7 @@ Once your data loaded as TimeSeries, you can use:
 If applicable, you can also use your current functions:
 
 - that use NumPy arrays: by working directly on the TimeSeries' `data` attribute;
-- that use Pandas DataFrames: using [](api/ktk.TimeSeries.from_dataframe.rst) and [](api/ktk.TimeSeries.to_dataframe.rst)).
+- that use Pandas DataFrames: using [](api/ktk.TimeSeries.from_dataframe.rst) and [](api/ktk.TimeSeries.to_dataframe.rst).
 
 ## Getting your data out
 

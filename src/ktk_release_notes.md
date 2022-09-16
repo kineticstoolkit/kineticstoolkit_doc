@@ -1,6 +1,16 @@
 # Release Notes
 
-## Version 0.9 (August 2022)
+## Version 0.9
+
+### 0.9.2 (September 2022)
+
+- Bugfix: Resolved an error in [ktk.read_c3d](api/ktk.read_c3d.rst) where reading would fail on c3d files with empty events.
+
+### 0.9.1 (September 2022)
+
+- New feature: [ktk.Player](api/ktk.Player.rst) now has a `up` parameter. Before, the ground plane was xz with y being up. Now, any ground plane can be used, by choosing `up` among {'x', 'y', 'z', '-x', '-y', '-z'}.
+
+### 0.9.0 (August 2022)
 
 - New feature: [ktk.TimeSeries.resample](api/ktk.TimeSeries.resample.rst) to resample a TimeSeries on a new time vector, with the method of your choice (sample-and-hold, linear, spline, etc.)
 - New feature: [ktk.TimeSeries.get_sample_rate](api/ktk.TimeSeries.get_sample_rate.rst) returns the TimeSeries sample rate, or NaN if the sample rate is not constant.
