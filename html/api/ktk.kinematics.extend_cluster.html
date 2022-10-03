@@ -208,7 +208,32 @@ const thebe_selector_output = ".output, .cell_output"
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../geometry_basics.html">
-       Basics of rigid body geometry
+       Coordinates: points, vectors and frames
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../geometry_transform_moving_coordinates.html">
+       The homogeneous transform: rotating and translating coordinates
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../geometry_transform_changing_coordinate_system.html">
+       The homogeneous transform: mapping coordinates to other coordinate systems
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../geometry_kinematic_chains.html">
+       Kinematic chains
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../geometry_angles.html">
+       🚧 Extracting angles
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../geometry_remember.html">
+       Main points to remember
       </a>
      </li>
      <li class="toctree-l3">
@@ -230,7 +255,7 @@ const thebe_selector_output = ".output, .cell_output"
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../kinematics_load_visualize.html">
-       Reading and visualizing marker trajectories
+       Reading and visualizing markers in 3D
       </a>
      </li>
      <li class="toctree-l3">
@@ -310,6 +335,11 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="ktk.TimeSeries.copy.html">
          ktk.TimeSeries.copy
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="ktk.TimeSeries.count_events.html">
+         ktk.TimeSeries.count_events
         </a>
        </li>
        <li class="toctree-l4">
@@ -435,6 +465,11 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="ktk.TimeSeries.remove_data_info.html">
          ktk.TimeSeries.remove_data_info
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="ktk.TimeSeries.remove_duplicate_events.html">
+         ktk.TimeSeries.remove_duplicate_events
         </a>
        </li>
        <li class="toctree-l4">
@@ -1025,10 +1060,6 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__bottom">
              <!-- To handle the deprecated key -->
             
-            <div class="navbar_extra_footer">
-            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
-            </div>
-            
         </div>
     </div>
     <div id="rtd-footer-container"></div>
@@ -1156,28 +1187,29 @@ title="Print to PDF"
 <h1>ktk.kinematics.extend_cluster<a class="headerlink" href="#ktk-kinematics-extend-cluster" title="Permalink to this headline">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="ktk.kinematics.extend_cluster">
-<span class="sig-name descname"><span class="pre">extend_cluster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">markers</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cluster</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_point</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ktk/kinematics.html#extend_cluster"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ktk.kinematics.extend_cluster" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">extend_cluster</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">markers</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cluster</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ktk/kinematics.html#extend_cluster"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ktk.kinematics.extend_cluster" title="Permalink to this definition">#</a></dt>
 <dd><p>Add a point to an existing cluster.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>markers</strong> (<a class="reference internal" href="ktk.TimeSeries.html#ktk.TimeSeries" title="kineticstoolkit.timeseries.TimeSeries"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeSeries</span></code></a>) – TimeSeries that includes the new point trajectory, along with point
+<li><p><strong>markers</strong> (<a class="reference internal" href="ktk.TimeSeries.html#ktk.TimeSeries" title="ktk.TimeSeries"><em>TimeSeries</em></a>) – TimeSeries that includes the new point trajectory, along with point
 trajectories from the cluster definition.</p></li>
-<li><p><strong>cluster</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>]) – The source cluster to add a new point to.</p></li>
-<li><p><strong>new_point</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The name of the point to add (data key of the markers TimeSeries).</p></li>
+<li><p><strong>cluster</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>np.ndarray</em><em>]</em>) – The source cluster to add a new point to.</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – The name of the point to add (data key of the markers TimeSeries).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>A copy of the initial cluster, with the added point.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Dict[str, np.ndarray]</p>
+<dd class="field-odd"><p>dict[str, np.ndarray]</p>
 </dd>
 </dl>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This function, which has been introduced in 0.7, is still experimental and
 may change signature or behaviour in the future.</p>
+<p>0.9.3: Parameter <cite>new_point</cite> was changed to <cite>name</cite></p>
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
@@ -1238,6 +1270,9 @@ may change signature or behaviour in the future.</p>
     By Félix Chénier<br/>
   
       &copy; Copyright 2020-2022.<br/>
+    <div class="extra_footer">
+      This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>.
+    </div>
 </p>
         </footer>
     </div>

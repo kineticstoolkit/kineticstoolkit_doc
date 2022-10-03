@@ -17,6 +17,7 @@
       ~TimeSeries.add_data_info
       ~TimeSeries.add_event
       ~TimeSeries.copy
+      ~TimeSeries.count_events
       ~TimeSeries.fill_missing_samples
       ~TimeSeries.from_dataframe
       ~TimeSeries.get_event_index
@@ -42,6 +43,7 @@
       ~TimeSeries.plot
       ~TimeSeries.remove_data
       ~TimeSeries.remove_data_info
+      ~TimeSeries.remove_duplicate_events
       ~TimeSeries.remove_event
       ~TimeSeries.rename_data
       ~TimeSeries.rename_event

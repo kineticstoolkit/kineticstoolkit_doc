@@ -205,7 +205,32 @@ const thebe_selector_output = ".output, .cell_output"
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../../geometry_basics.html">
-       Basics of rigid body geometry
+       Coordinates: points, vectors and frames
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../geometry_transform_moving_coordinates.html">
+       The homogeneous transform: rotating and translating coordinates
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../geometry_transform_changing_coordinate_system.html">
+       The homogeneous transform: mapping coordinates to other coordinate systems
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../geometry_kinematic_chains.html">
+       Kinematic chains
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../geometry_angles.html">
+       🚧 Extracting angles
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../geometry_remember.html">
+       Main points to remember
       </a>
      </li>
      <li class="toctree-l3">
@@ -227,7 +252,7 @@ const thebe_selector_output = ".output, .cell_output"
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../../kinematics_load_visualize.html">
-       Reading and visualizing marker trajectories
+       Reading and visualizing markers in 3D
       </a>
      </li>
      <li class="toctree-l3">
@@ -307,6 +332,11 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.copy.html">
          ktk.TimeSeries.copy
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.count_events.html">
+         ktk.TimeSeries.count_events
         </a>
        </li>
        <li class="toctree-l4">
@@ -432,6 +462,11 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.remove_data_info.html">
          ktk.TimeSeries.remove_data_info
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.remove_duplicate_events.html">
+         ktk.TimeSeries.remove_duplicate_events
         </a>
        </li>
        <li class="toctree-l4">
@@ -1022,10 +1057,6 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__bottom">
              <!-- To handle the deprecated key -->
             
-            <div class="navbar_extra_footer">
-            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
-            </div>
-            
         </div>
     </div>
     <div id="rtd-footer-container"></div>
@@ -1124,6 +1155,8 @@ title="Fullscreen mode"
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Provide standard filters for TimeSeries.</span>
 <span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
 
 <span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;Félix Chénier&quot;</span>
 <span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">&quot;Copyright (C) 2020 Félix Chénier&quot;</span>
@@ -1136,7 +1169,8 @@ title="Fullscreen mode"
 <span class="kn">import</span> <span class="nn">scipy.ndimage</span> <span class="k">as</span> <span class="nn">ndi</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="kn">from</span> <span class="nn">kineticstoolkit</span> <span class="kn">import</span> <span class="n">TimeSeries</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">,</span> <span class="n">List</span>
+<span class="kn">from</span> <span class="nn">kineticstoolkit.exceptions</span> <span class="kn">import</span> <span class="n">check_types</span>
+
 
 <span class="kn">import</span> <span class="nn">kineticstoolkit</span> <span class="k">as</span> <span class="nn">ktk</span>  <span class="c1"># for doctests</span>
 
@@ -1145,7 +1179,7 @@ title="Fullscreen mode"
     <span class="k">return</span> <span class="p">[</span><span class="s2">&quot;savgol&quot;</span><span class="p">,</span> <span class="s2">&quot;smooth&quot;</span><span class="p">,</span> <span class="s2">&quot;butter&quot;</span><span class="p">,</span> <span class="s2">&quot;deriv&quot;</span><span class="p">,</span> <span class="s2">&quot;median&quot;</span><span class="p">]</span>
 
 
-<span class="k">def</span> <span class="nf">_interpolate</span><span class="p">(</span><span class="n">ts</span><span class="p">:</span> <span class="n">TimeSeries</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">TimeSeries</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="k">def</span> <span class="nf">_interpolate</span><span class="p">(</span><span class="n">ts</span><span class="p">:</span> <span class="n">TimeSeries</span><span class="p">,</span> <span class="n">key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">TimeSeries</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
     <span class="sd">&quot;&quot;&quot;Interpolate NaNs in a given data key in a TimeSeries.&quot;&quot;&quot;</span>
     <span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">get_subset</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
     <span class="n">nan_index</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
@@ -1220,6 +1254,7 @@ title="Fullscreen mode"
 <span class="sd">    ktk.filters.median</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">check_types</span><span class="p">(</span><span class="n">savgol</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
     <span class="n">_validate_input</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
 
     <span class="n">tsout</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -1285,6 +1320,7 @@ title="Fullscreen mode"
 <span class="sd">    ktk.filters.median</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">check_types</span><span class="p">(</span><span class="n">smooth</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
     <span class="n">_validate_input</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
 
     <span class="n">tsout</span> <span class="o">=</span> <span class="n">savgol</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">window_length</span><span class="o">=</span><span class="n">window_length</span><span class="p">,</span> <span class="n">poly_order</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -1294,7 +1330,7 @@ title="Fullscreen mode"
 <div class="viewcode-block" id="butter"><a class="viewcode-back" href="../../api/ktk.filters.butter.html#ktk.filters.butter">[docs]</a><span class="k">def</span> <span class="nf">butter</span><span class="p">(</span>
     <span class="n">ts</span><span class="p">:</span> <span class="n">TimeSeries</span><span class="p">,</span>
     <span class="o">/</span><span class="p">,</span>
-    <span class="n">fc</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="n">Sequence</span><span class="p">],</span>
+    <span class="n">fc</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">order</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
     <span class="n">btype</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;lowpass&quot;</span><span class="p">,</span>
@@ -1338,6 +1374,7 @@ title="Fullscreen mode"
 <span class="sd">        filter.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">check_types</span><span class="p">(</span><span class="n">butter</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
     <span class="n">_validate_input</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
 
     <span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -1423,6 +1460,7 @@ title="Fullscreen mode"
 <span class="sd">    array([ 100., -100., -100.])</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">check_types</span><span class="p">(</span><span class="n">deriv</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
     <span class="n">_validate_input</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span>
 
     <span class="n">out_ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -1466,6 +1504,7 @@ title="Fullscreen mode"
 <span class="sd">    array([10., 11., 11., 14., 15., 15.])</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">check_types</span><span class="p">(</span><span class="n">median</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
     <span class="n">out_ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
         <span class="n">window_shape</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">))]</span>
@@ -1498,6 +1537,9 @@ title="Fullscreen mode"
     By Félix Chénier<br/>
   
       &copy; Copyright 2020-2022.<br/>
+    <div class="extra_footer">
+      This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>.
+    </div>
 </p>
         </footer>
     </div>

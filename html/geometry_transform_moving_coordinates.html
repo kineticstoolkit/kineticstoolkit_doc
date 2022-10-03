@@ -1,0 +1,1571 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>The homogeneous transform: rotating and translating coordinates &#8212; Kinetics Toolkit</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="canonical" href="https://kineticstoolkit.uqam.ca/doc/geometry_transform_moving_coordinates.html" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="The homogeneous transform: mapping coordinates to other coordinate systems" href="geometry_transform_changing_coordinate_system.html" />
+    <link rel="prev" title="Coordinates: points, vectors and frames" href="geometry_basics.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="ktk_manual.html">
+   Manual
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="ktk_overview.html">
+     An overview of Kinetics Toolkit
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ktk_installing.html">
+     Installing and importing
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="timeseries.html">
+     TimeSeries
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="timeseries_basics.html">
+       TimeSeries basics
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="timeseries_manipulating.html">
+       Manipulating TimeSeries
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="timeseries_dataframes.html">
+       Converting between TimeSeries and Pandas DataFrames
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="loadsave.html">
+     Saving and loading
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="filters.html">
+     Filtering
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="filters_butter.html">
+       Removing frequencies using a Butterworth filter
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="filters_smooth.html">
+       Smoothing signals using a moving average
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="filters_savgol.html">
+       Smoothing and deriving using a Savitzky-Golay filter
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="filters_median.html">
+       Removing artefacts using a median filter
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="cycles.html">
+     Detecting and normalizing cycles
+    </a>
+   </li>
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="geometry.html">
+     3D rigid body geometry
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3">
+      <a class="reference internal" href="geometry_basics.html">
+       Coordinates: points, vectors and frames
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       The homogeneous transform: rotating and translating coordinates
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="geometry_transform_changing_coordinate_system.html">
+       The homogeneous transform: mapping coordinates to other coordinate systems
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="geometry_kinematic_chains.html">
+       Kinematic chains
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="geometry_angles.html">
+       🚧 Extracting angles
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="geometry_remember.html">
+       Main points to remember
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="geometry_dimension_conventions.html">
+       Dimension conventions
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="kinematics.html">
+     Kinematics analysis
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kinematics_load_visualize.html">
+       Reading and visualizing markers in 3D
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kinematics_joint_angles.html">
+       Calculating joint angles from a kinematic acquisition
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kinematics_reconstructing_occluded_markers.html">
+       Reconstructing occluded markers
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kinematics_reconstructing_removed_markers.html">
+       Reconstructing removed markers
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kinematics_reconstructing_probed_points.html">
+       Reconstructing probed points
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="extensions.html">
+     Extensions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="api_reference.html">
+   API Reference
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ktk_conventions.html">
+     Conventions
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="api_classes.html">
+     Classes
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <label for="toctree-checkbox-7">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="api/ktk.TimeSeries.html">
+       ktk.TimeSeries
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+      <label for="toctree-checkbox-8">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.add_data_info.html">
+         ktk.TimeSeries.add_data_info
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.add_event.html">
+         ktk.TimeSeries.add_event
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.copy.html">
+         ktk.TimeSeries.copy
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.count_events.html">
+         ktk.TimeSeries.count_events
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.fill_missing_samples.html">
+         ktk.TimeSeries.fill_missing_samples
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.from_dataframe.html">
+         ktk.TimeSeries.from_dataframe
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_event_index.html">
+         ktk.TimeSeries.get_event_index
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_event_time.html">
+         ktk.TimeSeries.get_event_time
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_index_after_time.html">
+         ktk.TimeSeries.get_index_after_time
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_index_at_time.html">
+         ktk.TimeSeries.get_index_at_time
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_index_before_time.html">
+         ktk.TimeSeries.get_index_before_time
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_sample_rate.html">
+         ktk.TimeSeries.get_sample_rate
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_subset.html">
+         ktk.TimeSeries.get_subset
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_ts_after_event.html">
+         ktk.TimeSeries.get_ts_after_event
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_ts_after_index.html">
+         ktk.TimeSeries.get_ts_after_index
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_ts_after_time.html">
+         ktk.TimeSeries.get_ts_after_time
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_ts_at_event.html">
+         ktk.TimeSeries.get_ts_at_event
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_ts_at_time.html">
+         ktk.TimeSeries.get_ts_at_time
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_ts_before_event.html">
+         ktk.TimeSeries.get_ts_before_event
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_ts_before_index.html">
+         ktk.TimeSeries.get_ts_before_index
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_ts_before_time.html">
+         ktk.TimeSeries.get_ts_before_time
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_ts_between_events.html">
+         ktk.TimeSeries.get_ts_between_events
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_ts_between_indexes.html">
+         ktk.TimeSeries.get_ts_between_indexes
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_ts_between_times.html">
+         ktk.TimeSeries.get_ts_between_times
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.isnan.html">
+         ktk.TimeSeries.isnan
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.merge.html">
+         ktk.TimeSeries.merge
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.plot.html">
+         ktk.TimeSeries.plot
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.remove_data.html">
+         ktk.TimeSeries.remove_data
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.remove_data_info.html">
+         ktk.TimeSeries.remove_data_info
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.remove_duplicate_events.html">
+         ktk.TimeSeries.remove_duplicate_events
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.remove_event.html">
+         ktk.TimeSeries.remove_event
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.rename_data.html">
+         ktk.TimeSeries.rename_data
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.rename_event.html">
+         ktk.TimeSeries.rename_event
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.resample.html">
+         ktk.TimeSeries.resample
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.shift.html">
+         ktk.TimeSeries.shift
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.sort_events.html">
+         ktk.TimeSeries.sort_events
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.sync_event.html">
+         ktk.TimeSeries.sync_event
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.to_dataframe.html">
+         ktk.TimeSeries.to_dataframe
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.trim_events.html">
+         ktk.TimeSeries.trim_events
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.ui_edit_events.html">
+         ktk.TimeSeries.ui_edit_events
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.ui_get_ts_between_clicks.html">
+         ktk.TimeSeries.ui_get_ts_between_clicks
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.ui_sync.html">
+         ktk.TimeSeries.ui_sync
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/ktk.TimeSeriesEvent.html">
+       ktk.TimeSeriesEvent
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="api/ktk.Player.html">
+       ktk.Player
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+      <label for="toctree-checkbox-9">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.Player.close.html">
+         ktk.Player.close
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.Player.to_html5.html">
+         ktk.Player.to_html5
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="api_functions.html">
+     Functions
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+    <label for="toctree-checkbox-10">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/ktk.import_extensions.html">
+       ktk.import_extensions
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/ktk.load.html">
+       ktk.load
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/ktk.save.html">
+       ktk.save
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/ktk.read_c3d.html">
+       ktk.read_c3d
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/ktk.write_c3d.html">
+       ktk.write_c3d
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/ktk.change_defaults.html">
+       ktk.change_defaults
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="api_modules.html">
+     Modules
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+    <label for="toctree-checkbox-11">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="api/ktk.cycles.html">
+       ktk.cycles
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+      <label for="toctree-checkbox-12">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.cycles.detect_cycles.html">
+         ktk.cycles.detect_cycles
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.cycles.most_repeatable_cycles.html">
+         ktk.cycles.most_repeatable_cycles
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.cycles.stack.html">
+         ktk.cycles.stack
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.cycles.time_normalize.html">
+         ktk.cycles.time_normalize
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.cycles.unstack.html">
+         ktk.cycles.unstack
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="api/ktk.doc.html">
+       ktk.doc
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+      <label for="toctree-checkbox-13">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.doc.download.html">
+         ktk.doc.download
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="api/ktk.filters.html">
+       ktk.filters
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+      <label for="toctree-checkbox-14">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.filters.butter.html">
+         ktk.filters.butter
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.filters.deriv.html">
+         ktk.filters.deriv
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.filters.median.html">
+         ktk.filters.median
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.filters.savgol.html">
+         ktk.filters.savgol
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.filters.smooth.html">
+         ktk.filters.smooth
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="api/ktk.geometry.html">
+       ktk.geometry
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+      <label for="toctree-checkbox-15">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.geometry.create_frames.html">
+         ktk.geometry.create_frames
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.geometry.create_transforms.html">
+         ktk.geometry.create_transforms
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.geometry.get_angles.html">
+         ktk.geometry.get_angles
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.geometry.get_global_coordinates.html">
+         ktk.geometry.get_global_coordinates
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.geometry.get_local_coordinates.html">
+         ktk.geometry.get_local_coordinates
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.geometry.isnan.html">
+         ktk.geometry.isnan
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.geometry.matmul.html">
+         ktk.geometry.matmul
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.geometry.register_points.html">
+         ktk.geometry.register_points
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="api/ktk.kinematics.html">
+       ktk.kinematics
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+      <label for="toctree-checkbox-16">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.kinematics.create_cluster.html">
+         ktk.kinematics.create_cluster
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.kinematics.extend_cluster.html">
+         ktk.kinematics.extend_cluster
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.kinematics.track_cluster.html">
+         ktk.kinematics.track_cluster
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dev_extensions.html">
+     Developing extensions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ktk_release_notes.html">
+     Release Notes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="dev_contributing.html">
+   How to contribute
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+  <label for="toctree-checkbox-17">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ktk_citing.html">
+     Citing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dev_rules.html">
+     Development rules
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dev_code_of_conduct.html">
+     Code of conduct
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dev_installing_from_github.html">
+     Installing from GitHub
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dev_coding_style.html">
+     Coding style
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">
+     GitHub repository
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="python_for_beginners.html">
+   🚧 Learning Python for biomechanics
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+  <label for="toctree-checkbox-18">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="python_getting_started.html">
+     Getting started with Python
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+    <label for="toctree-checkbox-19">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_installing.html">
+       Installing Python, Spyder and the most important scientific packages
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_configuring_spyder.html">
+       Configuring Spyder for Python biomechanics
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_using_spyder.html">
+       Using Spyder
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="python.html">
+     The Python language
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
+    <label for="toctree-checkbox-20">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_arithmetics_and_variables.html">
+       Arithmetics and variables
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_numbers.html">
+       Numbers
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_strings.html">
+       Strings basics
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="python_functions.html">
+       Functions
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/>
+      <label for="toctree-checkbox-21">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="python_functions_syntax.html">
+         Function syntax
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="python_functions_docstrings.html">
+         Docstrings
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="python_functions_keywords_defaults.html">
+         Arguments and default values
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_conditions.html">
+       Conditions and booleans
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_lists.html">
+       🚧 Lists
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_while.html">
+       🚧 Looping (while)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_for.html">
+       🚧 Looping (for)
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_dicts.html">
+       🚧 Dicts
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_string_operations.html">
+       🚧 String operations
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_more_advanced.html">
+       🚧 More advanced concepts
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_integration_exercises.html">
+       🚧 Integration exercises
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="numpy.html">
+     🚧 Numpy
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
+    <label for="toctree-checkbox-22">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy_import.html">
+       🚧 Import
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy_ndarray.html">
+       🚧 N-dimensional arrays
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy_indexing.html">
+       🚧 Indexing and slicing
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy_comparisons.html">
+       🚧 Comparisons
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy_combining.html">
+       🚧 Combining arrays
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="matplotlib.html">
+     🚧 Matplotlib
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
+    <label for="toctree-checkbox-23">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="matplotlib_plot.html">
+       🚧 Line plots
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="matplotlib_scatter.html">
+       🚧 Scatter plots
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="matplotlib_labels.html">
+       🚧 Labels
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="matplotlib_axis.html">
+       🚧 Axis
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="matplotlib_ginput.html">
+       🚧 Graphical input
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pandas.html">
+     🚧 Pandas
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/geometry_transform_moving_coordinates.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-1-moving-points">
+   Example 1: moving points
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-2-rotating-vectors">
+   Example 2: rotating vectors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-3-moving-frames">
+   Example 3: moving frames
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rotating-and-translating-coordinates-using-kinetics-toolkit">
+   Rotating and translating coordinates using Kinetics Toolkit
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>The homogeneous transform: rotating and translating coordinates</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-1-moving-points">
+   Example 1: moving points
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-2-rotating-vectors">
+   Example 2: rotating vectors
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example-3-moving-frames">
+   Example 3: moving frames
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#rotating-and-translating-coordinates-using-kinetics-toolkit">
+   Rotating and translating coordinates using Kinetics Toolkit
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="the-homogeneous-transform-rotating-and-translating-coordinates">
+<h1>The homogeneous transform: rotating and translating coordinates<a class="headerlink" href="#the-homogeneous-transform-rotating-and-translating-coordinates" title="Permalink to this headline">#</a></h1>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Summary</div>
+<p class="sd-card-text">This section defines the 4x4 homogeneous transform, shows how to use it to rotate and translate points, vectors and frames, and how to generate and use series of homogeneous transforms in Kinetics Toolkit using <a class="reference internal" href="api/ktk.geometry.create_transforms.html"><span class="doc std std-doc">ktk.geometry.create_transforms</span></a> and <a class="reference internal" href="api/ktk.geometry.matmul.html"><span class="doc std std-doc">ktk.geometry.matmul</span></a>.</p>
+</div>
+</div>
+<p>In the previous section, we learned how to construct a frame: a 4x4 matrix that represents the position and orientation of a local coordinate system in respect to a reference coordinate system.</p>
+<p>We learned that a frame always has this form:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+R_{11} &amp; R_{12} &amp; R_{13} &amp; P_x \\
+R_{21} &amp; R_{22} &amp; R_{23} &amp; P_y \\
+R_{31} &amp; R_{32} &amp; R_{33} &amp; P_z \\
+0      &amp; 0      &amp; 0      &amp; 1
+\end{bmatrix}
+\end{split}\]</div>
+<p>where:</p>
+<ul class="simple">
+<li><p>the <span class="math notranslate nohighlight">\(R\)</span> sub-matrix is a function of three rotation angles and represents the orientation of the local coordinate system;</p></li>
+<li><p>the <span class="math notranslate nohighlight">\(P\)</span> vector is the position of the local coordinate system’s origin.</p></li>
+</ul>
+<p>In addition to represent positions and orientations, the same matrix can also be represent rigid transformations such as translations and rotations. In this case, this matrix is called a <strong>homogeneous transform</strong>, and:</p>
+<ul class="simple">
+<li><p>the <span class="math notranslate nohighlight">\(R\)</span> sub-matrix represents a rotation;</p></li>
+<li><p>the <span class="math notranslate nohighlight">\(P\)</span> vector is a translation.</p></li>
+</ul>
+<p>Any coordinate (point, vector or frame) that is multiplied by the homogeneous transform will be rotated by <span class="math notranslate nohighlight">\(R\)</span> and translated by <span class="math notranslate nohighlight">\(P\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[
+^\text{global} p_{\text{tranformed}} ~~~ = ~~~ T ~~~ ^\text{global} p_\text{initial}
+\]</div>
+<p>The following examples show how a same homogeneous transform can move either points, vectors or frames.</p>
+<section id="example-1-moving-points">
+<h2>Example 1: moving points<a class="headerlink" href="#example-1-moving-points" title="Permalink to this headline">#</a></h2>
+<p>Let say we want to rotate the point located at (10, 0, 0) by 30 degrees around the origin’s z axis, then translate it 2 units to the right:</p>
+<p><img alt="moving_points -height:short" src="_images/geometry_moving_points.png" /></p>
+<p><em>Figure 1. Rotating and translating a point in respect to the global reference frame.</em></p>
+<p>We first express the original coordinates of the point:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+^\text{global} p_\text{initial} =
+\begin{bmatrix}
+10 \\ 0 \\ 0 \\ 1
+\end{bmatrix}
+\end{split}\]</div>
+<p>We then express the rotation and translation that we want to apply to this point:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+T =
+\begin{bmatrix}
+\cos(30) &amp; -\sin(30) &amp; 0 &amp; 2 \\
+\sin(30) &amp; \cos(30) &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\end{split}\]</div>
+<p>We multiply the position to the transform to obtain the final position of the point:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+^\text{global} p_{\text{tranformed}} =
+\begin{bmatrix}
+\cos(30) &amp; -\sin(30) &amp; 0 &amp; 2 \\
+\sin(30) &amp; \cos(30) &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\begin{bmatrix} 10 \\ 0 \\ 0 \\ 1 \end{bmatrix} \\ =
+\begin{bmatrix} 10\cos(30) + 2 \\ 10\sin(30) \\ 0 \\ 1 \end{bmatrix} =
+\begin{bmatrix} 10.66 \\ 5 \\ 0 \\ 1 \end{bmatrix}
+\end{split}\]</div>
+<p>The final coordinates of the points are (10.66, 5, 0).</p>
+</section>
+<section id="example-2-rotating-vectors">
+<h2>Example 2: rotating vectors<a class="headerlink" href="#example-2-rotating-vectors" title="Permalink to this headline">#</a></h2>
+<p>For this second example, let’s apply this same transform to a vector of 10 units toward de x axis (10, 0, 0).</p>
+<p><img alt="moving_vectors -height:short" src="_images/geometry_moving_vectors.png" /></p>
+<p><em>Figure 2. Rotating a vector in respect to the global reference frame.</em></p>
+<p>The same equation applies:</p>
+<div class="math notranslate nohighlight">
+\[
+^\text{global} \vec{v}_{\text{tranformed}} ~~~ = ~~~ T ~~~ ^\text{global} \vec{v}_\text{initial}
+\]</div>
+<p>Although vector <span class="math notranslate nohighlight">\(\vec{v}_\text{initial}\)</span> shares the same coordinates as <span class="math notranslate nohighlight">\(p_\text{initial}\)</span> in the previous example, its written differently (with a 0 instead of a 1 on the fourth coordinate). This is because the fourth element is responsible for translations, and contrarily to a point, a vector cannot be translated.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+^\text{global} \vec{v}_\text{initial} =
+\begin{bmatrix}
+10 \\ 0 \\ 0 \\ 0
+\end{bmatrix}
+\end{split}\]</div>
+<p>We multiply this vector by the transform to obtain the final vector:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+^\text{global} \vec{v}_{\text{tranformed}} =
+\begin{bmatrix}
+\cos(30) &amp; -\sin(30) &amp; 0 &amp; 2 \\
+\sin(30) &amp; \cos(30) &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\begin{bmatrix} 10 \\ 0 \\ 0 \\ 0 \end{bmatrix} \\ =
+\begin{bmatrix} 10\cos(30) \\ 10\sin(30) \\ 0 \\ 0 \end{bmatrix} =
+\begin{bmatrix} 8.66 \\ 5 \\ 0 \\ 0 \end{bmatrix}
+\end{split}\]</div>
+<p>The final coordinates of the vector are (8.66, 5, 0).</p>
+</section>
+<section id="example-3-moving-frames">
+<h2>Example 3: moving frames<a class="headerlink" href="#example-3-moving-frames" title="Permalink to this headline">#</a></h2>
+<p>If we get back to the definition of a frame, we remind that the first three columns are three vectors (the direction of three axes), and the fourth column is a point (the position of the origin). Therefore, since an homogeneous transform can move both points and vectors, then it can also move complete frames.</p>
+<p><img alt="moving_frames -height:short" src="_images/geometry_moving_frames.png" /></p>
+<p><em>Figure 3. Rotating and translating a local frame in respect to the global reference frame.</em></p>
+<p>Let’s use the same homogeneous transform to rotate and translate the frame  <span class="math notranslate nohighlight">\(^\text{global} _\text{local-initial} F\)</span> (which reads as <em>Frame ‘local’ in its initial pose, expressed in global coordinates</em>).</p>
+<div class="math notranslate nohighlight">
+\[
+^\text{global} _\text{local-tranformed} F ~~~ = ~~~ T ~~~ ^\text{global} _\text{local-initial} F
+\]</div>
+<p>We first express the unrotated frame <span class="math notranslate nohighlight">\(^\text{global} _\text{local-initial} F\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+^\text{global} _\text{local-initial} F
+=
+\begin{bmatrix}
+\cos(0) &amp; -\sin(0) &amp; 0 &amp; 10 \\
+\sin(0) &amp; \cos(0) &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+=
+\begin{bmatrix}
+1 &amp; 0 &amp; 0 &amp; 10 \\
+0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\end{split}\]</div>
+<p>The transformed frame is calculated using:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+^\text{global} _\text{local-transformed} F
+=
+\begin{bmatrix}
+\cos(30) &amp; -\sin(30) &amp; 0 &amp; 2 \\
+\sin(30) &amp; \cos(30) &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\begin{bmatrix}
+1 &amp; 0 &amp; 0 &amp; 10 \\
+0 &amp; 1 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\\=
+\begin{bmatrix}
+\cos(30) &amp; -\sin(30) &amp; 0 &amp; 10.66 \\
+\sin(30) &amp; \cos(30) &amp; 0 &amp; 5 \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\end{split}\]</div>
+</section>
+<section id="rotating-and-translating-coordinates-using-kinetics-toolkit">
+<h2>Rotating and translating coordinates using Kinetics Toolkit<a class="headerlink" href="#rotating-and-translating-coordinates-using-kinetics-toolkit" title="Permalink to this headline">#</a></h2>
+<p>The function <a class="reference internal" href="api/ktk.geometry.create_transforms.html"><span class="doc std std-doc">ktk.geometry.create_transforms</span></a> creates series of homogeneous transforms based on angles and translations. For instance, the transform <span class="math notranslate nohighlight">\(T\)</span> used in this section can be created using:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">kineticstoolkit.lab</span> <span class="k">as</span> <span class="nn">ktk</span>
+
+<span class="n">T</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">create_transforms</span><span class="p">(</span>
+    <span class="n">seq</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">,</span>  <span class="c1"># Which means a rotation around the z axis</span>
+    <span class="n">angles</span><span class="o">=</span><span class="p">[</span><span class="mi">30</span><span class="p">],</span>
+    <span class="n">translations</span><span class="o">=</span><span class="p">[[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span>
+    <span class="n">degrees</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[[ 0.8660254, -0.5      ,  0.       ,  2.       ],
+        [ 0.5      ,  0.8660254,  0.       ,  0.       ],
+        [ 0.       ,  0.       ,  1.       ,  0.       ],
+        [ 0.       ,  0.       ,  0.       ,  1.       ]]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Note that the <code class="docutils literal notranslate"><span class="pre">angles</span></code> and <code class="docutils literal notranslate"><span class="pre">translations</span></code> values are enclosed in bracket. Similarly, the return transformed <span class="math notranslate nohighlight">\(T\)</span> is also enclosed in an additional first dimension. This is because all functions in the <a class="reference internal" href="api/ktk.geometry.html"><span class="doc std std-doc">ktk.geometry</span></a> module work on series of data, and the first dimensions is always reserved to time. Please consult <a class="reference internal" href="geometry_dimension_conventions.html"><span class="doc std std-doc">this section</span></a> for more information.</p>
+</div>
+<p>The function <a class="reference internal" href="api/ktk.geometry.matmul.html"><span class="doc std std-doc">ktk.geometry.matmul</span></a> performs matrix multiplications on data series. It can therefore be used to obtain the solution to the three previous examples.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Transformed point</span>
+
+<span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="p">[[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[10.66025404,  5.        ,  0.        ,  1.        ]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Transformed vector</span>
+
+<span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="p">[[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[8.66025404, 5.        , 0.        , 0.        ]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Transformed frame</span>
+
+<span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
+    <span class="n">T</span><span class="p">,</span> <span class="p">[[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[[ 0.8660254 , -0.5       ,  0.        , 10.66025404],
+        [ 0.5       ,  0.8660254 ,  0.        ,  5.        ],
+        [ 0.        ,  0.        ,  1.        ,  0.        ],
+        [ 0.        ,  0.        ,  0.        ,  1.        ]]])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="geometry_basics.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Coordinates: points, vectors and frames</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="geometry_transform_changing_coordinate_system.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">The homogeneous transform: mapping coordinates to other coordinate systems</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Félix Chénier<br/>
+  
+      &copy; Copyright 2020-2022.<br/>
+    <div class="extra_footer">
+      This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>.
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

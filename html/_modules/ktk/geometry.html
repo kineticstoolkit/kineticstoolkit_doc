@@ -205,7 +205,32 @@ const thebe_selector_output = ".output, .cell_output"
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../../geometry_basics.html">
-       Basics of rigid body geometry
+       Coordinates: points, vectors and frames
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../geometry_transform_moving_coordinates.html">
+       The homogeneous transform: rotating and translating coordinates
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../geometry_transform_changing_coordinate_system.html">
+       The homogeneous transform: mapping coordinates to other coordinate systems
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../geometry_kinematic_chains.html">
+       Kinematic chains
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../geometry_angles.html">
+       🚧 Extracting angles
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../geometry_remember.html">
+       Main points to remember
       </a>
      </li>
      <li class="toctree-l3">
@@ -227,7 +252,7 @@ const thebe_selector_output = ".output, .cell_output"
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../../kinematics_load_visualize.html">
-       Reading and visualizing marker trajectories
+       Reading and visualizing markers in 3D
       </a>
      </li>
      <li class="toctree-l3">
@@ -307,6 +332,11 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.copy.html">
          ktk.TimeSeries.copy
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.count_events.html">
+         ktk.TimeSeries.count_events
         </a>
        </li>
        <li class="toctree-l4">
@@ -432,6 +462,11 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.remove_data_info.html">
          ktk.TimeSeries.remove_data_info
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.remove_duplicate_events.html">
+         ktk.TimeSeries.remove_duplicate_events
         </a>
        </li>
        <li class="toctree-l4">
@@ -1022,10 +1057,6 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__bottom">
              <!-- To handle the deprecated key -->
             
-            <div class="navbar_extra_footer">
-            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
-            </div>
-            
         </div>
     </div>
     <div id="rtd-footer-container"></div>
@@ -1130,6 +1161,8 @@ title="Fullscreen mode"
 <span class="sd">to time.</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
 
 <span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;Félix Chénier&quot;</span>
 <span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">&quot;Copyright (C) 2020-2021 Félix Chénier&quot;</span>
@@ -1153,10 +1186,12 @@ title="Fullscreen mode"
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">scipy.spatial.transform</span> <span class="k">as</span> <span class="nn">transform</span>
 <span class="kn">import</span> <span class="nn">kineticstoolkit.external.icp</span> <span class="k">as</span> <span class="nn">icp</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span><span class="p">,</span> <span class="n">Tuple</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">numpy.typing</span> <span class="kn">import</span> <span class="n">ArrayLike</span>
+<span class="kn">from</span> <span class="nn">kineticstoolkit.exceptions</span> <span class="kn">import</span> <span class="n">check_types</span>
 
 
-<div class="viewcode-block" id="matmul"><a class="viewcode-back" href="../../api/ktk.geometry.matmul.html#ktk.geometry.matmul">[docs]</a><span class="k">def</span> <span class="nf">matmul</span><span class="p">(</span><span class="n">op1</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">op2</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<div class="viewcode-block" id="matmul"><a class="viewcode-back" href="../../api/ktk.geometry.matmul.html#ktk.geometry.matmul">[docs]</a><span class="k">def</span> <span class="nf">matmul</span><span class="p">(</span><span class="n">op1</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">op2</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Matrix multiplication between series of matrices.</span>
 
@@ -1190,6 +1225,10 @@ title="Fullscreen mode"
 <span class="sd">           [16.,  9.]])</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">check_types</span><span class="p">(</span><span class="n">matmul</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
+
+    <span class="n">op1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">op1</span><span class="p">)</span>
+    <span class="n">op2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">op2</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">perform_mul</span><span class="p">(</span><span class="n">op1</span><span class="p">,</span> <span class="n">op2</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">op1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">op2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
@@ -1214,8 +1253,8 @@ title="Fullscreen mode"
 
 <div class="viewcode-block" id="create_transforms"><a class="viewcode-back" href="../../api/ktk.geometry.create_transforms.html#ktk.geometry.create_transforms">[docs]</a><span class="k">def</span> <span class="nf">create_transforms</span><span class="p">(</span>
     <span class="n">seq</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">angles</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">translations</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">angles</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ArrayLike</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">translations</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ArrayLike</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">degrees</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -1281,6 +1320,8 @@ title="Fullscreen mode"
 <span class="sd">                [ 0.,  0.,  0.,  1.]]])</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">check_types</span><span class="p">(</span><span class="n">create_transforms</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
+
     <span class="c1"># Condition translations</span>
     <span class="k">if</span> <span class="n">translations</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">translations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
@@ -1314,7 +1355,7 @@ title="Fullscreen mode"
 
 
 <div class="viewcode-block" id="get_angles"><a class="viewcode-back" href="../../api/ktk.geometry.get_angles.html#ktk.geometry.get_angles">[docs]</a><span class="k">def</span> <span class="nf">get_angles</span><span class="p">(</span>
-    <span class="n">T</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">seq</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">degrees</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">flip</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="n">T</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">seq</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">degrees</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">flip</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Extract Euler angles from a series of homogeneous matrices.</span>
@@ -1376,6 +1417,9 @@ title="Fullscreen mode"
 <span class="sd">    `seq` parameter.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">check_types</span><span class="p">(</span><span class="n">get_angles</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
+
+    <span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
     <span class="n">R</span> <span class="o">=</span> <span class="n">transform</span><span class="o">.</span><span class="n">Rotation</span><span class="o">.</span><span class="n">from_matrix</span><span class="p">(</span><span class="n">T</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
     <span class="n">angles</span> <span class="o">=</span> <span class="n">R</span><span class="o">.</span><span class="n">as_euler</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="n">degrees</span><span class="p">)</span>
 
@@ -1396,13 +1440,13 @@ title="Fullscreen mode"
 
 
 <div class="viewcode-block" id="create_frames"><a class="viewcode-back" href="../../api/ktk.geometry.create_frames.html#ktk.geometry.create_frames">[docs]</a><span class="k">def</span> <span class="nf">create_frames</span><span class="p">(</span>
-    <span class="n">origin</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
-    <span class="n">x</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">y</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">z</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">xy</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">xz</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">yz</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">origin</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span>
+    <span class="n">x</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ArrayLike</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">y</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ArrayLike</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">z</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ArrayLike</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">xy</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ArrayLike</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">xz</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ArrayLike</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">yz</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ArrayLike</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Create an Nx4x4 series of frames based on series of points and vectors.</span>
@@ -1413,21 +1457,21 @@ title="Fullscreen mode"
 <span class="sd">        A series of N points (Nx4) that corresponds to the origin of the</span>
 <span class="sd">        series of frames to be created.</span>
 
-<span class="sd">    x|y|z</span>
+<span class="sd">    x, y, z</span>
 <span class="sd">        Define either `x`, `y` or `z`. A series of N vectors (Nx4) that</span>
 <span class="sd">        are aligned toward the {x|y|z} series of frames to be created.</span>
 
-<span class="sd">    xy|xz</span>
+<span class="sd">    xy, xz</span>
 <span class="sd">        Only if `x` is specified. A series of N vectors (Nx4) in the {xy|xz}</span>
 <span class="sd">        plane of the series of frames to be created. As a rule of thumb, use</span>
 <span class="sd">        a series of N vectors that correspond roughly to the {z|-y} axis.</span>
 
-<span class="sd">    xy|yz</span>
+<span class="sd">    xy, yz</span>
 <span class="sd">        Only if `y` is specified. A series of N vectors (Nx4) in the {xy|yz}</span>
 <span class="sd">        plane of the series of frames to be created. As a rule of thumb, use</span>
 <span class="sd">        a series of N vectors that correspond roughly to the {z|x} axis.</span>
 
-<span class="sd">    xz|yz</span>
+<span class="sd">    xz, yz</span>
 <span class="sd">        Only if `z` is specified. A series of N vectors (Nx4) in the {xz|yz}</span>
 <span class="sd">        plane of the series of frames to be created. As a rule of thumb, use</span>
 <span class="sd">        a series of N vectors that correspond roughly to the {-y|x} axis.</span>
@@ -1442,6 +1486,7 @@ title="Fullscreen mode"
 <span class="sd">    ktk.geometry.create_transforms</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">check_types</span><span class="p">(</span><span class="n">create_frames</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
 
     <span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Normalize series of vectors.&quot;&quot;&quot;</span>
@@ -1496,7 +1541,7 @@ title="Fullscreen mode"
 
 
 <div class="viewcode-block" id="get_local_coordinates"><a class="viewcode-back" href="../../api/ktk.geometry.get_local_coordinates.html#ktk.geometry.get_local_coordinates">[docs]</a><span class="k">def</span> <span class="nf">get_local_coordinates</span><span class="p">(</span>
-    <span class="n">global_coordinates</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">reference_frames</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+    <span class="n">global_coordinates</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">reference_frames</span><span class="p">:</span> <span class="n">ArrayLike</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Express global coordinates in local reference frames.</span>
@@ -1526,6 +1571,11 @@ title="Fullscreen mode"
 <span class="sd">    ktk.geometry.get_global_coordinates</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">check_types</span><span class="p">(</span><span class="n">get_local_coordinates</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
+
+    <span class="n">global_coordinates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">global_coordinates</span><span class="p">)</span>
+    <span class="n">reference_frames</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">reference_frames</span><span class="p">)</span>
+
     <span class="n">n_samples</span> <span class="o">=</span> <span class="n">global_coordinates</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
     <span class="c1"># Transform NaNs in global coordinates to zeros to perform the operation,</span>
@@ -1559,7 +1609,7 @@ title="Fullscreen mode"
 
 
 <div class="viewcode-block" id="get_global_coordinates"><a class="viewcode-back" href="../../api/ktk.geometry.get_global_coordinates.html#ktk.geometry.get_global_coordinates">[docs]</a><span class="k">def</span> <span class="nf">get_global_coordinates</span><span class="p">(</span>
-    <span class="n">local_coordinates</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">reference_frames</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+    <span class="n">local_coordinates</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">reference_frames</span><span class="p">:</span> <span class="n">ArrayLike</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Express local coordinates in the global reference frame.</span>
@@ -1589,18 +1639,23 @@ title="Fullscreen mode"
 <span class="sd">    ktk.geometry.get_local_coordinates</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">check_types</span><span class="p">(</span><span class="n">get_global_coordinates</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
+
+    <span class="n">local_coordinates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">local_coordinates</span><span class="p">)</span>
+    <span class="n">reference_frames</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">reference_frames</span><span class="p">)</span>
+
     <span class="n">global_coordinates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">local_coordinates</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
     <span class="n">global_coordinates</span> <span class="o">=</span> <span class="n">matmul</span><span class="p">(</span><span class="n">reference_frames</span><span class="p">,</span> <span class="n">local_coordinates</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">global_coordinates</span></div>
 
 
-<div class="viewcode-block" id="isnan"><a class="viewcode-back" href="../../api/ktk.geometry.isnan.html#ktk.geometry.isnan">[docs]</a><span class="k">def</span> <span class="nf">isnan</span><span class="p">(</span><span class="nb">input</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="o">/</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<div class="viewcode-block" id="isnan"><a class="viewcode-back" href="../../api/ktk.geometry.isnan.html#ktk.geometry.isnan">[docs]</a><span class="k">def</span> <span class="nf">isnan</span><span class="p">(</span><span class="n">array</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="o">/</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Check which samples has at least one NaN.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    input</span>
+<span class="sd">    in</span>
 <span class="sd">        Array where the first dimension corresponds to time.</span>
 
 <span class="sd">    Returns</span>
@@ -1610,7 +1665,9 @@ title="Fullscreen mode"
 <span class="sd">        True for the samples that contain at least one NaN.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+    <span class="n">check_types</span><span class="p">(</span><span class="n">isnan</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
+
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
     <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">temp</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
         <span class="n">temp</span> <span class="o">=</span> <span class="n">temp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
     <span class="k">return</span> <span class="n">temp</span></div>
@@ -1618,7 +1675,7 @@ title="Fullscreen mode"
 
 <span class="k">def</span> <span class="nf">_match_size</span><span class="p">(</span>
     <span class="n">op1</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">op2</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Match the first dimension of op1 and op2.</span>
 
@@ -1629,7 +1686,7 @@ title="Fullscreen mode"
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    Tuple of two np.ndarray</span>
+<span class="sd">    tuple of two np.ndarray</span>
 <span class="sd">        op1 and op2, now matched in size.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1646,7 +1703,7 @@ title="Fullscreen mode"
 
 
 <div class="viewcode-block" id="register_points"><a class="viewcode-back" href="../../api/ktk.geometry.register_points.html#ktk.geometry.register_points">[docs]</a><span class="k">def</span> <span class="nf">register_points</span><span class="p">(</span>
-    <span class="n">global_points</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">local_points</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
+    <span class="n">global_points</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">local_points</span><span class="p">:</span> <span class="n">ArrayLike</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Find the homogeneous transforms between two series of point clouds.</span>
@@ -1672,6 +1729,11 @@ title="Fullscreen mode"
 <span class="sd">    parameters may change in the future.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">check_types</span><span class="p">(</span><span class="n">register_points</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
+
+    <span class="n">global_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">global_points</span><span class="p">)</span>
+    <span class="n">local_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">local_points</span><span class="p">)</span>
+
     <span class="n">n_samples</span> <span class="o">=</span> <span class="n">global_points</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
     <span class="c1"># Prealloc the transformation matrix</span>
@@ -1732,6 +1794,9 @@ title="Fullscreen mode"
     By Félix Chénier<br/>
   
       &copy; Copyright 2020-2022.<br/>
+    <div class="extra_footer">
+      This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>.
+    </div>
 </p>
         </footer>
     </div>

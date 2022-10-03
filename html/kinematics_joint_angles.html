@@ -56,7 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Reconstructing occluded markers" href="kinematics_reconstructing_occluded_markers.html" />
-    <link rel="prev" title="Reading and visualizing marker trajectories" href="kinematics_load_visualize.html" />
+    <link rel="prev" title="Reading and visualizing markers in 3D" href="kinematics_load_visualize.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -208,7 +208,32 @@ const thebe_selector_output = ".output, .cell_output"
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="geometry_basics.html">
-       Basics of rigid body geometry
+       Coordinates: points, vectors and frames
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="geometry_transform_moving_coordinates.html">
+       The homogeneous transform: rotating and translating coordinates
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="geometry_transform_changing_coordinate_system.html">
+       The homogeneous transform: mapping coordinates to other coordinate systems
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="geometry_kinematic_chains.html">
+       Kinematic chains
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="geometry_angles.html">
+       🚧 Extracting angles
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="geometry_remember.html">
+       Main points to remember
       </a>
      </li>
      <li class="toctree-l3">
@@ -230,7 +255,7 @@ const thebe_selector_output = ".output, .cell_output"
     <ul class="current">
      <li class="toctree-l3">
       <a class="reference internal" href="kinematics_load_visualize.html">
-       Reading and visualizing marker trajectories
+       Reading and visualizing markers in 3D
       </a>
      </li>
      <li class="toctree-l3 current active">
@@ -310,6 +335,11 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.TimeSeries.copy.html">
          ktk.TimeSeries.copy
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.count_events.html">
+         ktk.TimeSeries.count_events
         </a>
        </li>
        <li class="toctree-l4">
@@ -435,6 +465,11 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.TimeSeries.remove_data_info.html">
          ktk.TimeSeries.remove_data_info
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.remove_duplicate_events.html">
+         ktk.TimeSeries.remove_duplicate_events
         </a>
        </li>
        <li class="toctree-l4">
@@ -1025,10 +1060,6 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__bottom">
              <!-- To handle the deprecated key -->
             
-            <div class="navbar_extra_footer">
-            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
-            </div>
-            
         </div>
     </div>
     <div id="rtd-footer-container"></div>
@@ -1255,13 +1286,23 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="calculating-joint-angles-from-a-kinematic-acquisition">
 <h1>Calculating joint angles from a kinematic acquisition<a class="headerlink" href="#calculating-joint-angles-from-a-kinematic-acquisition" title="Permalink to this headline">#</a></h1>
-<p>In this tutorial, we will calculate the elbow joint angles in the acquisition presented in the previous section. At the end of the tutorial, we will plot curves of elbow flexion and pronation angles during the complete acquisition.</p>
-<p>Such an analysis is composed of the following steps:</p>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Summary</div>
+<p class="sd-card-text">In this tutorial, we will calculate the elbow joint angles during the propulsion of a racing wheelchair. At the end of the tutorial, we will plot curves of elbow flexion and pronation angles during the complete acquisition.</p>
+</div>
+</div>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>Please be sure to understand the concepts of frame, homogeneous transform and Euler angles before continuing. If you don’t, start with section <a class="reference internal" href="geometry.html"><span class="doc std std-doc">3D rigid body geometry</span></a>.</p>
+</div>
+<p>Calculating joint angles requires the following steps:</p>
 <p><strong>Step 1.</strong> Read the marker trajectories.</p>
-<p><strong>Step 2.</strong> We calculate a series of frames that express the orientation of all segments that compose the analyzed joints (how are both segments oriented in space). Here, we calculate frame series for the forearm and arm.</p>
-<p><strong>Step 3.</strong> We express a series of homogeneous transforms between the proximal and distal frames (how the distal segment is oriented in space compared to the proximal segment);</p>
-<p><strong>Step 4.</strong> We extract the series of Euler angles from these homogeneous transforms (what series of three angles allow such relative orientation);</p>
-<p><strong>Step 5.</strong> We interpret these Euler angle as rotations around anatomical axes.</p>
+<p><strong>Step 2.</strong> Calculate series of frames that express the orientation of all segments that compose the analyzed joints (how are both segments oriented in space). Here, we calculate frame series for the upper arm and forearm.</p>
+<p><strong>Step 3.</strong> Express a series of homogeneous transforms between the proximal and distal frames: how the distal (forearm) segment is oriented in space compared to the proximal segment (upper arm);</p>
+<p><strong>Step 4.</strong> Extract the series of Euler angles from these homogeneous transforms (what series of three angles allow such relative orientation);</p>
+<p><strong>Step 5.</strong> Interpret these Euler angle as rotations around anatomical axes.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">kineticstoolkit.lab</span> <span class="k">as</span> <span class="nn">ktk</span>
@@ -1271,7 +1312,6 @@ title="Print to PDF"
 </div>
 <section id="read-and-visualize-marker-trajectories">
 <h2>Read and visualize marker trajectories<a class="headerlink" href="#read-and-visualize-marker-trajectories" title="Permalink to this headline">#</a></h2>
-<p>We proceed exactly as in the previous tutorial:</p>
 <div class="cell tag_remove-output docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the markers</span>
@@ -5968,7 +6008,7 @@ dAAAACWpdG9vAAAAHWRhdGEAAAABAAAAAExhdmY1OS4yNy4xMDA=
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Reading and visualizing marker trajectories</p>
+            <p class="prev-next-title">Reading and visualizing markers in 3D</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="kinematics_reconstructing_occluded_markers.html" title="next page">
@@ -5988,6 +6028,9 @@ dAAAACWpdG9vAAAAHWRhdGEAAAABAAAAAExhdmY1OS4yNy4xMDA=
     By Félix Chénier<br/>
   
       &copy; Copyright 2020-2022.<br/>
+    <div class="extra_footer">
+      This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>.
+    </div>
 </p>
         </footer>
     </div>

@@ -11,11 +11,6 @@ logo: logo.png
 execute:
   execute_notebooks: cache
 
-# Define the name of the latex output file for PDF builds
-latex:
-  latex_documents:
-    targetname: book.tex
-
 html:
   favicon                   : ""  # A path to a favicon image
   use_edit_page_button      : false  # Whether to add an "edit this page" button to pages. If `true`, repository information in repository: must be filled in
@@ -23,21 +18,12 @@ html:
   use_repository_button     : false  # Whether to add a link to your repository button
   use_issues_button         : false  # Whether to add an "open an issue" button
   use_multitoc_numbering    : true   # Continuous numbering across parts/chapters
-  extra_navbar              : Powered by <a href="https://jupyterbook.org">Jupyter Book</a>  # Will be displayed underneath the left navbar.
-  extra_footer              : ""  # Will be displayed underneath the footer.
   google_analytics_id       : ""  # A GA id that can be used to track book views.
   home_page_in_navbar       : true  # Whether to include your home page in the left Navigation Bar
   baseurl                   : "https://kineticstoolkit.uqam.ca/doc/"  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
   comments:
     hypothesis              : false
     utterances              : false
-
-launch_buttons:
-  notebook_interface        : classic  # The interface interactive links will activate ["classic", "jupyterlab"]
-  binderhub_url             : https://mybinder.org  # The URL of the BinderHub (e.g., https://mybinder.org)
-  jupyterhub_url            : ""  # The URL of the JupyterHub (e.g., https://datahub.berkeley.edu)
-  thebe                     : false  # Add a thebe button to pages (requires the repository to run on Binder)
-  colab_url                 : "" # The URL of Google Colab
   
 
 parse:
@@ -63,8 +49,6 @@ sphinx:
   - 'sphinx.ext.autosummary' # Generate summary table pages (for autodoc)
   - 'sphinx.ext.napoleon'    # Parse numpy-style docstrings (for autodoc)
   - 'sphinx.ext.viewcode'
-  - 'sphinx.ext.ifconfig'    # Allow conditional contents for master vs stable versions
-  - 'sphinx_autodoc_typehints'
   - 'myst_nb'
   - 'custom-directives'
   - 'sphinx_sitemap'
@@ -73,6 +57,10 @@ sphinx:
     html_baseurl: 'https://kineticstoolkit.uqam.ca/doc'
     add_module_names: False
     autosummary_generate: True
+    autodoc_typehints: description
+    autodoc_type_aliases:
+        'ArrayLike': 'ArrayLike'
+        'TimeSeries': 'TimeSeries'
     napoleon_google_docstring: False
     napoleon_numpy_docstring: True
     napoleon_include_init_with_doc: False
@@ -84,7 +72,7 @@ sphinx:
     napoleon_use_ivar: False
     napoleon_use_param: True
     napoleon_use_rtype: True
-#    templates_path: ['_templates']
+    templates_path: ['_templates']
     html_favicon: favicon.ico
     exclude_patterns:
       - '_build'
@@ -101,3 +89,5 @@ sphinx:
       'logo_only': True  # default False
       'collapse_navigation': True
       'navigation_depth': 4
+      extra_navbar: ""
+      extra_footer: "This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>." # Will be displayed underneath the footer.

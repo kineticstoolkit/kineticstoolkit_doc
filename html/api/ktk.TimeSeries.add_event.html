@@ -208,7 +208,32 @@ const thebe_selector_output = ".output, .cell_output"
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../geometry_basics.html">
-       Basics of rigid body geometry
+       Coordinates: points, vectors and frames
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../geometry_transform_moving_coordinates.html">
+       The homogeneous transform: rotating and translating coordinates
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../geometry_transform_changing_coordinate_system.html">
+       The homogeneous transform: mapping coordinates to other coordinate systems
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../geometry_kinematic_chains.html">
+       Kinematic chains
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../geometry_angles.html">
+       🚧 Extracting angles
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../geometry_remember.html">
+       Main points to remember
       </a>
      </li>
      <li class="toctree-l3">
@@ -230,7 +255,7 @@ const thebe_selector_output = ".output, .cell_output"
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../kinematics_load_visualize.html">
-       Reading and visualizing marker trajectories
+       Reading and visualizing markers in 3D
       </a>
      </li>
      <li class="toctree-l3">
@@ -310,6 +335,11 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="ktk.TimeSeries.copy.html">
          ktk.TimeSeries.copy
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="ktk.TimeSeries.count_events.html">
+         ktk.TimeSeries.count_events
         </a>
        </li>
        <li class="toctree-l4">
@@ -435,6 +465,11 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="ktk.TimeSeries.remove_data_info.html">
          ktk.TimeSeries.remove_data_info
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="ktk.TimeSeries.remove_duplicate_events.html">
+         ktk.TimeSeries.remove_duplicate_events
         </a>
        </li>
        <li class="toctree-l4">
@@ -1025,10 +1060,6 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__bottom">
              <!-- To handle the deprecated key -->
             
-            <div class="navbar_extra_footer">
-            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
-            </div>
-            
         </div>
     </div>
     <div id="rtd-footer-container"></div>
@@ -1156,16 +1187,19 @@ title="Print to PDF"
 <h1>ktk.TimeSeries.add_event<a class="headerlink" href="#ktk-timeseries-add-event" title="Permalink to this headline">#</a></h1>
 <dl class="py method">
 <dt class="sig sig-object py" id="ktk.TimeSeries.add_event">
-<span class="sig-prename descclassname"><span class="pre">TimeSeries.</span></span><span class="sig-name descname"><span class="pre">add_event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'event'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_place</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kineticstoolkit/timeseries.html#TimeSeries.add_event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ktk.TimeSeries.add_event" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">TimeSeries.</span></span><span class="sig-name descname"><span class="pre">add_event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'event'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_place</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unique</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kineticstoolkit/timeseries.html#TimeSeries.add_event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ktk.TimeSeries.add_event" title="Permalink to this definition">#</a></dt>
 <dd><p>Add an event to the TimeSeries.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>time</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code>) – The time of the event, in the same unit as <cite>time_info[‘Unit’]</cite>.</p></li>
-<li><p><strong>name</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – Optional. The name of the event. The default is ‘event’.</p></li>
-<li><p><strong>in_place</strong> – Optional. True to modify and return the original TimeSeries. False
+<li><p><strong>time</strong> (<em>float</em>) – The time of the event, in the same unit as <cite>time_info[‘Unit’]</cite>.</p></li>
+<li><p><strong>name</strong> (<em>str</em>) – Optional. The name of the event. The default is ‘event’.</p></li>
+<li><p><strong>in_place</strong> (<em>bool</em>) – Optional. True to modify and return the original TimeSeries. False
 to return a modified copy of the TimeSeries while leaving the
-original TimeSeries intact. The default is False.</p></li>
+original TimeSeries intact.</p></li>
+<li><p><strong>unique</strong> (<em>bool</em>) – Optional. True to prevent duplicating an already existing event. In
+this case, if an event with the same time and name already exists,
+no event is added.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1247,6 +1281,9 @@ original TimeSeries intact. The default is False.</p></li>
     By Félix Chénier<br/>
   
       &copy; Copyright 2020-2022.<br/>
+    <div class="extra_footer">
+      This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>.
+    </div>
 </p>
         </footer>
     </div>

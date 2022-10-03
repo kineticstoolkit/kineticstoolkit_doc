@@ -4,6 +4,7 @@ Custom admonitions.
 From https://github.com/orgs/executablebooks/discussions/701
 """
 from docutils.parsers.rst.directives.admonitions import Admonition, BaseAdmonition
+from docutils import nodes
 
 
 #class Exercise(Admonition):
@@ -34,6 +35,21 @@ class GoodPractice(Admonition):
         return nodes
 
 
+class Credits(BaseAdmonition):
+    node_class = nodes.admonition
+    def run(self):
+        # Add class to style it
+        if "class" not in self.options:
+            self.options["class"] = ["admonition-credits"]
+        else:
+            self.options["class"].append("admonition-credits")
+        self.arguments = ["Credits"]
+        # Now run the Admonition logic so it behaves the same way
+        nodes = super().run()
+        return nodes
+
+
 def setup(app):
 #    app.add_directive("exercise", Exercise)
     app.add_directive("good-practice", GoodPractice)
+    app.add_directive("credits", Credits)

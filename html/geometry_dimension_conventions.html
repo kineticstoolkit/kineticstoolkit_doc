@@ -56,7 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Kinematics analysis" href="kinematics.html" />
-    <link rel="prev" title="Basics of rigid body geometry" href="geometry_basics.html" />
+    <link rel="prev" title="Main points to remember" href="geometry_remember.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -208,7 +208,32 @@ const thebe_selector_output = ".output, .cell_output"
     <ul class="current">
      <li class="toctree-l3">
       <a class="reference internal" href="geometry_basics.html">
-       Basics of rigid body geometry
+       Coordinates: points, vectors and frames
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="geometry_transform_moving_coordinates.html">
+       The homogeneous transform: rotating and translating coordinates
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="geometry_transform_changing_coordinate_system.html">
+       The homogeneous transform: mapping coordinates to other coordinate systems
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="geometry_kinematic_chains.html">
+       Kinematic chains
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="geometry_angles.html">
+       🚧 Extracting angles
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="geometry_remember.html">
+       Main points to remember
       </a>
      </li>
      <li class="toctree-l3 current active">
@@ -230,7 +255,7 @@ const thebe_selector_output = ".output, .cell_output"
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="kinematics_load_visualize.html">
-       Reading and visualizing marker trajectories
+       Reading and visualizing markers in 3D
       </a>
      </li>
      <li class="toctree-l3">
@@ -310,6 +335,11 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.TimeSeries.copy.html">
          ktk.TimeSeries.copy
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.count_events.html">
+         ktk.TimeSeries.count_events
         </a>
        </li>
        <li class="toctree-l4">
@@ -435,6 +465,11 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.TimeSeries.remove_data_info.html">
          ktk.TimeSeries.remove_data_info
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.remove_duplicate_events.html">
+         ktk.TimeSeries.remove_duplicate_events
         </a>
        </li>
        <li class="toctree-l4">
@@ -1025,10 +1060,6 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__bottom">
              <!-- To handle the deprecated key -->
             
-            <div class="navbar_extra_footer">
-            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
-            </div>
-            
         </div>
     </div>
     <div id="rtd-footer-container"></div>
@@ -1181,8 +1212,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#first-example-with-the-geometry-module">
-   First example with the geometry module
+  <a class="reference internal nav-link" href="#what-next">
+   What next
   </a>
  </li>
 </ul>
@@ -1235,8 +1266,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#first-example-with-the-geometry-module">
-   First example with the geometry module
+  <a class="reference internal nav-link" href="#what-next">
+   What next
   </a>
  </li>
 </ul>
@@ -1251,6 +1282,13 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="dimension-conventions">
 <h1>Dimension conventions<a class="headerlink" href="#dimension-conventions" title="Permalink to this headline">#</a></h1>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Summary</div>
+<p class="sd-card-text">This section indicates how to represent series of scalars, points, vectors, frames and transforms in Kinetics Toolkit.</p>
+</div>
+</div>
 <p>In the <a class="reference internal" href="api/ktk.geometry.html"><span class="doc std std-doc">ktk.geometry</span></a> module and in most of Kinetics Toolkit’s module:</p>
 <ul class="simple">
 <li><p>Every point, vector or matrix, and in many case even scalar, is considered as a <strong>series</strong>.</p></li>
@@ -1364,62 +1402,9 @@ title="Print to PDF"
 </div>
 </div>
 </section>
-<section id="first-example-with-the-geometry-module">
-<h2>First example with the geometry module<a class="headerlink" href="#first-example-with-the-geometry-module" title="Permalink to this headline">#</a></h2>
-<p>Now that we presented the conventions for expressing coordinates and transforms as series, we are ready to redo the last example from the last section, this time using Kinetics Toolkit.</p>
-<p><img alt="humerus_frame -height:normal" src="_images/humerus_frame.png" />
-Figure 1. Position and orientation of the humerus.</p>
-<p>We know the lenght of the arm is 38 cm, and we want to express the position of the elbow in the global coordinate system. The shoulder is located 15 cm forward and 70 cm upward to the global origin and the humerus is inclined at 30 degrees of the vertical.</p>
-<p>First, let’s express the elbow position in the humerus coordinate system.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">kineticstoolkit.lab</span> <span class="k">as</span> <span class="nn">ktk</span>
-
-<span class="n">local_elbow_position</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.38</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
-
-<span class="n">local_elbow_position</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.  , -0.38,  0.  ,  1.  ]])
-</pre></div>
-</div>
-</div>
-</div>
-<p>Now, we create the frame representing the position and orientation of the humerus coordinate system. Since we know these position and orientation, then we will create this frame as an homogeneous transform from the global to the humerus coordinate system, using the <a class="reference internal" href="api/ktk.geometry.create_transforms.html"><span class="doc std std-doc">ktk.geometry.create_transforms</span></a> function:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">humerus_frame</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">create_transforms</span><span class="p">(</span>
-    <span class="n">seq</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="n">angles</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="mi">30</span><span class="p">)],</span> <span class="n">translations</span><span class="o">=</span><span class="p">[[</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.70</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
-<span class="p">)</span>
-
-<span class="n">humerus_frame</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[[ 0.8660254, -0.5      ,  0.       ,  0.15     ],
-        [ 0.5      ,  0.8660254,  0.       ,  0.7      ],
-        [ 0.       ,  0.       ,  1.       ,  0.       ],
-        [ 0.       ,  0.       ,  0.       ,  1.       ]]])
-</pre></div>
-</div>
-</div>
-</div>
-<p>Now we can express the local elbow position in the global coordinate system:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">get_global_coordinates</span><span class="p">(</span><span class="n">local_elbow_position</span><span class="p">,</span> <span class="n">humerus_frame</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.34      , 0.37091035, 0.        , 1.        ]])
-</pre></div>
-</div>
-</div>
-</div>
+<section id="what-next">
+<h2>What next<a class="headerlink" href="#what-next" title="Permalink to this headline">#</a></h2>
+<p>Now that we learned or reminded lots of information on rigid 3d geometry, the next section on kinematics analysis will show how to use the <a class="reference internal" href="api/ktk.geometry.html"><span class="doc std std-doc">ktk.geometry</span></a> module in real movement acquisition data.</p>
 </section>
 </section>
 
@@ -1450,11 +1435,11 @@ Figure 1. Position and orientation of the humerus.</p>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="geometry_basics.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="geometry_remember.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Basics of rigid body geometry</p>
+            <p class="prev-next-title">Main points to remember</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="kinematics.html" title="next page">
@@ -1474,6 +1459,9 @@ Figure 1. Position and orientation of the humerus.</p>
     By Félix Chénier<br/>
   
       &copy; Copyright 2020-2022.<br/>
+    <div class="extra_footer">
+      This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>.
+    </div>
 </p>
         </footer>
     </div>

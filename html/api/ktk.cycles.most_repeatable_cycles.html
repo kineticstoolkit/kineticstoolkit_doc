@@ -208,7 +208,32 @@ const thebe_selector_output = ".output, .cell_output"
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../geometry_basics.html">
-       Basics of rigid body geometry
+       Coordinates: points, vectors and frames
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../geometry_transform_moving_coordinates.html">
+       The homogeneous transform: rotating and translating coordinates
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../geometry_transform_changing_coordinate_system.html">
+       The homogeneous transform: mapping coordinates to other coordinate systems
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../geometry_kinematic_chains.html">
+       Kinematic chains
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../geometry_angles.html">
+       🚧 Extracting angles
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../geometry_remember.html">
+       Main points to remember
       </a>
      </li>
      <li class="toctree-l3">
@@ -230,7 +255,7 @@ const thebe_selector_output = ".output, .cell_output"
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../kinematics_load_visualize.html">
-       Reading and visualizing marker trajectories
+       Reading and visualizing markers in 3D
       </a>
      </li>
      <li class="toctree-l3">
@@ -310,6 +335,11 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="ktk.TimeSeries.copy.html">
          ktk.TimeSeries.copy
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="ktk.TimeSeries.count_events.html">
+         ktk.TimeSeries.count_events
         </a>
        </li>
        <li class="toctree-l4">
@@ -435,6 +465,11 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="ktk.TimeSeries.remove_data_info.html">
          ktk.TimeSeries.remove_data_info
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="ktk.TimeSeries.remove_duplicate_events.html">
+         ktk.TimeSeries.remove_duplicate_events
         </a>
        </li>
        <li class="toctree-l4">
@@ -1025,10 +1060,6 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__bottom">
              <!-- To handle the deprecated key -->
             
-            <div class="navbar_extra_footer">
-            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
-            </div>
-            
         </div>
     </div>
     <div id="rtd-footer-container"></div>
@@ -1157,7 +1188,7 @@ title="Print to PDF"
 <dl class="py function">
 <dt class="sig sig-object py" id="ktk.cycles.most_repeatable_cycles">
 <span class="sig-name descname"><span class="pre">most_repeatable_cycles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ktk/cycles.html#most_repeatable_cycles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ktk.cycles.most_repeatable_cycles" title="Permalink to this definition">#</a></dt>
-<dd><p>Get the indexes of the most repeatable cycles in TimeSeries or array.</p>
+<dd><p>Get the indexes of the most repeatable cycles in array.</p>
 <p>This function returns an ordered list of the most repeatable to the least
 repeatable cycles.</p>
 <p>It works by recursively discarding the cycle than maximizes the
@@ -1169,15 +1200,15 @@ equivalently repeatable, they are returned in order of appearance.</p>
 <p>Cycles that include at least one NaN are excluded.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>data</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">ndarray</span></code>) – Stacked time-normalized data to analyze, in the shape
+<dd class="field-odd"><p><strong>data</strong> (<em>ArrayLike</em>) – Stacked time-normalized data to analyze, in the shape
 (n_cycles, n_points).</p>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>List of indexes corresponding to the cycles in most to least
+<dd class="field-even"><p>list of indexes corresponding to the cycles in most to least
 repeatable order.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>List[int]</p>
+<dd class="field-odd"><p>list[int]</p>
 </dd>
 </dl>
 <p class="rubric">Example</p>
@@ -1248,6 +1279,9 @@ repeatable order.</p>
     By Félix Chénier<br/>
   
       &copy; Copyright 2020-2022.<br/>
+    <div class="extra_footer">
+      This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>.
+    </div>
 </p>
         </footer>
     </div>

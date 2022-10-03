@@ -18,27 +18,32 @@ kernelspec:
 
 # Calculating joint angles from a kinematic acquisition
 
-In this tutorial, we will calculate the elbow joint angles in the acquisition presented in the previous section. At the end of the tutorial, we will plot curves of elbow flexion and pronation angles during the complete acquisition.
+:::{card} Summary
+In this tutorial, we will calculate the elbow joint angles during the propulsion of a racing wheelchair. At the end of the tutorial, we will plot curves of elbow flexion and pronation angles during the complete acquisition.
+:::
 
-Such an analysis is composed of the following steps:
+
+:::{caution}
+Please be sure to understand the concepts of frame, homogeneous transform and Euler angles before continuing. If you don't, start with section [](geometry.md).
+:::
+
+Calculating joint angles requires the following steps:
 
 **Step 1.** Read the marker trajectories.
 
-**Step 2.** We calculate a series of frames that express the orientation of all segments that compose the analyzed joints (how are both segments oriented in space). Here, we calculate frame series for the forearm and arm.
+**Step 2.** Calculate series of frames that express the orientation of all segments that compose the analyzed joints (how are both segments oriented in space). Here, we calculate frame series for the upper arm and forearm.
 
-**Step 3.** We express a series of homogeneous transforms between the proximal and distal frames (how the distal segment is oriented in space compared to the proximal segment);
+**Step 3.** Express a series of homogeneous transforms between the proximal and distal frames: how the distal (forearm) segment is oriented in space compared to the proximal segment (upper arm);
 
-**Step 4.** We extract the series of Euler angles from these homogeneous transforms (what series of three angles allow such relative orientation);
+**Step 4.** Extract the series of Euler angles from these homogeneous transforms (what series of three angles allow such relative orientation);
 
-**Step 5.** We interpret these Euler angle as rotations around anatomical axes.
+**Step 5.** Interpret these Euler angle as rotations around anatomical axes.
 
 ```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
 ```
 
 ## Read and visualize marker trajectories
-
-We proceed exactly as in the previous tutorial:
 
 ```{code-cell} ipython3
 :tags: [remove-output]

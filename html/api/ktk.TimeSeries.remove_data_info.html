@@ -55,7 +55,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="ktk.TimeSeries.remove_event" href="ktk.TimeSeries.remove_event.html" />
+    <link rel="next" title="ktk.TimeSeries.remove_duplicate_events" href="ktk.TimeSeries.remove_duplicate_events.html" />
     <link rel="prev" title="ktk.TimeSeries.remove_data" href="ktk.TimeSeries.remove_data.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -208,7 +208,32 @@ const thebe_selector_output = ".output, .cell_output"
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../geometry_basics.html">
-       Basics of rigid body geometry
+       Coordinates: points, vectors and frames
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../geometry_transform_moving_coordinates.html">
+       The homogeneous transform: rotating and translating coordinates
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../geometry_transform_changing_coordinate_system.html">
+       The homogeneous transform: mapping coordinates to other coordinate systems
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../geometry_kinematic_chains.html">
+       Kinematic chains
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../geometry_angles.html">
+       🚧 Extracting angles
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../geometry_remember.html">
+       Main points to remember
       </a>
      </li>
      <li class="toctree-l3">
@@ -230,7 +255,7 @@ const thebe_selector_output = ".output, .cell_output"
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../kinematics_load_visualize.html">
-       Reading and visualizing marker trajectories
+       Reading and visualizing markers in 3D
       </a>
      </li>
      <li class="toctree-l3">
@@ -310,6 +335,11 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="ktk.TimeSeries.copy.html">
          ktk.TimeSeries.copy
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="ktk.TimeSeries.count_events.html">
+         ktk.TimeSeries.count_events
         </a>
        </li>
        <li class="toctree-l4">
@@ -435,6 +465,11 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4 current active">
         <a class="current reference internal" href="#">
          ktk.TimeSeries.remove_data_info
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="ktk.TimeSeries.remove_duplicate_events.html">
+         ktk.TimeSeries.remove_duplicate_events
         </a>
        </li>
        <li class="toctree-l4">
@@ -1025,10 +1060,6 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__bottom">
              <!-- To handle the deprecated key -->
             
-            <div class="navbar_extra_footer">
-            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
-            </div>
-            
         </div>
     </div>
     <div id="rtd-footer-container"></div>
@@ -1161,11 +1192,11 @@ title="Print to PDF"
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>data_key</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The data key the info corresponds to.</p></li>
-<li><p><strong>info_key</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>) – The key of the info dict.</p></li>
-<li><p><strong>in_place</strong> (<code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>) – Optional. True to modify the original TimeSeries. False
+<li><p><strong>data_key</strong> (<em>str</em>) – The data key the info corresponds to.</p></li>
+<li><p><strong>info_key</strong> (<em>str</em>) – The key of the info dict.</p></li>
+<li><p><strong>in_place</strong> (<em>bool</em>) – Optional. True to modify the original TimeSeries. False
 to return a modified copy of the TimeSeries while leaving the
-original TimeSeries intact. The default is False.</p></li>
+original TimeSeries intact.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -1174,11 +1205,10 @@ original TimeSeries intact. The default is False.</p></li>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference internal" href="ktk.TimeSeries.html#ktk.TimeSeries" title="ktk.TimeSeries">TimeSeries</a></p>
 </dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>KeyError</strong> – If this data_info could not be found.</p>
+</dd>
 </dl>
-<div class="admonition caution">
-<p class="admonition-title">Caution</p>
-<p>No warning or exception is raised if the data key does not exist.</p>
-</div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="ktk.TimeSeries.add_data_info.html#ktk.TimeSeries.add_data_info" title="ktk.TimeSeries.add_data_info"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.TimeSeries.add_data_info</span></code></a></p>
@@ -1233,10 +1263,10 @@ original TimeSeries intact. The default is False.</p></li>
             <p class="prev-next-title">ktk.TimeSeries.remove_data</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="ktk.TimeSeries.remove_event.html" title="next page">
+    <a class='right-next' id="next-link" href="ktk.TimeSeries.remove_duplicate_events.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">ktk.TimeSeries.remove_event</p>
+        <p class="prev-next-title">ktk.TimeSeries.remove_duplicate_events</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
@@ -1250,6 +1280,9 @@ original TimeSeries intact. The default is False.</p></li>
     By Félix Chénier<br/>
   
       &copy; Copyright 2020-2022.<br/>
+    <div class="extra_footer">
+      This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>.
+    </div>
 </p>
         </footer>
     </div>

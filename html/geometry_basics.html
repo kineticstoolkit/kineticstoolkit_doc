@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Basics of rigid body geometry &#8212; Kinetics Toolkit</title>
+    <title>Coordinates: points, vectors and frames &#8212; Kinetics Toolkit</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -57,7 +57,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Dimension conventions" href="geometry_dimension_conventions.html" />
+    <link rel="next" title="The homogeneous transform: rotating and translating coordinates" href="geometry_transform_moving_coordinates.html" />
     <link rel="prev" title="3D rigid body geometry" href="geometry.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -210,7 +210,32 @@ const thebe_selector_output = ".output, .cell_output"
     <ul class="current">
      <li class="toctree-l3 current active">
       <a class="current reference internal" href="#">
-       Basics of rigid body geometry
+       Coordinates: points, vectors and frames
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="geometry_transform_moving_coordinates.html">
+       The homogeneous transform: rotating and translating coordinates
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="geometry_transform_changing_coordinate_system.html">
+       The homogeneous transform: mapping coordinates to other coordinate systems
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="geometry_kinematic_chains.html">
+       Kinematic chains
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="geometry_angles.html">
+       🚧 Extracting angles
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="geometry_remember.html">
+       Main points to remember
       </a>
      </li>
      <li class="toctree-l3">
@@ -232,7 +257,7 @@ const thebe_selector_output = ".output, .cell_output"
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="kinematics_load_visualize.html">
-       Reading and visualizing marker trajectories
+       Reading and visualizing markers in 3D
       </a>
      </li>
      <li class="toctree-l3">
@@ -312,6 +337,11 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.TimeSeries.copy.html">
          ktk.TimeSeries.copy
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.count_events.html">
+         ktk.TimeSeries.count_events
         </a>
        </li>
        <li class="toctree-l4">
@@ -437,6 +467,11 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.TimeSeries.remove_data_info.html">
          ktk.TimeSeries.remove_data_info
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.remove_duplicate_events.html">
+         ktk.TimeSeries.remove_duplicate_events
         </a>
        </li>
        <li class="toctree-l4">
@@ -1027,10 +1062,6 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="bd-sidebar__bottom">
              <!-- To handle the deprecated key -->
             
-            <div class="navbar_extra_footer">
-            Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
-            </div>
-            
         </div>
     </div>
     <div id="rtd-footer-container"></div>
@@ -1153,52 +1184,28 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#coordinates-points-vectors-and-frames">
-   Coordinates: points, vectors and frames
+  <a class="reference internal nav-link" href="#global-coordinate-system">
+   Global coordinate system
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#global-coordinate-system">
-     Global coordinate system
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#points-and-vectors">
-     Points and vectors
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#local-coordinate-system">
-     Local coordinate system
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#frames">
-     Frames
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#rotations-and-translations-the-homogeneous-transform">
-   Rotations and translations: the homogeneous transform
+  <a class="reference internal nav-link" href="#points-and-vectors">
+   Points and vectors
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#moving-coordinates">
-     Moving coordinates
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#remap-coordinates-to-other-coordinate-systems">
-     Remap coordinates to other coordinate systems
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#main-points-to-remember">
-   Main points to remember
+  <a class="reference internal nav-link" href="#local-coordinate-system">
+   Local coordinate system
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#frames">
+   Frames
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
   </a>
  </li>
 </ul>
@@ -1210,7 +1217,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Basics of rigid body geometry</h1>
+                <h1>Coordinates: points, vectors and frames</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -1221,52 +1228,28 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#coordinates-points-vectors-and-frames">
-   Coordinates: points, vectors and frames
+  <a class="reference internal nav-link" href="#global-coordinate-system">
+   Global coordinate system
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#global-coordinate-system">
-     Global coordinate system
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#points-and-vectors">
-     Points and vectors
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#local-coordinate-system">
-     Local coordinate system
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#frames">
-     Frames
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#rotations-and-translations-the-homogeneous-transform">
-   Rotations and translations: the homogeneous transform
+  <a class="reference internal nav-link" href="#points-and-vectors">
+   Points and vectors
   </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#moving-coordinates">
-     Moving coordinates
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#remap-coordinates-to-other-coordinate-systems">
-     Remap coordinates to other coordinate systems
-    </a>
-   </li>
-  </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#main-points-to-remember">
-   Main points to remember
+  <a class="reference internal nav-link" href="#local-coordinate-system">
+   Local coordinate system
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#frames">
+   Frames
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
   </a>
  </li>
 </ul>
@@ -1279,14 +1262,24 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="basics-of-rigid-body-geometry">
-<h1>Basics of rigid body geometry<a class="headerlink" href="#basics-of-rigid-body-geometry" title="Permalink to this headline">#</a></h1>
-<p>This tutorial is an introduction or reminder of the basic elements of rigid body geometry. It covers the definitions of bodies, coordinate systems, coordinates (such as points, vectors and frames), and homogeneous transforms. It follows the nomenclature conventions of Craig, J., 1987. Introduction to robotics: Mechanics and control, in the context of rigid body biomechanics.</p>
-<p>While these notions largely come from the robotics field, they will be approached in the scope of rigid body biomechanics. As such, we will use the posture in Figure 1 all through the tutorial as an example for every introduced notion. To facilitate the comprehension, this is a bidimensional example; however, we will treat it as conventional 3D problem, with all z coordinates being set to zero.</p>
-<p><img alt="humerus_intro -height:short" src="_images/humerus_intro.png" /></p>
-<p>Figure 1. The posture used as an example in this tutorial.</p>
-<section id="coordinates-points-vectors-and-frames">
-<h2>Coordinates: points, vectors and frames<a class="headerlink" href="#coordinates-points-vectors-and-frames" title="Permalink to this headline">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="coordinates-points-vectors-and-frames">
+<h1>Coordinates: points, vectors and frames<a class="headerlink" href="#coordinates-points-vectors-and-frames" title="Permalink to this headline">#</a></h1>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Summary</div>
+<p class="sd-card-text">This section defines the following terms and their representation as 4x1 and 4x4 matrices:</p>
+<ul class="simple">
+<li><p class="sd-card-text">Global coordinate system</p></li>
+<li><p class="sd-card-text">Local coordinate systems</p></li>
+<li><p class="sd-card-text">Point, vector, frame</p></li>
+</ul>
+</div>
+</div>
+<p>This series of tutorials are an introduction or reminder of the basic elements of rigid body geometry. It covers the definitions of bodies, coordinate systems, coordinates (such as points, vectors and frames), and homogeneous transforms. It follows the nomenclature conventions of Craig, J., 1987. Introduction to robotics: Mechanics and control, in the context of rigid body biomechanics.</p>
+<p>While these notions largely come from the robotics field, they will be approached in the scope of rigid body biomechanics. We will use the posture in Figure 1 for most examples. While this is a bidimensional example, we will treat it as a conventional 3D problem, but with all medio-lateral (z axis) coordinates being set to zero.</p>
+<p><img alt="geometry_intro -height:short" src="_images/geometry_intro.png" /></p>
+<p><em>Figure 1. The posture used for the next examples.</em></p>
 <p>In this section, we will see how to express:</p>
 <ul class="simple">
 <li><p>Points (positions);</p></li>
@@ -1294,7 +1287,7 @@ title="Print to PDF"
 <li><p>Frames, which are the orientation and position of a coordinate system.</p></li>
 </ul>
 <section id="global-coordinate-system">
-<h3>Global coordinate system<a class="headerlink" href="#global-coordinate-system" title="Permalink to this headline">#</a></h3>
+<h2>Global coordinate system<a class="headerlink" href="#global-coordinate-system" title="Permalink to this headline">#</a></h2>
 <p>To express any coordinate, we need a coordinate system. A coordinate system is composed of an origin (the point in space everything is expressed relative to) and a set of axes. In human movement biomechanics, we usually use a cartesian system composed of three orthonormal axes (x, y and z).</p>
 <p>In newton dynamics and at the human scale, it is totally acceptable to define a global, non-moving coordinate system everything can be referenced to. In Figure 2, we define such a fixed system:</p>
 <ul class="simple">
@@ -1304,11 +1297,11 @@ title="Print to PDF"
 <li><p>The z axis points to the right.</p></li>
 </ul>
 <p>This coordinate system is completely arbitrary: any other origin or set of orthonormal axes would still be perfectly valid. This is the one we chose here, and the one every global coordinate will refer to.</p>
-<p><img alt="humerus_intro -height:normal" src="_images/humerus_global_coordinates.png" /></p>
-<p>Figure 2. A global coordinate system</p>
+<p><img alt="global_coordinates -height:normal" src="_images/geometry_global_coordinates.png" /></p>
+<p><em>Figure 2. A global coordinate system</em></p>
 </section>
 <section id="points-and-vectors">
-<h3>Points and vectors<a class="headerlink" href="#points-and-vectors" title="Permalink to this headline">#</a></h3>
+<h2>Points and vectors<a class="headerlink" href="#points-and-vectors" title="Permalink to this headline">#</a></h2>
 <p>Using the global coordinate system of Figure 2, we can express the position of any point in space using its three components (x, y, z). For example, the position of the shoulder in global coordinates is:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
@@ -1319,12 +1312,7 @@ z_\text{shoulder}
 \end{bmatrix}
 \end{split}\]</div>
 <p>where <span class="math notranslate nohighlight">\(~^\text{global}p_\text{shoulder}\)</span> is read as: Position (<span class="math notranslate nohighlight">\(p\)</span>) of the shoulder expressed in the global coordinate system.</p>
-<p>Note that while three components are sufficient to express points and vectors in three dimensions, we normally use four components instead, the fourth being 1 for points and 0 for vectors:</p>
-<ul class="simple">
-<li><p><strong>Points</strong>, such as positions, are expressed as <span class="math notranslate nohighlight">\([x, y, z, 1]^T\)</span>.</p></li>
-<li><p><strong>Vectors</strong>, such as velocities, accelerations and forces, are expressed as <span class="math notranslate nohighlight">\([x, y, z, 0]^T\)</span>.</p></li>
-</ul>
-<p>Therefore, while we express the <strong>position</strong> (a point) of the shoulder in global coordinates as:</p>
+<p>While three components are sufficient to express points and vectors in three dimensions, we normally use four components instead, the fourth being 1 for points and 0 for vectors. Therefore, while we express the <strong>position</strong> (a point) of the shoulder in global coordinates as:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 ~^\text{global}p_\text{shoulder} = \begin{bmatrix}
@@ -1344,80 +1332,79 @@ v_\text{z shoulder} \\ 0
 \end{split}\]</div>
 </section>
 <section id="local-coordinate-system">
-<h3>Local coordinate system<a class="headerlink" href="#local-coordinate-system" title="Permalink to this headline">#</a></h3>
-<p>As we just saw, points and vectors are easy to express in a coordinate system. The orientation of a segment is however more complex. In Figure 2, if we wanted to express the orientation of the humerus, we would explicitely need this information:</p>
+<h2>Local coordinate system<a class="headerlink" href="#local-coordinate-system" title="Permalink to this headline">#</a></h2>
+<p>While points and vectors are generally relatively easy to express in a given coordinate system, the orientation of a segment is more complex. In Figure 2, if we wanted to express the orientation of the upper arm, we would explicitly need this information:</p>
 <ul class="simple">
-<li><p>What is the initial, non-rotated orientation of the humerus?</p></li>
-<li><p>By how many degrees is it rotated from its initial orientation?</p></li>
+<li><p>What is the initial, non-rotated orientation of the upper arm?</p></li>
+<li><p>By how many degrees has it been rotated from its initial orientation?</p></li>
 <li><p>Around which axes?</p></li>
 </ul>
-<p>The first step to answer these questions is to create a <strong>local coordinate system</strong> for the humerus. This local coordinate system will be attached to the humerus, and thus will move with it.</p>
-<p>To create such a coordinate system, we need to define where is the origin and orthonormal axes of the humerus, in respect to the humerus itself. In this example, we will use the anatomical position as a reference to define this coordinate system (Figure 3):</p>
+<p>The first step to answer these questions is to create a <strong>local coordinate system</strong> for the upper arm. This local coordinate system will be attached to the upper arm, and thus will move with it. To create such a coordinate system, we need to define where is the origin and orthonormal axes of the upper arm, in respect to the upper arm. In this example, we use the anatomical position as a reference to define this coordinate system (Figure 3):</p>
 <ul class="simple">
-<li><p>The humerus coordinate system’s origin is located at the glenohumeral joint;</p></li>
+<li><p>The origin of the upper arm coordinate system is located at the shoulder;</p></li>
 <li><p>Its x axis points forward;</p></li>
-<li><p>Its y axis is aligned with the humerus, pointing upward;</p></li>
+<li><p>Its y axis is aligned with the arm, pointing upward;</p></li>
 <li><p>Its z axis points to the right.</p></li>
 </ul>
-<p><img alt="humerus_coordinate_system -height:normal" src="_images/humerus_coordinate_system.png" /></p>
-<p>Figure 3. Local coordinate system of the humerus.</p>
-<p>Now that we defined this local coordinate system, we can come back to the position of interest of Figure 1. Look in Figure 4 how the humerus coordinate system is attached to the humerus and thus moves with it.</p>
-<p><img alt="humerus_frame -height:normal" src="_images/humerus_frame.png" /></p>
-<p>Figure 4. Expressing the position and orientation of the humerus.</p>
+<p><img alt="upper_arm_coordinate_system -height:normal" src="_images/geometry_upper_arm_lcs.png" /></p>
+<p><em>Figure 3. Local coordinate system of the upper arm.</em></p>
+<p>Now that we defined this local coordinate system, we can come back to the position of interest of Figure 1. Look in Figure 4 how the upper arm coordinate system is attached to the upper arm and thus moves with it.</p>
+<p><img alt="upper_arm_rotated -height:normal" src="_images/geometry_upper_arm_rotated.png" /></p>
+<p><em>Figure 4. Expressing the position and orientation of the upper arm.</em></p>
 </section>
 <section id="frames">
-<h3>Frames<a class="headerlink" href="#frames" title="Permalink to this headline">#</a></h3>
+<h2>Frames<a class="headerlink" href="#frames" title="Permalink to this headline">#</a></h2>
 <p>We are now ready to introduce the <strong>frame</strong>, a 4x4 matrix that expresses both the position and the orientation of a coordinate system, in reference to another coordinate system.</p>
 <p>The fourth (easiest) column of a frame is the position of the local coordinate system’s origin expressed in the reference coordinate system. In the example of Figure 4, this is:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-~^\text{global}p_\text{humerus} = \begin{bmatrix}
-x_\text{humerus} \\
-y_\text{humerus} \\
-z_\text{humerus} \\ 1
+~^\text{global}p_\text{upper arm} = \begin{bmatrix}
+x_\text{upper arm} \\
+y_\text{upper arm} \\
+z_\text{upper arm} \\ 1
 \end{bmatrix}
 \end{split}\]</div>
-<p>The three first columns of a frame express the frame orientation. They express, in the reference coordinate system, the coordinates of three vectors of length 1 that are respectively oriented toward the x, y and z axes of the local coordinate system. Figure 5 illustrates this concept by showing the difference of orientation between the global and the humerus coordinate systems.</p>
-<p><img alt="humerus_orientation -height:normal" src="_images/humerus_orientation.png" /></p>
-<p>Figure 5. Orientation of the humerus coordinate system.</p>
-<p>Based on Figure 5, here is how we would express these three unit vectors (in bold) in both coordinate systems:</p>
+<p>The first three columns of a frame express the frame orientation. They are, in the reference coordinate system, the coordinates of three unit vectors that are respectively oriented toward the x, y and z axes of the local coordinate system.</p>
+<p><img alt="upper_arm_orientation -height:normal" src="_images/geometry_upper_arm_orientation.png" /></p>
+<p><em>Figure 5. Orientation of the upper arm coordinate system (bold lines) in reference to the global coordinate system (thin lines).</em></p>
+<p>Based on Figure 5, which illustrates this concept for the pose of Figure 4, here is how we would express these three unit vectors in both coordinate systems:</p>
 <table class="colwidths-auto table">
 <thead>
 <tr class="row-odd"><th class="text-align:right head"><p></p></th>
-<th class="text-align:center head"><p>In the humerus coordinate system</p></th>
+<th class="text-align:center head"><p>In the upper arm coordinate system</p></th>
 <th class="text-align:center head"><p>In the global coordinate system</p></th>
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td class="text-align:right"><p>Humerus x axis</p></td>
+<tr class="row-even"><td class="text-align:right"><p>Upper arm x axis</p></td>
 <td class="text-align:center"><p><span class="math notranslate nohighlight">\(\begin{bmatrix} 1 \\ 0 \\ 0 \\ 0 \end{bmatrix}\)</span></p></td>
 <td class="text-align:center"><p><span class="math notranslate nohighlight">\(\begin{bmatrix} \cos(\theta) \\ \sin(\theta) \\ 0 \\ 0 \end{bmatrix}\)</span></p></td>
 </tr>
-<tr class="row-odd"><td class="text-align:right"><p>Humerus y axis</p></td>
+<tr class="row-odd"><td class="text-align:right"><p>Upper arm y axis</p></td>
 <td class="text-align:center"><p><span class="math notranslate nohighlight">\(\begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \end{bmatrix}\)</span></p></td>
 <td class="text-align:center"><p><span class="math notranslate nohighlight">\(\begin{bmatrix} -\sin(\theta) \\ \cos(\theta) \\ 0 \\ 0 \end{bmatrix}\)</span></p></td>
 </tr>
-<tr class="row-even"><td class="text-align:right"><p>Humerus z axis</p></td>
+<tr class="row-even"><td class="text-align:right"><p>Upper arm z axis</p></td>
 <td class="text-align:center"><p><span class="math notranslate nohighlight">\(\begin{bmatrix} 0 \\ 0 \\ 1 \\ 0 \end{bmatrix}\)</span></p></td>
 <td class="text-align:center"><p><span class="math notranslate nohighlight">\(\begin{bmatrix} 0 \\ 0 \\ 1 \\ 0 \end{bmatrix}\)</span></p></td>
 </tr>
 </tbody>
 </table>
-<p>Combining these four vectors into a single 4x4 matrix gives the frame <span class="math notranslate nohighlight">\(~^\text{global}_\text{humerus}T\)</span>:</p>
+<p>Combining these four vectors into a single 4x4 matrix gives the frame <span class="math notranslate nohighlight">\(~^\text{global}_\text{upper arm}T\)</span>:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-~^\text{global}_\text{humerus}T = \begin{bmatrix}
-\cos(\theta) &amp; -\sin(\theta) &amp; 0 &amp; x_\text{humerus} \\
-\sin(\theta) &amp; \cos(\theta) &amp; 0 &amp; y_\text{humerus} \\
-0 &amp; 0 &amp; 1 &amp; z_\text{humerus} \\
+~^\text{global}_\text{upper arm}T = \begin{bmatrix}
+\cos(\theta) &amp; -\sin(\theta) &amp; 0 &amp; x_\text{upper arm} \\
+\sin(\theta) &amp; \cos(\theta) &amp; 0 &amp; y_\text{upper arm} \\
+0 &amp; 0 &amp; 1 &amp; z_\text{upper arm} \\
 0 &amp; 0 &amp; 0 &amp; 1
 \end{bmatrix}
 \end{split}\]</div>
-<p>where the expression <span class="math notranslate nohighlight">\(~^\text{global}_\text{humerus}T\)</span> is read as: Position and orientation of the humerus coordinate system, expressed in the global coordinate system.</p>
-<p>For example, if the shoulder is located 15 cm forward and 70 cm upward to the global origin, and the humerus is inclined at 30 degrees of the vertical, then the position and orientation of the humerus coordinate system is expressed by the frame:</p>
+<p>where the expression <span class="math notranslate nohighlight">\(~^\text{global}_\text{upper arm}T\)</span> is read as: Position and orientation of the upper arm coordinate system, expressed in the global coordinate system.</p>
+<p>For example, if the shoulder is located 15 cm forward and 70 cm upward to the global origin, and the upper arm is inclined at 30 degrees of the vertical, then the position and orientation of the upper arm coordinate system is expressed by the frame:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
-~^\text{global}_\text{humerus}T = \begin{bmatrix}
+~^\text{global}_\text{upper arm}T = \begin{bmatrix}
 \cos(30) &amp; -\sin(30) &amp; 0 &amp; 0.15 \\
 \sin(30) &amp; \cos(30) &amp; 0 &amp; 0.7 \\
 0 &amp; 0 &amp; 1 &amp; 0 \\
@@ -1430,11 +1417,13 @@ z_\text{humerus} \\ 1
 0 &amp; 0 &amp; 0 &amp; 1
 \end{bmatrix}
 \end{split}\]</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
 <p>Independently of the position and orientation of the studied body, a frame always has this form:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{bmatrix}
-R_{11} &amp; R_{12} &amp; R_{13} &amp; P_x \\
+R_{11} &amp; R_{12} &amp; R_{13} &amp; P_x \\
 R_{21} &amp; R_{22} &amp; R_{23} &amp; P_y \\
 R_{31} &amp; R_{32} &amp; R_{33} &amp; P_z \\
 0      &amp; 0      &amp; 0      &amp; 1
@@ -1445,148 +1434,30 @@ R_{31} &amp; R_{32} &amp; R_{33} &amp; P_z \\
 <li><p>the <span class="math notranslate nohighlight">\(R\)</span> sub-matrix is a function of three rotation angles and represents the orientation of the local coordinate system;</p></li>
 <li><p>the <span class="math notranslate nohighlight">\(P\)</span> vector is the position of the local coordinate system’s origin.</p></li>
 </ul>
+</div>
 </section>
-</section>
-<section id="rotations-and-translations-the-homogeneous-transform">
-<h2>Rotations and translations: the homogeneous transform<a class="headerlink" href="#rotations-and-translations-the-homogeneous-transform" title="Permalink to this headline">#</a></h2>
-<p>The 4x4 matrix that we just constructed is very important, not only to express the position and orientation of a local coordinate system, but also to express transformations such as rotations and translations. In this second case, the same 4x4 matrix is called an homogeneous transform, and:</p>
-<ul class="simple">
-<li><p>the <span class="math notranslate nohighlight">\(R\)</span> sub-matrix represents a rotation;</p></li>
-<li><p>the <span class="math notranslate nohighlight">\(P\)</span> vector is a translation.</p></li>
-</ul>
-<section id="moving-coordinates">
-<h3>Moving coordinates<a class="headerlink" href="#moving-coordinates" title="Permalink to this headline">#</a></h3>
-<p>Any coordinate (point, vector or frame) that is multiplied by the homogeneous transform will be rotated by <span class="math notranslate nohighlight">\(R\)</span> and translated by <span class="math notranslate nohighlight">\(P\)</span>:</p>
-<div class="math notranslate nohighlight">
-\[
-p_{\text{tranformed}} = T p_\text{initial}
-\]</div>
-<p>For example, if we want to rotate the point (10, 0, 0) by 30 degrees around the origin’s z axis, then translate it 2 units to the right:</p>
+<section id="exercise">
+<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">#</a></h2>
+<p>Figure 6 shows rotated local coordinate systems for both the upper arm and forearm. Knowing that the position of the elbow in global coordinates is <span class="math notranslate nohighlight">\((0.34, 0.371, 0)\)</span>, and that the forearm is inclined by <span class="math notranslate nohighlight">\(50^\circ\)</span> compared to the global reference frame, construct this 4x4 matrix: <span class="math notranslate nohighlight">\(^\text{global} _\text{forearm} T\)</span>.</p>
+<p><img alt="forearm_rotated -height:normal" src="_images/geometry_forearm_rotated.png" /></p>
+<p><em>Figure 6. Local coordinates for both the upper arm and the forearm</em></p>
+<div class="toggle docutils container">
 <div class="math notranslate nohighlight">
 \[\begin{split}
-p_{\text{tranformed}} =
-\begin{bmatrix}
-\cos(30) &amp; -\sin(30) &amp; 0 &amp; 2 \\
-\sin(30) &amp; \cos(30) &amp; 0 &amp; 0 \\
-0 &amp; 0 &amp; 1 &amp; 0 \\
-0 &amp; 0 &amp; 0 &amp; 1
-\end{bmatrix}
-\begin{bmatrix} 10 \\ 0 \\ 0 \\ 1 \end{bmatrix} \\ =
-\begin{bmatrix} 10\cos(30) + 2 \\ 10\sin(30) \\ 0 \\ 1 \end{bmatrix} =
-\begin{bmatrix} 8.66 \\ 5 \\ 0 \\ 1 \end{bmatrix}
-\end{split}\]</div>
-</section>
-<section id="remap-coordinates-to-other-coordinate-systems">
-<h3>Remap coordinates to other coordinate systems<a class="headerlink" href="#remap-coordinates-to-other-coordinate-systems" title="Permalink to this headline">#</a></h3>
-<p>An homogenenous transform can rotate and translate any coordinate, including points, vectors and frames. Since the orientation and position of a coordinate system is itself expressed by a frame, then an homogeneous transform can also rotate and translate a coordinate system.</p>
-<p>This is a great opportunity to express coordinates from a coordinate system to another. As such, the <span class="math notranslate nohighlight">\(~^\text{global}_\text{humerus}T\)</span> matrix that we formed in the last section has a first function that we already know:</p>
-<ol class="simple">
-<li><p>Expressing the position and orientation of the humerus coordinate system.</p></li>
-</ol>
-<p>But it also has a second function:</p>
-<ol class="simple">
-<li><p>Remap coordinates from the humerus local coordinate system to the global coordinate system.</p></li>
-</ol>
-<p>This is performed exactly as we did above when we rotated and translated a point. Multiplying a point expressed in a local coordinate system by its own frame of reference gives the position of the point expressed in global coordinates:</p>
-<div class="math notranslate nohighlight">
-\[
-~^\text{global}p = ~^\text{global}_\text{local}T ~^\text{local}p
-\]</div>
-<p>We are due for an example. Let’s say we known that the lenght of the arm is 38 cm, and we want to express the position of the elbow in the global coordinate system. We will assume the same posture as before: the shoulder is located 15 cm forward and 70 cm upward to the global origin and the humerus is inclined at 30 degrees of the vertical.</p>
-<p>The position of the elbow in the humerus coordinate system is:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-~^\text{humerus}p_\text{elbow} = \begin{bmatrix}
-0 \\ -0.38 \\ 0 \\ 1
-\end{bmatrix}
-\end{split}\]</div>
-<p>The humerus frame is:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-~^\text{global}_\text{humerus}T = \begin{bmatrix}
-\cos(30) &amp; -\sin(30) &amp; 0 &amp; 0.15 \\
-\sin(30) &amp; \cos(30) &amp; 0 &amp; 0.7 \\
+~^\text{global}_\text{forearm}T = \begin{bmatrix}
+\cos(50) &amp; -\sin(50) &amp; 0 &amp; 0.34 \\
+\sin(50) &amp; \cos(50) &amp; 0 &amp; 0.371 \\
 0 &amp; 0 &amp; 1 &amp; 0 \\
 0 &amp; 0 &amp; 0 &amp; 1
 \end{bmatrix} \\=
 \begin{bmatrix}
-0.866 &amp; -0.5 &amp; 0 &amp; 0.15 \\
-0.5 &amp; 0.866 &amp; 0 &amp; 0.7 \\
+0.643 &amp; -0.766 &amp; 0 &amp; 0.34 \\
+0.766 &amp; 0.643 &amp; 0 &amp; 0.371 \\
 0 &amp; 0 &amp; 1 &amp; 0 \\
 0 &amp; 0 &amp; 0 &amp; 1
 \end{bmatrix}
 \end{split}\]</div>
-<p>Therefore, the position of the elbow in the global coordinate system is:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-~^\text{global}p_\text{elbow} =
-~^\text{global}_\text{humerus}T ~^\text{humerus}p_\text{elbow} \\=
-\begin{bmatrix}
-0.866 &amp; -0.5 &amp; 0 &amp; 0.15 \\
-0.5 &amp; 0.866 &amp; 0 &amp; 0.7 \\
-0 &amp; 0 &amp; 1 &amp; 0 \\
-0 &amp; 0 &amp; 0 &amp; 1
-\end{bmatrix}
-\begin{bmatrix}
-0 \\ -0.38 \\ 0 \\ 1
-\end{bmatrix} \\=
-\begin{bmatrix}
-0.19 + 0.15 \\
--0.329 + 0.7 \\
-0 \\
-1 \end{bmatrix} =
-\begin{bmatrix}
-0.34 \\ 0.371 \\ 0 \\ 1
-\end{bmatrix}
-\end{split}\]</div>
-<p>Its final coordinates are <span class="math notranslate nohighlight">\((0.34, 0.371, 0)\)</span>.</p>
-</section>
-</section>
-<section id="main-points-to-remember">
-<h2>Main points to remember<a class="headerlink" href="#main-points-to-remember" title="Permalink to this headline">#</a></h2>
-<p>We will see in the next tutorial that Kinetics Toolkit’s geometry module has several functions to ease the expression of coordinates from one coordinate system to another, to create frames and homogeneous transforms, etc. However, I believe it is important to remember these concepts, to understand how geometric data is represented and calculated.</p>
-<ul class="simple">
-<li><p>A point expresses a position in a given coordinate system, and is written as the 4x1 vector:</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{bmatrix}
-x \\ y \\ z \\ 1
-\end{bmatrix}
-\end{split}\]</div>
-<ul class="simple">
-<li><p>A vector expresses a displacement, velocity, acceleration, force, etc., in a given coordinate system, and is written as the 4x1 vector:</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{bmatrix}
-x \\ y \\ z \\ 0
-\end{bmatrix}
-\end{split}\]</div>
-<ul class="simple">
-<li><p>A frame expresses the orientation <span class="math notranslate nohighlight">\(R\)</span> and position <span class="math notranslate nohighlight">\(P\)</span> of a local coordinate system into a reference coordinate system, and is written as the 4x4 matrix:</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{bmatrix}
-R_{11} &amp; R_{12} &amp; R_{13} &amp; P_x \\
-R_{21} &amp; R_{22} &amp; R_{23} &amp; P_y \\
-R_{31} &amp; R_{32} &amp; R_{33} &amp; P_z \\
-0      &amp; 0      &amp; 0      &amp; 1
-\end{bmatrix}
-\end{split}\]</div>
-<ul class="simple">
-<li><p>An homogeneous transform expresses a rotation <span class="math notranslate nohighlight">\(R\)</span> and translation <span class="math notranslate nohighlight">\(P\)</span> from a given frame to another, and is written as the same 4x4 matrix:</p></li>
-</ul>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-\begin{bmatrix}
-R_{11} &amp; R_{12} &amp; R_{13} &amp; P_x \\
-R_{21} &amp; R_{22} &amp; R_{23} &amp; P_y \\
-R_{31} &amp; R_{32} &amp; R_{33} &amp; P_z \\
-0      &amp; 0      &amp; 0      &amp; 1
-\end{bmatrix}
-\end{split}\]</div>
+</div>
 </section>
 </section>
 
@@ -1624,10 +1495,10 @@ R_{31} &amp; R_{32} &amp; R_{33} &amp; P_z \\
             <p class="prev-next-title">3D rigid body geometry</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="geometry_dimension_conventions.html" title="next page">
+    <a class='right-next' id="next-link" href="geometry_transform_moving_coordinates.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Dimension conventions</p>
+        <p class="prev-next-title">The homogeneous transform: rotating and translating coordinates</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
@@ -1641,6 +1512,9 @@ R_{31} &amp; R_{32} &amp; R_{33} &amp; P_z \\
     By Félix Chénier<br/>
   
       &copy; Copyright 2020-2022.<br/>
+    <div class="extra_footer">
+      This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>.
+    </div>
 </p>
         </footer>
     </div>

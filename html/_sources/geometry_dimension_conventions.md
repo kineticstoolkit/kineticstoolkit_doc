@@ -16,7 +16,12 @@ kernelspec:
 %matplotlib inline
 ```
 
+
 # Dimension conventions
+
+:::{card} Summary
+This section indicates how to represent series of scalars, points, vectors, frames and transforms in Kinetics Toolkit.
+:::
 
 In the [](api/ktk.geometry.rst) module and in most of Kinetics Toolkit's module:
 
@@ -114,37 +119,7 @@ series_of_one_matrix = one_matrix[np.newaxis]
 series_of_one_matrix
 ```
 
-## First example with the geometry module
 
-Now that we presented the conventions for expressing coordinates and transforms as series, we are ready to redo the last example from the last section, this time using Kinetics Toolkit.
+## What next
 
-![humerus_frame -height:normal](_static/images/humerus_frame.png)
-Figure 1. Position and orientation of the humerus.
-
-We know the lenght of the arm is 38 cm, and we want to express the position of the elbow in the global coordinate system. The shoulder is located 15 cm forward and 70 cm upward to the global origin and the humerus is inclined at 30 degrees of the vertical.
-
-First, let's express the elbow position in the humerus coordinate system.
-
-```{code-cell} ipython3
-import kineticstoolkit.lab as ktk
-
-local_elbow_position = np.array([[0, -0.38, 0, 1]])
-
-local_elbow_position
-```
-
-Now, we create the frame representing the position and orientation of the humerus coordinate system. Since we know these position and orientation, then we will create this frame as an homogeneous transform from the global to the humerus coordinate system, using the [](api/ktk.geometry.create_transforms.rst) function:
-
-```{code-cell} ipython3
-humerus_frame = ktk.geometry.create_transforms(
-    seq="z", angles=[np.deg2rad(30)], translations=[[0.15, 0.70, 0]]
-)
-
-humerus_frame
-```
-
-Now we can express the local elbow position in the global coordinate system:
-
-```{code-cell} ipython3
-ktk.geometry.get_global_coordinates(local_elbow_position, humerus_frame)
-```
+Now that we learned or reminded lots of information on rigid 3d geometry, the next section on kinematics analysis will show how to use the [](api/ktk.geometry.rst) module in real movement acquisition data.

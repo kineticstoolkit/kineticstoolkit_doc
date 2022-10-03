@@ -13,18 +13,28 @@
 
 # Kinetics Toolkit
 
-- is an online resource for students and researchers for learning 3D biomechanical data processing using Python;
-- is an open-source Python package that does (only) the heavy-lifting of such processing, so that the users keep control of their data.
+- **is an online resource for students and researchers** to learn about 3D biomechanical data processing using Python;
+- **is an open-source Python package** that does (only) the heavy lifting of this processing, so users stay in control of their data..
 
-Collaboration, suggestions and discussions are highly welcome. Please see the numerous ways you can [contribute](dev_contributing.md) to this project.
+<div align="center">
+<a href="https://doi.org/10.21105/joss.03714"><img src="https://joss.theoj.org/papers/10.21105/joss.03714/status.svg" alt="JOSS"></a>
+<a href="https://anaconda.org/conda-forge/kineticstoolkit"><img src="https://anaconda.org/conda-forge/kineticstoolkit/badges/version.svg" alt="Anaconda"></a>
+<a href="https://anaconda.org/conda-forge/kineticstoolkit"><img src="https://anaconda.org/conda-forge/kineticstoolkit/badges/latest_release_date.svg" alt="Latest release"></a>
+</div>
 
-[![JOSS](https://joss.theoj.org/papers/10.21105/joss.03714/status.svg)](https://doi.org/10.21105/joss.03714)
-[![Anaconda](https://anaconda.org/conda-forge/kineticstoolkit/badges/version.svg)](https://anaconda.org/conda-forge/kineticstoolkit)
-[![Latest release](https://anaconda.org/conda-forge/kineticstoolkit/badges/latest_release_date.svg)](https://anaconda.org/conda-forge/kineticstoolkit)
+   
+
+[![example_code](_static/images/index_example.png)](kinematics_load_visualize.md)
+
+[![example_result](_static/images/frontpage.gif)](kinematics_load_visualize.md)
 
 
-![GIF Animation](https://felixchenier.uqam.ca/wp-content/uploads/2020/05/Sample_ktk.Player_Wheelchair.gif)
+[Questions, suggestions, discussions and collaborations](https://github.com/felixchenier/kineticstoolkit/discussions) are highly welcome. Please see the numerous ways you can [contribute](dev_contributing.md) to this project.
 
-[![-width:narrow](_static/images/logo_mosa.png)](https://felixchenier.uqam.ca)
-[![-width:narrower](_static/images/logo_uqam.png)](https://uqam.ca)
-[![-width:narrower](_static/images/logo_crir.jpg)](https://crir.ca)
+-----------
+
+<div align="center">
+<a class="reference external" href="https://felixchenier.uqam.ca"><img alt="-width:narrow" src="_static/images/logo_mosa.png"></a>
+&nbsp;&nbsp;&nbsp;<a class="reference external" href="https://uqam.ca"><img alt="-width:narrower" src="_static/images/logo_uqam.png"></a>
+&nbsp;&nbsp;&nbsp;<a class="reference external" href="https://crir.ca"><img alt="-width:narrower" src="_static/images/logo_crir.jpg"></a>
+</div>
