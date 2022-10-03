@@ -1279,6 +1279,7 @@ title="Print to PDF"
 <p>TimeSeries have various method to copy, split, extract or combine data:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="api/ktk.TimeSeries.copy.html"><span class="doc std std-doc">ktk.TimeSeries.copy</span></a> to make a deep copy of the TimeSeries instance;</p></li>
+<li><p><a class="reference internal" href="api/ktk.TimeSeries.shift.html"><span class="doc std std-doc">ktk.TimeSeries.shift</span></a> to shift the TimeSeries’ data and events in time;</p></li>
 <li><p><a class="reference internal" href="api/ktk.TimeSeries.get_subset.html"><span class="doc std std-doc">ktk.TimeSeries.get_subset</span></a> to make a deep copy of a TimeSeries, but only with a selected subset of data;</p></li>
 <li><p><a class="reference internal" href="api/ktk.TimeSeries.merge.html"><span class="doc std std-doc">ktk.TimeSeries.merge</span></a> to merge two TimeSeries with a same time vector together;</p></li>
 <li><p><a class="reference internal" href="api/ktk.TimeSeries.get_ts_before_index.html"><span class="doc std std-doc">ktk.TimeSeries.get_ts_before_index</span></a>,
@@ -1502,7 +1503,6 @@ allow splitting the TimeSeries based on time indexes. For example, if we plot th
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">ktk</span><span class="o">.</span><span class="n">doc</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;timeseries_example.ktk.zip&quot;</span><span class="p">))</span>
 
-<span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">4.35</span><span class="p">,</span> <span class="s2">&quot;sync&quot;</span><span class="p">)</span>
 <span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">8.56</span><span class="p">,</span> <span class="s2">&quot;push&quot;</span><span class="p">)</span>
 <span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">9.93</span><span class="p">,</span> <span class="s2">&quot;recovery&quot;</span><span class="p">)</span>
 <span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">10.50</span><span class="p">,</span> <span class="s2">&quot;push&quot;</span><span class="p">)</span>
@@ -1513,17 +1513,13 @@ allow splitting the TimeSeries based on time indexes. For example, if we plot th
 <span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">13.88</span><span class="p">,</span> <span class="s2">&quot;recovery&quot;</span><span class="p">)</span>
 <span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">14.86</span><span class="p">,</span> <span class="s2">&quot;push&quot;</span><span class="p">)</span>
 <span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="mf">15.30</span><span class="p">,</span> <span class="s2">&quot;recovery&quot;</span><span class="p">)</span>
-<span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">sync_event</span><span class="p">(</span><span class="s2">&quot;sync&quot;</span><span class="p">)</span>
 
 <span class="n">ts</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>FutureWarning [/var/folders/7v/g5_ntzfx35v4ck07wflynw640000gp/T/ipykernel_21137/177954523.py:14] The function sync_event is deprecated since 0.9.3 and is scheduled to be removed in 2024. Please use ts.shift() instead.
-</pre></div>
-</div>
-<img alt="_images/timeseries_manipulating_19_1.png" src="_images/timeseries_manipulating_19_1.png" />
+<img alt="_images/timeseries_manipulating_19_0.png" src="_images/timeseries_manipulating_19_0.png" />
 </div>
 </div>
 <p>If we want to analyze data of the four first pushes and get rid of any other data, we would use one of

@@ -67,52 +67,46 @@ markers.data
 
 Now we'll take a look at this acquisition using [](api/ktk.Player.rst), a matplotlib-based interactive user interface aimed at visualizing markers, rigid bodies and segments in three dimensions.
 
+Note that for the `Player` class to be interactive, you must select an interactive backend for IPython. See [](ktk_installing.md) for more information. It is also possible to generate non-interactive animations in Jupyter-based environments, like on this website. Here, we show both methods; we will subsequently only show the commands for the interactive player.
 
-:::::{tip}
-For the `Player` class to be interactive, you must select an interactive backend for IPython. See [](ktk_installing.md) for more information. It is also possible to generate non-interactive animations in Jupyter-based environments, like on this website.
+::::{tab-set}
 
-::::{grid}
-
-:::{grid-item-card} Interactive window
-
+:::{tab-item} Interactive player
 ```
+# Set an interactive backend
+# https://kineticstoolkit.uqam.ca/doc/ktk_installing.html
+# for more information
 %matplotlib qt5
 
-ktk.Player(...)
-```
-
-:::
-
-:::{grid-item-card} Static animation (Jupyter)
-
-```
-%matplotlib inline
-
-pl = ktk.Player(... ,
-     "zoom": ...,
-     "azimuth": ...,
-     "elevation": ...,
-     "translation": (..., ...),
-)
-
-pl.to_html5(...)
-
-```
-
-:::
-
-::::
-
-:::::
-
-
-In this file, the up axis is z:
-
-```{code-cell} ipython3
-:tags: [remove-output]
-
+# In this file, the up axis is z:
 ktk.Player(markers, up="z")
 ```
+:::
+
+:::{tab-item} Non-interactive animation (Jupyter)
+```
+# Non-interactive, inline backend
+%matplotlib inline
+
+# Create the player and set a viewpoint
+player = ktk.Player(
+    markers,
+    up="z",
+    zoom=1.5,
+    azimuth=0.8,
+    elevation=0.16,
+    translation=(-0.2, -1.0),
+)
+
+# Create an html video to be included in the Jupyter Notebook
+player.to_html5(
+    start_time=6,
+    stop_time=8
+)
+```
+
+:::
+::::
 
 ```{code-cell} ipython3
 :tags: [remove-input]

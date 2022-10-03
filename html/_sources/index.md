@@ -14,7 +14,7 @@
 # Kinetics Toolkit
 
 - **is an online resource for students and researchers** to learn about 3D biomechanical data processing using Python;
-- **is an open-source Python package** that does (only) the heavy lifting of this processing, so users stay in control of their data..
+- **is an open-source Python package** that does (only) the heavy lifting of this processing, so users stay in control of their data.
 
 <div align="center">
 <a href="https://doi.org/10.21105/joss.03714"><img src="https://joss.theoj.org/papers/10.21105/joss.03714/status.svg" alt="JOSS"></a>

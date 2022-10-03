@@ -21,6 +21,7 @@ kernelspec:
 TimeSeries have various method to copy, split, extract or combine data:
 
 - [](api/ktk.TimeSeries.copy.rst) to make a deep copy of the TimeSeries instance;
+- [](api/ktk.TimeSeries.shift.rst) to shift the TimeSeries' data and events in time;
 - [](api/ktk.TimeSeries.get_subset.rst) to make a deep copy of a TimeSeries, but only with a selected subset of data;
 - [](api/ktk.TimeSeries.merge.rst) to merge two TimeSeries with a same time vector together;
 - [](api/ktk.TimeSeries.get_ts_before_index.rst),
@@ -137,7 +138,6 @@ A very powerful method to split a TimeSeries is to use events. For this example,
 ```{code-cell} ipython3
 ts = ktk.load(ktk.doc.download("timeseries_example.ktk.zip"))
 
-ts = ts.add_event(4.35, "sync")
 ts = ts.add_event(8.56, "push")
 ts = ts.add_event(9.93, "recovery")
 ts = ts.add_event(10.50, "push")
@@ -148,7 +148,6 @@ ts = ts.add_event(13.39, "push")
 ts = ts.add_event(13.88, "recovery")
 ts = ts.add_event(14.86, "push")
 ts = ts.add_event(15.30, "recovery")
-ts = ts.sync_event("sync")
 
 ts.plot()
 ```
