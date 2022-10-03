@@ -20,22 +20,27 @@ kernelspec:
 # Reading and visualizing markers in 3D
 
 :::{card} Summary
-In this tutorial, we will read a `c3d` file that contains tennis serve kinematics, and visualize it in an interactive interface, as shown on the [home page](index.md). If you arrived here straight from the home page, you may want to read a bit on the TimeSeries class ([tutorial](timeseries.md), [API](api/ktk.TimeSeries.rst)) to fully understand this tutorial.
+In this tutorial, we will read a `c3d` file that contains tennis serve kinematics, and visualize it in an interactive interface, as shown on the [home page](index.md).
 :::
 
-:::{credits}
-These data were kindly offered by Ms Fraje Watson, Prof Steve Taylor, and Mr Jin (Derrick) Gaokuang, from [University College London](https://www.ucl.ac.uk/), [Aspire CREATe lab](https://ucl.ac.uk/aspire-create).
+:::{caution}
+If you arrived here straight from the home page, you may want to read a bit on the TimeSeries class ([tutorial](timeseries.md), [API](api/ktk.TimeSeries.rst)) to fully understand this tutorial.
 :::
+
 
 ## Reading marker trajectories
 
-We first download the c3d file:
+We first download the sample data:
 
 ```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
 
 filename = ktk.doc.download("kinematics_tennis_serve.c3d")
 ```
+
+:::{credits}
+These data were kindly offered by Ms Fraje Watson, Prof Steve Taylor, and Mr Jin (Derrick) Gaokuang, from [University College London](https://www.ucl.ac.uk/), [Aspire CREATe lab](https://ucl.ac.uk/aspire-create).
+:::
 
 Then we can read it using [ktk.read_c3d](api/ktk.read_c3d.rst), which returns the file contents as a dictionary with two keys:
 - `Point`: the point data (markers)
