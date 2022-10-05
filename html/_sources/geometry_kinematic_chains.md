@@ -149,12 +149,12 @@ forearm_p_wrist = [[0, 0.34, 0, 1]]
 
 # forearm frame in the upper arm coordinate system
 upperarm_T_forearm = ktk.geometry.create_transforms(
-    seq="z", angles=[20], translations=[[0, -0.38, 0]]
+    seq="z", angles=[20], translations=[[0, -0.38, 0]], degrees=True
 )
 
 # upper arm frame in the global coordinate system
 global_T_upperarm = ktk.geometry.create_transforms(
-    seq="z", angles=[30], translations=[[0.15, 0.7, 0]]
+    seq="z", angles=[30], translations=[[0.15, 0.7, 0]], degrees=True
 )
 ```
 
@@ -168,20 +168,28 @@ global_p_wrist = ktk.geometry.matmul(
 global_p_wrist
 ```
 
-Another, equivalent method, is to iteratively expressing everything in global coordinates using [ktk.geometry.get_global_coordinates](api/ktk.geometry.get_global_coordinates.rst):
+Another, equivalent method, is to iteratively expressing everything in global coordinates using [ktk.geometry.get_global_coordinates](api/ktk.geometry.get_global_coordinates.rst). We already defined the upper arm frame:
+
+```{code-cell} ipython3
+global_T_upperarm
+```
+
+Then we proceed with the forearm frame:
 
 ```{code-cell} ipython3
 global_T_forearm = ktk.geometry.get_global_coordinates(
     local_coordinates=upperarm_T_forearm, reference_frames=global_T_upperarm
 )
 
+global_T_forearm
+```
+
+Then we proceed with the wrist:
+
+```{code-cell} ipython3
 global_p_wrist = ktk.geometry.get_global_coordinates(
     forearm_p_wrist, reference_frames=global_T_forearm
 )
 
 global_p_wrist
 ```
-
-:::{good-practice} Keeping data in global coordinates
-To avoid errors and confusion, it is often a good idea to keep all data in a same global coordinate system, and then to convert it to local coordinates only as needed. Doing so avoids the need to constantly remind in which coordinate system these or those data are expressed in.
-:::

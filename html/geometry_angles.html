@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>🚧 Extracting angles &#8212; Kinetics Toolkit</title>
+    <title>Extracting angles &#8212; Kinetics Toolkit</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -51,11 +51,15 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="canonical" href="https://kineticstoolkit.uqam.ca/doc/geometry_angles.html" />
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Main points to remember" href="geometry_remember.html" />
+    <link rel="next" title="Dimension conventions" href="geometry_dimension_conventions.html" />
     <link rel="prev" title="Kinematic chains" href="geometry_kinematic_chains.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -228,12 +232,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3 current active">
       <a class="current reference internal" href="#">
-       🚧 Extracting angles
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="geometry_remember.html">
-       Main points to remember
+       Extracting angles
       </a>
      </li>
      <li class="toctree-l3">
@@ -1159,23 +1158,114 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#d-angles">
+   2d angles
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   3d angles
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cardan-angles">
+     Cardan angles
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#euler-angles">
+     Euler angles
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extracting-3d-angles-using-kinetics-toolkit">
+   Extracting 3d angles using Kinetics Toolkit
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#choosing-a-rotation-sequence">
+   Choosing a rotation sequence
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>🚧 Extracting angles</h1>
+                <h1>Extracting angles</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#d-angles">
+   2d angles
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#id1">
+   3d angles
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#cardan-angles">
+     Cardan angles
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#euler-angles">
+     Euler angles
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#extracting-3d-angles-using-kinetics-toolkit">
+   Extracting 3d angles using Kinetics Toolkit
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#choosing-a-rotation-sequence">
+   Choosing a rotation sequence
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -1184,14 +1274,284 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="extracting-angles">
-<h1>🚧 Extracting angles<a class="headerlink" href="#extracting-angles" title="Permalink to this headline">#</a></h1>
+<h1>Extracting angles<a class="headerlink" href="#extracting-angles" title="Permalink to this headline">#</a></h1>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Summary</div>
-<p class="sd-card-text">This ongoing section will show how to extract Euler/Cardan angles from homogeneous transforms, and more specifically why rotation order is so important. It will also introduce Kinetics Toolkit’s <a class="reference internal" href="api/ktk.geometry.get_angles.html"><span class="doc std std-doc">ktk.geometry.get_angles</span></a> function.</p>
+<p class="sd-card-text">This section introduce intrinsic/extrinsic cardan angles and Euler angles and demonstrates why rotation order is so important. It also explains how to extract 3d angles from series of homogeneous transforms using Kinetics Toolkit’s <a class="reference internal" href="api/ktk.geometry.get_angles.html"><span class="doc std std-doc">ktk.geometry.get_angles</span></a> function.</p>
 </div>
 </div>
+<p>Up to now, we learned how to create homogeneous transforms based on known angles, which is easily done using Kinetics Toolkit’s <a class="reference internal" href="api/ktk.geometry.create_transforms.html"><span class="doc std std-doc">ktk.geometry.create_transforms</span></a> function. In Biomechanics, it is often useful to do the inverse: calculating frames and transforms from measured kinematics (e.g., using markers or inertial measurement units), and then extracting joint angles from those transforms.</p>
+<p>Unfortunately, extracting tridimensional angles from a given homogeneous transform is something that is notoriously difficult to understand, and that is often overlooked. Understanding how to communicate angles is very important, because similar angles can lead to completely different poses if the rotations are not performed in the same order, and around the same set of axes. This section will tackle this concept and will show how to work with 3d rotations, starting with 2d rotations.</p>
+<section id="d-angles">
+<h2>2d angles<a class="headerlink" href="#d-angles" title="Permalink to this headline">#</a></h2>
+<p>At the end of the example of section <a class="reference internal" href="geometry_kinematic_chains.html"><span class="doc std std-doc">Kinematic chains</span></a> (Figure 1), we had calculated the frames that express the orientation of both the upper arm (<span class="math notranslate nohighlight">\(^\text{global}_\text{upper arm} T\)</span>) and forearm (<span class="math notranslate nohighlight">\(^\text{global}_\text{forearm} T\)</span>) in global coordinates.</p>
+<p>Let’s see how we could extract the elbow flexion angle from those two frames.</p>
+<p><img alt="forearm_rotated -height:normal" src="_images/geometry_forearm_rotated.png" /></p>
+<p><em>Figure 1. Local coordinates for both the upper arm and the forearm</em></p>
+<p>The first step is to calculate the homogeneous transform from the upper arm to the forearm. We learned that this is the same as expressing the forearm frame in reference to the upper arm frame.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">kineticstoolkit.lab</span> <span class="k">as</span> <span class="nn">ktk</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Upper arm and forearm frames, expressed in global coordinates</span>
+<span class="c1"># (calculated in last example):</span>
+<span class="n">global_T_upperarm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">[</span>
+            <span class="p">[</span><span class="mf">0.8660254</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">],</span>
+            <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.8660254</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">],</span>
+            <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+            <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+        <span class="p">]</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">global_T_forearm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">[</span>
+            <span class="p">[</span><span class="mf">0.64278761</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.76604444</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.34</span><span class="p">],</span>
+            <span class="p">[</span><span class="mf">0.76604444</span><span class="p">,</span> <span class="mf">0.64278761</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.37091035</span><span class="p">],</span>
+            <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+            <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+        <span class="p">]</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="c1"># Express the forearm frame in local upper arm coordinates</span>
+<span class="n">upperarm_T_forearm</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">get_local_coordinates</span><span class="p">(</span>
+    <span class="n">global_T_forearm</span><span class="p">,</span> <span class="n">global_T_upperarm</span>
+<span class="p">)</span>
+
+<span class="n">upperarm_T_forearm</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[[ 0.93969262, -0.34202014,  0.        ,  0.        ],
+        [ 0.34202014,  0.93969262,  0.        , -0.38      ],
+        [ 0.        ,  0.        ,  1.        ,  0.        ],
+        [ 0.        ,  0.        ,  0.        ,  1.        ]]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>In section <a class="reference internal" href="geometry_basics.html"><span class="doc std std-doc">Coordinates: points, vectors and frames</span></a>, we expressed the generic form of a 2d frame in the xy plane:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+~^\text{upper arm}_\text{forearm}T = \begin{bmatrix}
+\cos(\theta) &amp; -\sin(\theta) &amp; 0 &amp; x \\
+\sin(\theta) &amp; \cos(\theta) &amp; 0 &amp; y \\
+0 &amp; 0 &amp; 1 &amp; z \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\end{split}\]</div>
+<p>Here, <span class="math notranslate nohighlight">\(\theta\)</span> corresponds to the flexion angle of the elbow. To extract θ from the resulting <span class="math notranslate nohighlight">\(^\text{upper arm}_\text{forearm}T\)</span> matrix, we use simple trigonometric relations:</p>
+<div class="math notranslate nohighlight">
+\[
+\tan(\theta) = \frac{\sin(\theta)}{\cos(\theta)} = \frac{T_{21}}{T_{11}} = \frac{0.34202}{0.93970}
+\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\theta = \text{atan2}(y=0.93970, x=0.36396) \\= 20^\circ
+\end{split}\]</div>
+<p>We could also use Kinetics Toolkit’s function <a class="reference internal" href="api/ktk.geometry.get_angles.html"><span class="doc std std-doc">ktk.geometry.get_angles</span></a> to extract this angle automatically:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">elbow_angles</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">get_angles</span><span class="p">(</span>
+    <span class="n">upperarm_T_forearm</span><span class="p">,</span> <span class="n">seq</span><span class="o">=</span><span class="s2">&quot;xyz&quot;</span><span class="p">,</span> <span class="n">degrees</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="n">elbow_angles</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.        ,  0.        , 19.99999971]])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id1">
+<h2>3d angles<a class="headerlink" href="#id1" title="Permalink to this headline">#</a></h2>
+<p>Single rotations such as the previous example are generally easy to understand. However, in 3d space, there are 3 rotation angles. It is helpful to consider rotations around orthogonal axes (e.g., x, y, z). We already know how to express a pure rotation of <span class="math notranslate nohighlight">\(\theta_z\)</span> degrees around the z axis:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+T_z = \begin{bmatrix}
+\cos(\theta_z) &amp; -\sin(\theta_z) &amp; 0 &amp; 0 \\
+\sin(\theta_z) &amp; \cos(\theta_z) &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; 1 &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\end{split}\]</div>
+<p>Following the definition of a frame in section <a class="reference internal" href="geometry_basics.html"><span class="doc std std-doc">Coordinates: points, vectors and frames</span></a>, we can also generate the two other rotation matrices:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+T_y = \begin{bmatrix}
+\cos(\theta_y) &amp; 0 &amp; \sin(\theta_y) &amp; 0 \\
+0 &amp; 1 &amp; 0 &amp; 0 \\
+-\sin(\theta_y) &amp; 0 &amp; \cos(\theta_y) &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\end{split}\]</div>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+T_x = \begin{bmatrix}
+1 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; \cos(\theta_x) &amp; -\sin(\theta_x) &amp; 0 \\
+0 &amp; \sin(\theta_x) &amp; \cos(\theta_x) &amp; 0 \\
+0 &amp; 0 &amp; 0 &amp; 1
+\end{bmatrix}
+\end{split}\]</div>
+<p>Now, let’s say we want to rotate a point <span class="math notranslate nohighlight">\(p_\text{initial}\)</span> by <span class="math notranslate nohighlight">\(\theta_x\)</span> around the x axis, and by <span class="math notranslate nohighlight">\(\theta_y\)</span> around the y axis. We may start by rotating the point around the x axis, then around the y axis. In this case, its final, rotated position, would be:</p>
+<div class="math notranslate nohighlight">
+\[
+p_\text{rotated} = T_y (T_x p_\text{initial}) = T_y T_x p_\text{initial}
+\]</div>
+<p>However, if we start by rotating the point around the y axis, then around the x axis, then we would get this final position instead:</p>
+<div class="math notranslate nohighlight">
+\[
+p_\text{rotated} = T_x (T_y p_\text{initial}) = T_x T_y p_\text{initial}
+\]</div>
+<p>Matrix multiplication is not commutative, which means <span class="math notranslate nohighlight">\(T_y T_x\)</span> is not equal to <span class="math notranslate nohighlight">\(T_x T_y\)</span>. Therefore, <strong>both rotation sequences do not perform the same total rotation.</strong></p>
+<p>There are 24 different ways to express 3d rotations using series of 3 angles, with 12 being independent:</p>
+<ul class="simple">
+<li><p>6 combinations of cardan angle sequences of intrinsic rotations</p></li>
+<li><p>6 combinations of cardan angle sequences of extrinsic rotations</p></li>
+<li><p>6 combinations of Euler angle sequences of intrinsic rotations</p></li>
+<li><p>6 combinations of Euler angle sequences of extrinsic rotations</p></li>
+</ul>
+<section id="cardan-angles">
+<h3>Cardan angles<a class="headerlink" href="#cardan-angles" title="Permalink to this headline">#</a></h3>
+<p>Also called Tait-Bryan angles, nautical angles, Heading/elevation/bank, or Yaw/pitch/roll, cardan angles express series of rotations around successive orthogonal axes: XYZ, XZY, YZX, YXZ, ZXY, and ZYX. Rotations can be either intrinsic or extrinsic.</p>
+<p><strong>Intrinsic rotations</strong> means that the coordinate system moves with the object being rotated. For instance, for a sequence of XYZ intrinsic rotations, the object is:</p>
+<ol class="simple">
+<li><p>rotated around its x axis;</p></li>
+<li><p>then around its new y axis that rotated with it during rotation 1;</p></li>
+<li><p>then around its new z axis that rotated with it during rotations 1 and 2.</p></li>
+</ol>
+<p>Figure 1 shows the six possible rotations using intrinsic cardan angles. In every case, the cube is rotated by 30 degrees around all axes: <span class="math notranslate nohighlight">\(\theta_x = \theta_y = \theta_z = 30^\circ\)</span>. The different final poses are only due to the different sequences of rotations.</p>
+<video autoplay controls muted loop>
+<source src="_static/images/rotation_sequence_cardan_intrinsic.mp4" type="video/mp4">
+</video>
+<p><em>Figure 1. The six sequences of intrinsic cardan rotations (intrinsic = moving coordinate system)</em></p>
+<p><strong>Extrinsic rotations</strong> means that the rotations are all performed around the initial coordinate system. For a sequence of XYZ intrinsic rotations, the object is:</p>
+<ol class="simple">
+<li><p>rotated around its x axis;</p></li>
+<li><p>then around the initial, unrotated y axis;</p></li>
+<li><p>then around the initial, unrotated z axis.</p></li>
+</ol>
+<p>Figure 2 shows the six possible rotations using extrinsic cardan angles. Again, the cube is rotated by 30 degrees around all axes.</p>
+<video autoplay controls muted loop>
+<source src="_static/images/rotation_sequence_cardan_extrinsic.mp4" type="video/mp4">
+</video>
+<p><em>Figure 2. The six sequences of extrinsic Cardan rotations (extrinsic = fixed coordinate system)</em></p>
+</section>
+<section id="euler-angles">
+<h3>Euler angles<a class="headerlink" href="#euler-angles" title="Permalink to this headline">#</a></h3>
+<p>Also called proper Euler angles, of classic Euler angles, Euler angles are different than cardan angles in that the first and third axes are the same. Again, rotations can be either intrinsic (Figure 3) or extrinsic (Figure 4). As for figures 1 and 2, every rotation is a rotation of 30 degrees around a given axis.</p>
+<video autoplay controls muted loop>
+<source src="_static/images/rotation_sequence_euler_intrinsic.mp4" type="video/mp4">
+</video>
+<p><em>Figure 3. The six sequences of intrinsic Euler rotations (intrinsic = moving coordinate system)</em></p>
+<video autoplay controls muted loop>
+<source src="_static/images/rotation_sequence_euler_extrinsic.mp4" type="video/mp4">
+</video>
+<p><em>Figure 4. The six sequences of extrinsic Euler rotations (extrinsic = fixed coordinate system)</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Whereas we viewed 24 possibilities of rotation sequences, each intrinsic rotation as an equivalent extrinsic rotation: <span class="math notranslate nohighlight">\(\text{intrinsic}(\theta_1, \theta_2, \theta_3)\)</span> = <span class="math notranslate nohighlight">\(\text{extrinsic}(\theta_3, \theta_2, \theta_1)\)</span>, which means that there is a total of 6 independent cardan angle sequences, and 6 independent Euler angle sequences.</p>
+</div>
+</section>
+</section>
+<section id="extracting-3d-angles-using-kinetics-toolkit">
+<h2>Extracting 3d angles using Kinetics Toolkit<a class="headerlink" href="#extracting-3d-angles-using-kinetics-toolkit" title="Permalink to this headline">#</a></h2>
+<p>In the beginning of this section, we introduced Kinetics Toolkit’ <a class="reference internal" href="api/ktk.geometry.get_angles.html"><span class="doc std std-doc">ktk.geometry.get_angles</span></a> function. This one function can accommodate any of these 24 variations of rotation sequences, using the <code class="docutils literal notranslate"><span class="pre">seq</span></code> parameter:</p>
+<p><strong>seq</strong> – 3 characters belonging to the set {‘X’, ‘Y’, ‘Z’} for intrinsic rotations (moving axes), or {‘x’, ‘y’, ‘z’} for extrinsic rotations (fixed axes).</p>
+<p>For instance, lets create a 3d rotation defined by an extrinsic cardan sequence of 20° about the x axis, then -10° about the y axis, then 15° about the z axis:</p>
+<div class="math notranslate nohighlight">
+\[
+T = T_{15^\circ \text{around} z}
+~~~ \left(
+~~~ T_{-10^\circ \text{around} y}
+~~~ T_{20^\circ \text{around} x}
+~~~ \right)
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_rotation</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
+    <span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">create_transforms</span><span class="p">(</span><span class="n">angles</span><span class="o">=</span><span class="p">[</span><span class="mi">15</span><span class="p">],</span> <span class="n">seq</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="n">degrees</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+    <span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span>
+        <span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">create_transforms</span><span class="p">(</span><span class="n">angles</span><span class="o">=</span><span class="p">[</span><span class="o">-</span><span class="mi">10</span><span class="p">],</span> <span class="n">seq</span><span class="o">=</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="n">degrees</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+        <span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">create_transforms</span><span class="p">(</span><span class="n">angles</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">seq</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span> <span class="n">degrees</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+    <span class="p">),</span>
+<span class="p">)</span>
+
+<span class="n">total_rotation</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[[ 0.95125124, -0.30057782, -0.0690945 ,  0.        ],
+        [ 0.254887  ,  0.8923018 , -0.37259912,  0.        ],
+        [ 0.17364818,  0.33682409,  0.92541658,  0.        ],
+        [ 0.        ,  0.        ,  0.        ,  1.        ]]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>To extract these three angles back from this matrix, we would use a sequence of “xyz”, in lower case to denote extrinsic rotations:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">angles</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">get_angles</span><span class="p">(</span><span class="n">total_rotation</span><span class="p">,</span> <span class="n">seq</span><span class="o">=</span><span class="s2">&quot;xyz&quot;</span><span class="p">,</span> <span class="n">degrees</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">angles</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 20., -10.,  15.]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Note that other combinations would give different and wrong angles:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">get_angles</span><span class="p">(</span><span class="n">total_rotation</span><span class="p">,</span> <span class="n">seq</span><span class="o">=</span><span class="s2">&quot;XYZ&quot;</span><span class="p">,</span> <span class="n">degrees</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">get_angles</span><span class="p">(</span><span class="n">total_rotation</span><span class="p">,</span> <span class="n">seq</span><span class="o">=</span><span class="s2">&quot;xzy&quot;</span><span class="p">,</span> <span class="n">degrees</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">get_angles</span><span class="p">(</span><span class="n">total_rotation</span><span class="p">,</span> <span class="n">seq</span><span class="o">=</span><span class="s2">&quot;zyx&quot;</span><span class="p">,</span> <span class="n">degrees</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">get_angles</span><span class="p">(</span><span class="n">total_rotation</span><span class="p">,</span> <span class="n">seq</span><span class="o">=</span><span class="s2">&quot;ZXY&quot;</span><span class="p">,</span> <span class="n">degrees</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[21.93112279 -3.96197996 17.53557362]]
+[[ 22.66398762  14.76688961 -10.34527005]]
+[[17.53557362 -3.96197996 21.93112279]]
+[[ 18.61644157  19.68349808 -10.62758414]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="choosing-a-rotation-sequence">
+<h2>Choosing a rotation sequence<a class="headerlink" href="#choosing-a-rotation-sequence" title="Permalink to this headline">#</a></h2>
+<p>After reading this section, the normal reaction is to be confused about which sequence of rotations to choose to express joint angles. This is a very interesting topic that may never settle completely, but a good starting point would be to consult the 2002 and 2005 recommendations of the International Society of Biomechanics:</p>
+<ul class="simple">
+<li><p>Wu, G., Siegler, S., Allard, P., Kirtley, C., Leardini, A., Rosenbaum, D., Whittle, M., D’Lima, D.D., Cristofolini, L., Witte, H., Schmid, O., Stokes, I., 2002. <em>ISB recommendation on definitions of joint coordinate system of various joints for the reporting of human joint motion—part I: ankle, hip, and spine.</em> Journal of Biomechanics 35, 543–548. <a class="reference external" href="https://doi.org/10.1016/S0021-9290(01)00222-6">https://doi.org/10.1016/S0021-9290(01)00222-6</a></p></li>
+<li><p>Wu, G., Van Der Helm, F.C.T., Veeger, H.E.J.D., Makhsous, M., Van Roy, P., Anglin, C., Nagels, J., Karduna, A.R., McQuade, K., Wang, X., Werner, F.W., Buchholz, B., Others, 2005. <em>ISB recommendation on definitions of joint coordinate systems of various joints for the reporting of human joint motion - Part II: shoulder, elbow, wrist and hand.</em> Journal of Biomechanics 38, 981–992. <a class="reference external" href="https://doi.org/10.1016/j.jbiomech.2004.05.042">https://doi.org/10.1016/j.jbiomech.2004.05.042</a></p></li>
+</ul>
+<p>These papers propose standard ways to:</p>
+<ol class="simple">
+<li><p>define most body segments’ local coordinate systems based on bony landmarks;</p></li>
+<li><p>define rotation sequences from a proximal segment to a distal segment to express joint angles.</p></li>
+</ol>
+<p>Later in section <a class="reference internal" href="kinematics_joint_angles.html"><span class="doc std std-doc">Calculating joint angles from a kinematic acquisition</span></a>, we will use the different Kinetics Toolkit’s functions introduced in this section to calculate joint angles from skin markers by following these recommendations.</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1228,10 +1588,10 @@ Summary</div>
             <p class="prev-next-title">Kinematic chains</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="geometry_remember.html" title="next page">
+    <a class='right-next' id="next-link" href="geometry_dimension_conventions.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Main points to remember</p>
+        <p class="prev-next-title">Dimension conventions</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

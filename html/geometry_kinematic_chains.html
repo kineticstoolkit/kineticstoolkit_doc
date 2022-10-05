@@ -53,11 +53,13 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="canonical" href="https://kineticstoolkit.uqam.ca/doc/geometry_kinematic_chains.html" />
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="🚧 Extracting angles" href="geometry_angles.html" />
+    <link rel="next" title="Extracting angles" href="geometry_angles.html" />
     <link rel="prev" title="The homogeneous transform: mapping coordinates to other coordinate systems" href="geometry_transform_changing_coordinate_system.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -230,12 +232,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="geometry_angles.html">
-       🚧 Extracting angles
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="geometry_remember.html">
-       Main points to remember
+       Extracting angles
       </a>
      </li>
      <li class="toctree-l3">
@@ -1378,12 +1375,12 @@ Summary</div>
 
 <span class="c1"># forearm frame in the upper arm coordinate system</span>
 <span class="n">upperarm_T_forearm</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">create_transforms</span><span class="p">(</span>
-    <span class="n">seq</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="n">angles</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">translations</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.38</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+    <span class="n">seq</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="n">angles</span><span class="o">=</span><span class="p">[</span><span class="mi">20</span><span class="p">],</span> <span class="n">translations</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.38</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span> <span class="n">degrees</span><span class="o">=</span><span class="kc">True</span>
 <span class="p">)</span>
 
 <span class="c1"># upper arm frame in the global coordinate system</span>
 <span class="n">global_T_upperarm</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">create_transforms</span><span class="p">(</span>
-    <span class="n">seq</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="n">angles</span><span class="o">=</span><span class="p">[</span><span class="mi">30</span><span class="p">],</span> <span class="n">translations</span><span class="o">=</span><span class="p">[[</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+    <span class="n">seq</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="n">angles</span><span class="o">=</span><span class="p">[</span><span class="mi">30</span><span class="p">],</span> <span class="n">translations</span><span class="o">=</span><span class="p">[[</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span> <span class="n">degrees</span><span class="o">=</span><span class="kc">True</span>
 <span class="p">)</span>
 </pre></div>
 </div>
@@ -1401,19 +1398,51 @@ Summary</div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.13624457,  0.9694729 ,  0.        ,  1.        ]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.07954489, 0.58945813, 0.        , 1.        ]])
 </pre></div>
 </div>
 </div>
 </div>
-<p>Another, equivalent method, is to iteratively expressing everything in global coordinates using <a class="reference internal" href="api/ktk.geometry.get_global_coordinates.html"><span class="doc std std-doc">ktk.geometry.get_global_coordinates</span></a>:</p>
+<p>Another, equivalent method, is to iteratively expressing everything in global coordinates using <a class="reference internal" href="api/ktk.geometry.get_global_coordinates.html"><span class="doc std std-doc">ktk.geometry.get_global_coordinates</span></a>. We already defined the upper arm frame:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">global_T_upperarm</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[[ 0.8660254, -0.5      ,  0.       ,  0.15     ],
+        [ 0.5      ,  0.8660254,  0.       ,  0.7      ],
+        [ 0.       ,  0.       ,  1.       ,  0.       ],
+        [ 0.       ,  0.       ,  0.       ,  1.       ]]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then we proceed with the forearm frame:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">global_T_forearm</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">get_global_coordinates</span><span class="p">(</span>
     <span class="n">local_coordinates</span><span class="o">=</span><span class="n">upperarm_T_forearm</span><span class="p">,</span> <span class="n">reference_frames</span><span class="o">=</span><span class="n">global_T_upperarm</span>
 <span class="p">)</span>
 
-<span class="n">global_p_wrist</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">get_global_coordinates</span><span class="p">(</span>
+<span class="n">global_T_forearm</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[[ 0.64278761, -0.76604444,  0.        ,  0.34      ],
+        [ 0.76604444,  0.64278761,  0.        ,  0.37091035],
+        [ 0.        ,  0.        ,  1.        ,  0.        ],
+        [ 0.        ,  0.        ,  0.        ,  1.        ]]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then we proceed with the wrist:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">global_p_wrist</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">get_global_coordinates</span><span class="p">(</span>
     <span class="n">forearm_p_wrist</span><span class="p">,</span> <span class="n">reference_frames</span><span class="o">=</span><span class="n">global_T_forearm</span>
 <span class="p">)</span>
 
@@ -1422,14 +1451,10 @@ Summary</div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[-0.13624457,  0.9694729 ,  0.        ,  1.        ]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.07954489, 0.58945813, 0.        , 1.        ]])
 </pre></div>
 </div>
 </div>
-</div>
-<div class="admonition-good-practice admonition">
-<p class="admonition-title">Good practice: Keeping data in global coordinates</p>
-<p>To avoid errors and confusion, it is often a good idea to keep all data in a same global coordinate system, and then to convert it to local coordinates only as needed. Doing so avoids the need to constantly remind in which coordinate system these or those data are expressed in.</p>
 </div>
 </section>
 </section>
@@ -1471,7 +1496,7 @@ Summary</div>
     <a class='right-next' id="next-link" href="geometry_angles.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">🚧 Extracting angles</p>
+        <p class="prev-next-title">Extracting angles</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
