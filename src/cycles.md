@@ -18,9 +18,10 @@ kernelspec:
 
 # Detecting and normalizing cycles
 
-The [](api/ktk.cycles.rst) module allows detecting cycles in TimeSeries, time-normalize these cycles and find the most repeatable ones.
+:::{card} Summary
+The [](api/ktk.cycles.rst) module allows detecting cycles in TimeSeries, time-normalize these cycles and find the most repeatable ones. This tutorial shows a use case of this module, using kinetics data from wheelchair propulsion.
+:::
 
-In this tutorial, we will use kinetics data from wheelchair propulsion.
 
 ```{code-cell} ipython3
 import kineticstoolkit.lab as ktk

@@ -8,7 +8,7 @@ First start by installing the [stable version](ktk_installing.md), which will ta
 
 1. Clone the git repository: `git clone https://github.com/felixchenier/kineticstoolkit.git kineticstoolkit`
 
-2. Add the `kineticstoolkit` folder to your PYTHON_PATH according to your favourite IDE and python installation.
+2. Add the `kineticstoolkit` folder to your `PYTHONPATH` according to your favourite IDE and python installation.
 
 ## To modify Kinetics Toolkit's code
 

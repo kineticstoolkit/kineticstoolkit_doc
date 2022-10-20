@@ -18,7 +18,13 @@ kernelspec:
 
 # Manipulating TimeSeries
 
-TimeSeries have various method to copy, split, extract or combine data:
+:::{card} Summary
+This tutorial shows how to use various TimeSeries methods to copy, split, extract or combine TimeSeries.
+:::
+
+As a data class, TimeSeries have methods to manage its data, time, events, etc. However, data processing is not performed by TimeSeries methods, but rather by external functions, which can be readily available in Kinetics Toolkit or programmed by users. For example, TimeSeries data are filtered using functions of the [ktk.filters](api/ktk.filters.rst) module. Series of geometric data are calculated using functions of the [ktk.geometry](api/ktk.geometry.rst) module. 
+
+As such, most TimeSeries methods are helpers to copy, split, extract or combine TimeSeries data. For instance:
 
 - [](api/ktk.TimeSeries.copy.rst) to make a deep copy of the TimeSeries instance;
 - [](api/ktk.TimeSeries.shift.rst) to shift the TimeSeries' data and events in time;

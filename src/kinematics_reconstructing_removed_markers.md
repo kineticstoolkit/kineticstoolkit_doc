@@ -18,6 +18,10 @@ kernelspec:
 
 # Reconstructing removed markers
 
+:::{card} Summary
+This tutorial explains how to use the [ktk.kinematics](api/ktk.kinematics.rst) module to reconstruct markers that were present during a calibration acquisition, but that were then removed.
+:::
+
 Rigid bodies affixed to segments are generally used to reconstruct points where it is difficult or impossible to affix a real marker. For example, if a marker would be at risk of falling during the action, it can be installed during a short calibration acquisition, and then removed during the action.
 
 The following example represents such a situation:

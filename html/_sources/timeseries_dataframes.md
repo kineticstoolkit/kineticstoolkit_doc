@@ -18,9 +18,10 @@ kernelspec:
 
 # Converting between TimeSeries and Pandas DataFrames
 
-To ensure a great compatibility between Kinetics Toolkit and other frameworks, TimeSeries can be converted from and to Pandas DataFrame using the [](api/ktk.TimeSeries.from_dataframe.rst) and [](api/ktk.TimeSeries.to_dataframe.rst) methods, and thus benefit from the myriad of options offered by Pandas.
+:::{card} Summary
+To ensure a great compatibility between Kinetics Toolkit and other frameworks, TimeSeries can be converted from and to Pandas DataFrame using the [](api/ktk.TimeSeries.from_dataframe.rst) and [](api/ktk.TimeSeries.to_dataframe.rst) methods, and thus benefit from the myriad of options offered by Pandas. This tutorial shows how to use these method to import a comma-separated-value (csv) files as TimeSeries, and export back to csv.
+:::
 
-In this tutorial, we will learn how to import comma-separated-value (csv) files as TimeSeries, and export back to csv.
 
 ```{code-cell} ipython3
 import kineticstoolkit.lab as ktk

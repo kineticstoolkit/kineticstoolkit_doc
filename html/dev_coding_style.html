@@ -1286,14 +1286,15 @@ title="Print to PDF"
 </section>
 <section id="type-hints">
 <h2>Type hints<a class="headerlink" href="#type-hints" title="Permalink to this headline">#</a></h2>
-<p>Kinetics Toolkit is type-hinted, with static type checking performed by <code class="docutils literal notranslate"><span class="pre">mypy</span></code>. It does not use python 3.9 contained types yet, and therefore relies on the standard <code class="docutils literal notranslate"><span class="pre">typing</span></code> library.</p>
+<p>Kinetics Toolkit is type-hinted, with static type checking performed by <code class="docutils literal notranslate"><span class="pre">mypy</span></code>. It uses python 3.9 annotations using <code class="docutils literal notranslate"><span class="pre">__future__</span></code>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span>
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>
+
 
 <span class="k">def</span> <span class="nf">dataframe_to_dict_of_arrays</span><span class="p">(</span>
         <span class="n">dataframe</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
     <span class="o">...</span>
 
 </pre></div>

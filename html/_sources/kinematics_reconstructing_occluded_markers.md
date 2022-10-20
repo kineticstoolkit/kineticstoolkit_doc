@@ -18,6 +18,10 @@ kernelspec:
 
 # Reconstructing occluded markers
 
+:::{card} Summary
+This tutorial explains how to use the [ktk.kinematics](api/ktk.kinematics.rst) module to reconstruct hidden markers using other markers of a same cluster.
+:::
+
 Often in kinematics acquisition, we affix rigid bodies containing several markers on the person's segments. These bodies have a minimum of three markers and allows reconstructing a complete local coordinate system for a given body segment. The importance of these rigid bodies will become clearer in the next tutorials.
 
 ```{margin}

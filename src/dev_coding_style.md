@@ -31,16 +31,17 @@ In addition, the following convention is used:
 
 ## Type hints
 
-Kinetics Toolkit is type-hinted, with static type checking performed by `mypy`. It does not use python 3.9 contained types yet, and therefore relies on the standard `typing` library.
+Kinetics Toolkit is type-hinted, with static type checking performed by `mypy`. It uses python 3.9 annotations using `__future__`:
 
 ```
 import pandas as pd
 import numpy as np
-from typing import Dict
+from __future__ import annotations
+
 
 def dataframe_to_dict_of_arrays(
         dataframe: pd.DataFrame
-) -> Dict[str, np.ndarray]:
+) -> dict[str, np.ndarray]:
     ...
 
 ```

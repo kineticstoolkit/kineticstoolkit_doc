@@ -38,7 +38,7 @@ author_email = "chenier.felix@uqam.ca"
 
 **Step 6:** Change `EXTENSIONAME`, `AUTHORNAME`, `AUTHOREMAIL`, `YEAR` and `GITHUBUSER` in every file for their real values.
 
-**Step 7:** Put your actual code in `kineticstoolkit_EXTENSIONNAME.py`.
+**Step 7:** Put your actual code in `kineticstoolkit_EXTENSIONNAME/__init__.py`.
 
 **Step 8:** Write some test functions in `test_extension.py`. Such test functions usually perform a simple operation and ends with:
 
@@ -70,3 +70,4 @@ pip install git+https://github.com/USERNAME/kineticstoolkit_EXTENSIONNAME
 Now launch python, import kineticstoolkit and try your extension.
 
 **Step 12.** Publicize your extension on the [Kinetics Toolkit's discussions forum](https://github.com/felixchenier/kineticstoolkit/discussions). We'll add it to this page. If things are not as smooth as you'd want, don't hesitate to [ask for help](https://github.com/felixchenier/kineticstoolkit/discussions).
+

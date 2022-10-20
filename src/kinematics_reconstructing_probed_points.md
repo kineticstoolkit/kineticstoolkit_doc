@@ -18,6 +18,10 @@ kernelspec:
 
 # Reconstructing probed points
 
+:::{card} Summary
+This tutorial explains how to use the [ktk.kinematics](api/ktk.kinematics.rst) module to reconstruct virtual markers using a probe and rigid clusters.
+:::
+
 In the previous tutorial, we learned how to reconstructed "virtual" markers that are not physically attached to a bony landmark, but that were during a previous acquisition. Sometimes, it is completely impossible to affix a marker on a landmark, for example if the landmark is obstructed with clothes or other objects. In these situation, it may be possible to use a digitizing probe (image below, from optitrack.com) to point landmarks during short acquisitions of a few seconds, and use these probed points to reconstruct the landmarks trajectory during other acquisitions.
 
 ![Digitizing probe -height:short](_static/images/probe-kit.png)

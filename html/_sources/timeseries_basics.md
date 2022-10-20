@@ -18,6 +18,10 @@ kernelspec:
 
 # TimeSeries basics
 
+:::{card} Summary
+This section presents the `TimeSeries` data container and its attributes.
+:::
+
 TimeSeries are largely inspired by Matlab's `timeseries` and `tscollection`. Every TimeSeries contains the following attributes:
 
 - `time`: A numpy array that contains the time vector.
