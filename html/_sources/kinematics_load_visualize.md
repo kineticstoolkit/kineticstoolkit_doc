@@ -136,92 +136,80 @@ Note the colored global reference frame on the bottom. This reference frame and 
 
 ## Interconnecting the markers
 
-To ease the visualization, it is often practical to interconnect markers with lines. Here, we will create links between the right arm markers and between the right forearm markers.
+To ease the visualization, it is often practical to interconnect markers with lines. Here, we create those links as a dictionary.
 
 ```{code-cell} ipython3
 interconnections = dict()  # Will contain all segment definitions
 
 interconnections["LLowerLimb"] = {
-    "Color": [0, 0.5, 1],
-    "Links": [
-        ["Derrick:LTOE", "Derrick:LHEE"],
-        ["Derrick:LTOE", "Derrick:LANK"],
-        ["Derrick:LHEE", "Derrick:LANK"],
-        ["Derrick:LANK", "Derrick:LKNE"],
-        ["Derrick:LKNE", "Derrick:LASI"],
+    "Color": [0, 0.5, 1],  # In RGB format (here, greenish blue)
+    "Links": [             # List of lines that span lists of markers
+        ["Derrick:LTOE", "Derrick:LHEE", "Derrick:LANK", "Derrick:LTOE"],
+        ["Derrick:LANK", "Derrick:LKNE", "Derrick:LASI"],
         ["Derrick:LKNE", "Derrick:LPSI"],
     ],
 }
 
 interconnections["RLowerLimb"] = {
-    "Color": [1, 0.5, 0],
+    "Color": [0, 0.5, 1],
     "Links": [
-        ["Derrick:RTOE", "Derrick:RHEE"],
-        ["Derrick:RTOE", "Derrick:RANK"],
-        ["Derrick:RHEE", "Derrick:RANK"],
-        ["Derrick:RANK", "Derrick:RKNE"],
-        ["Derrick:RKNE", "Derrick:RASI"],
+        ["Derrick:RTOE", "Derrick:RHEE", "Derrick:RANK", "Derrick:RTOE"],
+        ["Derrick:RANK", "Derrick:RKNE", "Derrick:RASI"],
         ["Derrick:RKNE", "Derrick:RPSI"],
-    ],
-}
-
-interconnections["TrunkPelvis"] = {
-    "Color": [0.5, 1, 0.5],
-    "Links": [
-        ["Derrick:LPSI", "Derrick:LASI"],
-        ["Derrick:RPSI", "Derrick:RASI"],
-        ["Derrick:LPSI", "Derrick:RPSI"],
-        ["Derrick:LASI", "Derrick:RASI"],
-        ["Derrick:LASI", "Derrick:STRN"],
-        ["Derrick:LASI", "Derrick:LSHO"],
-        ["Derrick:RASI", "Derrick:STRN"],
-        ["Derrick:RASI", "Derrick:RSHO"],
-        ["Derrick:STRN", "Derrick:CLAV"],
-        ["Derrick:LPSI", "Derrick:T10"],
-        ["Derrick:RPSI", "Derrick:T10"],
-        ["Derrick:T10", "Derrick:C7"],
-        ["Derrick:CLAV", "Derrick:LSHO"],
-        ["Derrick:CLAV", "Derrick:RSHO"],
-        ["Derrick:C7", "Derrick:LSHO"],
-        ["Derrick:C7", "Derrick:RSHO"],
     ],
 }
 
 interconnections["LUpperLimb"] = {
     "Color": [0, 0.5, 1],
     "Links": [
-        ["Derrick:LSHO", "Derrick:LELB"],
-        ["Derrick:LELB", "Derrick:LWRA"],
-        ["Derrick:LELB", "Derrick:LWRB"],
+        ["Derrick:LSHO", "Derrick:LELB", "Derrick:LWRA", "Derrick:LFIN"],
+        ["Derrick:LELB", "Derrick:LWRB", "Derrick:LFIN"],
         ["Derrick:LWRA", "Derrick:LWRB"],
-        ["Derrick:LWRA", "Derrick:LFIN"],
-        ["Derrick:LWRB", "Derrick:LFIN"],
     ],
 }
 
 interconnections["RUpperLimb"] = {
     "Color": [1, 0.5, 0],
     "Links": [
-        ["Derrick:RSHO", "Derrick:RELB"],
-        ["Derrick:RELB", "Derrick:RWRA"],
-        ["Derrick:RELB", "Derrick:RWRB"],
+        ["Derrick:RSHO", "Derrick:RELB", "Derrick:RWRA", "Derrick:RFIN"],
+        ["Derrick:RELB", "Derrick:RWRB", "Derrick:RFIN"],
         ["Derrick:RWRA", "Derrick:RWRB"],
-        ["Derrick:RWRA", "Derrick:RFIN"],
-        ["Derrick:RWRB", "Derrick:RFIN"],
     ],
 }
 
 interconnections["Head"] = {
     "Color": [1, 0.5, 1],
     "Links": [
-        ["Derrick:C7", "Derrick:LBHD"],
-        ["Derrick:C7", "Derrick:RBHD"],
-        ["Derrick:C7", "Derrick:LFHD"],
-        ["Derrick:C7", "Derrick:RFHD"],
-        ["Derrick:LBHD", "Derrick:RBHD"],
-        ["Derrick:LFHD", "Derrick:RFHD"],
+        ["Derrick:C7", "Derrick:LFHD", "Derrick:RFHD", "Derrick:C7"],
+        ["Derrick:C7", "Derrick:LBHD", "Derrick:RBHD", "Derrick:C7"],
         ["Derrick:LBHD", "Derrick:LFHD"],
         ["Derrick:RBHD", "Derrick:RFHD"],
+    ],
+}
+
+interconnections["TrunkPelvis"] = {
+    "Color": [0.5, 1, 0.5],
+    "Links": [
+        ["Derrick:LASI", "Derrick:STRN", "Derrick:RASI"],
+        ["Derrick:STRN", "Derrick:CLAV"],
+        ["Derrick:LPSI", "Derrick:T10", "Derrick:RPSI"],
+        ["Derrick:T10", "Derrick:C7"],
+        ["Derrick:LASI", "Derrick:LSHO", "Derrick:LPSI"],
+        ["Derrick:RASI", "Derrick:RSHO", "Derrick:RPSI"],
+        [
+            "Derrick:LPSI",
+            "Derrick:LASI",
+            "Derrick:RASI",
+            "Derrick:RPSI",
+            "Derrick:LPSI",
+        ],
+        [        
+            "Derrick:LSHO",
+            "Derrick:CLAV",
+            "Derrick:RSHO",
+            "Derrick:C7",
+            "Derrick:LSHO",
+        ],
     ],
 }
 ```

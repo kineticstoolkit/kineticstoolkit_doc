@@ -1220,14 +1220,15 @@ expressed as a Nx4x4 array. Multiple TimeSeries can be provided.</p></li>
 <li><p><strong>interconnections</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – <p>Optional. Each key corresponds to an inerconnection between markers,
 where one interconnection is another dict with the following keys:</p>
 <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">Links</span></code>: list of lists of 2 strings, where each string is a marker
-name. For example, to link Marker1 to Marker2 and
-Marker1 to Marker3, Links would be:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="s1">&#39;Marker1&#39;</span><span class="p">,</span> <span class="s1">&#39;Marker2&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Marker1&#39;</span><span class="p">,</span> <span class="s1">&#39;Marker3&#39;</span><span class="p">]]</span>
+<li><p>’Links’: list of lists strings, where each string is a marker
+name. For example, to create a link that spans Marker1 and Marker2,
+and another link that spans Marker3, Marker4 and Marker5,
+interconnections[‘Links’] would be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="s1">&#39;Marker1&#39;</span><span class="p">,</span> <span class="s1">&#39;Marker2&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Marker3&#39;</span><span class="p">,</span> <span class="s1">&#39;Marker4&#39;</span><span class="p">,</span> <span class="s1">&#39;Marker5&#39;</span><span class="p">]]</span>
 </pre></div>
 </div>
 </li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Color</span></code>: character or tuple that represents the color of the
+<li><p>’Color’: character or tuple (RGB) that represents the color of the
 link. Color must be a valid value for matplotlib’s
 plots.</p></li>
 </ul>

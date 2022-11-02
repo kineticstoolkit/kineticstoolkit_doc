@@ -1179,6 +1179,18 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-10">
+   Version 0.10
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#november-2022">
+     0.10.0 (November 2022)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#version-0-9">
    Version 0.9
   </a>
@@ -1260,6 +1272,18 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#version-0-10">
+   Version 0.10
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#november-2022">
+     0.10.0 (November 2022)
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#version-0-9">
    Version 0.9
   </a>
@@ -1333,6 +1357,41 @@ title="Print to PDF"
                 
   <section class="tex2jax_ignore mathjax_ignore" id="release-notes">
 <h1>Release Notes<a class="headerlink" href="#release-notes" title="Permalink to this headline">#</a></h1>
+<section id="version-0-10">
+<h2>Version 0.10<a class="headerlink" href="#version-0-10" title="Permalink to this headline">#</a></h2>
+<section id="november-2022">
+<h3>0.10.0 (November 2022)<a class="headerlink" href="#november-2022" title="Permalink to this headline">#</a></h3>
+<ul class="simple">
+<li><p>New feature: <a class="reference internal" href="api/ktk.TimeSeries.count_events.html"><span class="doc std std-doc">ktk.TimeSeries.count_events</span></a>. Counts the number of occurrences of a given event. This function is useful for example to loop over cycles.</p></li>
+<li><p>New feature: <a class="reference internal" href="api/ktk.TimeSeries.remove_duplicate_events.html"><span class="doc std std-doc">ktk.TimeSeries.remove_duplicate_events</span></a>. Removes duplicate events (that share a same name and same time).</p></li>
+<li><p>Improvement: Better error messages. All functions now perform basic real-time type checking and return clear messages in case of unexpected input. Many error messages are also more helpful, particularly in TimeSeries’ <code class="docutils literal notranslate"><span class="pre">get_ts_</span></code> methods.</p></li>
+<li><p>Improvement: <a class="reference internal" href="api/ktk.Player.html"><span class="doc std std-doc">ktk.Player</span></a> now allows interconnections to be any length, not only bouts of two-marker connections.</p></li>
+<li><p>Improvement: <a class="reference internal" href="api/ktk.TimeSeries.add_event.html"><span class="doc std std-doc">ktk.TimeSeries.add_event</span></a> now has an optional <code class="docutils literal notranslate"><span class="pre">unique</span></code> argument to prevent adding duplicate events.</p></li>
+<li><p>Improvement: <a class="reference internal" href="api/ktk.TimeSeries.merge.html"><span class="doc std std-doc">ktk.TimeSeries.merge</span></a> does not duplicate events anymore if a same event was present in both TimeSeries.</p></li>
+<li><p>Improvement: Now uses Python 3.9 annotations (using <code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">__future__</span> <span class="pre">import</span> <span class="pre">annotations</span></code>). Python 3.9 is not required yet, only Python 3.8.</p></li>
+<li><p>Improvement: Now uses Numpy’s ArrayLike in static typing annotations.</p></li>
+<li><p>Bugfix: <a class="reference internal" href="api/ktk.Player.html"><span class="doc std std-doc">ktk.Player</span></a>’s <code class="docutils literal notranslate"><span class="pre">target</span></code> parameter now respects the ground plane orientation given by the <code class="docutils literal notranslate"><span class="pre">up</span></code> parameter introduced in 0.9.1.</p></li>
+<li><p>Bugfix: <a class="reference internal" href="api/ktk.TimeSeries.sort_events.html"><span class="doc std std-doc">ktk.TimeSeries.sort_events</span></a> does not miss duplicate events anymore.</p></li>
+<li><p>Deprecation: The following TimeSeries methods were deprecated because they don’t provide enough functionality compared to the complexity they generate when learning Kinetics Toolkit by new users. Using those functions now generates a deprecation warning with a suggestion to get the same result with other functions:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">TimeSeries.get_event_index()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TimeSeries.get_event_time()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TimeSeries.get_ts_at_event()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TimeSeries.get_ts_at_time()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TimeSeries.sync_event()</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">TimeSeries.ui_get_ts_between_clicks()</span></code></p></li>
+</ul>
+</li>
+<li><p><strong>Breaking change</strong>: These parameter names were changed in <a class="reference internal" href="api/ktk.kinematics.html"><span class="doc std std-doc">ktk.kinematics</span></a>:</p>
+<ul>
+<li><p>Changed <code class="docutils literal notranslate"><span class="pre">marker_names</span></code> parameter for <code class="docutils literal notranslate"><span class="pre">names</span></code> in <a class="reference internal" href="api/ktk.kinematics.create_cluster.html"><span class="doc std std-doc">ktk.kinematics.create_cluster</span></a>.</p></li>
+<li><p>Changed <code class="docutils literal notranslate"><span class="pre">new_point</span></code> parameter for <code class="docutils literal notranslate"><span class="pre">name</span></code> in <a class="reference internal" href="api/ktk.kinematics.extend_cluster.html"><span class="doc std std-doc">ktk.kinematics.extend_cluster</span></a>.</p></li>
+</ul>
+</li>
+<li><p><strong>Breaking change</strong>: Changed default value of <code class="docutils literal notranslate"><span class="pre">unique</span></code> from <code class="docutils literal notranslate"><span class="pre">True</span></code> to <code class="docutils literal notranslate"><span class="pre">False</span></code> in <a class="reference internal" href="api/ktk.TimeSeries.sort_events.html"><span class="doc std std-doc">ktk.TimeSeries.sort_events</span></a>.</p></li>
+</ul>
+</section>
+</section>
 <section id="version-0-9">
 <h2>Version 0.9<a class="headerlink" href="#version-0-9" title="Permalink to this headline">#</a></h2>
 <section id="september-2022">

@@ -1220,13 +1220,14 @@ title="Fullscreen mode"
 <span class="sd">        Optional. Each key corresponds to an inerconnection between markers,</span>
 <span class="sd">        where one interconnection is another dict with the following keys:</span>
 
-<span class="sd">        - ``Links``: list of lists of 2 strings, where each string is a marker</span>
-<span class="sd">          name. For example, to link Marker1 to Marker2 and</span>
-<span class="sd">          Marker1 to Marker3, Links would be::</span>
+<span class="sd">        - &#39;Links&#39;: list of lists strings, where each string is a marker</span>
+<span class="sd">          name. For example, to create a link that spans Marker1 and Marker2,</span>
+<span class="sd">          and another link that spans Marker3, Marker4 and Marker5,</span>
+<span class="sd">          interconnections[&#39;Links&#39;] would be::</span>
 
-<span class="sd">              [[&#39;Marker1&#39;, &#39;Marker2&#39;], [&#39;Marker1&#39;, &#39;Marker3&#39;]]</span>
+<span class="sd">              [[&#39;Marker1&#39;, &#39;Marker2&#39;], [&#39;Marker3&#39;, &#39;Marker4&#39;, &#39;Marker5&#39;]]</span>
 
-<span class="sd">        - ``Color``: character or tuple that represents the color of the</span>
+<span class="sd">        - &#39;Color&#39;: character or tuple (RGB) that represents the color of the</span>
 <span class="sd">          link. Color must be a valid value for matplotlib&#39;s</span>
 <span class="sd">          plots.</span>
 
@@ -1381,6 +1382,11 @@ title="Fullscreen mode"
                 <span class="bp">self</span><span class="o">.</span><span class="n">rigid_bodies</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="n">rotation</span>
             <span class="p">)</span>
 
+        <span class="c1"># Camera target</span>
+        <span class="n">target1x4</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+        <span class="n">target1x4</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">target</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">geometry</span><span class="o">.</span><span class="n">get_global_coordinates</span><span class="p">(</span><span class="n">target1x4</span><span class="p">,</span> <span class="n">rotation</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
         <span class="c1"># ---------------------------------------------------------------</span>
         <span class="c1"># Assign the interconnections</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">interconnections</span> <span class="o">=</span> <span class="n">interconnections</span>
@@ -1395,7 +1401,6 @@ title="Fullscreen mode"
         <span class="bp">self</span><span class="o">.</span><span class="n">zoom</span> <span class="o">=</span> <span class="n">zoom</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">azimuth</span> <span class="o">=</span> <span class="n">azimuth</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">elevation</span> <span class="o">=</span> <span class="n">elevation</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">target</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">track</span> <span class="o">=</span> <span class="n">track</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">translation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">translation</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">perspective</span> <span class="o">=</span> <span class="n">perspective</span>
@@ -1742,34 +1747,25 @@ title="Fullscreen mode"
         <span class="c1"># Draw the interconnections</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">interconnections</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">interconnection</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">interconnections</span><span class="p">:</span>
-                <span class="n">n_links</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">interconnections</span><span class="p">[</span><span class="n">interconnection</span><span class="p">][</span><span class="s2">&quot;Links&quot;</span><span class="p">])</span>
-                <span class="n">coordinates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="mi">3</span> <span class="o">*</span> <span class="n">n_links</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
-                <span class="n">coordinates</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
-                <span class="k">for</span> <span class="n">i_link</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_links</span><span class="p">):</span>
-                    <span class="n">marker1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interconnections</span><span class="p">[</span><span class="n">interconnection</span><span class="p">][</span><span class="s2">&quot;Links&quot;</span><span class="p">][</span>
-                        <span class="n">i_link</span>
-                    <span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-                    <span class="n">marker2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interconnections</span><span class="p">[</span><span class="n">interconnection</span><span class="p">][</span><span class="s2">&quot;Links&quot;</span><span class="p">][</span>
-                        <span class="n">i_link</span>
-                    <span class="p">][</span><span class="mi">1</span><span class="p">]</span>
-                    <span class="k">if</span> <span class="n">marker1</span> <span class="ow">in</span> <span class="n">interconnection_markers</span><span class="p">:</span>
-                        <span class="n">coordinates</span><span class="p">[</span><span class="mi">3</span> <span class="o">*</span> <span class="n">i_link</span><span class="p">]</span> <span class="o">=</span> <span class="n">interconnection_markers</span><span class="p">[</span>
-                            <span class="n">marker1</span>
-                        <span class="p">]</span>
-                    <span class="k">else</span><span class="p">:</span>
-                        <span class="n">coordinates</span><span class="p">[</span><span class="mi">3</span> <span class="o">*</span> <span class="n">i_link</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
 
-                    <span class="k">if</span> <span class="n">marker2</span> <span class="ow">in</span> <span class="n">interconnection_markers</span><span class="p">:</span>
-                        <span class="n">coordinates</span><span class="p">[</span><span class="mi">3</span> <span class="o">*</span> <span class="n">i_link</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">interconnection_markers</span><span class="p">[</span>
-                            <span class="n">marker2</span>
-                        <span class="p">]</span>
-                    <span class="k">else</span><span class="p">:</span>
-                        <span class="n">coordinates</span><span class="p">[</span><span class="mi">3</span> <span class="o">*</span> <span class="n">i_link</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+                <span class="n">coordinates</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="n">chains</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interconnections</span><span class="p">[</span><span class="n">interconnection</span><span class="p">][</span><span class="s2">&quot;Links&quot;</span><span class="p">]</span>
 
-                <span class="n">coordinates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_projection</span><span class="p">(</span><span class="n">coordinates</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">chain</span> <span class="ow">in</span> <span class="n">chains</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">marker</span> <span class="ow">in</span> <span class="n">chain</span><span class="p">:</span>
+
+                        <span class="k">try</span><span class="p">:</span>
+                            <span class="n">coordinates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">interconnection_markers</span><span class="p">[</span><span class="n">marker</span><span class="p">])</span>
+                        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                            <span class="n">coordinates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+                    <span class="n">coordinates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+                <span class="n">np_coordinates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">coordinates</span><span class="p">)</span>
+                <span class="n">np_coordinates</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_projection</span><span class="p">(</span><span class="n">np_coordinates</span><span class="p">)</span>
 
                 <span class="bp">self</span><span class="o">.</span><span class="n">objects</span><span class="p">[</span><span class="s2">&quot;PlotInterconnections&quot;</span><span class="p">][</span><span class="n">interconnection</span><span class="p">]</span><span class="o">.</span><span class="n">set_data</span><span class="p">(</span>
-                    <span class="n">coordinates</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">coordinates</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
+                    <span class="n">np_coordinates</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">np_coordinates</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span>
                 <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_update_plots</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>

@@ -1,5 +1,32 @@
 # Release Notes
 
+## Version 0.10 
+
+### 0.10.0 (November 2022)
+
+- New feature: [ktk.TimeSeries.count_events](api/ktk.TimeSeries.count_events.rst). Counts the number of occurrences of a given event. This function is useful for example to loop over cycles.
+- New feature: [ktk.TimeSeries.remove_duplicate_events](api/ktk.TimeSeries.remove_duplicate_events.rst). Removes duplicate events (that share a same name and same time).
+- Improvement: Better error messages. All functions now perform basic real-time type checking and return clear messages in case of unexpected input. Many error messages are also more helpful, particularly in TimeSeries' `get_ts_` methods.
+- Improvement: [ktk.Player](api/ktk.Player.rst) now allows interconnections to be any length, not only bouts of two-marker connections.
+- Improvement: [ktk.TimeSeries.add_event](api/ktk.TimeSeries.add_event.rst) now has an optional `unique` argument to prevent adding duplicate events.
+- Improvement: [ktk.TimeSeries.merge](api/ktk.TimeSeries.merge.rst) does not duplicate events anymore if a same event was present in both TimeSeries.
+- Improvement: Now uses Python 3.9 annotations (using `from __future__ import annotations`). Python 3.9 is not required yet, only Python 3.8.
+- Improvement: Now uses Numpy's ArrayLike in static typing annotations.
+- Bugfix: [ktk.Player](api/ktk.Player.rst)'s `target` parameter now respects the ground plane orientation given by the `up` parameter introduced in 0.9.1.
+- Bugfix: [ktk.TimeSeries.sort_events](api/ktk.TimeSeries.sort_events.rst) does not miss duplicate events anymore.
+- Deprecation: The following TimeSeries methods were deprecated because they don't provide enough functionality compared to the complexity they generate when learning Kinetics Toolkit by new users. Using those functions now generates a deprecation warning with a suggestion to get the same result with other functions:
+    - ``TimeSeries.get_event_index()``
+    - ``TimeSeries.get_event_time()``
+    - ``TimeSeries.get_ts_at_event()``
+    - ``TimeSeries.get_ts_at_time()``
+    - ``TimeSeries.sync_event()``
+    - ``TimeSeries.ui_get_ts_between_clicks()``
+- **Breaking change**: These parameter names were changed in [ktk.kinematics](api/ktk.kinematics.rst):
+    - Changed `marker_names` parameter for `names` in [ktk.kinematics.create_cluster](api/ktk.kinematics.create_cluster.rst).
+    - Changed `new_point` parameter for `name` in [ktk.kinematics.extend_cluster](api/ktk.kinematics.extend_cluster.rst).
+- **Breaking change**: Changed default value of `unique` from `True` to `False` in [ktk.TimeSeries.sort_events](api/ktk.TimeSeries.sort_events.rst).
+
+
 ## Version 0.9
 
 ### 0.9.2 (September 2022)
