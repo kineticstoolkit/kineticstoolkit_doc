@@ -20,18 +20,13 @@
       ~TimeSeries.count_events
       ~TimeSeries.fill_missing_samples
       ~TimeSeries.from_dataframe
-      ~TimeSeries.get_event_index
-      ~TimeSeries.get_event_time
       ~TimeSeries.get_index_after_time
       ~TimeSeries.get_index_at_time
       ~TimeSeries.get_index_before_time
-      ~TimeSeries.get_sample_rate
       ~TimeSeries.get_subset
       ~TimeSeries.get_ts_after_event
       ~TimeSeries.get_ts_after_index
       ~TimeSeries.get_ts_after_time
-      ~TimeSeries.get_ts_at_event
-      ~TimeSeries.get_ts_at_time
       ~TimeSeries.get_ts_before_event
       ~TimeSeries.get_ts_before_index
       ~TimeSeries.get_ts_before_time
@@ -43,18 +38,15 @@
       ~TimeSeries.plot
       ~TimeSeries.remove_data
       ~TimeSeries.remove_data_info
-      ~TimeSeries.remove_duplicate_events
       ~TimeSeries.remove_event
       ~TimeSeries.rename_data
       ~TimeSeries.rename_event
       ~TimeSeries.resample
       ~TimeSeries.shift
       ~TimeSeries.sort_events
-      ~TimeSeries.sync_event
       ~TimeSeries.to_dataframe
       ~TimeSeries.trim_events
       ~TimeSeries.ui_edit_events
-      ~TimeSeries.ui_get_ts_between_clicks
       ~TimeSeries.ui_sync
    
    

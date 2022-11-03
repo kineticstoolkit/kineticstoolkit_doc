@@ -347,16 +347,6 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.get_event_index.html">
-         ktk.TimeSeries.get_event_index
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.get_event_time.html">
-         ktk.TimeSeries.get_event_time
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.get_index_after_time.html">
          ktk.TimeSeries.get_index_after_time
         </a>
@@ -369,11 +359,6 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.get_index_before_time.html">
          ktk.TimeSeries.get_index_before_time
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.get_sample_rate.html">
-         ktk.TimeSeries.get_sample_rate
         </a>
        </li>
        <li class="toctree-l4">
@@ -394,16 +379,6 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_after_time.html">
          ktk.TimeSeries.get_ts_after_time
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_at_event.html">
-         ktk.TimeSeries.get_ts_at_event
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_at_time.html">
-         ktk.TimeSeries.get_ts_at_time
         </a>
        </li>
        <li class="toctree-l4">
@@ -462,11 +437,6 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.remove_duplicate_events.html">
-         ktk.TimeSeries.remove_duplicate_events
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.remove_event.html">
          ktk.TimeSeries.remove_event
         </a>
@@ -497,11 +467,6 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.sync_event.html">
-         ktk.TimeSeries.sync_event
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.to_dataframe.html">
          ktk.TimeSeries.to_dataframe
         </a>
@@ -514,11 +479,6 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.ui_edit_events.html">
          ktk.TimeSeries.ui_edit_events
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.ui_get_ts_between_clicks.html">
-         ktk.TimeSeries.ui_get_ts_between_clicks
         </a>
        </li>
        <li class="toctree-l4">
@@ -1191,6 +1151,7 @@ title="Fullscreen mode"
 <span class="n">WINDOW_PLACEMENT</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;top&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s2">&quot;right&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
 
 
+
 <span class="k">def</span> <span class="nf">dataframe_to_dict_of_arrays</span><span class="p">(</span>
     <span class="n">dataframe</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
@@ -1524,7 +1485,48 @@ title="Fullscreen mode"
         <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;Time&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">}</span></div>
 
 
-<div class="viewcode-block" id="TimeSeries"><a class="viewcode-back" href="../../api/ktk.TimeSeries.html#ktk.TimeSeries">[docs]</a><span class="k">class</span> <span class="nc">TimeSeries</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">MetaTimeSeries</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;A metaclass only to provide a proper class dir() function.&quot;&quot;&quot;</span>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="fm">__dir__</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="s2">&quot;add_data_info&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;add_event&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;copy&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;count_events&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;fill_missing_samples&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;from_dataframe&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;get_index_after_time&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;get_index_at_time&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;get_index_before_time&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;get_subset&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;get_ts_after_event&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;get_ts_after_index&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;get_ts_after_time&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;get_ts_before_event&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;get_ts_before_index&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;get_ts_before_time&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;get_ts_between_events&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;get_ts_between_indexes&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;get_ts_between_times&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;isnan&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;merge&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;plot&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;remove_data&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;remove_data_info&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;remove_event&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;rename_data&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;rename_event&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;resample&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;shift&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;sort_events&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;to_dataframe&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;trim_events&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;ui_edit_events&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;ui_sync&quot;</span><span class="p">,</span>
+        <span class="p">]</span>
+
+<div class="viewcode-block" id="TimeSeries"><a class="viewcode-back" href="../../api/ktk.TimeSeries.html#ktk.TimeSeries">[docs]</a><span class="k">class</span> <span class="nc">TimeSeries</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">MetaTimeSeries</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A class that holds time, data series, events and metadata.</span>
 
@@ -1573,44 +1575,11 @@ title="Fullscreen mode"
         <span class="bp">self</span><span class="o">.</span><span class="n">data_info</span> <span class="o">=</span> <span class="n">data_info</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">events</span> <span class="o">=</span> <span class="n">events</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="fm">__dir__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="fm">__dir__</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Generate the class directory.&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="p">[</span>
-            <span class="s2">&quot;add_data_info&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;add_event&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;copy&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;count_events&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;fill_missing_samples&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;from_dataframe&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;get_index_after_time&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;get_index_at_time&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;get_index_before_time&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;get_subset&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;get_ts_after_event&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;get_ts_after_index&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;get_ts_after_time&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;get_ts_before_event&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;get_ts_before_index&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;get_ts_before_time&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;get_ts_between_events&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;get_ts_between_indexes&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;get_ts_between_times&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;isnan&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;merge&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;plot&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;remove_data&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;remove_data_info&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;remove_event&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;rename_data&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;rename_event&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;resample&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;shift&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;sort_events&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;to_dataframe&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;trim_events&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;ui_edit_events&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;ui_sync&quot;</span><span class="p">,</span>
-        <span class="p">]</span>
+        <span class="k">return</span> <span class="n">MetaTimeSeries</span><span class="o">.</span><span class="fm">__dir__</span><span class="p">()</span>
+
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -2652,7 +2621,7 @@ title="Fullscreen mode"
         <span class="n">indexes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_event_indexes</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
         <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">indexes</span><span class="p">)</span></div>
 
-<div class="viewcode-block" id="TimeSeries.remove_duplicate_events"><a class="viewcode-back" href="../../api/ktk.TimeSeries.remove_duplicate_events.html#ktk.TimeSeries.remove_duplicate_events">[docs]</a>    <span class="k">def</span> <span class="nf">remove_duplicate_events</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">in_place</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">remove_duplicate_events</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">in_place</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Remove events with same name and time so that each event gets unique.</span>
 
@@ -2709,7 +2678,7 @@ title="Fullscreen mode"
         <span class="n">duplicates</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">_get_duplicate_event_indexes</span><span class="p">()</span>
         <span class="k">for</span> <span class="n">event_index</span> <span class="ow">in</span> <span class="n">duplicates</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
             <span class="n">ts</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">event_index</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">ts</span></div>
+        <span class="k">return</span> <span class="n">ts</span>
 
 <div class="viewcode-block" id="TimeSeries.sort_events"><a class="viewcode-back" href="../../api/ktk.TimeSeries.sort_events.html#ktk.TimeSeries.sort_events">[docs]</a>    <span class="k">def</span> <span class="nf">sort_events</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">unique</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">in_place</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
@@ -3689,7 +3658,7 @@ title="Fullscreen mode"
 
         <span class="k">return</span> <span class="n">ts</span></div>
 
-<div class="viewcode-block" id="TimeSeries.get_sample_rate"><a class="viewcode-back" href="../../api/ktk.TimeSeries.get_sample_rate.html#ktk.TimeSeries.get_sample_rate">[docs]</a>    <span class="k">def</span> <span class="nf">get_sample_rate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">get_sample_rate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the sample rate in samples/s.</span>
 
@@ -3723,7 +3692,7 @@ title="Fullscreen mode"
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">deltas</span><span class="p">,</span> <span class="p">[</span><span class="n">deltas</span><span class="p">[</span><span class="mi">0</span><span class="p">]]):</span>
             <span class="k">return</span> <span class="mf">1.0</span> <span class="o">/</span> <span class="n">deltas</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span></div>
+            <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
 
 <div class="viewcode-block" id="TimeSeries.resample"><a class="viewcode-back" href="../../api/ktk.TimeSeries.resample.html#ktk.TimeSeries.resample">[docs]</a>    <span class="k">def</span> <span class="nf">resample</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
@@ -4784,8 +4753,8 @@ title="Fullscreen mode"
         <span class="k">return</span> <span class="n">ts</span></div>
 
     <span class="c1">#%% Deprecated methods</span>
-<div class="viewcode-block" id="TimeSeries.get_event_index"><a class="viewcode-back" href="../../api/ktk.TimeSeries.get_event_index.html#ktk.TimeSeries.get_event_index">[docs]</a>    <span class="nd">@deprecated</span><span class="p">(</span>
-        <span class="n">since</span><span class="o">=</span><span class="s2">&quot;0.9.3&quot;</span><span class="p">,</span>
+    <span class="nd">@deprecated</span><span class="p">(</span>
+        <span class="n">since</span><span class="o">=</span><span class="s2">&quot;0.10.0&quot;</span><span class="p">,</span>
         <span class="n">until</span><span class="o">=</span><span class="s2">&quot;2024&quot;</span><span class="p">,</span>
         <span class="n">details</span><span class="o">=</span><span class="p">(</span>
             <span class="sd">&quot;&quot;&quot;</span>
@@ -4800,10 +4769,10 @@ title="Fullscreen mode"
     <span class="p">)</span>
     <span class="k">def</span> <span class="nf">get_event_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">occurrence</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
         <span class="sd">&quot;&quot;&quot;Get the events index of a given occurrence of an event name.&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_event_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">occurrence</span><span class="o">=</span><span class="n">occurrence</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_event_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">occurrence</span><span class="o">=</span><span class="n">occurrence</span><span class="p">)</span>
 
-<div class="viewcode-block" id="TimeSeries.get_event_time"><a class="viewcode-back" href="../../api/ktk.TimeSeries.get_event_time.html#ktk.TimeSeries.get_event_time">[docs]</a>    <span class="nd">@deprecated</span><span class="p">(</span>
-        <span class="n">since</span><span class="o">=</span><span class="s2">&quot;0.9.3&quot;</span><span class="p">,</span>
+    <span class="nd">@deprecated</span><span class="p">(</span>
+        <span class="n">since</span><span class="o">=</span><span class="s2">&quot;0.10.0&quot;</span><span class="p">,</span>
         <span class="n">until</span><span class="o">=</span><span class="s2">&quot;2024&quot;</span><span class="p">,</span>
         <span class="n">details</span><span class="o">=</span><span class="p">(</span>
             <span class="sd">&quot;&quot;&quot;</span>
@@ -4824,10 +4793,10 @@ title="Fullscreen mode"
 
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_check_well_typed</span><span class="p">()</span>
-            <span class="k">raise</span> <span class="n">e</span></div>
+            <span class="k">raise</span> <span class="n">e</span>
 
-<div class="viewcode-block" id="TimeSeries.get_ts_at_time"><a class="viewcode-back" href="../../api/ktk.TimeSeries.get_ts_at_time.html#ktk.TimeSeries.get_ts_at_time">[docs]</a>    <span class="nd">@deprecated</span><span class="p">(</span>
-        <span class="n">since</span><span class="o">=</span><span class="s2">&quot;0.9.3&quot;</span><span class="p">,</span>
+    <span class="nd">@deprecated</span><span class="p">(</span>
+        <span class="n">since</span><span class="o">=</span><span class="s2">&quot;0.10.0&quot;</span><span class="p">,</span>
         <span class="n">until</span><span class="o">=</span><span class="s2">&quot;2024&quot;</span><span class="p">,</span>
         <span class="n">details</span><span class="o">=</span><span class="p">(</span>
             <span class="s2">&quot;Please use ts.get_ts_after_time() and address the first sample &quot;</span>
@@ -4845,10 +4814,10 @@ title="Fullscreen mode"
             <span class="k">return</span> <span class="n">out_ts</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_check_not_empty_time</span><span class="p">()</span>
-            <span class="k">raise</span> <span class="n">e</span></div>
+            <span class="k">raise</span> <span class="n">e</span>
 
-<div class="viewcode-block" id="TimeSeries.get_ts_at_event"><a class="viewcode-back" href="../../api/ktk.TimeSeries.get_ts_at_event.html#ktk.TimeSeries.get_ts_at_event">[docs]</a>    <span class="nd">@deprecated</span><span class="p">(</span>
-        <span class="n">since</span><span class="o">=</span><span class="s2">&quot;0.9.3&quot;</span><span class="p">,</span>
+    <span class="nd">@deprecated</span><span class="p">(</span>
+        <span class="n">since</span><span class="o">=</span><span class="s2">&quot;0.10.0&quot;</span><span class="p">,</span>
         <span class="n">until</span><span class="o">=</span><span class="s2">&quot;2024&quot;</span><span class="p">,</span>
         <span class="n">details</span><span class="o">=</span><span class="p">(</span>
             <span class="s2">&quot;Please use ts.get_ts_after_event() and address the first sample &quot;</span>
@@ -4862,10 +4831,10 @@ title="Fullscreen mode"
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_ts_at_time</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_check_not_empty_time</span><span class="p">()</span>
-            <span class="k">raise</span> <span class="n">e</span></div>
+            <span class="k">raise</span> <span class="n">e</span>
 
-<div class="viewcode-block" id="TimeSeries.sync_event"><a class="viewcode-back" href="../../api/ktk.TimeSeries.sync_event.html#ktk.TimeSeries.sync_event">[docs]</a>    <span class="nd">@deprecated</span><span class="p">(</span>
-        <span class="n">since</span><span class="o">=</span><span class="s2">&quot;0.9.3&quot;</span><span class="p">,</span> <span class="n">until</span><span class="o">=</span><span class="s2">&quot;2024&quot;</span><span class="p">,</span> <span class="n">details</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Please use ts.shift() instead.&quot;</span><span class="p">)</span>
+    <span class="nd">@deprecated</span><span class="p">(</span>
+        <span class="n">since</span><span class="o">=</span><span class="s2">&quot;0.10.0&quot;</span><span class="p">,</span> <span class="n">until</span><span class="o">=</span><span class="s2">&quot;2024&quot;</span><span class="p">,</span> <span class="n">details</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Please use ts.shift() instead.&quot;</span><span class="p">)</span>
     <span class="p">)</span>
     <span class="k">def</span> <span class="nf">sync_event</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">occurrence</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">in_place</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
@@ -4881,10 +4850,10 @@ title="Fullscreen mode"
 
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_check_not_empty_time</span><span class="p">()</span>
-            <span class="k">raise</span> <span class="n">e</span></div>
+            <span class="k">raise</span> <span class="n">e</span>
 
-<div class="viewcode-block" id="TimeSeries.ui_get_ts_between_clicks"><a class="viewcode-back" href="../../api/ktk.TimeSeries.ui_get_ts_between_clicks.html#ktk.TimeSeries.ui_get_ts_between_clicks">[docs]</a>    <span class="nd">@deprecated</span><span class="p">(</span>
-        <span class="n">since</span><span class="o">=</span><span class="s2">&quot;0.9.3&quot;</span><span class="p">,</span>
+    <span class="nd">@deprecated</span><span class="p">(</span>
+        <span class="n">since</span><span class="o">=</span><span class="s2">&quot;0.10.0&quot;</span><span class="p">,</span>
         <span class="n">until</span><span class="o">=</span><span class="s2">&quot;2024&quot;</span><span class="p">,</span>
         <span class="n">details</span><span class="o">=</span><span class="p">(</span>
             <span class="s2">&quot;Please use ts.ui_edit_events() and add &#39;begin&#39; and &#39;end&#39; events &quot;</span>
@@ -4938,7 +4907,7 @@ title="Fullscreen mode"
         <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_ts_between_times</span><span class="p">(</span>
             <span class="nb">min</span><span class="p">(</span><span class="n">times</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">times</span><span class="p">),</span> <span class="n">inclusive</span><span class="o">=</span><span class="n">inclusive</span>
-        <span class="p">)</span></div></div>
+        <span class="p">)</span></div>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
