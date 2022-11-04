@@ -19,6 +19,10 @@ kernelspec:
 
 # Arithmetics and variables
 
+:::{card} Summary
+This section covers basic arithmetics (`+`, `-`, `*`, `/`) and variables.
+:::
+
 ## Arithmetic operations
 
 Any arithmetical operation is performed simply by writing its equation. For example, the most usual arithmetic operators are `+`, `-`, `*` and `/`:

@@ -13,6 +13,10 @@ kernelspec:
 
 # Conditions and booleans
 
+:::{card} Summary
+This section shows how to perform comparisons and boolean (logical) operations and how to use these operation to program conditional code (`if`, `else`, `elif`).
+:::
+
 In the [previous section](python_functions.md), we learnt how to create simple units called functions, which have a specific and simple goal. The examples were however very simple, because the only concepts we learnt yet are arithmetics and variables.
 
 In this section, our programs will be able to execute different instructions as a consequence of conditions.

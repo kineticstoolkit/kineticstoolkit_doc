@@ -13,6 +13,10 @@ kernelspec:
 
 # Arguments and default values
 
+:::{card} Summary
+This section presents other ways of passing arguments to functions, like using keyword arguments, or using default values.
+:::
+
 ## Positional arguments
 
 Up to now, we called functions using an ordered list of arguments: each argument was assigned using its position. For instance, in this function:

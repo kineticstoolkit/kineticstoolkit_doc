@@ -13,9 +13,15 @@ kernelspec:
 
 # Docstrings
 
+:::{card} Summary
+This section shows how to properly document a function so that future users (or your future-yourself) will understand the meaning of the code months after.
+:::
+
 We theoretically know enough on functions to follow on with other concepts. However, although the solutions to the previous exercises do work, they could be much more documented. Keep in mind that code is wrote once by often one programmer, but is read many times after, by many users and other programmers. An undocumented function is usually clear to the programmer while it is being written; but will it still be clear when read by another person, or even by the same programmer months later?
 
 Docstrings may be the best thing to document functions and reduce the risk of long-term error.
+
+## What is a docstring
 
 A docstring is literally a **string** that **doc**uments a function. While being facultative, it is almost mandatory in any code other than very simple scripts, because this is what really tells what the function does, what its parameters are, and what it returns. A standard docstrings is a triple-quote string placed just below the function signature. A good docstring for the `format_info` function of the last section would be:
 
@@ -76,3 +82,47 @@ Since they are so ubiquitous, docstrings can be read without having to open the 
 ```{code-cell} ipython3
 help(format_info)
 ```
+
+
+## Type annotations
+
+In addition to docstrings, type annotations are becoming more and more popular to document what types a function expects for its arguments, and what types it returns. Like docstrings, type annotations are completely facultative, but are generally very helpful to clearly design and document functions.
+
+The syntax for type annotations is `:` for parameters, and `->` for the return values (see the `->` as a right-arrow). In the `format_info` function above, we documented the argument and return types in the docstring. Using type annotations, we could instead document those directly in the signature:
+
+```{code-cell} ipython3
+def format_info(
+    i_participant: int,
+    first_name: str,
+    last_name: str,
+    age: float,
+    height: float,
+    weight: float
+) -> str:
+    """
+    Format the provided information into a human-readable string.
+
+    Parameters
+    ----------
+    i_participant
+        Identifier for the participant
+    first_name
+        First name (given name) of the participant
+    last_name
+        Last name (surname) of the participant
+    age
+        Age of the participant, in years
+    height
+        Height of the participant, in meters
+    weight
+        Weight of the participant, in kg
+
+    Returns
+    -------
+    str
+        A human-readable string based on the provided information.
+
+    """
+```
+
+Using type annotations or not is strictly up to you, but it is important to know that it exists, if only to understand others' code.

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>🚧 Lists &#8212; Kinetics Toolkit</title>
+    <title>Lists and tuples &#8212; Kinetics Toolkit</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -57,7 +57,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="🚧 Looping (while)" href="python_while.html" />
+    <link rel="next" title="Creating and indexing lists" href="python_lists_indexing.html" />
     <link rel="prev" title="Conditions and booleans" href="python_conditions.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -892,10 +892,32 @@ const thebe_selector_output = ".output, .cell_output"
        Conditions and booleans
       </a>
      </li>
-     <li class="toctree-l3 current active">
+     <li class="toctree-l3 current active has-children">
       <a class="current reference internal" href="#">
-       🚧 Lists
+       Lists and tuples
       </a>
+      <input checked="" class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
+      <label for="toctree-checkbox-22">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="python_lists_indexing.html">
+         Creating and indexing lists
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="python_lists_slicing.html">
+         Slicing lists
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="python_lists_mutability.html">
+         🚧 Manipulating lists, immutability of tuples
+        </a>
+       </li>
+      </ul>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="python_while.html">
@@ -933,8 +955,8 @@ const thebe_selector_output = ".output, .cell_output"
     <a class="reference internal" href="numpy.html">
      🚧 Numpy
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
-    <label for="toctree-checkbox-22">
+    <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
+    <label for="toctree-checkbox-23">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -970,8 +992,8 @@ const thebe_selector_output = ".output, .cell_output"
     <a class="reference internal" href="matplotlib.html">
      🚧 Matplotlib
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
-    <label for="toctree-checkbox-23">
+    <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
+    <label for="toctree-checkbox-24">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -1128,7 +1150,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>🚧 Lists</h1>
+                <h1>Lists and tuples</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -1140,35 +1162,29 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="lists">
-<h1>🚧 Lists<a class="headerlink" href="#lists" title="Permalink to this headline">#</a></h1>
-<div class="admonition-stub admonition">
-<p class="admonition-title">Section in development</p>
-<p>This section is still in heavy development. Your <a class="reference internal" href="dev_contributing.html"><span class="doc std std-doc">suggestions</span></a> are welcome.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="lists-and-tuples">
+<h1>Lists and tuples<a class="headerlink" href="#lists-and-tuples" title="Permalink to this headline">#</a></h1>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Summary</div>
+<p class="sd-card-text">These sections present the list and tuple, introduce the concepts of mutability, and present the main methods of a list.</p>
 </div>
-<ul class="simple">
-<li><p>Creating a list</p></li>
-<li><p>Obtaining the length of a list</p></li>
-<li><p>Indexing a list</p>
+</div>
+<p><strong>Context:</strong> Suppose that we take three measurements of a given quantity (for instance, the height of a person). It would make sense to assign three variables for it: <code class="docutils literal notranslate"><span class="pre">height1</span></code>, <code class="docutils literal notranslate"><span class="pre">height2</span></code>, and <code class="docutils literal notranslate"><span class="pre">height3</span></code>, and then write some code that processes it:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate the mean height</span>
+<span class="n">height</span> <span class="o">=</span> <span class="p">(</span><span class="n">height1</span> <span class="o">+</span> <span class="n">height2</span> <span class="o">+</span> <span class="n">height3</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span>
+</pre></div>
+</div>
+<p>But what if we take hundreds of even thousands of measurements? At some point, we could not afford one variable per measurement.</p>
+<p>Python provides powerful constructs such as the list, the tuple, the dictionary and the set. These “containers” allow holding a large number of values in a structured way. Let’s start with the list.</p>
+<div class="toctree-wrapper compound">
 <ul>
-<li><p>Extracting one element from a list</p></li>
-<li><p>Extracting a list from a list</p></li>
+<li class="toctree-l1"><a class="reference internal" href="python_lists_indexing.html">Creating and indexing lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_lists_slicing.html">Slicing lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python_lists_mutability.html">🚧 Manipulating lists, immutability of tuples</a></li>
 </ul>
-</li>
-<li><p>Appending data to a list</p></li>
-<li><p>Mutability: contrarily to ints, floats and strings, modifying a list modifies it everywhere, including in a calling function.</p></li>
-<li><p>Tuple: an immutable list</p></li>
-<li><p>Integration exercise: We have a list where the 3 first data are maximal elevation angles for the shoulder, the 3 next are maximal internal rotation, and the 3 next are maximal external rotation. Therefore we have a list of 12 measurements. Write a line that returns:</p>
-<ul>
-<li><p>a list of the 3 measurement of maximal elevation</p></li>
-<li><p>a list of the 3 measurement of maximal internal rotation</p></li>
-<li><p>the maximal elevation</p></li>
-<li><p>the maximal external rotation</p></li>
-<li><p>a list of length 3 that contains the maximal value of each assessment</p></li>
-</ul>
-</li>
-<li><p>List comprehension will be viewed later.</p></li>
-</ul>
+</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -1205,10 +1221,10 @@ title="Print to PDF"
             <p class="prev-next-title">Conditions and booleans</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="python_while.html" title="next page">
+    <a class='right-next' id="next-link" href="python_lists_indexing.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">🚧 Looping (while)</p>
+        <p class="prev-next-title">Creating and indexing lists</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

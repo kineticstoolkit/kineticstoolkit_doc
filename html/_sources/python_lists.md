@@ -1,19 +1,19 @@
-# 🚧 Lists
+# Lists and tuples
 
-{{ stub }}
+:::{card} Summary
+These sections present the list and tuple, introduce the concepts of mutability, and present the main methods of a list.
+:::
 
-- Creating a list
-- Obtaining the length of a list
-- Indexing a list
-    - Extracting one element from a list
-    - Extracting a list from a list
-- Appending data to a list
-- Mutability: contrarily to ints, floats and strings, modifying a list modifies it everywhere, including in a calling function.
-- Tuple: an immutable list
-- Integration exercise: We have a list where the 3 first data are maximal elevation angles for the shoulder, the 3 next are maximal internal rotation, and the 3 next are maximal external rotation. Therefore we have a list of 12 measurements. Write a line that returns:
-    - a list of the 3 measurement of maximal elevation
-    - a list of the 3 measurement of maximal internal rotation
-    - the maximal elevation
-    - the maximal external rotation
-    - a list of length 3 that contains the maximal value of each assessment
-- List comprehension will be viewed later.
+**Context:** Suppose that we take three measurements of a given quantity (for instance, the height of a person). It would make sense to assign three variables for it: `height1`, `height2`, and `height3`, and then write some code that processes it:
+
+```
+# Calculate the mean height
+height = (height1 + height2 + height3) / 3
+```
+
+But what if we take hundreds of even thousands of measurements? At some point, we could not afford one variable per measurement.
+
+Python provides powerful constructs such as the list, the tuple, the dictionary and the set. These "containers" allow holding a large number of values in a structured way. Let's start with the list.
+
+```{tableofcontents}
+```

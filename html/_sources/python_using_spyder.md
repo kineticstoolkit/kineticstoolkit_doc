@@ -19,6 +19,10 @@ kernelspec:
 
 # Using Spyder
 
+:::{card} Summary
+This section shows how to use Spyder to execute your first lines of code and build your first program.
+:::
+
 For those who are used to Matlab, Spyder's interface should immediately look familiar. Spyder's standard look is shown below:
 
 (fig:screenshot)=

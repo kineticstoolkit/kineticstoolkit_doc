@@ -1,5 +1,9 @@
 # Configuring Spyder for Python biomechanics
 
+:::{card} Summary
+This section is facultative but recommended, to get the most of Spyder for biomechanical analysis.
+:::
+
 Spyder just works out of the box. However, we suggest to use these alternative settings, which we believe are helpful to get on track as fast as possible in writing great code and processing biomechanical data.
 
 ## Interactive graphics

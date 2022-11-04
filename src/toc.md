@@ -80,6 +80,10 @@ chapters:
               - file: [](python_functions_keywords_defaults.md)
           - file: [](python_conditions.md)
           - file: [](python_lists.md)
+            sections:
+              - file: [](python_lists_indexing.md)
+              - file: [](python_lists_slicing.md)
+              - file: [](python_lists_mutability.md)
           - file: [](python_while.md)
           - file: [](python_for.md)
           - file: [](python_dicts.md)

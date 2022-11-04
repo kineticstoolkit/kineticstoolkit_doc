@@ -13,6 +13,10 @@ kernelspec:
 
 # Strings basics
 
+:::{card} Summary
+This section shows strings, including single/double quotes, triple quotes, and f-strings.
+:::
+
 In the previous page, we introduced two types to express numbers: `int` and `float`. To express letters, words and sentences, we use the `string` type. You already created a string in your first ["Hello world"](python_using_spyder.md) program.
 
 ## Single and double quotes
