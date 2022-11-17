@@ -1,7 +1,7 @@
-# Lists and tuples
+# Lists
 
 :::{card} Summary
-These sections present the list and tuple, introduce the concepts of mutability, and present the main methods of a list.
+These sections present the list and its main methods.
 :::
 
 **Context:** Suppose that we take three measurements of a given quantity (for instance, the height of a person). It would make sense to assign three variables for it: `height1`, `height2`, and `height3`, and then write some code that processes it:

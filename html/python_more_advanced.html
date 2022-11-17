@@ -894,7 +894,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3 has-children">
       <a class="reference internal" href="python_lists.html">
-       Lists and tuples
+       Lists
       </a>
       <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
       <label for="toctree-checkbox-22">
@@ -914,7 +914,7 @@ const thebe_selector_output = ".output, .cell_output"
        </li>
        <li class="toctree-l4">
         <a class="reference internal" href="python_lists_mutability.html">
-         🚧 Manipulating lists, immutability of tuples
+         Manipulating lists
         </a>
        </li>
       </ul>
@@ -1138,12 +1138,36 @@ title="Print to PDF"
     </ul>
   </div>
 </div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
 
     </div>
 </div>
 
 <!-- Table of contents -->
 <div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mutability">
+   Mutability
+  </a>
+ </li>
+</ul>
+
+    </nav>
 </div>
     </div>
     <div class="article row">
@@ -1155,6 +1179,19 @@ title="Print to PDF"
                 <div id="print-main-content">
                     <div id="jb-print-toc">
                         
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#mutability">
+   Mutability
+  </a>
+ </li>
+</ul>
+
+                        </nav>
                     </div>
                 </div>
             </div>
@@ -1173,6 +1210,14 @@ title="Print to PDF"
 <li><p>None</p></li>
 <li><p>List comprehension</p></li>
 </ul>
+<section id="mutability">
+<h2>Mutability<a class="headerlink" href="#mutability" title="Permalink to this headline">#</a></h2>
+<p>In Python, variables generally do not contain a value, but a reference to a value in memory. This may be confusing at first and is better understood with an example. Let’s create a list of three integers:</p>
+<p>and another list <code class="docutils literal notranslate"><span class="pre">b</span></code>, which is exactly like list <code class="docutils literal notranslate"><span class="pre">a</span></code>:</p>
+<p>In this example, we created two completely different lists, that happen to have an equal contents. Therefore, if we modify an element of <code class="docutils literal notranslate"><span class="pre">b</span></code>, then <code class="docutils literal notranslate"><span class="pre">a</span></code> keeps its original value:</p>
+<p>Now, let’s create another list <code class="docutils literal notranslate"><span class="pre">c</span></code>, which is not only like list <code class="docutils literal notranslate"><span class="pre">a</span></code>, but that really <strong>is</strong> list <code class="docutils literal notranslate"><span class="pre">a</span></code>:</p>
+<p>Since both list point to the same memory, then modifying <code class="docutils literal notranslate"><span class="pre">c</span></code> will also modify <code class="docutils literal notranslate"><span class="pre">a</span></code>:</p>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
