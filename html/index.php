@@ -1163,7 +1163,7 @@ title="Print to PDF"
                 
   <aside class="margin sidebar">
 <p class="sidebar-title"></p>
-<div style="max-height:800px">
+<div style="max-height:900px">
 <h3><a href="https://github.com/felixchenier/kineticstoolkit/discussions">Announcements</a></h3>
 <?php include("/home/kinetics/public_html/rss/rss.php");?>
 </div>
