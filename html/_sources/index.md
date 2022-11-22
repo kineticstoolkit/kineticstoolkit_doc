@@ -1,8 +1,11 @@
 ```{margin}
 <div style="max-height:900px">
-<h3><a href="https://github.com/felixchenier/kineticstoolkit/discussions">Announcements</a></h3>
+<h3>
+<a href="https://github.com/felixchenier/kineticstoolkit/discussions">Announcements</a>
+</h3>
 <?php include("/home/kinetics/public_html/rss/rss.php");?>
 </div>
+<link rel="alternate" type="application/rss+html" title="Subscribe to Kinetics Toolkit Announcements" href="https://github.com/felixchenier/kineticstoolkit/discussions/categories/announcements.atom" />
 ```
 
 % *Open-source package and resources to learn biomechanical data processing using Python*
