@@ -1163,6 +1163,7 @@ title="Print to PDF"
                 
   <aside class="margin sidebar">
 <p class="sidebar-title"></p>
+<h3><a href="https://github.com/felixchenier/kineticstoolkit/discussions">Announcements</a></h3>
 <?php include("/home/kinetics/public_html/rss/rss.php");?>
 </aside>
 <section class="tex2jax_ignore mathjax_ignore" id="kinetics-toolkit">
