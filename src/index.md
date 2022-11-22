@@ -2,7 +2,8 @@
 <div style="max-height:900px">
 <h3>
 <a href="https://github.com/felixchenier/kineticstoolkit/discussions">Announcements</a>
-<a href="https://github.com/felixchenier/kineticstoolkit/discussions/categories/announcements.atom"><img src="_static/images/rss-icon.png" width="15px" height="15px"></a>
+<a href="https://github.com/felixchenier/kineticstoolkit/discussions/categories/announcements.atom"><img src="_static/images/rss-icon.png" width="25px"></a>
+<a href="https://twitter.com/KineticsToolkit"><img src="_static/images/twitter-logo.png" width="25px"></a>
 </h3>
 <?php include("/home/kinetics/public_html/rss/rss.php");?>
 </div>
