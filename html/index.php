@@ -920,7 +920,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="python_while.html">
-       🚧 Looping (while)
+       Looping (while)
       </a>
      </li>
      <li class="toctree-l3">
@@ -1166,8 +1166,8 @@ title="Print to PDF"
 <div style="max-height:900px">
 <h3>
 <a href="https://github.com/felixchenier/kineticstoolkit/discussions">Announcements</a>
-<a href="https://github.com/felixchenier/kineticstoolkit/discussions/categories/announcements.atom"><img src="_static/images/rss-icon.png" width="25px"></a>
-<a href="https://twitter.com/KineticsToolkit"><img src="_static/images/twitter-logo.png" width="25px"></a>
+<a href="https://github.com/felixchenier/kineticstoolkit/discussions/categories/announcements.atom"><img src="_static/images/rss-icon.png" alt="Subscribe to RSS/Atom Feed" width="25px"></a>
+<a href="https://twitter.com/KineticsToolkit"><img src="_static/images/twitter-logo.png" alt="Follow on Twitter" width="25px"></a>
 </h3>
 <?php include("/home/kinetics/public_html/rss/rss.php");?>
 </div>
