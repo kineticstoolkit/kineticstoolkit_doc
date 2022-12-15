@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>🚧 Integration exercises &#8212; Kinetics Toolkit</title>
+    <title>Integration exercises &#8212; Kinetics Toolkit</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -51,6 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="canonical" href="https://kineticstoolkit.uqam.ca/doc/python_integration_exercises.html" />
@@ -58,7 +60,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="🚧 Numpy" href="numpy.html" />
-    <link rel="prev" title="🚧 More advanced concepts" href="python_more_advanced.html" />
+    <link rel="prev" title="Dictionaries" href="python_dicts.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -111,7 +113,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="ktk_manual.html">
-   Manual
+   📘 Manual
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -121,17 +123,17 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="ktk_overview.html">
-     An overview of Kinetics Toolkit
+     📖 An overview of Kinetics Toolkit
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="ktk_installing.html">
-     Installing and importing
+     📖 Installing and importing
     </a>
    </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="timeseries.html">
-     TimeSeries
+     📖 TimeSeries
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
     <label for="toctree-checkbox-2">
@@ -141,29 +143,29 @@ const thebe_selector_output = ".output, .cell_output"
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="timeseries_basics.html">
-       TimeSeries basics
+       📖 TimeSeries basics
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="timeseries_manipulating.html">
-       Manipulating TimeSeries
+       📖 Manipulating TimeSeries
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="timeseries_dataframes.html">
-       Converting between TimeSeries and Pandas DataFrames
+       📖 Converting between TimeSeries and pandas DataFrames
       </a>
      </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="loadsave.html">
-     Saving and loading
+     📖 Saving and loading
     </a>
    </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="filters.html">
-     Filtering
+     📖 Filtering
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
     <label for="toctree-checkbox-3">
@@ -173,29 +175,24 @@ const thebe_selector_output = ".output, .cell_output"
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="filters_butter.html">
-       Removing frequencies using a Butterworth filter
+       📖 Butterworth filter
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="filters_smooth.html">
-       Smoothing signals using a moving average
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="filters_savgol.html">
-       Smoothing and deriving using a Savitzky-Golay filter
+      <a class="reference internal" href="filters_smooth_savgol.html">
+       📖 Moving average and Savitsky-Golay
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="filters_median.html">
-       Removing artefacts using a median filter
+       📖 Removing artefacts using a median filter
       </a>
      </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="cycles.html">
-     Detecting and normalizing cycles
+     📖 Detecting and normalizing cycles
     </a>
    </li>
    <li class="toctree-l2 has-children">
@@ -286,7 +283,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="api_reference.html">
-   API Reference
+   📘 API Reference
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
   <label for="toctree-checkbox-6">
@@ -296,12 +293,12 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="ktk_conventions.html">
-     Conventions
+     📖 Conventions
     </a>
    </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="api_classes.html">
-     Classes
+     📖 Classes
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
     <label for="toctree-checkbox-7">
@@ -522,7 +519,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="api_functions.html">
-     Functions
+     📖 Functions
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
     <label for="toctree-checkbox-10">
@@ -564,7 +561,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="api_modules.html">
-     Modules
+     📖 Modules
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
     <label for="toctree-checkbox-11">
@@ -746,19 +743,19 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="dev_extensions.html">
-     Developing extensions
+     📖 Developing extensions
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="ktk_release_notes.html">
-     Release Notes
+     🗓 Release Notes
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="dev_contributing.html">
-   How to contribute
+   👋 How to contribute
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
   <label for="toctree-checkbox-17">
@@ -783,7 +780,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="dev_installing_from_github.html">
-     Installing from GitHub
+     📖 Installing from GitHub
     </a>
    </li>
    <li class="toctree-l2">
@@ -837,7 +834,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2 current active has-children">
     <a class="reference internal" href="python.html">
-     The Python language
+     📖 The Python language
     </a>
     <input checked="" class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
     <label for="toctree-checkbox-20">
@@ -847,7 +844,7 @@ const thebe_selector_output = ".output, .cell_output"
     <ul class="current">
      <li class="toctree-l3">
       <a class="reference internal" href="python_arithmetics_and_variables.html">
-       Arithmetics and variables
+       📖 Arithmetics and variables
       </a>
      </li>
      <li class="toctree-l3">
@@ -919,34 +916,62 @@ const thebe_selector_output = ".output, .cell_output"
        </li>
       </ul>
      </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="python_while.html">
-       Looping (while)
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="python_looping.html">
+       Looping
       </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="python_for.html">
-       🚧 Looping (for)
-      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
+      <label for="toctree-checkbox-23">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="python_while.html">
+         Looping using
+         <code class="docutils literal notranslate">
+          <span class="pre">
+           while
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="python_for_range.html">
+         Looping using
+         <code class="docutils literal notranslate">
+          <span class="pre">
+           for
+          </span>
+         </code>
+         and
+         <code class="docutils literal notranslate">
+          <span class="pre">
+           range
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="python_for_enumerate.html">
+         Looping though a list using
+         <code class="docutils literal notranslate">
+          <span class="pre">
+           enumerate
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="python_dicts.html">
-       🚧 Dicts
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="python_string_operations.html">
-       🚧 String operations
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="python_more_advanced.html">
-       🚧 More advanced concepts
+       Dictionaries
       </a>
      </li>
      <li class="toctree-l3 current active">
       <a class="current reference internal" href="#">
-       🚧 Integration exercises
+       Integration exercises
       </a>
      </li>
     </ul>
@@ -955,8 +980,8 @@ const thebe_selector_output = ".output, .cell_output"
     <a class="reference internal" href="numpy.html">
      🚧 Numpy
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
-    <label for="toctree-checkbox-23">
+    <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
+    <label for="toctree-checkbox-24">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -992,8 +1017,8 @@ const thebe_selector_output = ".output, .cell_output"
     <a class="reference internal" href="matplotlib.html">
      🚧 Matplotlib
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
-    <label for="toctree-checkbox-24">
+    <input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/>
+    <label for="toctree-checkbox-25">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -1161,23 +1186,28 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#calculation-of-power-based-on-force-and-velocity">
-   Calculation of power based on force and velocity
+  <a class="reference internal nav-link" href="#exercise-1-calculation-of-power-based-on-force-and-velocity">
+   💪 Exercise 1: Calculation of power based on force and velocity
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#calculation-of-power-based-on-force-and-position">
-   Calculation of power based on force and position
+  <a class="reference internal nav-link" href="#exercise-2-calculation-of-speed-based-on-position">
+   💪 Exercise 2: Calculation of speed based on position
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#force-threshold">
-   Force threshold
+  <a class="reference internal nav-link" href="#exercise-3-calculation-of-velocity-and-power-based-on-position-and-force">
+   💪 Exercise 3: Calculation of velocity and power based on position and force
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#trajectory-of-a-ball">
-   Trajectory of a ball
+  <a class="reference internal nav-link" href="#exercise-4-calculation-of-step-time-using-a-force-threshold">
+   💪 Exercise 4: Calculation of step time using a force threshold
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-5-simulating-the-trajectory-of-a-ball">
+   💪 Exercise 5: Simulating the trajectory of a ball
   </a>
  </li>
 </ul>
@@ -1189,7 +1219,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>🚧 Integration exercises</h1>
+                <h1>Integration exercises</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -1200,23 +1230,28 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#calculation-of-power-based-on-force-and-velocity">
-   Calculation of power based on force and velocity
+  <a class="reference internal nav-link" href="#exercise-1-calculation-of-power-based-on-force-and-velocity">
+   💪 Exercise 1: Calculation of power based on force and velocity
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#calculation-of-power-based-on-force-and-position">
-   Calculation of power based on force and position
+  <a class="reference internal nav-link" href="#exercise-2-calculation-of-speed-based-on-position">
+   💪 Exercise 2: Calculation of speed based on position
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#force-threshold">
-   Force threshold
+  <a class="reference internal nav-link" href="#exercise-3-calculation-of-velocity-and-power-based-on-position-and-force">
+   💪 Exercise 3: Calculation of velocity and power based on position and force
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#trajectory-of-a-ball">
-   Trajectory of a ball
+  <a class="reference internal nav-link" href="#exercise-4-calculation-of-step-time-using-a-force-threshold">
+   💪 Exercise 4: Calculation of step time using a force threshold
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-5-simulating-the-trajectory-of-a-ball">
+   💪 Exercise 5: Simulating the trajectory of a ball
   </a>
  </li>
 </ul>
@@ -1230,29 +1265,451 @@ title="Print to PDF"
               <div>
                 
   <section class="tex2jax_ignore mathjax_ignore" id="integration-exercises">
-<h1>🚧 Integration exercises<a class="headerlink" href="#integration-exercises" title="Permalink to this headline">#</a></h1>
-<div class="admonition-stub admonition">
-<p class="admonition-title">Section in development</p>
-<p>This section is still in heavy development. Your <a class="reference internal" href="dev_contributing.html"><span class="doc std std-doc">suggestions</span></a> are welcome.</p>
+<h1>Integration exercises<a class="headerlink" href="#integration-exercises" title="Permalink to this headline">#</a></h1>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Summary</div>
+<p class="sd-card-text">This section proposes exercises to integrate the basic python notions viewed in the previous sections.</p>
 </div>
-<p>These exercices will be repeated after seing numpy.</p>
-<section id="calculation-of-power-based-on-force-and-velocity">
-<h2>Calculation of power based on force and velocity<a class="headerlink" href="#calculation-of-power-based-on-force-and-velocity" title="Permalink to this headline">#</a></h2>
-<p>We have a list of forces applied on a moving object by a dynamometer.
-We also have a list of velocities for the moving object.
-We want to calculate a list of power.
-Without and with list comprehension.</p>
+</div>
+<p>At this point, we viewed just enough of the python language to be able to process an impressing number of data. We saw:</p>
+<ul class="simple">
+<li><p>how to store and access data in memory using <a class="reference internal" href="python_arithmetics_and_variables.html"><span class="doc std std-doc">variables</span></a> such as <a class="reference internal" href="python_strings.html"><span class="doc std std-doc">strings</span></a>, <a class="reference internal" href="python_numbers.html"><span class="doc std std-doc">integers</span></a>, <a class="reference internal" href="python_numbers.html"><span class="doc std std-doc">floats</span></a>, <a class="reference internal" href="python_lists.html"><span class="doc std std-doc">lists</span></a> and <a class="reference internal" href="python_dicts.html"><span class="doc std std-doc">dictionaries</span></a>;</p></li>
+<li><p>how to perform <a class="reference internal" href="python_arithmetics_and_variables.html"><span class="doc std std-doc">python_arithmetics_and_variables</span></a> operations such as addition, subtraction, multiplication and division;</p></li>
+<li><p>how to check for <a class="reference internal" href="python_conditions.html"><span class="doc std std-doc">python_conditions</span></a> and perform operation according to these conditions;</p></li>
+<li><p>how to <a class="reference internal" href="python_looping.html"><span class="doc std std-doc">repeat code</span></a> several times or <a class="reference internal" href="python_for_range.html"><span class="doc std std-doc">loop through lists</span></a> or <a class="reference internal" href="python_dicts.html"><span class="doc std std-doc">dictionaries</span></a>;</p></li>
+<li><p>decompose code in smaller <a class="reference internal" href="python_functions.html"><span class="doc std std-doc">functions</span></a>.</p></li>
+</ul>
+<p>Obviously, using higher level libraries such as numpy, matplotlib and pandas (which will follow in the next chapter) will make such data processing much easier and powerful. But in the mean time, it is already possible to solve these exercises, using only the subset of python that we just learned.</p>
+<section id="exercise-1-calculation-of-power-based-on-force-and-velocity">
+<h2>💪 Exercise 1: Calculation of power based on force and velocity<a class="headerlink" href="#exercise-1-calculation-of-power-based-on-force-and-velocity" title="Permalink to this headline">#</a></h2>
+<p>Someone pushes on a carriage using a dynamometer, in such a way that we get a measure of the contact force in newtons every tenth of a second, for five seconds.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">push_force</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="mf">91.19</span><span class="p">,</span> <span class="mf">99.22</span><span class="p">,</span> <span class="mf">93.11</span><span class="p">,</span> <span class="mf">91.76</span><span class="p">,</span> <span class="mf">94.93</span><span class="p">,</span> <span class="mf">96.54</span><span class="p">,</span> <span class="mf">92.27</span><span class="p">,</span> <span class="mf">96.01</span><span class="p">,</span> <span class="mf">92.48</span><span class="p">,</span>
+    <span class="mf">94.89</span><span class="p">,</span> <span class="mf">91.55</span><span class="p">,</span> <span class="mf">90.82</span><span class="p">,</span> <span class="mf">97.91</span><span class="p">,</span> <span class="mf">93.19</span><span class="p">,</span> <span class="mf">95.65</span><span class="p">,</span> <span class="mf">93.07</span><span class="p">,</span> <span class="mf">93.65</span><span class="p">,</span> <span class="mf">90.57</span><span class="p">,</span>
+    <span class="mf">98.71</span><span class="p">,</span> <span class="mf">99.97</span><span class="p">,</span> <span class="mf">95.72</span><span class="p">,</span> <span class="mf">96.27</span><span class="p">,</span> <span class="mf">92.67</span><span class="p">,</span> <span class="mf">93.4</span> <span class="p">,</span> <span class="mf">98.84</span><span class="p">,</span> <span class="mf">92.63</span><span class="p">,</span> <span class="mf">97.03</span><span class="p">,</span>
+    <span class="mf">93.93</span><span class="p">,</span> <span class="mf">98.34</span><span class="p">,</span> <span class="mf">95.82</span><span class="p">,</span> <span class="mf">99.39</span><span class="p">,</span> <span class="mf">99.29</span><span class="p">,</span> <span class="mf">92.74</span><span class="p">,</span> <span class="mf">90.29</span><span class="p">,</span> <span class="mf">94.57</span><span class="p">,</span> <span class="mf">90.69</span><span class="p">,</span>
+    <span class="mf">93.16</span><span class="p">,</span> <span class="mf">95.01</span><span class="p">,</span> <span class="mf">93.16</span><span class="p">,</span> <span class="mf">97.04</span><span class="p">,</span> <span class="mf">97.23</span><span class="p">,</span> <span class="mf">98.9</span> <span class="p">,</span> <span class="mf">90.26</span><span class="p">,</span> <span class="mf">97.46</span><span class="p">,</span> <span class="mf">92.4</span> <span class="p">,</span>
+    <span class="mf">90.84</span><span class="p">,</span> <span class="mf">97.39</span><span class="p">,</span> <span class="mf">93.56</span><span class="p">,</span> <span class="mf">97.47</span><span class="p">,</span> <span class="mf">93.93</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>At the same time, an odometer reports the carriage speed in m/s, also every tenth of a second.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">carriage_speed</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="mf">1.05</span><span class="p">,</span> <span class="mf">1.08</span><span class="p">,</span> <span class="mf">1.04</span><span class="p">,</span> <span class="mf">1.09</span><span class="p">,</span> <span class="mf">1.04</span><span class="p">,</span> <span class="mf">1.06</span><span class="p">,</span> <span class="mf">1.04</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">,</span> <span class="mf">1.04</span><span class="p">,</span>
+    <span class="mf">1.01</span><span class="p">,</span> <span class="mf">1.09</span><span class="p">,</span> <span class="mf">1.09</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">,</span> <span class="mf">1.06</span><span class="p">,</span> <span class="mf">1.03</span><span class="p">,</span> <span class="mf">1.08</span><span class="p">,</span> <span class="mf">1.08</span><span class="p">,</span> <span class="mf">1.09</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">,</span>
+    <span class="mf">1.00</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">,</span> <span class="mf">1.06</span><span class="p">,</span> <span class="mf">1.03</span><span class="p">,</span> <span class="mf">1.07</span><span class="p">,</span> <span class="mf">1.02</span><span class="p">,</span> <span class="mf">1.03</span><span class="p">,</span> <span class="mf">1.07</span><span class="p">,</span> <span class="mf">1.07</span><span class="p">,</span>
+    <span class="mf">1.02</span><span class="p">,</span> <span class="mf">1.04</span><span class="p">,</span> <span class="mf">1.06</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">,</span> <span class="mf">1.04</span><span class="p">,</span> <span class="mf">1.08</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">,</span> <span class="mf">1.02</span><span class="p">,</span> <span class="mf">1.06</span><span class="p">,</span>
+    <span class="mf">1.03</span><span class="p">,</span> <span class="mf">1.06</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">,</span> <span class="mf">1.01</span><span class="p">,</span> <span class="mf">1.04</span><span class="p">,</span> <span class="mf">1.00</span><span class="p">,</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Write this function, knowing that power equals force times speed:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_power</span><span class="p">(</span><span class="n">force</span><span class="p">,</span> <span class="n">speed</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the power according to force and speed.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    force : list[float]</span>
+<span class="sd">        A list of forces in newtons.</span>
+<span class="sd">    speed : list[float]</span>
+<span class="sd">        A list of speeds in m/s. Its length must be the same as force.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list[float]</span>
+<span class="sd">        A list of powers in watts.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<p>and use it to calculate the power developed by the person to push the carriage.</p>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_power</span><span class="p">(</span><span class="n">force</span><span class="p">,</span> <span class="n">speed</span><span class="p">):</span>
+    <span class="n">power</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Initialize the output list</span>
+    
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">force</span><span class="p">)):</span>
+        <span class="n">power</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">force</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">*</span> <span class="n">speed</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">power</span>
+
+<span class="c1"># Test the function with the supplied data</span>
+<span class="n">calculate_power</span><span class="p">(</span><span class="n">push_force</span><span class="p">,</span> <span class="n">carriage_speed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[95.7495,
+ 107.1576,
+ 96.8344,
+ 100.01840000000001,
+ 98.72720000000001,
+ 102.3324,
+ 95.9608,
+ 100.8105,
+ 97.10400000000001,
+ 99.6345,
+ 95.212,
+ 91.72819999999999,
+ 106.7219,
+ 101.5771,
+ 100.4325,
+ 94.0007,
+ 99.269,
+ 93.2871,
+ 106.6068,
+ 107.9676,
+ 104.3348,
+ 96.27,
+ 92.67,
+ 93.4,
+ 99.8284,
+ 97.2615,
+ 102.85180000000001,
+ 96.74790000000002,
+ 105.22380000000001,
+ 97.73639999999999,
+ 102.3717,
+ 106.24030000000002,
+ 99.2318,
+ 92.09580000000001,
+ 98.3528,
+ 96.1314,
+ 93.16,
+ 95.96010000000001,
+ 93.16,
+ 100.92160000000001,
+ 105.00840000000001,
+ 98.9,
+ 92.0652,
+ 103.3076,
+ 95.17200000000001,
+ 96.2904,
+ 102.2595,
+ 94.4956,
+ 101.36880000000001,
+ 93.93]
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="calculation-of-power-based-on-force-and-position">
-<h2>Calculation of power based on force and position<a class="headerlink" href="#calculation-of-power-based-on-force-and-position" title="Permalink to this headline">#</a></h2>
-<p>Same example, but with a list of positions instead of velocities. Velocity is calculated as (p(t+1) - p(t-1)) / (2 * sample_time).</p>
+<section id="exercise-2-calculation-of-speed-based-on-position">
+<h2>💪 Exercise 2: Calculation of speed based on position<a class="headerlink" href="#exercise-2-calculation-of-speed-based-on-position" title="Permalink to this headline">#</a></h2>
+<p>Knowing that:</p>
+<p><span class="math notranslate nohighlight">\(v(t) = \left( {p(t+1) - p(t-1)} \right) * \dfrac{\text{sampling frequency}}{2}\)</span></p>
+<p>write this function:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_speed</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">sampling_frequency</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate speed based on position.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    position : list[float]</span>
+<span class="sd">        A list of positions in meters.</span>
+<span class="sd">    sampling_frequency : float</span>
+<span class="sd">        The frequency at which the positions were measured in Hz.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list[float]</span>
+<span class="sd">        A list of speeds in m/s. This list is the same size as `position`.</span>
+<span class="sd">        Since speed cannot be calculated on first and last time, values</span>
+<span class="sd">        of zero are returned for these times.</span>
+<span class="sd">    </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+</pre></div>
+</div>
+<p>and test it with the following position values that were sampled at 100 Hz:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_of_positions</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="mf">30.5</span><span class="p">,</span> <span class="mf">30.511</span><span class="p">,</span> <span class="mf">30.523</span><span class="p">,</span> <span class="mf">30.535</span><span class="p">,</span> <span class="mf">30.548</span><span class="p">,</span> <span class="mf">30.56</span><span class="p">,</span> <span class="mf">30.572</span><span class="p">,</span> <span class="mf">30.584</span><span class="p">,</span> <span class="mf">30.595</span><span class="p">,</span> <span class="mf">30.606</span><span class="p">,</span>
+    <span class="mf">30.619</span><span class="p">,</span> <span class="mf">30.631</span><span class="p">,</span> <span class="mf">30.645</span><span class="p">,</span> <span class="mf">30.658</span><span class="p">,</span> <span class="mf">30.672</span><span class="p">,</span> <span class="mf">30.687</span><span class="p">,</span> <span class="mf">30.702</span><span class="p">,</span> <span class="mf">30.716</span><span class="p">,</span> <span class="mf">30.731</span><span class="p">,</span>
+    <span class="mf">30.746</span><span class="p">,</span> <span class="mf">30.763</span><span class="p">,</span> <span class="mf">30.779</span><span class="p">,</span> <span class="mf">30.795</span><span class="p">,</span> <span class="mf">30.81</span><span class="p">,</span> <span class="mf">30.824</span><span class="p">,</span> <span class="mf">30.838</span><span class="p">,</span> <span class="mf">30.853</span><span class="p">,</span> <span class="mf">30.868</span><span class="p">,</span> <span class="mf">30.884</span><span class="p">,</span>
+    <span class="mf">30.901</span><span class="p">,</span> <span class="mf">30.917</span><span class="p">,</span> <span class="mf">30.934</span><span class="p">,</span> <span class="mf">30.951</span><span class="p">,</span> <span class="mf">30.969</span><span class="p">,</span> <span class="mf">30.988</span><span class="p">,</span> <span class="mf">31.006</span><span class="p">,</span> <span class="mf">31.024</span><span class="p">,</span> <span class="mf">31.042</span><span class="p">,</span> <span class="mf">31.059</span><span class="p">,</span>
+    <span class="mf">31.076</span><span class="p">,</span> <span class="mf">31.092</span><span class="p">,</span> <span class="mf">31.109</span><span class="p">,</span> <span class="mf">31.125</span><span class="p">,</span> <span class="mf">31.143</span><span class="p">,</span> <span class="mf">31.161</span><span class="p">,</span> <span class="mf">31.178</span><span class="p">,</span> <span class="mf">31.196</span><span class="p">,</span> <span class="mf">31.214</span><span class="p">,</span> <span class="mf">31.232</span><span class="p">,</span>
+    <span class="mf">31.25</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_speed</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">sampling_frequency</span><span class="p">):</span>
+    <span class="n">speed</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># First element</span>
+
+    <span class="c1"># Calculate speed for every element but first and last</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">position</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="n">speed</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">position</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">position</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="o">*</span> <span class="n">sampling_frequency</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+
+    <span class="n">speed</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># Last element</span>
+    <span class="k">return</span> <span class="n">speed</span>
+
+<span class="c1"># Test this function</span>
+<span class="n">calculate_speed</span><span class="p">(</span><span class="n">list_of_positions</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0,
+ 1.1499999999999844,
+ 1.2000000000000455,
+ 1.249999999999929,
+ 1.249999999999929,
+ 1.2000000000000455,
+ 1.2000000000000455,
+ 1.1499999999999844,
+ 1.100000000000101,
+ 1.2000000000000455,
+ 1.249999999999929,
+ 1.29999999999999,
+ 1.3500000000000512,
+ 1.3500000000000512,
+ 1.4499999999999957,
+ 1.5000000000000568,
+ 1.4499999999999957,
+ 1.4499999999999957,
+ 1.4999999999998792,
+ 1.6000000000000014,
+ 1.6500000000000625,
+ 1.6000000000000014,
+ 1.5499999999999403,
+ 1.4499999999999957,
+ 1.4000000000001123,
+ 1.4499999999999957,
+ 1.4999999999998792,
+ 1.5499999999999403,
+ 1.6500000000000625,
+ 1.6500000000000625,
+ 1.6500000000000625,
+ 1.699999999999946,
+ 1.750000000000007,
+ 1.8499999999999517,
+ 1.8499999999999517,
+ 1.8000000000000682,
+ 1.8000000000000682,
+ 1.750000000000007,
+ 1.699999999999946,
+ 1.649999999999885,
+ 1.6500000000000625,
+ 1.6500000000000625,
+ 1.699999999999946,
+ 1.8000000000000682,
+ 1.750000000000007,
+ 1.750000000000007,
+ 1.7999999999998906,
+ 1.7999999999998906,
+ 1.8000000000000682,
+ 0]
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="force-threshold">
-<h2>Force threshold<a class="headerlink" href="#force-threshold" title="Permalink to this headline">#</a></h2>
-<p>We have a list of forces and a corresponding list of times. We want to know at what time the force started to exceed a given threshold.</p>
+<section id="exercise-3-calculation-of-velocity-and-power-based-on-position-and-force">
+<h2>💪 Exercise 3: Calculation of velocity and power based on position and force<a class="headerlink" href="#exercise-3-calculation-of-velocity-and-power-based-on-position-and-force" title="Permalink to this headline">#</a></h2>
+<p>We repeat exercise 1, but this time instead of measuring the speed of the carriage, we measure its position. We have these two lists where data has been acquired at a sampling frequency of 10 Hz.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">push_force</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="mf">91.19</span><span class="p">,</span> <span class="mf">99.22</span><span class="p">,</span> <span class="mf">93.11</span><span class="p">,</span> <span class="mf">91.76</span><span class="p">,</span> <span class="mf">94.93</span><span class="p">,</span> <span class="mf">96.54</span><span class="p">,</span> <span class="mf">92.27</span><span class="p">,</span> <span class="mf">96.01</span><span class="p">,</span> <span class="mf">92.48</span><span class="p">,</span>
+    <span class="mf">94.89</span><span class="p">,</span> <span class="mf">91.55</span><span class="p">,</span> <span class="mf">90.82</span><span class="p">,</span> <span class="mf">97.91</span><span class="p">,</span> <span class="mf">93.19</span><span class="p">,</span> <span class="mf">95.65</span><span class="p">,</span> <span class="mf">93.07</span><span class="p">,</span> <span class="mf">93.65</span><span class="p">,</span> <span class="mf">90.57</span><span class="p">,</span>
+    <span class="mf">98.71</span><span class="p">,</span> <span class="mf">99.97</span><span class="p">,</span> <span class="mf">95.72</span><span class="p">,</span> <span class="mf">96.27</span><span class="p">,</span> <span class="mf">92.67</span><span class="p">,</span> <span class="mf">93.4</span> <span class="p">,</span> <span class="mf">98.84</span><span class="p">,</span> <span class="mf">92.63</span><span class="p">,</span> <span class="mf">97.03</span><span class="p">,</span>
+    <span class="mf">93.93</span><span class="p">,</span> <span class="mf">98.34</span><span class="p">,</span> <span class="mf">95.82</span><span class="p">,</span> <span class="mf">99.39</span><span class="p">,</span> <span class="mf">99.29</span><span class="p">,</span> <span class="mf">92.74</span><span class="p">,</span> <span class="mf">90.29</span><span class="p">,</span> <span class="mf">94.57</span><span class="p">,</span> <span class="mf">90.69</span><span class="p">,</span>
+    <span class="mf">93.16</span><span class="p">,</span> <span class="mf">95.01</span><span class="p">,</span> <span class="mf">93.16</span><span class="p">,</span> <span class="mf">97.04</span><span class="p">,</span> <span class="mf">97.23</span><span class="p">,</span> <span class="mf">98.9</span> <span class="p">,</span> <span class="mf">90.26</span><span class="p">,</span> <span class="mf">97.46</span><span class="p">,</span> <span class="mf">92.4</span> <span class="p">,</span>
+    <span class="mf">90.84</span><span class="p">,</span> <span class="mf">97.39</span><span class="p">,</span> <span class="mf">93.56</span><span class="p">,</span> <span class="mf">97.47</span><span class="p">,</span> <span class="mf">93.93</span>
+<span class="p">]</span>
+
+<span class="n">carriage_position</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="mf">111.5</span><span class="p">,</span> <span class="mf">111.613</span><span class="p">,</span> <span class="mf">111.73</span><span class="p">,</span> <span class="mf">111.852</span><span class="p">,</span> <span class="mf">111.98</span><span class="p">,</span> <span class="mf">112.103</span><span class="p">,</span> <span class="mf">112.225</span><span class="p">,</span> <span class="mf">112.34</span><span class="p">,</span>
+    <span class="mf">112.452</span><span class="p">,</span> <span class="mf">112.567</span><span class="p">,</span> <span class="mf">112.692</span><span class="p">,</span> <span class="mf">112.818</span><span class="p">,</span> <span class="mf">112.952</span><span class="p">,</span> <span class="mf">113.085</span><span class="p">,</span> <span class="mf">113.228</span><span class="p">,</span> <span class="mf">113.37</span><span class="p">,</span>
+    <span class="mf">113.52</span><span class="p">,</span> <span class="mf">113.666</span><span class="p">,</span> <span class="mf">113.813</span><span class="p">,</span> <span class="mf">113.969</span><span class="p">,</span> <span class="mf">114.13</span><span class="p">,</span> <span class="mf">114.296</span><span class="p">,</span> <span class="mf">114.454</span><span class="p">,</span> <span class="mf">114.602</span><span class="p">,</span>
+    <span class="mf">114.749</span><span class="p">,</span> <span class="mf">114.887</span><span class="p">,</span> <span class="mf">115.033</span><span class="p">,</span> <span class="mf">115.186</span><span class="p">,</span> <span class="mf">115.347</span><span class="p">,</span> <span class="mf">115.511</span><span class="p">,</span> <span class="mf">115.676</span><span class="p">,</span> <span class="mf">115.844</span><span class="p">,</span>
+    <span class="mf">116.017</span><span class="p">,</span> <span class="mf">116.199</span><span class="p">,</span> <span class="mf">116.386</span><span class="p">,</span> <span class="mf">116.568</span><span class="p">,</span> <span class="mf">116.745</span><span class="p">,</span> <span class="mf">116.922</span><span class="p">,</span> <span class="mf">117.095</span><span class="p">,</span> <span class="mf">117.262</span><span class="p">,</span>
+    <span class="mf">117.424</span><span class="p">,</span> <span class="mf">117.592</span><span class="p">,</span> <span class="mf">117.757</span><span class="p">,</span> <span class="mf">117.931</span><span class="p">,</span> <span class="mf">118.113</span><span class="p">,</span> <span class="mf">118.289</span><span class="p">,</span> <span class="mf">118.469</span><span class="p">,</span> <span class="mf">118.644</span><span class="p">,</span>
+    <span class="mf">118.826</span><span class="p">,</span> <span class="mf">119.001</span>
+ <span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Write a function named <code class="docutils literal notranslate"><span class="pre">calculate_speed_and_power</span></code> that would have this docstring:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_speed_and_power</span><span class="p">(</span><span class="n">force</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">sampling_frequency</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate speed and power based on force and position.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    force : list[float]</span>
+<span class="sd">        A list of forces in newtons.</span>
+<span class="sd">    position : list[float]</span>
+<span class="sd">        A list of positions in meters. Its length must be the same as `force`.</span>
+<span class="sd">    sampling_frequency : float</span>
+<span class="sd">        The frequency at which the positions were measured in Hz.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    list[dict]</span>
+<span class="sd">        A list of the same length of `force` and `position`, that contains</span>
+<span class="sd">        dictionaries with the following keys:</span>
+<span class="sd">        - &#39;Force&#39;: force in newtons</span>
+<span class="sd">        - &#39;Position&#39;: position in meters</span>
+<span class="sd">        - &#39;Speed&#39;: speed in m/s</span>
+<span class="sd">        - &#39;Power&#39;: power in watts.</span>
+
+<span class="sd">    Example</span>
+<span class="sd">    -------</span>
+<span class="sd">    To get the power at the 5th sample, we would do:</span>
+<span class="sd">    &gt;&gt;&gt; data = calculate_speed_and_power(force, position, sampling_frequency)</span>
+<span class="sd">    &gt;&gt;&gt; power_5th_sample = data[4][&#39;Power&#39;]</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You are encouraged to reuse the functions you wrote in exercises 1 and 2.</p>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_speed_and_power</span><span class="p">(</span><span class="n">force</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">sampling_frequency</span><span class="p">):</span>
+    <span class="c1"># Calculate speed based on position</span>
+    <span class="n">speed</span> <span class="o">=</span> <span class="n">calculate_speed</span><span class="p">(</span><span class="n">position</span><span class="p">,</span> <span class="n">sampling_frequency</span><span class="p">)</span>
+
+    <span class="c1"># Calculate power based on speed and force</span>
+    <span class="n">power</span> <span class="o">=</span> <span class="n">calculate_power</span><span class="p">(</span><span class="n">force</span><span class="p">,</span> <span class="n">speed</span><span class="p">)</span>
+
+    <span class="c1"># Generate a list of dictionaries with this information</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">position</span><span class="p">)):</span>
+        <span class="n">output</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+            <span class="p">{</span>
+                <span class="s2">&quot;Force&quot;</span><span class="p">:</span> <span class="n">force</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                <span class="s2">&quot;Position&quot;</span><span class="p">:</span> <span class="n">position</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                <span class="s2">&quot;Speed&quot;</span><span class="p">:</span> <span class="n">speed</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+                <span class="s2">&quot;Power&quot;</span><span class="p">:</span> <span class="n">power</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+            <span class="p">}</span>
+        <span class="p">)</span>
+        
+    <span class="k">return</span> <span class="n">output</span>
+
+<span class="c1"># Test it</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">calculate_speed_and_power</span><span class="p">(</span>
+    <span class="n">push_force</span><span class="p">,</span>
+    <span class="n">carriage_position</span><span class="p">,</span>
+    <span class="n">sampling_frequency</span><span class="o">=</span><span class="mi">10</span>
+<span class="p">)</span>
+
+<span class="n">data</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;Force&#39;: 94.93,
+ &#39;Position&#39;: 111.98,
+ &#39;Speed&#39;: 1.2549999999999528,
+ &#39;Power&#39;: 119.13714999999553}
+</pre></div>
+</div>
+</div>
+</div>
 </section>
-<section id="trajectory-of-a-ball">
-<h2>Trajectory of a ball<a class="headerlink" href="#trajectory-of-a-ball" title="Permalink to this headline">#</a></h2>
+<section id="exercise-4-calculation-of-step-time-using-a-force-threshold">
+<h2>💪 Exercise 4: Calculation of step time using a force threshold<a class="headerlink" href="#exercise-4-calculation-of-step-time-using-a-force-threshold" title="Permalink to this headline">#</a></h2>
+<p>Using a force plate, we recorded the vertical ground reaction force using one step, at a sampling frequency of 20 Hz:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grf</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mf">5.5</span><span class="p">,</span> <span class="mf">7.1</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">,</span> <span class="mf">37.7</span><span class="p">,</span> <span class="mf">180.8</span><span class="p">,</span>
+    <span class="mf">400.2</span><span class="p">,</span> <span class="mf">603.1</span><span class="p">,</span> <span class="mf">598.4</span><span class="p">,</span> <span class="mf">584.2</span><span class="p">,</span> <span class="mf">620.6</span><span class="p">,</span> <span class="mf">635.5</span><span class="p">,</span> <span class="mf">602.7</span><span class="p">,</span> <span class="mf">246.0</span><span class="p">,</span> <span class="mf">14.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.2</span><span class="p">,</span>
+    <span class="o">-</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.6</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/python_integration_exercises_16_0.png" src="_images/python_integration_exercises_16_0.png" />
+</div>
+</div>
+<p>We consider that the step begins when the force exceeds a given threshold, and that it ends when the force stops exceeding this threshold. Write the function <code class="docutils literal notranslate"><span class="pre">calculate_step_time</span></code> that calculates the duration of the step, then test it with a threshold of 50 N.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_step_time</span><span class="p">(</span><span class="n">grf</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">sampling_frequency</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the step time using vertical ground reaction forces.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    grf : list[float]</span>
+<span class="sd">        A list of vertical ground reaction forces in newtons. There must</span>
+<span class="sd">        be only one step in this list.</span>
+<span class="sd">    threshold : float</span>
+<span class="sd">        A value above which we consider the step begins, and below which</span>
+<span class="sd">        the step ends.</span>
+<span class="sd">    sampling_frequency :</span>
+<span class="sd">        The sampling frequency in Hz.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    float</span>
+<span class="sd">        The duration of the step.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<ul class="simple">
+<li><p>Start by finding at which index the step begins.</p></li>
+<li><p>From this index, find at which index the step ends.</p></li>
+<li><p>Calculate the step time using the difference between the indexes and the sampling frequency.</p></li>
+</ul>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">calculate_step_time</span><span class="p">(</span><span class="n">grf</span><span class="p">,</span> <span class="n">threshold</span><span class="p">,</span> <span class="n">sampling_frequency</span><span class="p">):</span>
+    <span class="c1"># Find i_begin</span>
+    <span class="n">current_index</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">grf</span><span class="p">[</span><span class="n">current_index</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">threshold</span><span class="p">:</span>
+        <span class="n">current_index</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">i_begin</span> <span class="o">=</span> <span class="n">current_index</span>
+
+    <span class="c1"># Find i_end</span>
+    <span class="k">while</span> <span class="n">grf</span><span class="p">[</span><span class="n">current_index</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">threshold</span><span class="p">:</span>
+        <span class="n">current_index</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">i_end</span> <span class="o">=</span> <span class="n">current_index</span>
+
+    <span class="c1"># Calculate and return the time step</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">i_end</span> <span class="o">-</span> <span class="n">i_begin</span><span class="p">)</span> <span class="o">/</span> <span class="n">sampling_frequency</span>
+
+<span class="c1"># Test it</span>
+<span class="n">calculate_step_time</span><span class="p">(</span><span class="n">grf</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">sampling_frequency</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.45
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="exercise-5-simulating-the-trajectory-of-a-ball">
+<h2>💪 Exercise 5: Simulating the trajectory of a ball<a class="headerlink" href="#exercise-5-simulating-the-trajectory-of-a-ball" title="Permalink to this headline">#</a></h2>
 <p>We throw a 0.1 kg ball upward using a constant force of 50 N applied purely vertically during 0.5 second, then we release it.</p>
 <ul class="simple">
 <li><p>Create a list named <code class="docutils literal notranslate"><span class="pre">acceleration</span></code> that calculates the vertical acceleration of the ball at every 0.1 second during 0 to 2 seconds, 0.5 second being the release time.</p></li>
@@ -1289,11 +1746,11 @@ Without and with list comprehension.</p>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="python_more_advanced.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="python_dicts.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">🚧 More advanced concepts</p>
+            <p class="prev-next-title">Dictionaries</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="numpy.html" title="next page">

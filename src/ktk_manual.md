@@ -1,4 +1,4 @@
-# Manual
+# 📘 Manual
 
 :::{admonition} Prerequisites
 

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Detecting and normalizing cycles &#8212; Kinetics Toolkit</title>
+    <title>📖 Working with cycles &#8212; Kinetics Toolkit</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -51,6 +51,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
     <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="canonical" href="https://kineticstoolkit.uqam.ca/doc/cycles.html" />
@@ -58,7 +60,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="3D rigid body geometry" href="geometry.html" />
-    <link rel="prev" title="Removing artefacts using a median filter" href="filters_median.html" />
+    <link rel="prev" title="📖 Removing artefacts using a median filter" href="filters_median.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -111,7 +113,7 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active has-children">
   <a class="reference internal" href="ktk_manual.html">
-   Manual
+   📘 Manual
   </a>
   <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
   <label for="toctree-checkbox-1">
@@ -121,17 +123,17 @@ const thebe_selector_output = ".output, .cell_output"
   <ul class="current">
    <li class="toctree-l2">
     <a class="reference internal" href="ktk_overview.html">
-     An overview of Kinetics Toolkit
+     📖 An overview of Kinetics Toolkit
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="ktk_installing.html">
-     Installing and importing
+     📖 Installing and importing
     </a>
    </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="timeseries.html">
-     TimeSeries
+     📖 TimeSeries
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
     <label for="toctree-checkbox-2">
@@ -141,29 +143,29 @@ const thebe_selector_output = ".output, .cell_output"
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="timeseries_basics.html">
-       TimeSeries basics
+       📖 TimeSeries basics
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="timeseries_manipulating.html">
-       Manipulating TimeSeries
+       📖 Manipulating TimeSeries
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="timeseries_dataframes.html">
-       Converting between TimeSeries and Pandas DataFrames
+       📖 Converting between TimeSeries and pandas DataFrames
       </a>
      </li>
     </ul>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="loadsave.html">
-     Saving and loading
+     📖 Saving and loading
     </a>
    </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="filters.html">
-     Filtering
+     📖 Filtering
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
     <label for="toctree-checkbox-3">
@@ -173,29 +175,24 @@ const thebe_selector_output = ".output, .cell_output"
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="filters_butter.html">
-       Removing frequencies using a Butterworth filter
+       📖 Butterworth filter
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="filters_smooth.html">
-       Smoothing signals using a moving average
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="filters_savgol.html">
-       Smoothing and deriving using a Savitzky-Golay filter
+      <a class="reference internal" href="filters_smooth_savgol.html">
+       📖 Moving average and Savitsky-Golay
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="filters_median.html">
-       Removing artefacts using a median filter
+       📖 Removing artefacts using a median filter
       </a>
      </li>
     </ul>
    </li>
    <li class="toctree-l2 current active">
     <a class="current reference internal" href="#">
-     Detecting and normalizing cycles
+     📖 Working with cycles
     </a>
    </li>
    <li class="toctree-l2 has-children">
@@ -286,7 +283,7 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="api_reference.html">
-   API Reference
+   📘 API Reference
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
   <label for="toctree-checkbox-6">
@@ -296,12 +293,12 @@ const thebe_selector_output = ".output, .cell_output"
   <ul>
    <li class="toctree-l2">
     <a class="reference internal" href="ktk_conventions.html">
-     Conventions
+     📖 Conventions
     </a>
    </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="api_classes.html">
-     Classes
+     📖 Classes
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
     <label for="toctree-checkbox-7">
@@ -522,7 +519,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="api_functions.html">
-     Functions
+     📖 Functions
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
     <label for="toctree-checkbox-10">
@@ -564,7 +561,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="api_modules.html">
-     Modules
+     📖 Modules
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
     <label for="toctree-checkbox-11">
@@ -746,19 +743,19 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="dev_extensions.html">
-     Developing extensions
+     📖 Developing extensions
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="ktk_release_notes.html">
-     Release Notes
+     🗓 Release Notes
     </a>
    </li>
   </ul>
  </li>
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="dev_contributing.html">
-   How to contribute
+   👋 How to contribute
   </a>
   <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
   <label for="toctree-checkbox-17">
@@ -783,7 +780,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="dev_installing_from_github.html">
-     Installing from GitHub
+     📖 Installing from GitHub
     </a>
    </li>
    <li class="toctree-l2">
@@ -837,7 +834,7 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="python.html">
-     The Python language
+     📖 The Python language
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
     <label for="toctree-checkbox-20">
@@ -847,7 +844,7 @@ const thebe_selector_output = ".output, .cell_output"
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="python_arithmetics_and_variables.html">
-       Arithmetics and variables
+       📖 Arithmetics and variables
       </a>
      </li>
      <li class="toctree-l3">
@@ -919,34 +916,62 @@ const thebe_selector_output = ".output, .cell_output"
        </li>
       </ul>
      </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="python_while.html">
-       Looping (while)
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="python_looping.html">
+       Looping
       </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="python_for.html">
-       🚧 Looping (for)
-      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
+      <label for="toctree-checkbox-23">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="python_while.html">
+         Looping using
+         <code class="docutils literal notranslate">
+          <span class="pre">
+           while
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="python_for_range.html">
+         Looping using
+         <code class="docutils literal notranslate">
+          <span class="pre">
+           for
+          </span>
+         </code>
+         and
+         <code class="docutils literal notranslate">
+          <span class="pre">
+           range
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="python_for_enumerate.html">
+         Looping though a list using
+         <code class="docutils literal notranslate">
+          <span class="pre">
+           enumerate
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="python_dicts.html">
-       🚧 Dicts
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="python_string_operations.html">
-       🚧 String operations
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="python_more_advanced.html">
-       🚧 More advanced concepts
+       Dictionaries
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="python_integration_exercises.html">
-       🚧 Integration exercises
+       Integration exercises
       </a>
      </li>
     </ul>
@@ -955,8 +980,8 @@ const thebe_selector_output = ".output, .cell_output"
     <a class="reference internal" href="numpy.html">
      🚧 Numpy
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
-    <label for="toctree-checkbox-23">
+    <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
+    <label for="toctree-checkbox-24">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -992,8 +1017,8 @@ const thebe_selector_output = ".output, .cell_output"
     <a class="reference internal" href="matplotlib.html">
      🚧 Matplotlib
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
-    <label for="toctree-checkbox-24">
+    <input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/>
+    <label for="toctree-checkbox-25">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -1162,22 +1187,22 @@ title="Print to PDF"
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#detecting-cycles">
-   Detecting cycles
+   📄 Detecting cycles
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#time-normalizing-cycles">
-   Time-normalizing cycles
+   📄 Time-normalizing cycles
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#combining-the-cycles">
-   Combining the cycles
+   📄 Combining the cycles
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#finding-the-most-repeatable-cycles">
-   Finding the most repeatable cycles
+   📄 Finding the most repeatable cycles
   </a>
  </li>
 </ul>
@@ -1189,7 +1214,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Detecting and normalizing cycles</h1>
+                <h1>📖 Working with cycles</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -1201,22 +1226,22 @@ title="Print to PDF"
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#detecting-cycles">
-   Detecting cycles
+   📄 Detecting cycles
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#time-normalizing-cycles">
-   Time-normalizing cycles
+   📄 Time-normalizing cycles
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#combining-the-cycles">
-   Combining the cycles
+   📄 Combining the cycles
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#finding-the-most-repeatable-cycles">
-   Finding the most repeatable cycles
+   📄 Finding the most repeatable cycles
   </a>
  </li>
 </ul>
@@ -1229,15 +1254,17 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="detecting-and-normalizing-cycles">
-<h1>Detecting and normalizing cycles<a class="headerlink" href="#detecting-and-normalizing-cycles" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="working-with-cycles">
+<h1>📖 Working with cycles<a class="headerlink" href="#working-with-cycles" title="Permalink to this headline">#</a></h1>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Summary</div>
-<p class="sd-card-text">The <a class="reference internal" href="api/ktk.cycles.html"><span class="doc std std-doc">ktk.cycles</span></a> module allows detecting cycles in TimeSeries, time-normalize these cycles and find the most repeatable ones. This tutorial shows a use case of this module, using kinetics data from wheelchair propulsion.</p>
+<p class="sd-card-text">This section shows the <a class="reference internal" href="api/ktk.cycles.html"><span class="doc std std-doc">ktk.cycles</span></a> module, which detects cycles in TimeSeries, time-normalizes these cycles, finds the most repeatable ones, and stack/ unstack them.</p>
 </div>
 </div>
+<p>Since many movements are cyclic (e.g., gait), it is often useful to identify these cycles and work on a per-cycle basis instead of long acquisitions. The <a class="reference internal" href="api/ktk.cycles.html"><span class="doc std std-doc">ktk.cycles</span></a> module provides some functions to detect, time-normalize and stack cycles, and to find the most repeatable cycles among a set of stacked cycles.</p>
+<p>This section showcases this module, using kinetics data from wheelchair propulsion.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">kineticstoolkit.lab</span> <span class="k">as</span> <span class="nn">ktk</span>
@@ -1259,7 +1286,6 @@ Summary</div>
 <span class="n">ts</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s2">&quot;Forces&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">ts</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s2">&quot;Moments&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1268,14 +1294,22 @@ Summary</div>
 </div>
 </div>
 <section id="detecting-cycles">
-<h2>Detecting cycles<a class="headerlink" href="#detecting-cycles" title="Permalink to this headline">#</a></h2>
-<p>The <a class="reference internal" href="api/ktk.cycles.detect_cycles.html"><span class="doc std std-doc">ktk.cycles.detect_cycles</span></a> function allows detecting cycles in a TimeSeries, using one specified signal from this TimeSeries. Here, this signal will be the total force Ftot.</p>
-<p>We first calculate it based on the three force components and we add it as a new data of the TimeSeries.</p>
+<h2>📄 Detecting cycles<a class="headerlink" href="#detecting-cycles" title="Permalink to this headline">#</a></h2>
+<p>The <a class="reference internal" href="api/ktk.cycles.detect_cycles.html"><span class="doc std std-doc">ktk.cycles.detect_cycles</span></a> function detects biphasic cycles in a TimeSeries, and add the transitions as events. Each cycle has three events:</p>
+<ul class="simple">
+<li><p>The start of the first phase, named using the <code class="docutils literal notranslate"><span class="pre">event_names</span></code> parameters;</p></li>
+<li><p>The start of the second phase, also named using the <code class="docutils literal notranslate"><span class="pre">event_names</span></code> parameters;</p></li>
+<li><p>The end of the cycle, always named <code class="docutils literal notranslate"><span class="pre">_</span></code>.</p></li>
+</ul>
+<p>The function does not modify the TimeSeries data, only the events. It uses two thresholds applied to one, unidimensional signal from this TimeSeries. In this example, this signal will be the total force <span class="math notranslate nohighlight">\(F_{tot}\)</span>. This could also apply to gait, or one could also use only the vertical ground reaction force, depending on the lab’s convention or methods.</p>
+<p>Let’s calculate <span class="math notranslate nohighlight">\(F_{tot}\)</span> based on the three force components, and add it as a new data of the TimeSeries.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Ftot&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Forces&quot;</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate Ftot</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Ftot&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Forces&quot;</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="c1"># Plot it</span>
 <span class="n">ts</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="s2">&quot;Forces&quot;</span><span class="p">,</span> <span class="s2">&quot;Ftot&quot;</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1283,14 +1317,13 @@ Summary</div>
 <img alt="_images/cycles_6_0.png" src="_images/cycles_6_0.png" />
 </div>
 </div>
-<p>Now let see how detecting cycles works. We will define the threshold values in Ftot visually based on the figure above.</p>
+<p>We then define threshold values for <span class="math notranslate nohighlight">\(F_\text{tot}\)</span>. While we could use a single threshold value (e.g., everything above 12 N corresponds to a push, everything below 12 N corresponds to a recovery), it is generally more robust to use two thresholds: one (higher) that registers the beginning of a push, and another (lower) that registers the beginning of a recovery. This method is more robust to noise: it won’t register a cycle simply because the signal moves around the threshold during the transitions.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">cycles</span><span class="o">.</span><span class="n">detect_cycles</span><span class="p">(</span>
     <span class="n">ts</span><span class="p">,</span> <span class="s2">&quot;Ftot&quot;</span><span class="p">,</span> <span class="n">event_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;push&quot;</span><span class="p">,</span> <span class="s2">&quot;recovery&quot;</span><span class="p">],</span> <span class="n">thresholds</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 <span class="p">)</span>
 <span class="n">test</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="s2">&quot;Forces&quot;</span><span class="p">,</span> <span class="s2">&quot;Ftot&quot;</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1298,7 +1331,7 @@ Summary</div>
 <img alt="_images/cycles_8_0.png" src="_images/cycles_8_0.png" />
 </div>
 </div>
-<p>We observe that most cycles are well identified, but a short spike at the beginning was wrongly identified as a cycle. This in fact is not a cycle, but a synchronization spike used to sync data between many instruments. We can reject such too short “cycles” by specifying minimal durations for both phases.</p>
+<p>We observe that most cycles are well identified, but a short spike at the beginning was wrongly identified as a cycle. In reality, this is a synchronization spike used to sync data between many instruments. We can reject detected cycles that are deemed to short by specifying minimal durations for both phases.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">test</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">cycles</span><span class="o">.</span><span class="n">detect_cycles</span><span class="p">(</span>
@@ -1309,7 +1342,6 @@ Summary</div>
     <span class="n">min_durations</span><span class="o">=</span><span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">],</span>
 <span class="p">)</span>
 <span class="n">test</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="s2">&quot;Forces&quot;</span><span class="p">,</span> <span class="s2">&quot;Ftot&quot;</span><span class="p">])</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1317,7 +1349,8 @@ Summary</div>
 <img alt="_images/cycles_10_0.png" src="_images/cycles_10_0.png" />
 </div>
 </div>
-<p>Now the synchronization spike has been ignored. However we also see that the two last cycles seem different: this is because they are braking pushes instead of propulsion pushes. While the last one will be difficult to remove automatically, we could remove the second-to-last by using a minimal peak value for the push phase.</p>
+<p>There are other arguments available to filter out more cycles, such as max durations, and minimal/maximal peak height. The <a class="reference internal" href="api/ktk.cycles.detect_cycles.html"><span class="doc std std-doc">API</span></a> describes these arguments thoughtfully.</p>
+<p>For example, in this signal, the next to last cycle corresponds to a braking phase and we may want to remove it. For this very signal, this can be done using a minimal peak height requirement:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts_with_events</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">cycles</span><span class="o">.</span><span class="n">detect_cycles</span><span class="p">(</span>
@@ -1337,19 +1370,18 @@ Summary</div>
 <img alt="_images/cycles_12_0.png" src="_images/cycles_12_0.png" />
 </div>
 </div>
-<p>We observe an <code class="docutils literal notranslate"><span class="pre">_</span></code> event at about 27 seconds. There are in fact such <code class="docutils literal notranslate"><span class="pre">_</span></code> events at the end of each cycle (look how each next push’s ‘p’ letter seems underlined). This is because the <code class="docutils literal notranslate"><span class="pre">detect_cycles</span></code> function adds three events for each cycle:</p>
-<ul class="simple">
-<li><p>Beginning of phase 1: <code class="docutils literal notranslate"><span class="pre">event_name1</span></code></p></li>
-<li><p>Transition from phase 1 to phase 2: <code class="docutils literal notranslate"><span class="pre">event_name2</span></code></p></li>
-<li><p>Cycle end: <code class="docutils literal notranslate"><span class="pre">_</span></code>.</p></li>
-</ul>
+<p>We observe an <code class="docutils literal notranslate"><span class="pre">_</span></code> event at about 27 seconds. There are in fact such <code class="docutils literal notranslate"><span class="pre">_</span></code> events at the end of each cycle (look how each next push’s ‘p’ letter seems underlined). As explained above, the <code class="docutils literal notranslate"><span class="pre">detect_cycles</span></code> function adds an <code class="docutils literal notranslate"><span class="pre">_</span></code> event at the end of each cycle; the one at 27 seconds just happens to not correspond to the begin of a new cycle.</p>
 </section>
 <section id="time-normalizing-cycles">
-<h2>Time-normalizing cycles<a class="headerlink" href="#time-normalizing-cycles" title="Permalink to this headline">#</a></h2>
-<p>Once the cycles have been detected, we can time-normalize these cycles using <a class="reference internal" href="api/ktk.cycles.time_normalize.html"><span class="doc std std-doc">ktk.cycles.time_normalize</span></a> to get them on the same time scale (a percentage of the cycle). Each of the 12 complete cycles is then time-normalized from 0 to 100%, with cycles being multiples of 100%.</p>
+<h2>📄 Time-normalizing cycles<a class="headerlink" href="#time-normalizing-cycles" title="Permalink to this headline">#</a></h2>
+<p>Once the cycles have been detected, we can time-normalize them using <a class="reference internal" href="api/ktk.cycles.time_normalize.html"><span class="doc std std-doc">ktk.cycles.time_normalize</span></a> to get them on the same time scale (a percentage of the cycle).</p>
+<p>Here, every 12 complete cycles will be time-normalized from 0 to 100%, with a new cycle starting at every multiple of 100%:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts_normalized_on_cycle</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">cycles</span><span class="o">.</span><span class="n">time_normalize</span><span class="p">(</span><span class="n">ts_with_events</span><span class="p">,</span> <span class="s2">&quot;push&quot;</span><span class="p">,</span> <span class="s2">&quot;_&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts_normalized_on_cycle</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">cycles</span><span class="o">.</span><span class="n">time_normalize</span><span class="p">(</span>
+    <span class="n">ts_with_events</span><span class="p">,</span> <span class="n">event_name1</span><span class="o">=</span><span class="s2">&quot;push&quot;</span><span class="p">,</span> <span class="n">event_name2</span><span class="o">=</span><span class="s2">&quot;_&quot;</span>
+<span class="p">)</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">ts_normalized_on_cycle</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="s2">&quot;Forces&quot;</span><span class="p">,</span> <span class="s2">&quot;Ftot&quot;</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
@@ -1362,17 +1394,18 @@ Summary</div>
 <img alt="_images/cycles_14_0.png" src="_images/cycles_14_0.png" />
 </div>
 </div>
-<p>To time-normalize only during the push phase, we define the cycle end as <code class="docutils literal notranslate"><span class="pre">recovery</span></code> instead of <code class="docutils literal notranslate"><span class="pre">_</span></code>. Each of the <strong>13</strong> complete pushes is then normalized from 0 to 100% of the push.</p>
+<p>To time-normalize only during the push phase, we would define <code class="docutils literal notranslate"><span class="pre">event_name2</span></code> as “recovery” instead of ” _ “. Note in the original data that we had a total of 12 complete transitions from “push” to ” _ “. The end of the last cycle could not be identified since no new push started after.</p>
+<p>If we are only interested in transitions from “push” to “recovery”, then we have a total of <strong>13</strong> complete pushes:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts_normalized_on_push</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">cycles</span><span class="o">.</span><span class="n">time_normalize</span><span class="p">(</span>
     <span class="n">ts_with_events</span><span class="p">,</span> <span class="s2">&quot;push&quot;</span><span class="p">,</span> <span class="s2">&quot;recovery&quot;</span>
 <span class="p">)</span>
+
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">ts_normalized_on_push</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="s2">&quot;Forces&quot;</span><span class="p">,</span> <span class="s2">&quot;Ftot&quot;</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">ts_normalized_on_push</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s2">&quot;Moments&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1380,7 +1413,7 @@ Summary</div>
 <img alt="_images/cycles_16_0.png" src="_images/cycles_16_0.png" />
 </div>
 </div>
-<p>It is also possible to include data before 0% and after 100% using the <code class="docutils literal notranslate"><span class="pre">span</span></code> parameter. For example, to include pre-push and post-release data:</p>
+<p>It is also possible to include data before 0% and after 100% using the <code class="docutils literal notranslate"><span class="pre">span</span></code> parameter. For example, to include pre-push (-25% to 0%) and post-recovery (100% to 125%):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts_normalized_on_push_with_span</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">cycles</span><span class="o">.</span><span class="n">time_normalize</span><span class="p">(</span>
@@ -1390,7 +1423,6 @@ Summary</div>
 <span class="n">ts_normalized_on_push_with_span</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="s2">&quot;Forces&quot;</span><span class="p">,</span> <span class="s2">&quot;Ftot&quot;</span><span class="p">])</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="n">ts_normalized_on_push_with_span</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s2">&quot;Moments&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1398,15 +1430,16 @@ Summary</div>
 <img alt="_images/cycles_18_0.png" src="_images/cycles_18_0.png" />
 </div>
 </div>
-<p>Note that in this case, each time point represents 1% of a push cycle, but the TimeSeries wrap every 145 points (0 to 19 is the pre-push for the first cycle, 20 to 119 is the first push, 120 to 144 is the post-release for the first cycle, etc.).</p>
+<p>In this case, each time point still represents 1% of a cycle, but the TimeSeries wrap every 145 points (0 to 19 is the pre-push for the first cycle, 20 to 119 is the first push, 120 to 144 is the post-release for the first cycle, etc.).</p>
 </section>
 <section id="combining-the-cycles">
-<h2>Combining the cycles<a class="headerlink" href="#combining-the-cycles" title="Permalink to this headline">#</a></h2>
-<p>Time-normalizing cycles is often performed in the aim of performing further operations such as computing and visualizing the average cycle. Therefore, the next logical step is often to group the cycles into indexable arrays. This can be done using the <a class="reference internal" href="api/ktk.cycles.stack.html"><span class="doc std std-doc">ktk.cycles.stack</span></a> function.</p>
-<p>In this example, we will stack the data from the last computed TimeSeries.</p>
+<h2>📄 Combining the cycles<a class="headerlink" href="#combining-the-cycles" title="Permalink to this headline">#</a></h2>
+<p>Cycles are often analyzed together, and it makes sense to construct a numpy array of higher dimension, where instead of having a first dimension that represents both the cycle and percentage of cycle, we would have a first dimension that represents the cycle, and second that represents the percentage of cycle. This is done using the <a class="reference internal" href="api/ktk.cycles.stack.html"><span class="doc std std-doc">ktk.cycles.stack</span></a> function.</p>
+<p>Let’s stack the data from the last computed TimeSeries (without pre-push and post-recovery).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">cycles</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">ts_normalized_on_push</span><span class="p">)</span>
+
 <span class="n">data</span>
 </pre></div>
 </div>
@@ -1424,7 +1457,7 @@ Summary</div>
 </div>
 </div>
 </div>
-<p>The first dimension of each dictionary’s entry corresponds to the cycles. It now becomes easier to perform operations on cycles. For example, we may want to plot the propulsive moment <code class="docutils literal notranslate"><span class="pre">Mz</span></code> (<code class="docutils literal notranslate"><span class="pre">Moments[2]</span></code>) in each cycle one of top of the other:</p>
+<p>The first dimension of each dictionary’s entry corresponds to the cycles. It now becomes easier to perform operations on cycles. For example, to plot the propulsive moment <code class="docutils literal notranslate"><span class="pre">Mz</span></code> (<code class="docutils literal notranslate"><span class="pre">Moments[2]</span></code>) in each cycle one of top of the other:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot every cycles</span>
@@ -1435,21 +1468,24 @@ Summary</div>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Ftot&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">),</span> <span class="s2">&quot;k:&quot;</span><span class="p">,</span> <span class="n">linewidth</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Average&quot;</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/cycles_22_0.png" src="_images/cycles_22_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f86f8bfc490&gt;
+</pre></div>
+</div>
+<img alt="_images/cycles_22_1.png" src="_images/cycles_22_1.png" />
 </div>
 </div>
 </section>
 <section id="finding-the-most-repeatable-cycles">
-<h2>Finding the most repeatable cycles<a class="headerlink" href="#finding-the-most-repeatable-cycles" title="Permalink to this headline">#</a></h2>
-<p>In the previous step, we calculated an average cycle. However, this average cycle was calculated on cycles that were very different between each other. We can use the <a class="reference internal" href="api/ktk.cycles.most_repeatable_cycles.html"><span class="doc std std-doc">ktk.cycles.most_repeatable_cycles</span></a> function to obtain an ordered list from the most repeatable cycles to the most different one. Here, we will base this analysis on the <code class="docutils literal notranslate"><span class="pre">Ftot</span></code> signal.</p>
+<h2>📄 Finding the most repeatable cycles<a class="headerlink" href="#finding-the-most-repeatable-cycles" title="Permalink to this headline">#</a></h2>
+<p>In the previous step, we calculated an average cycle. However, this average cycle was calculated on cycles that were very different between each other. We can use the <a class="reference internal" href="api/ktk.cycles.most_repeatable_cycles.html"><span class="doc std std-doc">ktk.cycles.most_repeatable_cycles</span></a> function to obtain an ordered list from the most repeatable cycles to the most different one. The algorithm is explained in the <a class="reference internal" href="api/ktk.cycles.most_repeatable_cycles.html"><span class="doc std std-doc">API</span></a>. Here, we will base this analysis on the <code class="docutils literal notranslate"><span class="pre">Ftot</span></code> signal.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">index</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">cycles</span><span class="o">.</span><span class="n">most_repeatable_cycles</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Ftot&quot;</span><span class="p">])</span>
+
 <span class="n">index</span>
 </pre></div>
 </div>
@@ -1460,7 +1496,7 @@ Summary</div>
 </div>
 </div>
 </div>
-<p>We see that cycles 12 (last) and 0 (first) were expectedly found as the least repeatable pushes since they are respectively a braking push and an acceleration push. Now let’s make the same plot of <code class="docutils literal notranslate"><span class="pre">Mz</span></code>, but based only on the five most repeatable cycles.</p>
+<p>We see that cycles 12 (last) and 0 (first) were expectedly found as the least repeatable pushes since they are respectively a last push and an acceleration push. Now let’s make the same plot of <code class="docutils literal notranslate"><span class="pre">Mz</span></code>, but based only on the five most repeatable cycles.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Plot every cycles</span>
@@ -1476,12 +1512,14 @@ Summary</div>
 <span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/cycles_26_0.png" src="_images/cycles_26_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f86f9881eb0&gt;
+</pre></div>
+</div>
+<img alt="_images/cycles_26_1.png" src="_images/cycles_26_1.png" />
 </div>
 </div>
 <p>For more information on cycles, please check the <a class="reference internal" href="api/ktk.cycles.html"><span class="doc std std-doc">API Reference for the cycles module</span></a>.</p>
@@ -1519,7 +1557,7 @@ Summary</div>
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Removing artefacts using a median filter</p>
+            <p class="prev-next-title">📖 Removing artefacts using a median filter</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="geometry.html" title="next page">

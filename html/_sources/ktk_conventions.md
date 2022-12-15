@@ -1,6 +1,6 @@
-# Conventions
+# 📖 Conventions
 
-## SI Units
+## 📄 SI Units
 
 Unless specified, every quantities are expressed in International System units (SI):
 
@@ -13,6 +13,6 @@ Unless specified, every quantities are expressed in International System units (
 - Power: watt (W)
 - Energy: joule (J)
 
-## Time as first dimension
+## 📄 Time as first dimension
 
 Unless specified, when a numpy array is used to express a quantity that varies over time, the time corresponds to the first dimension of the array.

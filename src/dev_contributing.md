@@ -1,4 +1,4 @@
-# How to contribute
+# 👋 How to contribute
 
 There is no need to be a developer to contribute to this project. Here are some ways to help:
 

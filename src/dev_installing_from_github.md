@@ -1,4 +1,4 @@
-# Installing from GitHub
+# 📖 Installing from GitHub
 
 To help developping Kinetics Toolkits by testing it or extending it, you can install it directly from git-hub.
 

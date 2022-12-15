@@ -16,15 +16,13 @@ kernelspec:
 %matplotlib inline
 ```
 
-# Manipulating TimeSeries
+# 📖 Manipulating TimeSeries
 
 :::{card} Summary
 This tutorial shows how to use various TimeSeries methods to copy, split, extract or combine TimeSeries.
 :::
 
-As a data class, TimeSeries have methods to manage its data, time, events, etc. However, data processing is not performed by TimeSeries methods, but rather by external functions, which can be readily available in Kinetics Toolkit or programmed by users. For example, TimeSeries data are filtered using functions of the [ktk.filters](api/ktk.filters.rst) module. Series of geometric data are calculated using functions of the [ktk.geometry](api/ktk.geometry.rst) module. 
-
-As such, most TimeSeries methods are helpers to copy, split, extract or combine TimeSeries data. For instance:
+TimeSeries have methods to manage their data, time, events, etc.:
 
 - [](api/ktk.TimeSeries.copy.rst) to make a deep copy of the TimeSeries instance;
 - [](api/ktk.TimeSeries.shift.rst) to shift the TimeSeries' data and events in time;
@@ -39,8 +37,11 @@ As such, most TimeSeries methods are helpers to copy, split, extract or combine 
   [](api/ktk.TimeSeries.get_ts_before_event.rst),
   [](api/ktk.TimeSeries.get_ts_after_event.rst),
   [](api/ktk.TimeSeries.get_ts_between_events.rst) to split a TimeSeries in time following specific criteria.
+  - and more.
 
-In this tutorial, we will see how to use these methods to manage a TimeSeries of marker trajectories. We will start by loading a sample `c3d` file with some marker trajectories, using [](api/ktk.read_c3d.rst). This example has 26 markers with 3678 samples recorded at 120 Hz.
+The full set of TimeSeries' public methods is found in the [API](api/ktk.TimeSeries.rst).
+
+This section shows how to use these methods to manage a TimeSeries of marker trajectories. We start by loading a `c3d` file with some marker trajectories, using [](api/ktk.read_c3d.rst). This example has 26 markers with 3678 samples recorded at 120 Hz.
 
 ```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
@@ -56,11 +57,11 @@ markers
 markers.data
 ```
 
-## Copying a TimeSeries
+## 📄 Copying a TimeSeries
 
-As for most class instances in Python, a TimeSeries is a mutable type. This means that for a TimeSeries `ts1`, `ts2 = ts1` creates a second reference to the same TimeSeries. This means that modifying `ts2` will also modify `ts1`.
+As for most classes in Python, a TimeSeries is a mutable type. This means that for a TimeSeries `ts1`, `ts2 = ts1` creates a second reference to the same TimeSeries. This means that modifying `ts2` will also modify `ts1`.
 
-To create a completely independent copy of a TimeSeries, we use the [](api/ktk.TimeSeries.copy.rst) method:
+To create an independent copy of a TimeSeries, we use the [](api/ktk.TimeSeries.copy.rst) method:
 
 ```{code-cell} ipython3
 markers_copy = markers.copy()
@@ -68,7 +69,7 @@ markers_copy = markers.copy()
 markers_copy
 ```
 
-[](api/ktk.TimeSeries.copy.rst) has different arguments to select which attributes to copy. For instance, if we want to create an empty TimeSeries, but with the same time and events as the source, we could use:
+[](api/ktk.TimeSeries.copy.rst) has different arguments to select which attributes to copy. For instance, if we want to create TimeSeries with the same time and events as another one, but without its data, we could use:
 
 ```{code-cell} ipython3
 markers_copy = markers.copy(copy_data=False, copy_data_info=False)
@@ -76,9 +77,9 @@ markers_copy = markers.copy(copy_data=False, copy_data_info=False)
 markers_copy
 ```
 
-## Subsetting and merging TimeSeries
+## 📄 Subsetting and merging TimeSeries
 
-The [](api/ktk.TimeSeries.get_subset.rst) method allows copying a TimeSeries with only a subset of the original TimeSeries. For example, in the markers TimeSeries, we may be interested only in the markers `BodyL:AcromionL` and `BodyL:LateralEpicondyleL`. To copy only these markers, we would use:
+The [](api/ktk.TimeSeries.get_subset.rst) method allows copying a TimeSeries with only a subset of the original TimeSeries data. For example, in the `markers` TimeSeries, we may be interested only in the markers "BodyL:AcromionL" and "BodyL:LateralEpicondyleL". To copy only these markers, we would use:
 
 ```{code-cell} ipython3
 markers_subset = markers.get_subset(
@@ -88,7 +89,7 @@ markers_subset = markers.get_subset(
 markers_subset.data
 ```
 
-To merge two TimeSeries together, we use the [](api/ktk.TimeSeries.merge.rst). For example, if we wanted to add the marker `BodyL:HandL` to this subset:
+To merge two TimeSeries together, we use the [](api/ktk.TimeSeries.merge.rst). For example, to add marker "BodyL:HandL" to the previous subset:
 
 ```{code-cell} ipython3
 markers_subset = markers_subset.merge(markers.get_subset("BodyL:HandL"))
@@ -102,9 +103,9 @@ Alternatively, we could directly add the data to the TimeSeries `data` attribute
 markers_subset.data['BodyL:HandL'] = markers.data['BodyL:HandL']
 ```
 
-However, using the `merge` method is slightly safer since it ensures that the time vector is identical in both TimeSeries before merging.
+However, using the [merge](api/ktk.TimeSeries.merge.rst) method is slightly safer since it ensures that the time vector is identical in both TimeSeries before merging.
 
-## Splitting TimeSeries
+## 📄 Splitting TimeSeries
 
 ### Using indexes
 
@@ -112,7 +113,7 @@ The
 [](api/ktk.TimeSeries.get_ts_before_index.rst),
 [](api/ktk.TimeSeries.get_ts_after_index.rst) and
 [](api/ktk.TimeSeries.get_ts_between_indexes.rst)
-allow splitting the TimeSeries based on time indexes. For example, if we plot the previous markers subset, we see that the main action (the oscillating signals) starts at about 12 seconds and stops at about 18 seconds. At 120 samples per second, this means from indexes 1440 to 2160.
+allow splitting TimeSeries based on time indexes. For example, if we plot the previous markers subset, we see that the main action (the oscillating signals) starts at about 12 seconds and stops at about 18 seconds. At 120 samples per second, this means from indexes 1440 to 2160.
 
 ```{code-cell} ipython3
 markers_subset.plot()
@@ -130,7 +131,7 @@ ts.plot()
 We could also use the time directly to do the same split, using one of
 [](api/ktk.TimeSeries.get_ts_before_time.rst),
 [](api/ktk.TimeSeries.get_ts_after_time.rst), or
-[](api/ktk.TimeSeries.get_ts_between_times.rst),
+[](api/ktk.TimeSeries.get_ts_between_times.rst):
 
 ```{code-cell} ipython3
 ts = markers_subset.get_ts_between_times(12, 18)
@@ -139,7 +140,7 @@ ts.plot()
 
 ### Using events
 
-A very powerful method to split a TimeSeries is to use events. For this example, we will rebuilt the wheelchair kinetics TimeSeries of the previous tutorial.
+A powerful method to split a TimeSeries is to use events. For this example, we will rebuild the wheelchair kinetics TimeSeries from previous section.
 
 ```{code-cell} ipython3
 ts = ktk.load(ktk.doc.download("timeseries_example.ktk.zip"))
@@ -158,7 +159,7 @@ ts = ts.add_event(15.30, "recovery")
 ts.plot()
 ```
 
-If we want to analyze data of the four first pushes and get rid of any other data, we would use one of
+To analyze only the four first pushes and get rid of any other data, we would use one of
 [](api/ktk.TimeSeries.get_ts_before_event.rst),
 [](api/ktk.TimeSeries.get_ts_after_event.rst), or
 [](api/ktk.TimeSeries.get_ts_between_events.rst):
@@ -170,7 +171,12 @@ first_four_pushes = ts.get_ts_between_events(
     "push", "push", 0, 4, inclusive=True
 )
 
-# Remove events not inside the resulting time vector
+first_four_pushes.plot()
+```
+
+As it can be seen, spliting a TimeSeries does not touch the event list. To remove any event outside the time range, use [ktk.TimeSeries.trim_events](api/ktk.TimeSeries.trim_events.rst):
+
+```{code-cell}
 first_four_pushes = first_four_pushes.trim_events()
 
 first_four_pushes.plot()

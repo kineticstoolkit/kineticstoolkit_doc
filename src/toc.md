@@ -20,8 +20,7 @@ chapters:
       - file: [](filters.md)
         sections:
           - file: [](filters_butter.md)
-          - file: [](filters_smooth.md)
-          - file: [](filters_savgol.md)
+          - file: [](filters_smooth_savgol.md)
           - file: [](filters_median.md)
       - file: [](cycles.md)
       - file: [](geometry.md)
@@ -84,11 +83,12 @@ chapters:
               - file: [](python_lists_indexing.md)
               - file: [](python_lists_slicing.md)
               - file: [](python_lists_mutability.md)
-          - file: [](python_while.md)
-          - file: [](python_for.md)
+          - file: [](python_looping.md)
+            sections:
+              - file: [](python_while.md)
+              - file: [](python_for_range.md)
+              - file: [](python_for_enumerate.md)
           - file: [](python_dicts.md)
-          - file: [](python_string_operations.md)
-          - file: [](python_more_advanced.md)
           - file: [](python_integration_exercises.md)
       - file: [](numpy.md)
         sections:

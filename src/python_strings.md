@@ -14,7 +14,7 @@ kernelspec:
 # Strings basics
 
 :::{card} Summary
-This section shows strings, including single/double quotes, triple quotes, and f-strings.
+This section shows strings, including single/double quotes, triple quotes, and f-strings. It also shows the `input` function for user input of strings.
 :::
 
 In the previous page, we introduced two types to express numbers: `int` and `float`. To express letters, words and sentences, we use the `string` type. You already created a string in your first ["Hello world"](python_using_spyder.md) program.
@@ -188,4 +188,56 @@ Sometimes, when we include a float into an f-string, you may want to select to w
 print(f"The calculated ankle moment is {ankle_moment:.0f} Nm.")
 print(f"The calculated ankle moment is {ankle_moment:.2f} Nm.")
 print(f"The calculated ankle moment is {ankle_moment:.5f} Nm.")
+```
+
+## User input
+
+To conclude this section, we can also create strings using user input: by asking a user to enter a string:
+
+```
+the_string = input()
+```
+
+Which allows the user to type some text right in the console, until they press Enter. It is possible, and usually a good idea, to provide some text to the user:
+
+```
+the_string = input("Please enter your name: ")
+```
+
+Note that the input function always create a string. If you want the user to input a float (maybe you want to make a calculation based on the user input), then you need to convert the string to a float:
+
+```
+str_height = input("What is the participant's height in meters? ")
+```
+
+User enters "1.45"
+
+```{code-cell}
+:tags: ["remove-cell"]
+str_height = "1.45"
+```
+
+```{code-cell}
+height = float(str_height)
+
+height
+```
+
+The same thing applies if we need the user to enter an integer (maybe you want to select a given iteration or cycle):
+
+```
+str_cycle = input("Which gait cycle do we keep? ")
+```
+
+User enters "4"
+
+```{code-cell}
+:tags: ["remove-cell"]
+str_cycle = "4"
+```
+
+```{code-cell}
+i_cycle = int(str_cycle)
+
+i_cycle
 ```

@@ -22,13 +22,14 @@ This section shows what is a list, how to define it and extracting values from i
 
 A list is, as it names implies, a list of values. It is defined using square brackets `[]` like this:
 
-```{code-cell}
+```{code-cell} ipython3
+empty_list = []
 list_of_integers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ```
 
 A list can contain any kind of variable:
 
-```{code-cell}
+```{code-cell} ipython3
 list_of_strings = [
     "first element",
     "second element",
@@ -45,7 +46,7 @@ list_of_strings = [
 
 It can even contain other lists (or any other container type such as dictionaries, tuples or sets):
 
-```{code-cell}
+```{code-cell} ipython3
 list_of_lists = [
     [1, 2, 3],
     ["one", "two", "three"],
@@ -55,10 +56,9 @@ list_of_lists = [
 
 And it can even contain different types:
 
-```{code-cell}
+```{code-cell} ipython3
 list_of_anything = ["a string", 0, 4.5, (2 + 3j), False, [1, 2, 3]]
 ```
-
 
 ## Indexing a list
 
@@ -70,18 +70,19 @@ Zero-based addressing (first index is 0) is common in generic programming langua
 
 We index a list using square brackets `[]`:
 
-```{code-cell}
+```{code-cell} ipython3
 list_of_strings[0]
 ```
 
-```{code-cell}
+```{code-cell} ipython3
 list_of_strings[1]
 ```
 
 While you get used to zero-based addressing, this error may happen regularly:
 
-```{code-cell}
-:tags: ["raises-exception"]
+```{code-cell} ipython3
+:tags: [raises-exception]
+
 # Get the last element
 list_of_strings[10]
 ```
@@ -92,16 +93,15 @@ In this case, this error happened because while the list is indeed 10-element lo
 
 It is also possible to address a list from its last element, using negative indexing. The last element is directly available at index -1:
 
-```{code-cell}
+```{code-cell} ipython3
 list_of_strings[-1]
 ```
 
 the previous at index -2, etc.:
 
-```{code-cell}
+```{code-cell} ipython3
 list_of_strings[-2]
 ```
-
 
 :::{tip}
 In the examples above, we indexed a list using a literal constant. We can also index it using a variable, in which case it needs to be an integer:
@@ -115,13 +115,13 @@ list_of_strings[i]
 
 There is no particular challenge in indexing nested lists (lists of lists). For example, to access the first element of the second list of `list_of_lists`:
 
-```{code-cell}
+```{code-cell} ipython3
 list_of_lists
 ```
 
 we first access the second list of `list_of_list`:
 
-```{code-cell}
+```{code-cell} ipython3
 temp = list_of_lists[1]  # Second element of list_of_lists
 
 temp
@@ -129,13 +129,13 @@ temp
 
 then we access the first element of this list:
 
-```{code-cell}
+```{code-cell} ipython3
 temp[0]  # First element of the second element of list_of_lists
 ```
 
 or, in one line:
 
-```{code-cell}
+```{code-cell} ipython3
 list_of_lists[1][0]
 ```
 
@@ -145,7 +145,7 @@ where `list_of_lists[1]` returns the list `['one', 'two', 'three']`, and `[0]` a
 
 The `len` function returns the length of the list (the number of elements it contains):
 
-```{code-cell}
+```{code-cell} ipython3
 len(list_of_strings)
 ```
 
@@ -161,7 +161,7 @@ We are interested in assessing the step length, which is the distance between on
 
 For a given participant, we recorded this `y` list:
 
-```{code-cell}
+```{code-cell} ipython3
 # y-coordinates of each heel strike, in meters
 y = [0.13, 0.72, 1.29, 1.93, 2.55, 3.12, 3.71, 4.34, 4.95, 5.56]
 ```
@@ -214,13 +214,13 @@ print(calculate_step_length(y, 1))
 print(calculate_step_length(y, 2))
 ```
 
-
 ## Exercise 2
 
 You are happy with your last function, but sometimes, you obtain an IndexError:
 
-```{code-cell}
-:tags: ["raises-exception"]
+```{code-cell} ipython3
+:tags: [raises-exception]
+
 calculate_step_length(y, 9)
 ```
 

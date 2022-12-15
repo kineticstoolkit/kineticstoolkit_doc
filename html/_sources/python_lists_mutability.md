@@ -21,7 +21,7 @@ This section shows to modify lists using indexing and slicing, and how to extend
 
 In previous section, we learnt that we can read an element of a list using indexing and slicing:
 
-```{code-cell}
+```{code-cell} ipython3
 a = [1, 2, 3]
 
 # Read the first element (indexing)
@@ -33,7 +33,7 @@ print(a[0:2])
 
 We can also use indexing and slicing to write elements of a list. To write one element using indexing:
 
-```{code-cell}
+```{code-cell} ipython3
 a = [1, 2, 3]
 a[0] = 10
 
@@ -42,7 +42,7 @@ a
 
 To write multiple elements at once using slicing:
 
-```{code-cell}
+```{code-cell} ipython3
 a = [1, 2, 3]
 b = [10, 20, 30]
 
@@ -71,7 +71,7 @@ output = input.method()
 
 :::
 
-```{code-cell}
+```{code-cell} ipython3
 a = [1, 2, 3]
 print('a_before = ', a)
 
@@ -84,7 +84,7 @@ print('a_after = ', a)
 
 To append multiple elements at once, we instead use the lists' `extend` method, which takes a list of new values as an argument.
 
-```{code-cell}
+```{code-cell} ipython3
 a = [1, 2, 3]
 b = [4, 5]
 print('a_before = ', a)
@@ -94,11 +94,22 @@ a.extend(b)
 print('a_after = ', a)
 ```
 
+## Deleting an element from a list
+
+To remove an element at a given index, we use the list's `pop` method, which both return the element being deleted, and deletes it from the list.
+
+```{code-cell} ipython3
+a = [1, 2, 3]
+
+print(a.pop(0))  # Remove the first element
+print(a)
+```
+
 ## Exercise 1
 
 Here is the progression of a person's maximal flexion angle of the shoulder during a 4-month stretching program, with the outer list corresponding to the month, and the inner lists being 10 consecutive measurements performed during the month.
 
-```{code-cell}
+```{code-cell} ipython3
 max_flexion = [
     [ 98.5,  91.2,  94. ,  93.6,  98. ,  95.9,  96. ,  97. ,  99. , 103.2],
     [104.1, 105.2, 106.4, 104.6, 106. , 105.1, 108.3, 109.8, 112.2, 111.8],
@@ -109,7 +120,7 @@ max_flexion = [
 
 After verification, you realize that for the very first measurement, the instrument was not calibrated correctly and added 5 degrees to the real angle values. Please write a one-line code that corrects this measurement.
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [hide-cell]
 
 max_flexion[0][0] = max_flexion[0][0] - 5
@@ -124,7 +135,7 @@ max_flexion
 
 Write a code that creates one single, un-nested list, that contains every 40 consecutive measurements.
 
-```{code-cell}
+```{code-cell} ipython3
 :tags: [hide-cell]
 
 one_list = max_flexion[0]

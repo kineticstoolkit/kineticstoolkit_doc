@@ -37,15 +37,17 @@ Through this tutorial, we will focus on integers and floats.
 
 Usually, the role of a float is different to the role of an integer. Think of a float as a real, physical value (e.g., a force in newtons, a distance in meters, a power in watts); and an int as a position in a series, an index, a number of repetition (e.g., the 3rd data of a series, the 5th repetition of a total of 10).
 
-Integers and floats are stored differently in memory, and it is sometimes important to make sure a number is stored in the correct type. The type of a variable can be known with the function `type()`.
+Integers and floats are stored differently in memory, and it is sometimes important to make sure a number is stored in the correct type. The type of an existing variable can be known with the functions `type`, or `isinstance`.
 
 A variable is defined as an `int` if its assigned value does not contain a decimal point:
 
 ```{code-cell} ipython3
 a = 3
 
-print(a)
-print(type(a))
+print(a)                   # Print the value of a
+print(type(a))             # Print the type of a
+print(isinstance(a, int))  # Is it an integer?
+print(isinstance(a, str))  # Is it a string?
 ```
 
 A variable is defined as a `float` if its assigned value contains a decimal point:

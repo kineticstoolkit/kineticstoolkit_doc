@@ -11,21 +11,11 @@ kernelspec:
   name: python3
 ---
 
-# Looping (while)
+# Looping using `while`
 
 :::{card} Summary
-This section shows how to loop through a code block using the `while` statement.
+This section shows how to repeat a code block using the `while` statement.
 :::
-
-In the last exercise in section [](python_lists_mutability.md), we repeated a similar instruction three times:
-
-```
-one_list.extend(max_flexion[1])
-one_list.extend(max_flexion[2])
-one_list.extend(max_flexion[3])
-```
-
-Obviously, while this was perfectly fine for only three repetitions, this solution would not scale well for tens or even hundreds of repetitions. When we need to repeat an operation, or looping through a set of operations, we can use two instructions: `while` and `for`. They are in fact very similar; since `for` is mainly a specialization of `while`, we will start with `while`.
 
 ## Syntax
 
@@ -39,7 +29,9 @@ while condition:
     ...
 ```
 
-where `condition` is a [boolean variable](python_conditions.md). A simple exemple would be:
+where `condition` is a [boolean variable](python_conditions.md). Each repetition of a code block is called an *iteration*.
+
+Here is an example with five iterations of a code block:
 
 ```{code-cell}
 i = 0
@@ -49,7 +41,7 @@ while i < 5:
     i += 1
 ```
 
-A more practical example could be, for instance, to convert data from meters to mm:
+Here is a more practical example, where we convert a list of measurements from meters to mm:
 
 ```{code-cell}
 # We have some measurements in meters:
@@ -70,12 +62,10 @@ millimeters
 ```
 
 :::{good-practice} Looping
-While this example works perfectly well and is indeed a correct demonstration of how `while` works, we will see in the next sections that for this specific example, other methods are usually better:
-- Using `for` instead of `while` would remove the need to initialize i (`i = 0`) and increment i (`i += 1`), which is more error-safe;
-- Better yet, this whole operation could be done using only one line, while being way faster to execute, using `numpy`.
+While this example works perfectly well and is indeed a correct demonstration of how `while` works, we will see in the next sections that for this specific example, other methods sur as `for`, or even better using `numpy`, would be less error-prone and faster.
 :::
 
-## Exercise
+## Exercise 1
 
 We return to the example of the instrumented walkway. We recorded the following positions of heel strike, first for the right heel, second for the left heel, third for the right heel, etc.:
 
@@ -111,3 +101,42 @@ while i < n_steps:
 # Done!
 step_lengths
 ```
+
+## Exercise 2
+
+A therapist measures a patient's maximal shoulder flexion several times. Write a program that creates a list of all these measurements based on user input, following this example:
+
+:::{admonition} Example of program output
+```none
+Enter max shoulder flexion (deg), or Enter to stop: <User enters 119>
+Enter max shoulder flexion (deg), or Enter to stop: <User enters 124>
+Enter max shoulder flexion (deg), or Enter to stop: <User enters 123>
+Enter max shoulder flexion (deg), or Enter to stop: <User presses Enter>
+Max shoulder flexion: [119.0, 124.0, 123.0]
+```
+:::
+
+:::{tip}
+The [`input`](python_strings.md) function returns an empty string `""` when the user simply presses Enter without entering a value.
+:::
+
+:::{toggle}
+```
+# Initialize an empty list of measurements
+measurements = []
+
+# Initialize a boolean variable that controls if we need to quit the loop
+continue_asking = True
+
+# Ask the values
+while continue_asking:
+    str_value = input("Enter max shoulder flexion (deg), or Enter to stop: ")
+    if str_value == "":
+        continue_asking = False
+    else:
+        measurements.append(float(str_value))
+
+# Print the result
+print("Max shoulder flexion:", measurements)
+```
+:::

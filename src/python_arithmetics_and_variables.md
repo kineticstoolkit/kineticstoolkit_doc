@@ -17,13 +17,13 @@ kernelspec:
 %matplotlib inline
 ```
 
-# Arithmetics and variables
+# 📖 Arithmetics and variables
 
 :::{card} Summary
 This section covers basic arithmetics (`+`, `-`, `*`, `/`) and variables.
 :::
 
-## Arithmetic operations
+## 📄 Arithmetic operations
 
 Any arithmetical operation is performed simply by writing its equation. For example, the most usual arithmetic operators are `+`, `-`, `*` and `/`:
 
@@ -43,7 +43,7 @@ Any arithmetical operation is performed simply by writing its equation. For exam
 4 / 3
 ```
 
-## Variables
+## 📄 Variables
 
 A fundamental concept in programming is the variable. A variable is some space in memory that can store a value. In Python, there is no need to declare or allocate variables. All you have to do to define a variable is to assign it a value using the `=` operator. For example, we could have two variables, `a` and `b`, that both store a different number:
 
@@ -118,7 +118,7 @@ In addition, the [PEP8](https://pep8.org/) recommends to use all lower case for 
 
 :::
 
-## Exercise
+## 💪 Exercise
 
 A sprinter runs through two timing gates spaced by 50 m. Each timing gate records the time (in seconds) at which the sprinter passes through it.
 

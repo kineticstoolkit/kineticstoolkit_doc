@@ -1,4 +1,4 @@
-# Classes
+# 📖 Classes
 
 ```{eval-rst}
 

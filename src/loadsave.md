@@ -16,9 +16,9 @@ kernelspec:
 %matplotlib inline
 ```
 
-# Saving and loading
+# 📖 Saving and loading
 
-Contrarily to Matlab with its `.mat` file, python does not come with a single standard way to save data. To ease saving and sharing data, Kinetics Toolkit provides two functions that load and save its own `.ktk.zip` format:
+Contrarily to Matlab with its mat file, python does not come with a single standard way to save data. To ease saving and sharing data, Kinetics Toolkit provides two functions that load and save its own ktk.zip format:
 
 - [](api/ktk.save.rst)
 - [](api/ktk.load.rst)
@@ -49,12 +49,12 @@ loaded_variable = ktk.load("filename.ktk.zip")
 loaded_variable
 ```
 
-## File format and supported types
+## 📄 File format and supported types
 
 The `ktk.zip` file format is built to be as portable and simple as possible. It is a standard zip file that contains two JSON files:
 
-- `metadata.json`: The file metadata such as the save date, the computer's operating system, etc.
-- `data.json`: The data. The data types that are not supported natively by the JSON file format (e.g., numpy, pandas and ktk objects) are converted to supported objects so that they are fully readable in other environments such as Matlab.
+- `metadata.json`: File metadata such as the save date, the computer's operating system, the version of the ktk.zip format, etc.
+- `data.json`: The data. Data types that are not natively supported by the JSON file format (e.g., numpy, pandas, kineticstoolkit TimeSeries) are converted to supported objects so that they are fully readable in other environments such as Matlab.
 
 The `ktk.zip` file format supports any combination of the following types:
 
@@ -69,7 +69,9 @@ The `ktk.zip` file format supports any combination of the following types:
 
 Tuples can also be saved but will be loaded back as lists.
 
-## Loading a ktk.zip file in Matlab
+## 📄 Loading a ktk.zip file in Matlab
+
+Here are how to load a ktk.zip file in Matlab, using only four instructions.
 
     % Create a temporary folder to unzip to
     mkdir('temp');
@@ -79,23 +81,4 @@ Tuples can also be saved but will be loaded back as lists.
     data = jsondecode(fileread('temp/data.json'));
     metadata = jsondecode(fileread('temp/metadata.json'));
 
-Since the types are not the same between python, JSON and Matlab, here is how Matlab will reconstruct the following python types:
-
-| Python                         | Matlab                    |
-| ------------------------------ | ------------------------- |
-| None                           | NaN                       |
-| True, False                    | true, false               |
-| int, float                     | double                    |
-| str                            | char                      |
-| dict                           | struct                    |
-| list of different data types   | cell array                |
-| list of boolean                | array of logical          |
-| list of int or float           | array of double           |
-| list of str                    | cell array of char        |
-| list of dict, same field names | structure array           |
-| list of dict, diff field names | cell array of struct      |
-| numpy.array                    | array of double           |
-| kineticstoolkit.TimeSeries     | struct                    |
-| complex                        | struct with real and imag |
-
-*tuples are saved as lists in JSON.
+Since the types are not the same between python, JSON and Matlab, then some conversion will happen. For instance, a list of floats in python becomes an array of double in Matlab, whereas a list of strings in python becomes a cell array of chars in Matlab. For this reason, there is no official mechanism to transfer data back and forth between python and Matlab using ktk.zip files.

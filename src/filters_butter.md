@@ -16,18 +16,20 @@ kernelspec:
 %matplotlib inline
 ```
 
-# Removing frequencies using a Butterworth filter
+# 📖 Butterworth filter
 
-The Butterworth filter may be the most used filter in biomechanics. It targets ranges of frequencies to remove from the signal's frequency spectrum. A classic use is to estimate the frequency range of both the data and noise, then use the filter to keep most of the data's frequency range while filtering out most of the noise's frequency range. In this tutorial, we will see how to apply Butterworth filters on TimeSeries data, using the [](api/ktk.filters.butter.rst) function.
+:::{card} Summary
+This section shows how to remove specific ranges of frequencies from a TimeSeries using [ktk.filters.butter](api/ktk.filters.butter.rst).
+:::
+
+The Butterworth filter may be the most used filter in biomechanics. It removes ranges of frequencies from the signal's frequency spectrum. Normally, we first identify the frequency range of our data, so that we can remove any signal outside this range. This removes noise, without removing information from the data.
+
+The following section will show different use cases for the [ktk.filters.butter](api/ktk.filters.butter.rst) function. Let's start by loading some noisy data.
 
 ```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
 import matplotlib.pyplot as plt
-```
 
-We begin by loading some sample data:
-
-```{code-cell} ipython3
 ts_noisy = ktk.load(ktk.doc.download("filters_noisy_signals.ktk.zip"))
 
 ts_noisy.plot()
@@ -35,9 +37,9 @@ plt.title("Noisy signals")
 plt.tight_layout()
 ```
 
-## Low-pass no-lag filter
+## ⚙️ Example 1: Low-pass, no-lag filter
 
-Here is an example of how to filter out high frequencies using a no-lag Butterworth filter of order 2:
+Here is what we get if we filter out higher frequencies using a no-lag Butterworth filter of order 2:
 
 ```{code-cell} ipython3
 plt.subplot(1, 3, 1)
@@ -57,11 +59,11 @@ plt.title("Low-pass 2nd order at 4 Hz")
 plt.tight_layout()
 ```
 
-As expected, when filtering lower frequencies, the signal is clearer but transitions are less sharp and some very dynamic information may be lost.
+As expected, when filtering lower frequencies, the signal is clearer but transitions are less sharp and the most dynamic information may be lost.
 
-## High-pass no-lag filter
+## ⚙️ Example 2: High-pass, no-lag filter
 
-Here is an example of how to filter out low frequencies using a no-lag Butterworth filter of order 2.
+Here is what we get if we filter out lower frequencies using a no-lag Butterworth filter of order 2.
 
 ```{code-cell} ipython3
 plt.subplot(1, 2, 1)
@@ -75,4 +77,4 @@ plt.title("High-pass 2nd order at 60 Hz")
 plt.tight_layout()
 ```
 
-As expected, only the transitions are kept; all the stable parts of the signal were removed.
+Only the transitions are kept, all the stable parts of the signal were removed.
