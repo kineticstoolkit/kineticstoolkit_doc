@@ -2,7 +2,7 @@
 
 There is no need to be a developer to contribute to this project. Here are some ways to help:
 
-## As a user (or potential user)
+## 👤 As a user (or potential user)
 
 - [Install Kinetics Toolkit](ktk_installing.md), browse the [documentation](https://kineticstoolkit.uqam.ca), try it and check how it fits your workflow;
 - Talk about it in your networks;
@@ -15,12 +15,12 @@ There is no need to be a developer to contribute to this project. Here are some 
 
 The more users, the more we will have a clear understanding of the users' needs.
 
-## As an instructor
+## 👤 As an instructor
 
 - Browse the [documentation](https://kineticstoolkit.uqam.ca);
 - Make suggestions and propose ideas on the documentation, on the [discussions forum](https://github.com/felixchenier/kineticstoolkit/discussions).
 
-## As a developer
+## 👤 As a developer
 
 - [Clone the latest master branch](dev_installing_from_github.md) and start playing with the unstable stuff;
 - Make suggestions for improvements, new features, etc. on the [discussions forum](https://github.com/felixchenier/kineticstoolkit/discussions);

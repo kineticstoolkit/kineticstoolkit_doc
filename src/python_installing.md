@@ -1,14 +1,14 @@
-# Installing Python, Spyder and the most important scientific packages
+# 📖 Installing Python, Spyder and the most important scientific packages
 
 :::{card} Summary
 The are many ways to install Python. This section shows how to install the [Spyder integrated development environment](https://spyder-ide.org) in a conda environment.
 :::
 
-## Installing a conda distribution
+## 📄 Installing a conda distribution
 
 Download and install Anaconda or [Miniconda](https://docs.conda.io/en/latest/miniconda.html).
 
-## Creating a virtual environment
+## 📄 Creating a virtual environment
 
 It is recommended to create a separate environment, so that if you mess up at some point (we all do), you can just delete and recreate your environment. Open an Anaconda Prompt (on Windows) or a terminal (on macOS and Linux) and type these commands one by one.
 

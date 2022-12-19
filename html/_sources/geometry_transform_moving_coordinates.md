@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# The homogeneous transform: rotating and translating coordinates
+# 📖 The homogeneous transform: rotating and translating coordinates
 
 :::{card} Summary
 This section defines the 4x4 homogeneous transform, shows how to use it to rotate and translate points, vectors and frames, and how to generate and use series of homogeneous transforms in Kinetics Toolkit using [](api/ktk.geometry.create_transforms.rst) and [](api/ktk.geometry.matmul.rst).
@@ -54,7 +54,7 @@ $$
 
 The following examples show how a same homogeneous transform can move either points, vectors or frames.
 
-## Example 1: moving points
+## ⚙️ Example 1: moving points
 
 Let say we want to rotate the point located at (10, 0, 0) by 30 degrees around the origin's z axis, then translate it 2 units to the right:
 
@@ -100,7 +100,7 @@ $$
 
 The final coordinates of the points are (10.66, 5, 0).
 
-## Example 2: rotating vectors
+## ⚙️ Example 2: rotating vectors
 
 For this second example, let's apply this same transform to a vector of 10 units toward de x axis (10, 0, 0).
 
@@ -142,7 +142,7 @@ $$
 The final coordinates of the vector are (8.66, 5, 0).
 
 
-## Example 3: moving frames
+## ⚙️ Example 3: moving frames
 
 If we get back to the definition of a frame, we remind that the first three columns are three vectors (the direction of three axes), and the fourth column is a point (the position of the origin). Therefore, since an homogeneous transform can move both points and vectors, then it can also move complete frames.
 
@@ -203,7 +203,7 @@ $$
 \end{bmatrix}
 $$
 
-## Rotating and translating coordinates using Kinetics Toolkit
+## 📄 Rotating and translating coordinates using Kinetics Toolkit
 
 The function [](api/ktk.geometry.create_transforms.rst) creates series of homogeneous transforms based on angles and translations. For instance, the transform $T$ used in this section can be created using:
 

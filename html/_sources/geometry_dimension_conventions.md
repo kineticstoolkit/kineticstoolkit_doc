@@ -17,7 +17,7 @@ kernelspec:
 ```
 
 
-# Dimension conventions
+# 📖 Dimension conventions
 
 :::{card} Summary
 This section indicates how to represent series of scalars, points, vectors, frames and transforms in Kinetics Toolkit.
@@ -30,14 +30,16 @@ In the [](api/ktk.geometry.rst) module and in most of Kinetics Toolkit's module:
 
 This is emphasized in the following examples:
 
-## Series of scalars
+## 📄 Exemples of representations
+
+### Series of scalars
 
 ```
 [x(t0), x(t1), x(t2), ...]
 ```
 
 
-## Series of points
+### Series of points
 
 ```
 [
@@ -48,7 +50,7 @@ This is emphasized in the following examples:
 ] 
 ```
 
-## Series of vectors
+### Series of vectors
 
 ```
 [
@@ -59,7 +61,7 @@ This is emphasized in the following examples:
 ] 
 ```
 
-## Series of point clouds
+### Series of point clouds
 
 ```
 [
@@ -79,7 +81,7 @@ This is emphasized in the following examples:
 }
 ```
 
-## Series of frames or homogeneous transforms
+### Series of frames or homogeneous transforms
 
 ```
 [
@@ -101,7 +103,7 @@ This is emphasized in the following examples:
 
 
 
-## Working with constants
+## 📄 Working with constants
 
 Since most signals in Kinetics Toolkit as considered as a series, always ensure that the first dimension of any array is reserved to time. For example, the vector (x = 1, y = 2, z = 3) must be expressed as `np.array([[1.0, 2.0, 3.0, 0.0]])` (note the double brackets). A common error would be to express it as `np.array([1.0, 2.0, 3.0, 0.0])` (single brackets), which would mean a series of 4 floats instead of one constant vector.
 
@@ -120,6 +122,6 @@ series_of_one_matrix
 ```
 
 
-## What next
+## 📄 What next
 
 Now that we learned or reminded lots of information on rigid 3d geometry, the next section on kinematics analysis will show how to use the [](api/ktk.geometry.rst) module in real movement acquisition data.

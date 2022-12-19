@@ -138,6 +138,7 @@ plt.subplot(2, 1, 1)
 ts_normalized_on_push.plot(["Forces", "Ftot"])
 plt.subplot(2, 1, 2)
 ts_normalized_on_push.plot("Moments")
+plt.tight_layout()
 ```
 
 It is also possible to include data before 0% and after 100% using the `span` parameter. For example, to include pre-push (-25% to 0%) and post-recovery (100% to 125%):
@@ -150,6 +151,7 @@ plt.subplot(2, 1, 1)
 ts_normalized_on_push_with_span.plot(["Forces", "Ftot"])
 plt.subplot(2, 1, 2)
 ts_normalized_on_push_with_span.plot("Moments")
+plt.tight_layout()
 ```
 
 In this case, each time point still represents 1% of a cycle, but the TimeSeries wrap every 145 points (0 to 19 is the pre-push for the first cycle, 20 to 119 is the first push, 120 to 144 is the post-release for the first cycle, etc.).

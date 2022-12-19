@@ -17,17 +17,15 @@ kernelspec:
 %matplotlib inline
 ```
 
-# Kinematic chains
+# 📖 Kinematic chains
 
 :::{card} Summary
 This section introduces the concept of kinematic chains, shows how it relates to homogeneous transforms, and how we can navigate between chain elements in Kinetics Toolkit.
 :::
 
-Now that we understand how powerful homogeneous transforms are, we will take it one step further, and chain multiple transforms.
+## 📄 Series of homogeneous transforms
 
-## Example
-
-We will start with the last example from section [](geometry_transform_changing_coordinate_system.md). We still know this information:
+Now that we understand how powerful homogeneous transforms are, we will take it one step further, and chain multiple transforms. We will start with the last example from section [](geometry_transform_changing_coordinate_system.md). We still know this information:
 
 - the length of the upper arm is 38 cm;
 - the shoulder is located 15 cm forward and 70 cm upward to the global origin;
@@ -44,8 +42,7 @@ Based on this information, we want to calculate the position of the wrist in glo
 
 *Figure 1. Local coordinates for both the upper arm and the forearm*
 
-
-## Solution
+**Solution:**
 
 The way to solve this problem is to see it as a chain of parent-child relations between coordinate systems (CS). Before solving this problem, let's consider the previous example in the form of a parent-child chain.
 
@@ -102,7 +99,7 @@ $$
 Take a look at how using this notation, the upper and lower indices cancel out to give the final transformation.
 :::
 
-## Exercise
+## 💪 Exercise
 
 Develop the three terms of the equation above to solve this example. No need to try performing the matrix multiplication itself. Then toggle the solution below to verify your solution.
 
@@ -137,7 +134,7 @@ $$
 
 :::
 
-## Navigating between chain elements using Kinetics Toolkit
+## 📄 Navigating between chain elements using Kinetics Toolkit
 
 We already know enough functions of the [ktk.geometry](api/ktk.geometry.rst) module to solve this example. The first step is to create the known frames and positions:
 

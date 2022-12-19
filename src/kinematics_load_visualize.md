@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# Reading and visualizing markers in 3D
+# 📖 Reading and visualizing markers in 3D
 
 :::{card} Summary
 In this tutorial, we will read a `c3d` file that contains tennis serve kinematics, and visualize it in an interactive interface, as shown on the [home page](index.md).
@@ -28,7 +28,7 @@ If you arrived here straight from the home page, you may want to read a bit on t
 :::
 
 
-## Reading marker trajectories
+## 📄 Reading marker trajectories
 
 We first download the sample data:
 
@@ -63,7 +63,7 @@ We see that this acquisition has 1092 samples and 39 markers:
 markers.data
 ```
 
-## Visualizing the markers
+## 📄 Visualizing the markers
 
 Now we'll take a look at this acquisition using [](api/ktk.Player.rst), a matplotlib-based interactive user interface aimed at visualizing markers, rigid bodies and segments in three dimensions.
 
@@ -134,7 +134,7 @@ Note the colored global reference frame on the bottom. This reference frame and 
 - y = Green
 - z = Blue
 
-## Interconnecting the markers
+## 📄 Interconnecting the markers
 
 To ease the visualization, it is often practical to interconnect markers with lines. Here, we create those links as a dictionary.
 

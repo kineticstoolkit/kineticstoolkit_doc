@@ -16,7 +16,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# Reconstructing probed points
+# 📖 Reconstructing probed points
 
 :::{card} Summary
 This tutorial explains how to use the [ktk.kinematics](api/ktk.kinematics.rst) module to reconstruct virtual markers using a probe and rigid clusters.
@@ -31,7 +31,7 @@ The whole process is a bit more complex than in the previous tutorials, but the 
 - A wheelchair propulsion acquisition was then recorded.
 - We want to reconstruct the trajectory of the right medial elbow epicondyle during the propulsion acquisition, even if it was not present during the acquisition.
 
-## Loading sample data
+## 📄 Loading sample data
 
 We will create two TimeSeries, one representing the markers available during the probing acquisition, and the other representing the markers available during the propulsion acquisition.
 
@@ -61,7 +61,7 @@ markers_propulsion = markers_propulsion.get_subset(["ArmR1", "ArmR2", "ArmR3"])
 markers_propulsion.data
 ```
 
-## Defining the probe calibration
+## 📄 Defining the probe calibration
 
 Before beginning with this tutorial, we must know the configuration of the probe. What we need is the position of the probe markers in the probe's local coordinate system, assuming that this coordinate system's origin is at the probe tip. These positions are generally found in rigid body configuration files or in calibration certificates. In this tutorial, our probe has four markers with the following local coordinates:
 
@@ -82,7 +82,7 @@ probe = {
 }
 ```
 
-## Tracking the probe in the probing acquisition
+## 📄 Tracking the probe in the probing acquisition
 
 In the probing acquisition, since the probe tip points on the medial epicondyle, we can consider the probe tip as if it was a real marker affixed on the medial epicondyle. The first step is therefore to track the probe tip during the probing acquisition, using the four markers of the probe.
 
@@ -105,7 +105,7 @@ markers_probing.data[
 markers_probing.data
 ```
 
-## Creating a cluster of markers
+## 📄 Creating a cluster of markers
 
 We are now in the same situation as the beginning of the previous tutorial. We can now create a cluster that includes the three rigid body markers, **and** the medial epicondyle.
 
@@ -121,9 +121,9 @@ print(cluster["ArmR3"])
 print(cluster["MedialEpicondyleR"])
 ```
 
-## Tracking the cluster to reconstruct a "virtual" marker for the epicondyle
+## 📄 Tracking the cluster
 
-Now, exactly like on the previous tutorial, we use this cluster to reconstruct the whole set of four "markers" during the propulsion acquisitions.
+Now, exactly like on the previous tutorial, we use this cluster to reconstruct the whole set of four "markers" during the propulsion acquisitions, including the epicondyle.
 
 ```{code-cell} ipython3
 reconstructed_markers_propulsion = ktk.kinematics.track_cluster(

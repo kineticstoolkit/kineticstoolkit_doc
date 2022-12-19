@@ -1,4 +1,4 @@
-# Citing
+# 📄 Citing
 
 If you find Kinetics Toolkit useful and want to credit it in your work (which I would much appreciate), then please cite this paper:
 

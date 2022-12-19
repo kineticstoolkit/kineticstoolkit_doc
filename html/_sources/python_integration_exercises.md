@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# Integration exercises
+# 📖 Integration exercises
 
 :::{card} Summary
 This section proposes exercises to integrate the basic python notions viewed in the previous sections.
@@ -31,11 +31,11 @@ At this point, we viewed just enough of the python language to be able to proces
 - how to [repeat code](python_looping.md) several times or [loop through lists](python_for_range.md) or [dictionaries](python_dicts.md);
 - decompose code in smaller [functions](python_functions.md).
 
-Obviously, using higher level libraries such as numpy, matplotlib and pandas (which will follow in the next chapter) will make such data processing much easier and powerful. But in the mean time, it is already possible to solve these exercises, using only the subset of python that we just learned.
+Obviously, using higher level libraries such as [numpy](numpy.md), [matplotlib](matplotlib.md) and [pandas](pandas.md) (which will follow in the next chapter) will make such data processing much easier and powerful. But in the mean time, it is already possible to solve these exercises, using only the subset of python that we just learned.
 
 ## 💪 Exercise 1: Calculation of power based on force and velocity
 
-Someone pushes on a carriage using a dynamometer, in such a way that we get a measure of the contact force in newtons every tenth of a second, for five seconds.
+Someone pushes on a carriage using a dynamometer, in such a way that we get a measurement of the contact force in newtons every tenth of a second, during five seconds.
 
 ```{code-cell}
 push_force = [
@@ -259,7 +259,7 @@ data[4]
 
 ## 💪 Exercise 4: Calculation of step time using a force threshold
 
-Using a force plate, we recorded the vertical ground reaction force using one step, at a sampling frequency of 20 Hz:
+Using a force plate, we recorded the vertical ground reaction force during one step, at a sampling frequency of 20 Hz:
 
 ```{code-cell}
 grf = [
@@ -331,8 +331,3 @@ def calculate_step_time(grf, threshold, sampling_frequency):
 calculate_step_time(grf, threshold=50, sampling_frequency=20)
 ```
 
-## 💪 Exercise 5: Simulating the trajectory of a ball
-We throw a 0.1 kg ball upward using a constant force of 50 N applied purely vertically during 0.5 second, then we release it.
-- Create a list named `acceleration` that calculates the vertical acceleration of the ball at every 0.1 second during 0 to 2 seconds, 0.5 second being the release time.
-- Create a list named `velocity` calculated from the `acceleration` list, using velocity[t] = velocity[t-1] + acceleration[t] * sample_time, knowing that the initial velocity of the ball is 0 m/s.
-- Create a list named `position` calculated from the `velocity` list, using position[t] = position[t-1] + velocity[t] * sample_time, knowing that the initial position of the ball is 1 m.

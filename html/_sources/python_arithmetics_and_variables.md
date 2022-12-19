@@ -6,7 +6,7 @@ jupytext:
     format_version: 0.13
     jupytext_version: 1.14.0
 kernelspec:
-  display_name: Python 3 (ipykernel)
+  display_name: python 3 (ipykernel)
   language: python
   name: python3
 ---
@@ -45,14 +45,14 @@ Any arithmetical operation is performed simply by writing its equation. For exam
 
 ## 📄 Variables
 
-A fundamental concept in programming is the variable. A variable is some space in memory that can store a value. In Python, there is no need to declare or allocate variables. All you have to do to define a variable is to assign it a value using the `=` operator. For example, we could have two variables, `a` and `b`, that both store a different number:
+The variable is a fundamental concept in programming. It is a space in memory where we store a value. In python, contrarily to other, static programming languages, there is no need to declare or allocate variables before using them. If we need a variable to store a value, we just define a name and assign a value to it using the `=` operator. For example, we could have two variables, `a` and `b`, that both store a different number:
 
 ```{code-cell} ipython3
 a = 4
 b = 3
 ```
 
-Now, we can refer to the value of a variable simply by referring to the variable name:
+Now, we can refer to the value of a variable by referring to the variable name:
 
 ```{code-cell} ipython3
 a + 1
@@ -69,35 +69,38 @@ c = a + b
 print(c)
 ```
 
-Keep in mind that in the last example, we did not tell to Python that `c` must always be equal to `a + b`. This is not how a sequential programming language such as Python works. Instead, we told Python, at this instant, to calculate the result of `a + b` and to store it in a new variable `c`. The sequential nature of Python (and many other languages) is illustrated with this example:
+Keep in mind that in the last example, we did not tell to python that `c` must always be equal to `a + b`. This is not how a sequential programming language such as python works. Instead, we ask python, at this very instant, to calculate the result of `a + b` and to store it in a new variable `c`. The sequential nature of python (and many other languages) is illustrated with this example:
 
 ```{code-cell} ipython3
 c = c + 1
 print(c)
 ```
 
-As with the previous example, we told Python to calculate the result of `c + 1` and to store it in the variable `c`.
+As with the previous example, we told python to calculate the result of `c + 1` and to store it in the variable `c`.
 
-:::{important}
-Python is case-sensitive. This means that `a` is not the same thing as `A`. Similarly,
-
-```
-Print("Hello world")
-```
-
-or
+:::{tip}
+The exemple above could be written in a shorter form using the increment `+=` operator. This notation is very common and may help avoid typos in more complex statements. For example, this statement that includes nested [lists](python_lists.md) and [dicts](python_dicts.md):
 
 ```
-PRINT("Hello world")
+the_list[0]['first_try'][5] = the_list[0]['first_try'][5] + 2
 ```
 
-would result in an error because neither `Print` or `PRINT` exists. However,
+would become:
 
 ```
-print("Hello world")
+the_list[0]['first_try'][5] += 2
 ```
 
-works.
+which is simpler since the complex part of the code is written only once.
+
+These shorthands exist for every arithmetical operation, such as:
+
+```
+a += b      # equivalent to a = a + b
+a -= b      # equivalent to a = a - b
+a *= b      # equivalent to a = a * b
+a /= b      # equivalent to a = a / b
+```
 :::
 
 

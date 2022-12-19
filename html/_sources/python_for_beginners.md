@@ -11,11 +11,11 @@ kernelspec:
   name: python3
 ---
 
-# 🚧 Learning Python for biomechanics
+# 📘 Learning Python for biomechanics
 
 This is an open-source manual in development, to learn to code using the Python ecosystem.
 
-Python is a hugely popular programming language, and there are lots of courses, tutorials and examples available everywhere on the internet. The particularity of this manual is that it is specifically focused on biomechanical analysis.
+Python is a hugely popular programming language, and there are lots of courses, tutorials and examples available everywhere on the internet. The particularity of this manual is that it is specifically focused on biomechanics.
 
 As there are so many editors, packages, coding styles, etc. available, this manual makes a few opinionated choices for the readers, to guide them during their first steps into programming. We first learn how to install a working scientific Python environment, then we cover the most important elements of the Python language, NumPy, Matplotlib and some Pandas.
 

@@ -6,7 +6,7 @@ jupytext:
     format_version: 0.13
     jupytext_version: 1.14.0
 kernelspec:
-  display_name: Python 3 (ipykernel)
+  display_name: python 3 (ipykernel)
   language: python
   name: python3
 ---
@@ -17,13 +17,13 @@ kernelspec:
 %matplotlib inline
 ```
 
-# Numbers
+# 📖 Numbers
 
 :::{card} Summary
 This section explains the difference between classes of numbers (integers, floats and complex numbers), and shows the exponentiation (`**`) arithmetic operation.
 :::
 
-From the beginning, we referred to numbers simply as "numbers". In reality, numbers belong to different sets. In Python, we have three sets:
+From the beginning, we referred to numbers simply as "numbers". In reality, numbers belong to different sets. Python provides three sets of numbers:
 
 - Integer numbers: `int`
 - Real numbers: `float`
@@ -33,17 +33,21 @@ From the beginning, we referred to numbers simply as "numbers". In reality, numb
 
 Through this tutorial, we will focus on integers and floats.
 
-## Integers and floats
+## 📄 Integers and floats
 
 Usually, the role of a float is different to the role of an integer. Think of a float as a real, physical value (e.g., a force in newtons, a distance in meters, a power in watts); and an int as a position in a series, an index, a number of repetition (e.g., the 3rd data of a series, the 5th repetition of a total of 10).
 
-Integers and floats are stored differently in memory, and it is sometimes important to make sure a number is stored in the correct type. The type of an existing variable can be known with the functions `type`, or `isinstance`.
+Integers and floats are stored differently in memory, and it is often important to make sure it is stored in the correct type. The type of an existing variable can be known with the functions `type`, or `isinstance`.
 
 A variable is defined as an `int` if its assigned value does not contain a decimal point:
 
 ```{code-cell} ipython3
 a = 3
+```
 
+Let's check the value and type of `a` now that it has been assigned:
+
+```{code-cell}
 print(a)                   # Print the value of a
 print(type(a))             # Print the type of a
 print(isinstance(a, int))  # Is it an integer?
@@ -78,7 +82,7 @@ print(type(d))
 ```
 
 
-## Exercise 1
+## 💪 Exercise 1
 
 We want to create a variable named `mass` that will contain the mass of a person in kg. This person as a mass of 68 kg. Since this is a physical value that could take any decimal value, but that just happens to be rounded to the unit, we therefore want to create a float:
 
@@ -102,9 +106,9 @@ n_trials = 4
 emg_max = 34.0
 ```
 
-## Arithmetic operations between numbers of different type
+## 📄 Arithmetic operations between numbers of different type
 
-When we perform operation between different types, Python may convert the types by itself to be sure that the result has the correct type. For example, adding an int and a float results in a float:
+When we perform operation between different types, python may convert the types to ensure that the result holds the correct value. For example, adding an int and a float results in a float:
 
 ```{code-cell} ipython3
 a = 2 + 4.5
@@ -136,22 +140,23 @@ d = int(4 / 2)
 type(d)
 ```
 
-## Exponentiation
 
-A last arithmetical operation is the exponentiation. Raising a value to a power is done using the `**` operator. For example, to calculate $4^2$, we would write:
+## 📄 Exponentiation
+
+To raise a value to a power, we use the `**` operator. For example, to calculate $4^2$, we would write:
 
 ```{code-cell} ipython3
 4**2
 ```
 
-For roots, we can exponententiate to the inverse. For example, to calculate $\sqrt{4}$, we would write:
+For roots, we can exponentiate to the inverse. For example, to calculate $\sqrt{4}$, we would write:
 
 ```{code-cell} ipython3
 4 ** (1 / 2)
 ```
 
 :::{note}
-Later in these tutorials, when we will start using [numpy](numpy.md), we will see the function `np.sqrt()` that performs the square root directly.
+Later in [numpy](numpy.md) chapter, we will see the function `np.sqrt()` that performs the square root directly.
 :::
 
 Exponentiation follows the same type convention as the multiplication: using only integers will results in an integer, and as soon as one of the operands is a float, the result is a float.
@@ -165,7 +170,7 @@ type(4.0**2)
 ```
 
 
-## Exercise 2
+## 💪 Exercise 2
 
 A sprinter runs a given distance $x$ to the East, then a given distance $y$ to the North (in km). Use the Pythagorean theorem to complete the following program so that it prints the distance $d$ between her starting point and her final destination.
 

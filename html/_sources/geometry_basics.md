@@ -1,4 +1,4 @@
-# Coordinates: points, vectors and frames
+# 📖 Coordinates: points, vectors and frames
 
 :::{card} Summary
 This section defines the following terms and their representation as 4x1 and 4x4 matrices:
@@ -8,7 +8,7 @@ This section defines the following terms and their representation as 4x1 and 4x4
 - Point, vector, frame
 :::
 
-This series of tutorials are an introduction or reminder of the basic elements of rigid body geometry. It covers the definitions of bodies, coordinate systems, coordinates (such as points, vectors and frames), and homogeneous transforms. It follows the nomenclature conventions of Craig, J., 1987. Introduction to robotics: Mechanics and control, in the context of rigid body biomechanics. 
+The following sections are an introduction or reminder of the basic elements of rigid body geometry. They covers the definitions of bodies, coordinate systems, coordinates (such as points, vectors and frames), and homogeneous transforms. We follow the nomenclature conventions of Craig, J., 1987. Introduction to robotics: Mechanics and control, in the context of rigid body biomechanics. 
 
 While these notions largely come from the robotics field, they will be approached in the scope of rigid body biomechanics. We will use the posture in Figure 1 for most examples. While this is a bidimensional example, we will treat it as a conventional 3D problem, but with all medio-lateral (z axis) coordinates being set to zero.
 
@@ -16,13 +16,8 @@ While these notions largely come from the robotics field, they will be approache
 
 *Figure 1. The posture used for the next examples.*
 
-In this section, we will see how to express:
 
-- Points (positions);
-- Vectors such as velocities, accelerations and forces; and
-- Frames, which are the orientation and position of a coordinate system.
-
-## Global coordinate system
+## 📄 Global coordinate system
 
 To express any coordinate, we need a coordinate system. A coordinate system is composed of an origin (the point in space everything is expressed relative to) and a set of axes. In human movement biomechanics, we usually use a cartesian system composed of three orthonormal axes (x, y and z).
 
@@ -33,13 +28,13 @@ In newton dynamics and at the human scale, it is totally acceptable to define a 
 - The y axis points upward;
 - The z axis points to the right.
 
-This coordinate system is completely arbitrary: any other origin or set of orthonormal axes would still be perfectly valid. This is the one we chose here, and the one every global coordinate will refer to.
+This coordinate system is completely arbitrary: any other origin or set of orthonormal axes would still be perfectly valid, as long as we are consistent during the whole analysis. This is the one we chose here, the one every global coordinate will refer to.
 
 ![global_coordinates -height:normal](_static/images/geometry_global_coordinates.png)
 
 *Figure 2. A global coordinate system*
 
-## Points and vectors
+## 📄 Points and vectors
 
 Using the global coordinate system of Figure 2, we can express the position of any point in space using its three components (x, y, z). For example, the position of the shoulder in global coordinates is:
 
@@ -73,9 +68,9 @@ v_\text{z shoulder} \\ 0
 \end{bmatrix}
 $$
 
-## Local coordinate system
+## 📄 Local coordinate system
 
-While points and vectors are generally relatively easy to express in a given coordinate system, the orientation of a segment is more complex. In Figure 2, if we wanted to express the orientation of the upper arm, we would explicitly need this information:
+While points and vectors are generally relatively easy to express in a given coordinate system, the orientation of a segment is more complex. In Figure 2, we would explicitly need this information to express the orientation of the upper arm:
 
 - What is the initial, non-rotated orientation of the upper arm?
 - By how many degrees has it been rotated from its initial orientation?
@@ -98,7 +93,7 @@ Now that we defined this local coordinate system, we can come back to the positi
 
 *Figure 4. Expressing the position and orientation of the upper arm.*
 
-## Frames
+## 📄 Frames
 
 We are now ready to introduce the **frame**, a 4x4 matrix that expresses both the position and the orientation of a coordinate system, in reference to another coordinate system.
 
@@ -108,7 +103,8 @@ $$
 ~^\text{global}p_\text{upper arm} = \begin{bmatrix}
 x_\text{upper arm} \\
 y_\text{upper arm} \\
-z_\text{upper arm} \\ 1
+z_\text{upper arm} \\
+1
 \end{bmatrix}
 $$
 
@@ -175,7 +171,7 @@ where:
 - the $P$ vector is the position of the local coordinate system's origin.
 :::
 
-## Exercise
+## 💪 Exercise
 
 Figure 6 shows rotated local coordinate systems for both the upper arm and forearm. Knowing that the position of the elbow in global coordinates is $(0.34, 0.371, 0)$, and that the forearm is inclined by $50^\circ$ compared to the global reference frame, construct this 4x4 matrix: $^\text{global} _\text{forearm} T$.
 

@@ -11,16 +11,15 @@ kernelspec:
   name: python3
 ---
 
-# Creating and indexing lists
+# 📖 Creating and indexing lists
 
 :::{card} Summary
-This section shows what is a list, how to define it and extracting values from it, using square brackets `[]`.
+This section shows what is a list, how to define it, and how to extract values from it using square brackets `[]`.
 :::
 
+## 📄 Creating a list
 
-## Creating a list
-
-A list is, as it names implies, a list of values. It is defined using square brackets `[]` like this:
+A list is, as it names implies, a list of values. It is defined using square brackets `[]`:
 
 ```{code-cell} ipython3
 empty_list = []
@@ -44,7 +43,7 @@ list_of_strings = [
 ]
 ```
 
-It can even contain other lists (or any other container type such as dictionaries, tuples or sets):
+It can even contain other lists or any other container type such as dictionaries (that will be shown in section [](python_dicts.md)):
 
 ```{code-cell} ipython3
 list_of_lists = [
@@ -57,20 +56,33 @@ list_of_lists = [
 And it can even contain different types:
 
 ```{code-cell} ipython3
-list_of_anything = ["a string", 0, 4.5, (2 + 3j), False, [1, 2, 3]]
+list_of_anything = ["a string", 0, 4.5, (2 + 3j), False, [1, 2, 3], {"key": "value"}]
 ```
 
-## Indexing a list
+## 📄 Indexing a list
 
 Every element of the list is accessible using an index. The first data is at index 0, the second at index 1, etc.
 
 :::{note}
-Zero-based addressing (first index is 0) is common in generic programming languages such as C, C++, Java, Go, PHP, Ruby, and Rust. Being a generic programming language itself, Python also uses zero-addressing. Other languages that are more aimed to mathematics, such as Matlab, R, Julia, and Mathematica, use one-based addressing (first index is 1). No convention is inherently better than another, but it may take time to adapt to zero-based addressing.
+Zero-based addressing (first index is 0) is common in generic programming languages such as C, C++, Java, Go, PHP, Ruby, and Rust. Being a generic programming language itself, Python also uses zero-addressing. Other languages that are usually more aimed to mathematics, such as Matlab, R, Julia, and Mathematica, use one-based addressing (first index is 1). No convention is inherently better than another, but for non-programmers, it may take a bit of time to adapt to zero-based addressing.
 :::
 
 We index a list using square brackets `[]`:
 
 ```{code-cell} ipython3
+list_of_strings = [
+    "first element",
+    "second element",
+    "third element",
+    "fourth element",
+    "fifth element",
+    "sixth element",
+    "seventh element",
+    "eighth element",
+    "ninth element",
+    "last element",
+]
+
 list_of_strings[0]
 ```
 
@@ -78,7 +90,7 @@ list_of_strings[0]
 list_of_strings[1]
 ```
 
-While you get used to zero-based addressing, this error may happen regularly:
+Until you get used to zero-based addressing, this error may happen regularly:
 
 ```{code-cell} ipython3
 :tags: [raises-exception]
@@ -91,7 +103,7 @@ In this case, this error happened because while the list is indeed 10-element lo
 
 ### Negative indexing
 
-It is also possible to address a list from its last element, using negative indexing. The last element is directly available at index -1:
+It is also possible to address a list from its last element, using negative indexing. The last element is available at index -1:
 
 ```{code-cell} ipython3
 list_of_strings[-1]
@@ -103,17 +115,34 @@ the previous at index -2, etc.:
 list_of_strings[-2]
 ```
 
-:::{tip}
-In the examples above, we indexed a list using a literal constant. We can also index it using a variable, in which case it needs to be an integer:
-```
+### Indexing using a variable
+
+In the examples above, we indexed a list using a literal constant. We can also index it using a variable:
+```{code-cell} ipython3
 i = 3
 list_of_strings[i]
 ```
-:::
+
+In any case, the variable must be an integer. Indeed, a list element could not be halfway between two elements. This could cause some unintuitive errors, for example if the index is the result of a calculation that implies a division:
+
+
+```{code-cell} ipython3
+:tags: [raises-exception]
+some_value = 6
+list_of_strings[some_value / 2]
+```
+
+The division resulted in a float, which could not be used as an index. This code would correct this error:
+
+```{code-cell} ipython3
+some_value = 6
+list_of_strings[int(some_value / 2)]
+```
+
 
 ### Nested lists
 
-There is no particular challenge in indexing nested lists (lists of lists). For example, to access the first element of the second list of `list_of_lists`:
+As seen above, lists can be nested, which means that a list can contain another list. To access a specific element of the inner list, we start by indexing the outer list, then the inner list. For example, to access the first element of the second list of `list_of_lists`:
 
 ```{code-cell} ipython3
 list_of_lists
@@ -127,7 +156,7 @@ temp = list_of_lists[1]  # Second element of list_of_lists
 temp
 ```
 
-then we access the first element of this list:
+then we access the first element of this result:
 
 ```{code-cell} ipython3
 temp[0]  # First element of the second element of list_of_lists
@@ -141,7 +170,7 @@ list_of_lists[1][0]
 
 where `list_of_lists[1]` returns the list `['one', 'two', 'three']`, and `[0]` addresses this new list.
 
-## Getting the length of a list
+## 📄 Getting the length of a list
 
 The `len` function returns the length of the list (the number of elements it contains):
 
@@ -149,15 +178,15 @@ The `len` function returns the length of the list (the number of elements it con
 len(list_of_strings)
 ```
 
-## Exercise 1
+## 💪 Exercise 1
 
-We measured spatial parameters of gait using an instrumented walkway, as illustrated in Figure 1. This particular instrumented walkway stores the (x, y) coordinates of each heel strike and returns these coordinates as two lists `x` and `y`. The first element of these lists corresponds to the first heel strike, the second to the second heel strike, etc.
+We measured some spatial parameters of gait using an instrumented walkway, as illustrated in Figure 1. This particular instrumented walkway stores the (x, y) coordinates of each heel strike and returns these coordinates as two lists `x` and `y`. The first element of these lists corresponds to the first heel strike, the second to the second heel strike, etc.
 
 ![Instrumented walkway -width:full](_static/images/instrumented_walkway.png)
 
 *Figure 1. Foot coordinates obtained via an instrumented walkway*
 
-We are interested in assessing the step length, which is the distance between one heel strike and the next one by the opposite foot.
+We want to calculate the step length, which is the distance between one heel strike and the next one by the opposite foot.
 
 For a given participant, we recorded this `y` list:
 
@@ -166,7 +195,7 @@ For a given participant, we recorded this `y` list:
 y = [0.13, 0.72, 1.29, 1.93, 2.55, 3.12, 3.71, 4.34, 4.95, 5.56]
 ```
 
-You are asked to write this function:
+Write and test this function:
 
 ```
 def calculate_step_length(y, step):
@@ -191,21 +220,6 @@ def calculate_step_length(y, step):
 :tags: [hide-cell]
 
 def calculate_step_length(y, step):
-    """
-    Calculate the step length of a given step.
-
-    Parameters
-    ----------
-    y : list[float]
-        A list of every heel strike's y coordinates for a given recording.
-    step : int
-        The index of the step we want to calculate, the first step being 0.
-
-    Returns
-    -------
-    float
-        The requested step length.
-    """
     return y[step + 1] - y[step]
 
 # Test it
@@ -214,7 +228,7 @@ print(calculate_step_length(y, 1))
 print(calculate_step_length(y, 2))
 ```
 
-## Exercise 2
+## 💪 Exercise 2
 
 You are happy with your last function, but sometimes, you obtain an IndexError:
 
@@ -224,7 +238,7 @@ You are happy with your last function, but sometimes, you obtain an IndexError:
 calculate_step_length(y, 9)
 ```
 
-**Question 1)** Find why this call produces an IndexError.
+**Question 1)** Explain why this call produces an IndexError.
 
 :::{toggle}
 This happens because to calculate a step length, we need two heel strikes, one
@@ -239,7 +253,7 @@ range, before calculating the step length.
 **Question 2)** Modify your function such that instead of producing this error, it simply returns 0.
 
 :::{good-practice} Invalid data
-For this example, we ask to return 0 for invalid data, but a better practice would be to return `np.nan`, which is defined in the [numpy](numpy.md) package. Simply return 0 for now since we didn't see NumPy yet.
+For this example, we ask to return 0 for invalid data, but a better practice would be to return `np.nan`, which is defined in the [numpy](numpy.md) package. Simply return 0 for now since we didn't see numpy yet.
 :::
 
 ```{code-cell} ipython3
@@ -259,7 +273,7 @@ def calculate_step_length(y, step):
     Returns
     -------
     float
-        The requested step length.
+        The requested step length, or 0 if this step could not be calculated.
     """
     if step + 1 < len(y):
         return y[step + 1] - y[step]

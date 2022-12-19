@@ -16,7 +16,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# Reconstructing occluded markers
+# 📖 Reconstructing occluded markers
 
 :::{card} Summary
 This tutorial explains how to use the [ktk.kinematics](api/ktk.kinematics.rst) module to reconstruct hidden markers using other markers of a same cluster.
@@ -32,7 +32,7 @@ It is often useful to have more than three markers on each rigid body, so that i
 
 Kinetics Toolkit provides an easy way to reconstruct missing markers based on the position of the remaining ones. This is the contents of this tutorial.
 
-## Loading sample data
+## 📄 Loading sample data
 
 For this example, we will use a sample of wheelchair propulsion in a moving wheelchair. We will only use the markers of the rigid body called 'ArmL'.
 
@@ -64,7 +64,7 @@ markers.plot("ArmL:Marker4")
 plt.tight_layout()
 ```
 
-## Add marker occlusion
+## 📄 Marker occlusion
 
 These data do not have occlusion, and therefore we will fake some. Let simulate that we lost Marker2 from 14.0 to 15.0 seconds, and Marker4 from 14.8 to 15.8 seconds.
 
@@ -88,7 +88,7 @@ markers.plot("ArmL:Marker4")
 plt.tight_layout()
 ```
 
-## Create a cluster of markers
+## 📄 Create a cluster of markers
 
 To reconstruct the most that we can from these data, we begin by creating a cluster of markers. A cluster is the fixed, local position of every provided markers expressed in an abritrary, local coordinate system. The [](/api/ktk.kinematics.create_cluster.rst) function is used to create such a cluster. Note that for this function to work, all markers must be visible at the same time at least once.
 
@@ -105,7 +105,7 @@ print(cluster["ArmL:Marker3"])
 print(cluster["ArmL:Marker4"])
 ```
 
-## Track the cluster to reconstruct the missing markers
+## 📄 Track the cluster to reconstruct the missing markers
 
 Now that we know how each marker is positioned relative to each other, we can use this cluster to reconstruct the missing marker positions.
 

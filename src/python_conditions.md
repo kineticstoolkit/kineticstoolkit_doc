@@ -11,17 +11,15 @@ kernelspec:
   name: python3
 ---
 
-# Conditions and booleans
+# 📖 Conditions and booleans
 
 :::{card} Summary
 This section shows how to perform comparisons and boolean (logical) operations and how to use these operation to program conditional code (`if`, `else`, `elif`).
 :::
 
-In the [previous section](python_functions.md), we learnt how to create simple units called functions, which have a specific and simple goal. The examples were however very simple, because the only concepts we learnt yet are arithmetics and variables.
+In the [previous section](python_functions.md), we learnt how to create simple units called functions, which have a specific and simple goal. The examples were however very simple, because the only concepts we learnt are arithmetics and variables. This section shows how to build programs that are able to execute different instructions as a consequence of conditions.
 
-In this section, our programs will be able to execute different instructions as a consequence of conditions.
-
-## Boolean and comparisons
+## 📄 Boolean and comparisons
 
 Comparisons are performed using the following operators:
 
@@ -32,13 +30,13 @@ Comparisons are performed using the following operators:
 - `<` Strictly lower
 - `<=` Lower or equal
 
-For example, the following comparison is `True`:
+For example, the following comparison gives `True`:
 
 ```{code-cell}
 10 > 5
 ```
 
-while this one is `False`:
+while this one gives `False`:
 
 ```{code-cell}
 10 <= 5
@@ -61,7 +59,7 @@ Here are other examples of comparison:
 ```
 
 
-Obviously, comparing a constant with another constant has little value. However, it is very common to compare variables with constants, or variables with other variables:
+Obviously, comparing a constant with another constant has little sense. However, comparing variables with constants, or variables with other variables, is very common and helpful.
 
 ```{code-cell}
 WORLD_RECORD = 240
@@ -87,9 +85,9 @@ a = 5
 which assigns the value of 5 to variable `a`.
 :::
 
-## Conditional code: `if`, `elif`, `else`
+## 📄 Conditional code: `if`, `elif`, `else`
 
-Now that we understand how to make comparisons, we will learn how to control the flow of the program as a result of these comparisons. The most important keyword for this effect is `if`:
+Now that we understand how to make comparisons, let's see how to control the flow of the program as a result of these comparisons. The most important keyword for this matter is `if`:
 
 ```
 if condition:
@@ -98,7 +96,7 @@ if condition:
     perform_task2()
 ```
 
-The `if` checks if a condition is met. Only if the condition evaluates to `True` is the following code block executed. Let's continue the example above:
+The `if` checks if a condition is met. Only if the condition evaluates to `True` is the following code block executed.
 
 ```{code-cell}
 WORLD_RECORD = 240
@@ -110,7 +108,7 @@ if my_score > WORLD_RECORD:
 
 ```
 
-This code does nothing, because the condition evaluated to `False`. In this case, it would be interesting to have another code block that would be executed if the condition was `False`. This is done using the `else` keyword:
+This code does nothing, because the condition evaluated to `False`. To get both a code block that executes if a condition is met, and another code block that executes if the condition is not met, we use the `else` keyword:
 
 ```{code-cell}
 WORLD_RECORD = 240
@@ -125,7 +123,7 @@ else:
 
 ```
 
-And what if we just matched the world record, without breaking it? Another keyword, `elif`, is read as "else if" and allows to make additional comparisons, in case the first one was `False`:
+It is also possible to evaluate different conditions in a same `if` series, such as if a condition is false, we can evaluate another condition. This is done using `elif`, which stands for "else if":
 
 ```{code-cell}
 WORLD_RECORD = 240
@@ -165,7 +163,7 @@ else:
 ```
 
 
-## Exercise 1
+## 💪 Exercise 1
 
 We have three timing gates. We want to know if an athlete has accelerated, decelerated, or stayed a the same speed between gates 1-2 and gates 2-3.
 
@@ -240,11 +238,11 @@ print(compare_speed(1.0, 2.0, 2.5, 50, 50))
 ```
 
 
-## Boolean operators
+## 📄 Boolean operators
 
-It is possible to construct complex comparisons, by combining the results of many combinations, using the logical operators `not`, `and` and `or`. These operators are specifically aimed to compare booleans.
+It is possible to construct complex comparisons by combining the results of many comparisons, using the logical operators `not`, `and` and `or`. These operators are specifically aimed to compare booleans.
 
-The `not` operator inverts a `bool`:
+The `not` operator inverts the value of a `bool`:
 ```{code-cell}
 not True
 ```
@@ -263,7 +261,7 @@ True or False
 False or False
 ```
 
-The `and` operator yields `True` as long as both operands are True:
+The `and` operator yields `True` if both operands are True:
 
 ```{code-cell}
 True and False
@@ -273,7 +271,7 @@ True and False
 True and True
 ```
 
-Using these operators, we can construct more complex comparisons and program flows. For example, this function returns `True` only if the first argument is contained between the two others:
+Using these operators, we can construct more complex comparisons and program flows, such as this example:
 
 ```{code-cell}
 def is_between(a, lower, upper):
@@ -291,9 +289,9 @@ print(is_between(2, 2, 5))
 Function that check a condition often start with `is_`, `has_`, `contains_`, etc. This makes it obvious that the answer will be a boolean, or will contain booleans.
 :::
 
-## Exercise 2
+## 💪 Exercise 2
 
-Write a short code that check the value of two integers named `dice1` and `dice2`, and that prints "You got double-six!", "You got one six!" or "You got no six." according to the dice values.
+Write a short code that checks the value of two integers named `dice1` and `dice2`, and that prints "You got double-six!", "You got one six!" or "You got no six." according to the dice values.
 
 ```{code-cell} ipython3
 :tags: [hide-cell]

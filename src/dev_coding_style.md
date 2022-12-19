@@ -1,10 +1,10 @@
-# Coding style
+# 📖 Coding style
 
-## Standard Python conventions
+## 📄 Standard Python conventions
 
 Coding style is [black](https://black.readthedocs.io/en/stable) with 79-character lines. Docstrings style is [Numpy Docstring](https://numpydoc.readthedocs.io/en/latest/format.html).
 
-## Naming conventions
+## 📄 Naming conventions
 
 The following PEP8 conventions are used:
 
@@ -29,7 +29,7 @@ In addition, the following convention is used:
     - contents['Forces'], kinematics.data['UpperArmR']
     - dataframe.columns = ['SolidTire', 'InflatableTire']
 
-## Type hints
+## 📄 Type hints
 
 Kinetics Toolkit is type-hinted, with static type checking performed by `mypy`. It uses python 3.9 annotations using `__future__`:
 

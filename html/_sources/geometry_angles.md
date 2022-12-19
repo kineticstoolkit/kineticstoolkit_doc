@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# Extracting angles
+# 📖 Extracting angles
 
 :::{card} Summary
 This section introduce intrinsic/extrinsic cardan angles and Euler angles and demonstrates why rotation order is so important. It also explains how to extract 3d angles from series of homogeneous transforms using Kinetics Toolkit's [ktk.geometry.get_angles](api/ktk.geometry.get_angles.rst) function.
@@ -28,7 +28,7 @@ Up to now, we learned how to create homogeneous transforms based on known angles
 Unfortunately, extracting tridimensional angles from a given homogeneous transform is something that is notoriously difficult to understand, and that is often overlooked. Understanding how to communicate angles is very important, because similar angles can lead to completely different poses if the rotations are not performed in the same order, and around the same set of axes. This section will tackle this concept and will show how to work with 3d rotations, starting with 2d rotations.
 
 
-## 2d angles
+## 📄 2d angles
 
 At the end of the example of section [](geometry_kinematic_chains.md) (Figure 1), we had calculated the frames that express the orientation of both the upper arm ($^\text{global}_\text{upper arm} T$) and forearm ($^\text{global}_\text{forearm} T$) in global coordinates.
 
@@ -108,7 +108,7 @@ elbow_angles
 ```
 
 
-## 3d angles
+## 📄 3d angles
 
 Single rotations such as the previous example are generally easy to understand. However, in 3d space, there are 3 rotation angles. It is helpful to consider rotations around orthogonal axes (e.g., x, y, z). We already know how to express a pure rotation of $\theta_z$ degrees around the z axis:
 
@@ -217,7 +217,7 @@ Also called proper Euler angles, of classic Euler angles, Euler angles are diffe
 Whereas we viewed 24 possibilities of rotation sequences, each intrinsic rotation as an equivalent extrinsic rotation: $\text{intrinsic}(\theta_1, \theta_2, \theta_3)$ = $\text{extrinsic}(\theta_3, \theta_2, \theta_1)$, which means that there is a total of 6 independent cardan angle sequences, and 6 independent Euler angle sequences.
 :::
 
-## Extracting 3d angles using Kinetics Toolkit
+## 📄 Extracting 3d angles using Kinetics Toolkit
 
 In the beginning of this section, we introduced Kinetics Toolkit' [ktk.geometry.get_angles](api/ktk.geometry.get_angles.rst) function. This one function can accommodate any of these 24 variations of rotation sequences, using the `seq` parameter:
 
@@ -264,7 +264,7 @@ print(ktk.geometry.get_angles(total_rotation, seq="ZXY", degrees=True))
 ```
 
 
-## Choosing a rotation sequence
+## 📄 Choosing a rotation sequence
 
 After reading this section, the normal reaction is to be confused about which sequence of rotations to choose to express joint angles. This is a very interesting topic that may never settle completely, but a good starting point would be to consult the 2002 and 2005 recommendations of the International Society of Biomechanics:
 

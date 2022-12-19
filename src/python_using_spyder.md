@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# Using Spyder
+# 📖 Using Spyder
 
 :::{card} Summary
 This section shows how to use Spyder to execute your first lines of code and build your first program.
@@ -29,7 +29,7 @@ For those who are used to Matlab, Spyder's interface should immediately look fam
 ![](_static/images/spyder_screenshot.png)
 
 
-## Writing code in a console
+## 📄 Writing code in a console
 
 In the figure above, Section A is the console, and is the equivalent of the `>>>` console that we regularly see in tutorials. Any command that you enter here is executed immediately, and the output is returned just below.
 
@@ -46,44 +46,64 @@ You can also write multiple-line commands using CTRL+Enter. Both are executed, b
 3 + 4
 ```
 
-To tell Python to actually print something, and not only the result of the last operation, we use the `print` function:
+To force the console to print something, and not only the result of the last operation, we use the `print` function:
 
 ```{code-cell} ipython3
 print(1 + 2)
 print(3 + 4)
 ```
 
-The `print` function works with any contents, be it numbers or words. Here is the most ubiquitous example in computer science: "Hello World". Try typing this command in the console:
+The `print` function works with any contents, be it numbers or words. Here is the most ubiquitous first program in computer science: "Hello World". Try typing this command in the console:
 
 ```{code-cell} ipython3
 print("Hello world")
 ```
 
 
-## Writing code in a script
+:::{important}
+Python is case-sensitive. This means that `a` is not the same thing as `A`. Similarly,
+
+```
+Print("Hello world")
+```
+
+or
+
+```
+PRINT("Hello world")
+```
+
+would result in an error because neither `Print` or `PRINT` exists. However,
+
+```
+print("Hello world")
+```
+
+works.
+:::
+
+## 📄 Writing code in a script
 
 In the figure above, Section B is the script editor. This is where you will be writing most of your code. It is simply a text editor that allows saving our code (in a .py text file) to execute it all together later. You can execute a script by clicking on the `Run File` button (leftmost in the following toolbar, which can have different looks according to your configuration):
 
 ![](_static/images/spyder_run_toolbar.png)
 ![](_static/images/spyder_run_toolbar_mac.png)
 
-## Exercise 1
+## 💪 Exercise 1
 Create a file named `hello_world.py` that prints "Hello World", and run it using the `Run File` button.
 
 
-## Comments
+## 📄 Comments
 
-For now, our first program has only one line, it is easy to understand. As our programs grow over time, we need to document them. To this effect, any text that follows `#` is considered by Python as a comment, and is not executed. Usually, we use comments to explain what is the objective of a section of code.
+For now, our first program has only one line, it is easy to understand. As our programs grow over time, we need to document them. To this effect, any text that follows `#` is considered by python as a comment, and is not executed. Usually, we use comments to explain what is the objective of a section of code.
 
-## Writing code in a cell
+## 📄 Writing code in a cell
 
-When scripts start to be long, it can be practical to run only one section of the script at a time. Scripts can be split into cells using this sequence of characters which acts as a separator:
+When scripts are getting longer, it can be practical to run only one section of the script at a time. Scripts can be split into cells using this sequence of characters which acts as a separator:
 
 ```
 #%%
 ```
-
-Since it starts with `#`, it is simply a special case of Python comment.
 
 :::{good-practice} Cells
 You can name cells by adding a title next to the separator. This is generally a good idea to keep control of your growing script.
@@ -104,11 +124,11 @@ You can execute a cell by placing the cursor in that cell, then by clicking on t
 ![](_static/images/spyder_run_toolbar.png)
 ![](_static/images/spyder_run_toolbar_mac.png)
 
-## Exercise 2
+## 💪 Exercise 2
 
 Create a file named `hello_north_south.py` that contains two cells. A first cell prints "Hello north", and a second cell prints "Hello south". Run the cell of your choice using the toolbar icons.
 
-## Getting help
+## 📄 Getting help
 
 In the [screenshot](fig:screenshot) above, Section C is a collection of panes that can be helpful during data processing. The help pane is particularly helpful to navigate the documentation of a given module or package. For example, to better understand how to use the numpy's `mean()` function, you could write `np.mean` in the help pane.
 

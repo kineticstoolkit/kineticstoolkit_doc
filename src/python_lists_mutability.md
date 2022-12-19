@@ -11,15 +11,15 @@ kernelspec:
   name: python3
 ---
 
-# Manipulating lists
+# 📖 Manipulating lists
 
 :::{card} Summary
 This section shows to modify lists using indexing and slicing, and how to extend lists or append data to lists.
 :::
 
-## Modifying an element
+## 📄 Modifying an element
 
-In previous section, we learnt that we can read an element of a list using indexing and slicing:
+In previous section, we learnt how to read an element of a subset of a list, using indexing or slicing:
 
 ```{code-cell} ipython3
 a = [1, 2, 3]
@@ -52,9 +52,9 @@ a[0:2] = b[1:3]
 a
 ```
 
-## Appending an element to a list
+## 📄 Appending an element to a list
 
-To append a new element to a list, we can use the list's `append` method, which takes the new value as an argument.
+To append a new element to a list, we use the list's `append` method, which takes the new value as an argument.
 
 :::{admonition} Function vs method
 We already saw what is a [function](python_functions.md): a subprogram that can process arguments and return a result.
@@ -68,33 +68,32 @@ A method is a special type of function that is specific to a given variable type
 ```
 output = input.method()
 ```
-
 :::
 
 ```{code-cell} ipython3
 a = [1, 2, 3]
-print('a_before = ', a)
+print('a before = ', a)
 
 a.append(4)
 
-print('a_after = ', a)
+print('a after = ', a)
 ```
 
-## Extending a list
+## 📄 Extending a list
 
 To append multiple elements at once, we instead use the lists' `extend` method, which takes a list of new values as an argument.
 
 ```{code-cell} ipython3
 a = [1, 2, 3]
 b = [4, 5]
-print('a_before = ', a)
+print('a before = ', a)
 
 a.extend(b)
 
-print('a_after = ', a)
+print('a after = ', a)
 ```
 
-## Deleting an element from a list
+## 📄 Deleting an element from a list
 
 To remove an element at a given index, we use the list's `pop` method, which both return the element being deleted, and deletes it from the list.
 
@@ -105,7 +104,7 @@ print(a.pop(0))  # Remove the first element
 print(a)
 ```
 
-## Exercise 1
+## 💪 Exercise 1
 
 Here is the progression of a person's maximal flexion angle of the shoulder during a 4-month stretching program, with the outer list corresponding to the month, and the inner lists being 10 consecutive measurements performed during the month.
 
@@ -131,7 +130,7 @@ max_flexion[0][0] = max_flexion[0][0] - 5
 max_flexion
 ```
 
-## Exercise 2
+## 💪 Exercise 2
 
 Write a code that creates one single, un-nested list, that contains every 40 consecutive measurements.
 

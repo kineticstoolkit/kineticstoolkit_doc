@@ -11,13 +11,13 @@ kernelspec:
   name: python3
 ---
 
-# Looping using `while`
+# 📖 Looping using `while`
 
 :::{card} Summary
 This section shows how to repeat a code block using the `while` statement.
 :::
 
-## Syntax
+## 📄 Syntax
 
 The `while` instruction repeats a code block as long as a condition is true. Its syntax is:
 
@@ -41,7 +41,7 @@ while i < 5:
     i += 1
 ```
 
-Here is a more practical example, where we convert a list of measurements from meters to mm:
+Let's get this into practice, with this example where we made some measurements stored in metres in a list. We want to convert this list to another list where the measurements are in millimetres instead:
 
 ```{code-cell}
 # We have some measurements in meters:
@@ -62,12 +62,12 @@ millimeters
 ```
 
 :::{good-practice} Looping
-While this example works perfectly well and is indeed a correct demonstration of how `while` works, we will see in the next sections that for this specific example, other methods sur as `for`, or even better using `numpy`, would be less error-prone and faster.
+While this example works perfectly well and is indeed a correct demonstration of how `while` works, we will see in the next sections that for this specific example, other instructions sur as [for](python_for_range.md), or even better using [numpy](numpy.md), would be less error-prone and faster.
 :::
 
-## Exercise 1
+## 💪 Exercise 1
 
-We return to the example of the instrumented walkway. We recorded the following positions of heel strike, first for the right heel, second for the left heel, third for the right heel, etc.:
+Let's get back again to the example of the instrumented walkway. We recorded the following positions of heel strike, first for the right heel, second for the left heel, third for the right heel, etc.:
 
 ```{code-cell}
 # y-coordinates of each heel strike, in meters
@@ -83,9 +83,6 @@ Write a program that creates a list named `step_lengths`, that contains the leng
 ```{code-cell}
 :tags: [hide-cell]
 
-# y-coordinates of each heel strike, in meters
-y = [0.13, 0.72, 1.29, 1.93, 2.55, 3.12, 3.71, 4.34, 4.95, 5.56]
-
 # Initialize an empty list to put the results of our calculations
 step_lengths = []
 
@@ -98,11 +95,11 @@ while i < n_steps:
     step_lengths.append(y[i + 1] - y[i])
     i += 1
 
-# Done!
+# Done
 step_lengths
 ```
 
-## Exercise 2
+## 💪 Exercise 2
 
 A therapist measures a patient's maximal shoulder flexion several times. Write a program that creates a list of all these measurements based on user input, following this example:
 

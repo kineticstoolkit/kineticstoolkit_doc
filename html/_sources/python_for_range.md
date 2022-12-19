@@ -11,15 +11,15 @@ kernelspec:
   name: python3
 ---
 
-# Looping using `for` and `range`
+# 📖 Looping using `for` and `range`
 
 :::{card} Summary
 This section shows how to repeat a code block using the `for` statement, either by looping through a variable directly, or using a range.
 :::
 
-In the previous section, we learned how to use `while` to repeat a code block as long as a condition is true. Whereas the `while` statement is very powerful and sufficient for any looping, it is often clearer to use the `for` statement instead.
+In the previous section, we learned how to use `while` to repeat a code block as long as a condition is true. Whereas the `while` statement is very powerful and sufficient for any looping, it is sometimes clearer to use the `for` statement instead.
 
-The `for` statement means: "repeat this code block for each element of this variable". For instance, we can iterate through each element of a list:
+The `for` statement means: "repeat this code block for each element of this variable". This means that we can easily iterate through each element of a list:
 
 ```
 for variable_name in the_list:
@@ -37,9 +37,9 @@ for item in [0, 1, 2, 'three', 'four']:
 ```
 
 
-## Exercise 1
+## 💪 Exercise 1
 
-We have some measurements in meters:
+We have some measurements in metres:
 
 ```{code-cell}
 meters = [0.329, 0.009, 0.210, 0.726, 0.686, 0.912, 0.285, 0.833, 0.334, 0.165]
@@ -79,18 +79,14 @@ for one_measurement in meters:
 millimeters
 ```
 
-:::{margin}
-#todo Decide if we present list comprehension. If we do, then this example would be a very good starting point.
-:::
-
 :::{good-practice} for vs while
 Note how the solution of this exercise is much clearer using `for` than `while`: we don't need to initialize an index at 0 before starting the loop, and we don't need to manually increment the index at the end of each loop. Therefore, in this case, using a `for` loop is less error-prone than using a `while` loop.
 :::
 
 
-## Range
+## 📄 Range
 
-A range is a type of variable that specifies a series of values from a starting point to an ending point, and with a given increment. A range makes an ideal counter. Therefore, we use ranges a lot with `for` loops, when we just need to repeat a code block a given number of time:
+A range is a type of variable that specifies a series of values from a starting point to an ending point, and with a given increment. Since a range makes an ideal counter, it is often used with `for` loops, when we just need to repeat a code block a given number of time:
 
 ```{code-cell}
 for i in range(5):  # Repeat the following code block 5 times
@@ -124,9 +120,9 @@ for i in range(5, 10, 2):
 ```
 
 
-## Exercise 2
+## 💪 Exercise 2
 
-A therapist measures a patient's maximal shoulder flexion three times. Write a program that creates a list of these three measurements based on user input, following this example:
+A therapist measures a patient's maximal shoulder flexion **three times**. Write a program that creates a list of these three measurements based on user input, following this example:
 
 :::{admonition} Example of program output
 ```none
@@ -155,9 +151,9 @@ print("Max shoulder flexion:", measurements)
 :::
 
 
-## Exercise 3
+## 💪 Exercise 3
 
-We return yet again to the example of the instrumented walkway. We recorded the following positions of heel strike, first for the right heel, second for the left heel, third for the right heel, etc.:
+We return yet again to the instrumented walkway example. We recorded the following positions of heel strike, first for the right heel, second for the left heel, third for the right heel, etc.:
 
 ```{code-cell}
 # y-coordinates of each heel strike, in meters
@@ -168,7 +164,7 @@ y = [0.13, 0.72, 1.29, 1.93, 2.55, 3.12, 3.71, 4.34, 4.95, 5.56]
 
 *Figure 1. Foot coordinates obtained via an instrumented walkway*
 
-Rewrite a program that creates a list named `step_lengths`, that contains the length of every step, but this time using `for` and `range` instead of `while`. The first step length would be `y[1] - y[0]`, the second would be `y[2] - y[1]`, etc. In this specific example, we recorded nine steps, but your code must work on any number of steps.
+Write a program that creates a list named `step_lengths`, that contains the length of every step, but this time using `for` and `range` instead of `while`. The first step length would be `y[1] - y[0]`, the second would be `y[2] - y[1]`, etc. In this specific example, we recorded nine steps, but your code must work on any number of steps.
 
 ```{code-cell}
 :tags: [hide-cell]

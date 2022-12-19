@@ -1,4 +1,4 @@
-# Looping
+# 📖 Looping
 
 :::{card} Summary
 This section shows how to repeat a code block several times using the `while`, `for`, `range` and `enumerate` statements.

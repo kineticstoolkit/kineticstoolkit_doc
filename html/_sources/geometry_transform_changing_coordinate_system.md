@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# The homogeneous transform: mapping coordinates to other coordinate systems
+# 📖 The homogeneous transform: mapping coordinates to other coordinate systems
 
 :::{card} Summary
 This section shows the role of the homogeneous transform in moving from local to global coordinates, and how to perform these operations in Kinetics Toolkit using [](api/ktk.geometry.get_global_coordinates.rst) and [](api/ktk.geometry.get_local_coordinates.rst).
@@ -31,7 +31,7 @@ In section [](geometry_transform_changing_coordinate_system.md), we learned that
 In this new section, we will use both definitions to see the third and last role of the homogeneous transform, which is **remapping points, vectors and frames from a given coordinate system to another coordinate system.**
 
 
-## Mapping local coordinates to global coordinates
+## 📄 Mapping local coordinates to global coordinates
 
 Let's start with this example, where we want to express the yellow point in global coordinates.
 
@@ -123,7 +123,7 @@ $$
 
 The position of the yellow points, in global coordinates, is (8.232, 6.866, 0).
 
-## Mapping global coordinates to local coordinates
+## 📄 Mapping global coordinates to local coordinates
 
 Since we get global coordinates using:
 
@@ -148,7 +148,7 @@ $$
 $$
 
 
-## Example
+## 📄 Application to our example
 
 This ability of switching between coordinate systems is very powerful. Let's get back to our initial pose.
 
@@ -163,7 +163,7 @@ Using this information:
 
 We want to know the position of the elbow in global coordinates.
 
-## Solution
+**Solution:**
 
 The first information allows us to express the position of the elbow in the local upper arm coordinate system:
 
@@ -218,7 +218,7 @@ $$
 
 Its final coordinates are $(0.34, 0.371, 0)$.
 
-## Changing coordinate systems using Kinetics Toolkit
+## 📄 Changing coordinate systems using Kinetics Toolkit
 
 Using the [](api/ktk.geometry.create_transforms.rst) and [](api/ktk.geometry.matmul.rst) functions introduced in the previous section, we can solve this problem following:
 

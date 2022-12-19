@@ -16,7 +16,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# Calculating joint angles from a kinematic acquisition
+# 📖 Calculating joint angles from a kinematic acquisition
 
 :::{card} Summary
 In this tutorial, we will calculate the elbow joint angles during the propulsion of a racing wheelchair. At the end of the tutorial, we will plot curves of elbow flexion and pronation angles during the complete acquisition.
@@ -43,7 +43,9 @@ Calculating joint angles requires the following steps:
 import kineticstoolkit.lab as ktk
 ```
 
-## Read and visualize marker trajectories
+## 📄 Read and visualize marker trajectories
+
+We start by downloading and visualizing some data, as shown in previous section:
 
 ```{code-cell} ipython3
 :tags: [remove-output]
@@ -102,7 +104,7 @@ player = ktk.Player(
 player.to_html5(start_time=0, stop_time=1)
 ```
 
-## Create local coordinate systems
+## 📄 Create local coordinate systems
 
 To calculate the elbow angles, we need to express frames for the arm and forearm segments. The elbow angles will be extracted from the homogeneous transform between both frames.
 
@@ -234,7 +236,7 @@ player = ktk.Player(
 player.to_html5(start_time=0, stop_time=1)
 ```
 
-## Find the series of homogeneous transforms between both segments
+## 📄 Find the series of homogeneous transforms between both segments
 
 Now that we have expressed frames for both the arm and forearm, we can find the homogeneous transform between both frames. This is equivalent to expressing the forearm frame in the local coordinates system of the arm.
 
@@ -246,7 +248,7 @@ arm_to_forearm = ktk.geometry.get_local_coordinates(
 arm_to_forearm
 ```
 
-## Extract the series of Euler angles
+## 📄 Extract the series of Euler angles
 
 We now have a series of homogeneous matrices, from which we will now extract Euler angles corresponding to flexion and pronation. We will use the [](api/ktk.geometry.get_angles.rst) function to extract these Euler angles. We however fist need to define the sequence of rotation for these angles. Still following the recommendations of the International Society of Biomechanics [^1], we define the series of rotations from the arm to forearm as:
 
@@ -264,7 +266,7 @@ euler_angles = ktk.geometry.get_angles(arm_to_forearm, "ZXY", degrees=True)
 euler_angles
 ```
 
-## Plot the Euler angles
+## 📄 Plot the Euler angles
 
 Now that we calculated the angles, we create a last TimeSeries that represents the meaning of these angles.
 

@@ -11,15 +11,15 @@ kernelspec:
   name: python3
 ---
 
-# Slicing lists
+# 📖 Slicing lists
 
 :::{card} Summary
 This section shows how to use slices (`[::]`) to extract multiple data from a list, in the form a subset of the original list.
 :::
 
-In the previous sections, we saw how to use square brackets `[]` to extract one data from a list. Sometimes, we dont want to extract only one data, but multiple data, keeping a certain portion of a list and discarding the rest. This is done using slicing.
+In the previous sections, we saw how to use square brackets `[]` to extract one data from a list. Sometimes, we dont want to extract only one data, but a sub-list containing multiple data (keeping a certain portion of a list and discarding the rest). This is done using slicing.
 
-## Slicing syntax
+## 📄 Slicing syntax
 
 The syntax for slicing a list is similar to indexing it, the main difference being the column operator `:`. To extract one element from a list, say for example the 3rd element (at index 2), we would use:
 
@@ -54,7 +54,7 @@ It can be counter-intuitive that the first index is inclusive, while the second 
 - The second index is the first element that we don't want.
 :::
 
-## Slicing increment
+## 📄 Slicing increment
 
 We can extract every other element, using a third index, which is the increment to use in navigating the list. For instance, to extract a list containing the elements at indexes 2, 4, and 6:
 
@@ -76,7 +76,7 @@ If this last example was harder to understand, let's reuse this tip.
 - The second index is the first element that we don't want. This is index 1.
 :::
 
-## Singles bounds
+## 📄 Single bounds
 
 Sometimes, we want to slice a list with only one bound. For example, to get every element from index 2 up to the end, we could use:
 
@@ -111,7 +111,7 @@ list_of_strings[2::2]
 ```
 
 
-## Exercise 1
+## 💪 Exercise 1
 
 What would be the code to get a list identical to `list_of_strings`, but with every element reversed (the first becomes the last, the last becomes the first)?
 
@@ -133,7 +133,7 @@ list_of_strings[-1::-1]
 ```
 
 
-## Exercise 2
+## 💪 Exercise 2
 
 Let's get back to the spatial parameters of gait measured in last section. For a given participant, we recorded this `y` list:
 
@@ -146,7 +146,7 @@ y = [0.13, 0.72, 1.29, 1.93, 2.55, 3.12, 3.71, 4.34, 4.95, 5.56]
 
 *Figure 1. Foot coordinates obtained via an instrumented walkway*
 
-If we know that the first data always corresponds to the right foot, write a 2-line code that separates `y` into two lists:
+If we know that the first element of `y` always corresponds to the right foot, write a 2-line code that separates `y` into two lists:
 - `y_right`, which contains the y-coordinates of all heel strikes for the right foot
 - `y_left`, which contains the y-coordinates all heel strikes for the left foot
 
@@ -160,3 +160,28 @@ y_left = y[1::2]
 print(f"Right foot: {y_right}")
 print(f"Left foot: {y_left}")
 ```
+
+
+## 📄 Indexing and slicing strings
+
+We just saw how to index and slice lists. The exact same behaviour applies to strings: we can extract one or many characters from a string by slicing it:
+
+```{code-cell} ipython3
+string = "This is a sample string that we will index and slice"
+
+# Get the first character
+print(string[0])
+
+# Get the last character
+print(string[-1])
+
+# Get the 10 first characters
+print(string[:10])
+
+# Get the 10 last characters
+print(string[-10:])
+
+# Get every other character
+print(string[::2])
+```
+

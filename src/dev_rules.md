@@ -1,10 +1,10 @@
-# Development rules
+# 📖 Development rules
 
-## Rule 1: Code of conduct
+## 📄 Rule 1: Code of conduct
 
 Please make sure to adhere to our [code of conduct](dev_code_of_conduct.md).
 
-## Rule 2: Consider writing documentation instead of code
+## 📄 Rule 2: Consider writing documentation instead of code
 
 Before even starting to develop a new function, one should ask this important question: **Should this feature really be developed, or should I write a tutorial instead?**
 
@@ -13,13 +13,13 @@ We remind that Kinetics Toolkit aims to provide tools for the user to achieve th
 - To develop documentation, please contribute to the [kineticstoolkit_doc](https://github.com/felixchenier/kineticstoolkit_doc) repository, that versions this website's code.
 - Otherwise, to develop code, then continue with this guide.
 
-## Rule 3: For new features, consider writing an extension
+## 📄 Rule 3: For new features, consider writing an extension
 
 Kinetics Toolkit supports extensions. This means you can program and distribute your own functions withing ktk, while keeping in full control and property of your code. Extensions are a good way to test new features and evaluate if they should or shouldn't become part of the core library.
 
-## Rule 4: Contributing code to the core library
+## 📄 Rule 4: Contributing code to the core library
 
-To contribute code to the core library, please use the usual method of forking, writing, testing, and writing a pull request that is described [here](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models).
+Before contributing code to the core library, please start a discussion [discussion](https://github.com/felixchenier/kineticstoolkit/discussions) to avoid misunderstanding or disappointment before even starting to code. Everybody's efforts should converge toward an efficient direction. Once we agree on the feature being developed, use the usual method of forking, writing, testing, and writing a pull request that is described [here](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models).
 
 Before creating a pull request, please ensure that:
 
