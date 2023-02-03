@@ -51,8 +51,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
-    <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="canonical" href="https://kineticstoolkit.uqam.ca/doc/ktk_release_notes.html" />
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
@@ -360,6 +358,11 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_sample_rate.html">
+         ktk.TimeSeries.get_sample_rate
+        </a>
+       </li>
+       <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.TimeSeries.get_subset.html">
          ktk.TimeSeries.get_subset
         </a>
@@ -432,6 +435,11 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.TimeSeries.remove_data_info.html">
          ktk.TimeSeries.remove_data_info
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.remove_duplicate_events.html">
+         ktk.TimeSeries.remove_duplicate_events
         </a>
        </li>
        <li class="toctree-l4">
@@ -887,39 +895,27 @@ const thebe_selector_output = ".output, .cell_output"
        📖 Conditions and booleans
       </a>
      </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="python_lists.html">
-       📖 Lists
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_lists_indexing.html">
+       📖 Creating and indexing lists
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
-      <label for="toctree-checkbox-22">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="python_lists_indexing.html">
-         📖 Creating and indexing lists
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="python_lists_slicing.html">
-         📖 Slicing lists
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="python_lists_mutability.html">
-         📖 Manipulating lists
-        </a>
-       </li>
-      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_lists_slicing.html">
+       📖 Slicing lists
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_lists_mutability.html">
+       📖 Manipulating lists
+      </a>
      </li>
      <li class="toctree-l3 has-children">
       <a class="reference internal" href="python_looping.html">
        📖 Looping
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
-      <label for="toctree-checkbox-23">
+      <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
+      <label for="toctree-checkbox-22">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -976,27 +972,32 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="numpy.html">
-     🚧 Numpy
+     📖 NumPy
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
-    <label for="toctree-checkbox-24">
+    <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
+    <label for="toctree-checkbox-23">
      <i class="fas fa-chevron-down">
      </i>
     </label>
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="numpy_import.html">
-       🚧 Import
+       📖 Importing NumPy
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="numpy_ndarray.html">
-       🚧 N-dimensional arrays
+       📖 Arrays
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="numpy_indexing.html">
-       🚧 Indexing and slicing
+       📖 Indexing and slicing
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy_arithmetics.html">
+       🚧 Numpy arithmetics
       </a>
      </li>
      <li class="toctree-l3">
@@ -1015,8 +1016,8 @@ const thebe_selector_output = ".output, .cell_output"
     <a class="reference internal" href="matplotlib.html">
      🚧 Matplotlib
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/>
-    <label for="toctree-checkbox-25">
+    <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
+    <label for="toctree-checkbox-24">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -1368,7 +1369,7 @@ title="Print to PDF"
 <h3>0.10.0 (November 2022)<a class="headerlink" href="#november-2022" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>New feature: <a class="reference internal" href="api/ktk.TimeSeries.count_events.html"><span class="doc std std-doc">ktk.TimeSeries.count_events</span></a>. Counts the number of occurrences of a given event. This function is useful for example to loop over cycles.</p></li>
-<li><p>New feature: <span class="xref myst">ktk.TimeSeries.remove_duplicate_events</span>. Removes duplicate events (that share a same name and same time).</p></li>
+<li><p>New feature: <a class="reference internal" href="api/ktk.TimeSeries.remove_duplicate_events.html"><span class="doc std std-doc">ktk.TimeSeries.remove_duplicate_events</span></a>. Removes duplicate events (that share a same name and same time).</p></li>
 <li><p>Improvement: Better error messages. All functions now perform basic real-time type checking and return clear messages in case of unexpected input. Many error messages are also more helpful, particularly in TimeSeries’ <code class="docutils literal notranslate"><span class="pre">get_ts_</span></code> methods.</p></li>
 <li><p>Improvement: <a class="reference internal" href="api/ktk.Player.html"><span class="doc std std-doc">ktk.Player</span></a> now allows interconnections to be any length, not only bouts of two-marker connections.</p></li>
 <li><p>Improvement: <a class="reference internal" href="api/ktk.TimeSeries.add_event.html"><span class="doc std std-doc">ktk.TimeSeries.add_event</span></a> now has an optional <code class="docutils literal notranslate"><span class="pre">unique</span></code> argument to prevent adding duplicate events.</p></li>
@@ -1415,7 +1416,7 @@ title="Print to PDF"
 <h3>0.9.0 (August 2022)<a class="headerlink" href="#august-2022" title="Permalink to this headline">#</a></h3>
 <ul class="simple">
 <li><p>New feature: <a class="reference internal" href="api/ktk.TimeSeries.resample.html"><span class="doc std std-doc">ktk.TimeSeries.resample</span></a> to resample a TimeSeries on a new time vector, with the method of your choice (sample-and-hold, linear, spline, etc.)</p></li>
-<li><p>New feature: <span class="xref myst">ktk.TimeSeries.get_sample_rate</span> returns the TimeSeries sample rate, or NaN if the sample rate is not constant.</p></li>
+<li><p>New feature: <a class="reference internal" href="api/ktk.TimeSeries.get_sample_rate.html"><span class="doc std std-doc">ktk.TimeSeries.get_sample_rate</span></a> returns the TimeSeries sample rate, or NaN if the sample rate is not constant.</p></li>
 <li><p>New feature: <a class="reference internal" href="api/ktk.read_c3d.html"><span class="doc std std-doc">ktk.read_c3d</span></a> replaces <code class="docutils literal notranslate"><span class="pre">ktk.kinematics.read_c3d_file</span></code>, and now reads analogs and events in addition to points.</p></li>
 <li><p>New feature: <a class="reference internal" href="api/ktk.write_c3d.html"><span class="doc std std-doc">ktk.write_c3d</span></a> replaces <code class="docutils literal notranslate"><span class="pre">ktk.kinematics.write_c3d_file</span></code>.</p></li>
 <li><p>Deprecation: <code class="docutils literal notranslate"><span class="pre">ktk.kinematics.read_n3d_file</span></code> was moved to the <a class="reference external" href="https://github.com/felixchenier/kineticstoolkit_n3d">n3d extension</a>.</p></li>

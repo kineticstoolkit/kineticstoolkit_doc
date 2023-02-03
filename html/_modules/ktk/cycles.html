@@ -50,8 +50,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
-    <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="canonical" href="https://kineticstoolkit.uqam.ca/doc/_modules/ktk/cycles.html" />
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -357,6 +355,11 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.get_sample_rate.html">
+         ktk.TimeSeries.get_sample_rate
+        </a>
+       </li>
+       <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.get_subset.html">
          ktk.TimeSeries.get_subset
         </a>
@@ -429,6 +432,11 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.remove_data_info.html">
          ktk.TimeSeries.remove_data_info
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.remove_duplicate_events.html">
+         ktk.TimeSeries.remove_duplicate_events
         </a>
        </li>
        <li class="toctree-l4">
@@ -884,39 +892,27 @@ const thebe_selector_output = ".output, .cell_output"
        📖 Conditions and booleans
       </a>
      </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../../python_lists.html">
-       📖 Lists
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_lists_indexing.html">
+       📖 Creating and indexing lists
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
-      <label for="toctree-checkbox-22">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../python_lists_indexing.html">
-         📖 Creating and indexing lists
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../python_lists_slicing.html">
-         📖 Slicing lists
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../python_lists_mutability.html">
-         📖 Manipulating lists
-        </a>
-       </li>
-      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_lists_slicing.html">
+       📖 Slicing lists
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_lists_mutability.html">
+       📖 Manipulating lists
+      </a>
      </li>
      <li class="toctree-l3 has-children">
       <a class="reference internal" href="../../python_looping.html">
        📖 Looping
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
-      <label for="toctree-checkbox-23">
+      <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
+      <label for="toctree-checkbox-22">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -973,27 +969,32 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="../../numpy.html">
-     🚧 Numpy
+     📖 NumPy
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
-    <label for="toctree-checkbox-24">
+    <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
+    <label for="toctree-checkbox-23">
      <i class="fas fa-chevron-down">
      </i>
     </label>
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../../numpy_import.html">
-       🚧 Import
+       📖 Importing NumPy
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../../numpy_ndarray.html">
-       🚧 N-dimensional arrays
+       📖 Arrays
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../../numpy_indexing.html">
-       🚧 Indexing and slicing
+       📖 Indexing and slicing
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../numpy_arithmetics.html">
+       🚧 Numpy arithmetics
       </a>
      </li>
      <li class="toctree-l3">
@@ -1012,8 +1013,8 @@ const thebe_selector_output = ".output, .cell_output"
     <a class="reference internal" href="../../matplotlib.html">
      🚧 Matplotlib
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/>
-    <label for="toctree-checkbox-25">
+    <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
+    <label for="toctree-checkbox-24">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -1199,7 +1200,7 @@ title="Fullscreen mode"
     <span class="n">min_peak_heights</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">Inf</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">Inf</span><span class="p">],</span>
     <span class="n">max_peak_heights</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">Inf</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">Inf</span><span class="p">],</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Detect cycles in a TimeSeries based on a dual threshold approach.</span>
 
 <span class="sd">    This function detects biphasic cycles and identifies the transitions as</span>
@@ -1339,7 +1340,7 @@ title="Fullscreen mode"
     <span class="n">n_points</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
     <span class="n">span</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Time-normalize cycles in a TimeSeries.</span>
 
 <span class="sd">    This method time-normalizes the TimeSeries at each cycle defined by</span>
@@ -1506,7 +1507,7 @@ title="Fullscreen mode"
 
         <span class="c1"># Add the other events</span>
         <span class="k">def</span> <span class="nf">time_to_normalized_time</span><span class="p">(</span><span class="n">time</span><span class="p">):</span>
-            <span class="sd">&quot;&quot;&quot;Resample the events times.&quot;&quot;&quot;</span>
+<span class="w">            </span><span class="sd">&quot;&quot;&quot;Resample the events times.&quot;&quot;&quot;</span>
             <span class="k">return</span> <span class="p">(</span><span class="n">time</span> <span class="o">-</span> <span class="n">extended_begin_time</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span>
                 <span class="n">extended_end_time</span> <span class="o">-</span> <span class="n">extended_begin_time</span>
             <span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">span</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">span</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="n">i_cycle</span> <span class="o">*</span> <span class="p">(</span><span class="n">span</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">span</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
@@ -1542,7 +1543,7 @@ title="Fullscreen mode"
 
 
 <div class="viewcode-block" id="stack"><a class="viewcode-back" href="../../api/ktk.cycles.stack.html#ktk.cycles.stack">[docs]</a><span class="k">def</span> <span class="nf">stack</span><span class="p">(</span><span class="n">ts</span><span class="p">:</span> <span class="n">TimeSeries</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">n_points</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Stack time-normalized TimeSeries&#39; data into a dict of arrays.</span>
 
 <span class="sd">    This methods returns the data of a time-normalized TimeSeries as a dict</span>
@@ -1585,7 +1586,7 @@ title="Fullscreen mode"
 
 
 <div class="viewcode-block" id="unstack"><a class="viewcode-back" href="../../api/ktk.cycles.unstack.html#ktk.cycles.unstack">[docs]</a><span class="k">def</span> <span class="nf">unstack</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ArrayLike</span><span class="p">],</span> <span class="o">/</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Unstack time-normalized data from a dict of arrays to a TimeSeries.</span>
 
 <span class="sd">    This methods creates a time-normalized TimeSeries by putting each cycle</span>
@@ -1690,7 +1691,7 @@ title="Fullscreen mode"
 
 
 <div class="viewcode-block" id="most_repeatable_cycles"><a class="viewcode-back" href="../../api/ktk.cycles.most_repeatable_cycles.html#ktk.cycles.most_repeatable_cycles">[docs]</a><span class="k">def</span> <span class="nf">most_repeatable_cycles</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="o">/</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Get the indexes of the most repeatable cycles in array.</span>
 
 <span class="sd">    This function returns an ordered list of the most repeatable to the least</span>

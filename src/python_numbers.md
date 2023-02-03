@@ -156,7 +156,7 @@ For roots, we can exponentiate to the inverse. For example, to calculate $\sqrt{
 ```
 
 :::{note}
-Later in [numpy](numpy.md) chapter, we will see the function `np.sqrt()` that performs the square root directly.
+Later in the [](numpy.md) chapter, we will see the function `np.sqrt()` that performs the square root directly.
 :::
 
 Exponentiation follows the same type convention as the multiplication: using only integers will results in an integer, and as soon as one of the operands is a float, the result is a float.

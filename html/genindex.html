@@ -50,8 +50,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
-    <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="canonical" href="https://kineticstoolkit.uqam.ca/doc/genindex.html" />
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="#" />
@@ -357,6 +355,11 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_sample_rate.html">
+         ktk.TimeSeries.get_sample_rate
+        </a>
+       </li>
+       <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.TimeSeries.get_subset.html">
          ktk.TimeSeries.get_subset
         </a>
@@ -429,6 +432,11 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.TimeSeries.remove_data_info.html">
          ktk.TimeSeries.remove_data_info
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.remove_duplicate_events.html">
+         ktk.TimeSeries.remove_duplicate_events
         </a>
        </li>
        <li class="toctree-l4">
@@ -884,39 +892,27 @@ const thebe_selector_output = ".output, .cell_output"
        📖 Conditions and booleans
       </a>
      </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="python_lists.html">
-       📖 Lists
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_lists_indexing.html">
+       📖 Creating and indexing lists
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
-      <label for="toctree-checkbox-22">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="python_lists_indexing.html">
-         📖 Creating and indexing lists
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="python_lists_slicing.html">
-         📖 Slicing lists
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="python_lists_mutability.html">
-         📖 Manipulating lists
-        </a>
-       </li>
-      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_lists_slicing.html">
+       📖 Slicing lists
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_lists_mutability.html">
+       📖 Manipulating lists
+      </a>
      </li>
      <li class="toctree-l3 has-children">
       <a class="reference internal" href="python_looping.html">
        📖 Looping
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
-      <label for="toctree-checkbox-23">
+      <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
+      <label for="toctree-checkbox-22">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -973,27 +969,32 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="numpy.html">
-     🚧 Numpy
+     📖 NumPy
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
-    <label for="toctree-checkbox-24">
+    <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
+    <label for="toctree-checkbox-23">
      <i class="fas fa-chevron-down">
      </i>
     </label>
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="numpy_import.html">
-       🚧 Import
+       📖 Importing NumPy
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="numpy_ndarray.html">
-       🚧 N-dimensional arrays
+       📖 Arrays
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="numpy_indexing.html">
-       🚧 Indexing and slicing
+       📖 Indexing and slicing
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy_arithmetics.html">
+       🚧 Numpy arithmetics
       </a>
      </li>
      <li class="toctree-l3">
@@ -1012,8 +1013,8 @@ const thebe_selector_output = ".output, .cell_output"
     <a class="reference internal" href="matplotlib.html">
      🚧 Matplotlib
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/>
-    <label for="toctree-checkbox-25">
+    <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
+    <label for="toctree-checkbox-24">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -1258,12 +1259,14 @@ title="Fullscreen mode"
 </li>
       <li><a href="api/ktk.geometry.get_local_coordinates.html#ktk.geometry.get_local_coordinates">get_local_coordinates() (in module ktk.geometry)</a>
 </li>
-      <li><a href="api/ktk.TimeSeries.get_subset.html#ktk.TimeSeries.get_subset">get_subset() (TimeSeries method)</a>
+      <li><a href="api/ktk.TimeSeries.get_sample_rate.html#ktk.TimeSeries.get_sample_rate">get_sample_rate() (TimeSeries method)</a>
 </li>
-      <li><a href="api/ktk.TimeSeries.get_ts_after_event.html#ktk.TimeSeries.get_ts_after_event">get_ts_after_event() (TimeSeries method)</a>
+      <li><a href="api/ktk.TimeSeries.get_subset.html#ktk.TimeSeries.get_subset">get_subset() (TimeSeries method)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/ktk.TimeSeries.get_ts_after_event.html#ktk.TimeSeries.get_ts_after_event">get_ts_after_event() (TimeSeries method)</a>
+</li>
       <li><a href="api/ktk.TimeSeries.get_ts_after_index.html#ktk.TimeSeries.get_ts_after_index">get_ts_after_index() (TimeSeries method)</a>
 </li>
       <li><a href="api/ktk.TimeSeries.get_ts_after_time.html#ktk.TimeSeries.get_ts_after_time">get_ts_after_time() (TimeSeries method)</a>
@@ -1406,6 +1409,8 @@ title="Fullscreen mode"
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="api/ktk.TimeSeries.remove_duplicate_events.html#ktk.TimeSeries.remove_duplicate_events">remove_duplicate_events() (TimeSeries method)</a>
+</li>
       <li><a href="api/ktk.TimeSeries.remove_event.html#ktk.TimeSeries.remove_event">remove_event() (TimeSeries method)</a>
 </li>
       <li><a href="api/ktk.TimeSeries.rename_data.html#ktk.TimeSeries.rename_data">rename_data() (TimeSeries method)</a>

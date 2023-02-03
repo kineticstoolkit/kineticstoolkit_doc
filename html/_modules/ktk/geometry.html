@@ -50,8 +50,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
-    <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="canonical" href="https://kineticstoolkit.uqam.ca/doc/_modules/ktk/geometry.html" />
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -357,6 +355,11 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.get_sample_rate.html">
+         ktk.TimeSeries.get_sample_rate
+        </a>
+       </li>
+       <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.get_subset.html">
          ktk.TimeSeries.get_subset
         </a>
@@ -429,6 +432,11 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.remove_data_info.html">
          ktk.TimeSeries.remove_data_info
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.TimeSeries.remove_duplicate_events.html">
+         ktk.TimeSeries.remove_duplicate_events
         </a>
        </li>
        <li class="toctree-l4">
@@ -884,39 +892,27 @@ const thebe_selector_output = ".output, .cell_output"
        📖 Conditions and booleans
       </a>
      </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="../../python_lists.html">
-       📖 Lists
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_lists_indexing.html">
+       📖 Creating and indexing lists
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
-      <label for="toctree-checkbox-22">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../python_lists_indexing.html">
-         📖 Creating and indexing lists
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../python_lists_slicing.html">
-         📖 Slicing lists
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../python_lists_mutability.html">
-         📖 Manipulating lists
-        </a>
-       </li>
-      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_lists_slicing.html">
+       📖 Slicing lists
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../python_lists_mutability.html">
+       📖 Manipulating lists
+      </a>
      </li>
      <li class="toctree-l3 has-children">
       <a class="reference internal" href="../../python_looping.html">
        📖 Looping
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
-      <label for="toctree-checkbox-23">
+      <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
+      <label for="toctree-checkbox-22">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -973,27 +969,32 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="../../numpy.html">
-     🚧 Numpy
+     📖 NumPy
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
-    <label for="toctree-checkbox-24">
+    <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
+    <label for="toctree-checkbox-23">
      <i class="fas fa-chevron-down">
      </i>
     </label>
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="../../numpy_import.html">
-       🚧 Import
+       📖 Importing NumPy
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../../numpy_ndarray.html">
-       🚧 N-dimensional arrays
+       📖 Arrays
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="../../numpy_indexing.html">
-       🚧 Indexing and slicing
+       📖 Indexing and slicing
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="../../numpy_arithmetics.html">
+       🚧 Numpy arithmetics
       </a>
      </li>
      <li class="toctree-l3">
@@ -1012,8 +1013,8 @@ const thebe_selector_output = ".output, .cell_output"
     <a class="reference internal" href="../../matplotlib.html">
      🚧 Matplotlib
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/>
-    <label for="toctree-checkbox-25">
+    <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
+    <label for="toctree-checkbox-24">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -1194,7 +1195,7 @@ title="Fullscreen mode"
 
 
 <div class="viewcode-block" id="matmul"><a class="viewcode-back" href="../../api/ktk.geometry.matmul.html#ktk.geometry.matmul">[docs]</a><span class="k">def</span> <span class="nf">matmul</span><span class="p">(</span><span class="n">op1</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">op2</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Matrix multiplication between series of matrices.</span>
 
 <span class="sd">    This function is a wrapper for numpy&#39;s matmul function (operator @), that</span>
@@ -1259,7 +1260,7 @@ title="Fullscreen mode"
     <span class="n">translations</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ArrayLike</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">degrees</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Create an Nx4x4 series of homogeneous transforms based on angle sequences.</span>
 
 <span class="sd">    Parameters</span>
@@ -1359,7 +1360,7 @@ title="Fullscreen mode"
 <div class="viewcode-block" id="get_angles"><a class="viewcode-back" href="../../api/ktk.geometry.get_angles.html#ktk.geometry.get_angles">[docs]</a><span class="k">def</span> <span class="nf">get_angles</span><span class="p">(</span>
     <span class="n">T</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">seq</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">degrees</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">flip</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Extract Euler angles from a series of homogeneous matrices.</span>
 
 <span class="sd">    In case of gimbal lock, a warning is raised, and the third angle is set to</span>
@@ -1450,7 +1451,7 @@ title="Fullscreen mode"
     <span class="n">xz</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ArrayLike</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">yz</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ArrayLike</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Create an Nx4x4 series of frames based on series of points and vectors.</span>
 
 <span class="sd">    Parameters</span>
@@ -1491,12 +1492,12 @@ title="Fullscreen mode"
     <span class="n">check_types</span><span class="p">(</span><span class="n">create_frames</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
 
     <span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Normalize series of vectors.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Normalize series of vectors.&quot;&quot;&quot;</span>
         <span class="n">norm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">v</span> <span class="o">/</span> <span class="n">norm</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">cross</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Cross on series of vectors of length 4.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Cross on series of vectors of length 4.&quot;&quot;&quot;</span>
         <span class="n">c</span> <span class="o">=</span> <span class="n">v1</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="n">c</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">v1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">v2</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
         <span class="k">return</span> <span class="n">c</span>
@@ -1545,7 +1546,7 @@ title="Fullscreen mode"
 <div class="viewcode-block" id="get_local_coordinates"><a class="viewcode-back" href="../../api/ktk.geometry.get_local_coordinates.html#ktk.geometry.get_local_coordinates">[docs]</a><span class="k">def</span> <span class="nf">get_local_coordinates</span><span class="p">(</span>
     <span class="n">global_coordinates</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">reference_frames</span><span class="p">:</span> <span class="n">ArrayLike</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Express global coordinates in local reference frames.</span>
 
 <span class="sd">    Parameters</span>
@@ -1577,6 +1578,9 @@ title="Fullscreen mode"
 
     <span class="n">global_coordinates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">global_coordinates</span><span class="p">)</span>
     <span class="n">reference_frames</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">reference_frames</span><span class="p">)</span>
+    <span class="p">(</span><span class="n">global_coordinates</span><span class="p">,</span> <span class="n">reference_frames</span><span class="p">)</span> <span class="o">=</span> <span class="n">_match_size</span><span class="p">(</span>
+        <span class="n">global_coordinates</span><span class="p">,</span> <span class="n">reference_frames</span>
+    <span class="p">)</span>
 
     <span class="n">n_samples</span> <span class="o">=</span> <span class="n">global_coordinates</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
@@ -1613,7 +1617,7 @@ title="Fullscreen mode"
 <div class="viewcode-block" id="get_global_coordinates"><a class="viewcode-back" href="../../api/ktk.geometry.get_global_coordinates.html#ktk.geometry.get_global_coordinates">[docs]</a><span class="k">def</span> <span class="nf">get_global_coordinates</span><span class="p">(</span>
     <span class="n">local_coordinates</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">reference_frames</span><span class="p">:</span> <span class="n">ArrayLike</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Express local coordinates in the global reference frame.</span>
 
 <span class="sd">    Parameters</span>
@@ -1645,6 +1649,9 @@ title="Fullscreen mode"
 
     <span class="n">local_coordinates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">local_coordinates</span><span class="p">)</span>
     <span class="n">reference_frames</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">reference_frames</span><span class="p">)</span>
+    <span class="p">(</span><span class="n">local_coordinates</span><span class="p">,</span> <span class="n">reference_frames</span><span class="p">)</span> <span class="o">=</span> <span class="n">_match_size</span><span class="p">(</span>
+        <span class="n">local_coordinates</span><span class="p">,</span> <span class="n">reference_frames</span>
+    <span class="p">)</span>
 
     <span class="n">global_coordinates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">local_coordinates</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
     <span class="n">global_coordinates</span> <span class="o">=</span> <span class="n">matmul</span><span class="p">(</span><span class="n">reference_frames</span><span class="p">,</span> <span class="n">local_coordinates</span><span class="p">)</span>
@@ -1652,7 +1659,7 @@ title="Fullscreen mode"
 
 
 <div class="viewcode-block" id="isnan"><a class="viewcode-back" href="../../api/ktk.geometry.isnan.html#ktk.geometry.isnan">[docs]</a><span class="k">def</span> <span class="nf">isnan</span><span class="p">(</span><span class="n">array</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="o">/</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Check which samples has at least one NaN.</span>
 
 <span class="sd">    Parameters</span>
@@ -1678,7 +1685,7 @@ title="Fullscreen mode"
 <span class="k">def</span> <span class="nf">_match_size</span><span class="p">(</span>
     <span class="n">op1</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">op2</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Match the first dimension of op1 and op2.</span>
 
 <span class="sd">    Broadcasts the first dimension of op1 or op2, if required, so that both</span>
@@ -1707,7 +1714,7 @@ title="Fullscreen mode"
 <div class="viewcode-block" id="register_points"><a class="viewcode-back" href="../../api/ktk.geometry.register_points.html#ktk.geometry.register_points">[docs]</a><span class="k">def</span> <span class="nf">register_points</span><span class="p">(</span>
     <span class="n">global_points</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">local_points</span><span class="p">:</span> <span class="n">ArrayLike</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Find the homogeneous transforms between two series of point clouds.</span>
 
 <span class="sd">    Parameters</span>

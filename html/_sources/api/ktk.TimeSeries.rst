@@ -23,6 +23,7 @@
       ~TimeSeries.get_index_after_time
       ~TimeSeries.get_index_at_time
       ~TimeSeries.get_index_before_time
+      ~TimeSeries.get_sample_rate
       ~TimeSeries.get_subset
       ~TimeSeries.get_ts_after_event
       ~TimeSeries.get_ts_after_index
@@ -38,6 +39,7 @@
       ~TimeSeries.plot
       ~TimeSeries.remove_data
       ~TimeSeries.remove_data_info
+      ~TimeSeries.remove_duplicate_events
       ~TimeSeries.remove_event
       ~TimeSeries.rename_data
       ~TimeSeries.rename_event

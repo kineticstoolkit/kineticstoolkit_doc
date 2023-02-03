@@ -51,8 +51,6 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
-    <script>mermaid.initialize({startOnLoad:true});</script>
     <link rel="canonical" href="https://kineticstoolkit.uqam.ca/doc/kinematics_load_visualize.html" />
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
@@ -360,6 +358,11 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_sample_rate.html">
+         ktk.TimeSeries.get_sample_rate
+        </a>
+       </li>
+       <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.TimeSeries.get_subset.html">
          ktk.TimeSeries.get_subset
         </a>
@@ -432,6 +435,11 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.TimeSeries.remove_data_info.html">
          ktk.TimeSeries.remove_data_info
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.remove_duplicate_events.html">
+         ktk.TimeSeries.remove_duplicate_events
         </a>
        </li>
        <li class="toctree-l4">
@@ -887,39 +895,27 @@ const thebe_selector_output = ".output, .cell_output"
        📖 Conditions and booleans
       </a>
      </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="python_lists.html">
-       📖 Lists
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_lists_indexing.html">
+       📖 Creating and indexing lists
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
-      <label for="toctree-checkbox-22">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="python_lists_indexing.html">
-         📖 Creating and indexing lists
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="python_lists_slicing.html">
-         📖 Slicing lists
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="python_lists_mutability.html">
-         📖 Manipulating lists
-        </a>
-       </li>
-      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_lists_slicing.html">
+       📖 Slicing lists
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_lists_mutability.html">
+       📖 Manipulating lists
+      </a>
      </li>
      <li class="toctree-l3 has-children">
       <a class="reference internal" href="python_looping.html">
        📖 Looping
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
-      <label for="toctree-checkbox-23">
+      <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
+      <label for="toctree-checkbox-22">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -976,27 +972,32 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="numpy.html">
-     🚧 Numpy
+     📖 NumPy
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
-    <label for="toctree-checkbox-24">
+    <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
+    <label for="toctree-checkbox-23">
      <i class="fas fa-chevron-down">
      </i>
     </label>
     <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="numpy_import.html">
-       🚧 Import
+       📖 Importing NumPy
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="numpy_ndarray.html">
-       🚧 N-dimensional arrays
+       📖 Arrays
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="numpy_indexing.html">
-       🚧 Indexing and slicing
+       📖 Indexing and slicing
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy_arithmetics.html">
+       🚧 Numpy arithmetics
       </a>
      </li>
      <li class="toctree-l3">
@@ -1015,8 +1016,8 @@ const thebe_selector_output = ".output, .cell_output"
     <a class="reference internal" href="matplotlib.html">
      🚧 Matplotlib
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/>
-    <label for="toctree-checkbox-25">
+    <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
+    <label for="toctree-checkbox-24">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -1361,8 +1362,8 @@ Summary</div>
 <p>Now we’ll take a look at this acquisition using <a class="reference internal" href="api/ktk.Player.html"><span class="doc std std-doc">ktk.Player</span></a>, a matplotlib-based interactive user interface aimed at visualizing markers, rigid bodies and segments in three dimensions.</p>
 <p>Note that for the <code class="docutils literal notranslate"><span class="pre">Player</span></code> class to be interactive, you must select an interactive backend for IPython. See <a class="reference internal" href="ktk_installing.html"><span class="doc std std-doc">📖 Installing and importing</span></a> for more information. It is also possible to generate non-interactive animations in Jupyter-based environments, like on this website. Here, we show both methods; we will subsequently only show the commands for the interactive player.</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="136f61e3-ef18-4142-833e-47ec54f49450" name="26451508-ec2c-4df9-9417-a2c44a281365" type="radio">
-</input><label class="sd-tab-label" for="136f61e3-ef18-4142-833e-47ec54f49450">
+<input checked="checked" id="d11060e1-aaa6-4c76-bc8e-2ac465804e52" name="ce8de3bc-d9f3-4254-aa12-756a0456b2e4" type="radio">
+</input><label class="sd-tab-label" for="d11060e1-aaa6-4c76-bc8e-2ac465804e52">
 Interactive player</label><div class="sd-tab-content docutils">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set an interactive backend</span>
 <span class="c1"># https://kineticstoolkit.uqam.ca/doc/ktk_installing.html</span>
@@ -1374,8 +1375,8 @@ Interactive player</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="aaa01e76-dc1c-4a8d-ab1c-e6ebb7d15998" name="26451508-ec2c-4df9-9417-a2c44a281365" type="radio">
-</input><label class="sd-tab-label" for="aaa01e76-dc1c-4a8d-ab1c-e6ebb7d15998">
+<input id="5e83441d-c426-4a1b-ba12-a16dcee31c2b" name="ce8de3bc-d9f3-4254-aa12-756a0456b2e4" type="radio">
+</input><label class="sd-tab-label" for="5e83441d-c426-4a1b-ba12-a16dcee31c2b">
 Non-interactive animation (Jupyter)</label><div class="sd-tab-content docutils">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Non-interactive, inline backend</span>
 <span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
@@ -2432,7 +2433,7 @@ AAABSAAAAZAAAAKWAAAByAAAAYUAAAGGAAACcAAAAg8AAAG/AAABnQAAAoEAAAIFAAABbQAAAXQA
 AAHbAAACdAAAAwkAAAI9AAABwAAAAdwAAAJCAAAB6gAAAcQAAAGiAAAC9gAAAfcAAAHoAAABYwAA
 AlMAAAFxAAABHwAAAOgAAAGtAAABBQAAAK4AAAAUc3RjbwAAAAAAAAABAAAAMAAAAGJ1ZHRhAAAA
 Wm1ldGEAAAAAAAAAIWhkbHIAAAAAAAAAAG1kaXJhcHBsAAAAAAAAAAAAAAAALWlsc3QAAAAlqXRv
-bwAAAB1kYXRhAAAAAQAAAABMYXZmNTguNzYuMTAw
+bwAAAB1kYXRhAAAAAQAAAABMYXZmNTkuMjcuMTAw
 ">
   Your browser does not support the video tag.
 </video></div></div>
@@ -4391,7 +4392,7 @@ AScAAAO8AAADugAAA7oAAAQKAAAEXAAAB20AAARzAAACpQAAAukAAAZEAAAEOQAAA3QAAAMZAAAG
 hwAABLgAAANjAAAC3gAABhwAAASQAAADHAAAAqIAAAZuAAAEOQAAAswAAAM1AAAFUwAABFAAAANB
 AAAC+gAABeUAAAOXAAAC1wAAAfgAAAQ6AAABtwAAA68AAAEyAAACgwAAAWEAAADsAAAAFHN0Y28A
 AAAAAAAAAQAAADAAAABidWR0YQAAAFptZXRhAAAAAAAAACFoZGxyAAAAAAAAAABtZGlyYXBwbAAA
-AAAAAAAAAAAAAC1pbHN0AAAAJal0b28AAAAdZGF0YQAAAAEAAAAATGF2ZjU4Ljc2LjEwMA==
+AAAAAAAAAAAAAC1pbHN0AAAAJal0b28AAAAdZGF0YQAAAAEAAAAATGF2ZjU5LjI3LjEwMA==
 ">
   Your browser does not support the video tag.
 </video></div></div>

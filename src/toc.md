@@ -95,6 +95,7 @@ chapters:
           - file: [](numpy_import.md)
           - file: [](numpy_ndarray.md)
           - file: [](numpy_indexing.md)
+          - file: [](numpy_arithmetics.md)
           - file: [](numpy_comparisons.md)
           - file: [](numpy_combining.md)
       - file: [](matplotlib.md)
