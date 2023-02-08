@@ -11,7 +11,9 @@ kernelspec:
   name: python3
 ---
 
-# 📖 Indexing and slicing
+# 🚧 Indexing and slicing
+
+{{ stub }}
 
 :::{card} Summary
 This section shows how to index and slice unidimensional and multidimensional arrays, to extract specific information from an array, or to assign new values to it.

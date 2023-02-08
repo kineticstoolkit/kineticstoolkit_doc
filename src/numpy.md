@@ -16,9 +16,9 @@ kernelspec:
 :::{card} Summary
 This section presents the NumPy package, that is the basis of virtually any data processing operation in the different fields related to numerical analysis and algebra in Python.
 
-NumPy is a huge package. This section covers the basics to get started with Numpy for biomechanical analysis. To really master it, we recommended to consult the [learning section](https://numpy.org/learn/) on their [website](https://numpy.org).
+NumPy is a huge package. This section covers the basics to get started with Numpy for biomechanical analysis. To really master it, we recommended to consult the [learning section](https://numpy.org/learn/) on the {{numpy}} website.
 
-[![NumPy Logo -width:narrower](_static/images/numpy_logo.png)](https://numpy.org)
+![NumPy Logo -width:narrower](_static/images/numpy_logo.png)]
 :::
 
 The main goal of NumPy is to perform mathematical operations not only on floats, but also on vectors and matrices, and to perform these operation very fast.

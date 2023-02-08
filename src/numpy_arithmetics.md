@@ -15,7 +15,19 @@ kernelspec:
 
 {{ stub }}
 
-## ⚙️ Matrix multiplication
+## Exercise ideas
+
+- Filtered EMG and filtered EMGmax: plot a curve of EMG normalized by MVC.
+- Calculate the speed of the COM during a jump, based on the trajectory of the COM, and use the position and speed curve to calculate the impulse time.
+
+---
+
+The rest of this section is just a draft that is out of context for now.
+
+---
+
+
+## Matrix multiplication
 
 The main goal of Numpy is to perform mathematical operations not only on floats, but on whole arrays. For example, using Numpy, we can realize a complete matrix multiplication in only one instruction, and this single operation is really fast.
 

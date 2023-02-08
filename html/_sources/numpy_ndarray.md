@@ -14,7 +14,12 @@ kernelspec:
 # 📖 Arrays
 
 :::{card} Summary
-This section presents the array and its differences and similarities to the list. It also show how to create arrays of different shapes.
+This section presents the NumPy {{ndarray}} and its differences and similarities to the list. It also show how to create arrays of different shapes using:
+
+- {{np_array}}
+- {{np_zeros}}
+- {{np_ones}}
+- {{np_linspace}}
 :::
 
 Most NumPy operations are performed on arrays. An array is different from a Python list, and each has its advantages:
@@ -32,7 +37,7 @@ While lists and arrays are different, they are both useful and they can be conve
 
 ### From a list
 
-Creating an array from a list is done using the `np.array` function:
+Creating an array from a list is done using the {{np_array}} function:
 
 ```{code-cell} ipython3
 import numpy as np
@@ -43,7 +48,7 @@ one_array
 ```
 
 :::{note}
-It is also possible to convert back an array to a list, using the `tolist` method:
+It is also possible to convert back an array to a list, using its {{ndarray_tolist}} method:
 
 ```
 one_array.tolist()
@@ -53,7 +58,7 @@ one_array.tolist()
 
 ### Zeros and ones
 
-To create arrays filled with zeros or ones, we use the `np.zeros` and `np.ones` functions:
+To create arrays filled with zeros or ones, we use the {{np_zeros}} and {{np_ones}} functions:
 
 ```{code-cell} ipython3
 print(np.zeros(10))  # 10 is the length of the array to create
@@ -62,37 +67,17 @@ print(np.ones(10))   # 10 is the length of the array to create
 
 ### Linear spacing
 
-To create equally distributed series of float, we can use `np.linspace`, which takes as arguments the initial value, the final value, and the number of points in the new array. For example, to create an array that goes from 5.0 (included) to 10.0 (included) and that contains 11 elements:
+To create equally distributed series of float, the best function is {{np_linspace}}, which takes as arguments the initial value, the final value, and the number of points in the new array. By default, `np.linspace` includes both the initial and final values. For example, to create an array that goes from 5.0 (included) to 10.0 (included) and that contains 11 elements:
 
 ```{code-cell} ipython3
 np.linspace(5.0, 10.0, 11)
 ```
 
-Or we can use `np.arange`, which is very similar to the `range` function seen in section [](python_for_range.md), but which also accepts floats in addition to integers.
+To exclude the final value, we set the `endpoint` argument to False.
 
-Its different forms are:
-
-- `np.arange(final_value)`
-- `np.arange(initial_value, final_value)`
-- `np.arange(initial_value, final_value, step)`
-
-where the initial value is inclusive and the final value is exclusive. Here are some examples:
-
-Range from 0 (included) to 10 (excluded):
 ```{code-cell} ipython3
-print(np.arange(10.0))
+np.linspace(5.0, 10.0, 10, endpoint=False)
 ```
-
-Range from 5 (included) to 10 (excluded):
-```{code-cell} ipython3
-print(np.arange(5.0, 10.0))
-```
-
-Range from 5 (included) to 10 (excluded), by steps of 0.5:
-```{code-cell} ipython3
-print(np.arange(5.0, 10.0, 0.5))
-```
-
 
 ## 💪 Exercise 1
 
@@ -103,9 +88,13 @@ We recorded the force measured by a dynamometer at a sampling frequency of 100 H
 
 # The initial time is 0 s
 # The final time corresponds to 2.5 seconds
-# The step is the sampling period, which is 1/(100 Hz).
+# The number of points is 2.5 * 100Hz = 250.
 
-time = np.arange(0, 2.5, 0.01)
+time = np.linspace(0, 2.5, 250, endpoint=False)
+
+# Note that if we understand the question as if the final time should be included,
+# then we need to increase the number of points by 1 to include this new points:
+# >> time = np.linspace(0, 2.5, 251)
 
 time
 ```
@@ -140,7 +129,7 @@ array_2d
 
 ### Shape of an array
 
-We are now used to use the function `len` on lists, to know how big a list is. While this function also works on an array, it only returns the length of the array on its first dimension. To get the complete size (shape) of an array, we use the array's `shape` property:
+We are now used to use the function `len` on lists, to know how big a list is. While this function also works on an array, it only returns the length of the array on its first dimension. To get the complete size (shape) of an array, we use the array's {{ndarray_shape}} property:
 
 ```{code-cell} ipython3
 print(array_1d.shape)
@@ -157,7 +146,7 @@ print(
 
 ### Creating a multidimensional array of zeros or ones
 
-Let's have a look at the [docstring of `np.zeros`](https://numpy.org/doc/stable/reference/generated/numpy.zeros.html).
+Let's have a look at the docstring of {{np_zeros}}.
 
 ![np.zeros -width:wider -border](_static/images/np.zeros.png)
 

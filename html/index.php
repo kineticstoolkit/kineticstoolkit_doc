@@ -970,8 +970,8 @@ const thebe_selector_output = ".output, .cell_output"
     </ul>
    </li>
    <li class="toctree-l2 has-children">
-    <a class="reference internal" href="numpy.html">
-     📖 NumPy
+    <a class="reference internal" href="matplotlib.html">
+     📖 Matplotlib
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
     <label for="toctree-checkbox-23">
@@ -980,10 +980,57 @@ const thebe_selector_output = ".output, .cell_output"
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="numpy_import.html">
-       📖 Importing NumPy
+      <a class="reference internal" href="matplotlib_import.html">
+       📖 Importing
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         pyplot
+        </span>
+       </code>
       </a>
      </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="matplotlib_frontend.html">
+       📖 Matplotlib frontend
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="matplotlib_plot.html">
+       📖 Line plots
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="matplotlib_subplot.html">
+       📖 Multiple plots side by side
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="matplotlib_style.html">
+       📖 Markers, line style and colours
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="matplotlib_axis.html">
+       📖 Setting the axes limits
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="matplotlib_ginput.html">
+       🚧 Graphical input
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="numpy.html">
+     📖 NumPy
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
+    <label for="toctree-checkbox-24">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
      <li class="toctree-l3">
       <a class="reference internal" href="numpy_ndarray.html">
        📖 Arrays
@@ -991,7 +1038,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="numpy_indexing.html">
-       📖 Indexing and slicing
+       🚧 Indexing and slicing
       </a>
      </li>
      <li class="toctree-l3">
@@ -1007,43 +1054,6 @@ const thebe_selector_output = ".output, .cell_output"
      <li class="toctree-l3">
       <a class="reference internal" href="numpy_combining.html">
        🚧 Combining arrays
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="matplotlib.html">
-     🚧 Matplotlib
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
-    <label for="toctree-checkbox-24">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="matplotlib_plot.html">
-       🚧 Line plots
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="matplotlib_scatter.html">
-       🚧 Scatter plots
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="matplotlib_labels.html">
-       🚧 Labels
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="matplotlib_axis.html">
-       🚧 Axis
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="matplotlib_ginput.html">
-       🚧 Graphical input
       </a>
      </li>
     </ul>

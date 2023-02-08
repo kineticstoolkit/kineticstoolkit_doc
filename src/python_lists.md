@@ -14,14 +14,14 @@ jupyter:
   nbformat_minor: 5
 ---
 
-::: {#41c9259d .cell .markdown}
+::: {#bd4df0bb .cell .markdown}
 # 📖 Lists {#-lists}
 
 :::{card} Summary
 These sections present the list and its main methods.
 :::
 
-::: {#13a44078 .cell .markdown}
+::: {#d1fe70d2 .cell .markdown}
 **Context:** Suppose that we take three measurements of a given quantity (for instance, the height of a person). We could assign three variables for it (`height1`, `height2`, and `height3`) and write some code that processes it:
 
     # Calculate the mean height
@@ -33,6 +33,8 @@ Python provides powerful constructs to contain large numbers of values in a stru
 
 ``` {tableofcontents}
 ```
+:::
 
+::: {#9d69c633 .cell .markdown}
 :::
 :::
