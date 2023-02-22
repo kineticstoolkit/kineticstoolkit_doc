@@ -1,0 +1,1841 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>📖 Indexing, slicing and filtering multidimensional arrays &#8212; Kinetics Toolkit</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://kineticstoolkit.uqam.ca/doc/numpy_indexing_slicing_filtering_nd.html" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="🚧 Combining arrays" href="numpy_combining.html" />
+    <link rel="prev" title="📖 Indexing, slicing and filtering unidimensional arrays" href="numpy_indexing_slicing_filtering_1d.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="_static/logo.png" class="logo" alt="logo">
+      
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="ktk_manual.html">
+   📘 Manual
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ktk_overview.html">
+     📖 An overview of Kinetics Toolkit
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ktk_installing.html">
+     📖 Installing and importing
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="timeseries.html">
+     📖 TimeSeries
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+    <label for="toctree-checkbox-2">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="timeseries_basics.html">
+       📖 TimeSeries basics
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="timeseries_manipulating.html">
+       📖 Manipulating TimeSeries
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="timeseries_dataframes.html">
+       📖 Converting between TimeSeries and pandas DataFrames
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="loadsave.html">
+     📖 Saving and loading
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="filters.html">
+     📖 Filtering
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+    <label for="toctree-checkbox-3">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="filters_butter.html">
+       📖 Butterworth filter
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="filters_smooth_savgol.html">
+       📖 Moving average and Savitsky-Golay
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="filters_median.html">
+       📖 Removing artefacts using a median filter
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="cycles.html">
+     📖 Working with cycles
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="geometry.html">
+     📖 3D rigid body geometry
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+    <label for="toctree-checkbox-4">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="geometry_basics.html">
+       📖 Coordinates: points, vectors and frames
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="geometry_transform_moving_coordinates.html">
+       📖 The homogeneous transform: rotating and translating coordinates
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="geometry_transform_changing_coordinate_system.html">
+       📖 The homogeneous transform: mapping coordinates to other coordinate systems
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="geometry_kinematic_chains.html">
+       📖 Kinematic chains
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="geometry_angles.html">
+       📖 Extracting angles
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="geometry_dimension_conventions.html">
+       📖 Dimension conventions
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="kinematics.html">
+     📖 Kinematics analysis
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/>
+    <label for="toctree-checkbox-5">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kinematics_load_visualize.html">
+       📖 Reading and visualizing markers in 3D
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kinematics_joint_angles.html">
+       📖 Calculating joint angles from a kinematic acquisition
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kinematics_reconstructing_occluded_markers.html">
+       📖 Reconstructing occluded markers
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kinematics_reconstructing_removed_markers.html">
+       📖 Reconstructing removed markers
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="kinematics_reconstructing_probed_points.html">
+       📖 Reconstructing probed points
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="extensions.html">
+     📖 Extensions
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="api_reference.html">
+   📘 API Reference
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/>
+  <label for="toctree-checkbox-6">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ktk_conventions.html">
+     📖 Conventions
+    </a>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="api_classes.html">
+     📖 Classes
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/>
+    <label for="toctree-checkbox-7">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="api/ktk.TimeSeries.html">
+       ktk.TimeSeries
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/>
+      <label for="toctree-checkbox-8">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.add_data_info.html">
+         ktk.TimeSeries.add_data_info
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.add_event.html">
+         ktk.TimeSeries.add_event
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.copy.html">
+         ktk.TimeSeries.copy
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.count_events.html">
+         ktk.TimeSeries.count_events
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.fill_missing_samples.html">
+         ktk.TimeSeries.fill_missing_samples
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.from_dataframe.html">
+         ktk.TimeSeries.from_dataframe
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_event_index.html">
+         ktk.TimeSeries.get_event_index
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_event_time.html">
+         ktk.TimeSeries.get_event_time
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_index_after_time.html">
+         ktk.TimeSeries.get_index_after_time
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_index_at_time.html">
+         ktk.TimeSeries.get_index_at_time
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_index_before_time.html">
+         ktk.TimeSeries.get_index_before_time
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_sample_rate.html">
+         ktk.TimeSeries.get_sample_rate
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_subset.html">
+         ktk.TimeSeries.get_subset
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_ts_after_event.html">
+         ktk.TimeSeries.get_ts_after_event
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_ts_after_index.html">
+         ktk.TimeSeries.get_ts_after_index
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_ts_after_time.html">
+         ktk.TimeSeries.get_ts_after_time
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_ts_at_event.html">
+         ktk.TimeSeries.get_ts_at_event
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_ts_at_time.html">
+         ktk.TimeSeries.get_ts_at_time
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_ts_before_event.html">
+         ktk.TimeSeries.get_ts_before_event
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_ts_before_index.html">
+         ktk.TimeSeries.get_ts_before_index
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_ts_before_time.html">
+         ktk.TimeSeries.get_ts_before_time
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_ts_between_events.html">
+         ktk.TimeSeries.get_ts_between_events
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_ts_between_indexes.html">
+         ktk.TimeSeries.get_ts_between_indexes
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_ts_between_times.html">
+         ktk.TimeSeries.get_ts_between_times
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.isnan.html">
+         ktk.TimeSeries.isnan
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.merge.html">
+         ktk.TimeSeries.merge
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.plot.html">
+         ktk.TimeSeries.plot
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.remove_data.html">
+         ktk.TimeSeries.remove_data
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.remove_data_info.html">
+         ktk.TimeSeries.remove_data_info
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.remove_duplicate_events.html">
+         ktk.TimeSeries.remove_duplicate_events
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.remove_event.html">
+         ktk.TimeSeries.remove_event
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.rename_data.html">
+         ktk.TimeSeries.rename_data
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.rename_event.html">
+         ktk.TimeSeries.rename_event
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.resample.html">
+         ktk.TimeSeries.resample
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.shift.html">
+         ktk.TimeSeries.shift
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.sort_events.html">
+         ktk.TimeSeries.sort_events
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.sync_event.html">
+         ktk.TimeSeries.sync_event
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.to_dataframe.html">
+         ktk.TimeSeries.to_dataframe
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.trim_events.html">
+         ktk.TimeSeries.trim_events
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.ui_edit_events.html">
+         ktk.TimeSeries.ui_edit_events
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.ui_get_ts_between_clicks.html">
+         ktk.TimeSeries.ui_get_ts_between_clicks
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.ui_sync.html">
+         ktk.TimeSeries.ui_sync
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/ktk.TimeSeriesEvent.html">
+       ktk.TimeSeriesEvent
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="api/ktk.Player.html">
+       ktk.Player
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/>
+      <label for="toctree-checkbox-9">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.Player.close.html">
+         ktk.Player.close
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.Player.to_html5.html">
+         ktk.Player.to_html5
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="api_functions.html">
+     📖 Functions
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/>
+    <label for="toctree-checkbox-10">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/ktk.import_extensions.html">
+       ktk.import_extensions
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/ktk.load.html">
+       ktk.load
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/ktk.save.html">
+       ktk.save
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/ktk.read_c3d.html">
+       ktk.read_c3d
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/ktk.write_c3d.html">
+       ktk.write_c3d
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="api/ktk.change_defaults.html">
+       ktk.change_defaults
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="api_modules.html">
+     📖 Modules
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/>
+    <label for="toctree-checkbox-11">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="api/ktk.cycles.html">
+       ktk.cycles
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/>
+      <label for="toctree-checkbox-12">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.cycles.detect_cycles.html">
+         ktk.cycles.detect_cycles
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.cycles.most_repeatable_cycles.html">
+         ktk.cycles.most_repeatable_cycles
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.cycles.stack.html">
+         ktk.cycles.stack
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.cycles.time_normalize.html">
+         ktk.cycles.time_normalize
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.cycles.unstack.html">
+         ktk.cycles.unstack
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="api/ktk.doc.html">
+       ktk.doc
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/>
+      <label for="toctree-checkbox-13">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.doc.download.html">
+         ktk.doc.download
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="api/ktk.filters.html">
+       ktk.filters
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/>
+      <label for="toctree-checkbox-14">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.filters.butter.html">
+         ktk.filters.butter
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.filters.deriv.html">
+         ktk.filters.deriv
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.filters.median.html">
+         ktk.filters.median
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.filters.savgol.html">
+         ktk.filters.savgol
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.filters.smooth.html">
+         ktk.filters.smooth
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="api/ktk.geometry.html">
+       ktk.geometry
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/>
+      <label for="toctree-checkbox-15">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.geometry.create_frames.html">
+         ktk.geometry.create_frames
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.geometry.create_transforms.html">
+         ktk.geometry.create_transforms
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.geometry.get_angles.html">
+         ktk.geometry.get_angles
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.geometry.get_global_coordinates.html">
+         ktk.geometry.get_global_coordinates
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.geometry.get_local_coordinates.html">
+         ktk.geometry.get_local_coordinates
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.geometry.isnan.html">
+         ktk.geometry.isnan
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.geometry.matmul.html">
+         ktk.geometry.matmul
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.geometry.register_points.html">
+         ktk.geometry.register_points
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="api/ktk.kinematics.html">
+       ktk.kinematics
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/>
+      <label for="toctree-checkbox-16">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.kinematics.create_cluster.html">
+         ktk.kinematics.create_cluster
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.kinematics.extend_cluster.html">
+         ktk.kinematics.extend_cluster
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.kinematics.track_cluster.html">
+         ktk.kinematics.track_cluster
+        </a>
+       </li>
+      </ul>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dev_extensions.html">
+     📖 Developing extensions
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ktk_release_notes.html">
+     🗓 Release Notes
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="dev_contributing.html">
+   👋 How to contribute
+  </a>
+  <input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/>
+  <label for="toctree-checkbox-17">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="ktk_citing.html">
+     📄 Citing
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dev_rules.html">
+     📖 Development rules
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dev_code_of_conduct.html">
+     📖 Code of conduct
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dev_installing_from_github.html">
+     📖 Installing from GitHub
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="dev_coding_style.html">
+     📖 Coding style
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">
+     🌎 GitHub repository
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="python_for_beginners.html">
+   📘 Learning Python for biomechanics
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+  <label for="toctree-checkbox-18">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul class="current">
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="python_getting_started.html">
+     📖 Getting started with Python
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/>
+    <label for="toctree-checkbox-19">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_installing.html">
+       📖 Installing Python, Spyder and the most important scientific packages
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_configuring_spyder.html">
+       📖 Configuring Spyder for Python biomechanics
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_using_spyder.html">
+       📖 Using Spyder
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="python.html">
+     📖 The Python language
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/>
+    <label for="toctree-checkbox-20">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_arithmetics_and_variables.html">
+       📖 Arithmetics and variables
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_numbers.html">
+       📖 Numbers
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_strings.html">
+       📖 Strings basics
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="python_functions.html">
+       📖 Functions
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/>
+      <label for="toctree-checkbox-21">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="python_functions_syntax.html">
+         📖 Function syntax
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="python_functions_docstrings.html">
+         📖 Docstrings
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="python_functions_keywords_defaults.html">
+         📖 Arguments and default values
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_conditions.html">
+       📖 Conditions and booleans
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_lists_indexing.html">
+       📖 Creating and indexing lists
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_lists_slicing.html">
+       📖 Slicing lists
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_lists_mutability.html">
+       📖 Manipulating lists
+      </a>
+     </li>
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="python_looping.html">
+       📖 Looping
+      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
+      <label for="toctree-checkbox-22">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="python_while.html">
+         📖 Looping using
+         <code class="docutils literal notranslate">
+          <span class="pre">
+           while
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="python_for_range.html">
+         📖 Looping using
+         <code class="docutils literal notranslate">
+          <span class="pre">
+           for
+          </span>
+         </code>
+         and
+         <code class="docutils literal notranslate">
+          <span class="pre">
+           range
+          </span>
+         </code>
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="python_for_enumerate.html">
+         📖 Looping though a list using
+         <code class="docutils literal notranslate">
+          <span class="pre">
+           enumerate
+          </span>
+         </code>
+        </a>
+       </li>
+      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_dicts.html">
+       📖 Dictionaries
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_integration_exercises.html">
+       📖 Integration exercises
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
+    <a class="reference internal" href="matplotlib.html">
+     📖 Matplotlib
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
+    <label for="toctree-checkbox-23">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="matplotlib_import.html">
+       📖 Importing
+       <code class="docutils literal notranslate">
+        <span class="pre">
+         pyplot
+        </span>
+       </code>
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="matplotlib_frontend.html">
+       📖 Matplotlib frontend
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="matplotlib_plot.html">
+       📖 Line plots
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="matplotlib_subplot.html">
+       📖 Multiple plots side by side
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="matplotlib_style.html">
+       📖 Markers, line style and colours
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="matplotlib_axis.html">
+       📖 Setting the axes limits
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="matplotlib_ginput.html">
+       🚧 Graphical input
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 current active has-children">
+    <a class="reference internal" href="numpy.html">
+     📖 NumPy
+    </a>
+    <input checked="" class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
+    <label for="toctree-checkbox-24">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul class="current">
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy_ndarray.html">
+       📖 Arrays
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy_arithmetics_and_comparisons.html">
+       📖 Arithmetics and comparisons
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy_indexing_slicing_filtering_1d.html">
+       📖 Indexing, slicing and filtering unidimensional arrays
+      </a>
+     </li>
+     <li class="toctree-l3 current active">
+      <a class="current reference internal" href="#">
+       📖 Indexing, slicing and filtering multidimensional arrays
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy_combining.html">
+       🚧 Combining arrays
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="pandas.html">
+     🚧 Pandas
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="_sources/numpy_indexing_slicing_filtering_nd.md"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.md</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sample-array-1-trajectory-of-a-marker-during-three-samples">
+   Sample array #1: Trajectory of a marker during three samples
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sample-array-2-series-of-segment-orientation-during-two-samples">
+   Sample array #2: Series of segment orientation during two samples
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indexing">
+   📄 Indexing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-1-read-position-at-first-sample">
+     Example 1: Read position at first sample
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-2-read-position-at-second-sample">
+     Example 2: Read position at second sample
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-3-read-z-coordinate-at-second-sample">
+     Example 3: Read z coordinate at second sample
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-4-read-orientation-at-second-sample">
+     Example 4: Read orientation at second sample
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-5-read-3rd-line-of-orientation-matrix-at-second-sample">
+     Example 5: Read 3rd line of orientation matrix at second sample
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-6-read-3rd-line-2nd-column-of-orientation-matrix-at-2nd-sample">
+     Example 6: Read 3rd line, 2nd column of orientation matrix at 2nd sample
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#slicing">
+   📄 Slicing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-7-read-y-coordinate-at-samples-0-and-1">
+     Example 7: Read y coordinate at samples 0 and 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-8-read-y-and-z-coordinates-at-samples-0-and-1">
+     Example 8: Read y and z coordinates at samples 0 and 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-9-read-z-coordinate-at-all-samples">
+     Example 9: Read z coordinate at all samples
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtering">
+   📄 Filtering
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-10-read-the-whole-coordinates-at-samples-0-and-2">
+     Example 10: Read the whole coordinates at samples 0 and 2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-1">
+   💪 Exercise 1
+  </a>
+ </li>
+</ul>
+
+    </nav>
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>📖 Indexing, slicing and filtering multidimensional arrays</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sample-array-1-trajectory-of-a-marker-during-three-samples">
+   Sample array #1: Trajectory of a marker during three samples
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sample-array-2-series-of-segment-orientation-during-two-samples">
+   Sample array #2: Series of segment orientation during two samples
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#indexing">
+   📄 Indexing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-1-read-position-at-first-sample">
+     Example 1: Read position at first sample
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-2-read-position-at-second-sample">
+     Example 2: Read position at second sample
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-3-read-z-coordinate-at-second-sample">
+     Example 3: Read z coordinate at second sample
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-4-read-orientation-at-second-sample">
+     Example 4: Read orientation at second sample
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-5-read-3rd-line-of-orientation-matrix-at-second-sample">
+     Example 5: Read 3rd line of orientation matrix at second sample
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-6-read-3rd-line-2nd-column-of-orientation-matrix-at-2nd-sample">
+     Example 6: Read 3rd line, 2nd column of orientation matrix at 2nd sample
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#slicing">
+   📄 Slicing
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-7-read-y-coordinate-at-samples-0-and-1">
+     Example 7: Read y coordinate at samples 0 and 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-8-read-y-and-z-coordinates-at-samples-0-and-1">
+     Example 8: Read y and z coordinates at samples 0 and 1
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-9-read-z-coordinate-at-all-samples">
+     Example 9: Read z coordinate at all samples
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#filtering">
+   📄 Filtering
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#example-10-read-the-whole-coordinates-at-samples-0-and-2">
+     Example 10: Read the whole coordinates at samples 0 and 2
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-1">
+   💪 Exercise 1
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <section class="tex2jax_ignore mathjax_ignore" id="indexing-slicing-and-filtering-multidimensional-arrays">
+<h1>📖 Indexing, slicing and filtering multidimensional arrays<a class="headerlink" href="#indexing-slicing-and-filtering-multidimensional-arrays" title="Permalink to this headline">#</a></h1>
+<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<div class="sd-card-title sd-font-weight-bold docutils">
+Summary</div>
+<p class="sd-card-text">This section shows how to index, slice and filter multidimensional arrays.</p>
+</div>
+</div>
+<p>In the previous section, we learned how to read one element of a unidimensional array using indexing, and how to read multiple elements of a unidimensional array using slicing and filtering. We will now generalize this to multidimensional arrays.</p>
+<section id="sample-array-1-trajectory-of-a-marker-during-three-samples">
+<h2>Sample array #1: Trajectory of a marker during three samples<a class="headerlink" href="#sample-array-1-trajectory-of-a-marker-during-three-samples" title="Permalink to this headline">#</a></h2>
+<p>The position of a marker is expressed by three coordinates (x, y, z), usually followed by a constant of 1. A trajectory is expressed as a series of positions. Therefore, we can express the trajectory of a marker using:</p>
+<ul class="simple">
+<li><p>Axis 0: #sample</p></li>
+<li><p>Axis 1: #coordinate</p></li>
+</ul>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/numpy_indexing_slicing_filtering_nd_2_0.png" src="_images/numpy_indexing_slicing_filtering_nd_2_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">position</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">[</span><span class="mf">0.497</span><span class="p">,</span> <span class="mf">0.973</span><span class="p">,</span> <span class="mf">0.010</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.528</span><span class="p">,</span> <span class="mf">0.973</span><span class="p">,</span> <span class="mf">0.017</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.589</span><span class="p">,</span> <span class="mf">0.970</span><span class="p">,</span> <span class="mf">0.025</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">position</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.497, 0.973, 0.01 , 1.   ],
+       [0.528, 0.973, 0.017, 1.   ],
+       [0.589, 0.97 , 0.025, 1.   ]])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="sample-array-2-series-of-segment-orientation-during-two-samples">
+<h2>Sample array #2: Series of segment orientation during two samples<a class="headerlink" href="#sample-array-2-series-of-segment-orientation-during-two-samples" title="Permalink to this headline">#</a></h2>
+<p>The orientation of a segment is expressed as a 4x4 homogeneous transform matrix. Therefore, we can express a series of orientations using:</p>
+<ul class="simple">
+<li><p>Axis 0: #sample</p></li>
+<li><p>Axis 1: #row of the homogeneous transform matrix</p></li>
+<li><p>Axis 2: #column of the homogeneous transform matrix</p></li>
+</ul>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/numpy_indexing_slicing_filtering_nd_5_0.png" src="_images/numpy_indexing_slicing_filtering_nd_5_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">orientation</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">[</span>
+            <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+            <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+            <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+            <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+        <span class="p">],</span>
+        <span class="p">[</span>
+            <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.000</span><span class="p">,</span> <span class="mf">0.000</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+            <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.999</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.017</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+            <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.017</span><span class="p">,</span> <span class="mf">0.999</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+            <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.000</span><span class="p">,</span> <span class="mf">0.000</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+        <span class="p">],</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+
+<span class="n">orientation</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[[ 1.   ,  0.   ,  0.   ,  0.   ],
+        [ 0.   ,  1.   ,  0.   ,  0.   ],
+        [ 0.   ,  0.   ,  1.   ,  0.   ],
+        [ 0.   ,  0.   ,  0.   ,  1.   ]],
+
+       [[ 1.   ,  0.   ,  0.   ,  0.   ],
+        [ 0.   ,  0.999, -0.017,  0.   ],
+        [ 0.   ,  0.017,  0.999,  0.   ],
+        [ 0.   ,  0.   ,  0.   ,  1.   ]]])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="indexing">
+<h2>📄 Indexing<a class="headerlink" href="#indexing" title="Permalink to this headline">#</a></h2>
+<p>As for unidimensional arrays, we also index multidimensional arrays using integers in brackets. Using a single integer indexes the first dimension. For example:</p>
+<section id="example-1-read-position-at-first-sample">
+<h3>Example 1: Read position at first sample<a class="headerlink" href="#example-1-read-position-at-first-sample" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/numpy_indexing_slicing_filtering_nd_8_0.png" src="_images/numpy_indexing_slicing_filtering_nd_8_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">position</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.497, 0.973, 0.01 , 1.   ])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="example-2-read-position-at-second-sample">
+<h3>Example 2: Read position at second sample<a class="headerlink" href="#example-2-read-position-at-second-sample" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/numpy_indexing_slicing_filtering_nd_11_0.png" src="_images/numpy_indexing_slicing_filtering_nd_11_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">position</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.528, 0.973, 0.017, 1.   ])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="example-3-read-z-coordinate-at-second-sample">
+<h3>Example 3: Read z coordinate at second sample<a class="headerlink" href="#example-3-read-z-coordinate-at-second-sample" title="Permalink to this headline">#</a></h3>
+<p>Look how indexing an array reduces its dimension by one. In the example above, we indexed the second row of a 2d array, which returned a 1d array that corresponds to the four columns of this row. Therefore, to also select a column, we can index the result:</p>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/numpy_indexing_slicing_filtering_nd_14_0.png" src="_images/numpy_indexing_slicing_filtering_nd_14_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">position</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.017
+</pre></div>
+</div>
+</div>
+</div>
+<p>This is perfectly valid. However, we normally use another notation that groups the indexes together between the brackets using commas <code class="docutils literal notranslate"><span class="pre">,</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">position</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.017
+</pre></div>
+</div>
+</div>
+</div>
+<p>Both notations are equivalent, but the second one has major advantages in slicing, which we will see in the slicing section below. It makes it also clearer that we index one whole array, and not a list that is nested into another list.</p>
+</section>
+<section id="example-4-read-orientation-at-second-sample">
+<h3>Example 4: Read orientation at second sample<a class="headerlink" href="#example-4-read-orientation-at-second-sample" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/numpy_indexing_slicing_filtering_nd_20_0.png" src="_images/numpy_indexing_slicing_filtering_nd_20_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Orientation of the segment at second sample</span>
+<span class="n">orientation</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.   ,  0.   ,  0.   ,  0.   ],
+       [ 0.   ,  0.999, -0.017,  0.   ],
+       [ 0.   ,  0.017,  0.999,  0.   ],
+       [ 0.   ,  0.   ,  0.   ,  1.   ]])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="example-5-read-3rd-line-of-orientation-matrix-at-second-sample">
+<h3>Example 5: Read 3rd line of orientation matrix at second sample<a class="headerlink" href="#example-5-read-3rd-line-of-orientation-matrix-at-second-sample" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/numpy_indexing_slicing_filtering_nd_23_0.png" src="_images/numpy_indexing_slicing_filtering_nd_23_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">orientation</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.   , 0.017, 0.999, 0.   ])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="example-6-read-3rd-line-2nd-column-of-orientation-matrix-at-2nd-sample">
+<h3>Example 6: Read 3rd line, 2nd column of orientation matrix at 2nd sample<a class="headerlink" href="#example-6-read-3rd-line-2nd-column-of-orientation-matrix-at-2nd-sample" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/numpy_indexing_slicing_filtering_nd_26_0.png" src="_images/numpy_indexing_slicing_filtering_nd_26_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">orientation</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.017
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="slicing">
+<h2>📄 Slicing<a class="headerlink" href="#slicing" title="Permalink to this headline">#</a></h2>
+<p>We just saw how to index multidimensional matrices using indexes separated by commas. Slicing works the same way: for a given dimension, all we need is to use a slice instead of an index.</p>
+<section id="example-7-read-y-coordinate-at-samples-0-and-1">
+<h3>Example 7: Read y coordinate at samples 0 and 1<a class="headerlink" href="#example-7-read-y-coordinate-at-samples-0-and-1" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/numpy_indexing_slicing_filtering_nd_29_0.png" src="_images/numpy_indexing_slicing_filtering_nd_29_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">position</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.973, 0.973])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="example-8-read-y-and-z-coordinates-at-samples-0-and-1">
+<h3>Example 8: Read y and z coordinates at samples 0 and 1<a class="headerlink" href="#example-8-read-y-and-z-coordinates-at-samples-0-and-1" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/numpy_indexing_slicing_filtering_nd_32_0.png" src="_images/numpy_indexing_slicing_filtering_nd_32_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">position</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.973, 0.01 ],
+       [0.973, 0.017]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>A slice can be as simple as a column operator <code class="docutils literal notranslate"><span class="pre">:</span></code>. This is a slice with no bound, which literally means from the beginning up to the end. In other words, “all data on this dimension”.</p>
+</div>
+</section>
+<section id="example-9-read-z-coordinate-at-all-samples">
+<h3>Example 9: Read z coordinate at all samples<a class="headerlink" href="#example-9-read-z-coordinate-at-all-samples" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/numpy_indexing_slicing_filtering_nd_35_0.png" src="_images/numpy_indexing_slicing_filtering_nd_35_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">position</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([0.01 , 0.017, 0.025])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="filtering">
+<h2>📄 Filtering<a class="headerlink" href="#filtering" title="Permalink to this headline">#</a></h2>
+<p>In the previous section, we learned how to use lists of boolean and lists of integers to filter unidimensional arrays. For multidimensional arrays, they also work but they are intuitive only when used on the first dimension (see <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ix_.html">np.ix_</a> for more complex cases. Luckily, in practice, filtering series in biomechanics usually happens on the first dimensions.</p>
+<section id="example-10-read-the-whole-coordinates-at-samples-0-and-2">
+<h3>Example 10: Read the whole coordinates at samples 0 and 2<a class="headerlink" href="#example-10-read-the-whole-coordinates-at-samples-0-and-2" title="Permalink to this headline">#</a></h3>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/numpy_indexing_slicing_filtering_nd_38_0.png" src="_images/numpy_indexing_slicing_filtering_nd_38_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mask</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="n">position</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.497, 0.973, 0.01 , 1.   ],
+       [0.589, 0.97 , 0.025, 1.   ]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Filtering an array is a very powerful method to select elements of an array based on a criteria. This will be seen later in section <span class="xref myst"></span>.</p>
+</section>
+</section>
+<section id="exercise-1">
+<h2>💪 Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">#</a></h2>
+<p>#todo To be continued.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="numpy_indexing_slicing_filtering_1d.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">📖 Indexing, slicing and filtering unidimensional arrays</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="numpy_combining.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">🚧 Combining arrays</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Félix Chénier<br/>
+  
+      &copy; Copyright 2020-2022.<br/>
+    <div class="extra_footer">
+      This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>.
+    </div>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

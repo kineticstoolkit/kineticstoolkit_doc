@@ -342,6 +342,16 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_event_index.html">
+         ktk.TimeSeries.get_event_index
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_event_time.html">
+         ktk.TimeSeries.get_event_time
+        </a>
+       </li>
+       <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.TimeSeries.get_index_after_time.html">
          ktk.TimeSeries.get_index_after_time
         </a>
@@ -379,6 +389,16 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.TimeSeries.get_ts_after_time.html">
          ktk.TimeSeries.get_ts_after_time
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_ts_at_event.html">
+         ktk.TimeSeries.get_ts_at_event
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.get_ts_at_time.html">
+         ktk.TimeSeries.get_ts_at_time
         </a>
        </li>
        <li class="toctree-l4">
@@ -472,6 +492,11 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.sync_event.html">
+         ktk.TimeSeries.sync_event
+        </a>
+       </li>
+       <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.TimeSeries.to_dataframe.html">
          ktk.TimeSeries.to_dataframe
         </a>
@@ -484,6 +509,11 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.TimeSeries.ui_edit_events.html">
          ktk.TimeSeries.ui_edit_events
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.TimeSeries.ui_get_ts_between_clicks.html">
+         ktk.TimeSeries.ui_get_ts_between_clicks
         </a>
        </li>
        <li class="toctree-l4">
@@ -1037,18 +1067,18 @@ const thebe_selector_output = ".output, .cell_output"
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="numpy_indexing.html">
-       🚧 Indexing and slicing
+      <a class="reference internal" href="numpy_arithmetics_and_comparisons.html">
+       📖 Arithmetics and comparisons
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="numpy_arithmetics.html">
-       🚧 Numpy arithmetics
+      <a class="reference internal" href="numpy_indexing_slicing_filtering_1d.html">
+       📖 Indexing, slicing and filtering unidimensional arrays
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="numpy_comparisons.html">
-       🚧 Comparisons
+      <a class="reference internal" href="numpy_indexing_slicing_filtering_nd.html">
+       📖 Indexing, slicing and filtering multidimensional arrays
       </a>
      </li>
      <li class="toctree-l3">
@@ -1224,9 +1254,9 @@ title="Print to PDF"
 <p><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit/discussions">Questions, suggestions, discussions and collaborations</a> are highly welcome. Please see the numerous ways you can <a class="reference internal" href="dev_contributing.html"><span class="doc std std-doc">contribute</span></a> to this project.</p>
 <hr class="docutils" />
 <div align="center">
-<a class="reference external" href="https://felixchenier.uqam.ca"><img alt="-width:narrow" src="_static/images/logo_mosa.png"></a>
-&nbsp;&nbsp;&nbsp;<a class="reference external" href="https://uqam.ca"><img alt="-width:narrower" src="_static/images/logo_uqam.png"></a>
-&nbsp;&nbsp;&nbsp;<a class="reference external" href="https://crir.ca"><img alt="-width:narrower" src="_static/images/logo_crir.jpg"></a>
+<a href="https://felixchenier.uqam.ca"><img alt="-width:narrow" src="_static/images/logo_mosa.png"></a>
+&nbsp;&nbsp;&nbsp;<a href="https://uqam.ca"><img alt="-width:narrower" src="_static/images/logo_uqam.png"></a>
+&nbsp;&nbsp;&nbsp;<a href="https://crir.ca"><img alt="-width:narrower" src="_static/images/logo_crir.jpg"></a>
 </div>
 <div class="toctree-wrapper compound">
 </div>
@@ -1244,7 +1274,7 @@ title="Print to PDF"
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./."
         },
         predefinedOutput: true

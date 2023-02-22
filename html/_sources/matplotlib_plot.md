@@ -24,8 +24,9 @@ This section shows:
 
 - how to generate line plots using {{plt_plot}};
 - how to add axis labels using {{plt_xlabel}} and {{plt_ylabel}};
-- how to add titles using {{plt_title}};
-- how to add legends using {{plt_legend}};
+- how to add a title using {{plt_title}};
+- how to add a legend using {{plt_legend}};
+- how to add a grid using {{plt_grid}};
 - how to create new figures or clear figures using {{plt_figure}} and {{plt_clf}}.
 :::
 
@@ -81,12 +82,12 @@ plt.show()
 By default, as long as you keep calling `plt.plot`, the curves will be added to the same figure. To stop plotting on the same figure, you have the following options:
 
 - `plt.figure()`: The {{plt_figure}} function prepares a new, empty figure that will be used for each subsequent plot, leaving the original one intact.
-- `plt.clf()`: The {{plt.clf}} function **cl**ears the current **f**igure.
+- `plt.clf()`: The {{plt_clf}} function **cl**ears the current **f**igure.
 :::
 
-## 📄 Title, axis labels and legend
+## 📄 Title, axis labels, legend and grid
 
-The figure above is nice, but it lacks axes and a legend, and maybe also a title. These elements are added using the following functions:
+The figure above is nice, but it lacks axes and a legend, maybe a grid, and also a title. These elements are added using the following functions:
 
 ```{code-cell} ipython3
 plt.plot(x, y1)
@@ -101,6 +102,9 @@ plt.legend(["Instrument 1", "Instrument 2"])
 
 # Add a title
 plt.title("Comparing a same measurement using two instruments")
+
+# Add a grid
+plt.grid(True)
 
 plt.show()
 ```
@@ -123,6 +127,7 @@ plt.plot(t, p)
 plt.title("Race profile of a sprinter")
 plt.xlabel("Time (s)")
 plt.ylabel("Position (m)")
+plt.grid(True)
 plt.show()
 ```
 
@@ -133,6 +138,7 @@ plt.plot(t, p)
 plt.title("Race profile of a sprinter")
 plt.xlabel("Time (s)")
 plt.ylabel("Position (m)")
+plt.grid(True)
 ```
 
 ## 💪 Exercise 2
@@ -154,6 +160,7 @@ plt.title("Race profile of a sprinter")
 plt.xlabel("Time (s)")
 plt.ylabel("Position (m)")
 plt.legend(["Video camera", "Timing gates"])
+plt.grid(True)
 plt.show()
 ```
 
@@ -165,5 +172,6 @@ plt.plot(timing_gates_time, [0, 25, 50, 75, 100])
 plt.title("Race profile of a sprinter")
 plt.xlabel("Time (s)")
 plt.ylabel("Position (m)")
+plt.grid(True)
 plt.legend(["Video camera", "Timing gates"])
 ```

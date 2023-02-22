@@ -1,3 +1,0 @@
-# 🚧 Combining arrays
-
-{{stub}}

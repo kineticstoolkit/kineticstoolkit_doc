@@ -30,6 +30,8 @@ The optional, third argument `fmt` of the `plot` function sets the marker shape,
 - nothing (no marker)
 - `.` dot
 - `o` round
+- `x` cross (x)
+- `+` cross (+)
 - `^` triangle
 - `d` diamond
 - `s` square
@@ -134,6 +136,7 @@ plt.title("Race profile of a sprinter")
 plt.xlabel("Time (s)")
 plt.ylabel("Position (m)")
 plt.legend(["Video camera", "Timing gates"])
+plt.grid(True)
 plt.show()
 ```
 
@@ -151,6 +154,7 @@ plt.title("Race profile of a sprinter")
 plt.xlabel("Time (s)")
 plt.ylabel("Position (m)")
 plt.legend(["Video camera", "Timing gates"])
+plt.grid(True)
 
 plt.show()
 ```
