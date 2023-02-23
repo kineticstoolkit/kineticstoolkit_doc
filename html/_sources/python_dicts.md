@@ -14,20 +14,14 @@ kernelspec:
 # 📖 Dictionaries
 
 :::{card} Summary
-This section presents the `dict` type, it shows how to create a `dict`, add and remove elements, and loop through it.
+This section presents the `dict` type, how to create a `dict`, how to add and remove elements, and how to loop through it.
 :::
 
-The last built-in python type that is very important to know is the dictionary (`dict`). Like a list, a dictionary contains any number of elements. However, a list stores elements in a sequential way that we address using indexes, whereas a dictionary stores elements non-sequentially using keys.
+The last built-in python type that is very important to know is the dictionary (`dict`). Like lists and tuples, a dictionary contains any number of elements. However, lists and tuples store elements in a sequential way that we address using indexes or slices, whereas dictionaries store elements non-sequentially using keys.
 
 ## 📄 Creating a dictionary
 
-Whereas a list is created using square brackets `[]`:
-
-```{code-cell} ipython3
-list_of_integers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-```
-
-a dictionary is created using curly braces `{}` and colons `:`, using a `key: value` syntax:
+A dictionary is created using curly braces `{}` and colons `:`, using a "key: value" syntax:
 
 ```{code-cell} ipython3
 empty_dict = {}
@@ -36,7 +30,7 @@ dict_of_integers = {1: 11, 2: 22, 5: 55}
 
 ## 📄 Accessing a dictionary
 
-The dictionary we just created contains three elements that we access via keys 1, 2 and 5, exactly like we would using a list:
+The dictionary we just created contains three elements that we access via keys 1, 2 and 5 using brackets `[]`, exactly like we would index a list or a tuple:
 
 ```{code-cell} ipython3
 print(dict_of_integers[1])
@@ -58,7 +52,7 @@ We can list the available keys in a dictionary using its `keys` method:
 dict_of_integers.keys()
 ```
 
-or using the `in` keyword:
+or we can test if the dict contains a certain key using the `in` keyword:
 
 ```{code-cell} ipython3
 print(1 in dict_of_integers)
@@ -67,7 +61,7 @@ print(3 in dict_of_integers)
 
 ## 📄 Allowed types
 
-In the previous example, we used integers for both the keys and values. In reality, the value can be of any type, and the key can be of many types, the most common being integers and strings. All types can be mixed up:
+In the previous example, we used integers for both the keys and values. In reality, the value can be of any type, and the key can be of many types, the most common being integers and strings:
 
 ```{code-cell} ipython3
 dict_of_anything = {
@@ -97,15 +91,7 @@ dict_of_anything["three"]
 dict_of_anything["some_nested_dict"]
 ```
 
-## 📄 Nesting
-
-In the last instruction, we obtain a dictionary that was nested into the outer dictionary. As for lists, we can access nested dictionary directly using sequential sets of square braces:
-
-```{code-cell} ipython3
-dict_of_anything["some_nested_dict"]["b"]
-```
-
-At this point, it may begin to show how the combination of lists and dictionaries are very powerful and versatile. The following exercise makes use of such a combination.
+Combining lists and dictionaries is very powerful and versatile. The following exercise showcases such a combination.
 
 ## 💪 Exercise 1
 
@@ -120,7 +106,7 @@ participants = [
 ]
 ```
 
-Write a code that iterates through all elements of this list to create a list that contains all participants IDs: `[101, 125, 126, 132]`.
+Write a code that iterates through all elements of this list to create a new list that contains all participants IDs: `[101, 125, 126, 132]`.
 
 ```{code-cell} ipython3
 :tags: [hide-cell]
@@ -159,7 +145,7 @@ dict_of_integers
 
 ## 📄 Removing elements from a dictionary
 
-Similarly to lists, removing an element from a dictionary uses the `pop` method, which both returns the value being deleted, and deletes it.
+Similarly to lists, we remove an element from a dictionary using the `pop` method, which both returns the value being deleted, and deletes it.
 
 ```{code-cell} ipython3
 print(dict_of_integers.pop(1))  # Remove the element with key 1
@@ -170,7 +156,7 @@ print(dict_of_integers)
 
 ## 💪 Exercise 2
 
-Let's reuse the previous list of dictionaries that contain personal information about the participants of a research project:
+We will reuse the previous list of dictionaries that contain personal information about the participants of a research project:
 
 ```{code-cell} ipython3
 participants = [
@@ -181,7 +167,7 @@ participants = [
 ]
 ```
 
-Write a code that adds a new element to each of these dictionaries, that is the body-mass index. At the end, each dictionary must contain a new "BMI" key that contains the participant's body-mass index:
+Write a code that adds a new key `BMI` to each of these dictionaries, that is the body-mass index.
 
 $\text{BMI} = \text{weight}/\text{height}^2$.
 
@@ -197,9 +183,7 @@ participants
 
 ## 📄 Looping through a dictionary using `for`
 
-Similarly to lists, we can loop through every element of a dictionary, using the `for` instruction. However, the variable returned by `for` is not the value (as for list), but rather the key.
-
-For example, to loop over every element of this dictionary:
+Similarly to lists, we can loop through every element of a dictionary, using the `for` instruction. The variable returned by `for` is the key. For example, to loop over every keys of this dictionary:
 
 ```{code-cell} ipython3
 dict_of_anything = {
@@ -221,13 +205,13 @@ we would do:
 
 ```{code-cell} ipython3
 for key in dict_of_anything:
-    print(f"The key {key} contains this value: {dict_of_anything[key]}")
+    print(f"Key {key} contains this value: {dict_of_anything[key]}")
 ```
 
 
 ## 💪 Exercise 3
 
-We affix an inclinometer on a person's arm. We ask the person to reach different positions in the sagittal plane, two times.
+We affix an inclinometer on a person's arm. We ask the person to reach different positions in the sagittal plane, twice.
 
 ![dict exercise positions -width:wider](_static/images/dict_exercise.png)
 

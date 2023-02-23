@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-# 📖 Arguments and default values
+# 📖 Keyword arguments and default values
 
 :::{card} Summary
 This section presents how to pass arguments to functions using keyword arguments, and how to set default values for arguments.
@@ -35,7 +35,7 @@ print_full_name("Catherina", "Smith")
 
 ## 📄 Keyword arguments
 
-In python, it is also possible to call functions using keyword arguments. To this effect, we directly assign values to the argument names using `=` signs. This can make the code still clearer:
+In Python, it is also possible to call functions using keyword arguments. To do so, we directly assign values to the argument names using `=` signs. This can make the code still clearer:
 
 ```{code-cell} ipython3
 print_full_name(first_name="Catherina", last_name="Smith")
@@ -47,7 +47,7 @@ Note that keyword arguments can be assigned in any order:
 print_full_name(last_name="Smith", first_name="Catherina")
 ```
 
-For very simple functions, using keyword arguments is not that useful. However, some functions may have lots of arguments, with many of them being optional. For example, let's look at the signature of Pandas' `read_csv` function (we will use Pandas later in this book):
+For very simple functions, using keyword arguments is not that useful. However, some functions may have lots of arguments, with many of them being optional. For example, let's look at the signature of Pandas' `read_csv` function (we will use Pandas later):
 
 ```
 pandas.read_csv(
@@ -119,7 +119,7 @@ pandas.read_csv(filename, delimiter=',')
 
 ## 📄 Default values
 
-In the `pandas.read_csv` example above, the only required argument is the name of the csv file to read. Every other argument has a default value, and exists only to modify the default behaviour of the function.
+In the `pandas.read_csv` example above, the only mandatory argument is the name of the csv file to read. Every other argument has a default value, and exists only to modify the default behaviour of the function.
 
 Let's examine this concept with a simpler function. We define the following function that calculates the ground reaction force based on the acceleration and mass of a person's center of mass:
 
@@ -158,7 +158,7 @@ Note these conventions used for GRAVITATIONAL_CONSTANT:
 
 **Top of the file**: It is common practice to define all the constants once and at a same obvious place, which is the top of the file.
 
-**CAPITAL_CASE**: In python, there is no distinction between a variable and a constant. To create a constant, we simply assign a value to a variable that we never modify later. To emphasize that a constant should never be modified, it is common practice to user CAPITAL_CASE to define constants, and lower_case to define standard variables.
+**CAPITAL_CASE**: In Python, a constant is simply a variable that we agree to never modify. To emphasize that it should never be modified, it is common practice to user CAPITAL_CASE to define constants, and lower_case to define standard variables.
 :::
 
 Although this function works very well as is, we may want to generalize it for different gravitational constants, to simulate a similar task in a different gravity. In this case, the gravitational constant could become a parameter of the function:
@@ -175,7 +175,7 @@ def calculate_reaction_force(mass, acceleration, gravitational_constant):
     acceleration : float
         Acceleration of the center of mass of the person, in m/s2.
     gravitational_constant : float
-        Gravitational constant, in m/s2. Default is 9.81.
+        Gravitational constant, in m/s2.
 
     Returns
     -------
@@ -200,7 +200,7 @@ print(
 )
 ```
 
-However, since most of the time, the gravitational constant really is 9.81 m/s², then let's assign it a default value. This is done by using an equal `=` sign in the signature:
+However, since most of the time, the gravitational constant really is 9.81 m/s², the function would be clearer with a default value for `gravitational_constant`. This is done by using an equal `=` sign in the signature:
 
 ```{code-cell} ipython3
 def calculate_reaction_force(mass, acceleration, gravitational_constant=9.81):
@@ -250,7 +250,7 @@ A sprinter runs through two timing gates spaced by 50 m. Each timing gate record
 
 ![exercices_illustration -width:normal](_static/images/exercise_timing_gates.png)
 
-Write a function named `calculate_speed`, that takes as an argument the time of each timing gate, and that returns the mean velocity of the sprinter between gates 1 and 2, so that calling:
+Write a function named `calculate_speed` that takes two mandatory arguments, which are the time of each timing gate, and that returns the mean velocity of the sprinter between gates 1 and 2, so that calling:
 
 ```
 print(calculate_speed(1.3, 6.7))
@@ -258,7 +258,7 @@ print(calculate_speed(1.3, 6.7))
 
 prints a value of 9.2593.
 
-In addition, this function should accommodate alternate distances between the timing gates:
+In addition, this function should accommodate alternate distances between the timing gates, specified by a facultative argument named `distance_gates12`:
 
 ```
 calculate_speed(1.3, 6.7, distance_gates12=75)

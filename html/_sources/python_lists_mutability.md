@@ -14,12 +14,16 @@ kernelspec:
 # 📖 Manipulating lists
 
 :::{card} Summary
-This section shows to modify lists using indexing and slicing, and how to extend lists or append data to lists.
+This section shows to modify lists using indexing and slicing, how to `extend` lists or `append` data to lists, and how to remove data from a list using `pop`.
+:::
+
+:::{important}
+Since tuples are immutable, then this page does not apply to tuples.
 :::
 
 ## 📄 Modifying an element
 
-In previous section, we learnt how to read an element of a subset of a list, using indexing or slicing:
+We already know how to read one element of a list using indexing, and how to read many elements of a list using slicing:
 
 ```{code-cell} ipython3
 a = [1, 2, 3]
@@ -31,7 +35,9 @@ print(a[0])
 print(a[0:2])
 ```
 
-We can also use indexing and slicing to write elements of a list. To write one element using indexing:
+We can also use indexing and slicing to write elements of a list.
+
+To write one element using indexing:
 
 ```{code-cell} ipython3
 a = [1, 2, 3]
@@ -57,17 +63,20 @@ a
 To append a new element to a list, we use the list's `append` method, which takes the new value as an argument.
 
 :::{admonition} Function vs method
-We already saw what is a [function](python_functions.md): a subprogram that can process arguments and return a result.
+We already know what is a [function](python_functions.md). It is a subprogram that can process arguments and return a result.
 
 ```
 output = function(input)
 ```
 
-A method is a special type of function that is specific to a given variable type. It is called with the variable, using the dot `.` operator:
+A method is a special type of function that is only available for a given variable type. It is called using the variable itself, using the dot `.` operator:
 
 ```
 output = input.method()
 ```
+
+Methods sometimes modify the variable itself, which is the case with `append` and ` extend`.
+
 :::
 
 ```{code-cell} ipython3
@@ -117,15 +126,15 @@ max_flexion = [
 ]
 ```
 
-After verification, you realize that for the very first measurement, the instrument was not calibrated correctly and added 5 degrees to the real angle values. Please write a one-line code that corrects this measurement.
+After verification, you realize that for the very first measurement, the instrument was not calibrated correctly and added 5 degrees to the real angle values. Write a one-line code that corrects this measurement.
 
 ```{code-cell} ipython3
 :tags: [hide-cell]
 
-max_flexion[0][0] = max_flexion[0][0] - 5
+max_flexion[0][0] -= 5
 
-# This line would be equivalent and still clearer:
-# max_flexion[0][0] -= 5
+# This line would be equivalent:
+# max_flexion[0][0] = max_flexion[0][0] - 5
 
 max_flexion
 ```

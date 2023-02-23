@@ -14,7 +14,7 @@ kernelspec:
 # 📖 Strings basics
 
 :::{card} Summary
-This section introduces the string type and how to define it, including single/double quotes, triple quotes, and f-strings. It also shows the `input` function for user input of strings.
+This section introduces the `string` type and how to define it, including single/double quotes, triple quotes, and f-strings. It also shows the `input` function for user input of strings.
 :::
 
 In the previous section, we introduced two types to express numbers: `int` and `float`. To express letters, words and sentences, we use the `string` type. You already created a string in your first ["Hello world"](python_using_spyder.md) program.
@@ -44,9 +44,9 @@ but the following ones generate syntax errors, because the apostrophe or double-
 
 ## Backslash
 
-Backslash tells python that the character following the backslash is a special character. It may be used to enter quotes, line breaks and backslash itself in a string.
+Backslash tells Python that the character following the backslash is a special character. It may be used to enter quotes, line breaks and backslash itself in a string.
 
-### Quote: `\'` or `\"`
+### Single-quote `\'` and double-quote `\"`
 
 If a same string needs to include both `'` and `"`, then it is impossible to select a correct delimiter. Backslashing a quote character (`\'`, `\"`) tells python that this really is a character, and not a delimiter. For instance:
 
@@ -70,10 +70,10 @@ print(example_string)
 
 ### Backslash: `\\`
 
-As for quotes, if we do want to include a backslash in the string, we need to backslash the backslash (`\\`):
+To include a backslash in the string, we need to backslash it so that Python sees it as a backslash character, and as a backslash command:
 
 ```{code-cell} ipython3
-file_path = "C:\\Windows\\important_driver.sys"
+file_path = "C:\\Windows\\important_driver.dll"
 
 print(file_path)
 ```
@@ -117,7 +117,7 @@ d)
     I received this strange message:
     "ValueError('C:\temp unfound')"
 
-Try different ways to create each variables.
+Try different ways to create each variable.
 
 ```{code-cell} ipython3
 :tags: [hide-cell]
@@ -161,7 +161,7 @@ print(long_string)
 
 ## 📄 Combining strings and variables using f-strings
 
-We often use strings to report results. For instance, if we calculated the ankle moment, one way of reporting it would be to use two `print` calls:
+We often use strings to report results. For instance, one way of reporting the ankle moment would be to use two `print` calls:
 
 ```{code-cell} ipython3
 ankle_moment = 100.1  # (for instance)
@@ -170,7 +170,11 @@ print("The calculated moment at the ankle in Nm is:")
 print(ankle_moment)
 ```
 
-A single string that includes both the definition and the result would be more readable:  "The calculated ankle moment is 100.1 Nm." Including variables into strings is easily done using f-strings. F-strings' name comes from their `f` prefix. With f-strings, python evaluates the content between curly braces `{}` and replaces this content by its evaluation.
+A single string that includes both the definition and the result would be more readable:
+
+> "The calculated ankle moment is 100.1 Nm."
+
+Including variables into strings is easily done using f-strings. F-strings' name comes from their `f` prefix. With f-strings, Python evaluates the content between curly braces `{}` and replaces this content by its evaluation.
 
 ```{code-cell} ipython3
 # Here, we create the sentence above.
@@ -192,19 +196,19 @@ print(f"The calculated ankle moment is {ankle_moment:.5f} Nm.")
 
 ## 📄 User input
 
-To conclude this section, we can also create strings using user input: by asking a user to enter a string:
+To conclude this section, we can also create strings using user input:
 
 ```
 the_string = input()
 ```
 
-Which allows the user to type some text right in the console, until they press Enter. It is possible, and usually a good idea, to provide some text to the user:
+This allows the user to type some text right in the console, until they press Enter. It is possible and usually a good idea to provide some text to the user:
 
 ```
 the_string = input("Please enter your name: ")
 ```
 
-Note that the input function always create a string. If you want the user to input a float (maybe you want to make a calculation based on the user input), then you need to convert the string to a float:
+Note that the input function always create a string. If you want the user to input a float, then you need to convert the string to a float:
 
 ```
 str_height = input("What is the participant's height in meters? ")
@@ -215,14 +219,8 @@ User enters "1.45"
 ```{code-cell}
 :tags: ["remove-cell"]
 str_height = "1.45"
+str_cycle = "4"
 ```
-
-```{code-cell}
-print(str_height)
-print(type(str_height))
-```
-
-To get this value as a float:
 
 ```{code-cell}
 height = float(str_height)
@@ -238,11 +236,6 @@ str_cycle = input("Which gait cycle do we keep? ")
 ```
 
 User enters "4"
-
-```{code-cell}
-:tags: ["remove-cell"]
-str_cycle = "4"
-```
 
 ```{code-cell}
 i_cycle = int(str_cycle)

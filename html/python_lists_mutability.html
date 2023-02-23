@@ -915,7 +915,7 @@ const thebe_selector_output = ".output, .cell_output"
        </li>
        <li class="toctree-l4">
         <a class="reference internal" href="python_functions_keywords_defaults.html">
-         📖 Arguments and default values
+         📖 Keyword arguments and default values
         </a>
        </li>
       </ul>
@@ -925,27 +925,39 @@ const thebe_selector_output = ".output, .cell_output"
        📖 Conditions and booleans
       </a>
      </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="python_lists_indexing.html">
-       📖 Creating and indexing lists
+     <li class="toctree-l3 current active has-children">
+      <a class="reference internal" href="python_lists.html">
+       📖 Lists and tuples
       </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="python_lists_slicing.html">
-       📖 Slicing lists
-      </a>
-     </li>
-     <li class="toctree-l3 current active">
-      <a class="current reference internal" href="#">
-       📖 Manipulating lists
-      </a>
+      <input checked="" class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
+      <label for="toctree-checkbox-22">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul class="current">
+       <li class="toctree-l4">
+        <a class="reference internal" href="python_lists_indexing.html">
+         📖 Creating and indexing lists/tuples
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="python_lists_slicing.html">
+         📖 Slicing lists
+        </a>
+       </li>
+       <li class="toctree-l4 current active">
+        <a class="current reference internal" href="#">
+         📖 Manipulating lists
+        </a>
+       </li>
+      </ul>
      </li>
      <li class="toctree-l3 has-children">
       <a class="reference internal" href="python_looping.html">
        📖 Looping
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
-      <label for="toctree-checkbox-22">
+      <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
+      <label for="toctree-checkbox-23">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -1004,8 +1016,8 @@ const thebe_selector_output = ".output, .cell_output"
     <a class="reference internal" href="matplotlib.html">
      📖 Matplotlib
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
-    <label for="toctree-checkbox-23">
+    <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
+    <label for="toctree-checkbox-24">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -1056,8 +1068,8 @@ const thebe_selector_output = ".output, .cell_output"
     <a class="reference internal" href="numpy.html">
      📖 NumPy
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
-    <label for="toctree-checkbox-24">
+    <input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/>
+    <label for="toctree-checkbox-25">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -1319,12 +1331,16 @@ title="Print to PDF"
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Summary</div>
-<p class="sd-card-text">This section shows to modify lists using indexing and slicing, and how to extend lists or append data to lists.</p>
+<p class="sd-card-text">This section shows to modify lists using indexing and slicing, how to <code class="docutils literal notranslate"><span class="pre">extend</span></code> lists or <code class="docutils literal notranslate"><span class="pre">append</span></code> data to lists, and how to remove data from a list using <code class="docutils literal notranslate"><span class="pre">pop</span></code>.</p>
 </div>
+</div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Since tuples are immutable, then this page does not apply to tuples.</p>
 </div>
 <section id="modifying-an-element">
 <h2>📄 Modifying an element<a class="headerlink" href="#modifying-an-element" title="Permalink to this headline">#</a></h2>
-<p>In previous section, we learnt how to read an element of a subset of a list, using indexing or slicing:</p>
+<p>We already know how to read one element of a list using indexing, and how to read many elements of a list using slicing:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
@@ -1344,7 +1360,8 @@ Summary</div>
 </div>
 </div>
 </div>
-<p>We can also use indexing and slicing to write elements of a list. To write one element using indexing:</p>
+<p>We can also use indexing and slicing to write elements of a list.</p>
+<p>To write one element using indexing:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
@@ -1385,14 +1402,15 @@ Summary</div>
 <p>To append a new element to a list, we use the list’s <code class="docutils literal notranslate"><span class="pre">append</span></code> method, which takes the new value as an argument.</p>
 <div class="admonition-function-vs-method admonition">
 <p class="admonition-title">Function vs method</p>
-<p>We already saw what is a <a class="reference internal" href="python_functions.html"><span class="doc std std-doc">function</span></a>: a subprogram that can process arguments and return a result.</p>
+<p>We already know what is a <a class="reference internal" href="python_functions.html"><span class="doc std std-doc">function</span></a>. It is a subprogram that can process arguments and return a result.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="n">function</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>A method is a special type of function that is specific to a given variable type. It is called with the variable, using the dot <code class="docutils literal notranslate"><span class="pre">.</span></code> operator:</p>
+<p>A method is a special type of function that is only available for a given variable type. It is called using the variable itself, using the dot <code class="docutils literal notranslate"><span class="pre">.</span></code> operator:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">output</span> <span class="o">=</span> <span class="nb">input</span><span class="o">.</span><span class="n">method</span><span class="p">()</span>
 </pre></div>
 </div>
+<p>Methods sometimes modify the variable itself, which is the case with <code class="docutils literal notranslate"><span class="pre">append</span></code> and <code class="docutils literal notranslate"> <span class="pre">extend</span></code>.</p>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1471,13 +1489,13 @@ a after =  [1, 2, 3, 4, 5]
 </div>
 </div>
 </div>
-<p>After verification, you realize that for the very first measurement, the instrument was not calibrated correctly and added 5 degrees to the real angle values. Please write a one-line code that corrects this measurement.</p>
+<p>After verification, you realize that for the very first measurement, the instrument was not calibrated correctly and added 5 degrees to the real angle values. Write a one-line code that corrects this measurement.</p>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">max_flexion</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">max_flexion</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mi">5</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">max_flexion</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">5</span>
 
-<span class="c1"># This line would be equivalent and still clearer:</span>
-<span class="c1"># max_flexion[0][0] -= 5</span>
+<span class="c1"># This line would be equivalent:</span>
+<span class="c1"># max_flexion[0][0] = max_flexion[0][0] - 5</span>
 
 <span class="n">max_flexion</span>
 </pre></div>

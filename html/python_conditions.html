@@ -55,8 +55,8 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="python_lists.html" />
-    <link rel="prev" title="📖 Arguments and default values" href="python_functions_keywords_defaults.html" />
+    <link rel="next" title="📖 Lists and tuples" href="python_lists.html" />
+    <link rel="prev" title="📖 Keyword arguments and default values" href="python_functions_keywords_defaults.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -915,7 +915,7 @@ const thebe_selector_output = ".output, .cell_output"
        </li>
        <li class="toctree-l4">
         <a class="reference internal" href="python_functions_keywords_defaults.html">
-         📖 Arguments and default values
+         📖 Keyword arguments and default values
         </a>
        </li>
       </ul>
@@ -925,27 +925,39 @@ const thebe_selector_output = ".output, .cell_output"
        📖 Conditions and booleans
       </a>
      </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="python_lists_indexing.html">
-       📖 Creating and indexing lists
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="python_lists.html">
+       📖 Lists and tuples
       </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="python_lists_slicing.html">
-       📖 Slicing lists
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="python_lists_mutability.html">
-       📖 Manipulating lists
-      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
+      <label for="toctree-checkbox-22">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="python_lists_indexing.html">
+         📖 Creating and indexing lists/tuples
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="python_lists_slicing.html">
+         📖 Slicing lists
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="python_lists_mutability.html">
+         📖 Manipulating lists
+        </a>
+       </li>
+      </ul>
      </li>
      <li class="toctree-l3 has-children">
       <a class="reference internal" href="python_looping.html">
        📖 Looping
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
-      <label for="toctree-checkbox-22">
+      <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
+      <label for="toctree-checkbox-23">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -1004,8 +1016,8 @@ const thebe_selector_output = ".output, .cell_output"
     <a class="reference internal" href="matplotlib.html">
      📖 Matplotlib
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
-    <label for="toctree-checkbox-23">
+    <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
+    <label for="toctree-checkbox-24">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -1056,8 +1068,8 @@ const thebe_selector_output = ".output, .cell_output"
     <a class="reference internal" href="numpy.html">
      📖 NumPy
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
-    <label for="toctree-checkbox-24">
+    <input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/>
+    <label for="toctree-checkbox-25">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -1343,21 +1355,40 @@ title="Print to PDF"
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Summary</div>
-<p class="sd-card-text">This section shows how to perform comparisons and boolean (logical) operations and how to use these operation to program conditional code (<code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code>, <code class="docutils literal notranslate"><span class="pre">elif</span></code>).</p>
+<p class="sd-card-text">This section shows how to perform comparisons and boolean (logical) operations and how to use these operations to program conditional code (<code class="docutils literal notranslate"><span class="pre">if</span></code>, <code class="docutils literal notranslate"><span class="pre">else</span></code>, <code class="docutils literal notranslate"><span class="pre">elif</span></code>).</p>
 </div>
 </div>
-<p>In the <a class="reference internal" href="python_functions.html"><span class="doc std std-doc">previous section</span></a>, we learnt how to create simple units called functions, which have a specific and simple goal. The examples were however very simple, because the only concepts we learnt are arithmetics and variables. This section shows how to build programs that are able to execute different instructions as a consequence of conditions.</p>
+<p>In the last sections, we learned how to create functions to execute groups of arithmetic operations, to store variables and to print results. These examples were straightforward, in the sense that they only executed a predefined sequence of operations. This section shows how to build programs that are able to execute different instructions as a consequence of comparisons and conditions.</p>
 <section id="boolean-and-comparisons">
 <h2>📄 Boolean and comparisons<a class="headerlink" href="#boolean-and-comparisons" title="Permalink to this headline">#</a></h2>
 <p>Comparisons are performed using the following operators:</p>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">==</span></code> Equal</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">!=</span></code> Unequal</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code> Strictly greater</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&gt;=</span></code> Greater or equal</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code> Strictly lower</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">&lt;=</span></code> Lower or equal</p></li>
-</ul>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="text-align:right head"><p>Operator</p></th>
+<th class="text-align:left head"><p>Meaning</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td class="text-align:right"><p><code class="docutils literal notranslate"><span class="pre">==</span></code></p></td>
+<td class="text-align:left"><p>Equal</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p><code class="docutils literal notranslate"><span class="pre">!=</span></code></p></td>
+<td class="text-align:left"><p>Unequal</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p><code class="docutils literal notranslate"><span class="pre">&gt;</span></code></p></td>
+<td class="text-align:left"><p>Strictly greater</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p><code class="docutils literal notranslate"><span class="pre">&gt;=</span></code></p></td>
+<td class="text-align:left"><p>Greater or equal</p></td>
+</tr>
+<tr class="row-even"><td class="text-align:right"><p><code class="docutils literal notranslate"><span class="pre">&lt;</span></code></p></td>
+<td class="text-align:left"><p>Strictly lower</p></td>
+</tr>
+<tr class="row-odd"><td class="text-align:right"><p><code class="docutils literal notranslate"><span class="pre">&lt;=</span></code></p></td>
+<td class="text-align:left"><p>Lower or equal</p></td>
+</tr>
+</tbody>
+</table>
 <p>For example, the following comparison gives <code class="docutils literal notranslate"><span class="pre">True</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1374,32 +1405,6 @@ Summary</div>
 <p>while this one gives <code class="docutils literal notranslate"><span class="pre">False</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span> <span class="o">&lt;=</span> <span class="mi">5</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
-</pre></div>
-</div>
-</div>
-</div>
-<p>The result of a comparison is always a boolean variable. We already know the following types of variable: <code class="docutils literal notranslate"><span class="pre">string</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code> and <code class="docutils literal notranslate"><span class="pre">complex</span></code>. Boolean variables, <code class="docutils literal notranslate"><span class="pre">bool</span></code>, may be the simplest type of all: they can be only either <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
-<p>Here are other examples of comparison:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span> <span class="o">==</span> <span class="mi">10</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span> <span class="o">==</span> <span class="mi">5</span>
 </pre></div>
 </div>
@@ -1410,19 +1415,8 @@ Summary</div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span> <span class="o">!=</span> <span class="mi">5</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-</pre></div>
-</div>
-</div>
-</div>
-<p>Obviously, comparing a constant with another constant has little sense. However, comparing variables with constants, or variables with other variables, is very common and helpful.</p>
+<p>The result of a comparison is always a boolean variable. We already know the following types of variable: <code class="docutils literal notranslate"><span class="pre">string</span></code>, <code class="docutils literal notranslate"><span class="pre">int</span></code>, <code class="docutils literal notranslate"><span class="pre">float</span></code> and <code class="docutils literal notranslate"><span class="pre">complex</span></code>. Boolean variables, <code class="docutils literal notranslate"><span class="pre">bool</span></code>, are the simplest: they can be only either <code class="docutils literal notranslate"><span class="pre">True</span></code> or <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p>Obviously, comparing a constant with another constant has little sense. However, comparing variables with constants, or variables with other variables, is very common and helpful:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">WORLD_RECORD</span> <span class="o">=</span> <span class="mi">240</span>
@@ -1439,8 +1433,8 @@ Summary</div>
 </div>
 </div>
 </div>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
 <p>You may note that the equality comparison is a double-equal <code class="docutils literal notranslate"><span class="pre">==</span></code> instead of a single one <code class="docutils literal notranslate"><span class="pre">=</span></code>. This is to avoid confusion between a comparison:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">==</span> <span class="mi">5</span>
 </pre></div>
@@ -1462,7 +1456,7 @@ Summary</div>
     <span class="n">perform_task2</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>The <code class="docutils literal notranslate"><span class="pre">if</span></code> checks if a condition is met. Only if the condition evaluates to <code class="docutils literal notranslate"><span class="pre">True</span></code> is the following code block executed.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">if</span></code> checks if a condition is met. The code block that follows the <code class="docutils literal notranslate"><span class="pre">if</span></code> statement is executed only if the condition evaluates to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">WORLD_RECORD</span> <span class="o">=</span> <span class="mi">240</span>
@@ -1475,7 +1469,8 @@ Summary</div>
 </div>
 </div>
 </div>
-<p>This code does nothing, because the condition evaluated to <code class="docutils literal notranslate"><span class="pre">False</span></code>. To get both a code block that executes if a condition is met, and another code block that executes if the condition is not met, we use the <code class="docutils literal notranslate"><span class="pre">else</span></code> keyword:</p>
+<p>This code did nothing, because the condition evaluated to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">else</span></code> keyword, it is possible to executes one action if the condition if <code class="docutils literal notranslate"><span class="pre">True</span></code> and another action if the condition is <code class="docutils literal notranslate"><span class="pre">False</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">WORLD_RECORD</span> <span class="o">=</span> <span class="mi">240</span>
@@ -1496,7 +1491,7 @@ Summary</div>
 </div>
 </div>
 </div>
-<p>It is also possible to evaluate different conditions in a same <code class="docutils literal notranslate"><span class="pre">if</span></code> series, such as if a condition is false, we can evaluate another condition. This is done using <code class="docutils literal notranslate"><span class="pre">elif</span></code>, which stands for “else if”:</p>
+<p>It is also possible to evaluate different conditions in a same <code class="docutils literal notranslate"><span class="pre">if</span></code> series, using <code class="docutils literal notranslate"><span class="pre">elif</span></code>, which stands for “else if”:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">WORLD_RECORD</span> <span class="o">=</span> <span class="mi">240</span>
@@ -1520,7 +1515,7 @@ Summary</div>
 </div>
 </div>
 </div>
-<p>There may have more than one <code class="docutils literal notranslate"><span class="pre">elif</span></code> in a same series of comparisons:</p>
+<p>There may be more than one <code class="docutils literal notranslate"><span class="pre">elif</span></code> in a same series of comparisons:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">WORLD_RECORD</span> <span class="o">=</span> <span class="mi">240</span>
@@ -1550,7 +1545,7 @@ Summary</div>
 </section>
 <section id="exercise-1">
 <h2>💪 Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">#</a></h2>
-<p>We have three timing gates. We want to know if an athlete has accelerated, decelerated, or stayed a the same speed between gates 1-2 and gates 2-3.</p>
+<p>We have three timing gates. We want to know if an athlete has accelerated, decelerated, or kept a constant speed between gates 1-2 and gates 2-3.</p>
 <p>Write a function with the following signature and docstring:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">compare_speed</span><span class="p">(</span><span class="n">time1</span><span class="p">,</span> <span class="n">time2</span><span class="p">,</span> <span class="n">time3</span><span class="p">,</span> <span class="n">distance12</span><span class="p">,</span> <span class="n">distance23</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -1568,7 +1563,7 @@ Summary</div>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    str</span>
-<span class="sd">        Returns &quot;accelerated&quot;, &quot;decelerated&quot;, or &quot;stayed constant&quot; according</span>
+<span class="sd">        Returns &quot;accelerated&quot;, &quot;decelerated&quot;, or &quot;kept constant&quot; according</span>
 <span class="sd">        to the calculation.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1592,7 +1587,7 @@ Summary</div>
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    str</span>
-<span class="sd">        Returns &quot;accelerated&quot;, &quot;decelerated&quot;, or &quot;stayed constant&quot; according</span>
+<span class="sd">        Returns &quot;accelerated&quot;, &quot;decelerated&quot;, or &quot;kept constant&quot; according</span>
 <span class="sd">        to the calculation.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1606,7 +1601,7 @@ Summary</div>
         <span class="k">return</span> <span class="s2">&quot;decelerated&quot;</span>
 
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s2">&quot;stayed constant&quot;</span>
+        <span class="k">return</span> <span class="s2">&quot;kept constant&quot;</span>
 
 
 <span class="c1"># Test the function:</span>
@@ -1617,7 +1612,7 @@ Summary</div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>stayed constant
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>kept constant
 decelerated
 accelerated
 </pre></div>
@@ -1627,7 +1622,7 @@ accelerated
 </section>
 <section id="boolean-operators">
 <h2>📄 Boolean operators<a class="headerlink" href="#boolean-operators" title="Permalink to this headline">#</a></h2>
-<p>It is possible to construct complex comparisons by combining the results of many comparisons, using the logical operators <code class="docutils literal notranslate"><span class="pre">not</span></code>, <code class="docutils literal notranslate"><span class="pre">and</span></code> and <code class="docutils literal notranslate"><span class="pre">or</span></code>. These operators are specifically aimed to compare booleans.</p>
+<p>We can construct complex comparisons by combining the results of many comparisons, using the logical operators <code class="docutils literal notranslate"><span class="pre">not</span></code>, <code class="docutils literal notranslate"><span class="pre">and</span></code> and <code class="docutils literal notranslate"><span class="pre">or</span></code>. These operators are specifically aimed to compare booleans.</p>
 <p>The <code class="docutils literal notranslate"><span class="pre">not</span></code> operator inverts the value of a <code class="docutils literal notranslate"><span class="pre">bool</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1728,7 +1723,7 @@ False
 </div>
 <div class="admonition-good-practice admonition">
 <p class="admonition-title">Good practice: Naming functions that return bools</p>
-<p>Function that check a condition often start with <code class="docutils literal notranslate"><span class="pre">is_</span></code>, <code class="docutils literal notranslate"><span class="pre">has_</span></code>, <code class="docutils literal notranslate"><span class="pre">contains_</span></code>, etc. This makes it obvious that the answer will be a boolean, or will contain booleans.</p>
+<p>For clarity, functions that return booleans often start with <code class="docutils literal notranslate"><span class="pre">is_</span></code>, <code class="docutils literal notranslate"><span class="pre">has_</span></code>, <code class="docutils literal notranslate"><span class="pre">contains_</span></code>, etc.</p>
 </div>
 </section>
 <section id="exercise-2">
@@ -1789,13 +1784,13 @@ False
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">📖 Arguments and default values</p>
+            <p class="prev-next-title">📖 Keyword arguments and default values</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="python_lists.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">&lt;no title&gt;</p>
+        <p class="prev-next-title">📖 Lists and tuples</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

@@ -17,4 +17,4 @@ Obviously, while this was perfectly fine for only three repetitions, this soluti
 ```{tableofcontents}
 ```
 
-Looping through a dictionary is shown later in section [python_dicts](python_dicts.md).
+Looping through a dictionary is shown later in section [](python_dicts.md).

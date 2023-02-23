@@ -1,10 +1,10 @@
 # 📖 Configuring Spyder for Python biomechanics
 
 :::{card} Summary
-This section is facultative but recommended, to get the most of Spyder for biomechanical analysis.
+This section is facultative, but recommended to get the most of Spyder for biomechanical analysis.
 :::
 
-Spyder just works out of the box. However, we suggest to use these alternative settings, which we believe are helpful to get on track as fast as possible in writing great code and processing biomechanical data.
+Spyder just works out of the box. However, we suggest to use these alternative settings that are helpful to get on track as fast as possible in writing good code and processing biomechanical data.
 
 ## 📄 Interactive graphics
 
@@ -14,16 +14,12 @@ To configure Spyder for interactive graphics, go to the Spyder's preferences, to
 
 ## 📄 Automatic code style
 
-While most Python code is generally readable, there are still many official and unofficial rules that define how code "should" look. For example, we usually put spaces between operators, no more than two blank lines between statements, etc. To focus on learning what to code, and not how code should look, we recommend to use the [Black](https://black.readthedocs.io) formatter.
+While most Python code is generally readable, there are still many official and unofficial rules that define how code "should" look. For example, we usually put spaces between operators, no more than two blank lines between statements, etc. To focus on learning **what** to code rather than how code should **look**, we recommend to use the [Black](https://black.readthedocs.io) formatter.
 
 Go to the Spyder's preferences, to the **Completion and linting** item, then to the **Code style and formatting** pane. In the **Code formatting** box, select **black** and check **Autoformat files on save**. Now, your code will always respect most common style rules.
 
-:::{note}
-In this interactive book, we assume that you are using automatic code style, and therefore there will be very little content on code styling.
-:::
-
 ## 📄 Docstring linting
 
-If you start writing lots of functions, you will want your functions to be [well documented](python_functions_docstrings.md). To help you in this objective, activate Docstring linting. This shows hints in the editor to help you to code good docstrings. 
+If you start writing lots of functions, you will want your functions to be [well documented](python_functions_docstrings.md). To help you in this objective, activate Docstring linting, which will provide hints in the editor to help you formatting your docstrings. 
 
 Go to the Spyder's preferences, to the **Completion and linting** item, then to the **Docstring style** pane. Check **Enable docstring type linting** and choose **Numpy** in the selection box.

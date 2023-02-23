@@ -915,7 +915,7 @@ const thebe_selector_output = ".output, .cell_output"
        </li>
        <li class="toctree-l4">
         <a class="reference internal" href="python_functions_keywords_defaults.html">
-         📖 Arguments and default values
+         📖 Keyword arguments and default values
         </a>
        </li>
       </ul>
@@ -925,27 +925,39 @@ const thebe_selector_output = ".output, .cell_output"
        📖 Conditions and booleans
       </a>
      </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="python_lists_indexing.html">
-       📖 Creating and indexing lists
+     <li class="toctree-l3 has-children">
+      <a class="reference internal" href="python_lists.html">
+       📖 Lists and tuples
       </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="python_lists_slicing.html">
-       📖 Slicing lists
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="python_lists_mutability.html">
-       📖 Manipulating lists
-      </a>
+      <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
+      <label for="toctree-checkbox-22">
+       <i class="fas fa-chevron-down">
+       </i>
+      </label>
+      <ul>
+       <li class="toctree-l4">
+        <a class="reference internal" href="python_lists_indexing.html">
+         📖 Creating and indexing lists/tuples
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="python_lists_slicing.html">
+         📖 Slicing lists
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="python_lists_mutability.html">
+         📖 Manipulating lists
+        </a>
+       </li>
+      </ul>
      </li>
      <li class="toctree-l3 current active has-children">
       <a class="reference internal" href="python_looping.html">
        📖 Looping
       </a>
-      <input checked="" class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
-      <label for="toctree-checkbox-22">
+      <input checked="" class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
+      <label for="toctree-checkbox-23">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -1004,8 +1016,8 @@ const thebe_selector_output = ".output, .cell_output"
     <a class="reference internal" href="matplotlib.html">
      📖 Matplotlib
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
-    <label for="toctree-checkbox-23">
+    <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
+    <label for="toctree-checkbox-24">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -1056,8 +1068,8 @@ const thebe_selector_output = ".output, .cell_output"
     <a class="reference internal" href="numpy.html">
      📖 NumPy
     </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
-    <label for="toctree-checkbox-24">
+    <input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/>
+    <label for="toctree-checkbox-25">
      <i class="fas fa-chevron-down">
      </i>
     </label>
@@ -1230,6 +1242,11 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example">
+   ⚙️ Example
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#exercise-1">
    💪 Exercise 1
   </a>
@@ -1261,6 +1278,11 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#syntax">
    📄 Syntax
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#example">
+   ⚙️ Example
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -1298,7 +1320,7 @@ Summary</div>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">condition</span><span class="p">:</span>
     <span class="n">instruction1</span><span class="p">()</span>
     <span class="n">instruction2</span><span class="p">()</span>
-    <span class="n">isntruction3</span><span class="p">()</span>
+    <span class="n">instruction3</span><span class="p">()</span>
     <span class="o">...</span>
 </pre></div>
 </div>
@@ -1324,10 +1346,13 @@ Now, the variable i is 4.
 </div>
 </div>
 </div>
-<p>Let’s get this into practice, with this example where we made some measurements stored in metres in a list. We want to convert this list to another list where the measurements are in millimetres instead:</p>
+</section>
+<section id="example">
+<h2>⚙️ Example<a class="headerlink" href="#example" title="Permalink to this headline">#</a></h2>
+<p>In the following example, we made some measurements in metres that we stored into a list. We want to convert this list to another list where the measurements are in millimetres instead:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># We have some measurements in meters:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Measurements in meters:</span>
 <span class="n">meters</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.329</span><span class="p">,</span> <span class="mf">0.009</span><span class="p">,</span> <span class="mf">0.210</span><span class="p">,</span> <span class="mf">0.726</span><span class="p">,</span> <span class="mf">0.686</span><span class="p">,</span> <span class="mf">0.912</span><span class="p">,</span> <span class="mf">0.285</span><span class="p">,</span> <span class="mf">0.833</span><span class="p">,</span> <span class="mf">0.334</span><span class="p">,</span> <span class="mf">0.165</span><span class="p">]</span>
 
 <span class="c1"># Create an empty list of the same measurements in millimeters, that we will</span>
@@ -1353,12 +1378,12 @@ Now, the variable i is 4.
 </div>
 <div class="admonition-good-practice admonition">
 <p class="admonition-title">Good practice: Looping</p>
-<p>While this example works perfectly well and is indeed a correct demonstration of how <code class="docutils literal notranslate"><span class="pre">while</span></code> works, we will see in the next sections that for this specific example, other instructions sur as <a class="reference internal" href="python_for_range.html"><span class="doc std std-doc">for</span></a>, or even better using <a class="reference internal" href="numpy.html"><span class="doc std std-doc">numpy</span></a>, would be less error-prone and faster.</p>
+<p>While this example works perfectly well and is indeed a correct demonstration of how <code class="docutils literal notranslate"><span class="pre">while</span></code> works, we will see in the next sections that for this specific example, other methods such as using <a class="reference internal" href="python_for_range.html"><span class="doc std std-doc">for</span></a> or <a class="reference internal" href="numpy.html"><span class="doc std std-doc">NumPy</span></a> would be less error-prone and faster.</p>
 </div>
 </section>
 <section id="exercise-1">
 <h2>💪 Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">#</a></h2>
-<p>Let’s get back again to the example of the instrumented walkway. We recorded the following positions of heel strike, first for the right heel, second for the left heel, third for the right heel, etc.:</p>
+<p>Using an instrumented walkway, we recorded the following positions of heel strike, first for the right heel, second for the left heel, third for the right heel, etc.:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># y-coordinates of each heel strike, in meters</span>
@@ -1406,7 +1431,7 @@ Now, the variable i is 4.
 </section>
 <section id="exercise-2">
 <h2>💪 Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">#</a></h2>
-<p>A therapist measures a patient’s maximal shoulder flexion several times. Write a program that creates a list of all these measurements based on user input, following this example:</p>
+<p>A therapist measures a patient’s maximal shoulder flexion angle several times. Write a program that creates a list of all these measurements based on user input, following this example:</p>
 <div class="admonition-example-of-program-output admonition">
 <p class="admonition-title">Example of program output</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Enter max shoulder flexion (deg), or Enter to stop: &lt;User enters 119&gt;
@@ -1425,7 +1450,7 @@ Max shoulder flexion: [119.0, 124.0, 123.0]
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Initialize an empty list of measurements</span>
 <span class="n">measurements</span> <span class="o">=</span> <span class="p">[]</span>
 
-<span class="c1"># Initialize a boolean variable that controls if we need to quit the loop</span>
+<span class="c1"># Initialize a boolean variable that controls when we need to quit the loop</span>
 <span class="n">continue_asking</span> <span class="o">=</span> <span class="kc">True</span>
 
 <span class="c1"># Ask the values</span>

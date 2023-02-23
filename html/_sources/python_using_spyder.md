@@ -31,7 +31,7 @@ For those who are used to Matlab, Spyder's interface should immediately look fam
 
 ## 📄 Writing code in a console
 
-In the figure above, Section A is the console, and is the equivalent of the `>>>` console that we regularly see in tutorials. Any command that you enter here is executed immediately, and the output is returned just below.
+In the figure above, Section A is the console, and is the same as the `>>>` console that we regularly see in tutorials. Any command that you enter there is executed immediately, and the output is returned just below.
 
 You can try it with a very simple calculation:
 
@@ -53,7 +53,7 @@ print(1 + 2)
 print(3 + 4)
 ```
 
-The `print` function works with any contents, be it numbers or words. Here is the most ubiquitous first program in computer science: "Hello World". Try typing this command in the console:
+The `print` function works with any contents, be it numbers or words. Try typing this command in the console:
 
 ```{code-cell} ipython3
 print("Hello world")
@@ -61,7 +61,7 @@ print("Hello world")
 
 
 :::{important}
-Python is case-sensitive. This means that `a` is not the same thing as `A`. Similarly,
+Python is case-sensitive. This means that `a` is not the same thing as `A`. Consequently,
 
 ```
 Print("Hello world")
@@ -84,7 +84,7 @@ works.
 
 ## 📄 Writing code in a script
 
-In the figure above, Section B is the script editor. This is where you will be writing most of your code. It is simply a text editor that allows saving our code (in a .py text file) to execute it all together later. You can execute a script by clicking on the `Run File` button (leftmost in the following toolbar, which can have different looks according to your configuration):
+In the figure above, Section B is the script editor. This is where you will be writing most of your code. It is simply a text editor that allows saving our code (in a .py text file) to execute it all together later. You can execute a script by clicking on the `Run File` button (green triangle in the following toolbar, which can have different looks according to your configuration):
 
 ![](_static/images/spyder_run_toolbar.png)
 ![](_static/images/spyder_run_toolbar_mac.png)
@@ -95,11 +95,13 @@ Create a file named `hello_world.py` that prints "Hello World", and run it using
 
 ## 📄 Comments
 
-For now, our first program has only one line, it is easy to understand. As our programs grow over time, we need to document them. To this effect, any text that follows `#` is considered by python as a comment, and is not executed. Usually, we use comments to explain what is the objective of a section of code.
+Our first program has only one line, so it is easy to understand. As our programs grow over time, we need to document them, usually with comments.
+
+Any text that follows `#` corresponds to a comment, and is not executed by Python. Usually, we use comments to explain what is the objective of a section of code.
 
 ## 📄 Writing code in a cell
 
-When scripts are getting longer, it can be practical to run only one section of the script at a time. Scripts can be split into cells using this sequence of characters which acts as a separator:
+When programs grow still longer, it can be practical to run only one section at a time. A script can be split into cells using this sequence of characters which acts as a separator:
 
 ```
 #%%
@@ -140,7 +142,7 @@ import numpy as np
 in the console before entering `np.mean` in the help browser.
 :::
 
-Note that you can also get help in the command line, using the `help` function:
+Note that you can also get help from the console, using the `help` function:
 
 ```{code-cell} ipython3
 import numpy as np
