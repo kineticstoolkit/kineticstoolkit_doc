@@ -14,170 +14,206 @@ kernelspec:
 # 📖 Arrays
 
 :::{card} Summary
-This section presents the array and its differences and similarities to the list. It also show how to create arrays of different shapes.
+This section presents the NumPy {{ndarray}} and its differences and similarities to the list. It also show how to create arrays of different shapes using:
+
+- {{np_array}}
+- {{np_zeros}}
+- {{np_ones}}
+- {{np_linspace}}
+- {{np_arange}}
 :::
 
-Most NumPy operations are performed on arrays. An array is different from a Python list, and each has its advantages:
+Most NumPy operations are performed on arrays. An array is similar to a list but has fundamental differences:
 
-| List                                                                                                                                              | Array                                                                                                                         |
-| ------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
-| Can be a sequence of different types, which makes it very versatile.                                                                              | Have element that are of the same type, which provides homogeneity.                                                           |
-| Have a dynamic size: it can be modified using `append`, `expand` and `pop`.                                                                       | Are continuous blocks with a fixed size. While we can merge two arrays, we usually don't "grow" an array as we do with lists. |
-| Only hold data, they don't provide methods to compute data other than by using `for` loops.                                                       | Can be used directly for calculations such as linear algebra, filtering, etc.                                                 |
-| Are only unidimensional. We can use nested lists to simulate multiple dimensions, but these values are harder to access, calculate, reshape, etc. | Can be multidimensional. Therefore, it can represent and calculate matrices, or even series of matrices.                      |
+| Lists                                                                                                                                             | Arrays                                                                                                  |
+| ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| Can be a sequence of different types, which makes them very versatile.                                                                            | Only hold element of the same type, which provides homogeneity.                                         |
+| Have a dynamic size: it can be modified using `append`, `expand` and `pop`.                                                                       | We can't "grow" an array as we do with lists.                                                           |
+| Only hold data, they don't provide methods to compute data.                                                                                       | Can be used directly for calculations such as linear algebra, filtering, etc.                           |
+| Are only unidimensional. We can use nested lists to simulate multiple dimensions, but these values are harder to access, calculate, reshape, etc. | Can have any number of dimensions. It can represent and calculate matrices, or even series of matrices. | 
 
-While lists and arrays are different, they are both useful and they can be converted one to the other.
+Lists and arrays are both useful and they can be converted one to the other.
 
-## 📄 Creating an array
+## 📄 Dimensions
 
-### From a list
+### One dimension
 
-Creating an array from a list is done using the `np.array` function:
+A simple way to create an array from a list is to use the {{np_array}} function:
 
 ```{code-cell} ipython3
 import numpy as np
 
-one_array = np.array([1.0, 2.0, 3.0, 2.5, 2.75, 1.5])
-
-one_array
-```
-
-:::{note}
-It is also possible to convert back an array to a list, using the `tolist` method:
-
-```
-one_array.tolist()
-```
-
-:::
-
-### Zeros and ones
-
-To create arrays filled with zeros or ones, we use the `np.zeros` and `np.ones` functions:
-
-```{code-cell} ipython3
-print(np.zeros(10))  # 10 is the length of the array to create
-print(np.ones(10))   # 10 is the length of the array to create
-```
-
-### Linear spacing
-
-To create equally distributed series of float, we can use `np.linspace`, which takes as arguments the initial value, the final value, and the number of points in the new array. For example, to create an array that goes from 5.0 (included) to 10.0 (included) and that contains 11 elements:
-
-```{code-cell} ipython3
-np.linspace(5.0, 10.0, 11)
-```
-
-Or we can use `np.arange`, which is very similar to the `range` function seen in section [](python_for_range.md), but which also accepts floats in addition to integers.
-
-Its different forms are:
-
-- `np.arange(final_value)`
-- `np.arange(initial_value, final_value)`
-- `np.arange(initial_value, final_value, step)`
-
-where the initial value is inclusive and the final value is exclusive. Here are some examples:
-
-Range from 0 (included) to 10 (excluded):
-```{code-cell} ipython3
-print(np.arange(10.0))
-```
-
-Range from 5 (included) to 10 (excluded):
-```{code-cell} ipython3
-print(np.arange(5.0, 10.0))
-```
-
-Range from 5 (included) to 10 (excluded), by steps of 0.5:
-```{code-cell} ipython3
-print(np.arange(5.0, 10.0, 0.5))
-```
-
-
-## 💪 Exercise 1
-
-We recorded the force measured by a dynamometer at a sampling frequency of 100 Hz, during 2.5 seconds. Using one line of code (excluding the `import` line), create a NumPy array named `time`, that represents the time at which every measurement was recorded. For example, the first element of this array will be 0 s., the second will be 0.01 s., etc.
-
-```{code-cell} ipython3
-:tags: [hide-cell]
-
-# The initial time is 0 s
-# The final time corresponds to 2.5 seconds
-# The step is the sampling period, which is 1/(100 Hz).
-
-time = np.arange(0, 2.5, 0.01)
-
-time
-```
-
-## 📄 Multiple dimensions
-
-The ability to create arrays of any numbers of dimensions may be one of the most useful aspects of NumPy. We will start with two dimensions, and expand to more dimensions later in other sections.
-
-### Creating a multidimensional array from a list
-
-While we can create a unidimensional array using a list:
-
-```{code-cell} ipython3
-array_1d = np.array([1.0, 2.0, 3.0])
+array_1d = np.array([0.1, 0.2, 0.3])
 
 array_1d
 ```
 
-We can create a multidimensional array using a list of nested lists:
+It is also possible to convert back an array to a list, using its {{ndarray_tolist}} method:
+
+```{code-cell} ipython3
+array_1d.tolist()
+```
+
+Since a list is unidimensional, the resulting array is also unidimensional. We get the size (shape) of an array using its {{ndarray_shape}} property:
+
+```{code-cell} ipython3
+array_1d.shape
+```
+
+This tuple has only **1** value and this value is **3**, which means the array has a length of **3** on **1** axis. For unidimensional arrays, both {{ndarray_shape}} and Python's `len` keyword have very similar meanings:
+
+```{code-cell} ipython3
+len(array_1d)
+```
+
+:::{note}
+NumPy's documentation usually refer to **axis** to denote a **dimension**. Both terms refer to the same thing.
+:::
+
+### More dimensions
+
+We can create a 2d array using nested lists:
 
 ```{code-cell} ipython3
 array_2d = np.array(
     [
-        [1.0, 2.0],
-        [3.0, 4.0],
-        [5.0, 6.0],
+        [0.1, 0.2, 0.3],
+        [0.4, 0.5, 0.6],
     ]
 )
 
 array_2d
 ```
 
-### Shape of an array
-
-We are now used to use the function `len` on lists, to know how big a list is. While this function also works on an array, it only returns the length of the array on its first dimension. To get the complete size (shape) of an array, we use the array's `shape` property:
+Its shape is:
 
 ```{code-cell} ipython3
-print(array_1d.shape)
-print(array_2d.shape)
+array_2d.shape
 ```
 
-For a 2d array, the first dimension corresponds to the lines, and the second dimension corresponds to the columns. Since the `shape` property always returns a tuple, we extract the number of lines and columns by indexing this tuple:
+which means it has a length of 2 on its first axis, and 3 on its second axis. In other words, this is a 2x3 matrix.
+
+We can even create arrays with more axes:
 
 ```{code-cell} ipython3
-print(
-    f"This array has {array_2d.shape[0]} lines and {array_2d.shape[1]} columns."
+array_3d = np.array(
+    [
+        [
+            [0.1, 0.2, 0.3],
+            [0.4, 0.5, 0.6],
+        ],
+        [
+            [0.7, 0.8, 0.9],
+            [1.1, 1.2, 1.3],
+        ],
+    ]
 )
+
+array_3d
 ```
 
-### Creating a multidimensional array of zeros or ones
-
-Let's have a look at the [docstring of `np.zeros`](https://numpy.org/doc/stable/reference/generated/numpy.zeros.html).
-
-![np.zeros -width:wider -border](_static/images/np.zeros.png)
-
-Look at the first argument, which is a shape or an integer. In our first example, we used an integer to define the length of the new unidimensional array. If we use a shape instead, it creates an array of this shape.
+Its shape is:
 
 ```{code-cell} ipython3
-np.zeros((3, 2))  # A 3x2 matrix filled with zeros
+array_3d.shape
+```
+
+which means it is a series of two 2x3 matrices.
+
+## 📄 Creating an array
+
+We just learned how to create unidimensional arrays using lists, and multidimensional arrays using nested lists. We can also create arrays using common NumPy functions.
+
+### Zeros and ones
+
+To create arrays filled with zeros or ones, we use the {{np_zeros}} and {{np_ones}} functions, which both take the shape of the array to create:
+
+```{code-cell} ipython3
+np.zeros((2, 5))
+```
+
+```{code-cell} ipython3
+np.ones((3, 4))
 ```
 
 :::{tip}
-Although the `shape` property of an array is a tuple, we can also use lists to define shapes. This code is equivalent to the code above:
+Note the double parenthesis. The argument to {{np_zeros}} and {{np_ones}} is a shape, which is a tuple. Writing `np.zeros(2, 5)` would generate an error, since this is not one tuple argument, but two integer arguments.
+:::
+
+### Linear spacing: `np.arange`
+
+It is very common to generate unidimensional arrays of equally spaced values, such as `[0, 1, 2, 3, 4]` or `[0, 0.1, 0.2, 0.3]`. We could do it using:
+
+```{code-cell} ipython3
+np.array(range(5))
 ```
-np.zeros([3, 2])
+
+which creates a range from 0 (incl.) to 5 (excl.), then converts this range to an array. NumPy provides a shortcut for it: {{np_arange}}
+
+```{code-cell} ipython3
+np.arange(5)
+```
+
+This function takes the same arguments as the Python's [range](python_for_range.md) function.
+
+:::{good-practice} np.arange
+While `range` only takes integers as arguments, `np.arange` also accepts floats. For example:
+
+```
+np.arange(0, 0.5, 0.1)
+```
+
+generates:
+
+```
+array([0. , 0.1, 0.2, 0.3, 0.4])
+```
+
+However, this practice is not recommended due to potential floating point problems that can generate surprising results. Without going further into these issues, just remind that in most cases, `np.arange` should be used only with integers. For the example above:
+
+```
+np.arange(5) / 10
+```
+
+is safer and gives the same result:
+
+```
+array([0. , 0.1, 0.2, 0.3, 0.4])
 ```
 :::
 
-In the same idea:
+### Linear spacing: `np.linspace`
+
+Another function to create equally spaced series of float is {{np_linspace}}, which takes as arguments the initial value, the final value, and the number of points in the new array. By default, `np.linspace` includes both the initial and final values. For example, to create an array that goes from 5.0 (included) to 10.0 (included) and that contains 11 elements:
 
 ```{code-cell} ipython3
-np.ones([3, 2])  # A 3x2 matrix filled with ones
+np.linspace(5.0, 10.0, 11)
+```
+
+To exclude the final value, we set the `endpoint` argument to False.
+
+```{code-cell} ipython3
+np.linspace(5.0, 10.0, 10, endpoint=False)
+```
+
+## 💪 Exercise 1
+
+We recorded the force measured by a dynamometer at a sampling frequency of 100 Hz, during 2.5 seconds. Using one line of code (excluding the `import` line), create a NumPy array named `time`, that represents the time at which every measurement was recorded. The first element of this array will be 0 s., the second will be 0.01 s., etc.
+
+```{code-cell} ipython3
+:tags: [hide-cell]
+
+# The initial time is 0 s
+# The final time corresponds to 2.5 seconds
+# The number of points is 2.5 * 100Hz = 250.
+
+time = np.linspace(0, 2.5, 250, endpoint=False)
+
+# Note that if we understand the question as if the final time should be included,
+# then we need to increase the number of points by 1 to include this new points:
+# >> time = np.linspace(0, 2.5, 251)
+
+time
 ```
 
 ## 💪 Exercise 2

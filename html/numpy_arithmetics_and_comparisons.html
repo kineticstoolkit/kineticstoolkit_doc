@@ -1036,7 +1036,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="matplotlib_frontend.html">
-       📖 Matplotlib frontend
+       📖 Non-blocking, interactive Matplotlib figures
       </a>
      </li>
      <li class="toctree-l3">
@@ -1061,7 +1061,7 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="matplotlib_ginput.html">
-       🚧 Graphical input
+       📖 Graphical input
       </a>
      </li>
     </ul>
@@ -1244,6 +1244,11 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-1">
+   💪 Exercise 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#matrix-multiplication">
    📄 Matrix multiplication
   </a>
@@ -1261,11 +1266,6 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#trigonometry">
    📄 Trigonometry
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise-1">
-   💪 Exercise 1
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -1308,6 +1308,11 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise-1">
+   💪 Exercise 1
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#matrix-multiplication">
    📄 Matrix multiplication
   </a>
@@ -1325,11 +1330,6 @@ title="Print to PDF"
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#trigonometry">
    📄 Trigonometry
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise-1">
-   💪 Exercise 1
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -1386,6 +1386,8 @@ Summary</div>
 <li><p class="sd-card-text"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.sum.html">np.sum</a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nansum.html">np.nansum</a></p></li>
 <li><p class="sd-card-text"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.mean.html">np.mean</a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nanmean.html">np.nanmean</a></p></li>
 <li><p class="sd-card-text"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.std.html">np.std</a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nanstd.html">np.nanstd</a></p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.min.html">np.min</a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nanmin.html">np.nanmin</a></p></li>
+<li><p class="sd-card-text"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.max.html">np.max</a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nanmax.html">np.nanmax</a></p></li>
 <li><p class="sd-card-text"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.median.html">np.median</a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nanmedian.html">np.nanmedian</a></p></li>
 <li><p class="sd-card-text"><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.quantile.html">np.quantile</a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nanquantile.html">np.nanquantile</a></p></li>
 </ul>
@@ -1395,7 +1397,7 @@ Summary</div>
 </div>
 <section id="basic-arithmetics">
 <h2>📄 Basic arithmetics<a class="headerlink" href="#basic-arithmetics" title="Permalink to this headline">#</a></h2>
-<p>All python operators (<code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">**</span></code>) work equally on NumPy arrays, assuming both arrays have the same shape. In this case, the operation is performed between every element of a same position. For example:</p>
+<p>All Python operators (<code class="docutils literal notranslate"><span class="pre">+</span></code>, <code class="docutils literal notranslate"><span class="pre">-</span></code>, <code class="docutils literal notranslate"><span class="pre">*</span></code>, <code class="docutils literal notranslate"><span class="pre">/</span></code>, <code class="docutils literal notranslate"><span class="pre">**</span></code>) work on NumPy arrays, assuming both arrays have the same shape. The operation is performed between every element of a same position. For example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -1488,7 +1490,7 @@ Summary</div>
 </div>
 </div>
 </div>
-<p>It is also possible to perform operations between an array and one single float or integer.</p>
+<p>It is also possible to perform operations between an array and a float or an integer.</p>
 <p>Addition:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1520,12 +1522,44 @@ Summary</div>
 <p>etc.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>It is also possible to perform arithmetic operations between arrays that do not completely match shape. This is called <a class="reference external" href="https://numpy.org/doc/stable/user/basics.broadcasting.html">broadcasting</a>. However, it won’t be seen in this tutorial.</p>
+<p>It is also possible to perform arithmetic operations between arrays that do not completely match shape using <a class="reference external" href="https://numpy.org/doc/stable/user/basics.broadcasting.html">broadcasting</a> (not seen in this tutorial).</p>
+</div>
+</section>
+<section id="exercise-1">
+<h2>💪 Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">#</a></h2>
+<p>A ball is released from a point in air. Knowing that it was immobile when it was released, and that it gains negative speed at a rate of 9.81 m/s², plot a curve of its velocity during one second from release time.</p>
+<p><img alt="Exercise 1 -height:short" src="_images/ball_vertical_speed.png" /></p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<div class="toggle docutils container">
+<p>Start by creating a time array using <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.arange.html">np.arange</a> or <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html">np.linspace</a>. Then, use this time array to create a velocity array.</p>
+</div>
+</div>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First, let&#39;s define a time array</span>
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1"># Calculate the velocity as -9.81 * t</span>
+<span class="n">v</span> <span class="o">=</span> <span class="o">-</span><span class="mf">9.81</span> <span class="o">*</span> <span class="n">t</span>
+
+<span class="c1"># Show it</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Velocity (m/s)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/numpy_arithmetics_and_comparisons_18_0.png" src="_images/numpy_arithmetics_and_comparisons_18_0.png" />
+</div>
 </div>
 </section>
 <section id="matrix-multiplication">
 <h2>📄 Matrix multiplication<a class="headerlink" href="#matrix-multiplication" title="Permalink to this headline">#</a></h2>
-<p>Numpy also provides an additional operator <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> that computes the matrix dot product. For instance, to perform this operation:</p>
+<p>Numpy also provides an operator <code class="docutils literal notranslate"><span class="pre">&#64;</span></code> that calculates the matrix dot product. For instance, to perform this operation:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 \begin{bmatrix}
@@ -1550,7 +1584,7 @@ Summary</div>
 14 \\ 32 \\ 50
 \end{bmatrix}
 \end{split}\]</div>
-<p>we would simply write:</p>
+<p>we simply write:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
@@ -1576,7 +1610,7 @@ Summary</div>
 </section>
 <section id="comparisons">
 <h2>📄 Comparisons<a class="headerlink" href="#comparisons" title="Permalink to this headline">#</a></h2>
-<p>Comparison operators also work natively on NumPy arrays. Every element of the array is compared to a value, which results in an array of booleans that is the same shape as the original array. For example:</p>
+<p>Comparison operators also work natively on NumPy arrays. For example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
@@ -1630,8 +1664,7 @@ Summary</div>
 </section>
 <section id="infinity-and-not-a-number-nan">
 <h2>📄 Infinity and Not-A-Number (nan)<a class="headerlink" href="#infinity-and-not-a-number-nan" title="Permalink to this headline">#</a></h2>
-<p>Some arithmetic operations lead to infinity of undertermined numbers. For instance, dividing a constant by 0 leads to infinity, which is not representable as a float:</p>
-<p>Infinity:</p>
+<p>Some arithmetic operations such as division by zero lead to infinity of undertermined numbers, which normally result in an error:</p>
 <div class="cell tag_raises-exception docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
@@ -1641,7 +1674,7 @@ Summary</div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">14</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">15</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
 
 <span class="ne">ZeroDivisionError</span>: division by zero
@@ -1649,25 +1682,7 @@ Summary</div>
 </div>
 </div>
 </div>
-<p>Undetermination:</p>
-<div class="cell tag_raises-exception docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span> <span class="o">/</span> <span class="mi">0</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">ZeroDivisionError</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">15</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="ne">----&gt; </span><span class="mi">1</span> <span class="mi">0</span> <span class="o">/</span> <span class="mi">0</span>
-
-<span class="ne">ZeroDivisionError</span>: division by zero
-</pre></div>
-</div>
-</div>
-</div>
-<p>Since one operation on a NumPy array performs many operations at once, it would be inconvenient to get an error each time only one or a few calculations failed. For this matter, instead of generating errors, NumPy only warns and provides special constants to express infinity and undetermined numbers: <a class="reference external" href="https://numpy.org/doc/stable/reference/constants.html#numpy.inf">np.inf</a> and <a class="reference external" href="https://numpy.org/doc/stable/reference/constants.html#numpy.nan">np.nan</a> (not-a-number):</p>
+<p>Since an operation on arrays performs many operations at once, it would be inconvenient to get an error each time only a few calculations failed. For this matter, instead of generating errors, NumPy only warns and provides special constants to express infinity <a class="reference external" href="https://numpy.org/doc/stable/reference/constants.html#numpy.inf">np.inf</a> and undetermined numbers <a class="reference external" href="https://numpy.org/doc/stable/reference/constants.html#numpy.nan">np.nan</a> (not-a-number):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
@@ -1680,9 +1695,9 @@ Summary</div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/7v/g5_ntzfx35v4ck07wflynw640000gp/T/ipykernel_12975/2330153618.py:4: RuntimeWarning: divide by zero encountered in divide
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/7v/g5_ntzfx35v4ck07wflynw640000gp/T/ipykernel_28787/2330153618.py:4: RuntimeWarning: divide by zero encountered in divide
   c = a / b
-/var/folders/7v/g5_ntzfx35v4ck07wflynw640000gp/T/ipykernel_12975/2330153618.py:4: RuntimeWarning: invalid value encountered in divide
+/var/folders/7v/g5_ntzfx35v4ck07wflynw640000gp/T/ipykernel_28787/2330153618.py:4: RuntimeWarning: invalid value encountered in divide
   c = a / b
 </pre></div>
 </div>
@@ -1718,7 +1733,7 @@ Summary</div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>It is very common in data analysis to use <code class="docutils literal notranslate"><span class="pre">np.nan</span></code> to indicate missing data. For instance, we could record the trajectory of a reflective marker and use <code class="docutils literal notranslate"><span class="pre">np.nan</span></code> instead of proper coordinates for times when the marker was not seen by the cameras.</p>
+<p>It is common in data analysis to use <code class="docutils literal notranslate"><span class="pre">np.nan</span></code> to indicate missing data. For instance, we could record the (x, y, z) trajectory of a reflective marker and use (<code class="docutils literal notranslate"><span class="pre">nan</span></code>, <code class="docutils literal notranslate"><span class="pre">nan</span></code>, <code class="docutils literal notranslate"><span class="pre">nan</span></code>) when the marker is not seen by the cameras.</p>
 </div>
 </section>
 <section id="trigonometry">
@@ -1738,58 +1753,24 @@ Summary</div>
 <li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.abs.html">np.abs</a>: Absolute value</p></li>
 <li><p><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.sqrt.html">np.sqrt</a>: Square root</p></li>
 </ul>
-<p>* In all trigonometric functions, angles are in radians by default. Either make the conversion by multlying or dividing by <span class="math notranslate nohighlight">\(\pi/180\)</span> manually, or use <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.deg2rad.html">np.deg2rad</a> and <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.rad2deg.html">np.rad2deg</a>.</p>
-<p>For instance:</p>
+<p>In all trigonometric functions, angles are in radians by default. You can either convert to/from degrees by multiplying or dividing by <span class="math notranslate nohighlight">\(\pi/180\)</span> manually, or use <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.deg2rad.html">np.deg2rad</a> and <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.rad2deg.html">np.rad2deg</a>.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">angle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">angle</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">))</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">angle</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">))</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/numpy_arithmetics_and_comparisons_35_0.png" src="_images/numpy_arithmetics_and_comparisons_35_0.png" />
-</div>
-</div>
-</section>
-<section id="exercise-1">
-<h2>💪 Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">#</a></h2>
-<p>A ball is released from a point in air. Knowing that it was immobile when it was released, and that it gains negative speed at a rate of 9.81 m/s², plot a curve of its velocity during one second from release time.</p>
-<p><img alt="Exercise 1 -height:short" src="_images/ball_vertical_speed.png" /></p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<div class="toggle docutils container">
-<p>Start by creating a time array using <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.arange.html">np.arange</a> or <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.linspace.html">np.linspace</a>. Then, use this time array to create a velocity array.</p>
-</div>
-</div>
-<div class="cell tag_hide-cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># First, let&#39;s define a time array</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="c1"># Calculate the velocity as -9.81 * t</span>
-<span class="n">v</span> <span class="o">=</span> <span class="o">-</span><span class="mf">9.81</span> <span class="o">*</span> <span class="n">t</span>
-
-<span class="c1"># Show it</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Time (s)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Velocity (m/s)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<img alt="_images/numpy_arithmetics_and_comparisons_37_0.png" src="_images/numpy_arithmetics_and_comparisons_37_0.png" />
+<img alt="_images/numpy_arithmetics_and_comparisons_33_0.png" src="_images/numpy_arithmetics_and_comparisons_33_0.png" />
 </div>
 </div>
 </section>
 <section id="exercise-2">
 <h2>💪 Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">#</a></h2>
-<p>If the ball has a constant initial horizontal velocity of 10 m/s, but had no initial vertical velocity at release time, plot a curve of its total speed during one second from release time. The total speed is the norm of the vector created by the horizontal velocity and the vertical velocity:</p>
+<p>A ball is threw horizontally with a constant horizontal velocity of 10 m/s, and with no initial vertical velocity at release time. Once released, its horizontal velocity stays constant while its vertical velocity increases negatively at a rate of 9.81 m/s². Plot a curve of its total speed during one second from release time. The total speed is the norm of the vector created by the horizontal velocity and the vertical velocity:</p>
 <p><img alt="Exercise 2 -height:short" src="_images/ball_total_speed.png" /></p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1821,13 +1802,13 @@ Summary</div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/numpy_arithmetics_and_comparisons_39_0.png" src="_images/numpy_arithmetics_and_comparisons_39_0.png" />
+<img alt="_images/numpy_arithmetics_and_comparisons_35_0.png" src="_images/numpy_arithmetics_and_comparisons_35_0.png" />
 </div>
 </div>
 </section>
 <section id="exercise-3">
 <h2>💪 Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this headline">#</a></h2>
-<p>When we walk on an inclined treadmill, we must overcome a force equal to:</p>
+<p>When we walk on an inclined treadmill, we must overcome a backward force equal to:</p>
 <div class="math notranslate nohighlight">
 \[
 F = m g \sin \theta
@@ -1869,13 +1850,13 @@ F = m g \sin \theta
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/numpy_arithmetics_and_comparisons_41_0.png" src="_images/numpy_arithmetics_and_comparisons_41_0.png" />
+<img alt="_images/numpy_arithmetics_and_comparisons_37_0.png" src="_images/numpy_arithmetics_and_comparisons_37_0.png" />
 </div>
 </div>
 </section>
 <section id="statistical-functions">
 <h2>📄 Statistical functions<a class="headerlink" href="#statistical-functions" title="Permalink to this headline">#</a></h2>
-<p>NumPy also provides statistical functions such as <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.sum.html">np.sum</a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.mean.html">np.mean</a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.std.html">np.std</a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.median.html">np.median</a>, and <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.quantile.html">np.quantile</a>. For multidimensional arrays, these functions accept an <code class="docutils literal notranslate"><span class="pre">axis</span></code> parameter that indicates on which axis to perform the operation. For example, summing on the first axis adds all <strong>lines</strong> together, so that we get the total for each column:</p>
+<p>NumPy also provides statistical functions such as <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.sum.html">np.sum</a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.mean.html">np.mean</a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.std.html">np.std</a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.min.html">np.min</a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.max.html">np.max</a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.median.html">np.median</a>, and <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.quantile.html">np.quantile</a>. For multidimensional arrays, these functions accept an <code class="docutils literal notranslate"><span class="pre">axis</span></code> parameter that indicates on which axis to perform the operation. For example, for a matrix, an operation on the first axis is performed on the <strong>lines</strong>, so that we get a result for each column.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
@@ -1885,30 +1866,34 @@ F = m g \sin \theta
     <span class="p">]</span>
 <span class="p">)</span>
 
-<span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sum on first axis = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Max on first axis = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([5., 7., 9.])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sum on first axis = [5. 7. 9.]
+Max on first axis = [4. 5. 6.]
 </pre></div>
 </div>
 </div>
 </div>
-<p>Whereas summing on the second axis adds all <strong>columns</strong> together, so that we get the total for each line:</p>
+<p>Whereas an operation on the second axis is performed on the <strong>columns</strong>, so that we get a result for each line:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sum on second axis = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Max on second axis = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 6., 15.])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sum on second axis = [ 6. 15.]
+Max on second axis = [3. 6.]
 </pre></div>
 </div>
 </div>
 </div>
-<p>In the case the array contains <code class="docutils literal notranslate"><span class="pre">nan</span></code> values, using these functions can be problematic, since any arithmetic operation that includes a <code class="docutils literal notranslate"><span class="pre">nan</span></code> results in a <code class="docutils literal notranslate"><span class="pre">nan</span></code>:</p>
+<p>If the array contains <code class="docutils literal notranslate"><span class="pre">nan</span></code> values, using these functions can be problematic because any arithmetic operation that includes a <code class="docutils literal notranslate"><span class="pre">nan</span></code> results in a <code class="docutils literal notranslate"><span class="pre">nan</span></code>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
@@ -1918,25 +1903,29 @@ F = m g \sin \theta
     <span class="p">]</span>
 <span class="p">)</span>
 
-<span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sum on first axis = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Max on first axis = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([ 5., nan,  9.])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sum on first axis = [ 5. nan  9.]
+Max on first axis = [ 4. nan  6.]
 </pre></div>
 </div>
 </div>
 </div>
-<p>For these cases, NumPy provides alternate functions: <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nansum.html">np.nansum</a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nanmean.html">np.nanmean</a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nanstd.html">np.nanstd</a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nanmedian.html">np.nanmedian</a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nanquantile.html">np.nanquantile</a> that ignore <code class="docutils literal notranslate"><span class="pre">nan</span></code> values from the calculation.</p>
+<p>For these cases, NumPy provides alternate functions: <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nansum.html">np.nansum</a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nanmean.html">np.nanmean</a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nanstd.html">np.nanstd</a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nanmin.html">np.nanmin</a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nanmax.html">np.nanmax</a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nanmedian.html">np.nanmedian</a>, <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.nanquantile.html">np.nanquantile</a> that ignore <code class="docutils literal notranslate"><span class="pre">nan</span></code> values from the calculation.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">nansum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Sum on first axis = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">nansum</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Max on first axis = </span><span class="si">{</span><span class="n">np</span><span class="o">.</span><span class="n">nanmax</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="w"> </span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([5., 2., 9.])
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Sum on first axis = [5. 2. 9.]
+Max on first axis = [4. 2. 6.]
 </pre></div>
 </div>
 </div>
