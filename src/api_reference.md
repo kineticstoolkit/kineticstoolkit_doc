@@ -1,0 +1,4 @@
+# 📘 API Reference
+
+```{tableofcontents}
+```

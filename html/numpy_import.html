@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>📖 Importing pyplot &#8212; Kinetics Toolkit</title>
+    <title>📖 Importing NumPy &#8212; Kinetics Toolkit</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -51,12 +51,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <link rel="canonical" href="https://kineticstoolkit.uqam.ca/doc/matplotlib_import.html" />
+    <link rel="canonical" href="https://kineticstoolkit.uqam.ca/doc/numpy_import.html" />
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="📖 Non-blocking, interactive Matplotlib figures" href="matplotlib_frontend.html" />
-    <link rel="prev" title="📖 Matplotlib" href="matplotlib.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -106,7 +104,7 @@ const thebe_selector_output = ".output, .cell_output"
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="current nav bd-sidenav">
+        <ul class="nav bd-sidenav">
  <li class="toctree-l1 has-children">
   <a class="reference internal" href="ktk_manual.html">
    📘 Manual
@@ -831,16 +829,16 @@ const thebe_selector_output = ".output, .cell_output"
    </li>
   </ul>
  </li>
- <li class="toctree-l1 current active has-children">
+ <li class="toctree-l1 has-children">
   <a class="reference internal" href="python_for_beginners.html">
    📘 Learning Python for biomechanics
   </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
+  <input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/>
   <label for="toctree-checkbox-18">
    <i class="fas fa-chevron-down">
    </i>
   </label>
-  <ul class="current">
+  <ul>
    <li class="toctree-l2 has-children">
     <a class="reference internal" href="python_getting_started.html">
      📖 Getting started with Python
@@ -1012,18 +1010,18 @@ const thebe_selector_output = ".output, .cell_output"
      </li>
     </ul>
    </li>
-   <li class="toctree-l2 current active has-children">
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="matplotlib.html">
      📖 Matplotlib
     </a>
-    <input checked="" class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
+    <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
     <label for="toctree-checkbox-24">
      <i class="fas fa-chevron-down">
      </i>
     </label>
-    <ul class="current">
-     <li class="toctree-l3 current active">
-      <a class="current reference internal" href="#">
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="matplotlib_import.html">
        📖 Importing
        <code class="docutils literal notranslate">
         <span class="pre">
@@ -1177,7 +1175,7 @@ title="Fullscreen mode"
   <div class="menu-dropdown__content">
     <ul>
       <li>
-        <a href="_sources/matplotlib_import.md"
+        <a href="_sources/numpy_import.md"
    class="headerbtn"
    data-toggle="tooltip"
 data-placement="left"
@@ -1226,7 +1224,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>📖 Importing pyplot</h1>
+                <h1>📖 Importing NumPy</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -1238,8 +1236,8 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="importing-pyplot">
-<h1>📖 Importing <code class="docutils literal notranslate"><span class="pre">pyplot</span></code><a class="headerlink" href="#importing-pyplot" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="importing-numpy">
+<h1>📖 Importing NumPy<a class="headerlink" href="#importing-numpy" title="Permalink to this headline">#</a></h1>
 <div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
@@ -1247,51 +1245,52 @@ Summary</div>
 <p class="sd-card-text">This section introduces the concept of a package and how to import its contents.</p>
 </div>
 </div>
-<p>Matplotlib, as many other libraries such as <a class="reference internal" href="numpy.html"><span class="doc std std-doc">📖 NumPy</span></a> or <a class="reference internal" href="pandas.html"><span class="doc std std-doc">🚧 Pandas</span></a>, is a package that needs to be installed alongside Python. Normally, it should already be installed in your setup; it not, please refer to section <a class="reference internal" href="python_installing.html"><span class="doc std std-doc">📖 Installing Python, Spyder and the most important scientific packages</span></a> to install it.</p>
+<p>NumPy, as many other libraries such as <a class="reference internal" href="matplotlib.html"><span class="doc std std-doc">Matplotlib</span></a> or <a class="reference internal" href="pandas.html"><span class="doc std std-doc">Pandas</span></a>, is a package that needs to be installed alongside Python. Please refer to section <a class="reference internal" href="python_installing.html"><span class="doc std std-doc">📖 Installing Python, Spyder and the most important scientific packages</span></a> to install it.</p>
 <p>Once a package is installed, we need to tell Python to import its contents, each time we want to access it. This is usually done at the beginning of each Python file where we need the package, using the <code class="docutils literal notranslate"><span class="pre">import</span></code> statement.</p>
-<p>For the <a class="reference external" href="https://matplotlib.org/stable/api/pyplot_summary.html">pyplot</a> module of the <a class="reference external" href="https://matplotlib.org">Matplotlib</a> package, we would write:</p>
+<p>For NumPy, we would write:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Once imported, we can access this module’s contents under the <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> namespace:</p>
+<p>If there is no error, then the package is correctly imported. From now on, we can access anything from the Numpy library by using the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> namespace:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s2">&quot;o-&quot;</span><span class="p">)</span>
-<span class="n">matplotlib</span><span class="o">.</span><span class="n">pyplot</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numpy</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/matplotlib_import_4_0.png" src="_images/matplotlib_import_4_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.0
+</pre></div>
+</div>
 </div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>A <strong>namespace</strong> is a name that groups different objects (functions, variables, classes). It is used to avoid ambiguities between two modules that could use identical names to define their respective objects.</p>
-<p>For instance, Python provides the function <code class="docutils literal notranslate"><span class="pre">max</span></code> that returns the maximum value between two floats. NumPy also provides a function <code class="docutils literal notranslate"><span class="pre">max</span></code> that returns the maximum value of an array. Namespaces avoid name clashes: Python’s max is accessed using <code class="docutils literal notranslate"><span class="pre">max()</span></code> while NumPy’s max is accessed using <code class="docutils literal notranslate"><span class="pre">numpy.max()</span></code>.</p>
+<p>A <strong>namespace</strong> is a name that groups different functions, variables, classes, etc. It is used to avoid ambiguities between two module that could have used similar names to define two objects. For instance, Python provides the function <code class="docutils literal notranslate"><span class="pre">max</span></code> that returns the maximum value between two floats. NumPy also provides a function <code class="docutils literal notranslate"><span class="pre">max</span></code> that returns the maximum value of an array. Using namespaces avoid name clashes: Python’s is accessed using <code class="docutils literal notranslate"><span class="pre">max()</span></code> and NumPy’s max is accessed using <code class="docutils literal notranslate"><span class="pre">numpy.max()</span></code>.</p>
 </div>
-<p>To avoid typing <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> each time we need a pyplot function, it is convenient and very common to import it using an alias:</p>
+<p>Since a typical code uses NumPy a lot, it is convenient and very common to import it using an alias:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>This line behaves like the previous import, but this time <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> is imported into the <code class="docutils literal notranslate"><span class="pre">plt</span></code> namespace instead of the <code class="docutils literal notranslate"><span class="pre">matplotlib.pyplot</span></code> namespace. This leads to shorter lines of code:</p>
+<p>This line does exactly the same thing as the first one, but NumPy is imported into the <code class="docutils literal notranslate"><span class="pre">np</span></code> namespace instead of the <code class="docutils literal notranslate"><span class="pre">numpy</span></code> namespace. The only advantage is to shorten the length of the code lines, <code class="docutils literal notranslate"><span class="pre">np</span></code> being only two letter long.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="s2">&quot;o-&quot;</span><span class="p">)</span>  <span class="c1"># instead of matplotlib.pyplot.plot([0, 1, 4], &quot;o-&quot;)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>                 <span class="c1"># instead of matplotlib.pyplot.show()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/matplotlib_import_8_0.png" src="_images/matplotlib_import_8_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.0
+</pre></div>
+</div>
 </div>
 </div>
 </section>
@@ -1323,20 +1322,6 @@ Summary</div>
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="matplotlib.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">📖 Matplotlib</p>
-        </div>
-    </a>
-    <a class='right-next' id="next-link" href="matplotlib_frontend.html" title="next page">
-    <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">📖 Non-blocking, interactive Matplotlib figures</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
-    </a>
 </div>
             </footer>
         </div>

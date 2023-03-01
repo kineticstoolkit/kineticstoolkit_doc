@@ -1237,13 +1237,8 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise-ideas">
-   Exercise ideas
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#matrix-multiplication">
-   Matrix multiplication
+   ⚙️ Matrix multiplication
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -1276,13 +1271,8 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise-ideas">
-   Exercise ideas
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#matrix-multiplication">
-   Matrix multiplication
+   ⚙️ Matrix multiplication
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -1311,18 +1301,8 @@ title="Print to PDF"
 <p class="admonition-title">Section in development</p>
 <p>This section is still in heavy development. Your <a class="reference internal" href="dev_contributing.html"><span class="doc std std-doc">suggestions</span></a> are welcome.</p>
 </div>
-<section id="exercise-ideas">
-<h2>Exercise ideas<a class="headerlink" href="#exercise-ideas" title="Permalink to this headline">#</a></h2>
-<ul class="simple">
-<li><p>Filtered EMG and filtered EMGmax: plot a curve of EMG normalized by MVC.</p></li>
-<li><p>Calculate the speed of the COM during a jump, based on the trajectory of the COM, and use the position and speed curve to calculate the impulse time.</p></li>
-</ul>
-<hr class="docutils" />
-<p>The rest of this section is just a draft that is out of context for now.</p>
-</section>
-<hr class="docutils" />
 <section id="matrix-multiplication">
-<h2>Matrix multiplication<a class="headerlink" href="#matrix-multiplication" title="Permalink to this headline">#</a></h2>
+<h2>⚙️ Matrix multiplication<a class="headerlink" href="#matrix-multiplication" title="Permalink to this headline">#</a></h2>
 <p>The main goal of Numpy is to perform mathematical operations not only on floats, but on whole arrays. For example, using Numpy, we can realize a complete matrix multiplication in only one instruction, and this single operation is really fast.</p>
 <p>Let’s compare how we would perform this operation:</p>
 <div class="math notranslate nohighlight">
@@ -1339,7 +1319,7 @@ title="Print to PDF"
 <p>using both pure Python code, and then using Numpy. Let’s first represent both matrices as variables. The second one could be a list of three elements:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -1347,7 +1327,7 @@ title="Print to PDF"
 <p>and the first one could be a list of three rows, where each row is a list of three columns:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">],</span>
     <span class="p">[</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">],</span>
     <span class="p">[</span><span class="mf">7.0</span><span class="p">,</span> <span class="mf">8.0</span><span class="p">,</span> <span class="mf">9.0</span><span class="p">],</span>
@@ -1370,7 +1350,7 @@ title="Print to PDF"
 <p>Therefore, one possible code to calculate this multiplication would be:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Initialize an empty list for the result</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Initialize an empty list for the result</span>
 <span class="k">for</span> <span class="n">i_row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
     <span class="n">temp</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Temporary result for this row</span>
     <span class="k">for</span> <span class="n">i_column</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
@@ -1382,6 +1362,11 @@ title="Print to PDF"
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[14.0, 32.0, 50.0]
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="matrix-multiplication-using-numpy">
@@ -1389,7 +1374,7 @@ title="Print to PDF"
 <p>In Numpy, we create multidimensional arrays using Numpy’s <code class="docutils literal notranslate"><span class="pre">array</span></code> object. There are several ways to create an array, and one is to simply use a list of lists:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import the Numpy library to access its contents</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Import the Numpy library to access its contents</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="c1"># Convert a and b to Numpy arrays</span>
@@ -1401,6 +1386,11 @@ title="Print to PDF"
 
 <span class="c1"># Print the result</span>
 <span class="n">result</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([14., 32., 50.])
 </pre></div>
 </div>
 </div>
