@@ -23,7 +23,7 @@ kernelspec:
 This section explains the difference between classes of numbers (integers, floats and complex numbers), and shows the exponentiation (`**`) arithmetic operation.
 :::
 
-From the beginning, we referred to numbers simply as "numbers". In reality, numbers belong to different sets. Python provides three sets of numbers:
+Up to now, we referred to numbers simply as "numbers". In reality, numbers belong to different sets. Python provides three sets of numbers:
 
 - Integer numbers: `int`
 - Real numbers: `float`
@@ -31,60 +31,66 @@ From the beginning, we referred to numbers simply as "numbers". In reality, numb
 
 ![number sets -height:shorter](_static/images/number_sets.png)
 
-Through this tutorial, we will focus on integers and floats.
+For now, we will focus only on integers and floats.
 
 ## 📄 Integers and floats
 
-Usually, the role of a float is different to the role of an integer. Think of a float as a real, physical value (e.g., a force in newtons, a distance in meters, a power in watts); and an int as a position in a series, an index, a number of repetition (e.g., the 3rd data of a series, the 5th repetition of a total of 10).
+Usually, floats and integers fulfil different roles:
 
-Integers and floats are stored differently in memory, and it is often important to make sure it is stored in the correct type. The type of an existing variable can be known with the functions `type`, or `isinstance`.
+- Floats are used to represent real, physical values:
+    - Force in newtons
+    - Distance in meters
+    - Power in watts
+    - Angle in radians
+    - etc.
+- Integers are used to represents:
+    - An index in a list (e.g, 5th value of a list)
+    - A number of repetitions
+    - A number of events
+    - The size of a matrix
+    - etc.
 
-A variable is defined as an `int` if its assigned value does not contain a decimal point:
+Integers and floats are stored differently in memory. A variable is defined as a `float` if it contains a decimal point, and as an `int` if doesn't contain one:
 
 ```{code-cell} ipython3
-a = 3
+an_int = 3
+a_float = 3.0
 ```
 
-Let's check the value and type of `a` now that it has been assigned:
+The type of an existing variable can be known with the functions `type`, or `isinstance`:
 
 ```{code-cell}
-print(a)                   # Print the value of a
-print(type(a))             # Print the type of a
-print(isinstance(a, int))  # Is it an integer?
-print(isinstance(a, str))  # Is it a string?
+print(type(an_int))
+print(type(a_float))
 ```
 
-A variable is defined as a `float` if its assigned value contains a decimal point:
-
-```{code-cell} ipython3
-b = 1.7
-
-print(b)
-print(type(b))
+```{code-cell}
+print(isinstance(an_int, int))  # Is it an integer?
+print(isinstance(an_int, float))  # Is it a float?
 ```
 
 A variable can be converted from an `int` to a `float` using the `float()` function:
 
 ```{code-cell} ipython3
-c = float(a)
+new_variable = float(an_int)
 
-print(c)
-print(type(c))
+print(new_variable)
+print(type(new_variable))
 ```
 
 A variable can be converted from a `float` to an `int` using the `int()` function. Please note, however, that the decimal component of the number is lost:
 
 ```{code-cell} ipython3
-d = int(b)
+new_variable = int(a_float)
 
-print(d)
-print(type(d))
+print(new_variable)
+print(type(new_variable))
 ```
 
 
 ## 💪 Exercise 1
 
-We want to create a variable named `mass` that will contain the mass of a person in kg. This person as a mass of 68 kg. Since this is a physical value that could take any decimal value, but that just happens to be rounded to the unit, we therefore want to create a float:
+We want to create a variable named `mass` that will contain the mass of a person in kg. This person as a mass of 68 kg. Since this is a physical value, we want to create it as a float, using a decimal point:
 
 ```
 mass = 68.0
@@ -106,7 +112,7 @@ n_trials = 4
 emg_max = 34.0
 ```
 
-## 📄 Arithmetic operations between numbers of different type
+## 📄 Arithmetic operations between integers and floats
 
 When we perform operation between different types, python may convert the types to ensure that the result holds the correct value. For example, adding an int and a float results in a float:
 
@@ -124,22 +130,13 @@ b = 2 + 4
 type(b)
 ```
 
-A particular case is the division, which always results in a float, even if we divide two integers, and even if the result is round:
+A special case is the division, which always results in a float, even if we divide two integers, and even if the result is round:
 
 ```{code-cell} ipython3
 c = 4 / 2
 
 type(c)
 ```
-
-Therefore, to be sure that the result of a division is an int, we can cast the result as an int:
-
-```{code-cell} ipython3
-d = int(4 / 2)
-
-type(d)
-```
-
 
 ## 📄 Exponentiation
 
@@ -156,7 +153,7 @@ For roots, we can exponentiate to the inverse. For example, to calculate $\sqrt{
 ```
 
 :::{note}
-Later in the [](numpy.md) chapter, we will see the function `np.sqrt()` that performs the square root directly.
+Later in section [](numpy_arithmetics_and_comparisons.md), we will see the function {{np_sqrt}} that performs the square root directly.
 :::
 
 Exponentiation follows the same type convention as the multiplication: using only integers will results in an integer, and as soon as one of the operands is a float, the result is a float.

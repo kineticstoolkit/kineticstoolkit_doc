@@ -33,7 +33,9 @@ def ui_draft_curve(
         "Draft a curve shape by clicking on the figure.\n"
         "Left-click: add a point\n"
         "Right-click: remove a point\n"
-        "Middle-click: done.\n"
+        "Middle-click: done.",
+        right=10,
+        top=10,
     )
 
     plt.figure()
@@ -54,14 +56,18 @@ def ui_draft_curve(
         ],
         "y",
     )
-    li.message("")
 
     points = np.array(plt.ginput(n=1e6))
+    li.message("")
+
     ts = ktk.TimeSeries(time=points[:, 0], data={"data": points[:, 1]})
-    
+
     plt.close()
-    
+
     return ts.resample(np.sort(ts.time))
 
+
+if __name__ == "__main__":
+    print(ui_draft_curve().data['data'])
 
 # np.sort(points, axis=0)

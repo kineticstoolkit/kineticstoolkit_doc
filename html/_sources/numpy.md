@@ -14,16 +14,14 @@ kernelspec:
 # 📖 NumPy
 
 :::{card} Summary
-This section presents the NumPy package, that is the basis of virtually any data processing operation in the different fields related to numerical analysis and algebra in Python.
+This section presents the NumPy package, which is one of the most important and powerful packages in data processing. NumPy is a huge package. This section covers the basics to get started with it for biomechanical analysis. To really master it, we recommended NumPy's [learning section](https://numpy.org/learn/).
 
-NumPy is a huge package. This section covers the basics to get started with Numpy for biomechanical analysis. To really master it, we recommended to consult the [learning section](https://numpy.org/learn/) on the {{numpy}} website.
-
-![NumPy Logo -width:narrower](_static/images/numpy_logo.png)]
+![NumPy Logo -width:narrower](_static/images/numpy_logo.png)
 :::
 
-The main goal of NumPy is to perform mathematical operations not only on floats, but also on vectors and matrices, and to perform these operation very fast.
+The main goal of NumPy is to perform mathematical operations not only on floats, but also on vectors and matrices, and to perform these operations very quickly.
 
-Let's use the averaging of multiple measurements as an example. We could very well use pure python and apply the mean equation (sum of all measurements divided by the number of measurements) to a list of float, using a `for` loop:
+As an example, let's say we need to average multiple measurements. We could very well add every element of a list, then divide by the number of elements:
 
 ```{code-cell} ipython3
 list_of_float = [1.0, 2.0, 3.0, 2.5, 2.75, 1.5]
@@ -39,19 +37,16 @@ result /= len(list_of_float)
 result
 ```
 
-Using NumPy, this would be much easier:
+NumPy makes it much easier:
 
 ```{code-cell} ipython3
 import numpy as np
 
-# Create a numpy array
 one_array = np.array([1.0, 2.0, 3.0, 2.5, 2.75, 1.5])
-
-# Calculate the mean
 np.mean(one_array)
 ```
 
-This chapter shows the basics of NumPy, in an approach directed toward biomechanical analysis.
+This chapter covers the basics of NumPy for biomechanics.
 
 
 ```{tableofcontents}

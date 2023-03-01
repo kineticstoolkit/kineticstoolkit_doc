@@ -23,9 +23,9 @@ kernelspec:
 This section shows how to control the axes of the figure using {{plt_axis}}.
 :::
 
-When we create a plot interactively, we can zoom on a particular section using the figure's Zoom button ![](_static/images/matplotlib_zoom_to_rect.png).
+When we create a plot interactively, we can zoom on a particular section using the figure's Zoom ![](_static/images/matplotlib_zoom_to_rect.png) and Pan ![matplotlib_move](_static/images/matplotlib_move.png) buttons.
 
-It is also possible to zoom programmatically, using {{plt_axis}}.
+It is also possible to zoom programmatically while we create the figure, using {{plt_axis}}.
 
 ## 📄 Setting the limits manually
 
@@ -33,7 +33,6 @@ Let's create some random data:
 
 ```{code-cell}
 import matplotlib.pyplot as plt
-
 
 random_data = [
     0.60921838, 0.80049539, 0.11593785, 0.90703271, 0.75252107,
@@ -52,7 +51,7 @@ plt.plot(random_data, "o-")
 plt.show()
 ```
 
-To zoom on a specific portion of the plot, we call `plt.axis` with, as argument, a list containing `[xmin, xmax, ymin, ymax]`. For example, to better see the portion between $x \geq 20$ and $x \leq 30$:
+To zoom on a specific portion of the plot, we call `plt.axis`, which takes for argument a list containing `[xmin, xmax, ymin, ymax]`. For example, to better see the portion between $x \geq 20$ and $x \leq 30$:
 
 ```{code-cell}
 plt.plot(random_data, "o-")
@@ -63,9 +62,9 @@ plt.show()
 
 ## 📄 Square zoom
 
-By defaults, plots are rectangular and will adapt their shape to maximize the span on both x and y axes. However, in some circumstances, it is advisable to have the same scale on both x and y axes. This is the case when both x and y represent a position, for example, to trace the (x, y) trajectory of an object, or to plot a stick diagram of a person. To set the same scale to both axes, we use `plt.axis("square")`.
+By defaults, plots are rectangular and will adapt their shape to maximize the span on both x and y axes. However, in some circumstances, we need both x and y axes to have the same scale, e.g., to plot the (x, y) trajectory of a point in space. To set the same scale to both axes, we use `plt.axis("square")`.
 
-For example, here are two lists that represent (x, y) coordinates of a circle. When we plot it, the plot fills a rectangle shape and the circle looks flat:
+For example, plotting the (x, y) coordinates of a true circle looks like an ellipse by default:
 
 ```{code-cell}
 x = [ 1.        ,  0.96592583,  0.8660254 ,  0.70710678,  0.5       ,

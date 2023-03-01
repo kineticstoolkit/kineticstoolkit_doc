@@ -20,22 +20,24 @@ kernelspec:
 # 📖 Integration exercises
 
 :::{card} Summary
-This section proposes exercises to integrate the basic python notions viewed in the previous sections.
+This section proposes exercises to integrate the Python notions learned in the previous sections.
 :::
 
-At this point, we viewed just enough of the python language to be able to process an impressing number of data. We saw:
+At this point, we learned just enough of the Python language to be able to process an impressing number of data. We learned:
 
 - how to store and access data in memory using [variables](python_arithmetics_and_variables.md) such as [strings](python_strings.md), [integers](python_numbers.md), [floats](python_numbers.md), [lists](python_lists.md) and [dictionaries](python_dicts.md);
-- how to perform [python_arithmetics_and_variables](python_arithmetics_and_variables.md) operations such as addition, subtraction, multiplication and division;
-- how to check for [python_conditions](python_conditions.md) and perform operation according to these conditions;
+- how to perform [arithmetic operations](python_arithmetics_and_variables.md) such as addition, subtraction, multiplication and division;
+- how to check for [conditions](python_conditions.md) and perform operation according to these conditions;
 - how to [repeat code](python_looping.md) several times or [loop through lists](python_for_range.md) or [dictionaries](python_dicts.md);
 - decompose code in smaller [functions](python_functions.md).
 
-Obviously, using higher level libraries such as [numpy](numpy.md), [matplotlib](matplotlib.md) and [pandas](pandas.md) (which will follow in the next chapter) will make such data processing much easier and powerful. But in the mean time, it is already possible to solve these exercises, using only the subset of python that we just learned.
+Higher level libraries such as [NumPy](numpy.md), [Matplotlib](matplotlib.md) and [Pandas](pandas.md) (which will follow in the next chapter) will make such data processing easier and more powerful. But in the mean time, it is already possible to solve these exercises using only standard Python code.
 
 ## 💪 Exercise 1: Calculation of power based on force and velocity
 
-Someone pushes on a carriage using a dynamometer, in such a way that we get a measurement of the contact force in newtons every tenth of a second, during five seconds.
+Someone pushes a carriage using a dynamometer. The push force is measured in newtons every tenth of a second, during five seconds.
+
+![Exercise 1 -width:wide](_static/images/carriage_dynamometer.png)
 
 ```{code-cell}
 push_force = [
@@ -144,6 +146,12 @@ list_of_positions = [
 ]
 ```
 
+:::{tip}
+It will be impossible to calculate speed on the first sample, because it would need the position before the first sample. It will also be impossible to calculate speed on the last sample, because it would need the position after the last sample. Simply fill the first and last sample of the speed with zero.
+
+![Padding speed with zero -width:wide](_static/images/padding_speed_with_zero.png)
+:::
+
 ```{code-cell}
 :tags: [hide-cell]
 def calculate_speed(position, sampling_frequency):
@@ -162,7 +170,7 @@ calculate_speed(list_of_positions, 100)
 
 ## 💪 Exercise 3: Calculation of velocity and power based on position and force
 
-We repeat exercise 1, but this time instead of measuring the speed of the carriage, we measure its position. We have these two lists where data has been acquired at a sampling frequency of 10 Hz.
+We repeat exercise 1, but this time instead of measuring the speed of the carriage, we measure its position. We have these two lists where data have been acquired at 10 Hz.
 
 ```{code-cell}
 push_force = [

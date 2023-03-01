@@ -33,26 +33,28 @@ For the {{pyplot}} module of the {{matplotlib}} package, we would write:
 import matplotlib.pyplot
 ```
 
-If there is no error, then the package is correctly imported. From now on, we can access anything from Matplotlib's pyplot module using the `matplotlib.pyplot` namespace:
+Once imported, we can access this module's contents under the `matplotlib.pyplot` namespace:
 
 ```{code-cell} ipython3
 matplotlib.pyplot.plot([0, 1, 4], "o-")
+matplotlib.pyplot.show()
 ```
 
 :::{note}
-A **namespace** is a name that groups different functions, variables, classes, etc. It is used to avoid ambiguities between two module that could have used similar names to define two objects.
+A **namespace** is a name that groups different objects (functions, variables, classes). It is used to avoid ambiguities between two modules that could use identical names to define their respective objects.
 
-For instance, Python provides the function `max` that returns the maximum value between two floats. NumPy also provides a function `max` that returns the maximum value of an array. Using namespaces avoid name clashes: Python's is accessed using `max()` and NumPy's max is accessed using `numpy.max()`.
+For instance, Python provides the function `max` that returns the maximum value between two floats. NumPy also provides a function `max` that returns the maximum value of an array. Namespaces avoid name clashes: Python's max is accessed using `max()` while NumPy's max is accessed using `numpy.max()`.
 :::
 
-Since it would be tedious to type `matplotlib.pyplot` each time we want to access a pyplot function, it is convenient and very common to import it using an alias:
+To avoid typing `matplotlib.pyplot` each time we need a pyplot function, it is convenient and very common to import it using an alias:
 
 ```{code-cell} ipython3
 import matplotlib.pyplot as plt
 ```
 
-This line does exactly the same thing as the first one, but `matplotlib.pyplot` is imported into the `plt` namespace instead of the `matplotlib.pyplot` namespace.
+This line behaves like the previous import, but this time `matplotlib.pyplot` is imported into the `plt` namespace instead of the `matplotlib.pyplot` namespace. This leads to shorter lines of code:
 
 ```{code-cell} ipython3
-plt.plot([0, 1, 4], "o-")
+plt.plot([0, 1, 4], "o-")  # instead of matplotlib.pyplot.plot([0, 1, 4], "o-")
+plt.show()                 # instead of matplotlib.pyplot.show()
 ```

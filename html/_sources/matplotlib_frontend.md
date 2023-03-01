@@ -1,17 +1,16 @@
-# 📖 Matplotlib frontend
+# 📖 Non-blocking, interactive Matplotlib figures
 
 :::{card} Summary
 This section illustrates how Matplotlib may behave differently on different computers and setups, and suggests a method to configure Spyder and Matplotlib to always generate non-blocking, interactive figures.
 :::
 
-Matplotlib runs on almost any platform, can be embedded in applications, can be interactive or generate static figures... since its purposes are so varied, its main behaviour can change from one setup to another. For instance:
+## 📄 The problem with default settings
 
-## 📄 Python and IPython
+Matplotlib's behaviour can change between different Python environments. For instance, to plot a curve in the standard Python or IPython interpreter, we need to specify when to generate the figure using {{plt_show}}:
 
-To plot a curve in the standard Python or IPython interpreter, we need to tell it to show the curve, using {{plt_show}}:
+![Python interpreter -width:full](_static/images/matplotlib_python1.png)
+![plt.show -width:wider](_static/images/matplotlib_python2.png)
 
-![](_static/images/matplotlib_python1.png)
-![](_static/images/matplotlib_python2.png)
 The different buttons on the figure allow some interaction with the plot:
 
 - ![](_static/images/matplotlib_move.png) Move the figure around (panning);
@@ -21,34 +20,29 @@ The different buttons on the figure allow some interaction with the plot:
 - ![](_static/images/matplotlib_home.png) Reset to the initial pan/zoom;
 - ![](_static/images/matplotlib_filesave.png) Save the figure to an image file.
 
-However, by default, it is impossible to write new code while the figure is displayed, which can be an inconvenience.
+However, by default, the figure blocks console and we must close it before writing new code, which can be an inconvenience.
 
+On the contrary, Spyder and Jupyter do not need `plt.show` and do not block the console.
 
-## 📄 Spyder and Jupyter
+![Plotting in Spyder](_static/images/matplotlib_spyder_default.png)
+![Plotting in JupyterLab](_static/images/matplotlib_jupyter.png)
 
-On the contrary, in Spyder, plots appear by default in the Plots pane and do not block the command console. We don't need to run `plt.show`.
-
-![](_static/images/matplotlib_spyder_default.png)
-
-In Jupyter, plots appear by default just after its command block, and we also don't need to run `plt.show`.
-
-![](_static/images/matplotlib_jupyter.png)
-
-However, in both Spyder and Jupyter, the default settings generate static (non-interactive) figures, that don't allow for zooming, panning, clicking, etc.
+However, by default, both Spyder and Jupyter generate static, non-interactive figures, that don't allow for zooming, panning, clicking, etc.
 
 ## 📄 Interactive figures
 
-To get non-blocking **and** interactive figures in IPython-based environments such as IPython itself, Spyder and Jupyter, we need to specify an interactive frontend (such as Qt5 which is often installed by default, but others also exist) using this "magic command":
+To get non-blocking **and** interactive figures in IPython-based environments such as IPython, Spyder and Jupyter, we need to specify an interactive frontend such as Qt5, which is often installed by default:
 
 ```
 %matplotlib qt5
 ```
 
-Subsequent calls of pyplot functions will happen in discrete, interactive windows:
+Subsequent calls of pyplot functions will happen in non-blocking, interactive windows:
 
-![](_static/images/matplotlib_qt5.png)
+```
+plt.plot([1.0, 2.0, -1.0, -0.0])
+```
 
-In Spyder, it is possible to configure Matplotlib to always use Qt5. This is what we recommend, particularly if you aim to use the interactive objects of the Kinetics Toolkit package, such as the 3D visualizer [ktk.Player](kinematics_load_visualize.md).
+![Matplotlib using Qt5 -width:wider](_static/images/matplotlib_qt5.png)
 
-Please consult section [](python_configuring_spyder.md) to know how to perform this configuration in Spyder.
-
+Please consult section [](python_configuring_spyder.md) to configure Spyder to use Qt5 by default, and therefore always get non-blocking, interactive figures.

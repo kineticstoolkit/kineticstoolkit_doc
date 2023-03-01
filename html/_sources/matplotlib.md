@@ -3,7 +3,7 @@
 :::{card} Summary
 This section presents the Matplotlib package, and especially the {{pyplot}} module. Matplotlib is a standard for producing high-quality and interactive figures. The pyplot module is highly similar to Matlab's plotting functions, and offers an easy to understand, yet very powerful way to produce figures.
 
-[![Matploglib Logo -width:narrower](_static/images/matplotlib_logo.png)]({{matplotlib}})
+![Matploglib Logo -width:narrower](_static/images/matplotlib_logo.png)]
 :::
 
 Matplotlib can generate a high diversity of plots. Here are different examples that are relevant to biomechanics, directly reproduced from the {{matplotlib}} website:
@@ -16,7 +16,7 @@ Matplotlib can generate a high diversity of plots. Here are different examples t
 |:-----------------------------------------:|:-------------------------------------------:|:--------------------------------------:|
 | ![](_static/images/matplotlib_imshow.jpg) | ![](_static/images/matplotlib_errorbar.jpg) | ![](_static/images/matplotlib_bar.jpg) |
 
-However, the focus here will be on {{plt_plot}}. After learning this section and [](numpy.md), any other type of plot will become relatively easy to draw just be reading their documentation.
+This guide focuses uniquely on line plots using {{plt_plot}}. After learning it and [](numpy.md), any other type of plot will become relatively easy to draw just be reading their documentation.
 
 ```{tableofcontents}
 ```

@@ -102,9 +102,9 @@ chapters:
       - file: [](numpy.md)
         sections:
           - file: [](numpy_ndarray.md)
-          - file: [](numpy_indexing.md)
-          - file: [](numpy_arithmetics.md)
-          - file: [](numpy_comparisons.md)
+          - file: [](numpy_arithmetics_and_comparisons.md)
+          - file: [](numpy_indexing_slicing_filtering_1d.md)
+          - file: [](numpy_indexing_slicing_filtering_nd.md)
           - file: [](numpy_combining.md)
       - file: [](pandas.md)
 

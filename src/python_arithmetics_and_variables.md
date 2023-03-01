@@ -25,19 +25,27 @@ This section covers basic arithmetics (`+`, `-`, `*`, `/`) and variables.
 
 ## 📄 Arithmetic operations
 
-Any arithmetical operation is performed simply by writing its equation. For example, the most usual arithmetic operators are `+`, `-`, `*` and `/`:
+Any arithmetical operation is performed simply by writing its equation. For example, the most usual arithmetic operators are `+`, `-`, `*` and `/`.
+
+Addition:
 
 ```{code-cell} ipython3
 4 + 3
 ```
 
+Subtraction:
+
 ```{code-cell} ipython3
 4 - 3
 ```
 
+Multiplication:
+
 ```{code-cell} ipython3
 4 * 3
 ```
+
+Division:
 
 ```{code-cell} ipython3
 4 / 3
@@ -45,7 +53,7 @@ Any arithmetical operation is performed simply by writing its equation. For exam
 
 ## 📄 Variables
 
-The variable is a fundamental concept in programming. It is a space in memory where we store a value. In python, contrarily to other, static programming languages, there is no need to declare or allocate variables before using them. If we need a variable to store a value, we just define a name and assign a value to it using the `=` operator. For example, we could have two variables, `a` and `b`, that both store a different number:
+Variables are fundamental in programming. A variable is a space in memory where we store a value. In Python, there is no need to declare variables before using them: we just define a name and assign a value to it using the `=` operator. For example, we could have two variables, `a` and `b`, that both store a different number:
 
 ```{code-cell} ipython3
 a = 4
@@ -66,34 +74,24 @@ We can even assign the result of an operation to a new variable:
 
 ```{code-cell} ipython3
 c = a + b
-print(c)
+
+c
 ```
 
-Keep in mind that in the last example, we did not tell to python that `c` must always be equal to `a + b`. This is not how a sequential programming language such as python works. Instead, we ask python, at this very instant, to calculate the result of `a + b` and to store it in a new variable `c`. The sequential nature of python (and many other languages) is illustrated with this example:
+Keep in mind that in the last example, we did not instruct Python that `c` must always be equal to `a + b`. This is not how a sequential programming language such as Python works. Instead, we instructed Python, at this very instant, to calculate the result of `a + b` and to store it in a new variable named `c`. This sequential nature allows is illustrated in this example:
 
 ```{code-cell} ipython3
 c = c + 1
-print(c)
+
+c
 ```
 
-As with the previous example, we told python to calculate the result of `c + 1` and to store it in the variable `c`.
+As with the previous example, we instructed Python to calculate the result of `c + 1` and to store it in the variable `c`.
 
 :::{tip}
-The exemple above could be written in a shorter form using the increment `+=` operator. This notation is very common and may help avoid typos in more complex statements. For example, this statement that includes nested [lists](python_lists.md) and [dicts](python_dicts.md):
+The exemple above could be written in a shorter form using the increment `+=` operator. This notation is very common and may help avoid typographic errors in more complex statements.
 
-```
-the_list[0]['first_try'][5] = the_list[0]['first_try'][5] + 2
-```
-
-would become:
-
-```
-the_list[0]['first_try'][5] += 2
-```
-
-which is simpler since the complex part of the code is written only once.
-
-These shorthands exist for every arithmetical operation, such as:
+These shorthands exist for every arithmetical operation:
 
 ```
 a += b      # equivalent to a = a + b
@@ -105,7 +103,7 @@ a /= b      # equivalent to a = a / b
 
 
 :::{good-practice} Variable names
-It is generally a good idea to use names rather than letters for variables. For example, this code:
+It is generally a good idea to use words rather than letters for variable names. For example, this code:
 
 ```
 velocity = distance / duration
@@ -117,7 +115,7 @@ is clearer than:
 v = d / t
 ```
 
-In addition, the [PEP8](https://pep8.org/) recommends to use all lower case for variables, and to generally separate multiple words by underscores (`_`), e.g., `power`, `mean_power`, `peak_power`.
+In addition, the [standard Python coding style](https://pep8.org/) recommends to use all lower case for variables, and to generally separate multiple words by underscores (`_`), e.g., `power`, `mean_power`, `peak_power`.
 
 :::
 

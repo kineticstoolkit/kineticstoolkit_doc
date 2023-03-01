@@ -11,22 +11,43 @@ kernelspec:
   name: python3
 ---
 
-# 📖 Creating and indexing lists
+# 📖 Creating and indexing lists/tuples
 
 :::{card} Summary
-This section shows what is a list, how to define it, and how to extract values from it using square brackets `[]`.
+This section shows what are lists and tuples, how to define them, and how to extract values from them using square brackets `[]`.
 :::
 
-## 📄 Creating a list
+A list is, as it names implies, a list of values. A tuple is also a list of values. In fact, the only difference between a tuple and a list is:
 
-A list is, as it names implies, a list of values. It is defined using square brackets `[]`:
+- A list can be modified after being created.
+- A tuple cannot.
+
+Choosing between a list or a tuple is often philosophical:
+- We normally use a tuple to express a constant using a group of variables. The coordinates of a point (x, y) is a good example. Once a point is defined by its coordinates (x, y), there is no use to append a value to it.
+- We normally use a list to express an expandable list of values. A series of measurements \[x0, x1, x1, x2, x3\] is a good example. We may add or remove measurements from a list.
+
+:::{important}
+We usually use lists more often than tuples in data processing because they are more flexible. Therefore, from now on, we will focus on lists. This being said, **everything on this page also applies to tuples**.
+:::
+
+## 📄 Creating lists and tuples
+
+A tuple is defined using parentheses `()`:
+
+```{code-cell} ipython3
+coordinates = (1.0, 5.2)
+```
+
+A list is defined using square brackets `[]`:
 
 ```{code-cell} ipython3
 empty_list = []
 list_of_integers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 ```
 
-A list can contain any kind of variable:
+## 📄 List contents
+
+Lists can contain any kind of variable:
 
 ```{code-cell} ipython3
 list_of_strings = [
@@ -61,7 +82,7 @@ list_of_anything = ["a string", 0, 4.5, (2 + 3j), False, [1, 2, 3], {"key": "val
 
 ## 📄 Indexing a list
 
-Every element of the list is accessible using an index. The first data is at index 0, the second at index 1, etc.
+Every element of a list is accessible using an index. The first data is at index 0, the second at index 1, etc.
 
 :::{note}
 Zero-based addressing (first index is 0) is common in generic programming languages such as C, C++, Java, Go, PHP, Ruby, and Rust. Being a generic programming language itself, Python also uses zero-addressing. Other languages that are usually more aimed to mathematics, such as Matlab, R, Julia, and Mathematica, use one-based addressing (first index is 1). No convention is inherently better than another, but for non-programmers, it may take a bit of time to adapt to zero-based addressing.
@@ -103,7 +124,7 @@ In this case, this error happened because while the list is indeed 10-element lo
 
 ### Negative indexing
 
-It is also possible to address a list from its last element, using negative indexing. The last element is available at index -1:
+We can address a list from its last element, using negative indexing. The last element is available at index -1:
 
 ```{code-cell} ipython3
 list_of_strings[-1]
@@ -145,7 +166,11 @@ list_of_strings[int(some_value / 2)]
 As seen above, lists can be nested, which means that a list can contain another list. To access a specific element of the inner list, we start by indexing the outer list, then the inner list. For example, to access the first element of the second list of `list_of_lists`:
 
 ```{code-cell} ipython3
-list_of_lists
+list_of_lists = [
+    [1, 2, 3],
+    ["one", "two", "three"],  # <--- "one"
+    [1, 2, 3, 4, 5],
+]
 ```
 
 we first access the second list of `list_of_list`:
@@ -162,7 +187,7 @@ then we access the first element of this result:
 temp[0]  # First element of the second element of list_of_lists
 ```
 
-or, in one line:
+or, one one line:
 
 ```{code-cell} ipython3
 list_of_lists[1][0]
@@ -172,7 +197,7 @@ where `list_of_lists[1]` returns the list `['one', 'two', 'three']`, and `[0]` a
 
 ## 📄 Getting the length of a list
 
-The `len` function returns the length of the list (the number of elements it contains):
+The `len` function returns the length of the list (i.e., the number of elements it contains):
 
 ```{code-cell} ipython3
 len(list_of_strings)
@@ -180,15 +205,13 @@ len(list_of_strings)
 
 ## 💪 Exercise 1
 
-We measured some spatial parameters of gait using an instrumented walkway, as illustrated in Figure 1. This particular instrumented walkway stores the (x, y) coordinates of each heel strike and returns these coordinates as two lists `x` and `y`. The first element of these lists corresponds to the first heel strike, the second to the second heel strike, etc.
+We measured some spatial parameters of gait using an instrumented walkway, as illustrated in Figure 1. This instrumented walkway stores the longitudinal distance between the origin and each heel strike in a list `y`, where each element corresponds to one heel strike:
 
 ![Instrumented walkway -width:full](_static/images/instrumented_walkway.png)
 
 *Figure 1. Foot coordinates obtained via an instrumented walkway*
 
-We want to calculate the step length, which is the distance between one heel strike and the next one by the opposite foot.
-
-For a given participant, we recorded this `y` list:
+We want to calculate the step length, which is the distance between one heel strike and the next one by the opposite foot. For a given participant, we recorded this `y` list:
 
 ```{code-cell} ipython3
 # y-coordinates of each heel strike, in meters
@@ -241,19 +264,15 @@ calculate_step_length(y, 9)
 **Question 1)** Explain why this call produces an IndexError.
 
 :::{toggle}
-This happens because to calculate a step length, we need two heel strikes, one
-and the next one. In a list of 10 heel strikes, the last element is 9; therefore,
-the call above can extract the coordinates of the last heel strike, but not the
-next one.
+This happens because to calculate a step length, we need two consecutive heel strikes. To calculate the length of step 9, we need heel strikes 9 and 10. However, the last element of `y` is at index 9.
 
-One way to avoid this error is to check that we won't index the list out of its
-range, before calculating the step length.
+One way to avoid this error is to check that we won't index the list out of its range, before calculating the step length.
 :::
 
-**Question 2)** Modify your function such that instead of producing this error, it simply returns 0.
+**Question 2)** Modify your function so that instead of producing this error, it simply returns 0.
 
 :::{good-practice} Invalid data
-For this example, we ask to return 0 for invalid data, but a better practice would be to return `np.nan`, which is defined in the [numpy](numpy.md) package. Simply return 0 for now since we didn't see numpy yet.
+For this example, we ask to return 0 for invalid data, but a better practice would be to return {{np_nan}}, which will be seen in NumPy's section [](numpy_arithmetics_and_comparisons.md). Simply return 0 for now since we didn't see NumPy yet.
 :::
 
 ```{code-cell} ipython3

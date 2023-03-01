@@ -32,7 +32,7 @@ def function_name(arg1, arg2, ...):
 
 This reads as "Define the function `function_name`, which takes `arg1`, `arg2`, ... as input. This function will process these inputs and return `the_result` as an output.
 
-Here is a very basic example of a function that prints its input values and their sum:
+Here is an example of a function that prints its input values and their sum:
 
 ```{code-cell}
 def print_sum(arg1, arg2):
@@ -42,7 +42,7 @@ def print_sum(arg1, arg2):
     print(f"The sum of both variables is {arg1 + arg2}.")
 ```
 
-Once a function is defined (using the `def` keyword), it can then be called as many times as we want:
+Once a function is defined (using the `def` keyword), it can be called as many times as we want:
 
 ```{code-cell}
 print_sum(1, 4)
@@ -50,7 +50,7 @@ print_sum(3, 10)
 ```
 
 :::{good-practice} Function naming
-Usually, function names start with an active verb that tells what action is performed by the function. Usually in python, function names are written in lower_case with words separated by underscores, like variables.
+Usually, function names start with an active verb that tells what action is performed. Usually in Python, function names are written in `lower_case` style, with words separated by underscores, like variables.
 :::
 
 ## 📄 Signature and implementation
@@ -100,10 +100,12 @@ it prints this:
     Weight: 50.2 kg
     BMI: 22.31
     =============
-       
-Note that the body-mass index (BMI) is calculated using $\text{weight}/\text{height}^2$.
 
-Please use clear names for your function's arguments.
+Then try your function. Please use clear names for your function's arguments.
+
+:::{note}
+The body-mass index (BMI) is calculated using $\text{weight}/\text{height}^2$.
+:::
 
 ```{code-cell}
 :tags: [hide-cell]
@@ -127,22 +129,16 @@ print_info(1, "Catherina", "Smith", 20, 1.5, 50.2)
 Most functions do not print results in the console. Instead, they calculate something and return the result as an output. This is done using the `return` statement. Although the following function is not that useful, it illustrates how it works:
 
 ```{code-cell}
+# Define a function
 def calculate_sum(arg1, arg2):
     result = arg1 + arg2
     return result
-```
 
-Here are we call a function and use its return value:
-
-### Example 1
-
-```{code-cell}
+# Call the function with some values
 print(calculate_sum(2, 6))
 ```
 
-The function `calculate_sum()` is called with arguments 2 and 6. It executes, and then returns 8. Therefore, the `print()` function prints 8.
-
-### Example 2
+The function `calculate_sum()` is called with arguments 2 and 6. It executes, and then returns 8. Therefore, the `print()` function prints 8. As a second example:
 
 ```{code-cell}
 print(calculate_sum(calculate_sum(2, 6), 5))
@@ -169,7 +165,7 @@ print(calculate_bmi(1.5, 50.2))
 
 ## 💪 Exercise 3
 
-Based on the function `print_info` that you created in a previous example, create a new function `format_info` which does not print the information, but instead creates an equivalent string and returns it, so that:
+Based on the function `print_info` that you created in a previous example, create a new function `format_info` that, instead of printing the information, creates an equivalent string and returns it, so that:
 
 ```
 print(format_info(1, "Catherina", "Smith", 20, 1.5, 50.2))

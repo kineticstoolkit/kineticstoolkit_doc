@@ -14,21 +14,23 @@ kernelspec:
 # 📖 Conditions and booleans
 
 :::{card} Summary
-This section shows how to perform comparisons and boolean (logical) operations and how to use these operation to program conditional code (`if`, `else`, `elif`).
+This section shows how to perform comparisons and boolean (logical) operations and how to use these operations to program conditional code (`if`, `else`, `elif`).
 :::
 
-In the [previous section](python_functions.md), we learnt how to create simple units called functions, which have a specific and simple goal. The examples were however very simple, because the only concepts we learnt are arithmetics and variables. This section shows how to build programs that are able to execute different instructions as a consequence of conditions.
+In the last sections, we learned how to create functions to execute groups of arithmetic operations, to store variables and to print results. These examples were straightforward, in the sense that they only executed a predefined sequence of operations. This section shows how to build programs that are able to execute different instructions as a consequence of comparisons and conditions.
 
 ## 📄 Boolean and comparisons
 
 Comparisons are performed using the following operators:
 
-- `==` Equal
-- `!=` Unequal
-- `>` Strictly greater
-- `>=` Greater or equal
-- `<` Strictly lower
-- `<=` Lower or equal
+| Operator | Meaning          |
+| --------:|:---------------- |
+|     `==` | Equal            |
+|     `!=` | Unequal          |
+|      `>` | Strictly greater |
+|     `>=` | Greater or equal |
+|      `<` | Strictly lower   |
+|     `<=` | Lower or equal   |
 
 For example, the following comparison gives `True`:
 
@@ -39,27 +41,12 @@ For example, the following comparison gives `True`:
 while this one gives `False`:
 
 ```{code-cell}
-10 <= 5
-```
-
-The result of a comparison is always a boolean variable. We already know the following types of variable: `string`, `int`, `float` and `complex`. Boolean variables, `bool`, may be the simplest type of all: they can be only either `True` or `False`.
-
-Here are other examples of comparison:
-
-```{code-cell}
-10 == 10
-```
-
-```{code-cell}
 10 == 5
 ```
 
-```{code-cell}
-10 != 5
-```
+The result of a comparison is always a boolean variable. We already know the following types of variable: `string`, `int`, `float` and `complex`. Boolean variables, `bool`, are the simplest: they can be only either `True` or `False`.
 
-
-Obviously, comparing a constant with another constant has little sense. However, comparing variables with constants, or variables with other variables, is very common and helpful.
+Obviously, comparing a constant with another constant has little sense. However, comparing variables with constants, or variables with other variables, is very common and helpful:
 
 ```{code-cell}
 WORLD_RECORD = 240
@@ -69,7 +56,7 @@ my_score = 236
 my_score > WORLD_RECORD
 ```
 
-:::{tip}
+:::{important}
 You may note that the equality comparison is a double-equal `==` instead of a single one `=`. This is to avoid confusion between a comparison:
 
 ```
@@ -96,7 +83,7 @@ if condition:
     perform_task2()
 ```
 
-The `if` checks if a condition is met. Only if the condition evaluates to `True` is the following code block executed.
+The `if` checks if a condition is met. The code block that follows the `if` statement is executed only if the condition evaluates to `True`.
 
 ```{code-cell}
 WORLD_RECORD = 240
@@ -108,7 +95,9 @@ if my_score > WORLD_RECORD:
 
 ```
 
-This code does nothing, because the condition evaluated to `False`. To get both a code block that executes if a condition is met, and another code block that executes if the condition is not met, we use the `else` keyword:
+This code did nothing, because the condition evaluated to `False`.
+
+Using the `else` keyword, it is possible to executes one action if the condition if `True` and another action if the condition is `False`:
 
 ```{code-cell}
 WORLD_RECORD = 240
@@ -123,7 +112,7 @@ else:
 
 ```
 
-It is also possible to evaluate different conditions in a same `if` series, such as if a condition is false, we can evaluate another condition. This is done using `elif`, which stands for "else if":
+It is also possible to evaluate different conditions in a same `if` series, using `elif`, which stands for "else if":
 
 ```{code-cell}
 WORLD_RECORD = 240
@@ -141,7 +130,7 @@ else:
 
 ```
 
-There may have more than one `elif` in a same series of comparisons:
+There may be more than one `elif` in a same series of comparisons:
 
 ```{code-cell}
 WORLD_RECORD = 240
@@ -165,7 +154,7 @@ else:
 
 ## 💪 Exercise 1
 
-We have three timing gates. We want to know if an athlete has accelerated, decelerated, or stayed a the same speed between gates 1-2 and gates 2-3.
+We have three timing gates. We want to know if an athlete has accelerated, decelerated, or kept a constant speed between gates 1-2 and gates 2-3.
 
 Write a function with the following signature and docstring:
 
@@ -186,7 +175,7 @@ def compare_speed(time1, time2, time3, distance12, distance23):
     Returns
     -------
     str
-        Returns "accelerated", "decelerated", or "stayed constant" according
+        Returns "accelerated", "decelerated", or "kept constant" according
         to the calculation.
 
     """
@@ -213,7 +202,7 @@ def compare_speed(time1, time2, time3, distance12, distance23):
     Returns
     -------
     str
-        Returns "accelerated", "decelerated", or "stayed constant" according
+        Returns "accelerated", "decelerated", or "kept constant" according
         to the calculation.
 
     """
@@ -227,7 +216,7 @@ def compare_speed(time1, time2, time3, distance12, distance23):
         return "decelerated"
 
     else:
-        return "stayed constant"
+        return "kept constant"
 
 
 # Test the function:
@@ -240,7 +229,7 @@ print(compare_speed(1.0, 2.0, 2.5, 50, 50))
 
 ## 📄 Boolean operators
 
-It is possible to construct complex comparisons by combining the results of many comparisons, using the logical operators `not`, `and` and `or`. These operators are specifically aimed to compare booleans.
+We can construct complex comparisons by combining the results of many comparisons, using the logical operators `not`, `and` and `or`. These operators are specifically aimed to compare booleans.
 
 The `not` operator inverts the value of a `bool`:
 ```{code-cell}
@@ -286,7 +275,7 @@ print(is_between(2, 2, 5))
 ```
 
 :::{good-practice} Naming functions that return bools
-Function that check a condition often start with `is_`, `has_`, `contains_`, etc. This makes it obvious that the answer will be a boolean, or will contain booleans.
+For clarity, functions that return booleans often start with `is_`, `has_`, `contains_`, etc.
 :::
 
 ## 💪 Exercise 2

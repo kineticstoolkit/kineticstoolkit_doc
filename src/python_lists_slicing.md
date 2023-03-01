@@ -17,11 +17,15 @@ kernelspec:
 This section shows how to use slices (`[::]`) to extract multiple data from a list, in the form a subset of the original list.
 :::
 
-In the previous sections, we saw how to use square brackets `[]` to extract one data from a list. Sometimes, we dont want to extract only one data, but a sub-list containing multiple data (keeping a certain portion of a list and discarding the rest). This is done using slicing.
+In the previous sections, we learned how to use square brackets `[]` to extract one data from a list. Sometimes, we dont want to extract only one data, but a sub-list containing multiple data (keeping a certain portion of a list and discarding the rest). This is done using slicing.
+
+:::{important}
+Everything on this page also applies to tuples.
+:::
 
 ## 📄 Slicing syntax
 
-The syntax for slicing a list is similar to indexing it, the main difference being the column operator `:`. To extract one element from a list, say for example the 3rd element (at index 2), we would use:
+The syntax for slicing is similar to indexing, the main difference being the column operator `:`. To extract one element from a list, say for example the 3rd element (at index 2), we would use:
 
 ```{code-cell}
 list_of_strings = [
@@ -56,7 +60,7 @@ It can be counter-intuitive that the first index is inclusive, while the second 
 
 ## 📄 Slicing increment
 
-We can extract every other element, using a third index, which is the increment to use in navigating the list. For instance, to extract a list containing the elements at indexes 2, 4, and 6:
+We can extract every other element, using a third integer that is the step to use in navigating the list. For instance, to extract a list containing the elements at indexes 2, 4, and 6:
 
 ```{code-cell}
 # From index 2 (inclusive) to index 7 (exclusive), by steps of 2
@@ -85,25 +89,21 @@ Sometimes, we want to slice a list with only one bound. For example, to get ever
 list_of_strings[2:len(list_of_strings)]
 ```
 
-There is however a simpler way, and it is simply to avoid using an "up to" index:
+There is however a simpler way: simply don't specify an "up to" index.
 
 ```{code-cell}
 # From index 2 (inclusive)
 list_of_strings[2:]
 ```
 
-which means "return a list that includes every elements, starting at index 2".
-
-Similarly:
+This means "return a list containing the elements beginning at index 2". Similarly:
 
 ```{code-cell}
 # Up to index 8 (exclusive)
 list_of_strings[:8]
 ```
 
-means "return a list that includes every elements, up to index 8 (exclusive)".
-
-This also works with variable increments:
+means "return a list that containing the elements ending at index 8 (exclusive)". This also works with variable increments:
 
 ```{code-cell}
 # From index 2 (inclusive), by steps of 2
@@ -118,15 +118,14 @@ What would be the code to get a list identical to `list_of_strings`, but with ev
 ```{code-cell} ipython3
 :tags: [hide-cell]
 
-# The first index of the new list is the last index of list_of_strings.
+# We start at the last element of list_of_strings.
 # We can use negative indexing to get this element: -1
 # Therefore, the first number of the slice (start index) is -1.
 
 # We will go backward through the list.
 # Therefore, the third number of the slice (increment) is -1.
 
-# Everything is specified: we want a new list that starts at the last
-# index of list_of_string, by steps of -1.
+# We go through all the list. There is no ending point.
 # Therefore, there is no second number in the slice.
 
 list_of_strings[-1::-1]

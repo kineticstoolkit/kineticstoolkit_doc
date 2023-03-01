@@ -35,7 +35,7 @@
 -----------
 
 <div align="center">
-<a class="reference external" href="https://felixchenier.uqam.ca"><img alt="-width:narrow" src="_static/images/logo_mosa.png"></a>
-&nbsp;&nbsp;&nbsp;<a class="reference external" href="https://uqam.ca"><img alt="-width:narrower" src="_static/images/logo_uqam.png"></a>
-&nbsp;&nbsp;&nbsp;<a class="reference external" href="https://crir.ca"><img alt="-width:narrower" src="_static/images/logo_crir.jpg"></a>
+<a href="https://felixchenier.uqam.ca"><img alt="-width:narrow" src="_static/images/logo_mosa.png"></a>
+&nbsp;&nbsp;&nbsp;<a href="https://uqam.ca"><img alt="-width:narrower" src="_static/images/logo_uqam.png"></a>
+&nbsp;&nbsp;&nbsp;<a href="https://crir.ca"><img alt="-width:narrower" src="_static/images/logo_crir.jpg"></a>
 </div>
