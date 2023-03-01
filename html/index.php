@@ -342,16 +342,6 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="api/ktk.TimeSeries.get_event_index.html">
-         ktk.TimeSeries.get_event_index
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api/ktk.TimeSeries.get_event_time.html">
-         ktk.TimeSeries.get_event_time
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.TimeSeries.get_index_after_time.html">
          ktk.TimeSeries.get_index_after_time
         </a>
@@ -389,16 +379,6 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.TimeSeries.get_ts_after_time.html">
          ktk.TimeSeries.get_ts_after_time
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api/ktk.TimeSeries.get_ts_at_event.html">
-         ktk.TimeSeries.get_ts_at_event
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api/ktk.TimeSeries.get_ts_at_time.html">
-         ktk.TimeSeries.get_ts_at_time
         </a>
        </li>
        <li class="toctree-l4">
@@ -492,11 +472,6 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="api/ktk.TimeSeries.sync_event.html">
-         ktk.TimeSeries.sync_event
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.TimeSeries.to_dataframe.html">
          ktk.TimeSeries.to_dataframe
         </a>
@@ -509,11 +484,6 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.TimeSeries.ui_edit_events.html">
          ktk.TimeSeries.ui_edit_events
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api/ktk.TimeSeries.ui_get_ts_between_clicks.html">
-         ktk.TimeSeries.ui_get_ts_between_clicks
         </a>
        </li>
        <li class="toctree-l4">
@@ -914,7 +884,7 @@ const thebe_selector_output = ".output, .cell_output"
        </li>
        <li class="toctree-l4">
         <a class="reference internal" href="python_functions_keywords_defaults.html">
-         📖 Keyword arguments and default values
+         📖 Arguments and default values
         </a>
        </li>
       </ul>
@@ -924,39 +894,27 @@ const thebe_selector_output = ".output, .cell_output"
        📖 Conditions and booleans
       </a>
      </li>
-     <li class="toctree-l3 has-children">
-      <a class="reference internal" href="python_lists.html">
-       📖 Lists and tuples
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_lists_indexing.html">
+       📖 Creating and indexing lists
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
-      <label for="toctree-checkbox-22">
-       <i class="fas fa-chevron-down">
-       </i>
-      </label>
-      <ul>
-       <li class="toctree-l4">
-        <a class="reference internal" href="python_lists_indexing.html">
-         📖 Creating and indexing lists/tuples
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="python_lists_slicing.html">
-         📖 Slicing lists
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="python_lists_mutability.html">
-         📖 Manipulating lists
-        </a>
-       </li>
-      </ul>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_lists_slicing.html">
+       📖 Slicing lists
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="python_lists_mutability.html">
+       📖 Manipulating lists
+      </a>
      </li>
      <li class="toctree-l3 has-children">
       <a class="reference internal" href="python_looping.html">
        📖 Looping
       </a>
-      <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
-      <label for="toctree-checkbox-23">
+      <input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/>
+      <label for="toctree-checkbox-22">
        <i class="fas fa-chevron-down">
        </i>
       </label>
@@ -1012,8 +970,50 @@ const thebe_selector_output = ".output, .cell_output"
     </ul>
    </li>
    <li class="toctree-l2 has-children">
+    <a class="reference internal" href="numpy.html">
+     📖 NumPy
+    </a>
+    <input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/>
+    <label for="toctree-checkbox-23">
+     <i class="fas fa-chevron-down">
+     </i>
+    </label>
+    <ul>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy_import.html">
+       📖 Importing NumPy
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy_ndarray.html">
+       📖 Arrays
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy_indexing.html">
+       📖 Indexing and slicing
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy_arithmetics.html">
+       🚧 Numpy arithmetics
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy_comparisons.html">
+       🚧 Comparisons
+      </a>
+     </li>
+     <li class="toctree-l3">
+      <a class="reference internal" href="numpy_combining.html">
+       🚧 Combining arrays
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toctree-l2 has-children">
     <a class="reference internal" href="matplotlib.html">
-     📖 Matplotlib
+     🚧 Matplotlib
     </a>
     <input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/>
     <label for="toctree-checkbox-24">
@@ -1022,80 +1022,28 @@ const thebe_selector_output = ".output, .cell_output"
     </label>
     <ul>
      <li class="toctree-l3">
-      <a class="reference internal" href="matplotlib_import.html">
-       📖 Importing
-       <code class="docutils literal notranslate">
-        <span class="pre">
-         pyplot
-        </span>
-       </code>
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="matplotlib_frontend.html">
-       📖 Matplotlib frontend
-      </a>
-     </li>
-     <li class="toctree-l3">
       <a class="reference internal" href="matplotlib_plot.html">
-       📖 Line plots
+       🚧 Line plots
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="matplotlib_subplot.html">
-       📖 Multiple plots side by side
+      <a class="reference internal" href="matplotlib_scatter.html">
+       🚧 Scatter plots
       </a>
      </li>
      <li class="toctree-l3">
-      <a class="reference internal" href="matplotlib_style.html">
-       📖 Markers, line style and colours
+      <a class="reference internal" href="matplotlib_labels.html">
+       🚧 Labels
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="matplotlib_axis.html">
-       📖 Setting the axes limits
+       🚧 Axis
       </a>
      </li>
      <li class="toctree-l3">
       <a class="reference internal" href="matplotlib_ginput.html">
        🚧 Graphical input
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toctree-l2 has-children">
-    <a class="reference internal" href="numpy.html">
-     📖 NumPy
-    </a>
-    <input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/>
-    <label for="toctree-checkbox-25">
-     <i class="fas fa-chevron-down">
-     </i>
-    </label>
-    <ul>
-     <li class="toctree-l3">
-      <a class="reference internal" href="numpy_ndarray.html">
-       📖 Arrays
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="numpy_arithmetics_and_comparisons.html">
-       📖 Arithmetics and comparisons
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="numpy_indexing_slicing_filtering_1d.html">
-       📖 Indexing, slicing and filtering unidimensional arrays
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="numpy_indexing_slicing_filtering_nd.html">
-       📖 Indexing, slicing and filtering multidimensional arrays
-      </a>
-     </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="numpy_combining.html">
-       🚧 Combining arrays
       </a>
      </li>
     </ul>
@@ -1266,9 +1214,9 @@ title="Print to PDF"
 <p><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit/discussions">Questions, suggestions, discussions and collaborations</a> are highly welcome. Please see the numerous ways you can <a class="reference internal" href="dev_contributing.html"><span class="doc std std-doc">contribute</span></a> to this project.</p>
 <hr class="docutils" />
 <div align="center">
-<a href="https://felixchenier.uqam.ca"><img alt="-width:narrow" src="_static/images/logo_mosa.png"></a>
-&nbsp;&nbsp;&nbsp;<a href="https://uqam.ca"><img alt="-width:narrower" src="_static/images/logo_uqam.png"></a>
-&nbsp;&nbsp;&nbsp;<a href="https://crir.ca"><img alt="-width:narrower" src="_static/images/logo_crir.jpg"></a>
+<a class="reference external" href="https://felixchenier.uqam.ca"><img alt="-width:narrow" src="_static/images/logo_mosa.png"></a>
+&nbsp;&nbsp;&nbsp;<a class="reference external" href="https://uqam.ca"><img alt="-width:narrower" src="_static/images/logo_uqam.png"></a>
+&nbsp;&nbsp;&nbsp;<a class="reference external" href="https://crir.ca"><img alt="-width:narrower" src="_static/images/logo_crir.jpg"></a>
 </div>
 <div class="toctree-wrapper compound">
 </div>
@@ -1286,7 +1234,7 @@ title="Print to PDF"
             mode: "python"
         },
         kernelOptions: {
-            name: "python3",
+            kernelName: "python3",
             path: "./."
         },
         predefinedOutput: true

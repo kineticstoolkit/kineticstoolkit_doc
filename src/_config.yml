@@ -1,0 +1,93 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: Kinetics Toolkit
+author: Félix Chénier
+copyright: 2020-2022
+logo: logo.png
+
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks: cache
+#  execute_notebooks: force
+html:
+  favicon                   : ""  # A path to a favicon image
+  use_edit_page_button      : false  # Whether to add an "edit this page" button to pages. If `true`, repository information in repository: must be filled in
+  use_fullscreen_button     : false
+  use_repository_button     : false  # Whether to add a link to your repository button
+  use_issues_button         : false  # Whether to add an "open an issue" button
+  use_multitoc_numbering    : true   # Continuous numbering across parts/chapters
+  google_analytics_id       : ""  # A GA id that can be used to track book views.
+  home_page_in_navbar       : true  # Whether to include your home page in the left Navigation Bar
+  baseurl                   : "https://kineticstoolkit.uqam.ca/doc/"  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
+  comments:
+    hypothesis              : false
+    utterances              : false
+  
+
+parse:
+  myst_substitutions:
+    "stub": |
+      ```{admonition} Section in development
+      :class: admonition-stub
+      This section is still in heavy development. Your [suggestions](dev_contributing.md) are welcome.
+      ```
+    "incomplete": |
+      ```{admonition} Incomplete section
+      Some elements of this section are incomplete or out of date. Please feel free to [contribute](dev_contributing.md).
+      ```
+    "dev": |    
+      ```{warning}
+      This section refers to unstable code. This code may not be tested, and the whole API and behaviour is expected to change in the future. Do not use this code for your research.
+      ```
+
+
+sphinx:
+  extra_extensions:
+  - 'sphinx.ext.autodoc'     # Document objects using docstrings in API
+  - 'sphinx.ext.autosummary' # Generate summary table pages (for autodoc)
+  - 'sphinx.ext.napoleon'    # Parse numpy-style docstrings (for autodoc)
+  - 'sphinx.ext.viewcode'
+  - 'myst_nb'
+  - 'custom-directives'
+  - 'sphinx_sitemap'
+
+  config:
+    html_baseurl: 'https://kineticstoolkit.uqam.ca/doc'
+    add_module_names: False
+    autosummary_generate: True
+    autodoc_typehints: description
+    autodoc_type_aliases:
+        'ArrayLike': 'ArrayLike'
+        'TimeSeries': 'TimeSeries'
+    napoleon_google_docstring: False
+    napoleon_numpy_docstring: True
+    napoleon_include_init_with_doc: False
+    napoleon_include_private_with_doc: False
+    napoleon_include_special_with_doc: False
+    napoleon_use_admonition_for_examples: False
+    napoleon_use_admonition_for_notes: True
+    napoleon_use_admonition_for_references: True
+    napoleon_use_ivar: False
+    napoleon_use_param: True
+    napoleon_use_rtype: True
+    templates_path: ['_templates']
+    html_favicon: favicon.ico
+    exclude_patterns:
+      - '_build'
+      - 'Thumbs.db'
+      - '.DS_Store'
+      - '.ipynb_checkpoints'
+      - 'api/external.*'
+      - 'api/ktk.external.*'
+      - 'api/ktk.pushrimkinetics*'
+      - 'toc.md'
+      - '_templates'
+
+    html_theme_options:
+      'logo_only': True  # default False
+      'collapse_navigation': True
+      'navigation_depth': 4
+      extra_navbar: ""
+      extra_footer: "This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>."
