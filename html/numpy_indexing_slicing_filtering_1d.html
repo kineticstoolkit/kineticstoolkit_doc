@@ -1096,11 +1096,6 @@ const thebe_selector_output = ".output, .cell_output"
        📖 Indexing, slicing and filtering multidimensional arrays
       </a>
      </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="numpy_combining.html">
-       🚧 Combining arrays
-      </a>
-     </li>
     </ul>
    </li>
    <li class="toctree-l2">
@@ -1382,7 +1377,7 @@ Summary</div>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Indexing and slicing arrays if very similar to indexing and slicing lists.</p>
+<p>Indexing and slicing arrays is very similar to indexing and slicing lists.</p>
 <ul class="simple">
 <li><p>Indexing means accessing one element using an index: <code class="docutils literal notranslate"><span class="pre">the_list[2]</span></code></p></li>
 <li><p>Slicing means accessing several elements using a slice: <code class="docutils literal notranslate"><span class="pre">a_list[0:3]</span></code></p></li>
@@ -1392,7 +1387,7 @@ Summary</div>
 <p>Through this section, we will work with two example arrays that represent some data (<code class="docutils literal notranslate"><span class="pre">data</span></code>) and the time at which these data occur (<code class="docutils literal notranslate"><span class="pre">time</span></code>):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.58</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.58</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.59</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.96</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.96</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.59</span><span class="p">])</span>
@@ -1400,11 +1395,12 @@ Summary</div>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="s2">&quot;s-&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;time (s)&quot;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;data (m)&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/numpy_indexing_slicing_filtering_1d_2_0.png" src="_images/numpy_indexing_slicing_filtering_1d_2_0.png" />
 </div>
 </div>
 <section id="indexing">
@@ -1412,7 +1408,12 @@ Summary</div>
 <p>Indexing a unidimensional array is identical to <a class="reference internal" href="python_lists_indexing.html"><span class="doc std std-doc">indexing a list</span></a>. To read one element of a list/array:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># Read the 3rd element</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># Read the 3rd element</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.95
 </pre></div>
 </div>
 </div>
@@ -1420,7 +1421,7 @@ Summary</div>
 <p>To write one element of a list/array:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.58</span>  <span class="c1"># Assign 0.35 to the 3rd element</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.58</span>  <span class="c1"># Assign 0.35 to the 3rd element</span>
 
 <span class="c1"># Plot the result</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="s2">&quot;s-&quot;</span><span class="p">)</span>
@@ -1430,12 +1431,20 @@ Summary</div>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/numpy_indexing_slicing_filtering_1d_6_0.png" src="_images/numpy_indexing_slicing_filtering_1d_6_0.png" />
+</div>
 </div>
 <p>Negative indexing also works:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the last data</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the last data</span>
 <span class="n">data</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>-0.59
 </pre></div>
 </div>
 </div>
@@ -1446,7 +1455,7 @@ Summary</div>
 <p>Slicing a unidimentional array is identical to <a class="reference internal" href="python_lists_slicing.html"><span class="doc std std-doc">slicing a list</span></a>. To read several elements of a list/array:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Keep only the values at indexes 2, 4, 6 and 8 of the original array</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Keep only the values at indexes 2, 4, 6 and 8 of the original array</span>
 <span class="c1"># Start at 2 (incl.), up to 9 (excl.) by steps of 2:</span>
 <span class="n">data_subset</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">9</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
 <span class="n">time_subset</span> <span class="o">=</span> <span class="n">time</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">9</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
@@ -1460,11 +1469,14 @@ Summary</div>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/numpy_indexing_slicing_filtering_1d_10_0.png" src="_images/numpy_indexing_slicing_filtering_1d_10_0.png" />
+</div>
 </div>
 <p>To write several elements of a list/array:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Replace values at indexes 2, 4, 6, 8 of the original list/array by</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Replace values at indexes 2, 4, 6, 8 of the original list/array by</span>
 <span class="c1"># [-0.7, -0.8, -0.9, -1.0]</span>
 
 <span class="n">modified_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -1478,6 +1490,9 @@ Summary</div>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/numpy_indexing_slicing_filtering_1d_12_0.png" src="_images/numpy_indexing_slicing_filtering_1d_12_0.png" />
 </div>
 </div>
 <div class="admonition tip">
@@ -1494,20 +1509,26 @@ Summary</div>
 <p>You used an accelerometer to detect a small movement. The acceleration returned by the instrument is expressed by this list, at a sampling frequency of 100 Hz.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">acc</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.77</span><span class="p">,</span> <span class="mf">0.82</span><span class="p">,</span> <span class="mf">0.86</span><span class="p">,</span> <span class="mf">0.81</span><span class="p">,</span> <span class="mf">0.74</span><span class="p">,</span> <span class="mf">0.07</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">acc</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.01</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">,</span> <span class="mf">0.00</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">,</span> <span class="mf">0.77</span><span class="p">,</span> <span class="mf">0.82</span><span class="p">,</span> <span class="mf">0.86</span><span class="p">,</span> <span class="mf">0.81</span><span class="p">,</span> <span class="mf">0.74</span><span class="p">,</span> <span class="mf">0.07</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/numpy_indexing_slicing_filtering_1d_15_0.png" src="_images/numpy_indexing_slicing_filtering_1d_15_0.png" />
+</div>
 </div>
 <p>However, by carefully inspecting your signal, you realize that the data is late by 40 milliseconds. You want to fix this delay, but you also want to keep the same number of samples in your signal.</p>
 <ul class="simple">
-<li><p>Using NumPy slicing, write a code that advances every data by 40 ms.</p></li>
+<li><p>Using NumPy slicing, write a code that moves forward every data by 40 ms.</p></li>
 <li><p>Fill the missing data at the end with zeros.</p></li>
 </ul>
 <p>In summary, you want to produce the blue curve below:</p>
 <div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/numpy_indexing_slicing_filtering_1d_17_0.png" src="_images/numpy_indexing_slicing_filtering_1d_17_0.png" />
+</div>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -1523,7 +1544,7 @@ Summary</div>
 </div>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert acc to an array</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Convert acc to an array</span>
 <span class="n">acc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">acc</span><span class="p">)</span>
 
 <span class="c1"># We will plot intermediary steps, to better visualize what we do.</span>
@@ -1556,17 +1577,20 @@ Summary</div>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/numpy_indexing_slicing_filtering_1d_19_0.png" src="_images/numpy_indexing_slicing_filtering_1d_19_0.png" />
+</div>
 </div>
 </section>
 <section id="filtering">
 <h2>📄 Filtering<a class="headerlink" href="#filtering" title="Permalink to this headline">#</a></h2>
-<p>We learned how to access <strong>one</strong> data using indexing, and <strong>multiple</strong> data via a simple pattern using slicing. Another, very powerful method to access an array’s data is filtering. We call it filtering because we selectively filter out some data using a mask.</p>
+<p>We learned how to access <strong>one data</strong> using indexing, and <strong>multiple regularly-spaced data</strong> using slicing. To read <strong>multiple non-regularly-spaced data</strong>, we use filtering. We call it filtering because we selectively filter out some data using a mask.</p>
 <section id="boolean-mask">
 <h3>Boolean mask<a class="headerlink" href="#boolean-mask" title="Permalink to this headline">#</a></h3>
 <p>Here is our original array or 10 values:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.58</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.58</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.59</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.96</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.96</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.59</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.58</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mf">0.58</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.59</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.96</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.96</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.59</span><span class="p">])</span>
 <span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">/</span> <span class="mi">10</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="s2">&quot;s-&quot;</span><span class="p">)</span>
@@ -1575,36 +1599,45 @@ Summary</div>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/numpy_indexing_slicing_filtering_1d_21_0.png" src="_images/numpy_indexing_slicing_filtering_1d_21_0.png" />
+</div>
 </div>
 <p>Let’s say we want to keep only the following indexes:</p>
 <div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/numpy_indexing_slicing_filtering_1d_23_0.png" src="_images/numpy_indexing_slicing_filtering_1d_23_0.png" />
+</div>
 </div>
 <p>We can create a boolean mask where each data to keep is True, and each data to discard is False:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">bool_mask</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bool_mask</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Then, we use the exactly like we would index or slice the list:</p>
+<p>Then, we use the mask exactly like we would index or slice the list:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="s2">&quot;s-&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Original data&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="s2">&quot;s-&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Original data&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">[</span><span class="n">bool_mask</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">bool_mask</span><span class="p">],</span> <span class="s2">&quot;o-&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Filtered data&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/numpy_indexing_slicing_filtering_1d_27_0.png" src="_images/numpy_indexing_slicing_filtering_1d_27_0.png" />
+</div>
 </div>
 </section>
 <section id="integer-mask">
 <h3>Integer mask<a class="headerlink" href="#integer-mask" title="Permalink to this headline">#</a></h3>
-<p>We can also build a mask using a list or array of integers. In this case, we simply indicate which indexes we want to keep:</p>
+<p>We can also build a mask using a list or array of integers. In this case, this is a list of the indexes to keep:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">int_mask</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">int_mask</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">]</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="s2">&quot;s-&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Original data&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">[</span><span class="n">int_mask</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">int_mask</span><span class="p">],</span> <span class="s2">&quot;o-&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Filtered data&quot;</span><span class="p">)</span>
@@ -1612,6 +1645,9 @@ Summary</div>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/numpy_indexing_slicing_filtering_1d_29_0.png" src="_images/numpy_indexing_slicing_filtering_1d_29_0.png" />
 </div>
 </div>
 <div class="admonition tip">
@@ -1622,10 +1658,10 @@ Summary</div>
 </section>
 <section id="conditional-filtering">
 <h2>📄 Conditional filtering<a class="headerlink" href="#conditional-filtering" title="Permalink to this headline">#</a></h2>
-<p>In section <a class="reference internal" href="numpy_arithmetics_and_comparisons.html"><span class="doc std std-doc">📖 Arithmetics and comparisons</span></a>, we learned how to generate an array of booleans by comparing an array to a number using comparison operators such as <code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, etc. These comparisons, combined with array filtering, make a powerful way to filter an array. For example, to keep every data of an array that is positive:</p>
+<p>In section <a class="reference internal" href="numpy_arithmetics_and_comparisons.html"><span class="doc std std-doc">📖 Arithmetics and comparisons</span></a>, we learned how to generate arrays of bool by comparing an array to a number using comparison operators such as <code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, etc. These comparisons make a powerful way to filter an array. For example, to keep every data of an array that is positive:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">to_keep</span> <span class="o">=</span> <span class="n">data</span> <span class="o">&gt;=</span> <span class="mi">0</span>  <span class="c1"># Create a boolean mask of the values to keep</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">to_keep</span> <span class="o">=</span> <span class="n">data</span> <span class="o">&gt;=</span> <span class="mi">0</span>  <span class="c1"># Create a boolean mask of the values to keep</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="s2">&quot;s-&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Original data&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">[</span><span class="n">to_keep</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="n">to_keep</span><span class="p">],</span> <span class="s2">&quot;o-&quot;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Filtered data&quot;</span><span class="p">)</span>
@@ -1634,11 +1670,14 @@ Summary</div>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/numpy_indexing_slicing_filtering_1d_31_0.png" src="_images/numpy_indexing_slicing_filtering_1d_31_0.png" />
+</div>
 </div>
 <p>Or, as another example, to replace any negative value by 0:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">new_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">new_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
 <span class="c1"># Assign 0 to every index of new_data where data is zero</span>
 <span class="n">new_data</span><span class="p">[</span><span class="n">data</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>  
@@ -1650,21 +1689,24 @@ Summary</div>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/numpy_indexing_slicing_filtering_1d_33_0.png" src="_images/numpy_indexing_slicing_filtering_1d_33_0.png" />
+</div>
 </div>
 </section>
 <section id="exercise-2">
 <h2>💪 Exercise 2<a class="headerlink" href="#exercise-2" title="Permalink to this headline">#</a></h2>
-<p>We measured the step length of a person during 10 steps. Here are the measurements:</p>
+<p>We measured the step length of a person during 10 steps. Here are these measurements:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">step_length</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">step_length</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
     <span class="p">[</span><span class="mf">0.707</span><span class="p">,</span> <span class="mf">0.730</span><span class="p">,</span> <span class="mf">0.752</span><span class="p">,</span> <span class="mf">0.707</span><span class="p">,</span> <span class="mf">0.691</span><span class="p">,</span> <span class="mf">0.726</span><span class="p">,</span> <span class="mf">0.722</span><span class="p">,</span> <span class="mf">0.726</span><span class="p">,</span> <span class="mf">0.710</span><span class="p">,</span> <span class="mf">0.661</span><span class="p">]</span>
 <span class="p">)</span>  <span class="c1"># in meters</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>For each of these questions, write a single line of code to print the step lengths:</p>
+<p>For each of these questions, write a single line of code to print the requested step lengths:</p>
 <ol class="simple">
 <li><p>From the third step up to the end;</p></li>
 <li><p>The two last steps;</p></li>
@@ -1675,7 +1717,7 @@ Summary</div>
 </ol>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. From the third step up to the end;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. From the third step up to the end;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">step_length</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
 
 <span class="c1"># 2. The two last steps;</span>
@@ -1698,11 +1740,21 @@ Summary</div>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[0.752 0.707 0.691 0.726 0.722 0.726 0.71  0.661]
+[0.71  0.661]
+[0.752 0.707 0.691 0.726 0.722 0.726]
+[0.752 0.691 0.722 0.71 ]
+[0.752 0.726 0.722 0.726]
+[0.707 0.661]
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="exercise-3">
 <h2>💪 Exercise 3<a class="headerlink" href="#exercise-3" title="Permalink to this headline">#</a></h2>
-<p>The position of an object was recorded in meters during one second at a sampling frequency of 100 Hz:</p>
+<p>The position of an object has been recorded in meters during one second at a sampling frequency of 100 Hz:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
     <span class="p">[</span>
         <span class="mf">0.</span>    <span class="p">,</span> <span class="mf">0.0099</span><span class="p">,</span> <span class="mf">0.0196</span><span class="p">,</span> <span class="mf">0.0291</span><span class="p">,</span> <span class="mf">0.0384</span><span class="p">,</span> <span class="mf">0.0475</span><span class="p">,</span> <span class="mf">0.0564</span><span class="p">,</span> <span class="mf">0.0651</span><span class="p">,</span>
@@ -1727,7 +1779,7 @@ Summary</div>
 \[
 v(i) = \dfrac{p(i+1) - p(i-1)}{t(i+1) - t(i-1)}
 \]</div>
-<p>Write a program of only two lines that calculates the speed of the object. Then, plot the velocity and position on a same figure to check your result.</p>
+<p>Write a program of only 1 to 2 lines that calculates the speed of the object. Then, plot the velocity and position on a same figure to check your result.</p>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Due to the calculation of speed that requires position values before and after the current sample, the velocity array will be 2 values shorter than the position array.</p>
@@ -1735,8 +1787,11 @@ v(i) = \dfrac{p(i+1) - p(i-1)}{t(i+1) - t(i-1)}
 </div>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span>
 <span class="n">v</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="o">-</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="n">t</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="o">-</span> <span class="n">t</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="c1"># Since the time step is regular at 0.01, we could also calculate v using a single line:</span>
+<span class="n">v</span> <span class="o">=</span> <span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="o">-</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="mf">0.01</span><span class="p">)</span>
 
 <span class="c1"># Plot the result</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;Position (m)&quot;</span><span class="p">)</span>
@@ -1747,6 +1802,9 @@ v(i) = \dfrac{p(i+1) - p(i-1)}{t(i+1) - t(i-1)}
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/numpy_indexing_slicing_filtering_1d_40_0.png" src="_images/numpy_indexing_slicing_filtering_1d_40_0.png" />
 </div>
 </div>
 </section>
@@ -1763,13 +1821,16 @@ v(i) = \dfrac{p(i+1) - p(i-1)}{t(i+1) - t(i-1)}
 </pre></div>
 </div>
 <div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/numpy_indexing_slicing_filtering_1d_42_0.png" src="_images/numpy_indexing_slicing_filtering_1d_42_0.png" />
+</div>
 </div>
 <p>You want to smooth this signal using a moving average with a window of three samples. This means that you want to create a new array where each value is the average of the three neighbour values of the raw signal:</p>
 <p><img alt="Moving average -width:wide" src="_images/moving_average.png" /></p>
 <p>Using only one line, apply such a filter on the raw, noisy signal. Then, plot both the raw and filtered signal on the same figure to verify your result.</p>
 <div class="cell tag_hide-cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filtered</span> <span class="o">=</span> <span class="p">(</span><span class="n">signal</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">signal</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">signal</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span> <span class="o">/</span> <span class="mi">3</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filtered</span> <span class="o">=</span> <span class="p">(</span><span class="n">signal</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="n">signal</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">signal</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span> <span class="o">/</span> <span class="mi">3</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">signal</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;raw&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">filtered</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">&quot;filtered&quot;</span><span class="p">)</span>
@@ -1777,6 +1838,9 @@ v(i) = \dfrac{p(i+1) - p(i-1)}{t(i+1) - t(i-1)}
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/numpy_indexing_slicing_filtering_1d_44_0.png" src="_images/numpy_indexing_slicing_filtering_1d_44_0.png" />
 </div>
 </div>
 </section>

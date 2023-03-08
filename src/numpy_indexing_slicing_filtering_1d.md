@@ -24,7 +24,7 @@ This section shows how to read or write specific elements of a unidimensional ar
 :::
 
 :::{tip}
-Indexing and slicing arrays if very similar to indexing and slicing lists.
+Indexing and slicing arrays is very similar to indexing and slicing lists.
 
 - Indexing means accessing one element using an index: `the_list[2]`
 - Slicing means accessing several elements using a slice: `a_list[0:3]`
@@ -43,8 +43,6 @@ time = np.arange(10) / 10
 
 plt.plot(time, data, "s-")
 plt.grid(True)
-plt.xlabel("time (s)")
-plt.ylabel("data (m)")
 plt.show()
 ```
 
@@ -144,7 +142,7 @@ plt.show()
 
 However, by carefully inspecting your signal, you realize that the data is late by 40 milliseconds. You want to fix this delay, but you also want to keep the same number of samples in your signal.
 
-- Using NumPy slicing, write a code that advances every data by 40 ms.
+- Using NumPy slicing, write a code that moves forward every data by 40 ms.
 - Fill the missing data at the end with zeros.
 
 In summary, you want to produce the blue curve below:
@@ -225,7 +223,7 @@ plt.show()
 
 ## 📄 Filtering
 
-We learned how to access **one** data using indexing, and **multiple** data via a simple pattern using slicing. Another, very powerful method to access an array's data is filtering. We call it filtering because we selectively filter out some data using a mask.
+We learned how to access **one data** using indexing, and **multiple regularly-spaced data** using slicing. To read **multiple non-regularly-spaced data**, we use filtering. We call it filtering because we selectively filter out some data using a mask.
 
 ### Boolean mask
 
@@ -244,6 +242,8 @@ Let's say we want to keep only the following indexes:
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
+bool_mask = [True, False, False, True, False, False, False, False, True, True]
 
 plt.plot(time, data, "s-")
 plt.grid(True)
@@ -269,7 +269,7 @@ We can create a boolean mask where each data to keep is True, and each data to d
 bool_mask = [True, False, False, True, False, False, False, False, True, True]
 ```
 
-Then, we use the exactly like we would index or slice the list:
+Then, we use the mask exactly like we would index or slice the list:
 
 ```{code-cell} ipython3
 plt.plot(time, data, "s-", label="Original data")
@@ -280,7 +280,7 @@ plt.show()
 
 ### Integer mask
 
-We can also build a mask using a list or array of integers. In this case, we simply indicate which indexes we want to keep:
+We can also build a mask using a list or array of integers. In this case, this is a list of the indexes to keep:
 
 ```{code-cell} ipython3
 int_mask = [0, 3, 8, 9]
@@ -297,7 +297,7 @@ Since indexes can also be negative, then masks of integers can also use negative
 
 ## 📄 Conditional filtering
 
-In section [](numpy_arithmetics_and_comparisons.md), we learned how to generate an array of booleans by comparing an array to a number using comparison operators such as `==`, `<`, `>=`, etc. These comparisons, combined with array filtering, make a powerful way to filter an array. For example, to keep every data of an array that is positive:
+In section [](numpy_arithmetics_and_comparisons.md), we learned how to generate arrays of bool by comparing an array to a number using comparison operators such as `==`, `<`, `>=`, etc. These comparisons make a powerful way to filter an array. For example, to keep every data of an array that is positive:
 
 ```{code-cell} ipython3
 to_keep = data >= 0  # Create a boolean mask of the values to keep
@@ -324,7 +324,7 @@ plt.show()
 
 ## 💪 Exercise 2
 
-We measured the step length of a person during 10 steps. Here are the measurements:
+We measured the step length of a person during 10 steps. Here are these measurements:
 
 ```{code-cell} ipython3
 step_length = np.array(
@@ -332,7 +332,7 @@ step_length = np.array(
 )  # in meters
 ```
 
-For each of these questions, write a single line of code to print the step lengths:
+For each of these questions, write a single line of code to print the requested step lengths:
 
 1. From the third step up to the end;
 2. The two last steps;
@@ -368,7 +368,7 @@ print(step_length[[0, -1]])
 
 ## 💪 Exercise 3
 
-The position of an object was recorded in meters during one second at a sampling frequency of 100 Hz:
+The position of an object has been recorded in meters during one second at a sampling frequency of 100 Hz:
 
 ```
 p = np.array(
@@ -396,7 +396,7 @@ $$
 v(i) = \dfrac{p(i+1) - p(i-1)}{t(i+1) - t(i-1)}
 $$
 
-Write a program of only two lines that calculates the speed of the object. Then, plot the velocity and position on a same figure to check your result.
+Write a program of only 1 to 2 lines that calculates the speed of the object. Then, plot the velocity and position on a same figure to check your result.
 
 :::{tip}
 Due to the calculation of speed that requires position values before and after the current sample, the velocity array will be 2 values shorter than the position array.
@@ -417,6 +417,9 @@ p = t - t**2
 
 t = np.arange(100) / 100
 v = (p[2:] - p[0:-2]) / (t[2:] - t[0:-2])
+
+# Since the time step is regular at 0.01, we could also calculate v using a single line:
+v = (p[2:] - p[0:-2]) / (2 * 0.01)
 
 # Plot the result
 plt.plot(t, p, label="Position (m)")

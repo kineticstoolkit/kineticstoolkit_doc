@@ -1094,11 +1094,6 @@ const thebe_selector_output = ".output, .cell_output"
        📖 Indexing, slicing and filtering multidimensional arrays
       </a>
      </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="numpy_combining.html">
-       🚧 Combining arrays
-      </a>
-     </li>
     </ul>
    </li>
    <li class="toctree-l2">
@@ -1244,25 +1239,25 @@ title="Print to PDF"
 <div class="sd-card-body docutils">
 <div class="sd-card-title sd-font-weight-bold docutils">
 Summary</div>
-<p class="sd-card-text">This section presents the NumPy package, which is one of the most important and powerful packages in data processing. NumPy is a huge package. This section covers the basics to get started with it for biomechanical analysis. To really master it, we recommended NumPy’s <a class="reference external" href="https://numpy.org/learn/">learning section</a>.</p>
+<p class="sd-card-text">This section presents the NumPy package, which is one of the most important and powerful packages in data processing. NumPy is a huge package. This section covers the basics to get started with it for biomechanical analysis. To really master it, we recommend NumPy’s <a class="reference external" href="https://numpy.org/learn/">learning section</a>.</p>
 <p class="sd-card-text"><img alt="NumPy Logo -width:narrower" src="_images/numpy_logo.png" /></p>
 </div>
 </div>
 <p>The main goal of NumPy is to perform mathematical operations not only on floats, but also on vectors and matrices, and to perform these operations very quickly.</p>
-<p>As an example, let’s say we need to average multiple measurements. We could very well add every element of a list, then divide by the number of elements:</p>
+<p>As an example, let’s say we need to average multiple measurements. We could do this easily using basic Python code, by summing every element of a list, and then by dividing the sum by the number of elements:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">list_of_float</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.75</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">]</span>
 
 <span class="c1"># Calculate the sum of every elements</span>
-<span class="n">result</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="nb">sum</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="k">for</span> <span class="n">one_float</span> <span class="ow">in</span> <span class="n">list_of_float</span><span class="p">:</span>
-    <span class="n">result</span> <span class="o">+=</span> <span class="n">one_float</span>
+    <span class="nb">sum</span> <span class="o">+=</span> <span class="n">one_float</span>
     
 <span class="c1"># Divide by the number of elements</span>
-<span class="n">result</span> <span class="o">/=</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_of_float</span><span class="p">)</span>
+<span class="n">mean</span> <span class="o">=</span> <span class="nb">sum</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">list_of_float</span><span class="p">)</span>
 
-<span class="n">result</span>
+<span class="n">mean</span>
 </pre></div>
 </div>
 </div>
@@ -1295,7 +1290,6 @@ Summary</div>
 <li class="toctree-l1"><a class="reference internal" href="numpy_arithmetics_and_comparisons.html">📖 Arithmetics and comparisons</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numpy_indexing_slicing_filtering_1d.html">📖 Indexing, slicing and filtering unidimensional arrays</a></li>
 <li class="toctree-l1"><a class="reference internal" href="numpy_indexing_slicing_filtering_nd.html">📖 Indexing, slicing and filtering multidimensional arrays</a></li>
-<li class="toctree-l1"><a class="reference internal" href="numpy_combining.html">🚧 Combining arrays</a></li>
 </ul>
 </div>
 </section>

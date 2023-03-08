@@ -25,12 +25,12 @@ This section presents the NumPy {{ndarray}} and its differences and similarities
 
 Most NumPy operations are performed on arrays. An array is similar to a list but has fundamental differences:
 
-| Lists                                                                                                                                             | Arrays                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| Can be a sequence of different types, which makes them very versatile.                                                                            | Only hold element of the same type, which provides homogeneity.                                         |
-| Have a dynamic size: it can be modified using `append`, `expand` and `pop`.                                                                       | We can't "grow" an array as we do with lists.                                                           |
-| Only hold data, they don't provide methods to compute data.                                                                                       | Can be used directly for calculations such as linear algebra, filtering, etc.                           |
-| Are only unidimensional. We can use nested lists to simulate multiple dimensions, but these values are harder to access, calculate, reshape, etc. | Can have any number of dimensions. It can represent and calculate matrices, or even series of matrices. | 
+| Lists                                                                                                                                        | Arrays                                                                                      |
+| -------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| Can be a sequence of different types, which makes them very versatile.                                                                       | Only hold elements of the same type, which provides homogeneity.                            |
+| Have a dynamic size that can be modified using `append`, `expand` and `pop`.                                                                 | Cannot "grow" as we do with lists.                                                          |
+| Only hold data, they don't provide methods to compute data.                                                                                  | Can be used directly for calculations such as linear algebra, filtering, etc.               |
+| Are unidimensional. We can use nested lists to simulate multiple dimensions, but these values are harder to access, calculate, reshape, etc. | Can have any number of dimensions; they can represent matrices, or even series of matrices. | 
 
 Lists and arrays are both useful and they can be converted one to the other.
 
@@ -54,13 +54,13 @@ It is also possible to convert back an array to a list, using its {{ndarray_toli
 array_1d.tolist()
 ```
 
-Since a list is unidimensional, the resulting array is also unidimensional. We get the size (shape) of an array using its {{ndarray_shape}} property:
+We get the size (shape) of an array using its {{ndarray_shape}} property:
 
 ```{code-cell} ipython3
 array_1d.shape
 ```
 
-This tuple has only **1** value and this value is **3**, which means the array has a length of **3** on **1** axis. For unidimensional arrays, both {{ndarray_shape}} and Python's `len` keyword have very similar meanings:
+This tuple has only 1 value, which denotes a unidimensional array. This value is **3**, which means the array has a length of **3**. In other words, this is a vector of length 3. For unidimensional arrays, both {{ndarray_shape}} and Python's `len` keyword have very similar meanings:
 
 ```{code-cell} ipython3
 len(array_1d)
@@ -91,7 +91,7 @@ Its shape is:
 array_2d.shape
 ```
 
-which means it has a length of 2 on its first axis, and 3 on its second axis. In other words, this is a 2x3 matrix.
+This tuple has 2 values, which denotes a bidimensional array. It has a length of **2** on its first axis, and of **3** on its second axis. In other words, this is a **2**x**3** matrix.
 
 We can even create arrays with more axes:
 
@@ -118,7 +118,7 @@ Its shape is:
 array_3d.shape
 ```
 
-which means it is a series of two 2x3 matrices.
+This tuple has 3 values, which denotes a tridimensional array. It has a length of **2** on its first axis, of **2** on its second axis, and of **3** on its third axis. In other words, this is a series of **two** **2**x**3** matrices.
 
 ## 📄 Creating an array
 

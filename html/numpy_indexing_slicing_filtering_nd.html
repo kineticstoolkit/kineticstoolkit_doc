@@ -51,11 +51,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="canonical" href="https://kineticstoolkit.uqam.ca/doc/numpy_indexing_slicing_filtering_nd.html" />
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="🚧 Combining arrays" href="numpy_combining.html" />
+    <link rel="next" title="🚧 Pandas" href="pandas.html" />
     <link rel="prev" title="📖 Indexing, slicing and filtering unidimensional arrays" href="numpy_indexing_slicing_filtering_1d.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -1094,11 +1096,6 @@ const thebe_selector_output = ".output, .cell_output"
        📖 Indexing, slicing and filtering multidimensional arrays
       </a>
      </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="numpy_combining.html">
-       🚧 Combining arrays
-      </a>
-     </li>
     </ul>
    </li>
    <li class="toctree-l2">
@@ -1252,8 +1249,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise-1">
-   💪 Exercise 1
+  <a class="reference internal nav-link" href="#exercise">
+   💪 Exercise
   </a>
  </li>
 </ul>
@@ -1291,8 +1288,8 @@ title="Print to PDF"
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#exercise-1">
-   💪 Exercise 1
+  <a class="reference internal nav-link" href="#exercise">
+   💪 Exercise
   </a>
  </li>
 </ul>
@@ -1595,7 +1592,7 @@ Summary</div>
 </section>
 <section id="filtering">
 <h2>📄 Filtering<a class="headerlink" href="#filtering" title="Permalink to this headline">#</a></h2>
-<p>In the previous section, we learned how to use lists of boolean and lists of integers to filter unidimensional arrays. This also works multidimensional arrays, although only the first dimension is intuitive (see <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ix_.html">np.ix_</a> for more complex cases). Luckily, in biomechanical data processing, we filter mainly on the time axis, which is often the first dimensions.</p>
+<p>In the previous section, we learned how to use lists of boolean and lists of integers to filter unidimensional arrays. This also works on multidimensional arrays, although filtering on axes other than the first one is somewhat unintuitive and may lead to unexpected array shapes. Luckily, in biomechanical data processing, filtering happens mainly on the first axis, which usually corresponds to time.</p>
 <p><strong>Example 10: Read the marker’s coordinates at samples 0 and 2</strong></p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
@@ -1617,11 +1614,95 @@ Summary</div>
 </div>
 </div>
 </div>
-<p>Filtering an array is a very powerful method to select elements of an array based on a criteria. This will be seen later in section <span class="xref myst"></span>.</p>
 </section>
-<section id="exercise-1">
-<h2>💪 Exercise 1<a class="headerlink" href="#exercise-1" title="Permalink to this headline">#</a></h2>
-<p>#todo To be continued.</p>
+<section id="exercise">
+<h2>💪 Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">#</a></h2>
+<p>We recorded this series of forces using a gait force platform, where the first axis corresponds to time and the second axis corresponds to the three force components <span class="math notranslate nohighlight">\(F_x\)</span>, <span class="math notranslate nohighlight">\(F_y\)</span> and <span class="math notranslate nohighlight">\(F_z\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">forces</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">[</span><span class="mf">0.17619048</span><span class="p">,</span> <span class="mf">0.82380952</span><span class="p">,</span> <span class="mf">17.61904762</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.21428571</span><span class="p">,</span> <span class="mf">0.78571429</span><span class="p">,</span> <span class="mf">21.42857143</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.17619048</span><span class="p">,</span> <span class="mf">0.82380952</span><span class="p">,</span> <span class="mf">17.61904762</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.17619048</span><span class="p">,</span> <span class="mf">0.82380952</span><span class="p">,</span> <span class="mf">17.61904762</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.17619048</span><span class="p">,</span> <span class="mf">0.82380952</span><span class="p">,</span> <span class="mf">17.61904762</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.32857143</span><span class="p">,</span> <span class="mf">0.67142857</span><span class="p">,</span> <span class="mf">32.85714286</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.25238095</span><span class="p">,</span> <span class="mf">0.74761905</span><span class="p">,</span> <span class="mf">25.23809524</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.17619048</span><span class="p">,</span> <span class="mf">0.82380952</span><span class="p">,</span> <span class="mf">17.61904762</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.29047619</span><span class="p">,</span> <span class="mf">0.70952381</span><span class="p">,</span> <span class="mf">29.04761905</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.32857143</span><span class="p">,</span> <span class="mf">0.67142857</span><span class="p">,</span> <span class="mf">32.85714286</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.25238095</span><span class="p">,</span> <span class="mf">0.74761905</span><span class="p">,</span> <span class="mf">25.23809524</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.21428571</span><span class="p">,</span> <span class="mf">0.78571429</span><span class="p">,</span> <span class="mf">21.42857143</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.67142857</span><span class="p">,</span> <span class="mf">0.32857143</span><span class="p">,</span> <span class="mf">67.14285714</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">8.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">7.1</span><span class="p">,</span> <span class="mf">810.0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">8.70952381</span><span class="p">,</span> <span class="o">-</span><span class="mf">7.70952381</span><span class="p">,</span> <span class="mf">870.95238095</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">8.02380952</span><span class="p">,</span> <span class="o">-</span><span class="mf">7.02380952</span><span class="p">,</span> <span class="mf">802.38095238</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">7.26190476</span><span class="p">,</span> <span class="o">-</span><span class="mf">6.26190476</span><span class="p">,</span> <span class="mf">726.19047619</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">7.75714286</span><span class="p">,</span> <span class="o">-</span><span class="mf">6.75714286</span><span class="p">,</span> <span class="mf">775.71428571</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">9.47142857</span><span class="p">,</span> <span class="o">-</span><span class="mf">8.47142857</span><span class="p">,</span> <span class="mf">947.14285714</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">9.85238095</span><span class="p">,</span> <span class="o">-</span><span class="mf">8.85238095</span><span class="p">,</span> <span class="mf">985.23809524</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">9.54761905</span><span class="p">,</span> <span class="o">-</span><span class="mf">8.54761905</span><span class="p">,</span> <span class="mf">954.76190476</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">8.63333333</span><span class="p">,</span> <span class="o">-</span><span class="mf">7.63333333</span><span class="p">,</span> <span class="mf">863.33333333</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">7.83333333</span><span class="p">,</span> <span class="o">-</span><span class="mf">6.83333333</span><span class="p">,</span> <span class="mf">783.33333333</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">6.76666667</span><span class="p">,</span> <span class="o">-</span><span class="mf">5.76666667</span><span class="p">,</span> <span class="mf">676.66666667</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">5.2047619</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.2047619</span><span class="p">,</span> <span class="mf">520.47619048</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">2.95714286</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.95714286</span><span class="p">,</span> <span class="mf">295.71428571</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">1.50952381</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.50952381</span><span class="p">,</span> <span class="mf">150.95238095</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.48095238</span><span class="p">,</span> <span class="mf">0.51904762</span><span class="p">,</span> <span class="mf">48.0952381</span><span class="p">],</span>
+        <span class="p">[</span><span class="o">-</span><span class="mf">0.01428571</span><span class="p">,</span> <span class="mf">1.01428571</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.42857143</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.02380952</span><span class="p">,</span> <span class="mf">0.97619048</span><span class="p">,</span> <span class="mf">2.38095238</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.17619048</span><span class="p">,</span> <span class="mf">0.82380952</span><span class="p">,</span> <span class="mf">17.61904762</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.02380952</span><span class="p">,</span> <span class="mf">0.97619048</span><span class="p">,</span> <span class="mf">2.38095238</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.06190476</span><span class="p">,</span> <span class="mf">0.93809524</span><span class="p">,</span> <span class="mf">6.19047619</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.06190476</span><span class="p">,</span> <span class="mf">0.93809524</span><span class="p">,</span> <span class="mf">6.19047619</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.06190476</span><span class="p">,</span> <span class="mf">0.93809524</span><span class="p">,</span> <span class="mf">6.19047619</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.02380952</span><span class="p">,</span> <span class="mf">0.97619048</span><span class="p">,</span> <span class="mf">2.38095238</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.06190476</span><span class="p">,</span> <span class="mf">0.93809524</span><span class="p">,</span> <span class="mf">6.19047619</span><span class="p">],</span>
+        <span class="p">[</span><span class="mf">0.13809524</span><span class="p">,</span> <span class="mf">0.86190476</span><span class="p">,</span> <span class="mf">13.80952381</span><span class="p">],</span>
+    <span class="p">]</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<img alt="_images/numpy_indexing_slicing_filtering_nd_41_0.png" src="_images/numpy_indexing_slicing_filtering_nd_41_0.png" />
+</div>
+</div>
+<p>Write a code that calculates the mean of <span class="math notranslate nohighlight">\(F_x\)</span>, but only during the weight support phase. We consider that the weight support phase consists in any sample where <span class="math notranslate nohighlight">\(F_z &gt; 10\)</span>.</p>
+<p>Follow these steps:</p>
+<ol class="simple">
+<li><p>Isolate the weight support phase using <span class="math notranslate nohighlight">\(F_z\)</span>;</p></li>
+<li><p>Isolate <span class="math notranslate nohighlight">\(F_x\)</span> during this phase;</p></li>
+<li><p>Calculate the average of <span class="math notranslate nohighlight">\(F_x\)</span>.</p></li>
+</ol>
+<div class="cell tag_hide-cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Step 1</span>
+
+<span class="c1"># We create a mask to keep only the weight support phase</span>
+<span class="n">is_weight_support_phase</span> <span class="o">=</span> <span class="n">forces</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10</span>
+
+<span class="c1"># Step 2</span>
+
+<span class="c1"># We isolate Fx during this phase</span>
+<span class="n">f_x</span> <span class="o">=</span> <span class="n">forces</span><span class="p">[</span><span class="n">is_weight_support_phase</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Step 3</span>
+
+<span class="c1"># We calculate the average</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">f_x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3.528571428666667
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 
@@ -1659,10 +1740,10 @@ Summary</div>
             <p class="prev-next-title">📖 Indexing, slicing and filtering unidimensional arrays</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="numpy_combining.html" title="next page">
+    <a class='right-next' id="next-link" href="pandas.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">🚧 Combining arrays</p>
+        <p class="prev-next-title">🚧 Pandas</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

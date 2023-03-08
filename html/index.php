@@ -1093,11 +1093,6 @@ const thebe_selector_output = ".output, .cell_output"
        📖 Indexing, slicing and filtering multidimensional arrays
       </a>
      </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="numpy_combining.html">
-       🚧 Combining arrays
-      </a>
-     </li>
     </ul>
    </li>
    <li class="toctree-l2">

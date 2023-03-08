@@ -1094,11 +1094,6 @@ const thebe_selector_output = ".output, .cell_output"
        📖 Indexing, slicing and filtering multidimensional arrays
       </a>
      </li>
-     <li class="toctree-l3">
-      <a class="reference internal" href="numpy_combining.html">
-       🚧 Combining arrays
-      </a>
-     </li>
     </ul>
    </li>
    <li class="toctree-l2">
@@ -1418,16 +1413,16 @@ Summary</div>
 </thead>
 <tbody>
 <tr class="row-even"><td><p>Can be a sequence of different types, which makes them very versatile.</p></td>
-<td><p>Only hold element of the same type, which provides homogeneity.</p></td>
+<td><p>Only hold elements of the same type, which provides homogeneity.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Have a dynamic size: it can be modified using <code class="docutils literal notranslate"><span class="pre">append</span></code>, <code class="docutils literal notranslate"><span class="pre">expand</span></code> and <code class="docutils literal notranslate"><span class="pre">pop</span></code>.</p></td>
-<td><p>We can’t “grow” an array as we do with lists.</p></td>
+<tr class="row-odd"><td><p>Have a dynamic size that can be modified using <code class="docutils literal notranslate"><span class="pre">append</span></code>, <code class="docutils literal notranslate"><span class="pre">expand</span></code> and <code class="docutils literal notranslate"><span class="pre">pop</span></code>.</p></td>
+<td><p>Cannot “grow” as we do with lists.</p></td>
 </tr>
 <tr class="row-even"><td><p>Only hold data, they don’t provide methods to compute data.</p></td>
 <td><p>Can be used directly for calculations such as linear algebra, filtering, etc.</p></td>
 </tr>
-<tr class="row-odd"><td><p>Are only unidimensional. We can use nested lists to simulate multiple dimensions, but these values are harder to access, calculate, reshape, etc.</p></td>
-<td><p>Can have any number of dimensions. It can represent and calculate matrices, or even series of matrices.</p></td>
+<tr class="row-odd"><td><p>Are unidimensional. We can use nested lists to simulate multiple dimensions, but these values are harder to access, calculate, reshape, etc.</p></td>
+<td><p>Can have any number of dimensions; they can represent matrices, or even series of matrices.</p></td>
 </tr>
 </tbody>
 </table>
@@ -1466,7 +1461,7 @@ Summary</div>
 </div>
 </div>
 </div>
-<p>Since a list is unidimensional, the resulting array is also unidimensional. We get the size (shape) of an array using its <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.shape.html">shape</a> property:</p>
+<p>We get the size (shape) of an array using its <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.shape.html">shape</a> property:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">array_1d</span><span class="o">.</span><span class="n">shape</span>
@@ -1479,7 +1474,7 @@ Summary</div>
 </div>
 </div>
 </div>
-<p>This tuple has only <strong>1</strong> value and this value is <strong>3</strong>, which means the array has a length of <strong>3</strong> on <strong>1</strong> axis. For unidimensional arrays, both <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.shape.html">shape</a> and Python’s <code class="docutils literal notranslate"><span class="pre">len</span></code> keyword have very similar meanings:</p>
+<p>This tuple has only 1 value, which denotes a unidimensional array. This value is <strong>3</strong>, which means the array has a length of <strong>3</strong>. In other words, this is a vector of length 3. For unidimensional arrays, both <a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.shape.html">shape</a> and Python’s <code class="docutils literal notranslate"><span class="pre">len</span></code> keyword have very similar meanings:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">array_1d</span><span class="p">)</span>
@@ -1533,7 +1528,7 @@ Summary</div>
 </div>
 </div>
 </div>
-<p>which means it has a length of 2 on its first axis, and 3 on its second axis. In other words, this is a 2x3 matrix.</p>
+<p>This tuple has 2 values, which denotes a bidimensional array. It has a length of <strong>2</strong> on its first axis, and of <strong>3</strong> on its second axis. In other words, this is a <strong>2</strong>x<strong>3</strong> matrix.</p>
 <p>We can even create arrays with more axes:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1577,7 +1572,7 @@ Summary</div>
 </div>
 </div>
 </div>
-<p>which means it is a series of two 2x3 matrices.</p>
+<p>This tuple has 3 values, which denotes a tridimensional array. It has a length of <strong>2</strong> on its first axis, of <strong>2</strong> on its second axis, and of <strong>3</strong> on its third axis. In other words, this is a series of <strong>two</strong> <strong>2</strong>x<strong>3</strong> matrices.</p>
 </section>
 </section>
 <section id="creating-an-array">
