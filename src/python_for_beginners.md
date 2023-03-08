@@ -13,7 +13,7 @@ kernelspec:
 
 # 📘 Learning Python for biomechanics
 
-This is an open-source manual in development, to learn to code using the Python ecosystem.
+This is a free manual in development, to learn to code using the Python ecosystem.
 
 Python is a hugely popular programming language, and there are lots of courses, tutorials and examples available everywhere on the internet. The particularity of this manual is that it is specifically focused on biomechanics.
 
