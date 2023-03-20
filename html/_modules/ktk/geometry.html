@@ -340,16 +340,6 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.get_event_index.html">
-         ktk.TimeSeries.get_event_index
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.get_event_time.html">
-         ktk.TimeSeries.get_event_time
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.get_index_after_time.html">
          ktk.TimeSeries.get_index_after_time
         </a>
@@ -387,16 +377,6 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_after_time.html">
          ktk.TimeSeries.get_ts_after_time
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_at_event.html">
-         ktk.TimeSeries.get_ts_at_event
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_at_time.html">
-         ktk.TimeSeries.get_ts_at_time
         </a>
        </li>
        <li class="toctree-l4">
@@ -490,11 +470,6 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.sync_event.html">
-         ktk.TimeSeries.sync_event
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.to_dataframe.html">
          ktk.TimeSeries.to_dataframe
         </a>
@@ -507,11 +482,6 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.ui_edit_events.html">
          ktk.TimeSeries.ui_edit_events
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.ui_get_ts_between_clicks.html">
-         ktk.TimeSeries.ui_get_ts_between_clicks
         </a>
        </li>
        <li class="toctree-l4">
@@ -741,6 +711,21 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.geometry.register_points.html">
          ktk.geometry.register_points
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.geometry.rotate.html">
+         ktk.geometry.rotate
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.geometry.scale.html">
+         ktk.geometry.scale
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.geometry.translate.html">
+         ktk.geometry.translate
         </a>
        </li>
       </ul>
@@ -1230,18 +1215,20 @@ title="Fullscreen mode"
         <span class="s2">&quot;get_global_coordinates&quot;</span><span class="p">,</span>
         <span class="s2">&quot;isnan&quot;</span><span class="p">,</span>
         <span class="s2">&quot;register_points&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;rotate&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;translate&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;scale&quot;</span><span class="p">,</span>
     <span class="p">]</span>
 
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">scipy.spatial.transform</span> <span class="k">as</span> <span class="nn">transform</span>
 <span class="kn">import</span> <span class="nn">kineticstoolkit.external.icp</span> <span class="k">as</span> <span class="nn">icp</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
 <span class="kn">from</span> <span class="nn">numpy.typing</span> <span class="kn">import</span> <span class="n">ArrayLike</span>
 <span class="kn">from</span> <span class="nn">kineticstoolkit.exceptions</span> <span class="kn">import</span> <span class="n">check_types</span>
 
 
-<div class="viewcode-block" id="matmul"><a class="viewcode-back" href="../../api/ktk.geometry.matmul.html#ktk.geometry.matmul">[docs]</a><span class="k">def</span> <span class="nf">matmul</span><span class="p">(</span><span class="n">op1</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">op2</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<div class="viewcode-block" id="matmul"><a class="viewcode-back" href="../../api/ktk.geometry.matmul.html#ktk.geometry.matmul">[docs]</a><span class="k">def</span> <span class="nf">matmul</span><span class="p">(</span><span class="n">op1</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">op2</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="o">/</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Matrix multiplication between series of matrices.</span>
 
@@ -1301,14 +1288,70 @@ title="Fullscreen mode"
     <span class="k">return</span> <span class="n">result</span></div>
 
 
+<span class="k">def</span> <span class="nf">inv</span><span class="p">(</span><span class="n">matrix_series</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="o">/</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate series of inverse transform.</span>
+
+<span class="sd">    This function calculates a series of inverse homogeneous transforms.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    matrix_series</span>
+<span class="sd">        Nx4x4 series of homogeneous matrices, where each matrix is an</span>
+<span class="sd">        homogeneous transform.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    ArrayLike</span>
+<span class="sd">        The Nx4x4 series of inverse homogeneous matrices.</span>
+
+<span class="sd">    Note</span>
+<span class="sd">    ----</span>
+<span class="sd">    This function requires (and checks) that each matrix really is an</span>
+<span class="sd">    homogeneous transform by evaluating the determinant of its rotation</span>
+<span class="sd">    component. It then calculates the inverse matrix quickly using the</span>
+<span class="sd">    transpose of the rotation component.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">check_types</span><span class="p">(</span><span class="n">inv</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
+
+    <span class="n">matrix_series</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">matrix_series</span><span class="p">)</span>
+    <span class="n">index_is_nan</span> <span class="o">=</span> <span class="n">isnan</span><span class="p">(</span><span class="n">matrix_series</span><span class="p">)</span>
+
+    <span class="n">_check_no_skewed_rotation</span><span class="p">(</span><span class="n">matrix_series</span><span class="p">,</span> <span class="s2">&quot;matrix_series&quot;</span><span class="p">)</span>
+
+    <span class="n">invR</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">matrix_series</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+    <span class="n">invT</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">matrix_series</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">3</span><span class="p">))</span>
+
+    <span class="c1"># Inverse rotation</span>
+    <span class="n">invR</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">matrix_series</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+
+    <span class="c1"># Inverse translation</span>
+    <span class="n">invT</span> <span class="o">=</span> <span class="o">-</span><span class="n">matmul</span><span class="p">(</span><span class="n">invR</span><span class="p">,</span> <span class="n">matrix_series</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+
+    <span class="c1"># output</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">matrix_series</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">out</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">invR</span>
+    <span class="n">out</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">invT</span>
+    <span class="n">out</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">out</span><span class="p">[</span><span class="n">index_is_nan</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+    <span class="k">return</span> <span class="n">out</span>
+
+
 <div class="viewcode-block" id="create_transforms"><a class="viewcode-back" href="../../api/ktk.geometry.create_transforms.html#ktk.geometry.create_transforms">[docs]</a><span class="k">def</span> <span class="nf">create_transforms</span><span class="p">(</span>
-    <span class="n">seq</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">angles</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ArrayLike</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">translations</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ArrayLike</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">seq</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">angles</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">translations</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">scales</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
     <span class="n">degrees</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Create an Nx4x4 series of homogeneous transforms based on angle sequences.</span>
+<span class="sd">    Create series of transforms based on angles, translatations and scales.</span>
+
+<span class="sd">    Create an Nx4x4 series of homogeneous transform matrices based on series of</span>
+<span class="sd">    angles, translatations and scales.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1336,9 +1379,13 @@ title="Fullscreen mode"
 <span class="sd">        angles and W is the length of `seq`.</span>
 
 <span class="sd">    translations</span>
-<span class="sd">        Optional array_like or shape (N, 3) or (N, 4). This corresponds</span>
+<span class="sd">        Optional array_like of shape (N, 3) or (N, 4). This corresponds</span>
 <span class="sd">        to the translation part of the generated series of homogeneous</span>
 <span class="sd">        transforms.</span>
+
+<span class="sd">    scales</span>
+<span class="sd">        Optional array_like of shape (N, ) that corresponds to the scale to</span>
+<span class="sd">        apply uniformly on the three axes. By default, no scale is included.</span>
 
 <span class="sd">    degrees</span>
 <span class="sd">        If True, then the given angles are in degrees. Default is False.</span>
@@ -1350,15 +1397,16 @@ title="Fullscreen mode"
 
 <span class="sd">    See also</span>
 <span class="sd">    --------</span>
-<span class="sd">    ktk.geometry.create_frames</span>
+<span class="sd">    ktk.geometry.create_frames, ktk.geometry.rotate, ktk.geometry.translate,</span>
+<span class="sd">    ktk.geometry.scale</span>
 
-<span class="sd">    Example</span>
-<span class="sd">    -------</span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
 <span class="sd">    Create a series of two homogeneous transforms that rotates 0, then 90</span>
 <span class="sd">    degrees around x:</span>
 
 <span class="sd">        &gt;&gt;&gt; import kineticstoolkit.lab as ktk</span>
-<span class="sd">        &gt;&gt;&gt; ktk.geometry.create_transforms(&#39;x&#39;, [0, 90], degrees=True)</span>
+<span class="sd">        &gt;&gt;&gt; ktk.geometry.create_transforms(seq=&#39;x&#39;, angles=[0, 90], degrees=True)</span>
 <span class="sd">        array([[[ 1.,  0.,  0.,  0.],</span>
 <span class="sd">                [ 0.,  1.,  0.,  0.],</span>
 <span class="sd">                [ 0.,  0.,  1.,  0.],</span>
@@ -1368,6 +1416,15 @@ title="Fullscreen mode"
 <span class="sd">                [ 0.,  0., -1.,  0.],</span>
 <span class="sd">                [ 0.,  1.,  0.,  0.],</span>
 <span class="sd">                [ 0.,  0.,  0.,  1.]]])</span>
+
+<span class="sd">    Create an homogeneous transform that converts millimeters to meters</span>
+
+<span class="sd">        &gt;&gt;&gt; import kineticstoolkit.lab as ktk</span>
+<span class="sd">        &gt;&gt;&gt; ktk.geometry.create_transforms(scales=[0.001])</span>
+<span class="sd">        array([[[0.001, 0.   , 0.   , 0.   ],</span>
+<span class="sd">                [0.   , 0.001, 0.   , 0.   ],</span>
+<span class="sd">                [0.   , 0.   , 0.001, 0.   ],</span>
+<span class="sd">                [0.   , 0.   , 0.   , 1.   ]]])</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">check_types</span><span class="p">(</span><span class="n">create_transforms</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
@@ -1385,7 +1442,23 @@ title="Fullscreen mode"
     <span class="k">else</span><span class="p">:</span>
         <span class="n">angles</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">angles</span><span class="p">)</span>
 
+    <span class="c1"># Condition scales</span>
+    <span class="k">if</span> <span class="n">scales</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">scales</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">scales</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">scales</span><span class="p">)</span>
+
+    <span class="c1"># Convert scales to a series of scaling matrices</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">scales</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+    <span class="n">temp</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">scales</span>
+    <span class="n">temp</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">scales</span>
+    <span class="n">temp</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">scales</span>
+    <span class="n">temp</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="n">scales</span> <span class="o">=</span> <span class="n">temp</span>
+
     <span class="c1"># Match sizes</span>
+    <span class="n">translations</span><span class="p">,</span> <span class="n">angles</span> <span class="o">=</span> <span class="n">_match_size</span><span class="p">(</span><span class="n">translations</span><span class="p">,</span> <span class="n">angles</span><span class="p">)</span>
+    <span class="n">translations</span><span class="p">,</span> <span class="n">scales</span> <span class="o">=</span> <span class="n">_match_size</span><span class="p">(</span><span class="n">translations</span><span class="p">,</span> <span class="n">scales</span><span class="p">)</span>
     <span class="n">translations</span><span class="p">,</span> <span class="n">angles</span> <span class="o">=</span> <span class="n">_match_size</span><span class="p">(</span><span class="n">translations</span><span class="p">,</span> <span class="n">angles</span><span class="p">)</span>
     <span class="n">n_samples</span> <span class="o">=</span> <span class="n">angles</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
@@ -1395,13 +1468,157 @@ title="Fullscreen mode"
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">R</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>  <span class="c1"># Single rotation: add the Time dimension.</span>
         <span class="n">R</span> <span class="o">=</span> <span class="n">R</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
 
-    <span class="c1"># Construct the final series of transforms</span>
+    <span class="c1"># Construct the final series of transforms (without scaling)</span>
     <span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">n_samples</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
     <span class="n">T</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">R</span>
     <span class="n">T</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">translations</span>
     <span class="n">T</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">T</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">return</span> <span class="n">T</span></div>
+
+    <span class="c1"># Return the scaling + transform</span>
+    <span class="k">return</span> <span class="n">T</span> <span class="o">@</span> <span class="n">scales</span></div>
+
+
+<div class="viewcode-block" id="rotate"><a class="viewcode-back" href="../../api/ktk.geometry.rotate.html#ktk.geometry.rotate">[docs]</a><span class="k">def</span> <span class="nf">rotate</span><span class="p">(</span>
+    <span class="n">coordinates</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span> <span class="n">seq</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">angles</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">degrees</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Rotate a series of coordinates along given axes.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    coordinates</span>
+<span class="sd">        Array_like of shape (N, ...): the coordinates to rotate.</span>
+
+<span class="sd">    seq</span>
+<span class="sd">        Specifies sequence of axes for rotations. Up to 3 characters</span>
+<span class="sd">        belonging to the set {&#39;X&#39;, &#39;Y&#39;, &#39;Z&#39;} for intrinsic rotations (moving</span>
+<span class="sd">        axes), or {&#39;x&#39;, &#39;y&#39;, &#39;z&#39;} for extrinsic rotations (fixed axes).</span>
+<span class="sd">        Extrinsic and intrinsic rotations cannot be mixed in one function call.</span>
+
+<span class="sd">    angles</span>
+<span class="sd">        Array_like of shape (N,) or (N, [1 or 2 or 3]). Angles are</span>
+<span class="sd">        specified in radians (if degrees is False) or degrees (if degrees is</span>
+<span class="sd">        True).</span>
+
+<span class="sd">        For a single-character `seq`, `angles` can be:</span>
+
+<span class="sd">        - array_like with shape (N,), where each `angle[i]` corresponds to a</span>
+<span class="sd">          single rotation;</span>
+<span class="sd">        - array_like with shape (N, 1), where each `angle[i, 0]` corresponds</span>
+<span class="sd">          to a single rotation.</span>
+
+<span class="sd">        For 2- and 3-character `seq`, `angles` is an array_like with shape</span>
+<span class="sd">        (N, W) where each `angle[i, :]` corresponds to a sequence of Euler</span>
+<span class="sd">        angles and W is the length of `seq`.</span>
+
+<span class="sd">    degrees</span>
+<span class="sd">        If True, then the given angles are in degrees. Default is False.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.ndarray</span>
+<span class="sd">        Array_like of shape (N, ...): the rotated coordinates.</span>
+
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    ktk.geometry.translate, ktk.geometry.scale, ktk.geometry.create_transforms,</span>
+<span class="sd">    ktk.geometry.matmul</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Rotate the point (1, 0, 0) by theta degrees around z, then by 45 degrees</span>
+<span class="sd">    around y, for theta in [0, 10, 20, 30, 40]:</span>
+
+<span class="sd">        &gt;&gt;&gt; import kineticstoolkit.lab as ktk</span>
+<span class="sd">        &gt;&gt;&gt; angles = np.array([[0, 45], [10, 45], [20, 45], [30, 45], [40, 45]])</span>
+<span class="sd">        &gt;&gt;&gt; ktk.geometry.rotate([[1, 0, 0, 1]], &#39;zx&#39;, angles, degrees=True)</span>
+<span class="sd">        array([[1.        , 0.        , 0.        , 1.        ],</span>
+<span class="sd">               [0.98480775, 0.1227878 , 0.1227878 , 1.        ],</span>
+<span class="sd">               [0.93969262, 0.24184476, 0.24184476, 1.        ],</span>
+<span class="sd">               [0.8660254 , 0.35355339, 0.35355339, 1.        ],</span>
+<span class="sd">               [0.76604444, 0.45451948, 0.45451948, 1.        ]])</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">matmul</span><span class="p">(</span><span class="n">create_transforms</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="n">angles</span><span class="p">,</span> <span class="n">degrees</span><span class="o">=</span><span class="n">degrees</span><span class="p">),</span> <span class="n">coordinates</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="translate"><a class="viewcode-back" href="../../api/ktk.geometry.translate.html#ktk.geometry.translate">[docs]</a><span class="k">def</span> <span class="nf">translate</span><span class="p">(</span><span class="n">coordinates</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span> <span class="n">translations</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Translate a series of coordinates.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    coordinates</span>
+<span class="sd">        Array_like of shape (N, ...): the coordinates to translate.</span>
+
+<span class="sd">    translations</span>
+<span class="sd">        Array_like of shape (N, 3) or (N, 4): the translation on each axe</span>
+<span class="sd">        (x, y, z).</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.ndarray</span>
+<span class="sd">        Array_like of shape (N, ...): the translated coordinates.</span>
+
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    ktk.geometry.rotate, ktk.geometry.scale, ktk.geometry.create_transforms,</span>
+<span class="sd">    ktk.geometry.matmul</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Translate the point (1, 0, 0) by (x, 1, 0), for x in [0, 1, 2, 3, 4]:</span>
+
+<span class="sd">        &gt;&gt;&gt; import kineticstoolkit.lab as ktk</span>
+<span class="sd">        &gt;&gt;&gt; t = np.array([[0, 1, 0], [1, 1, 0], [2, 1, 0], [3, 1, 0], [4, 1, 0]])</span>
+<span class="sd">        &gt;&gt;&gt; ktk.geometry.translate([[1, 0, 0, 1]], t)</span>
+<span class="sd">        array([[1., 1., 0., 1.],</span>
+<span class="sd">               [2., 1., 0., 1.],</span>
+<span class="sd">               [3., 1., 0., 1.],</span>
+<span class="sd">               [4., 1., 0., 1.],</span>
+<span class="sd">               [5., 1., 0., 1.]])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">matmul</span><span class="p">(</span><span class="n">create_transforms</span><span class="p">(</span><span class="n">translations</span><span class="o">=</span><span class="n">translations</span><span class="p">),</span> <span class="n">coordinates</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="scale"><a class="viewcode-back" href="../../api/ktk.geometry.scale.html#ktk.geometry.scale">[docs]</a><span class="k">def</span> <span class="nf">scale</span><span class="p">(</span><span class="n">coordinates</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span> <span class="n">scales</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Scale a series of coordinates.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    coordinates</span>
+<span class="sd">        Array_like of shape (N, ...): the coordinates to scale.</span>
+
+<span class="sd">    scales</span>
+<span class="sd">        Array_like of shape (N, ) that corresponds to the scale to apply</span>
+<span class="sd">        uniformly on the three axes.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.ndarray</span>
+<span class="sd">        Array_like of shape (N, ...): the translated coordinates.</span>
+
+<span class="sd">    See also</span>
+<span class="sd">    --------</span>
+<span class="sd">    ktk.geometry.rotate, ktk.geometry.translate,</span>
+<span class="sd">    ktk.geometry.create_transforms, ktk.geometry.matmul</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    Scale the point (1, 0, 0) by x, for x in [0, 1, 2, 3, 4]:</span>
+
+<span class="sd">        &gt;&gt;&gt; import kineticstoolkit.lab as ktk</span>
+<span class="sd">        &gt;&gt;&gt; s = np.array([0, 1, 2, 3, 4])</span>
+<span class="sd">        &gt;&gt;&gt; ktk.geometry.scale([[1, 0, 0, 1]], s)</span>
+<span class="sd">        array([[0., 0., 0., 1.],</span>
+<span class="sd">               [1., 0., 0., 1.],</span>
+<span class="sd">               [2., 0., 0., 1.],</span>
+<span class="sd">               [3., 0., 0., 1.],</span>
+<span class="sd">               [4., 0., 0., 1.]])</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">matmul</span><span class="p">(</span><span class="n">create_transforms</span><span class="p">(</span><span class="n">scales</span><span class="o">=</span><span class="n">scales</span><span class="p">),</span> <span class="n">coordinates</span><span class="p">)</span></div>
 
 
 <div class="viewcode-block" id="get_angles"><a class="viewcode-back" href="../../api/ktk.geometry.get_angles.html#ktk.geometry.get_angles">[docs]</a><span class="k">def</span> <span class="nf">get_angles</span><span class="p">(</span>
@@ -1470,6 +1687,9 @@ title="Fullscreen mode"
     <span class="n">check_types</span><span class="p">(</span><span class="n">get_angles</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
 
     <span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+
+    <span class="n">_check_no_skewed_rotation</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="s2">&quot;T&quot;</span><span class="p">)</span>
+
     <span class="n">R</span> <span class="o">=</span> <span class="n">transform</span><span class="o">.</span><span class="n">Rotation</span><span class="o">.</span><span class="n">from_matrix</span><span class="p">(</span><span class="n">T</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
     <span class="n">angles</span> <span class="o">=</span> <span class="n">R</span><span class="o">.</span><span class="n">as_euler</span><span class="p">(</span><span class="n">seq</span><span class="p">,</span> <span class="n">degrees</span><span class="p">)</span>
 
@@ -1491,12 +1711,12 @@ title="Fullscreen mode"
 
 <div class="viewcode-block" id="create_frames"><a class="viewcode-back" href="../../api/ktk.geometry.create_frames.html#ktk.geometry.create_frames">[docs]</a><span class="k">def</span> <span class="nf">create_frames</span><span class="p">(</span>
     <span class="n">origin</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span>
-    <span class="n">x</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ArrayLike</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">y</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ArrayLike</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">z</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ArrayLike</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">xy</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ArrayLike</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">xz</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ArrayLike</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">yz</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ArrayLike</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">x</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">y</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">z</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">xy</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">xz</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">yz</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Create an Nx4x4 series of frames based on series of points and vectors.</span>
@@ -1626,6 +1846,12 @@ title="Fullscreen mode"
     <span class="n">global_coordinates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">global_coordinates</span><span class="p">)</span>
     <span class="n">reference_frames</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">reference_frames</span><span class="p">)</span>
 
+    <span class="n">_check_no_skewed_rotation</span><span class="p">(</span><span class="n">reference_frames</span><span class="p">,</span> <span class="s2">&quot;reference_frames&quot;</span><span class="p">)</span>
+
+    <span class="p">(</span><span class="n">global_coordinates</span><span class="p">,</span> <span class="n">reference_frames</span><span class="p">)</span> <span class="o">=</span> <span class="n">_match_size</span><span class="p">(</span>
+        <span class="n">global_coordinates</span><span class="p">,</span> <span class="n">reference_frames</span>
+    <span class="p">)</span>
+
     <span class="n">n_samples</span> <span class="o">=</span> <span class="n">global_coordinates</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
     <span class="c1"># Transform NaNs in global coordinates to zeros to perform the operation,</span>
@@ -1634,20 +1860,7 @@ title="Fullscreen mode"
     <span class="n">global_coordinates</span><span class="p">[</span><span class="n">nan_index</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
 
     <span class="c1"># Invert the reference frame to obtain the inverse transformation</span>
-    <span class="n">ref_rot</span> <span class="o">=</span> <span class="n">reference_frames</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>
-    <span class="n">ref_t</span> <span class="o">=</span> <span class="n">reference_frames</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
-
-    <span class="c1"># Inverse rotation : transpose.</span>
-    <span class="n">inv_ref_rot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">ref_rot</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-
-    <span class="c1"># Inverse translation : we inverse-rotate the translation.</span>
-    <span class="n">inv_ref_t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">ref_t</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-    <span class="n">inv_ref_t</span> <span class="o">=</span> <span class="n">matmul</span><span class="p">(</span><span class="n">inv_ref_rot</span><span class="p">,</span> <span class="o">-</span><span class="n">ref_t</span><span class="p">)</span>
-
-    <span class="n">inv_ref_T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_samples</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>  <span class="c1"># init</span>
-    <span class="n">inv_ref_T</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">inv_ref_rot</span>
-    <span class="n">inv_ref_T</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">inv_ref_t</span>
-    <span class="n">inv_ref_T</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)</span>
+    <span class="n">inv_ref_T</span> <span class="o">=</span> <span class="n">inv</span><span class="p">(</span><span class="n">reference_frames</span><span class="p">)</span>
 
     <span class="n">local_coordinates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">global_coordinates</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># init</span>
     <span class="n">local_coordinates</span> <span class="o">=</span> <span class="n">matmul</span><span class="p">(</span><span class="n">inv_ref_T</span><span class="p">,</span> <span class="n">global_coordinates</span><span class="p">)</span>
@@ -1694,6 +1907,12 @@ title="Fullscreen mode"
     <span class="n">local_coordinates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">local_coordinates</span><span class="p">)</span>
     <span class="n">reference_frames</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">reference_frames</span><span class="p">)</span>
 
+    <span class="n">_check_no_skewed_rotation</span><span class="p">(</span><span class="n">reference_frames</span><span class="p">,</span> <span class="s2">&quot;reference_frames&quot;</span><span class="p">)</span>
+
+    <span class="p">(</span><span class="n">local_coordinates</span><span class="p">,</span> <span class="n">reference_frames</span><span class="p">)</span> <span class="o">=</span> <span class="n">_match_size</span><span class="p">(</span>
+        <span class="n">local_coordinates</span><span class="p">,</span> <span class="n">reference_frames</span>
+    <span class="p">)</span>
+
     <span class="n">global_coordinates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">local_coordinates</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
     <span class="n">global_coordinates</span> <span class="o">=</span> <span class="n">matmul</span><span class="p">(</span><span class="n">reference_frames</span><span class="p">,</span> <span class="n">local_coordinates</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">global_coordinates</span></div>
@@ -1701,7 +1920,7 @@ title="Fullscreen mode"
 
 <div class="viewcode-block" id="isnan"><a class="viewcode-back" href="../../api/ktk.geometry.isnan.html#ktk.geometry.isnan">[docs]</a><span class="k">def</span> <span class="nf">isnan</span><span class="p">(</span><span class="n">array</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="o">/</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Check which samples has at least one NaN.</span>
+<span class="sd">    Check which samples contain at least one NaN.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1752,6 +1971,40 @@ title="Fullscreen mode"
     <span class="k">return</span> <span class="n">op1</span><span class="p">,</span> <span class="n">op2</span>
 
 
+<span class="k">def</span> <span class="nf">_check_no_skewed_rotation</span><span class="p">(</span><span class="n">series</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">param_name</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Check if all rotation matrices are orthogonal (det=1).</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    matrix_series : array of shape Nx4x4</span>
+<span class="sd">        The input series. Inputs of other shapes are ignored.</span>
+<span class="sd">    param_name</span>
+<span class="sd">        Name of the parameters, to use in the error message.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If at least one skewed rotation matrix is found in the provided series.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="p">(</span>
+        <span class="nb">len</span><span class="p">(</span><span class="n">series</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span>
+        <span class="ow">and</span> <span class="n">series</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span>
+        <span class="ow">and</span> <span class="n">series</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span>
+    <span class="p">):</span>
+        <span class="n">index_is_nan</span> <span class="o">=</span> <span class="n">isnan</span><span class="p">(</span><span class="n">series</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">allclose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">det</span><span class="p">(</span><span class="n">series</span><span class="p">[</span><span class="o">~</span><span class="n">index_is_nan</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]),</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;Parameter </span><span class="si">{</span><span class="n">param_name</span><span class="si">}</span><span class="s2"> contains at least one rotation &quot;</span>
+                <span class="s2">&quot;component that is not orthogonal. This may happen, for &quot;</span>
+                <span class="s2">&quot;instance, if you attempted to resample or filter a &quot;</span>
+                <span class="s2">&quot;homogeneous transform, which is not possible directly. If &quot;</span>
+                <span class="s2">&quot;this is the case, then consider filtering quaternions or Euler &quot;</span>
+                <span class="s2">&quot;angles instead.&quot;</span>
+            <span class="p">)</span>
+
+
 <div class="viewcode-block" id="register_points"><a class="viewcode-back" href="../../api/ktk.geometry.register_points.html#ktk.geometry.register_points">[docs]</a><span class="k">def</span> <span class="nf">register_points</span><span class="p">(</span>
     <span class="n">global_points</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">local_points</span><span class="p">:</span> <span class="n">ArrayLike</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
@@ -1772,12 +2025,6 @@ title="Fullscreen mode"
 <span class="sd">        Array of shape Nx4x4, expressing a series of 4x4 homogeneous</span>
 <span class="sd">        transforms.</span>
 
-<span class="sd">    Warning</span>
-<span class="sd">    -------</span>
-<span class="sd">    This function, which has been introduced in 0.4, is still experimental and</span>
-<span class="sd">    may change signature or behaviour in the future. Namely, the names of the</span>
-<span class="sd">    parameters may change in the future.</span>
-
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">check_types</span><span class="p">(</span><span class="n">register_points</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
 
@@ -1791,7 +2038,6 @@ title="Fullscreen mode"
     <span class="n">T</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">i_sample</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_samples</span><span class="p">):</span>
-
         <span class="c1"># Identify which global points are visible</span>
         <span class="n">sample_global_points</span> <span class="o">=</span> <span class="n">global_points</span><span class="p">[</span><span class="n">i_sample</span><span class="p">]</span>
         <span class="n">sample_global_points_missing</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span>
@@ -1843,7 +2089,7 @@ title="Fullscreen mode"
   
     By Félix Chénier<br/>
   
-      &copy; Copyright 2020-2022.<br/>
+      &copy; Copyright 2020-2023.<br/>
     <div class="extra_footer">
       This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>.
     </div>

@@ -343,16 +343,6 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="api/ktk.TimeSeries.get_event_index.html">
-         ktk.TimeSeries.get_event_index
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api/ktk.TimeSeries.get_event_time.html">
-         ktk.TimeSeries.get_event_time
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.TimeSeries.get_index_after_time.html">
          ktk.TimeSeries.get_index_after_time
         </a>
@@ -390,16 +380,6 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.TimeSeries.get_ts_after_time.html">
          ktk.TimeSeries.get_ts_after_time
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api/ktk.TimeSeries.get_ts_at_event.html">
-         ktk.TimeSeries.get_ts_at_event
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api/ktk.TimeSeries.get_ts_at_time.html">
-         ktk.TimeSeries.get_ts_at_time
         </a>
        </li>
        <li class="toctree-l4">
@@ -493,11 +473,6 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="api/ktk.TimeSeries.sync_event.html">
-         ktk.TimeSeries.sync_event
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.TimeSeries.to_dataframe.html">
          ktk.TimeSeries.to_dataframe
         </a>
@@ -510,11 +485,6 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.TimeSeries.ui_edit_events.html">
          ktk.TimeSeries.ui_edit_events
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api/ktk.TimeSeries.ui_get_ts_between_clicks.html">
-         ktk.TimeSeries.ui_get_ts_between_clicks
         </a>
        </li>
        <li class="toctree-l4">
@@ -744,6 +714,21 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.geometry.register_points.html">
          ktk.geometry.register_points
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.geometry.rotate.html">
+         ktk.geometry.rotate
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.geometry.scale.html">
+         ktk.geometry.scale
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.geometry.translate.html">
+         ktk.geometry.translate
         </a>
        </li>
       </ul>
@@ -1341,11 +1326,11 @@ Summary</div>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TimeSeries with attributes:
-         time: &lt;array of shape (1092,)&gt;
+         time: array([ 0. , 0.02, 0.04, ..., 21.78, 21.8 , 21.82])
          data: &lt;dict with 39 entries&gt;
-    time_info: &lt;dict with 1 entries&gt;
+    time_info: {&#39;Unit&#39;: &#39;s&#39;}
     data_info: &lt;dict with 39 entries&gt;
-       events: &lt;list of 0 items&gt;
+       events: []
 </pre></div>
 </div>
 </div>
@@ -1409,8 +1394,8 @@ Summary</div>
 <p>Now we’ll take a look at this acquisition using <a class="reference internal" href="api/ktk.Player.html"><span class="doc std std-doc">ktk.Player</span></a>, a matplotlib-based interactive user interface aimed at visualizing markers, rigid bodies and segments in three dimensions.</p>
 <p>Note that for the <code class="docutils literal notranslate"><span class="pre">Player</span></code> class to be interactive, you must select an interactive backend for IPython. See <a class="reference internal" href="ktk_installing.html"><span class="doc std std-doc">📖 Installing and importing</span></a> for more information. It is also possible to generate non-interactive animations in Jupyter-based environments, like on this website. Here, we show both methods; we will subsequently only show the commands for the interactive player.</p>
 <div class="sd-tab-set docutils">
-<input checked="checked" id="58bd57d1-df94-4936-b871-409565399ccf" name="e24752bc-a770-4e56-86cd-6f0e7e24d736" type="radio">
-</input><label class="sd-tab-label" for="58bd57d1-df94-4936-b871-409565399ccf">
+<input checked="checked" id="339d91b4-a1c4-4176-ba7c-ab854430bc04" name="74b75950-c19d-468e-9b11-6b6ea9d463bd" type="radio">
+</input><label class="sd-tab-label" for="339d91b4-a1c4-4176-ba7c-ab854430bc04">
 Interactive player</label><div class="sd-tab-content docutils">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Set an interactive backend</span>
 <span class="c1"># https://kineticstoolkit.uqam.ca/doc/ktk_installing.html</span>
@@ -1422,8 +1407,8 @@ Interactive player</label><div class="sd-tab-content docutils">
 </pre></div>
 </div>
 </div>
-<input id="ca165a68-e163-4917-8d19-415b40fc94bb" name="e24752bc-a770-4e56-86cd-6f0e7e24d736" type="radio">
-</input><label class="sd-tab-label" for="ca165a68-e163-4917-8d19-415b40fc94bb">
+<input id="af39afdd-cf11-4b2d-b81f-4326f0fe603c" name="74b75950-c19d-468e-9b11-6b6ea9d463bd" type="radio">
+</input><label class="sd-tab-label" for="af39afdd-cf11-4b2d-b81f-4326f0fe603c">
 Non-interactive animation (Jupyter)</label><div class="sd-tab-content docutils">
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Non-interactive, inline backend</span>
 <span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>

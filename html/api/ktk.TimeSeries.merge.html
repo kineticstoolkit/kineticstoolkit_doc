@@ -343,16 +343,6 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="ktk.TimeSeries.get_event_index.html">
-         ktk.TimeSeries.get_event_index
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="ktk.TimeSeries.get_event_time.html">
-         ktk.TimeSeries.get_event_time
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="ktk.TimeSeries.get_index_after_time.html">
          ktk.TimeSeries.get_index_after_time
         </a>
@@ -390,16 +380,6 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="ktk.TimeSeries.get_ts_after_time.html">
          ktk.TimeSeries.get_ts_after_time
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="ktk.TimeSeries.get_ts_at_event.html">
-         ktk.TimeSeries.get_ts_at_event
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="ktk.TimeSeries.get_ts_at_time.html">
-         ktk.TimeSeries.get_ts_at_time
         </a>
        </li>
        <li class="toctree-l4">
@@ -493,11 +473,6 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="ktk.TimeSeries.sync_event.html">
-         ktk.TimeSeries.sync_event
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="ktk.TimeSeries.to_dataframe.html">
          ktk.TimeSeries.to_dataframe
         </a>
@@ -510,11 +485,6 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="ktk.TimeSeries.ui_edit_events.html">
          ktk.TimeSeries.ui_edit_events
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="ktk.TimeSeries.ui_get_ts_between_clicks.html">
-         ktk.TimeSeries.ui_get_ts_between_clicks
         </a>
        </li>
        <li class="toctree-l4">
@@ -744,6 +714,21 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="ktk.geometry.register_points.html">
          ktk.geometry.register_points
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="ktk.geometry.rotate.html">
+         ktk.geometry.rotate
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="ktk.geometry.scale.html">
+         ktk.geometry.scale
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="ktk.geometry.translate.html">
+         ktk.geometry.translate
         </a>
        </li>
       </ul>
@@ -1245,9 +1230,12 @@ title="Print to PDF"
 <li><p><strong>ts</strong> (<a class="reference internal" href="ktk.TimeSeries.html#ktk.TimeSeries" title="ktk.TimeSeries"><em>TimeSeries</em></a>) – The TimeSeries to merge into the current TimeSeries.</p></li>
 <li><p><strong>data_keys</strong> (<em>str</em><em> | </em><em>list</em><em>[</em><em>str</em><em>]</em>) – Optional. The data keys to merge from ts. If left empty, all the
 data keys are merged.</p></li>
-<li><p><strong>resample</strong> (<em>bool</em>) – Optional. Set to True to resample the source TimeSeries, in case
-the time vectors are not matched. If the time vectors are not
-matched and resample is False, an exception is raised.</p></li>
+<li><p><strong>resample</strong> (<em>bool</em>) – Optional. Set to True to resample the source TimeSeries to the
+target one using a linear interpolation. If the time vectors are
+not equivalent and resample is False, an exception is raised. To
+resample using other methods than linear interpolation, please
+resample the source TimeSeries manually before, using
+TimeSeries.resample.</p></li>
 <li><p><strong>overwrite</strong> (<em>bool</em>) – Optional. If duplicates data keys are found and overwrite is True,
 then the source (ts) overwrites the destination. Otherwise
 (overwrite is False), the duplicate data in ts is ignored.</p></li>
@@ -1265,15 +1253,12 @@ original TimeSeries intact.</p></li>
 </dl>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="ktk.TimeSeries.get_subset.html#ktk.TimeSeries.get_subset" title="ktk.TimeSeries.get_subset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.TimeSeries.get_subset</span></code></a></p>
+<p><a class="reference internal" href="ktk.TimeSeries.get_subset.html#ktk.TimeSeries.get_subset" title="ktk.TimeSeries.get_subset"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.TimeSeries.get_subset</span></code></a>, <a class="reference internal" href="ktk.TimeSeries.resample.html#ktk.TimeSeries.resample" title="ktk.TimeSeries.resample"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.TimeSeries.resample</span></code></a></p>
 </div>
 <div class="admonition-notes admonition">
 <p class="admonition-title">Notes</p>
 <ul class="simple">
 <li><p>All events are also merged from both TimeSeries.</p></li>
-<li><p>The behaviour of the resampling option is not settled yet. At the
-moment, a linear resampling is performed, but this may change in the
-future.</p></li>
 </ul>
 </div>
 </dd></dl>

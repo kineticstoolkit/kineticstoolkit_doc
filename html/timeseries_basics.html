@@ -345,16 +345,6 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="api/ktk.TimeSeries.get_event_index.html">
-         ktk.TimeSeries.get_event_index
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api/ktk.TimeSeries.get_event_time.html">
-         ktk.TimeSeries.get_event_time
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.TimeSeries.get_index_after_time.html">
          ktk.TimeSeries.get_index_after_time
         </a>
@@ -392,16 +382,6 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.TimeSeries.get_ts_after_time.html">
          ktk.TimeSeries.get_ts_after_time
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api/ktk.TimeSeries.get_ts_at_event.html">
-         ktk.TimeSeries.get_ts_at_event
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api/ktk.TimeSeries.get_ts_at_time.html">
-         ktk.TimeSeries.get_ts_at_time
         </a>
        </li>
        <li class="toctree-l4">
@@ -495,11 +475,6 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="api/ktk.TimeSeries.sync_event.html">
-         ktk.TimeSeries.sync_event
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.TimeSeries.to_dataframe.html">
          ktk.TimeSeries.to_dataframe
         </a>
@@ -512,11 +487,6 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.TimeSeries.ui_edit_events.html">
          ktk.TimeSeries.ui_edit_events
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="api/ktk.TimeSeries.ui_get_ts_between_clicks.html">
-         ktk.TimeSeries.ui_get_ts_between_clicks
         </a>
        </li>
        <li class="toctree-l4">
@@ -746,6 +716,21 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="api/ktk.geometry.register_points.html">
          ktk.geometry.register_points
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.geometry.rotate.html">
+         ktk.geometry.rotate
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.geometry.scale.html">
+         ktk.geometry.scale
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="api/ktk.geometry.translate.html">
+         ktk.geometry.translate
         </a>
        </li>
       </ul>
@@ -1329,9 +1314,9 @@ Summary</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TimeSeries with attributes:
          time: &lt;array of shape (100,)&gt;
          data: &lt;dict with 1 entries&gt;
-    time_info: &lt;dict with 1 entries&gt;
-    data_info: &lt;dict with 0 entries&gt;
-       events: &lt;list of 0 items&gt;
+    time_info: {&#39;Unit&#39;: &#39;s&#39;}
+    data_info: {}
+       events: []
 </pre></div>
 </div>
 </div>
@@ -1423,9 +1408,9 @@ M_x(N-1) &amp; M_y(N-1) &amp; M_z(N-1) &amp; 0
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TimeSeries with attributes:
          time: &lt;array of shape (5000,)&gt;
          data: &lt;dict with 2 entries&gt;
-    time_info: &lt;dict with 1 entries&gt;
-    data_info: &lt;dict with 0 entries&gt;
-       events: &lt;list of 0 items&gt;
+    time_info: {&#39;Unit&#39;: &#39;s&#39;}
+    data_info: {}
+       events: []
 </pre></div>
 </div>
 </div>
@@ -1489,8 +1474,8 @@ M_x(N-1) &amp; M_y(N-1) &amp; M_z(N-1) &amp; 0
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-     &#39;Forces&#39;: &lt;dict with 1 entries&gt;
-    &#39;Moments&#39;: &lt;dict with 1 entries&gt;
+     &#39;Forces&#39;: {&#39;Unit&#39;: &#39;N&#39;}
+    &#39;Moments&#39;: {&#39;Unit&#39;: &#39;Nm&#39;}
 }
 </pre></div>
 </div>
@@ -1559,8 +1544,8 @@ M_x(N-1) &amp; M_y(N-1) &amp; M_z(N-1) &amp; 0
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TimeSeries with attributes:
          time: &lt;array of shape (5000,)&gt;
          data: &lt;dict with 2 entries&gt;
-    time_info: &lt;dict with 1 entries&gt;
-    data_info: &lt;dict with 2 entries&gt;
+    time_info: {&#39;Unit&#39;: &#39;s&#39;}
+    data_info: {&#39;Forces&#39;: {&#39;Unit&#39;: &#39;N&#39;}, &#39;Moments&#39;: {&#39;Unit&#39;: &#39;Nm&#39;}}
        events: &lt;list of 10 items&gt;
 </pre></div>
 </div>

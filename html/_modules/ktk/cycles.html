@@ -340,16 +340,6 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.get_event_index.html">
-         ktk.TimeSeries.get_event_index
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.get_event_time.html">
-         ktk.TimeSeries.get_event_time
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.get_index_after_time.html">
          ktk.TimeSeries.get_index_after_time
         </a>
@@ -387,16 +377,6 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_after_time.html">
          ktk.TimeSeries.get_ts_after_time
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_at_event.html">
-         ktk.TimeSeries.get_ts_at_event
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_at_time.html">
-         ktk.TimeSeries.get_ts_at_time
         </a>
        </li>
        <li class="toctree-l4">
@@ -490,11 +470,6 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.sync_event.html">
-         ktk.TimeSeries.sync_event
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.to_dataframe.html">
          ktk.TimeSeries.to_dataframe
         </a>
@@ -507,11 +482,6 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.ui_edit_events.html">
          ktk.TimeSeries.ui_edit_events
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.ui_get_ts_between_clicks.html">
-         ktk.TimeSeries.ui_get_ts_between_clicks
         </a>
        </li>
        <li class="toctree-l4">
@@ -741,6 +711,21 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.geometry.register_points.html">
          ktk.geometry.register_points
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.geometry.rotate.html">
+         ktk.geometry.rotate
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.geometry.scale.html">
+         ktk.geometry.scale
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.geometry.translate.html">
+         ktk.geometry.translate
         </a>
        </li>
       </ul>
@@ -1221,7 +1206,6 @@ title="Fullscreen mode"
     <span class="n">TimeSeriesEventNotFoundError</span><span class="p">,</span>
 <span class="p">)</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Optional</span>
 <span class="kn">from</span> <span class="nn">numpy.typing</span> <span class="kn">import</span> <span class="n">ArrayLike</span>
 
 
@@ -1311,7 +1295,6 @@ title="Fullscreen mode"
     <span class="n">is_phase1</span> <span class="o">=</span> <span class="kc">True</span>
 
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
-
         <span class="k">if</span> <span class="n">directions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;rising&quot;</span><span class="p">:</span>
             <span class="n">crossing1</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">thresholds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
             <span class="n">crossing2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">thresholds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -1320,12 +1303,10 @@ title="Fullscreen mode"
             <span class="n">crossing2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">thresholds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 
         <span class="k">if</span> <span class="n">is_phase1</span> <span class="ow">and</span> <span class="n">crossing1</span><span class="p">:</span>
-
             <span class="n">is_phase1</span> <span class="o">=</span> <span class="kc">False</span>
             <span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">TimeSeriesEvent</span><span class="p">(</span><span class="n">time</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">event_names</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
 
         <span class="k">elif</span> <span class="p">(</span><span class="ow">not</span> <span class="n">is_phase1</span><span class="p">)</span> <span class="ow">and</span> <span class="n">crossing2</span><span class="p">:</span>
-
             <span class="n">is_phase1</span> <span class="o">=</span> <span class="kc">True</span>
             <span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">TimeSeriesEvent</span><span class="p">(</span><span class="n">time</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">event_names</span><span class="p">[</span><span class="mi">1</span><span class="p">]))</span>
 
@@ -1385,7 +1366,7 @@ title="Fullscreen mode"
     <span class="n">event_name2</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">n_points</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
-    <span class="n">span</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">span</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Time-normalize cycles in a TimeSeries.</span>
@@ -1438,9 +1419,18 @@ title="Fullscreen mode"
     <span class="k">if</span> <span class="n">span</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">span</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_points</span><span class="p">]</span>
 
-    <span class="c1"># Find the final number of cycles</span>
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">events</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;No cycle can be defined from these event names.&quot;</span><span class="p">))</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;This TimeSeries does not have events.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">ts</span><span class="o">.</span><span class="n">count_events</span><span class="p">(</span><span class="n">event_name1</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;No occurrence of event `</span><span class="si">{</span><span class="n">event_name1</span><span class="si">}</span><span class="s2">` was found in this &quot;</span>
+            <span class="s2">&quot;TimeSeries.&quot;</span>
+        <span class="p">)</span>
+    <span class="k">if</span> <span class="n">ts</span><span class="o">.</span><span class="n">count_events</span><span class="p">(</span><span class="n">event_name2</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;No occurrence of event `</span><span class="si">{</span><span class="n">event_name2</span><span class="si">}</span><span class="s2">` was found in this &quot;</span>
+            <span class="s2">&quot;TimeSeries.&quot;</span>
+        <span class="p">)</span>
 
     <span class="c1"># Initialize the destination TimeSeries</span>
     <span class="n">dest_ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -1457,7 +1447,6 @@ title="Fullscreen mode"
     <span class="n">i_cycle</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="n">break_now</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-
         <span class="c1"># Get the begin time for this cycle</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">event_index</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">_get_event_index</span><span class="p">(</span><span class="n">event_name1</span><span class="p">,</span> <span class="n">i_cycle</span><span class="p">)</span>
@@ -1465,6 +1454,9 @@ title="Fullscreen mode"
             <span class="n">break_now</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">begin_time</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="n">event_index</span><span class="p">]</span><span class="o">.</span><span class="n">time</span>
+
+        <span class="k">if</span> <span class="n">break_now</span><span class="p">:</span>
+            <span class="k">break</span>
 
         <span class="c1"># Get the end time for this cycle</span>
         <span class="n">end_cycle</span> <span class="o">=</span> <span class="mi">0</span>
@@ -1560,7 +1552,6 @@ title="Fullscreen mode"
             <span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">span</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">span</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">+</span> <span class="n">i_cycle</span> <span class="o">*</span> <span class="p">(</span><span class="n">span</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">span</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
         <span class="k">for</span> <span class="n">i_event</span><span class="p">,</span> <span class="n">event</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">other_events</span><span class="p">):</span>
-
             <span class="c1"># Resample</span>
             <span class="n">new_time</span> <span class="o">=</span> <span class="n">time_to_normalized_time</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
             <span class="n">dest_ts</span> <span class="o">=</span> <span class="n">dest_ts</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="n">new_time</span><span class="p">,</span> <span class="n">event</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
@@ -1632,7 +1623,7 @@ title="Fullscreen mode"
     <span class="k">return</span> <span class="n">data</span></div>
 
 
-<div class="viewcode-block" id="unstack"><a class="viewcode-back" href="../../api/ktk.cycles.unstack.html#ktk.cycles.unstack">[docs]</a><span class="k">def</span> <span class="nf">unstack</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ArrayLike</span><span class="p">],</span> <span class="o">/</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
+<div class="viewcode-block" id="unstack"><a class="viewcode-back" href="../../api/ktk.cycles.unstack.html#ktk.cycles.unstack">[docs]</a><span class="k">def</span> <span class="nf">unstack</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="o">/</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Unstack time-normalized data from a dict of arrays to a TimeSeries.</span>
 
@@ -1797,7 +1788,6 @@ title="Fullscreen mode"
     <span class="c1"># Iteratively remove the cycle that is the most different from the</span>
     <span class="c1"># mean of the remaining cycles.</span>
     <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">done_cycles</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">n_cycles</span> <span class="o">-</span> <span class="mi">2</span><span class="p">:</span>
-
         <span class="n">current_mean_cycle</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
         <span class="n">rms</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_cycles</span><span class="p">)</span>
@@ -1846,7 +1836,7 @@ title="Fullscreen mode"
   
     By Félix Chénier<br/>
   
-      &copy; Copyright 2020-2022.<br/>
+      &copy; Copyright 2020-2023.<br/>
     <div class="extra_footer">
       This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>.
     </div>

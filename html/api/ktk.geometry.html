@@ -343,16 +343,6 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="ktk.TimeSeries.get_event_index.html">
-         ktk.TimeSeries.get_event_index
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="ktk.TimeSeries.get_event_time.html">
-         ktk.TimeSeries.get_event_time
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="ktk.TimeSeries.get_index_after_time.html">
          ktk.TimeSeries.get_index_after_time
         </a>
@@ -390,16 +380,6 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="ktk.TimeSeries.get_ts_after_time.html">
          ktk.TimeSeries.get_ts_after_time
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="ktk.TimeSeries.get_ts_at_event.html">
-         ktk.TimeSeries.get_ts_at_event
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="ktk.TimeSeries.get_ts_at_time.html">
-         ktk.TimeSeries.get_ts_at_time
         </a>
        </li>
        <li class="toctree-l4">
@@ -493,11 +473,6 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="ktk.TimeSeries.sync_event.html">
-         ktk.TimeSeries.sync_event
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="ktk.TimeSeries.to_dataframe.html">
          ktk.TimeSeries.to_dataframe
         </a>
@@ -510,11 +485,6 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="ktk.TimeSeries.ui_edit_events.html">
          ktk.TimeSeries.ui_edit_events
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="ktk.TimeSeries.ui_get_ts_between_clicks.html">
-         ktk.TimeSeries.ui_get_ts_between_clicks
         </a>
        </li>
        <li class="toctree-l4">
@@ -744,6 +714,21 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="ktk.geometry.register_points.html">
          ktk.geometry.register_points
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="ktk.geometry.rotate.html">
+         ktk.geometry.rotate
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="ktk.geometry.scale.html">
+         ktk.geometry.scale
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="ktk.geometry.translate.html">
+         ktk.geometry.translate
         </a>
        </li>
       </ul>
@@ -1252,7 +1237,7 @@ to time.</p>
 <td><p>Create an Nx4x4 series of frames based on series of points and vectors.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="ktk.geometry.create_transforms.html#ktk.geometry.create_transforms" title="ktk.geometry.create_transforms"><code class="xref py py-obj docutils literal notranslate"><span class="pre">create_transforms</span></code></a></p></td>
-<td><p>Create an Nx4x4 series of homogeneous transforms based on angle sequences.</p></td>
+<td><p>Create series of transforms based on angles, translatations and scales.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="ktk.geometry.get_angles.html#ktk.geometry.get_angles" title="ktk.geometry.get_angles"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_angles</span></code></a></p></td>
 <td><p>Extract Euler angles from a series of homogeneous matrices.</p></td>
@@ -1264,13 +1249,22 @@ to time.</p>
 <td><p>Express global coordinates in local reference frames.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="ktk.geometry.isnan.html#ktk.geometry.isnan" title="ktk.geometry.isnan"><code class="xref py py-obj docutils literal notranslate"><span class="pre">isnan</span></code></a></p></td>
-<td><p>Check which samples has at least one NaN.</p></td>
+<td><p>Check which samples contain at least one NaN.</p></td>
 </tr>
 <tr class="row-odd"><td><p><a class="reference internal" href="ktk.geometry.matmul.html#ktk.geometry.matmul" title="ktk.geometry.matmul"><code class="xref py py-obj docutils literal notranslate"><span class="pre">matmul</span></code></a></p></td>
 <td><p>Matrix multiplication between series of matrices.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="ktk.geometry.register_points.html#ktk.geometry.register_points" title="ktk.geometry.register_points"><code class="xref py py-obj docutils literal notranslate"><span class="pre">register_points</span></code></a></p></td>
 <td><p>Find the homogeneous transforms between two series of point clouds.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="ktk.geometry.rotate.html#ktk.geometry.rotate" title="ktk.geometry.rotate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">rotate</span></code></a></p></td>
+<td><p>Rotate a series of coordinates along given axes.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="ktk.geometry.scale.html#ktk.geometry.scale" title="ktk.geometry.scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">scale</span></code></a></p></td>
+<td><p>Scale a series of coordinates.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="ktk.geometry.translate.html#ktk.geometry.translate" title="ktk.geometry.translate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">translate</span></code></a></p></td>
+<td><p>Translate a series of coordinates.</p></td>
 </tr>
 </tbody>
 </table>

@@ -340,16 +340,6 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.get_event_index.html">
-         ktk.TimeSeries.get_event_index
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.get_event_time.html">
-         ktk.TimeSeries.get_event_time
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.get_index_after_time.html">
          ktk.TimeSeries.get_index_after_time
         </a>
@@ -387,16 +377,6 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_after_time.html">
          ktk.TimeSeries.get_ts_after_time
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_at_event.html">
-         ktk.TimeSeries.get_ts_at_event
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_at_time.html">
-         ktk.TimeSeries.get_ts_at_time
         </a>
        </li>
        <li class="toctree-l4">
@@ -490,11 +470,6 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.sync_event.html">
-         ktk.TimeSeries.sync_event
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.to_dataframe.html">
          ktk.TimeSeries.to_dataframe
         </a>
@@ -507,11 +482,6 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.ui_edit_events.html">
          ktk.TimeSeries.ui_edit_events
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.ui_get_ts_between_clicks.html">
-         ktk.TimeSeries.ui_get_ts_between_clicks
         </a>
        </li>
        <li class="toctree-l4">
@@ -741,6 +711,21 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.geometry.register_points.html">
          ktk.geometry.register_points
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.geometry.rotate.html">
+         ktk.geometry.rotate
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.geometry.scale.html">
+         ktk.geometry.scale
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.geometry.translate.html">
+         ktk.geometry.translate
         </a>
        </li>
       </ul>
@@ -1227,8 +1212,9 @@ title="Fullscreen mode"
 <span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cos</span>
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">import</span> <span class="nn">copy</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
 <span class="kn">from</span> <span class="nn">numpy.typing</span> <span class="kn">import</span> <span class="n">ArrayLike</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
 
 <span class="c1"># To fit the new viewpoint on selecting a new marker</span>
 <span class="kn">import</span> <span class="nn">scipy.optimize</span> <span class="k">as</span> <span class="nn">optim</span>
@@ -1345,7 +1331,6 @@ title="Fullscreen mode"
         <span class="n">perspective</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">):</span>
-
         <span class="c1"># Allow older variable names</span>
         <span class="k">if</span> <span class="s2">&quot;segments&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="ow">and</span> <span class="n">interconnections</span> <span class="o">==</span> <span class="p">{}:</span>
             <span class="n">interconnections</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;segments&quot;</span><span class="p">]</span>
@@ -1373,7 +1358,6 @@ title="Fullscreen mode"
                         <span class="bp">self</span><span class="o">.</span><span class="n">markers</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">one_ts</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
 
                 <span class="k">elif</span> <span class="n">one_ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">==</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
-
                     <span class="c1"># Add the frames</span>
                     <span class="bp">self</span><span class="o">.</span><span class="n">rigid_bodies</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">one_ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
                     <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">one_ts</span><span class="o">.</span><span class="n">data_info</span><span class="p">:</span>
@@ -1390,9 +1374,11 @@ title="Fullscreen mode"
                         <span class="p">]</span>
 
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-                        <span class="s2">&quot;TimeSeries data must be of shape Nx4 &quot;</span>
-                        <span class="s2">&quot;(markers) or Nx4x4 (rigid bodies)&quot;</span>
+                    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                        <span class="sa">f</span><span class="s2">&quot;The data key </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> has a shape of &quot;</span>
+                        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">one_ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">. However, the Player can &quot;</span>
+                        <span class="s2">&quot;only show points (Nx4) and frames Nx4x4. Therefore, &quot;</span>
+                        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> won&#39;t be shown in the Player.&quot;</span>
                     <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_select_none</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">last_selected_marker</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
@@ -1766,7 +1752,6 @@ title="Fullscreen mode"
 
         <span class="k">if</span> <span class="n">n_markers</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">i_marker</span><span class="p">,</span> <span class="n">marker</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">):</span>
-
                 <span class="c1"># Get this marker&#39;s color</span>
                 <span class="k">if</span> <span class="p">(</span>
                     <span class="n">marker</span> <span class="ow">in</span> <span class="n">markers</span><span class="o">.</span><span class="n">data_info</span>
@@ -1800,13 +1785,11 @@ title="Fullscreen mode"
         <span class="c1"># Draw the interconnections</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">interconnections</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="k">for</span> <span class="n">interconnection</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">interconnections</span><span class="p">:</span>
-
                 <span class="n">coordinates</span> <span class="o">=</span> <span class="p">[]</span>
                 <span class="n">chains</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interconnections</span><span class="p">[</span><span class="n">interconnection</span><span class="p">][</span><span class="s2">&quot;Links&quot;</span><span class="p">]</span>
 
                 <span class="k">for</span> <span class="n">chain</span> <span class="ow">in</span> <span class="n">chains</span><span class="p">:</span>
                     <span class="k">for</span> <span class="n">marker</span> <span class="ow">in</span> <span class="n">chain</span><span class="p">:</span>
-
                         <span class="k">try</span><span class="p">:</span>
                             <span class="n">coordinates</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">interconnection_markers</span><span class="p">[</span><span class="n">marker</span><span class="p">])</span>
                         <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
@@ -2134,7 +2117,6 @@ title="Fullscreen mode"
         <span class="bp">self</span><span class="o">.</span><span class="n">_update_plots</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="nf">_on_mouse_press</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>  <span class="c1"># pragma: no cover</span>
-
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">last_selected_marker</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_set_new_target</span><span class="p">(</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">last_selected_marker</span><span class="p">][</span>
@@ -2199,10 +2181,10 @@ title="Fullscreen mode"
 
 <div class="viewcode-block" id="Player.to_html5"><a class="viewcode-back" href="../../api/ktk.Player.to_html5.html#ktk.Player.to_html5">[docs]</a>    <span class="k">def</span> <span class="nf">to_html5</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
-        <span class="n">start_index</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">stop_index</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">start_time</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">stop_time</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">start_index</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">stop_index</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">start_time</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">stop_time</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -2284,7 +2266,7 @@ title="Fullscreen mode"
   
     By Félix Chénier<br/>
   
-      &copy; Copyright 2020-2022.<br/>
+      &copy; Copyright 2020-2023.<br/>
     <div class="extra_footer">
       This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>.
     </div>

@@ -343,16 +343,6 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="ktk.TimeSeries.get_event_index.html">
-         ktk.TimeSeries.get_event_index
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="ktk.TimeSeries.get_event_time.html">
-         ktk.TimeSeries.get_event_time
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="ktk.TimeSeries.get_index_after_time.html">
          ktk.TimeSeries.get_index_after_time
         </a>
@@ -390,16 +380,6 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="ktk.TimeSeries.get_ts_after_time.html">
          ktk.TimeSeries.get_ts_after_time
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="ktk.TimeSeries.get_ts_at_event.html">
-         ktk.TimeSeries.get_ts_at_event
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="ktk.TimeSeries.get_ts_at_time.html">
-         ktk.TimeSeries.get_ts_at_time
         </a>
        </li>
        <li class="toctree-l4">
@@ -493,11 +473,6 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="ktk.TimeSeries.sync_event.html">
-         ktk.TimeSeries.sync_event
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="ktk.TimeSeries.to_dataframe.html">
          ktk.TimeSeries.to_dataframe
         </a>
@@ -510,11 +485,6 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="ktk.TimeSeries.ui_edit_events.html">
          ktk.TimeSeries.ui_edit_events
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="ktk.TimeSeries.ui_get_ts_between_clicks.html">
-         ktk.TimeSeries.ui_get_ts_between_clicks
         </a>
        </li>
        <li class="toctree-l4">
@@ -744,6 +714,21 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="ktk.geometry.register_points.html">
          ktk.geometry.register_points
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="ktk.geometry.rotate.html">
+         ktk.geometry.rotate
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="ktk.geometry.scale.html">
+         ktk.geometry.scale
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="ktk.geometry.translate.html">
+         ktk.geometry.translate
         </a>
        </li>
       </ul>
@@ -1244,22 +1229,22 @@ title="Print to PDF"
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>origin</strong> (<em>ArrayLike</em>) – A series of N points (Nx4) that corresponds to the origin of the
 series of frames to be created.</p></li>
-<li><p><strong>x</strong> (<em>Optional</em><em>[</em><em>ArrayLike</em><em>]</em>) – Define either <cite>x</cite>, <cite>y</cite> or <cite>z</cite>. A series of N vectors (Nx4) that
+<li><p><strong>x</strong> (<em>ArrayLike</em><em> | </em><em>None</em>) – Define either <cite>x</cite>, <cite>y</cite> or <cite>z</cite>. A series of N vectors (Nx4) that
 are aligned toward the {x|y|z} series of frames to be created.</p></li>
-<li><p><strong>y</strong> (<em>Optional</em><em>[</em><em>ArrayLike</em><em>]</em>) – Define either <cite>x</cite>, <cite>y</cite> or <cite>z</cite>. A series of N vectors (Nx4) that
+<li><p><strong>y</strong> (<em>ArrayLike</em><em> | </em><em>None</em>) – Define either <cite>x</cite>, <cite>y</cite> or <cite>z</cite>. A series of N vectors (Nx4) that
 are aligned toward the {x|y|z} series of frames to be created.</p></li>
-<li><p><strong>z</strong> (<em>Optional</em><em>[</em><em>ArrayLike</em><em>]</em>) – Define either <cite>x</cite>, <cite>y</cite> or <cite>z</cite>. A series of N vectors (Nx4) that
+<li><p><strong>z</strong> (<em>ArrayLike</em><em> | </em><em>None</em>) – Define either <cite>x</cite>, <cite>y</cite> or <cite>z</cite>. A series of N vectors (Nx4) that
 are aligned toward the {x|y|z} series of frames to be created.</p></li>
-<li><p><strong>xy</strong> (<em>Optional</em><em>[</em><em>ArrayLike</em><em>]</em>) – Only if <cite>x</cite> is specified. A series of N vectors (Nx4) in the {xy|xz}
+<li><p><strong>xy</strong> (<em>ArrayLike</em><em> | </em><em>None</em>) – Only if <cite>x</cite> is specified. A series of N vectors (Nx4) in the {xy|xz}
 plane of the series of frames to be created. As a rule of thumb, use
 a series of N vectors that correspond roughly to the {z|-y} axis.</p></li>
-<li><p><strong>xz</strong> (<em>Optional</em><em>[</em><em>ArrayLike</em><em>]</em>) – Only if <cite>x</cite> is specified. A series of N vectors (Nx4) in the {xy|xz}
+<li><p><strong>xz</strong> (<em>ArrayLike</em><em> | </em><em>None</em>) – Only if <cite>x</cite> is specified. A series of N vectors (Nx4) in the {xy|xz}
 plane of the series of frames to be created. As a rule of thumb, use
 a series of N vectors that correspond roughly to the {z|-y} axis.</p></li>
 <li><p><strong>xy</strong> – Only if <cite>y</cite> is specified. A series of N vectors (Nx4) in the {xy|yz}
 plane of the series of frames to be created. As a rule of thumb, use
 a series of N vectors that correspond roughly to the {z|x} axis.</p></li>
-<li><p><strong>yz</strong> (<em>Optional</em><em>[</em><em>ArrayLike</em><em>]</em>) – Only if <cite>y</cite> is specified. A series of N vectors (Nx4) in the {xy|yz}
+<li><p><strong>yz</strong> (<em>ArrayLike</em><em> | </em><em>None</em>) – Only if <cite>y</cite> is specified. A series of N vectors (Nx4) in the {xy|yz}
 plane of the series of frames to be created. As a rule of thumb, use
 a series of N vectors that correspond roughly to the {z|x} axis.</p></li>
 <li><p><strong>xz</strong> – Only if <cite>z</cite> is specified. A series of N vectors (Nx4) in the {xz|yz}

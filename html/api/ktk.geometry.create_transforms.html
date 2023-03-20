@@ -343,16 +343,6 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="ktk.TimeSeries.get_event_index.html">
-         ktk.TimeSeries.get_event_index
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="ktk.TimeSeries.get_event_time.html">
-         ktk.TimeSeries.get_event_time
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="ktk.TimeSeries.get_index_after_time.html">
          ktk.TimeSeries.get_index_after_time
         </a>
@@ -390,16 +380,6 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="ktk.TimeSeries.get_ts_after_time.html">
          ktk.TimeSeries.get_ts_after_time
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="ktk.TimeSeries.get_ts_at_event.html">
-         ktk.TimeSeries.get_ts_at_event
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="ktk.TimeSeries.get_ts_at_time.html">
-         ktk.TimeSeries.get_ts_at_time
         </a>
        </li>
        <li class="toctree-l4">
@@ -493,11 +473,6 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="ktk.TimeSeries.sync_event.html">
-         ktk.TimeSeries.sync_event
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="ktk.TimeSeries.to_dataframe.html">
          ktk.TimeSeries.to_dataframe
         </a>
@@ -510,11 +485,6 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="ktk.TimeSeries.ui_edit_events.html">
          ktk.TimeSeries.ui_edit_events
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="ktk.TimeSeries.ui_get_ts_between_clicks.html">
-         ktk.TimeSeries.ui_get_ts_between_clicks
         </a>
        </li>
        <li class="toctree-l4">
@@ -744,6 +714,21 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="ktk.geometry.register_points.html">
          ktk.geometry.register_points
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="ktk.geometry.rotate.html">
+         ktk.geometry.rotate
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="ktk.geometry.scale.html">
+         ktk.geometry.scale
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="ktk.geometry.translate.html">
+         ktk.geometry.translate
         </a>
        </li>
       </ul>
@@ -1237,17 +1222,19 @@ title="Print to PDF"
 <h1>ktk.geometry.create_transforms<a class="headerlink" href="#ktk-geometry-create-transforms" title="Permalink to this headline">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="ktk.geometry.create_transforms">
-<span class="sig-name descname"><span class="pre">create_transforms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degrees</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ktk/geometry.html#create_transforms"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ktk.geometry.create_transforms" title="Permalink to this definition">#</a></dt>
-<dd><p>Create an Nx4x4 series of homogeneous transforms based on angle sequences.</p>
+<span class="sig-name descname"><span class="pre">create_transforms</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">angles</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translations</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scales</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">degrees</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ktk/geometry.html#create_transforms"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ktk.geometry.create_transforms" title="Permalink to this definition">#</a></dt>
+<dd><p>Create series of transforms based on angles, translatations and scales.</p>
+<p>Create an Nx4x4 series of homogeneous transform matrices based on series of
+angles, translatations and scales.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>seq</strong> (<em>Optional</em><em>[</em><em>str</em><em>]</em>) – Optional. Specifies sequence of axes for rotations. Up to 3 characters
+<li><p><strong>seq</strong> (<em>str</em><em> | </em><em>None</em>) – Optional. Specifies sequence of axes for rotations. Up to 3 characters
 belonging to the set {‘X’, ‘Y’, ‘Z’} for intrinsic rotations (moving
 axes), or {‘x’, ‘y’, ‘z’} for extrinsic rotations (fixed axes).
 Extrinsic and intrinsic rotations cannot be mixed in one function call.
 Required if angles is specified.</p></li>
-<li><p><strong>angles</strong> (<em>Optional</em><em>[</em><em>ArrayLike</em><em>]</em>) – <p>Optional array_like of shape (N,) or (N, [1 or 2 or 3]). Angles are
+<li><p><strong>angles</strong> (<em>ArrayLike</em><em> | </em><em>None</em>) – <p>Optional array_like of shape (N,) or (N, [1 or 2 or 3]). Angles are
 specified in radians (if degrees is False) or degrees (if degrees is
 True).</p>
 <p>For a single-character <cite>seq</cite>, <cite>angles</cite> can be:</p>
@@ -1261,9 +1248,11 @@ to a single rotation.</p></li>
 (N, W) where each <cite>angle[i, :]</cite> corresponds to a sequence of Euler
 angles and W is the length of <cite>seq</cite>.</p>
 </p></li>
-<li><p><strong>translations</strong> (<em>Optional</em><em>[</em><em>ArrayLike</em><em>]</em>) – Optional array_like or shape (N, 3) or (N, 4). This corresponds
+<li><p><strong>translations</strong> (<em>ArrayLike</em><em> | </em><em>None</em>) – Optional array_like of shape (N, 3) or (N, 4). This corresponds
 to the translation part of the generated series of homogeneous
 transforms.</p></li>
+<li><p><strong>scales</strong> (<em>ArrayLike</em><em> | </em><em>None</em>) – Optional array_like of shape (N, ) that corresponds to the scale to
+apply uniformly on the three axes. By default, no scale is included.</p></li>
 <li><p><strong>degrees</strong> – If True, then the given angles are in degrees. Default is False.</p></li>
 </ul>
 </dd>
@@ -1276,13 +1265,13 @@ transforms.</p></li>
 </dl>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="ktk.geometry.create_frames.html#ktk.geometry.create_frames" title="ktk.geometry.create_frames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.geometry.create_frames</span></code></a></p>
+<p><a class="reference internal" href="ktk.geometry.create_frames.html#ktk.geometry.create_frames" title="ktk.geometry.create_frames"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.geometry.create_frames</span></code></a>, <a class="reference internal" href="ktk.geometry.rotate.html#ktk.geometry.rotate" title="ktk.geometry.rotate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.geometry.rotate</span></code></a>, <a class="reference internal" href="ktk.geometry.translate.html#ktk.geometry.translate" title="ktk.geometry.translate"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.geometry.translate</span></code></a>, <a class="reference internal" href="ktk.geometry.scale.html#ktk.geometry.scale" title="ktk.geometry.scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.geometry.scale</span></code></a></p>
 </div>
-<p class="rubric">Example</p>
+<p class="rubric">Examples</p>
 <p>Create a series of two homogeneous transforms that rotates 0, then 90
 degrees around x:</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">kineticstoolkit.lab</span> <span class="k">as</span> <span class="nn">ktk</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">create_transforms</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">90</span><span class="p">],</span> <span class="n">degrees</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">create_transforms</span><span class="p">(</span><span class="n">seq</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">angles</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">90</span><span class="p">],</span> <span class="n">degrees</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="go">array([[[ 1.,  0.,  0.,  0.],</span>
 <span class="go">        [ 0.,  1.,  0.,  0.],</span>
 <span class="go">        [ 0.,  0.,  1.,  0.],</span>
@@ -1292,6 +1281,15 @@ degrees around x:</p>
 <span class="go">        [ 0.,  0., -1.,  0.],</span>
 <span class="go">        [ 0.,  1.,  0.,  0.],</span>
 <span class="go">        [ 0.,  0.,  0.,  1.]]])</span>
+</pre></div>
+</div>
+<p>Create an homogeneous transform that converts millimeters to meters</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">kineticstoolkit.lab</span> <span class="k">as</span> <span class="nn">ktk</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">create_transforms</span><span class="p">(</span><span class="n">scales</span><span class="o">=</span><span class="p">[</span><span class="mf">0.001</span><span class="p">])</span>
+<span class="go">array([[[0.001, 0.   , 0.   , 0.   ],</span>
+<span class="go">        [0.   , 0.001, 0.   , 0.   ],</span>
+<span class="go">        [0.   , 0.   , 0.001, 0.   ],</span>
+<span class="go">        [0.   , 0.   , 0.   , 1.   ]]])</span>
 </pre></div>
 </div>
 </dd></dl>

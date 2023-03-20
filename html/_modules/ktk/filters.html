@@ -340,16 +340,6 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.get_event_index.html">
-         ktk.TimeSeries.get_event_index
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.get_event_time.html">
-         ktk.TimeSeries.get_event_time
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.get_index_after_time.html">
          ktk.TimeSeries.get_index_after_time
         </a>
@@ -387,16 +377,6 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_after_time.html">
          ktk.TimeSeries.get_ts_after_time
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_at_event.html">
-         ktk.TimeSeries.get_ts_at_event
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_at_time.html">
-         ktk.TimeSeries.get_ts_at_time
         </a>
        </li>
        <li class="toctree-l4">
@@ -490,11 +470,6 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.sync_event.html">
-         ktk.TimeSeries.sync_event
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.to_dataframe.html">
          ktk.TimeSeries.to_dataframe
         </a>
@@ -507,11 +482,6 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.ui_edit_events.html">
          ktk.TimeSeries.ui_edit_events
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.ui_get_ts_between_clicks.html">
-         ktk.TimeSeries.ui_get_ts_between_clicks
         </a>
        </li>
        <li class="toctree-l4">
@@ -741,6 +711,21 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.geometry.register_points.html">
          ktk.geometry.register_points
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.geometry.rotate.html">
+         ktk.geometry.rotate
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.geometry.scale.html">
+         ktk.geometry.scale
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.geometry.translate.html">
+         ktk.geometry.translate
         </a>
        </li>
       </ul>
@@ -1301,7 +1286,6 @@ title="Fullscreen mode"
 <span class="sd">    See also</span>
 <span class="sd">    --------</span>
 <span class="sd">    ktk.filters.smooth</span>
-<span class="sd">    ktk.filters.median</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">check_types</span><span class="p">(</span><span class="n">savgol</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
@@ -1312,7 +1296,6 @@ title="Fullscreen mode"
     <span class="n">delta</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">ts</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 
     <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">tsout</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-
         <span class="p">(</span><span class="n">subts</span><span class="p">,</span> <span class="n">nan_index</span><span class="p">)</span> <span class="o">=</span> <span class="n">_interpolate</span><span class="p">(</span><span class="n">tsout</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">~</span><span class="n">nan_index</span><span class="p">)</span> <span class="o">&lt;</span> <span class="n">poly_order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">:</span>
@@ -1367,7 +1350,6 @@ title="Fullscreen mode"
 <span class="sd">    See also</span>
 <span class="sd">    --------</span>
 <span class="sd">    ktk.filters.savgol</span>
-<span class="sd">    ktk.filters.median</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">check_types</span><span class="p">(</span><span class="n">smooth</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
@@ -1437,7 +1419,6 @@ title="Fullscreen mode"
     <span class="n">sos</span> <span class="o">=</span> <span class="n">sgl</span><span class="o">.</span><span class="n">butter</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">fc</span><span class="p">,</span> <span class="n">btype</span><span class="p">,</span> <span class="n">analog</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">output</span><span class="o">=</span><span class="s2">&quot;sos&quot;</span><span class="p">,</span> <span class="n">fs</span><span class="o">=</span><span class="n">fs</span><span class="p">)</span>
 
     <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
-
         <span class="p">(</span><span class="n">subts</span><span class="p">,</span> <span class="n">missing</span><span class="p">)</span> <span class="o">=</span> <span class="n">_interpolate</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
 
         <span class="c1"># Filter</span>
@@ -1540,11 +1521,6 @@ title="Fullscreen mode"
 <span class="sd">    window_length</span>
 <span class="sd">        Optional. Kernel size, must be odd. The default is 3.</span>
 
-<span class="sd">    See also</span>
-<span class="sd">    --------</span>
-<span class="sd">    ktk.butter.smooth</span>
-<span class="sd">    ktk.butter.savgol</span>
-
 <span class="sd">    Example</span>
 <span class="sd">    -------</span>
 <span class="sd">    &gt;&gt;&gt; ts = ktk.TimeSeries(time=np.arange(0, 0.5, 0.1))</span>
@@ -1586,7 +1562,7 @@ title="Fullscreen mode"
   
     By Félix Chénier<br/>
   
-      &copy; Copyright 2020-2022.<br/>
+      &copy; Copyright 2020-2023.<br/>
     <div class="extra_footer">
       This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>.
     </div>

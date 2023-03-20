@@ -340,16 +340,6 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.get_event_index.html">
-         ktk.TimeSeries.get_event_index
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.get_event_time.html">
-         ktk.TimeSeries.get_event_time
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.get_index_after_time.html">
          ktk.TimeSeries.get_index_after_time
         </a>
@@ -387,16 +377,6 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_after_time.html">
          ktk.TimeSeries.get_ts_after_time
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_at_event.html">
-         ktk.TimeSeries.get_ts_at_event
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_at_time.html">
-         ktk.TimeSeries.get_ts_at_time
         </a>
        </li>
        <li class="toctree-l4">
@@ -490,11 +470,6 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.sync_event.html">
-         ktk.TimeSeries.sync_event
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.to_dataframe.html">
          ktk.TimeSeries.to_dataframe
         </a>
@@ -507,11 +482,6 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.ui_edit_events.html">
          ktk.TimeSeries.ui_edit_events
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.ui_get_ts_between_clicks.html">
-         ktk.TimeSeries.ui_get_ts_between_clicks
         </a>
        </li>
        <li class="toctree-l4">
@@ -741,6 +711,21 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.geometry.register_points.html">
          ktk.geometry.register_points
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.geometry.rotate.html">
+         ktk.geometry.rotate
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.geometry.scale.html">
+         ktk.geometry.scale
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.geometry.translate.html">
+         ktk.geometry.translate
         </a>
        </li>
       </ul>
@@ -1232,7 +1217,7 @@ title="Fullscreen mode"
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">limitedinteraction</span> <span class="k">as</span> <span class="nn">li</span>
 <span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Optional</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
 
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="kn">from</span> <span class="nn">ast</span> <span class="kn">import</span> <span class="n">literal_eval</span>
@@ -1242,264 +1227,6 @@ title="Fullscreen mode"
 
 
 <span class="n">WINDOW_PLACEMENT</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;top&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s2">&quot;right&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
-
-
-<span class="k">def</span> <span class="nf">dataframe_to_dict_of_arrays</span><span class="p">(</span>
-    <span class="n">dataframe</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Convert a pandas DataFrame to a dict of numpy ndarrays.</span>
-
-<span class="sd">    This function mirrors the dict_of_arrays_to_dataframe function. It is</span>
-<span class="sd">    mainly used by the TimeSeries.from_dataframe method.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    pd_dataframe</span>
-<span class="sd">        The dataframe to be converted.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    dict[str, np.ndarray]</span>
-
-
-<span class="sd">    Examples</span>
-<span class="sd">    --------</span>
-<span class="sd">    In the simplest case, each dataframe column becomes a dict key.</span>
-
-<span class="sd">        &gt;&gt;&gt; df = pd.DataFrame([[0, 3], [1, 4], [2, 5]])</span>
-<span class="sd">        &gt;&gt;&gt; df.columns = [&#39;column1&#39;, &#39;column2&#39;]</span>
-<span class="sd">        &gt;&gt;&gt; df</span>
-<span class="sd">           column1  column2</span>
-<span class="sd">        0        0        3</span>
-<span class="sd">        1        1        4</span>
-<span class="sd">        2        2        5</span>
-
-<span class="sd">        &gt;&gt;&gt; data = dataframe_to_dict_of_arrays(df)</span>
-
-<span class="sd">        &gt;&gt;&gt; data[&#39;column1&#39;]</span>
-<span class="sd">        array([0, 1, 2])</span>
-
-<span class="sd">        &gt;&gt;&gt; data[&#39;column2&#39;]</span>
-<span class="sd">        array([3, 4, 5])</span>
-
-<span class="sd">    If the dataframe contains similar column names with indices in brackets</span>
-<span class="sd">    (for example, Forces[0], Forces[1], Forces[2]), then these columns are</span>
-<span class="sd">    combined in a single array.</span>
-
-<span class="sd">        &gt;&gt;&gt; df = pd.DataFrame([[0, 3, 6, 9], [1, 4, 7, 10], [2, 5, 8, 11]])</span>
-<span class="sd">        &gt;&gt;&gt; df.columns = [&#39;Forces[0]&#39;, &#39;Forces[1]&#39;, &#39;Forces[2]&#39;, &#39;Other&#39;]</span>
-<span class="sd">        &gt;&gt;&gt; df</span>
-<span class="sd">           Forces[0]  Forces[1]  Forces[2]  Other</span>
-<span class="sd">        0          0          3          6      9</span>
-<span class="sd">        1          1          4          7     10</span>
-<span class="sd">        2          2          5          8     11</span>
-
-<span class="sd">        &gt;&gt;&gt; data = dataframe_to_dict_of_arrays(df)</span>
-
-<span class="sd">        &gt;&gt;&gt; data[&#39;Forces&#39;]</span>
-<span class="sd">        array([[0, 3, 6],</span>
-<span class="sd">               [1, 4, 7],</span>
-<span class="sd">               [2, 5, 8]])</span>
-
-<span class="sd">        &gt;&gt;&gt; data[&#39;Other&#39;]</span>
-<span class="sd">        array([ 9, 10, 11])</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># Remove spaces in indexes between brackets</span>
-    <span class="n">columns</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">columns</span>
-    <span class="n">new_columns</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="k">for</span> <span class="n">i_column</span><span class="p">,</span> <span class="n">column</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">columns</span><span class="p">):</span>
-        <span class="n">splitted</span> <span class="o">=</span> <span class="n">column</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;[&quot;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">splitted</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># There are brackets</span>
-            <span class="n">new_columns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-                <span class="n">splitted</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;[&quot;</span> <span class="o">+</span> <span class="n">splitted</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-            <span class="p">)</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">new_columns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
-    <span class="n">dataframe</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">columns</span>
-
-    <span class="c1"># Search for the column names and their dimensions</span>
-    <span class="c1"># At the end, we end with something like:</span>
-    <span class="c1">#    dimensions[&#39;Data1&#39;] = []</span>
-    <span class="c1">#    dimensions[&#39;Data2&#39;] = [[0], [1], [2]]</span>
-    <span class="c1">#    dimensions[&#39;Data3&#39;] = [[0,0],[0,1],[1,0],[1,1]]</span>
-    <span class="n">dimensions</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>  <span class="c1"># type: dict[str, list]</span>
-    <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
-        <span class="n">splitted</span> <span class="o">=</span> <span class="n">column</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;[&quot;</span><span class="p">)</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">splitted</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># No brackets</span>
-            <span class="n">dimensions</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">else</span><span class="p">:</span>  <span class="c1"># With brackets</span>
-            <span class="n">key</span> <span class="o">=</span> <span class="n">splitted</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-            <span class="n">index</span> <span class="o">=</span> <span class="n">literal_eval</span><span class="p">(</span><span class="s2">&quot;[&quot;</span> <span class="o">+</span> <span class="n">splitted</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-
-            <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dimensions</span><span class="p">:</span>
-                <span class="n">dimensions</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">dimensions</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">index</span><span class="p">]</span>
-
-    <span class="n">n_samples</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataframe</span><span class="p">)</span>
-
-    <span class="c1"># Assign the columns to the output</span>
-    <span class="n">out</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>  <span class="c1"># type: dict[str, np.ndarray]</span>
-    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dimensions</span><span class="p">:</span>
-        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dimensions</span><span class="p">[</span><span class="n">key</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">out</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">highest_dims</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dimensions</span><span class="p">[</span><span class="n">key</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-
-            <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span>
-                <span class="n">key</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
-                <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">dimensions</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
-            <span class="p">]</span>
-            <span class="n">out</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[</span><span class="n">columns</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
-            <span class="n">out</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span>
-                <span class="n">out</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="p">[</span><span class="n">n_samples</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">highest_dims</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-            <span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">out</span>
-
-
-<span class="k">def</span> <span class="nf">dict_of_arrays_to_dataframe</span><span class="p">(</span>
-    <span class="n">dict_of_arrays</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Convert a dict of ndarray of any dimension to a pandas DataFrame.</span>
-
-<span class="sd">    This function mirrors the dataframe_to_dict_of_arrays function. It is</span>
-<span class="sd">    mainly used by the TimeSeries.to_dataframe method.</span>
-
-<span class="sd">    The rows in the output DataFrame correspond to the first dimension of the</span>
-<span class="sd">    numpy arrays.</span>
-
-<span class="sd">    - Vectors are converted to single-column DataFrames.</span>
-<span class="sd">    - 2-dimensional arrays are converted to multi-columns DataFrames.</span>
-<span class="sd">    - 3-dimensional (or more) arrays are also converted to DataFrames, but</span>
-<span class="sd">      indices in brackets are added to the column names.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    dict_of_array</span>
-<span class="sd">        A dict that contains numpy arrays. Each array must have the same</span>
-<span class="sd">        first dimension&#39;s size.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    DataFrame</span>
-
-<span class="sd">    Example</span>
-<span class="sd">    -------</span>
-<span class="sd">    &gt;&gt;&gt; data = dict()</span>
-<span class="sd">    &gt;&gt;&gt; data[&#39;Forces&#39;] = np.arange(12).reshape((4, 3))</span>
-<span class="sd">    &gt;&gt;&gt; data[&#39;Other&#39;] = np.arange(4)</span>
-
-<span class="sd">    &gt;&gt;&gt; data[&#39;Forces&#39;]</span>
-<span class="sd">    array([[ 0,  1,  2],</span>
-<span class="sd">           [ 3,  4,  5],</span>
-<span class="sd">           [ 6,  7,  8],</span>
-<span class="sd">           [ 9, 10, 11]])</span>
-
-<span class="sd">    &gt;&gt;&gt; data[&#39;Other&#39;]</span>
-<span class="sd">    array([0, 1, 2, 3])</span>
-
-<span class="sd">    &gt;&gt;&gt; df = dict_of_arrays_to_dataframe(data)</span>
-
-<span class="sd">    &gt;&gt;&gt; df</span>
-<span class="sd">       Forces[0]  Forces[1]  Forces[2]  Other</span>
-<span class="sd">    0          0          1          2      0</span>
-<span class="sd">    1          3          4          5      1</span>
-<span class="sd">    2          6          7          8      2</span>
-<span class="sd">    3          9         10         11      3</span>
-
-<span class="sd">    It also works with higher dimensions:</span>
-
-<span class="sd">    &gt;&gt;&gt; data = {&#39;3d_data&#39;: np.arange(8).reshape((2, 2, 2))}</span>
-
-<span class="sd">    &gt;&gt;&gt; data[&#39;3d_data&#39;]</span>
-<span class="sd">    array([[[0, 1],</span>
-<span class="sd">            [2, 3]],</span>
-<span class="sd">           [[4, 5],</span>
-<span class="sd">            [6, 7]]])</span>
-
-<span class="sd">    &gt;&gt;&gt; df = dict_of_arrays_to_dataframe(data)</span>
-
-<span class="sd">    &gt;&gt;&gt; df</span>
-<span class="sd">       3d_data[0,0]  3d_data[0,1]  3d_data[1,0]  3d_data[1,1]</span>
-<span class="sd">    0             0             1             2             3</span>
-<span class="sd">    1             4             5             6             7</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># Init</span>
-    <span class="n">df_out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
-
-    <span class="c1"># Go through data</span>
-    <span class="n">the_keys</span> <span class="o">=</span> <span class="n">dict_of_arrays</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
-    <span class="k">for</span> <span class="n">the_key</span> <span class="ow">in</span> <span class="n">the_keys</span><span class="p">:</span>
-
-        <span class="c1"># Assign data</span>
-        <span class="n">original_data</span> <span class="o">=</span> <span class="n">dict_of_arrays</span><span class="p">[</span><span class="n">the_key</span><span class="p">]</span>
-
-        <span class="k">if</span> <span class="n">original_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># Not empty</span>
-
-            <span class="n">original_data_shape</span> <span class="o">=</span> <span class="n">original_data</span><span class="o">.</span><span class="n">shape</span>
-            <span class="n">data_length</span> <span class="o">=</span> <span class="n">original_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-
-            <span class="n">reshaped_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">original_data</span><span class="p">,</span> <span class="p">(</span><span class="n">data_length</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
-            <span class="n">reshaped_data_shape</span> <span class="o">=</span> <span class="n">reshaped_data</span><span class="o">.</span><span class="n">shape</span>
-
-            <span class="n">df_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">reshaped_data</span><span class="p">)</span>
-
-            <span class="c1"># Get the column names index from the shape of the original data</span>
-            <span class="c1"># The strategy here is to build matrices of indices, that have</span>
-            <span class="c1"># the same shape as the original data, then reshape these matrices</span>
-            <span class="c1"># the same way we reshaped the original data. Then we know where</span>
-            <span class="c1"># the original indices are in the new reshaped data.</span>
-            <span class="n">original_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">indices</span><span class="p">(</span><span class="n">original_data_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
-            <span class="n">reshaped_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span>
-                <span class="n">original_indices</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">reshaped_data_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-            <span class="p">)</span>
-
-            <span class="c1"># Hint for my future self:</span>
-            <span class="c1"># For a one-dimension series, reshaped_indices will be:</span>
-            <span class="c1"># [[0]].</span>
-            <span class="c1"># For a two-dimension series, reshaped_indices will be:</span>
-            <span class="c1"># [[0 1 2 ...]].</span>
-            <span class="c1"># For a three-dimension series, reshaped_indices will be:</span>
-            <span class="c1"># [[0 0 0 ... 1 1 1 ... 2 2 2 ...]</span>
-            <span class="c1">#   0 1 2 ... 0 1 2 ... 0 1 2 ...]]</span>
-            <span class="c1"># and so on.</span>
-
-            <span class="c1"># Assign column names</span>
-            <span class="n">column_names</span> <span class="o">=</span> <span class="p">[]</span>
-            <span class="k">for</span> <span class="n">i_column</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_data</span><span class="o">.</span><span class="n">columns</span><span class="p">)):</span>
-                <span class="n">this_column_name</span> <span class="o">=</span> <span class="n">the_key</span>
-                <span class="n">n_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">reshaped_indices</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-                <span class="k">if</span> <span class="n">n_indices</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-                    <span class="c1"># This data is expressed in more than one dimension.</span>
-                    <span class="c1"># We must add brackets to the column names to specify</span>
-                    <span class="c1"># the indices.</span>
-                    <span class="n">this_column_name</span> <span class="o">+=</span> <span class="s2">&quot;[&quot;</span>
-
-                    <span class="k">for</span> <span class="n">i_indice</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_indices</span><span class="p">):</span>
-                        <span class="n">this_column_name</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span>
-                            <span class="n">reshaped_indices</span><span class="p">[</span><span class="n">i_indice</span><span class="p">,</span> <span class="n">i_column</span><span class="p">]</span>
-                        <span class="p">)</span>
-                        <span class="k">if</span> <span class="n">i_indice</span> <span class="o">==</span> <span class="n">n_indices</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
-                            <span class="n">this_column_name</span> <span class="o">+=</span> <span class="s2">&quot;]&quot;</span>
-                        <span class="k">else</span><span class="p">:</span>
-                            <span class="n">this_column_name</span> <span class="o">+=</span> <span class="s2">&quot;,&quot;</span>
-
-                <span class="n">column_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">this_column_name</span><span class="p">)</span>
-
-            <span class="n">df_data</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">column_names</span>
-
-        <span class="k">else</span><span class="p">:</span>  <span class="c1"># empty data</span>
-            <span class="n">df_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">the_key</span><span class="p">])</span>
-
-        <span class="c1"># Merge this dataframe with the output dataframe</span>
-        <span class="n">df_out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_out</span><span class="p">,</span> <span class="n">df_data</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">df_out</span>
 
 
 <div class="viewcode-block" id="TimeSeriesEvent"><a class="viewcode-back" href="../../api/ktk.TimeSeriesEvent.html#ktk.TimeSeriesEvent">[docs]</a><span class="nd">@dataclass</span>
@@ -1577,7 +1304,52 @@ title="Fullscreen mode"
         <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;Time&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="s2">&quot;Name&quot;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">}</span></div>
 
 
-<div class="viewcode-block" id="TimeSeries"><a class="viewcode-back" href="../../api/ktk.TimeSeries.html#ktk.TimeSeries">[docs]</a><span class="k">class</span> <span class="nc">TimeSeries</span><span class="p">:</span>
+<span class="k">class</span> <span class="nc">MetaTimeSeries</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A metaclass only to provide a proper class dir() function.&quot;&quot;&quot;</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="fm">__dir__</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="s2">&quot;add_data_info&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;add_event&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;copy&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;count_events&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;fill_missing_samples&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;from_dataframe&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;get_index_after_time&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;get_index_at_time&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;get_index_before_time&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;get_subset&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;get_ts_after_event&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;get_ts_after_index&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;get_ts_after_time&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;get_ts_before_event&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;get_ts_before_index&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;get_ts_before_time&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;get_ts_between_events&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;get_ts_between_indexes&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;get_ts_between_times&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;isnan&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;merge&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;plot&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;remove_data&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;remove_data_info&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;remove_duplicate_events&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;remove_event&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;rename_data&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;rename_event&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;resample&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;get_sample_rate&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;shift&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;sort_events&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;to_dataframe&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;trim_events&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;ui_edit_events&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;ui_sync&quot;</span><span class="p">,</span>
+        <span class="p">]</span>
+
+
+<div class="viewcode-block" id="TimeSeries"><a class="viewcode-back" href="../../api/ktk.TimeSeries.html#ktk.TimeSeries">[docs]</a><span class="k">class</span> <span class="nc">TimeSeries</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">MetaTimeSeries</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A class that holds time, data series, events and metadata.</span>
 
@@ -1619,51 +1391,16 @@ title="Fullscreen mode"
         <span class="n">data_info</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{},</span>
         <span class="n">events</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">TimeSeriesEvent</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span>
     <span class="p">):</span>
-
         <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">time_info</span> <span class="o">=</span> <span class="n">time_info</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">data_info</span> <span class="o">=</span> <span class="n">data_info</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">events</span> <span class="o">=</span> <span class="n">events</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="fm">__dir__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="fm">__dir__</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate the class directory.&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="p">[</span>
-            <span class="s2">&quot;add_data_info&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;add_event&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;copy&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;count_events&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;fill_missing_samples&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;from_dataframe&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;get_index_after_time&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;get_index_at_time&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;get_index_before_time&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;get_subset&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;get_ts_after_event&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;get_ts_after_index&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;get_ts_after_time&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;get_ts_before_event&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;get_ts_before_index&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;get_ts_before_time&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;get_ts_between_events&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;get_ts_between_indexes&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;get_ts_between_times&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;isnan&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;merge&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;plot&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;remove_data&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;remove_data_info&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;remove_event&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;rename_data&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;rename_event&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;resample&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;shift&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;sort_events&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;to_dataframe&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;trim_events&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;ui_edit_events&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;ui_sync&quot;</span><span class="p">,</span>
-        <span class="p">]</span>
+        <span class="k">return</span> <span class="n">MetaTimeSeries</span><span class="o">.</span><span class="fm">__dir__</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -1982,9 +1719,28 @@ title="Fullscreen mode"
         <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">)):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
                 <span class="s2">&quot;The TimeSeries&#39; time attribute is not always increasing, &quot;</span>
-                <span class="s2">&quot;which is required for the requested function. You can &quot;</span>
+                <span class="s2">&quot;which is required by the requested function. You can &quot;</span>
                 <span class="s2">&quot;resample the TimeSeries on an always increasing time vector &quot;</span>
                 <span class="s2">&quot;using ts = ts.resample(np.sort(ts.time)).&quot;</span>
+            <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_check_constant_sample_rate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Check that the TimeSeries&#39;s sampling rate is constant.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the TimeSeries&#39;s sampling rate is not constant.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_sample_rate</span><span class="p">()):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;The TimeSeries&#39;s sample rate is not constant, which is &quot;</span>
+                <span class="s2">&quot;required by the requested function. You can resample the &quot;</span>
+                <span class="s2">&quot;TimeSeries on a constant sample rate using &quot;</span>
+                <span class="s2">&quot;ts = ts.resample(np.linspace(&quot;</span>
+                <span class="s2">&quot;np.min(ts.time), np.max(ts.time), len(ts.time))).&quot;</span>
             <span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_check_not_empty_data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -2523,7 +2279,7 @@ title="Fullscreen mode"
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">old_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">new_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-        <span class="n">occurrence</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">occurrence</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="o">*</span><span class="p">,</span>
         <span class="n">in_place</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
@@ -2603,7 +2359,7 @@ title="Fullscreen mode"
 <div class="viewcode-block" id="TimeSeries.remove_event"><a class="viewcode-back" href="../../api/ktk.TimeSeries.remove_event.html#ktk.TimeSeries.remove_event">[docs]</a>    <span class="k">def</span> <span class="nf">remove_event</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-        <span class="n">occurrence</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">occurrence</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="o">*</span><span class="p">,</span>
         <span class="n">in_place</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
@@ -2893,7 +2649,7 @@ title="Fullscreen mode"
 
 <div class="viewcode-block" id="TimeSeries.get_index_at_time"><a class="viewcode-back" href="../../api/ktk.TimeSeries.get_index_at_time.html#ktk.TimeSeries.get_index_at_time">[docs]</a>    <span class="k">def</span> <span class="nf">get_index_at_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Get the time index that is the closest to the specified time.</span>
+<span class="sd">        Get the time index that is closest to the specified time.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -2909,6 +2665,9 @@ title="Fullscreen mode"
 <span class="sd">        --------</span>
 <span class="sd">        ktk.TimeSeries.get_index_before_time</span>
 <span class="sd">        ktk.TimeSeries.get_index_after_time</span>
+<span class="sd">        ktk.TimeSeries.get_index_before_event</span>
+<span class="sd">        ktk.TimeSeries.get_index_at_event</span>
+<span class="sd">        ktk.TimeSeries.get_index_after_event</span>
 
 
 <span class="sd">        Example</span>
@@ -2961,6 +2720,9 @@ title="Fullscreen mode"
 <span class="sd">        --------</span>
 <span class="sd">        ktk.TimeSeries.get_index_at_time</span>
 <span class="sd">        ktk.TimeSeries.get_index_after_time</span>
+<span class="sd">        ktk.TimeSeries.get_index_before_event</span>
+<span class="sd">        ktk.TimeSeries.get_index_at_event</span>
+<span class="sd">        ktk.TimeSeries.get_index_after_event</span>
 
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
@@ -3040,8 +2802,11 @@ title="Fullscreen mode"
 
 <span class="sd">        See also</span>
 <span class="sd">        --------</span>
-<span class="sd">        ktk.TimeSeries.get_index_at_time</span>
 <span class="sd">        ktk.TimeSeries.get_index_before_time</span>
+<span class="sd">        ktk.TimeSeries.get_index_at_time</span>
+<span class="sd">        ktk.TimeSeries.get_index_before_event</span>
+<span class="sd">        ktk.TimeSeries.get_index_at_event</span>
+<span class="sd">        ktk.TimeSeries.get_index_after_event</span>
 
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
@@ -3094,6 +2859,159 @@ title="Fullscreen mode"
                 <span class="n">index</span> <span class="o">+=</span> <span class="mi">1</span>
 
         <span class="k">return</span> <span class="n">index</span></div>
+
+    <span class="k">def</span> <span class="nf">get_index_at_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">occurrence</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the time index that is closest to the specified event occurrence.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        name</span>
+<span class="sd">            Event name</span>
+<span class="sd">        occurrence</span>
+<span class="sd">            Occurrence of the event. The default is 0.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        int</span>
+<span class="sd">            The index in the time vector.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TimeSeriesRangeError</span>
+<span class="sd">            If the resulting index would be outside the TimeSeries range.</span>
+
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.get_index_before_time</span>
+<span class="sd">        ktk.TimeSeries.get_index_at_time</span>
+<span class="sd">        ktk.TimeSeries.get_index_after_time</span>
+<span class="sd">        ktk.TimeSeries.get_index_before_event</span>
+<span class="sd">        ktk.TimeSeries.get_index_after_event</span>
+
+<span class="sd">        Example</span>
+<span class="sd">        -------</span>
+<span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries(time=np.arange(10)/10)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(0.2, &#39;event&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(0.36, &#39;event&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; ts.time</span>
+<span class="sd">        array([0. , 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])</span>
+
+<span class="sd">        &gt;&gt;&gt; ts.get_index_at_event(&#39;event&#39;)</span>
+<span class="sd">        2</span>
+
+<span class="sd">        &gt;&gt;&gt; ts.get_index_at_event(&#39;event&#39;, occurrence=1)</span>
+<span class="sd">        4</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_well_shaped</span><span class="p">()</span>
+        <span class="n">check_types</span><span class="p">(</span><span class="n">TimeSeries</span><span class="o">.</span><span class="n">get_index_at_event</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_index_at_time</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_event_index</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">occurrence</span><span class="p">)]</span><span class="o">.</span><span class="n">time</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_index_before_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">occurrence</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the time index that is just before the specified event occurrence.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        name</span>
+<span class="sd">            Event name</span>
+<span class="sd">        occurrence</span>
+<span class="sd">            Occurrence of the event. The default is 0.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        int</span>
+<span class="sd">            The index in the time vector.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TimeSeriesRangeError</span>
+<span class="sd">            If the resulting index would be outside the TimeSeries range.</span>
+
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.get_index_before_time</span>
+<span class="sd">        ktk.TimeSeries.get_index_at_time</span>
+<span class="sd">        ktk.TimeSeries.get_index_after_time</span>
+<span class="sd">        ktk.TimeSeries.get_index_at_event</span>
+<span class="sd">        ktk.TimeSeries.get_index_after_event</span>
+
+<span class="sd">        Example</span>
+<span class="sd">        -------</span>
+<span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries(time=np.arange(10)/10)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(0.2, &#39;event&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(0.36, &#39;event&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; ts.time</span>
+<span class="sd">        array([0. , 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])</span>
+
+<span class="sd">        &gt;&gt;&gt; ts.get_index_before_event(&#39;event&#39;)</span>
+<span class="sd">        1</span>
+
+<span class="sd">        &gt;&gt;&gt; ts.get_index_before_event(&#39;event&#39;, occurrence=1)</span>
+<span class="sd">        3</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_well_shaped</span><span class="p">()</span>
+        <span class="n">check_types</span><span class="p">(</span><span class="n">TimeSeries</span><span class="o">.</span><span class="n">get_index_before_event</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_index_before_time</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_event_index</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">occurrence</span><span class="p">)]</span><span class="o">.</span><span class="n">time</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_index_after_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">occurrence</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the time index that is just after the specified event occurrence.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        name</span>
+<span class="sd">            Event name</span>
+<span class="sd">        occurrence</span>
+<span class="sd">            Occurrence of the event. The default is 0.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        int</span>
+<span class="sd">            The index in the time vector.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        TimeSeriesRangeError</span>
+<span class="sd">            If the resulting index would be outside the TimeSeries range.</span>
+
+<span class="sd">        See also</span>
+<span class="sd">        --------</span>
+<span class="sd">        ktk.TimeSeries.get_index_before_time</span>
+<span class="sd">        ktk.TimeSeries.get_index_at_time</span>
+<span class="sd">        ktk.TimeSeries.get_index_after_time</span>
+<span class="sd">        ktk.TimeSeries.get_index_before_event</span>
+<span class="sd">        ktk.TimeSeries.get_index_at_event</span>
+
+<span class="sd">        Example</span>
+<span class="sd">        -------</span>
+<span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries(time=np.arange(10)/10)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(0.2, &#39;event&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(0.36, &#39;event&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; ts.time</span>
+<span class="sd">        array([0. , 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])</span>
+
+<span class="sd">        &gt;&gt;&gt; ts.get_index_after_event(&#39;event&#39;)</span>
+<span class="sd">        3</span>
+
+<span class="sd">        &gt;&gt;&gt; ts.get_index_after_event(&#39;event&#39;, occurrence=1)</span>
+<span class="sd">        4</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_well_shaped</span><span class="p">()</span>
+        <span class="n">check_types</span><span class="p">(</span><span class="n">TimeSeries</span><span class="o">.</span><span class="n">get_index_after_time</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
+
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_index_after_time</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_event_index</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">occurrence</span><span class="p">)]</span><span class="o">.</span><span class="n">time</span>
+        <span class="p">)</span>
 
 <div class="viewcode-block" id="TimeSeries.get_ts_before_index"><a class="viewcode-back" href="../../api/ktk.TimeSeries.get_ts_before_index.html#ktk.TimeSeries.get_ts_before_index">[docs]</a>    <span class="k">def</span> <span class="nf">get_ts_before_index</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">inclusive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
@@ -3232,7 +3150,6 @@ title="Fullscreen mode"
 <span class="sd">        --------</span>
 <span class="sd">        ktk.TimeSeries.get_ts_between_times</span>
 <span class="sd">        ktk.TimeSeries.get_ts_between_events</span>
-<span class="sd">        ktk.TimeSeries.ui_get_ts_between_clicks</span>
 <span class="sd">        ktk.TimeSeries.get_ts_before_index</span>
 <span class="sd">        ktk.TimeSeries.get_ts_after_index</span>
 
@@ -3396,7 +3313,6 @@ title="Fullscreen mode"
 <span class="sd">        --------</span>
 <span class="sd">        ktk.TimeSeries.get_ts_between_indexes</span>
 <span class="sd">        ktk.TimeSeries.get_ts_between_events</span>
-<span class="sd">        ktk.TimeSeries.ui_get_ts_between_clicks</span>
 <span class="sd">        ktk.TimeSeries.get_ts_before_time</span>
 <span class="sd">        ktk.TimeSeries.get_ts_after_time</span>
 
@@ -3585,7 +3501,6 @@ title="Fullscreen mode"
 <span class="sd">        --------</span>
 <span class="sd">        ktk.TimeSeries.get_ts_between_indexes</span>
 <span class="sd">        ktk.TimeSeries.get_ts_between_times</span>
-<span class="sd">        ktk.TimeSeries.ui_get_ts_between_clicks</span>
 <span class="sd">        ktk.TimeSeries.get_ts_before_event</span>
 <span class="sd">        ktk.TimeSeries.get_ts_after_event</span>
 
@@ -3783,7 +3698,7 @@ title="Fullscreen mode"
         <span class="n">new_time</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
         <span class="n">kind</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;linear&quot;</span><span class="p">,</span>
         <span class="o">*</span><span class="p">,</span>
-        <span class="n">fill_value</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">fill_value</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">in_place</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -3820,11 +3735,6 @@ title="Fullscreen mode"
 <span class="sd">        be rigid anymore. This function can&#39;t detect if you attempt to resample</span>
 <span class="sd">        series of homogeneous matrices, and therefore won&#39;t generate an</span>
 <span class="sd">        error or warning.</span>
-
-<span class="sd">        Warning</span>
-<span class="sd">        -------</span>
-<span class="sd">        This function, which was introduced in version 0.9, is still</span>
-<span class="sd">        experimental and may slightly change behaviour in future versions.</span>
 
 <span class="sd">        See also</span>
 <span class="sd">        --------</span>
@@ -3881,7 +3791,6 @@ title="Fullscreen mode"
                 <span class="n">new_data</span><span class="p">[</span><span class="n">key</span><span class="p">][:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
 
             <span class="k">else</span><span class="p">:</span>  <span class="c1"># Interpolate.</span>
-
                 <span class="c1"># Express nans as a range of times to</span>
                 <span class="c1"># remove from the final, interpolated timeseries</span>
                 <span class="n">nan_indexes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="o">~</span><span class="n">index</span><span class="p">)</span>
@@ -3953,9 +3862,12 @@ title="Fullscreen mode"
 <span class="sd">            Optional. The data keys to merge from ts. If left empty, all the</span>
 <span class="sd">            data keys are merged.</span>
 <span class="sd">        resample</span>
-<span class="sd">            Optional. Set to True to resample the source TimeSeries, in case</span>
-<span class="sd">            the time vectors are not matched. If the time vectors are not</span>
-<span class="sd">            matched and resample is False, an exception is raised.</span>
+<span class="sd">            Optional. Set to True to resample the source TimeSeries to the</span>
+<span class="sd">            target one using a linear interpolation. If the time vectors are</span>
+<span class="sd">            not equivalent and resample is False, an exception is raised. To</span>
+<span class="sd">            resample using other methods than linear interpolation, please</span>
+<span class="sd">            resample the source TimeSeries manually before, using</span>
+<span class="sd">            TimeSeries.resample.</span>
 <span class="sd">        overwrite</span>
 <span class="sd">            Optional. If duplicates data keys are found and overwrite is True,</span>
 <span class="sd">            then the source (ts) overwrites the destination. Otherwise</span>
@@ -3973,14 +3885,11 @@ title="Fullscreen mode"
 <span class="sd">        See also</span>
 <span class="sd">        --------</span>
 <span class="sd">        ktk.TimeSeries.get_subset</span>
+<span class="sd">        ktk.TimeSeries.resample</span>
 
 <span class="sd">        Notes</span>
 <span class="sd">        -----</span>
 <span class="sd">        - All events are also merged from both TimeSeries.</span>
-
-<span class="sd">        - The behaviour of the resampling option is not settled yet. At the</span>
-<span class="sd">          moment, a linear resampling is performed, but this may change in the</span>
-<span class="sd">          future.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">check_types</span><span class="p">(</span><span class="n">TimeSeries</span><span class="o">.</span><span class="n">merge</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
@@ -4021,7 +3930,6 @@ title="Fullscreen mode"
             <span class="n">ts</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">ts_out</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="s2">&quot;extrapolate&quot;</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
         <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">data_keys</span><span class="p">:</span>
-
             <span class="c1"># Check if this key is a duplicate, then continue to next key if</span>
             <span class="c1"># required.</span>
             <span class="k">if</span> <span class="p">(</span><span class="n">key</span> <span class="ow">in</span> <span class="n">ts_out</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">overwrite</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">):</span>
@@ -4124,13 +4032,6 @@ title="Fullscreen mode"
 <span class="sd">        ValueError</span>
 <span class="sd">            If the sample rate is not constant.</span>
 
-<span class="sd">        Warning</span>
-<span class="sd">        -------</span>
-<span class="sd">        This function, which has been introduced in 0.1, is still experimental</span>
-<span class="sd">        and may change signature or behaviour in the future. In particular,</span>
-<span class="sd">        the desired behaviour of `max_missing_samples` is still to be precised</span>
-<span class="sd">        for points where the criteria is not met.</span>
-
 <span class="sd">        See also</span>
 <span class="sd">        --------</span>
 <span class="sd">        ktk.TimeSeries.isnan</span>
@@ -4146,7 +4047,6 @@ title="Fullscreen mode"
         <span class="n">max_missing_samples</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">max_missing_samples</span><span class="p">)</span>
 
         <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">ts_out</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
-
             <span class="c1"># Fill missing samples</span>
             <span class="n">is_visible</span> <span class="o">=</span> <span class="o">~</span><span class="n">ts_out</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
             <span class="n">ts</span> <span class="o">=</span> <span class="n">ts_out</span><span class="o">.</span><span class="n">get_subset</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
@@ -4452,12 +4352,10 @@ title="Fullscreen mode"
             <span class="n">ts1</span> <span class="o">=</span> <span class="n">ts1</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="o">-</span><span class="n">click</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
 
         <span class="k">else</span><span class="p">:</span>  <span class="c1"># Sync two TimeSeries together</span>
-
             <span class="n">finished</span> <span class="o">=</span> <span class="kc">False</span>
             <span class="c1"># list of axes:</span>
             <span class="n">axes</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># type: list[Any]</span>
             <span class="k">while</span> <span class="n">finished</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
-
                 <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">axes</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
                     <span class="n">axes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
                     <span class="n">axes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
@@ -4714,6 +4612,98 @@ title="Fullscreen mode"
                 <span class="n">loc</span><span class="o">=</span><span class="n">legend_location</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">1</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span> <span class="o">/</span> <span class="mi">40</span><span class="p">)</span>
             <span class="p">)</span>  <span class="c1"># Max 40 items per line</span></div>
 
+    <span class="k">def</span> <span class="nf">_to_dataframe_and_info</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Implements TimeSeries.to_dataframe with additional data_info.</span>
+
+<span class="sd">        The second element of the output tuple is a list where each element</span>
+<span class="sd">        corresponds to a column of the DataFrame, and each element is a copy</span>
+<span class="sd">        of the inner data_info dictionary for this data. For instance,</span>
+<span class="sd">        an element of the list could be: {&#39;Unit&#39;: &#39;N&#39;}.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Init</span>
+        <span class="n">df_out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+        <span class="n">info_out</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># Go through data</span>
+        <span class="n">the_keys</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">the_key</span> <span class="ow">in</span> <span class="n">the_keys</span><span class="p">:</span>
+            <span class="c1"># Assign data</span>
+            <span class="n">original_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">the_key</span><span class="p">]</span>
+
+            <span class="k">if</span> <span class="n">original_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># Not empty</span>
+                <span class="n">original_data_shape</span> <span class="o">=</span> <span class="n">original_data</span><span class="o">.</span><span class="n">shape</span>
+                <span class="n">data_length</span> <span class="o">=</span> <span class="n">original_data</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+                <span class="n">reshaped_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">original_data</span><span class="p">,</span> <span class="p">(</span><span class="n">data_length</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+                <span class="n">reshaped_data_shape</span> <span class="o">=</span> <span class="n">reshaped_data</span><span class="o">.</span><span class="n">shape</span>
+
+                <span class="n">df_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">reshaped_data</span><span class="p">)</span>
+
+                <span class="c1"># Get the column names index from the shape of the original data</span>
+                <span class="c1"># The strategy here is to build matrices of indices, that have</span>
+                <span class="c1"># the same shape as the original data, then reshape these matrices</span>
+                <span class="c1"># the same way we reshaped the original data. Then we know where</span>
+                <span class="c1"># the original indices are in the new reshaped data.</span>
+                <span class="n">original_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">indices</span><span class="p">(</span><span class="n">original_data_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+                <span class="n">reshaped_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span>
+                    <span class="n">original_indices</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">reshaped_data_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+                <span class="p">)</span>
+
+                <span class="c1"># Hint for my future self:</span>
+                <span class="c1"># For a one-dimension series, reshaped_indices will be:</span>
+                <span class="c1"># [[0]].</span>
+                <span class="c1"># For a two-dimension series, reshaped_indices will be:</span>
+                <span class="c1"># [[0 1 2 ...]].</span>
+                <span class="c1"># For a three-dimension series, reshaped_indices will be:</span>
+                <span class="c1"># [[0 0 0 ... 1 1 1 ... 2 2 2 ...]</span>
+                <span class="c1">#   0 1 2 ... 0 1 2 ... 0 1 2 ...]]</span>
+                <span class="c1"># and so on.</span>
+
+                <span class="c1"># Assign column names</span>
+                <span class="n">column_names</span> <span class="o">=</span> <span class="p">[]</span>
+                <span class="k">for</span> <span class="n">i_column</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">df_data</span><span class="o">.</span><span class="n">columns</span><span class="p">)):</span>
+                    <span class="n">this_column_name</span> <span class="o">=</span> <span class="n">the_key</span>
+                    <span class="n">n_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">shape</span><span class="p">(</span><span class="n">reshaped_indices</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+                    <span class="k">if</span> <span class="n">n_indices</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                        <span class="c1"># This data is expressed in more than one dimension.</span>
+                        <span class="c1"># We must add brackets to the column names to specify</span>
+                        <span class="c1"># the indices.</span>
+                        <span class="n">this_column_name</span> <span class="o">+=</span> <span class="s2">&quot;[&quot;</span>
+
+                        <span class="k">for</span> <span class="n">i_indice</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_indices</span><span class="p">):</span>
+                            <span class="n">this_column_name</span> <span class="o">+=</span> <span class="nb">str</span><span class="p">(</span>
+                                <span class="n">reshaped_indices</span><span class="p">[</span><span class="n">i_indice</span><span class="p">,</span> <span class="n">i_column</span><span class="p">]</span>
+                            <span class="p">)</span>
+                            <span class="k">if</span> <span class="n">i_indice</span> <span class="o">==</span> <span class="n">n_indices</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+                                <span class="n">this_column_name</span> <span class="o">+=</span> <span class="s2">&quot;]&quot;</span>
+                            <span class="k">else</span><span class="p">:</span>
+                                <span class="n">this_column_name</span> <span class="o">+=</span> <span class="s2">&quot;,&quot;</span>
+
+                    <span class="n">column_names</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">this_column_name</span><span class="p">)</span>
+
+                <span class="n">df_data</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">column_names</span>
+
+            <span class="k">else</span><span class="p">:</span>  <span class="c1"># empty data</span>
+                <span class="n">df_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">the_key</span><span class="p">])</span>
+
+            <span class="c1"># Merge this dataframe with the output dataframe</span>
+            <span class="n">df_out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df_out</span><span class="p">,</span> <span class="n">df_data</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+            <span class="c1"># Add the data_info that correspond to this key</span>
+            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">df_data</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">data_info</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">the_key</span><span class="p">]</span>
+                    <span class="n">info_out</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">data_info</span><span class="p">))</span>
+                <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                    <span class="n">info_out</span><span class="o">.</span><span class="n">append</span><span class="p">({})</span>
+
+        <span class="n">df_out</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span>
+
+        <span class="k">return</span> <span class="p">(</span><span class="n">df_out</span><span class="p">,</span> <span class="n">info_out</span><span class="p">)</span>
+
 <div class="viewcode-block" id="TimeSeries.to_dataframe"><a class="viewcode-back" href="../../api/ktk.TimeSeries.to_dataframe.html#ktk.TimeSeries.to_dataframe">[docs]</a>    <span class="k">def</span> <span class="nf">to_dataframe</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create a DataFrame by reshaping all data to one bidimensional table.</span>
@@ -4765,10 +4755,7 @@ title="Fullscreen mode"
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">check_types</span><span class="p">(</span><span class="n">TimeSeries</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_check_well_shaped</span><span class="p">()</span>
-
-        <span class="n">df</span> <span class="o">=</span> <span class="n">dict_of_arrays_to_dataframe</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
-        <span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span>
-        <span class="k">return</span> <span class="n">df</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_to_dataframe_and_info</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span></div>
 
 <div class="viewcode-block" id="TimeSeries.from_dataframe"><a class="viewcode-back" href="../../api/ktk.TimeSeries.from_dataframe.html#ktk.TimeSeries.from_dataframe">[docs]</a>    <span class="k">def</span> <span class="nf">from_dataframe</span><span class="p">(</span><span class="n">dataframe</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="o">/</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -4831,14 +4818,63 @@ title="Fullscreen mode"
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">check_types</span><span class="p">(</span><span class="n">TimeSeries</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
 
-        <span class="n">ts</span> <span class="o">=</span> <span class="n">TimeSeries</span><span class="p">()</span>
-        <span class="n">ts</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">dataframe_to_dict_of_arrays</span><span class="p">(</span><span class="n">dataframe</span><span class="p">)</span>
-        <span class="n">ts</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+        <span class="n">ts</span> <span class="o">=</span> <span class="n">TimeSeries</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">dataframe</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">())</span>
+
+        <span class="c1"># Remove spaces in indexes between brackets</span>
+        <span class="n">columns</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">columns</span>
+        <span class="n">new_columns</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">i_column</span><span class="p">,</span> <span class="n">column</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">columns</span><span class="p">):</span>
+            <span class="n">splitted</span> <span class="o">=</span> <span class="n">column</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;[&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">splitted</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># There are brackets</span>
+                <span class="n">new_columns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+                    <span class="n">splitted</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;[&quot;</span> <span class="o">+</span> <span class="n">splitted</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">new_columns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">column</span><span class="p">)</span>
+        <span class="n">dataframe</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">columns</span>
+
+        <span class="c1"># Search for the column names and their dimensions</span>
+        <span class="c1"># At the end, we end with something like:</span>
+        <span class="c1">#    dimensions[&#39;Data1&#39;] = []</span>
+        <span class="c1">#    dimensions[&#39;Data2&#39;] = [[0], [1], [2]]</span>
+        <span class="c1">#    dimensions[&#39;Data3&#39;] = [[0,0],[0,1],[1,0],[1,1]]</span>
+        <span class="n">dimensions</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>  <span class="c1"># type: dict[str, list]</span>
+        <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+            <span class="n">splitted</span> <span class="o">=</span> <span class="n">column</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;[&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">splitted</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># No brackets</span>
+                <span class="n">dimensions</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">else</span><span class="p">:</span>  <span class="c1"># With brackets</span>
+                <span class="n">key</span> <span class="o">=</span> <span class="n">splitted</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">index</span> <span class="o">=</span> <span class="n">literal_eval</span><span class="p">(</span><span class="s2">&quot;[&quot;</span> <span class="o">+</span> <span class="n">splitted</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+                <span class="k">if</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dimensions</span><span class="p">:</span>
+                    <span class="n">dimensions</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">index</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">dimensions</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">index</span><span class="p">]</span>
+
+        <span class="n">n_samples</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">dataframe</span><span class="p">)</span>
+
+        <span class="c1"># Assign the columns to the output</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">dimensions</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dimensions</span><span class="p">[</span><span class="n">key</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">highest_dims</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">dimensions</span><span class="p">[</span><span class="n">key</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+                <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span>
+                    <span class="n">key</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">dimensions</span><span class="p">[</span><span class="n">key</span><span class="p">])</span>
+                <span class="p">]</span>
+                <span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataframe</span><span class="p">[</span><span class="n">columns</span><span class="p">]</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+                <span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span>
+                    <span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="p">[</span><span class="n">n_samples</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">highest_dims</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+                <span class="p">)</span>
+
         <span class="k">return</span> <span class="n">ts</span></div>
 
-    <span class="c1">#%% Deprecated methods</span>
-<div class="viewcode-block" id="TimeSeries.get_event_index"><a class="viewcode-back" href="../../api/ktk.TimeSeries.get_event_index.html#ktk.TimeSeries.get_event_index">[docs]</a>    <span class="nd">@deprecated</span><span class="p">(</span>
-        <span class="n">since</span><span class="o">=</span><span class="s2">&quot;0.9.3&quot;</span><span class="p">,</span>
+    <span class="c1"># %% Deprecated methods</span>
+    <span class="nd">@deprecated</span><span class="p">(</span>
+        <span class="n">since</span><span class="o">=</span><span class="s2">&quot;0.10.0&quot;</span><span class="p">,</span>
         <span class="n">until</span><span class="o">=</span><span class="s2">&quot;2024&quot;</span><span class="p">,</span>
         <span class="n">details</span><span class="o">=</span><span class="p">(</span>
 <span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
@@ -4853,10 +4889,10 @@ title="Fullscreen mode"
     <span class="p">)</span>
     <span class="k">def</span> <span class="nf">get_event_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">occurrence</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Get the events index of a given occurrence of an event name.&quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_event_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">occurrence</span><span class="o">=</span><span class="n">occurrence</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_event_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">occurrence</span><span class="o">=</span><span class="n">occurrence</span><span class="p">)</span>
 
-<div class="viewcode-block" id="TimeSeries.get_event_time"><a class="viewcode-back" href="../../api/ktk.TimeSeries.get_event_time.html#ktk.TimeSeries.get_event_time">[docs]</a>    <span class="nd">@deprecated</span><span class="p">(</span>
-        <span class="n">since</span><span class="o">=</span><span class="s2">&quot;0.9.3&quot;</span><span class="p">,</span>
+    <span class="nd">@deprecated</span><span class="p">(</span>
+        <span class="n">since</span><span class="o">=</span><span class="s2">&quot;0.10.0&quot;</span><span class="p">,</span>
         <span class="n">until</span><span class="o">=</span><span class="s2">&quot;2024&quot;</span><span class="p">,</span>
         <span class="n">details</span><span class="o">=</span><span class="p">(</span>
 <span class="w">            </span><span class="sd">&quot;&quot;&quot;</span>
@@ -4877,10 +4913,10 @@ title="Fullscreen mode"
 
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_check_well_typed</span><span class="p">()</span>
-            <span class="k">raise</span> <span class="n">e</span></div>
+            <span class="k">raise</span> <span class="n">e</span>
 
-<div class="viewcode-block" id="TimeSeries.get_ts_at_time"><a class="viewcode-back" href="../../api/ktk.TimeSeries.get_ts_at_time.html#ktk.TimeSeries.get_ts_at_time">[docs]</a>    <span class="nd">@deprecated</span><span class="p">(</span>
-        <span class="n">since</span><span class="o">=</span><span class="s2">&quot;0.9.3&quot;</span><span class="p">,</span>
+    <span class="nd">@deprecated</span><span class="p">(</span>
+        <span class="n">since</span><span class="o">=</span><span class="s2">&quot;0.10.0&quot;</span><span class="p">,</span>
         <span class="n">until</span><span class="o">=</span><span class="s2">&quot;2024&quot;</span><span class="p">,</span>
         <span class="n">details</span><span class="o">=</span><span class="p">(</span>
             <span class="s2">&quot;Please use ts.get_ts_after_time() and address the first sample &quot;</span>
@@ -4898,10 +4934,10 @@ title="Fullscreen mode"
             <span class="k">return</span> <span class="n">out_ts</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_check_not_empty_time</span><span class="p">()</span>
-            <span class="k">raise</span> <span class="n">e</span></div>
+            <span class="k">raise</span> <span class="n">e</span>
 
-<div class="viewcode-block" id="TimeSeries.get_ts_at_event"><a class="viewcode-back" href="../../api/ktk.TimeSeries.get_ts_at_event.html#ktk.TimeSeries.get_ts_at_event">[docs]</a>    <span class="nd">@deprecated</span><span class="p">(</span>
-        <span class="n">since</span><span class="o">=</span><span class="s2">&quot;0.9.3&quot;</span><span class="p">,</span>
+    <span class="nd">@deprecated</span><span class="p">(</span>
+        <span class="n">since</span><span class="o">=</span><span class="s2">&quot;0.10.0&quot;</span><span class="p">,</span>
         <span class="n">until</span><span class="o">=</span><span class="s2">&quot;2024&quot;</span><span class="p">,</span>
         <span class="n">details</span><span class="o">=</span><span class="p">(</span>
             <span class="s2">&quot;Please use ts.get_ts_after_event() and address the first sample &quot;</span>
@@ -4915,10 +4951,12 @@ title="Fullscreen mode"
             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_ts_at_time</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_check_not_empty_time</span><span class="p">()</span>
-            <span class="k">raise</span> <span class="n">e</span></div>
+            <span class="k">raise</span> <span class="n">e</span>
 
-<div class="viewcode-block" id="TimeSeries.sync_event"><a class="viewcode-back" href="../../api/ktk.TimeSeries.sync_event.html#ktk.TimeSeries.sync_event">[docs]</a>    <span class="nd">@deprecated</span><span class="p">(</span>
-        <span class="n">since</span><span class="o">=</span><span class="s2">&quot;0.9.3&quot;</span><span class="p">,</span> <span class="n">until</span><span class="o">=</span><span class="s2">&quot;2024&quot;</span><span class="p">,</span> <span class="n">details</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Please use ts.shift() instead.&quot;</span><span class="p">)</span>
+    <span class="nd">@deprecated</span><span class="p">(</span>
+        <span class="n">since</span><span class="o">=</span><span class="s2">&quot;0.10.0&quot;</span><span class="p">,</span>
+        <span class="n">until</span><span class="o">=</span><span class="s2">&quot;2024&quot;</span><span class="p">,</span>
+        <span class="n">details</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;Please use ts.shift() instead.&quot;</span><span class="p">),</span>
     <span class="p">)</span>
     <span class="k">def</span> <span class="nf">sync_event</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">occurrence</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">in_place</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
@@ -4934,10 +4972,10 @@ title="Fullscreen mode"
 
         <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_check_not_empty_time</span><span class="p">()</span>
-            <span class="k">raise</span> <span class="n">e</span></div>
+            <span class="k">raise</span> <span class="n">e</span>
 
-<div class="viewcode-block" id="TimeSeries.ui_get_ts_between_clicks"><a class="viewcode-back" href="../../api/ktk.TimeSeries.ui_get_ts_between_clicks.html#ktk.TimeSeries.ui_get_ts_between_clicks">[docs]</a>    <span class="nd">@deprecated</span><span class="p">(</span>
-        <span class="n">since</span><span class="o">=</span><span class="s2">&quot;0.9.3&quot;</span><span class="p">,</span>
+    <span class="nd">@deprecated</span><span class="p">(</span>
+        <span class="n">since</span><span class="o">=</span><span class="s2">&quot;0.10.0&quot;</span><span class="p">,</span>
         <span class="n">until</span><span class="o">=</span><span class="s2">&quot;2024&quot;</span><span class="p">,</span>
         <span class="n">details</span><span class="o">=</span><span class="p">(</span>
             <span class="s2">&quot;Please use ts.ui_edit_events() and add &#39;begin&#39; and &#39;end&#39; events &quot;</span>
@@ -4991,7 +5029,7 @@ title="Fullscreen mode"
         <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_ts_between_times</span><span class="p">(</span>
             <span class="nb">min</span><span class="p">(</span><span class="n">times</span><span class="p">),</span> <span class="nb">max</span><span class="p">(</span><span class="n">times</span><span class="p">),</span> <span class="n">inclusive</span><span class="o">=</span><span class="n">inclusive</span>
-        <span class="p">)</span></div></div>
+        <span class="p">)</span></div>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
@@ -5017,7 +5055,7 @@ title="Fullscreen mode"
   
     By Félix Chénier<br/>
   
-      &copy; Copyright 2020-2022.<br/>
+      &copy; Copyright 2020-2023.<br/>
     <div class="extra_footer">
       This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>.
     </div>

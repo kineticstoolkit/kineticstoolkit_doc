@@ -56,7 +56,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="ktk.TimeSeries.get_index_at_time" href="ktk.TimeSeries.get_index_at_time.html" />
-    <link rel="prev" title="ktk.TimeSeries.get_event_time" href="ktk.TimeSeries.get_event_time.html" />
+    <link rel="prev" title="ktk.TimeSeries.from_dataframe" href="ktk.TimeSeries.from_dataframe.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -342,16 +342,6 @@ const thebe_selector_output = ".output, .cell_output"
          ktk.TimeSeries.from_dataframe
         </a>
        </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="ktk.TimeSeries.get_event_index.html">
-         ktk.TimeSeries.get_event_index
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="ktk.TimeSeries.get_event_time.html">
-         ktk.TimeSeries.get_event_time
-        </a>
-       </li>
        <li class="toctree-l4 current active">
         <a class="current reference internal" href="#">
          ktk.TimeSeries.get_index_after_time
@@ -390,16 +380,6 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="ktk.TimeSeries.get_ts_after_time.html">
          ktk.TimeSeries.get_ts_after_time
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="ktk.TimeSeries.get_ts_at_event.html">
-         ktk.TimeSeries.get_ts_at_event
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="ktk.TimeSeries.get_ts_at_time.html">
-         ktk.TimeSeries.get_ts_at_time
         </a>
        </li>
        <li class="toctree-l4">
@@ -493,11 +473,6 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="ktk.TimeSeries.sync_event.html">
-         ktk.TimeSeries.sync_event
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="ktk.TimeSeries.to_dataframe.html">
          ktk.TimeSeries.to_dataframe
         </a>
@@ -510,11 +485,6 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="ktk.TimeSeries.ui_edit_events.html">
          ktk.TimeSeries.ui_edit_events
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="ktk.TimeSeries.ui_get_ts_between_clicks.html">
-         ktk.TimeSeries.ui_get_ts_between_clicks
         </a>
        </li>
        <li class="toctree-l4">
@@ -744,6 +714,21 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="ktk.geometry.register_points.html">
          ktk.geometry.register_points
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="ktk.geometry.rotate.html">
+         ktk.geometry.rotate
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="ktk.geometry.scale.html">
+         ktk.geometry.scale
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="ktk.geometry.translate.html">
+         ktk.geometry.translate
         </a>
        </li>
       </ul>
@@ -1258,7 +1243,7 @@ title="Print to PDF"
 </dl>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="ktk.TimeSeries.get_index_at_time.html#ktk.TimeSeries.get_index_at_time" title="ktk.TimeSeries.get_index_at_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.TimeSeries.get_index_at_time</span></code></a>, <a class="reference internal" href="ktk.TimeSeries.get_index_before_time.html#ktk.TimeSeries.get_index_before_time" title="ktk.TimeSeries.get_index_before_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.TimeSeries.get_index_before_time</span></code></a></p>
+<p><a class="reference internal" href="ktk.TimeSeries.get_index_before_time.html#ktk.TimeSeries.get_index_before_time" title="ktk.TimeSeries.get_index_before_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.TimeSeries.get_index_before_time</span></code></a>, <a class="reference internal" href="ktk.TimeSeries.get_index_at_time.html#ktk.TimeSeries.get_index_at_time" title="ktk.TimeSeries.get_index_at_time"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.TimeSeries.get_index_at_time</span></code></a>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.TimeSeries.get_index_before_event</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.TimeSeries.get_index_at_event</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.TimeSeries.get_index_after_event</span></code></p>
 </div>
 <p class="rubric">Example</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">TimeSeries</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mi">2</span><span class="p">]))</span>
@@ -1311,11 +1296,11 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="ktk.TimeSeries.get_event_time.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="ktk.TimeSeries.from_dataframe.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">ktk.TimeSeries.get_event_time</p>
+            <p class="prev-next-title">ktk.TimeSeries.from_dataframe</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="ktk.TimeSeries.get_index_at_time.html" title="next page">

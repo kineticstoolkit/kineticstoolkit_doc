@@ -340,16 +340,6 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.get_event_index.html">
-         ktk.TimeSeries.get_event_index
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.get_event_time.html">
-         ktk.TimeSeries.get_event_time
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.get_index_after_time.html">
          ktk.TimeSeries.get_index_after_time
         </a>
@@ -387,16 +377,6 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_after_time.html">
          ktk.TimeSeries.get_ts_after_time
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_at_event.html">
-         ktk.TimeSeries.get_ts_at_event
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_at_time.html">
-         ktk.TimeSeries.get_ts_at_time
         </a>
        </li>
        <li class="toctree-l4">
@@ -490,11 +470,6 @@ const thebe_selector_output = ".output, .cell_output"
         </a>
        </li>
        <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.sync_event.html">
-         ktk.TimeSeries.sync_event
-        </a>
-       </li>
-       <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.to_dataframe.html">
          ktk.TimeSeries.to_dataframe
         </a>
@@ -507,11 +482,6 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.TimeSeries.ui_edit_events.html">
          ktk.TimeSeries.ui_edit_events
-        </a>
-       </li>
-       <li class="toctree-l4">
-        <a class="reference internal" href="../../api/ktk.TimeSeries.ui_get_ts_between_clicks.html">
-         ktk.TimeSeries.ui_get_ts_between_clicks
         </a>
        </li>
        <li class="toctree-l4">
@@ -741,6 +711,21 @@ const thebe_selector_output = ".output, .cell_output"
        <li class="toctree-l4">
         <a class="reference internal" href="../../api/ktk.geometry.register_points.html">
          ktk.geometry.register_points
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.geometry.rotate.html">
+         ktk.geometry.rotate
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.geometry.scale.html">
+         ktk.geometry.scale
+        </a>
+       </li>
+       <li class="toctree-l4">
+        <a class="reference internal" href="../../api/ktk.geometry.translate.html">
+         ktk.geometry.translate
         </a>
        </li>
       </ul>
@@ -1251,12 +1236,9 @@ title="Fullscreen mode"
 <span class="sd">        dictionary where each entry represents the local position of a marker</span>
 <span class="sd">        in an arbitrary coordinate system.</span>
 
-<span class="sd">    Warning</span>
-<span class="sd">    -------</span>
-<span class="sd">    This function, which has been introduced in 0.7, is still experimental and</span>
-<span class="sd">    may change signature or behaviour in the future.</span>
-
-<span class="sd">    0.9.3: Parameters `marker_names` was changed to `names`</span>
+<span class="sd">    Note</span>
+<span class="sd">    -----</span>
+<span class="sd">    0.10.0: Parameters `marker_names` was changed to `names`</span>
 
 <span class="sd">    See also</span>
 <span class="sd">    --------</span>
@@ -1318,12 +1300,9 @@ title="Fullscreen mode"
 <span class="sd">    dict[str, np.ndarray]</span>
 <span class="sd">        A copy of the initial cluster, with the added point.</span>
 
-<span class="sd">    Warning</span>
-<span class="sd">    -------</span>
-<span class="sd">    This function, which has been introduced in 0.7, is still experimental and</span>
-<span class="sd">    may change signature or behaviour in the future.</span>
-
-<span class="sd">    0.9.3: Parameter `new_point` was changed to `name`</span>
+<span class="sd">    Note</span>
+<span class="sd">    ----</span>
+<span class="sd">    0.10.0: Parameter `new_point` was changed to `name`</span>
 
 <span class="sd">    See also</span>
 <span class="sd">    --------</span>
@@ -1343,7 +1322,14 @@ title="Fullscreen mode"
     <span class="n">local_coordinates</span> <span class="o">=</span> <span class="n">geometry</span><span class="o">.</span><span class="n">get_local_coordinates</span><span class="p">(</span>
         <span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">name</span><span class="p">],</span> <span class="n">frames</span>
     <span class="p">)</span>
-    <span class="n">cluster</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">local_coordinates</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">geometry</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">local_coordinates</span><span class="p">)):</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;The point </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> was invisible during the whole TimeSeries.&quot;</span>
+        <span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">cluster</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">local_coordinates</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+
     <span class="k">return</span> <span class="n">cluster</span></div>
 
 
@@ -1379,11 +1365,6 @@ title="Fullscreen mode"
 <span class="sd">    -------</span>
 <span class="sd">    TimeSeries</span>
 <span class="sd">        A TimeSeries with the trajectories of all cluster points.</span>
-
-<span class="sd">    Warning</span>
-<span class="sd">    -------</span>
-<span class="sd">    This function, which has been introduced in 0.7, is still experimental and</span>
-<span class="sd">    may change signature or behaviour in the future.</span>
 
 <span class="sd">    See also</span>
 <span class="sd">    --------</span>
@@ -1529,190 +1510,6 @@ title="Fullscreen mode"
 
 
 <span class="c1"># %% Deprecated</span>
-<span class="nd">@deprecated</span><span class="p">(</span>
-    <span class="n">since</span><span class="o">=</span><span class="s2">&quot;master&quot;</span><span class="p">,</span> <span class="n">until</span><span class="o">=</span><span class="s2">&quot;January 2023&quot;</span><span class="p">,</span> <span class="n">details</span><span class="o">=</span><span class="s2">&quot;Use create_cluster().&quot;</span>
-<span class="p">)</span>
-<span class="k">def</span> <span class="nf">define_rigid_body</span><span class="p">(</span>
-    <span class="n">kinematics</span><span class="p">:</span> <span class="n">TimeSeries</span><span class="p">,</span> <span class="n">marker_names</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Create a generic rigid body definition based on a static acquisition.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    kinematics</span>
-<span class="sd">        Markers trajectories during a static acquisition.</span>
-<span class="sd">    marker_names</span>
-<span class="sd">        The markers that define the rigid body.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    dict</span>
-<span class="sd">        dictionary where each entry represents the local position of a point</span>
-<span class="sd">        (e.g., marker name). The key is the name of the point, the value is a</span>
-<span class="sd">        1x4 array that indicates the local position of this point in the rigid</span>
-<span class="sd">        body&#39;s local coordinate system.</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">create_cluster</span><span class="p">(</span><span class="n">kinematics</span><span class="p">,</span> <span class="n">marker_names</span><span class="p">)</span>
-
-
-<span class="nd">@deprecated</span><span class="p">(</span>
-    <span class="n">since</span><span class="o">=</span><span class="s2">&quot;master&quot;</span><span class="p">,</span> <span class="n">until</span><span class="o">=</span><span class="s2">&quot;January 2023&quot;</span><span class="p">,</span> <span class="n">details</span><span class="o">=</span><span class="s2">&quot;Use track_clusters().&quot;</span>
-<span class="p">)</span>
-<span class="k">def</span> <span class="nf">track_rigid_body</span><span class="p">(</span>
-    <span class="n">kinematics</span><span class="p">:</span> <span class="n">TimeSeries</span><span class="p">,</span>
-    <span class="o">/</span><span class="p">,</span>
-    <span class="n">local_points</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
-    <span class="n">label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;Trajectory&quot;</span><span class="p">,</span>
-    <span class="o">*</span><span class="p">,</span>
-    <span class="n">include_rigid_body</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-    <span class="n">include_markers</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Track a rigid body from markers trajectories.</span>
-
-<span class="sd">    This function tracks the specified rigid body in a TimeSeries that</span>
-<span class="sd">    contains the required markers, and adds the tracked rigid body to a copy</span>
-<span class="sd">    of the input TimeSeries as a Nx4x4 series of frames.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    kinematics</span>
-<span class="sd">        TimeSeries that contains at least the trajectories of the markers</span>
-<span class="sd">        specified in rigid_body_definition.</span>
-<span class="sd">    local_points</span>
-<span class="sd">        A dict where each key is a point name and its corresponding value is</span>
-<span class="sd">        its local coordinates, as returned by</span>
-<span class="sd">        `ktk.kinematics.define_rigid_body()`.</span>
-<span class="sd">    label</span>
-<span class="sd">        Name of the rigid body, that will be the data key in the output</span>
-<span class="sd">        TimeSeries.</span>
-<span class="sd">    include_rigid_body: Optional.</span>
-<span class="sd">        Include the tracked rigid body in the output TimeSeries as an Nx4x4</span>
-<span class="sd">        series. The default is True.</span>
-<span class="sd">    include_markers: Optional.</span>
-<span class="sd">        Include the reconstructed markers in the output TimeSeries as a Nx4</span>
-<span class="sd">        series. Every marker of the rigid body definition is recontructed. The</span>
-<span class="sd">        default is False.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    TimeSeries</span>
-<span class="sd">        A TimeSeries that contains the trajectory of the tracked rigid body.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">track_rigid_bodies</span><span class="p">(</span>
-        <span class="n">kinematics</span><span class="p">,</span>
-        <span class="p">{</span><span class="n">label</span><span class="p">:</span> <span class="n">local_points</span><span class="p">},</span>
-        <span class="n">include_rigid_bodies</span><span class="o">=</span><span class="n">include_rigid_body</span><span class="p">,</span>
-        <span class="n">include_markers</span><span class="o">=</span><span class="n">include_markers</span><span class="p">,</span>
-    <span class="p">)</span>
-
-
-<span class="nd">@deprecated</span><span class="p">(</span>
-    <span class="n">since</span><span class="o">=</span><span class="s2">&quot;master&quot;</span><span class="p">,</span> <span class="n">until</span><span class="o">=</span><span class="s2">&quot;January 2023&quot;</span><span class="p">,</span> <span class="n">details</span><span class="o">=</span><span class="s2">&quot;No replacement yet.&quot;</span>
-<span class="p">)</span>
-<span class="k">def</span> <span class="nf">track_rigid_bodies</span><span class="p">(</span>
-    <span class="n">markers</span><span class="p">:</span> <span class="n">TimeSeries</span><span class="p">,</span>
-    <span class="o">/</span><span class="p">,</span>
-    <span class="n">definitions</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]],</span>
-    <span class="o">*</span><span class="p">,</span>
-    <span class="n">include_rigid_bodies</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-    <span class="n">include_markers</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Track rigid bodies from markers trajectories.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    markers</span>
-<span class="sd">        TimeSeries that contains the trajectories of the markers specified</span>
-<span class="sd">        in the rigid body definitions.</span>
-<span class="sd">    definitions</span>
-<span class="sd">        A dict where each key is a rigid body name and its value is a dict</span>
-<span class="sd">        of local coordinates as returned by</span>
-<span class="sd">        `ktk.kinematics.define_rigid_body()`.</span>
-<span class="sd">    include_rigid_bodies: Optional.</span>
-<span class="sd">        Include the tracked rigid bodies in the output TimeSeries as an Nx4x4</span>
-<span class="sd">        series. The default is True.</span>
-<span class="sd">    include_markers: Optional.</span>
-<span class="sd">        Include the reconstructed markers in the output TimeSeries as a Nx4</span>
-<span class="sd">        series. Every marker of the rigid body definitions is recontructed. The</span>
-<span class="sd">        default is False.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    TimeSeries</span>
-<span class="sd">        A TimeSeries that contains the trajectory of the tracked rigid bodies.</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">out</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">copy_data</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">copy_data_info</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="k">for</span> <span class="n">cluster</span> <span class="ow">in</span> <span class="n">definitions</span><span class="p">:</span>
-        <span class="n">out</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">cluster</span><span class="p">]</span> <span class="o">=</span> <span class="n">_track_cluster_frames</span><span class="p">(</span>
-            <span class="n">markers</span><span class="p">,</span> <span class="n">definitions</span><span class="p">[</span><span class="n">cluster</span><span class="p">]</span>
-        <span class="p">)</span>
-    <span class="k">return</span> <span class="n">out</span>
-
-
-<span class="nd">@deprecated</span><span class="p">(</span>
-    <span class="n">since</span><span class="o">=</span><span class="s2">&quot;master&quot;</span><span class="p">,</span> <span class="n">until</span><span class="o">=</span><span class="s2">&quot;January 2023&quot;</span><span class="p">,</span> <span class="n">details</span><span class="o">=</span><span class="s2">&quot;Use extend_cluster().&quot;</span>
-<span class="p">)</span>
-<span class="k">def</span> <span class="nf">define_local_position</span><span class="p">(</span>
-    <span class="n">kinematics</span><span class="p">:</span> <span class="n">TimeSeries</span><span class="p">,</span> <span class="n">source_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">rigid_body_name</span><span class="p">:</span> <span class="nb">str</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Define a point&#39;s local position based on a static or probing acquisition.</span>
-
-<span class="sd">    Ideally, the acquisition should be a short static acquisition and every</span>
-<span class="sd">    required marker must be visible at the same time at least once.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    kinematics</span>
-<span class="sd">        TimeSeries of the static or probing acquisition, that contains the</span>
-<span class="sd">        required markers and/or rigid bodies.</span>
-<span class="sd">    source_name</span>
-<span class="sd">        Name of the marker or rigid body to express in local coordinates. This</span>
-<span class="sd">        name must be a data key in the kinematics TimeSeries and should refer</span>
-<span class="sd">        to a marker trajectory (Nx4 array) or a rigid body trajectory (Nx4x4</span>
-<span class="sd">        array).</span>
-<span class="sd">    rigid_body_name</span>
-<span class="sd">        Name of the reference rigid body. This name must be a data key in the</span>
-<span class="sd">        kinematics TimeSeries and should refer to a rigid body trajectory</span>
-<span class="sd">        (Nx4x4 array).</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    np.ndarray</span>
-<span class="sd">        The position of the marker or rigid body origin in the local coordinate</span>
-<span class="sd">        system, as an Nx4 array.</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">marker_trajectory</span> <span class="o">=</span> <span class="n">kinematics</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">source_name</span><span class="p">]</span>
-    <span class="k">if</span> <span class="n">marker_trajectory</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">==</span> <span class="p">(</span><span class="mi">4</span><span class="p">,):</span>
-        <span class="k">pass</span>  <span class="c1"># Marker trajectory</span>
-    <span class="k">elif</span> <span class="n">marker_trajectory</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">==</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
-        <span class="n">marker_trajectory</span> <span class="o">=</span> <span class="n">marker_trajectory</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">3</span><span class="p">]</span>  <span class="c1"># frame trajectory</span>
-
-    <span class="n">rigid_body_trajectory</span> <span class="o">=</span> <span class="n">kinematics</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">rigid_body_name</span><span class="p">]</span>
-
-    <span class="n">local_points</span> <span class="o">=</span> <span class="n">geometry</span><span class="o">.</span><span class="n">get_local_coordinates</span><span class="p">(</span>
-        <span class="n">marker_trajectory</span><span class="p">,</span> <span class="n">rigid_body_trajectory</span>
-    <span class="p">)</span>
-    <span class="n">to_keep</span> <span class="o">=</span> <span class="o">~</span><span class="n">geometry</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">local_points</span><span class="p">)</span>
-
-    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">to_keep</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">):</span>
-        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-            <span class="s2">&quot;There are no frame where both the marker and body &quot;</span>
-            <span class="s2">&quot;are visible at the same time.&quot;</span>
-        <span class="p">)</span>
-
-    <span class="n">local_points</span> <span class="o">=</span> <span class="n">local_points</span><span class="p">[</span><span class="n">to_keep</span><span class="p">]</span>
-    <span class="n">local_points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">local_points</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
-
-    <span class="k">return</span> <span class="n">local_points</span>
-
-
 <span class="nd">@deprecated</span><span class="p">(</span>
     <span class="n">since</span><span class="o">=</span><span class="s2">&quot;0.9&quot;</span><span class="p">,</span>
     <span class="n">until</span><span class="o">=</span><span class="s2">&quot;2024&quot;</span><span class="p">,</span>
@@ -1881,7 +1678,7 @@ title="Fullscreen mode"
   
     By Félix Chénier<br/>
   
-      &copy; Copyright 2020-2022.<br/>
+      &copy; Copyright 2020-2023.<br/>
     <div class="extra_footer">
       This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>.
     </div>
