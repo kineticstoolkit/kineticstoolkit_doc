@@ -16,7 +16,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 📖 Reconstructing occluded markers
+# Reconstructing occluded markers
 
 :::{card} Summary
 This tutorial explains how to use the [ktk.kinematics](api/ktk.kinematics.rst) module to reconstruct hidden markers using other markers of a same cluster.

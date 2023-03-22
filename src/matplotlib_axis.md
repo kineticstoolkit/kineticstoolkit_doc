@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 📖 Setting the axes limits
+# Setting the axes limits
 
 :::{card} Summary
 This section shows how to control the axes of the figure using {{plt_axis}}.

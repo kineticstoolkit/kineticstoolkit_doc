@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-# 📖 Conditions and booleans
+# Conditions and booleans
 
 :::{card} Summary
 This section shows how to perform comparisons and boolean (logical) operations and how to use these operations to program conditional code (`if`, `else`, `elif`).

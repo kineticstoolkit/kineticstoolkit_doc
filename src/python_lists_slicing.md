@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-# 📖 Slicing lists
+# Slicing lists
 
 :::{card} Summary
 This section shows how to use slices (`[::]`) to extract multiple data from a list, in the form a subset of the original list.

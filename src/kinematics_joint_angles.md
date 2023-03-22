@@ -16,7 +16,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 📖 Calculating joint angles from a kinematic acquisition
+# Calculating joint angles from a kinematic acquisition
 
 :::{card} Summary
 In this tutorial, we will calculate the elbow joint angles during the propulsion of a racing wheelchair. At the end of the tutorial, we will plot curves of elbow flexion and pronation angles during the complete acquisition.

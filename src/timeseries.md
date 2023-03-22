@@ -1,4 +1,4 @@
-# 📖 TimeSeries
+# Analyzing time-varying data
 
 :::{card} Summary
 The [TimeSeries](api/ktk.TimeSeries.rst) class is used in most Kinetic Toolkit's modules and is the only class that users have to learn in addition to python standard types and numpy arrays.

@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-# 📖 Looping though a list using `enumerate`
+# Looping though a list using `enumerate`
 
 :::{card} Summary
 This section shows how to loop through a list using `enumerate`, which allows both reading and modifying the list.

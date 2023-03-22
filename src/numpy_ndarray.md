@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-# 📖 Arrays
+# Arrays
 
 :::{card} Summary
 This section presents the NumPy {{ndarray}} and its differences and similarities to the list. It also show how to create arrays of different shapes using:

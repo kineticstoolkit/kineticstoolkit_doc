@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-# 📖 Creating and indexing lists/tuples
+# Creating and indexing lists/tuples
 
 :::{card} Summary
 This section shows what are lists and tuples, how to define them, and how to extract values from them using square brackets `[]`.

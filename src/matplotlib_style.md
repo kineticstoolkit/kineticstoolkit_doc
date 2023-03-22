@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 📖 Markers, line style and colours
+# Markers, line style and colours
 
 :::{card} Summary
 This section shows how to use markers, line styles and to specify colours when plotting using {{plt_plot}}.

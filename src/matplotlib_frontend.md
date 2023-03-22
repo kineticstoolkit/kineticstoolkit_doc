@@ -1,4 +1,4 @@
-# 📖 Non-blocking, interactive Matplotlib figures
+# Non-blocking, interactive Matplotlib figures
 
 :::{card} Summary
 This section illustrates how Matplotlib may behave differently on different computers and setups, and suggests a method to configure Spyder and Matplotlib to always generate non-blocking, interactive figures.

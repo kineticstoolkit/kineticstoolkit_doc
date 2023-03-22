@@ -1,4 +1,4 @@
-# 📖 Configuring Spyder for Python biomechanics
+# Configuring Spyder
 
 :::{card} Summary
 This section is facultative, but recommended to get the most of Spyder for biomechanical analysis.

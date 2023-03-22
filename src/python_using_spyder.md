@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 📖 Using Spyder
+# Using Spyder
 
 :::{card} Summary
 This section shows how to use Spyder to execute your first lines of code and build your first program.

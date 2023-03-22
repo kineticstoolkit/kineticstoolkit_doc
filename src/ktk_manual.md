@@ -1,4 +1,4 @@
-# 📘 Manual
+# Biomechanical data analysis using Kinetics Toolkit
 
 :::{admonition} Prerequisites
 
@@ -9,7 +9,7 @@ The following manual assumes you already have a working scientific python enviro
 - Matplotlib: pyplot functions (plot, xlabel, ylabel, title, etc.)
 - Pandas: basic knowledge of DataFrames.
 
-The ongoing [](python_for_beginners.md) manual is currently being written for this matter.
+Please consult chapter [](python_for_beginners.md) if this is not the case.
 :::
 
 ## Contents

@@ -1,4 +1,4 @@
-# 📖 Lists and tuples
+# Lists and tuples
 
 :::{card} Summary
 These sections present the list and its main methods.

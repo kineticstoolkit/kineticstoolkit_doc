@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-# 📖 Looping using `while`
+# Looping using `while`
 
 :::{card} Summary
 This section shows how to repeat a code block using the `while` statement.

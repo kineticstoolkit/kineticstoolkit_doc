@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-# 📖 Docstrings
+# Docstrings
 
 :::{card} Summary
 This section shows how to properly document a function so that future users (or future-yourself) will understand the meaning of the code even months after.

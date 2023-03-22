@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 📖 Numbers
+# Numbers
 
 :::{card} Summary
 This section explains the difference between classes of numbers (integers, floats and complex numbers), and shows the exponentiation (`**`) arithmetic operation.

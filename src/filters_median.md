@@ -16,7 +16,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 📖 Removing artefacts using a median filter
+# Removing artefacts using a median filter
 
 :::{card} Summary
 This section shows how to filter out artefacts using [ktk.filters.median](api/ktk.filters.median.rst)

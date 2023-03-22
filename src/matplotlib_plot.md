@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 📖 Line plots
+# Line plots
 
 :::{card} Summary
 This section shows:

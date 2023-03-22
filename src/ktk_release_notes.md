@@ -1,4 +1,4 @@
-# 🗓 Release Notes
+# Release Notes
 
 ## 🗄 Version 0.10 
 

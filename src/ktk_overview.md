@@ -1,8 +1,8 @@
-# 📖 An overview of Kinetics Toolkit
+# An overview of Kinetics Toolkit
 
 Kinetics Toolkit is designed to play well with other softwares and packages, to be used as an addition and not as a replacement to existing workflows. Most of the data processing is done via the [](api/ktk.TimeSeries.rst) class, which is a container for time (`np.array`), data (`dict[np.array]`), events and metadata. This [tutorial](timeseries.md) on TimeSeries will help to understand this class and its associated methods.
 
-## 📄 Getting your data in
+## Getting your data in
 
 (orange in figure below)
 
@@ -14,7 +14,7 @@ In addition to importing and exporting, Kinetics Toolkit offers [](api/ktk.load.
 
 ![Kinetics Toolkit dataflow -width:full](_static/images/ktk_dataflow.png)
 
-## 📄 Processing and visualizing your data
+## Processing and visualizing your data
 
 (blue in figure above)
 
@@ -33,7 +33,7 @@ If applicable, you can also use your current functions:
 - that use numpy arrays: by working directly on the TimeSeries' `data` attribute;
 - that use pandas DataFrames: using [](api/ktk.TimeSeries.from_dataframe.rst) and [](api/ktk.TimeSeries.to_dataframe.rst).
 
-## 📄 Getting your data out
+## Getting your data out
 
 (red in figure above)
 

@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 📖 Importing `pyplot`
+# Importing `pyplot`
 
 :::{card} Summary
 This section introduces the concept of a package and how to import its contents.

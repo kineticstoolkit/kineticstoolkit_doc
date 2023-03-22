@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-# 📖 Dictionaries
+# Dictionaries
 
 :::{card} Summary
 This section presents the `dict` type, how to create a `dict`, how to add and remove elements, and how to loop through it.

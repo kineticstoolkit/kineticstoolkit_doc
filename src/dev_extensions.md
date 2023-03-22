@@ -1,4 +1,4 @@
-# 📖 Developing extensions
+# Developing extensions
 
 Long story short, any installed package which name begins with `kineticstoolkit_` is considered as an extension to Kinetics Toolkit. The [ktk.import_extensions()](api/ktk.import_extensions.rst) function will find it and import it into the `ktk.ext` namespace.
 

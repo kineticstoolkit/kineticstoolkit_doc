@@ -16,7 +16,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 📖 TimeSeries basics
+# TimeSeries
 
 :::{card} Summary
 This section presents the `TimeSeries` data container and its attributes.

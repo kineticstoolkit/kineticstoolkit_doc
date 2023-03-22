@@ -11,10 +11,12 @@ kernelspec:
   name: python3
 ---
 
-# 📖 NumPy
+# Computing arrays using NumPy
 
 :::{card} Summary
 This section presents the NumPy package, which is one of the most important and powerful packages in data processing. NumPy is a huge package. This section covers the basics to get started with it for biomechanical analysis. To really master it, we recommend NumPy's [learning section](https://numpy.org/learn/).
+
+If you already know Matlab, then this [cheat sheet](https://numpy.org/doc/stable/user/numpy-for-matlab-users.html) could be useful.
 
 ![NumPy Logo -width:narrower](_static/images/numpy_logo.png)
 :::

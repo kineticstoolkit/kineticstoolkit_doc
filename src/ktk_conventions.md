@@ -1,4 +1,4 @@
-# 📖 Conventions
+# Conventions
 
 ## 📄 SI Units
 

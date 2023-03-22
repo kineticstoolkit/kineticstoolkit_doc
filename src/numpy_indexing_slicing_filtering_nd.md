@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 📖 Indexing, slicing and filtering multidimensional arrays
+# Indexing, slicing and filtering multidimensional arrays
 
 :::{card} Summary
 This section shows how to read or write single or multiple data in a multidimensional array, using indexing, slicing and filtering.

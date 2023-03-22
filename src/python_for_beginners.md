@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-# 📘 Learning Python for biomechanics
+# Learning Python for biomechanics
 
 This is a free manual in development, to learn to code using the Python ecosystem.
 

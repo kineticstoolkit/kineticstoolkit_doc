@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 📖 Multiple plots side by side
+# Multiple plots side by side
 
 :::{card} Summary
 This section shows how to generate multiple plots in a same figure using {{plt_subplot}}, and how to optimize its distribution using {{plt_tight_layout}}.

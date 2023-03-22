@@ -1,4 +1,4 @@
-# 📖 Coding style
+# Coding style
 
 ## 📄 Standard Python conventions
 

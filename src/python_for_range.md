@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-# 📖 Looping using `for` and `range`
+# Looping using `for` and `range`
 
 :::{card} Summary
 This section shows how to repeat a code block using the `for` statement, either by looping through a variable directly, or by using a `range`.

@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 📖 Arithmetics and comparisons
+# Arithmetics and comparisons
 
 :::{card} Summary
 This section shows how to perform arithmetic operations and comparisons between arrays and between arrays and numbers. It also introduces:

@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-# 📖 Manipulating lists
+# Manipulating lists
 
 :::{card} Summary
 This section shows to modify lists using indexing and slicing, how to `extend` lists or `append` data to lists, and how to remove data from a list using `pop`.

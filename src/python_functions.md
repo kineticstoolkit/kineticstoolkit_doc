@@ -1,4 +1,4 @@
-# 📖 Functions
+# Functions
 
 :::{card} Summary
 This section covers the function syntax, function documentation via docstrings, and function arguments.

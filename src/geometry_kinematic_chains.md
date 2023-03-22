@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 📖 Kinematic chains
+# Kinematic chains
 
 :::{card} Summary
 This section introduces the concept of kinematic chains, shows how it relates to homogeneous transforms, and how we can navigate between chain elements in Kinetics Toolkit.

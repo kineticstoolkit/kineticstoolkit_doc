@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 📖 Arithmetics and variables
+# Arithmetics and variables
 
 :::{card} Summary
 This section covers basic arithmetics (`+`, `-`, `*`, `/`) and variables.
@@ -118,30 +118,4 @@ v = d / t
 In addition, the [standard Python coding style](https://pep8.org/) recommends to use all lower case for variables, and to generally separate multiple words by underscores (`_`), e.g., `power`, `mean_power`, `peak_power`.
 
 :::
-
-## 💪 Exercise
-
-A sprinter runs through two timing gates spaced by 50 m. Each timing gate records the time (in seconds) at which the sprinter passes through it.
-
-![exercices_illustration -width:normal](_static/images/exercise_timing_gates.png)
-
-Given the following program:
-
-```
-time_gate1 = 1.3  # in seconds
-time_gate2 = 6.7  # in seconds
-distance_gates12 = 50.0  # in meters
-```
-
-Continue this program so that it prints the mean velocity of the sprinter between gates 1 and 2. You can then show a suggested answer by clicking on the plus sign below.
-
-```{code-cell} ipython3
-:tags: [hide-cell]
-
-time_gate1 = 1.3  # in seconds
-time_gate2 = 6.7  # in seconds
-distance_gates12 = 50.0  # in meters
-
-print(distance_gates12 / (time_gate2 - time_gate1))
-```
 

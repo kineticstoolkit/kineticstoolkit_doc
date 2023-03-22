@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-# 📖 Function syntax
+# Function syntax
 
 :::{card} Summary
 This section presents how to declare and implement functions, and how to pass parameters to these functions.

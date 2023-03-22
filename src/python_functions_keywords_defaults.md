@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-# 📖 Keyword arguments and default values
+# Keyword arguments and default values
 
 :::{card} Summary
 This section presents how to pass arguments to functions using keyword arguments, and how to set default values for arguments.

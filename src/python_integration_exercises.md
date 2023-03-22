@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 📖 Integration exercises
+# Integration exercises
 
 :::{card} Summary
 This section proposes exercises to integrate the Python notions learned in the previous sections.

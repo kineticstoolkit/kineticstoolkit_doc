@@ -16,7 +16,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 📖 Moving average and Savitsky-Golay
+# Moving average and Savitsky-Golay
 
 :::{card} Summary
 This section shows how to smooth a noisy signal using [ktk.filters.smooth](api/ktk.filters.smooth.rst), or how to smooth and derivate a noisy signal using the more generic [ktk.filters.savgol](api/ktk.filters.savgol.rst) function.

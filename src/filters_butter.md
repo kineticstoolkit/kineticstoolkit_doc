@@ -16,7 +16,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 📖 Butterworth filter
+# Butterworth filter
 
 :::{card} Summary
 This section shows how to remove specific ranges of frequencies from a TimeSeries using [ktk.filters.butter](api/ktk.filters.butter.rst).

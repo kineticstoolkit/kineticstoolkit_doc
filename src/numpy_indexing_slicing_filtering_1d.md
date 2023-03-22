@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 📖 Indexing, slicing and filtering unidimensional arrays
+# Indexing, slicing and filtering unidimensional arrays
 
 :::{card} Summary
 This section shows how to read or write specific elements of a unidimensional array, using indexing, slicing and filtering.

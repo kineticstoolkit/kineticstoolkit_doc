@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 📖 The homogeneous transform: mapping coordinates to other coordinate systems
+# The homogeneous transform: mapping coordinates to other coordinate systems
 
 :::{card} Summary
 This section shows the role of the homogeneous transform in moving from local to global coordinates, and how to perform these operations in Kinetics Toolkit using [](api/ktk.geometry.get_global_coordinates.rst) and [](api/ktk.geometry.get_local_coordinates.rst).

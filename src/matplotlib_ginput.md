@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-# 📖 Graphical input
+# Graphical input
 
 :::{card} Summary
 This section presents the {{plt_ginput}} function, that allows a user to interactively get coordinates from a figure.
