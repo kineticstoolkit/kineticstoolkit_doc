@@ -4,7 +4,7 @@ To help developping Kinetics Toolkits by testing it or extending it, you can ins
 
 ## 📄 To use the master branch as a user
 
-First start by installing the [stable version](installing.md), which will take care of most dependencies. Then, you:
+First start by installing the [stable version](getting_started_installing.md), which will take care of most dependencies. Then, you:
 
 1. Clone the git repository: `git clone https://github.com/felixchenier/kineticstoolkit.git kineticstoolkit`
 

@@ -9,7 +9,7 @@ The following manual assumes you already have a working scientific python enviro
 - Matplotlib: pyplot functions (plot, xlabel, ylabel, title, etc.)
 - Pandas: basic knowledge of DataFrames.
 
-Please consult chapter [](python_for_beginners.md) if this is not the case.
+Please consult chapter [](python_for_biomechanics.md) if this is not the case.
 :::
 
 ## Contents

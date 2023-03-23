@@ -1,4 +1,45 @@
-```{margin}
+# Kinetics Toolkit
+
+::::{grid}
+:gutter: 2
+
+:::{grid-item-card} 
+**is a free online resource** for students and researchers to learn about 3D biomechanical data processing using Python.
+
+- [](getting_started.md)
+- [](python_for_biomechanics.md)
+- [](kineticstoolkit.md)
+:::
+
+:::{grid-item-card}
+**is an open-source Python package** to analyze biomechanical data with the users knowing what they are doing. No magical black box.
+
+- [](timeseries.md)
+- [](files.md)
+- [](geometry.md)
+- [](kinematics.md)
+:::
+
+::::
+
+
+::::{grid}
+:::{grid-item}
+```
+import kineticstoolkit.lab as ktk
+markers = ktk.read_c3d("filename.c3d")["Points"]
+ktk.Player(markers, interconnections=interconnections)
+```
+
+
+
+[![example_result](_static/images/frontpage.gif)](kinematics_load_visualize.md)
+[Click here for a complete tutorials on marker visualization](kinematics_load_visualize.md)
+:::
+
+:::{grid-item}
+
+```{div}
 <div style="max-height:900px">
 
 <div align="left">
@@ -16,38 +57,6 @@
 </div>
 <link rel="alternate" type="application/rss+html" title="Subscribe to Kinetics Toolkit Announcements" href="https://github.com/felixchenier/kineticstoolkit/discussions/categories/announcements.atom" />
 ```
-
-% *Open-source package and resources to learn biomechanical data processing using Python*
-
-# Kinetics Toolkit
-
-::::{grid}
-:gutter: 2
-
-:::{grid-item-card} 
-**is an online resource for students and researchers** to learn about 3D biomechanical data processing using Python.
-
-- [](getting_started.md)
-- [](python_for_beginners.md)
-- [](scipy_matplotlib_numpy.md)
-:::
-
-:::{grid-item-card}
-**is an open-source Python package** to analyze biomechanical data with the users knowing what they are doing.
-
-- [](timeseries.md)
-- [](files.md)
-- [](geometry.md)
-:::
-
-::::
-
-::::{grid}
-:::{grid-item-card}
-
-[![example_code](_static/images/index_example.png)](kinematics_load_visualize.md)
-
-[![example_result](_static/images/frontpage.gif)](kinematics_load_visualize.md)
 
 :::
 ::::

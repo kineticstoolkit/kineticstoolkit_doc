@@ -1,9 +1,7 @@
 #!/bin/zsh
 
-rm -fR html
-
 cp src/_config.yml preview_src
-cp "$1" preview_src/index.md
+cp src/"$1".md preview_src/index.md
 cd preview_src
 ln -s ../src/_static
 cd ..

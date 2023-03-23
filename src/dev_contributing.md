@@ -4,7 +4,7 @@ There is no need to be a developer to contribute to this project. Here are some 
 
 ## 👤 As a user (or potential user)
 
-- [Install Kinetics Toolkit](installing.md), browse the [documentation](https://kineticstoolkit.uqam.ca), try it and check how it fits your workflow;
+- [Install Kinetics Toolkit](getting_started_installing.md), browse the [documentation](https://kineticstoolkit.uqam.ca), try it and check how it fits your workflow;
 - Talk about it in your networks;
 - Share your success, make suggestions, propose ideas, etc.:
     - on the [discussions forum](https://github.com/felixchenier/kineticstoolkit/discussions)

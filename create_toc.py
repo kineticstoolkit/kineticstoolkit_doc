@@ -35,6 +35,7 @@ def get_indent_level(string):
     return len(string.split('-')[0]) // TAB_LENGTH
 
 
+current_section = ""
 with open("src/toc.md", "r") as source:
     with open("src/_toc.yml", "w") as destination:
         destination.writelines(
@@ -51,21 +52,31 @@ with open("src/toc.md", "r") as source:
         while thisline:
 
             write_line(destination, thisline)
+
             nextline = source.readline()
+            buffer = []
             while nextline and (is_bullet_line(nextline) is False):
-                write_line(destination, nextline)
+                buffer.append(nextline)
                 nextline = source.readline()
+            for item in buffer:
+                write_line(destination, item)
+
+            if "- caption:" in thisline:
+                current_section = "part"
+            elif "- file:" in thisline:
+                current_section = "file"
 
             if get_indent_level(nextline) <= get_indent_level(thisline):
                 pass
-            elif "- caption:" in thisline:
+            elif current_section == "part":
                 write_line(destination, "  chapters:\n")
-            elif "- file:" in thisline:
+            elif current_section == "file":
                 write_line(
                     destination,
                     " " * TAB_LENGTH * get_indent_level(thisline) + "  sections:\n"
                 )
             else:
                 raise ValueError("Should not happen.")
+                
 
             thisline = nextline

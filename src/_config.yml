@@ -14,17 +14,17 @@ execute:
 html:
   favicon                   : ""  # A path to a favicon image
   use_edit_page_button      : false  # Whether to add an "edit this page" button to pages. If `true`, repository information in repository: must be filled in
-  use_fullscreen_button     : false
   use_repository_button     : false  # Whether to add a link to your repository button
   use_issues_button         : false  # Whether to add an "open an issue" button
   use_multitoc_numbering    : true   # Continuous numbering across parts/chapters
+  extra_footer              : ""  # Will be displayed underneath the footer.
   google_analytics_id       : ""  # A GA id that can be used to track book views.
   home_page_in_navbar       : true  # Whether to include your home page in the left Navigation Bar
   baseurl                   : "https://kineticstoolkit.uqam.ca/doc/"  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
   comments:
     hypothesis              : false
     utterances              : false
-  
+  announcement              : "" # A banner announcement at the top of the site.  
 
 parse:
   myst_substitutions:
@@ -139,7 +139,6 @@ sphinx:
     napoleon_use_ivar: False
     napoleon_use_param: True
     napoleon_use_rtype: True
-#    templates_path: ['_templates']
     html_favicon: favicon.ico
     exclude_patterns:
       - '_build'
@@ -153,6 +152,7 @@ sphinx:
       - '_templates'
 
     html_theme_options:
+      'show_toc_level': -1  # Sidebar local contents
       'collapse_navigation': True
       'navigation_depth': 4
       extra_footer: "This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>."

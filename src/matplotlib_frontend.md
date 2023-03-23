@@ -45,4 +45,4 @@ plt.plot([1.0, 2.0, -1.0, -0.0])
 
 ![Matplotlib using Qt5 -width:wider](_static/images/matplotlib_qt5.png)
 
-Please consult section [](python_configuring_spyder.md) to configure Spyder to use Qt5 by default, and therefore always get non-blocking, interactive figures.
+Please consult section [](getting_started_configuring_spyder.md) to configure Spyder to use Qt5 by default, and therefore always get non-blocking, interactive figures.

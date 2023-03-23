@@ -11,17 +11,21 @@ kernelspec:
   name: python3
 ---
 
+```{code-cell} ipython3
+:tags: [remove-cell]
+
+%matplotlib inline
+```
+
 # Docstrings
 
 :::{card} Summary
 This section shows how to properly document a function so that future users (or future-yourself) will understand the meaning of the code even months after.
 :::
 
-We theoretically know enough on functions to follow on with other concepts. However, although the solutions to the previous exercises do work, they could be much more documented. Keep in mind that code is wrote once, often by only one programmer, but it is read many times after, often by other people. An undocumented function is usually clear to the programmer while it is being written; but will it be months later? Docstrings are the most important way to document functions.
+We theoretically know enough on functions to follow on with other concepts. However, although the solutions to the previous exercises do work, they could be much more documented. Keep in mind that code is wrote once, often by only one programmer, but it is read many times after, often by other people. An undocumented function is usually clear to the programmer while it is being written; but will it be months later?
 
-## 📄 What is a docstring
-
-A docstring is literally a **string** that **doc**uments a function. While being facultative, it is almost mandatory in any code other than very simple scripts. A standard docstrings is a triple-quote string placed just below the function signature. Here is what a good docstring for last section's `format_info` function would be:
+Docstrings are the most important way to document functions. A docstring is literally a **string** that **doc**uments a function. While being facultative, it is almost mandatory in any code other than very simple scripts. A standard docstrings is a [triple-quote string](python_strings_triple_quotes.md) placed just below the function signature. Here is what a good docstring for the [`format_info`](python_functions_return_exercise2.md) function would be:
 
 ```{code-cell} ipython3
 def format_info(i_participant, first_name, last_name, age, height, weight):
@@ -72,8 +76,6 @@ Minimally, a docstring clearly indicates:
 
 As you notice in the example above, we have more lines of documentation than lines of code. This is not unusual, and this is not a bad practice at all. After all, a well-documented, simple code is much better than an undocumented, complex code!
 
-## 📄 Consulting docstrings
-
 Since they are so ubiquitous, docstrings can be read without having to open the function's source code. Try executing the last function definition, then:
 
 1. Type `format_info` in Spyder's help browser. The docstring appears, all well-formatted:
@@ -85,49 +87,3 @@ Since they are so ubiquitous, docstrings can be read without having to open the 
 ```{code-cell} ipython3
 help(format_info)
 ```
-
-
-## 📄 Type annotations
-
-In addition to docstrings, type annotations are increasingly popular to document the types of a function's parameters and return value. Like docstrings, type annotations are facultative, but are generally helpful to clearly design and document functions.
-
-The syntax for type annotations is `:` for the parameters, and `->` for return values (see the `->` as a right-arrow). In the `format_info` function above, we documented the parameters and return types in the docstring. Using type annotations, we could instead document those directly in the signature:
-
-```{code-cell} ipython3
-def format_info(
-    i_participant: int,
-    first_name: str,
-    last_name: str,
-    age: float,
-    height: float,
-    weight: float
-) -> str:
-    """
-    Format the provided information into a human-readable string.
-
-    Parameters
-    ----------
-    i_participant
-        Identifier for the participant
-    first_name
-        First name (given name) of the participant
-    last_name
-        Last name (surname) of the participant
-    age
-        Age of the participant, in years
-    height
-        Height of the participant, in meters
-    weight
-        Weight of the participant, in kg
-
-    Returns
-    -------
-    str
-        A human-readable string based on the provided information.
-
-    """
-```
-
-:::{note}
-Writing a good docstring is way more important than using type annotations. The choice of using type annotations or not is strictly up to you, but it is important to know that it exists, if only to understand others' code.
-:::

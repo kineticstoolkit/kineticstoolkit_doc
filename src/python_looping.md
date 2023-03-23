@@ -4,7 +4,7 @@
 This section shows how to repeat a code block several times using the `while`, `for`, `range` and `enumerate` statements.
 :::
 
-In the last exercise in section [](python_lists_mutability.md), we repeated a similar instruction three times:
+In the last exercise in section [](python_lists_modify.md), we repeated a similar instruction three times:
 
 ```
 one_list.extend(max_flexion[1])

@@ -17,7 +17,7 @@ kernelspec:
 This section shows how to loop through a list using `enumerate`, which allows both reading and modifying the list.
 :::
 
-## 📄 Iterating over the list vs the list indexes
+## Iterating over the list vs the list indexes
 
 There are two main ways to use `for` to iterate over a list. The first was shown previously, using `for` directly on the list:
 
@@ -69,7 +69,7 @@ print(f"After: {the_list}")
 
 In this case, it worked well because we are explicitly asking to update the element `i` of the list.
 
-## 📄 Enumerate
+## Enumerate
 
 Since both iteration methods of previous section have advantages (the first being simpler, the second being more powerful), we can use both at the same time using the convenient `enumerate` function, that returns both the element and its index:
 
