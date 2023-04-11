@@ -1,10 +1,12 @@
-# Plotting figures using Matplotlib
+# Matplotlib
 
-:::{card} Summary
-This section presents the Matplotlib package, and especially the {{pyplot}} module. Matplotlib is a standard for producing high-quality and interactive figures. The pyplot module is highly similar to Matlab's plotting functions, and offers an easy to understand, yet very powerful way to produce figures.
-
-![Matploglib Logo -width:narrower](_static/images/matplotlib_logo.png)
+:::{sidebar}
+![Matplotlib Logo](_static/images/matplotlib_logo.png)
 :::
+
+Matplotlib is a standard for producing high-quality and interactive figures. The pyplot module is highly similar to Matlab's plotting functions, and offers an easy to understand, yet very powerful way to produce figures.
+
+
 
 Matplotlib can generate a high diversity of plots. Here are different examples that are relevant to biomechanics, directly reproduced from the {{matplotlib}} website:
 

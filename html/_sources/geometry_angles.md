@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 📖 Extracting angles
+# Extracting angles
 
 :::{card} Summary
 This section introduce intrinsic/extrinsic cardan angles and Euler angles and demonstrates why rotation order is so important. It also explains how to extract 3d angles from series of homogeneous transforms using Kinetics Toolkit's [ktk.geometry.get_angles](api/ktk.geometry.get_angles.rst) function.

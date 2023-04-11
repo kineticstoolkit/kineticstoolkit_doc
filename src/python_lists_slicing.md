@@ -13,11 +13,7 @@ kernelspec:
 
 # Slicing lists
 
-:::{card} Summary
-This section shows how to use slices (`[::]`) to extract multiple data from a list, in the form a subset of the original list.
-:::
-
-In the previous sections, we learned how to use square brackets `[]` to extract one data from a list. Sometimes, we dont want to extract only one data, but a sub-list containing multiple data (keeping a certain portion of a list and discarding the rest). This is done using slicing.
+We already learned how to [index](python_lists_indexing.md) a list: using an integer between square brackets `[]` to extract one data from a list. Sometimes, we need to extract not only one data, but a sub-list containing multiple data. For instance, we may want to keep a certain portion of a list and discard the rest. This is done using slicing.
 
 :::{important}
 Everything on this page also applies to tuples.
@@ -25,7 +21,7 @@ Everything on this page also applies to tuples.
 
 ## Slicing syntax
 
-The syntax for slicing is similar to indexing, the main difference being the column operator `:`. To extract one element from a list, say for example the 3rd element (at index 2), we would use:
+The syntax for slicing is similar to indexing, the main difference being the use of a column operator `:`. To extract one element from a list, say for example the 3rd element (at index 2), we would use:
 
 ```{code-cell}
 list_of_strings = [

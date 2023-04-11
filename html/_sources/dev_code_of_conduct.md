@@ -1,4 +1,4 @@
-# 📖 Code of conduct
+# Code of conduct
 
 ## 📄 Our Pledge
 

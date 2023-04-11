@@ -16,7 +16,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 📖 Manipulating TimeSeries
+# Manipulating TimeSeries
 
 :::{card} Summary
 This tutorial shows how to use various TimeSeries methods to copy, split, extract or combine TimeSeries.

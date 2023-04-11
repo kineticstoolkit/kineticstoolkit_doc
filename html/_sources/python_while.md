@@ -11,13 +11,7 @@ kernelspec:
   name: python3
 ---
 
-# 📖 Looping using `while`
-
-:::{card} Summary
-This section shows how to repeat a code block using the `while` statement.
-:::
-
-## 📄 Syntax
+# Looping using **while**
 
 The `while` instruction repeats a code block as long as a condition is true. Its syntax is:
 
@@ -39,11 +33,13 @@ i = 0
 while i < 5:
     print(f"Now, the variable i is {i}.")
     i += 1
+
+print("done")
 ```
 
-## ⚙️ Example
+We see that as long as `i` was strictly lower than 5, the `while` instruction executed the code block. When `i` equalled 5, the `(i < 5)` condition evaluated to False, and therefore the `while` instruction ceased to execute the code block.
 
-In the following example, we made some measurements in metres that we stored into a list. We want to convert this list to another list where the measurements are in millimetres instead:
+Here is a practical example where we made some measurements in metres that we stored into a list. We want to convert this list to another list where the measurements are in millimetres instead:
 
 ```{code-cell}
 # Measurements in meters:
@@ -64,78 +60,5 @@ millimeters
 ```
 
 :::{good-practice} Looping
-While this example works perfectly well and is indeed a correct demonstration of how `while` works, we will see in the next sections that for this specific example, other methods such as using [for](python_for_range.md) or [NumPy](numpy.md) would be less error-prone and faster.
-:::
-
-## 💪 Exercise 1
-
-Using an instrumented walkway, we recorded the following positions of heel strike, first for the right heel, second for the left heel, third for the right heel, etc.:
-
-```{code-cell}
-# y-coordinates of each heel strike, in meters
-y = [0.13, 0.72, 1.29, 1.93, 2.55, 3.12, 3.71, 4.34, 4.95, 5.56]
-```
-
-![Instrumented walkway -width:full](_static/images/instrumented_walkway.png)
-
-*Figure 1. Foot coordinates obtained via an instrumented walkway*
-
-Write a program that creates a list named `step_lengths`, that contains the length of every step. The first step length would be `y[1] - y[0]`, the second would be `y[2] - y[1]`, etc. In this specific example, we recorded nine steps, but your code must work on any number of steps.
-
-```{code-cell}
-:tags: [hide-cell]
-
-# Initialize an empty list to put the results of our calculations
-step_lengths = []
-
-# Count the number of steps in this set of data
-n_steps = len(y) - 1
-
-# Calculate the step lengths
-i = 0
-while i < n_steps:
-    step_lengths.append(y[i + 1] - y[i])
-    i += 1
-
-# Done
-step_lengths
-```
-
-## 💪 Exercise 2
-
-A therapist measures a patient's maximal shoulder flexion angle several times. Write a program that creates a list of all these measurements based on user input, following this example:
-
-:::{admonition} Example of program output
-```none
-Enter max shoulder flexion (deg), or Enter to stop: <User enters 119>
-Enter max shoulder flexion (deg), or Enter to stop: <User enters 124>
-Enter max shoulder flexion (deg), or Enter to stop: <User enters 123>
-Enter max shoulder flexion (deg), or Enter to stop: <User presses Enter>
-Max shoulder flexion: [119.0, 124.0, 123.0]
-```
-:::
-
-:::{tip}
-The [`input`](python_strings.md) function returns an empty string `""` when the user simply presses Enter without entering a value.
-:::
-
-:::{toggle}
-```
-# Initialize an empty list of measurements
-measurements = []
-
-# Initialize a boolean variable that controls when we need to quit the loop
-continue_asking = True
-
-# Ask the values
-while continue_asking:
-    str_value = input("Enter max shoulder flexion (deg), or Enter to stop: ")
-    if str_value == "":
-        continue_asking = False
-    else:
-        measurements.append(float(str_value))
-
-# Print the result
-print("Max shoulder flexion:", measurements)
-```
+While this example works perfectly well and is indeed a correct demonstration of how `while` works, we will see in the next sections that for this specific example, other methods such as using [for](python_for.md) or [NumPy](numpy.md) would be less error-prone and faster.
 :::

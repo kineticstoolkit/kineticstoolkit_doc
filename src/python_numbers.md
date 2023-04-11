@@ -19,11 +19,7 @@ kernelspec:
 
 # Numbers
 
-:::{card} Summary
-This section explains the difference between classes of numbers (integers, floats and complex numbers), and shows the exponentiation (`**`) arithmetic operation.
-:::
-
-Up to now, we referred to numbers simply as "numbers". In reality, numbers belong to different sets. Python provides three sets of numbers:
+Up to now, we referred to numbers simply as "numbers". In reality, numbers belong to different sets, each fulfilling a different role. Python provides three sets of numbers:
 
 - Integer numbers: `int`
 - Real numbers: `float`

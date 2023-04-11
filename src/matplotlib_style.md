@@ -19,15 +19,12 @@ kernelspec:
 
 # Markers, line style and colours
 
-:::{card} Summary
-This section shows how to use markers, line styles and to specify colours when plotting using {{plt_plot}}.
-:::
+The optional, third argument `fmt` of the {{plt_plot}} function defines optional markers, line styles and line colours. This argument is a string composed of these characters:
 
-The optional, third argument `fmt` of the {{plt_plot}} function sets markers, line styles and line colours. This argument is a string composed of these characters:
+::::{grid}
+:::{grid-item-card} Marker
+:columns: 4
 
-## Marker
-
-- nothing (no marker)
 - `.` dot
 - `o` round
 - `x` cross (x)
@@ -36,17 +33,25 @@ The optional, third argument `fmt` of the {{plt_plot}} function sets markers, li
 - `d` diamond
 - `s` square
 
-## Line style
+By default, no marker is plotted.
 
-- nothing (full line, or no line if there is no marker)
+:::
+
+:::{grid-item-card} Line style
+:columns: 4
+
 - `-` full line
 - `--` dashed line
 - `-.` dash-dotted line
 - `:` dotted line
 
-## Colour
+Default is a full line, unless a marker has been set, in which case the default is no line.
 
-- nothing (next colour in the colour cycle)
+:::
+
+:::{grid-item-card} Colour
+:columns: 4
+
 - `r` red
 - `g` green
 - `b` blue
@@ -56,6 +61,11 @@ The optional, third argument `fmt` of the {{plt_plot}} function sets markers, li
 - `w` white
 - `k` black
 
+Default is the next colour in the current colour cycle.
+
+:::
+::::
+
 Here are some examples:
 
 ```{code-cell} ipython3
@@ -63,14 +73,22 @@ import matplotlib.pyplot as plt
 
 y = [0.0, 1.0, -1.0, 2.0, 0.5, 0.0]
 
-plt.subplot(4, 1, 1)
-plt.plot(y, ".-r")  # dot markers, full line, red
-plt.subplot(4, 1, 2)
-plt.plot(y, "--g")  # no marker, dashed line, green
-plt.subplot(4, 1, 3)
-plt.plot(y, "s-.b")  # square markers, dash-dotted line, blue
-plt.subplot(4, 1, 4)
-plt.plot(y, "oc")  # round markers, no line, cyan
+plt.subplot(2, 2, 1)
+plt.plot(y, ".-r")
+plt.title("dot markers, full line, red")
+
+plt.subplot(2, 2, 2)
+plt.plot(y, "--g")
+plt.title("no marker, dashed line, green")
+
+plt.subplot(2, 2, 3)
+plt.plot(y, "s-.b")
+plt.title("square markers, dash-dotted line, blue")
+
+plt.subplot(2, 2, 4)
+plt.plot(y, "oc")
+plt.title("round markers, no line, cyan")
+
 plt.tight_layout()
 
 plt.show()

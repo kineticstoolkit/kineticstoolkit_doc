@@ -43,16 +43,30 @@ list_of_strings[0]
 list_of_strings[1]
 ```
 
-Until you get used to zero-based addressing, this error may happen regularly:
+::::{tip}
 
-```{code-cell} ipython3
-:tags: [raises-exception]
+Until you get used to zero-based addressing, you may sometimes get this error:
 
+```
 # Get the last element
 list_of_strings[10]
 ```
 
+Results in:
+
+```
+---------------------------------------------------------------------------
+IndexError                                Traceback (most recent call last)
+Cell In[3], line 2
+      1 # Get the last element
+----> 2 list_of_strings[10]
+
+IndexError: list index out of range
+```
+
 In this case, this error happened because while the list is indeed 10-element long, the last element is at index 9, not 10.
+
+::::
 
 ## Negative indexing
 
@@ -76,26 +90,38 @@ i = 3
 list_of_strings[i]
 ```
 
-In any case, the variable must be an integer. Indeed, a list element could not be halfway between two elements. This could cause some unintuitive errors, for example if the index is the result of a calculation that implies a division:
+In any case, the variable must be an integer. Indeed, a list element could not be halfway between two elements.
 
+::::{tip}
+If the index is calculated using a [division](python_arithmetics.md), then the result is a float, not an integer. In this case, this statement would generate an error:
 
-```{code-cell} ipython3
-:tags: [raises-exception]
+```
 some_value = 6
-list_of_strings[some_value / 2]
+some_string = list_of_strings[some_value / 2]
 ```
 
-The division resulted in a float, which could not be used as an index. This code would correct this error:
+```
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+Cell In[6], line 2
+      1 some_value = 6
+----> 2 list_of_strings[some_value / 2]
 
-```{code-cell} ipython3
-some_value = 6
-list_of_strings[int(some_value / 2)]
+TypeError: list indices must be integers or slices, not float
 ```
 
+This code would correct this error:
+
+```
+some_value = 6
+some_string = list_of_strings[int(some_value / 2)]
+```
+
+::::
 
 ## Nested lists
 
-As seen above, lists can be nested, which means that a list can contain another list. To access a specific element of the inner list, we start by indexing the outer list, then the inner list. For example, to access the first element of the second list of `list_of_lists`:
+As seen in the [previous section](python_lists_creating.md), lists can be nested, which means that a list can contain another list. To access a specific element of the inner list, we start by indexing the outer list, then the inner list. For example, to access the first element of the second list of `list_of_lists`:
 
 ```{code-cell} ipython3
 list_of_lists = [

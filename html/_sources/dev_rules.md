@@ -1,4 +1,4 @@
-# 📖 Development rules
+# Development rules
 
 ## 📄 Rule 1: Code of conduct
 

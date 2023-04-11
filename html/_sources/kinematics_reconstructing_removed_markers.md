@@ -16,7 +16,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 📖 Reconstructing removed markers
+# Reconstructing removed markers
 
 :::{card} Summary
 This tutorial explains how to use the [ktk.kinematics](api/ktk.kinematics.rst) module to reconstruct markers that were present during a calibration acquisition, but that were then removed.

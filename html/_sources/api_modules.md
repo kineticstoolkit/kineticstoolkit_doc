@@ -1,4 +1,4 @@
-# 📖 Modules
+# Modules
 
 ```{eval-rst}
 

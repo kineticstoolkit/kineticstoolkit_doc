@@ -19,13 +19,19 @@ kernelspec:
 
 # Docstrings
 
-:::{card} Summary
-This section shows how to properly document a function so that future users (or future-yourself) will understand the meaning of the code even months after.
+We theoretically know enough on functions to follow on with other concepts. However, although the solutions to the previous exercises do work, they could be much more documented.
+
+:::{tip}
+Keep in mind that code is wrote once, often by only one programmer, but it is read many times after, often by other people. An undocumented function is usually clear to the programmer while it is being written, but will it be months later?
 :::
 
-We theoretically know enough on functions to follow on with other concepts. However, although the solutions to the previous exercises do work, they could be much more documented. Keep in mind that code is wrote once, often by only one programmer, but it is read many times after, often by other people. An undocumented function is usually clear to the programmer while it is being written; but will it be months later?
+Docstrings are the most important way to document functions. A docstring is literally a **string** that **doc**uments a function. While being facultative, it is almost mandatory in any code other than very simple scripts. A standard docstrings is a [triple-quote string](python_strings_triple_quotes.md) placed just below the function signature. Minimally, a docstring clearly indicates:
 
-Docstrings are the most important way to document functions. A docstring is literally a **string** that **doc**uments a function. While being facultative, it is almost mandatory in any code other than very simple scripts. A standard docstrings is a [triple-quote string](python_strings_triple_quotes.md) placed just below the function signature. Here is what a good docstring for the [`format_info`](python_functions_return_exercise2.md) function would be:
+1. What the function does, on one single line.
+2. What are the types and contents of every expected parameter.
+3. What are the type and contents of the return value, if any.
+
+Here is what a good docstring looks like:
 
 ```{code-cell} ipython3
 def format_info(i_participant, first_name, last_name, age, height, weight):
@@ -66,23 +72,20 @@ def format_info(i_participant, first_name, last_name, age, height, weight):
 ```
 
 :::{note}
-The style used for this docstring is [numpydoc](https://numpydoc.readthedocs.io/en/latest/format.html). There is no requirement to follow this specific style over another one, but since it is used by most major Python packages in numerical analysis (NumPy, Pandas, Matplotlib, SciPy), then we chose to also follow this style.
+The style used for this docstring is [numpydoc](https://numpydoc.readthedocs.io/en/latest/format.html). There is no requirement to follow this specific style over another one, but since it is used by most major Python packages in numerical analysis (NumPy, Pandas, Matplotlib, SciPy), then the Kinetics Toolkit package also follows this style.
 :::
 
-Minimally, a docstring clearly indicates:
-1. What the function does, on one single line.
-2. What are the types and contents of every expected parameter.
-3. What are the type and contents of the return value, if any.
-
-As you notice in the example above, we have more lines of documentation than lines of code. This is not unusual, and this is not a bad practice at all. After all, a well-documented, simple code is much better than an undocumented, complex code!
+As you notice in the example above, there is more lines of documentation than lines of code. This is not unusual, and this is not a bad practice. After all, a well-documented, simple code is much better than an undocumented, complex code!
 
 Since they are so ubiquitous, docstrings can be read without having to open the function's source code. Try executing the last function definition, then:
 
-1. Type `format_info` in Spyder's help browser. The docstring appears, all well-formatted:
+:::{sidebar}
+![Spyder help](_static/images/python_function_spyder_help.png)
+:::
 
-![Spyder help -width:wider](_static/images/python_function_spyder_help.png)
+1. Type `format_info` in Spyder's help browser. The docstring appears, all well-formatted (right image):
 
-2. Or type `help(format_info)` in the console:
+3. Or type `help(format_info)` in the console:
 
 ```{code-cell} ipython3
 help(format_info)

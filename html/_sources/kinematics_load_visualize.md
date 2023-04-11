@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 📖 Reading and visualizing markers in 3D
+# Reading and visualizing markers in 3D
 
 :::{card} Summary
 In this tutorial, we will read a `c3d` file that contains tennis serve kinematics, and visualize it in an interactive interface, as shown on the [home page](index.md).
@@ -67,7 +67,7 @@ markers.data
 
 Now we'll take a look at this acquisition using [](api/ktk.Player.rst), a matplotlib-based interactive user interface aimed at visualizing markers, rigid bodies and segments in three dimensions.
 
-Note that for the `Player` class to be interactive, you must select an interactive backend for IPython. See [](ktk_installing.md) for more information. It is also possible to generate non-interactive animations in Jupyter-based environments, like on this website. Here, we show both methods; we will subsequently only show the commands for the interactive player.
+Note that for the `Player` class to be interactive, you must select an interactive backend for IPython. See [](getting_started_installing.md) for more information. It is also possible to generate non-interactive animations in Jupyter-based environments, like on this website. Here, we show both methods; we will subsequently only show the commands for the interactive player.
 
 ::::{tab-set}
 

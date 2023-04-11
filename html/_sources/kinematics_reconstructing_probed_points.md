@@ -16,7 +16,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 📖 Reconstructing probed points
+# Reconstructing probed points
 
 :::{card} Summary
 This tutorial explains how to use the [ktk.kinematics](api/ktk.kinematics.rst) module to reconstruct virtual markers using a probe and rigid clusters.

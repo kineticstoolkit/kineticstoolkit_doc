@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="📘 Manual" href="ktk_manual.html" />
+    <link rel="next" title="Introduction" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -149,48 +149,277 @@ const thebe_selector_output = ".output, .cell_output"
 </a></div>
         <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
-        <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="ktk_manual.html">📘 Manual</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="ktk_overview.html">📖 An overview of Kinetics Toolkit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ktk_installing.html">📖 Installing and importing</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="timeseries.html">📖 TimeSeries</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="timeseries_basics.html">📖 TimeSeries basics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="timeseries_manipulating.html">📖 Manipulating TimeSeries</a></li>
-<li class="toctree-l3"><a class="reference internal" href="timeseries_dataframes.html">📖 Converting between TimeSeries and pandas DataFrames</a></li>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Biomechanical analysis using Python and Kinetics Toolkit</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 1: Learning Python for Biomechanics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="getting_started.html">1. Getting started</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started_installing.html">1.1. Installing Python, Spyder and Kinetics Toolkit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started_configuring_spyder.html">1.2. Configuring Spyder</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="loadsave.html">📖 Saving and loading</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="filters.html">📖 Filtering</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="filters_butter.html">📖 Butterworth filter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="filters_smooth_savgol.html">📖 Moving average and Savitsky-Golay</a></li>
-<li class="toctree-l3"><a class="reference internal" href="filters_median.html">📖 Removing artefacts using a median filter</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="python_for_biomechanics.html">2. The Python language</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python_using_spyder.html">2.1. Using Spyder</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="spyder_interface.html">2.1.1. Spyder interface</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spyder_console.html">2.1.2. Writing code in the console</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spyder_script.html">2.1.3. Writing code in a script</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spyder_cells.html">2.1.4. Code cell</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spyder_help.html">2.1.5. Getting help</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="cycles.html">📖 Working with cycles</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="geometry.html">📖 3D rigid body geometry</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometry_basics.html">📖 Coordinates: points, vectors and frames</a></li>
-<li class="toctree-l3"><a class="reference internal" href="geometry_transform_moving_coordinates.html">📖 The homogeneous transform: rotating and translating coordinates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="geometry_transform_changing_coordinate_system.html">📖 The homogeneous transform: mapping coordinates to other coordinate systems</a></li>
-<li class="toctree-l3"><a class="reference internal" href="geometry_kinematic_chains.html">📖 Kinematic chains</a></li>
-<li class="toctree-l3"><a class="reference internal" href="geometry_angles.html">📖 Extracting angles</a></li>
-<li class="toctree-l3"><a class="reference internal" href="geometry_dimension_conventions.html">📖 Dimension conventions</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python_basics.html">2.2. Python basics</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="python_arithmetics.html">2.2.1. Arithmetic operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_print.html">2.2.2. Printing to the console</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_comments.html">2.2.3. Comments</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_variables.html">2.2.4. Variables</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_basics_exercise1.html">💪 Python basics (1)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python_basics_exercise2.html">💪 Python basics (2)</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="kinematics.html">📖 Kinematics analysis</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="kinematics_load_visualize.html">📖 Reading and visualizing markers in 3D</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kinematics_joint_angles.html">📖 Calculating joint angles from a kinematic acquisition</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kinematics_reconstructing_occluded_markers.html">📖 Reconstructing occluded markers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kinematics_reconstructing_removed_markers.html">📖 Reconstructing removed markers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="kinematics_reconstructing_probed_points.html">📖 Reconstructing probed points</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="extensions.html">📖 Extensions</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python_numbers.html">2.3. Numbers</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_int_float.html">2.3.1. Integers and floats</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_int_float_exercise.html">💪 Integers and floats</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="api_reference.html">📘 API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="ktk_conventions.html">📖 Conventions</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="api_classes.html">📖 Classes</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="api/ktk.TimeSeries.html">ktk.TimeSeries</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="python_int_float_arithmetics.html">2.3.2. Arithmetic operations between integers and floats</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python_strings.html">2.4. Strings</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="python_strings_quotes.html">2.4.1. Creating strings using quotes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_strings_backslash.html">2.4.2. Backslash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_strings_triple_quotes.html">2.4.3. Creating strings using triple-quotes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_strings_long_strings.html">2.4.4. Creating long strings</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_strings_fstrings.html">2.4.5. Including variables in strings using f-strings</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_strings_exercise.html">💪 Strings</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="python_strings_input.html">2.4.6. User input</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python_functions.html">2.5. Functions</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="python_functions_syntax.html">2.5.1. Function syntax</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_functions_arguments.html">2.5.2. Argument names</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_functions_arguments_exercise.html">💪 Function arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_functions_return.html">2.5.3. Return values</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_functions_return_exercise1.html">💪 Function return values (1)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python_functions_return_exercise2.html">💪 Function return values (2)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="python_functions_docstrings.html">2.5.4. Docstrings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_functions_type_annotations.html">2.5.5. Type annotations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_functions_positional_keywords.html">2.5.6. Positional and keyword arguments</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_functions_default_values.html">2.5.7. Default values</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_functions_default_values_exercise.html">💪 Function argument’s default values</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python_conditions.html">2.6. Conditions and booleans</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="python_conditions_boolean.html">2.6.1. Boolean and comparisons</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_conditions_if_elif_else.html">2.6.2. Conditional code</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_conditions_if_elif_else_exercise.html">💪 Conditions: if/elif/else</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_conditions_logical_operators.html">2.6.3. Logical operators</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_conditions_boolean_operators_exercise.html">💪 Conditions: boolean operators</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python_lists.html">2.7. Lists and tuples</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="python_lists_creating.html">2.7.1. Creating lists and tuples</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_lists_indexing.html">2.7.2. Indexing a list</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_lists_indexing_exercise1.html">💪 Indexing lists (1)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python_lists_indexing_exercise2.html">💪 Indexing lists (2)</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_lists_slicing.html">2.7.3. Slicing lists</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_lists_slicing_exercise1.html">💪 Slicing lists (1)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python_lists_slicing_exercise2.html">💪 Slicing lists (2)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="python_strings_slicing.html">2.7.4. Indexing and slicing strings</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_lists_modify.html">2.7.5. Modifying lists</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_lists_modify_exercise1.html">💪 Modifying lists (1)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python_lists_modify_exercise2.html">💪 Modifying lists (2)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python_looping.html">2.8. Looping</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_while.html">2.8.1. Looping using <strong>while</strong></a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_while_exercise1.html">💪 Looping using <strong>while</strong> (1)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python_while_exercise2.html">💪 Looping using <strong>while</strong> (2)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python_while_exercise3.html">💪 Looping using <strong>while</strong> (3)</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_for.html">2.8.2. Looping using <strong>for</strong></a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_for_exercise.html">💪 Looping using <strong>for</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_for_range.html">2.8.3. Looping using <strong>for</strong> and <strong>range</strong></a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_for_range_exercise1.html">💪 Looping using <strong>for</strong> and <strong>range</strong> (1)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python_for_range_exercise2.html">💪 Looping using <strong>for</strong> and <strong>range</strong> (2)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python_for_range_exercise3.html">💪 Looping using <strong>for</strong> and <strong>range</strong> (3)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python_for_range_exercise4.html">💪 Looping using <strong>for</strong> and <strong>range</strong> (4)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="python_for_writing_list.html">2.8.4. Modifying a list while looping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_for_enumerate.html">2.8.5. Looping a list using <strong>for</strong> and <strong>enumerate</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python_dicts.html">2.9. Dictionaries</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_dicts_creating_accessing.html">2.9.1. Creating dictionaries and accessing/modifying entries</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-26"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_dicts_creating_accessing_exercise1.html">💪 Creating and accessing dictionaries (1)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python_dicts_creating_accessing_exercise2.html">💪 Creating and accessing dictionaries (2)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python_dicts_creating_accessing_exercise3.html">💪 Creating and accessing dictionaries (3)</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_dicts_modifying.html">2.9.2. Adding and removing entries</a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-27"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_dicts_modifying_exercise.html">💪 Adding entries to dictionaries</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_dicts_looping.html">2.9.3. Looping through a dictionary’s entries</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_dicts_looping_exercise.html">💪 Looping through a dictionary</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="python_exercises.html">2.10. Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="matplotlib.html">3. Matplotlib</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="matplotlib_import.html">3.1. Importing <strong>pyplot</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="matplotlib_plot.html">3.2. Line plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matplotlib_plot_multiple.html">3.3. Plotting multiple series</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="matplotlib_titles_labels.html">3.4. Title, axis labels, legend and grid</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-30"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="matplotlib_plot_titles_labels_exercise1.html">3.4.1. 💪 Plotting a series (1)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="matplotlib_plot_titles_labels_exercise2.html">3.4.2. 💪 Plotting a series (2)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="matplotlib_subplot.html">3.5. Multiple plots side by side</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="matplotlib_style.html">3.6. Markers, line style and colours</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-31"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="matplotlib_style_exercise.html">3.6.1. 💪 Plot styling</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="matplotlib_axis.html">3.7. Setting the axes limits</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="matplotlib_ginput.html">3.8. Graphical input</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="matplotlib_ginput_exercise.html">3.8.1. 💪 Graphical input</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="matplotlib_exercises.html">3.9. Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="numpy.html">4. NumPy</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-33"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="numpy_import.html">4.1. Importing NumPy</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="numpy_ndarray.html">4.2. Arrays</a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-34"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="numpy_ndarray_introduction.html">4.2.1. Introduction to arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numpy_ndarray_creating_from_lists.html">4.2.2. Creating arrays from lists</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="numpy_ndarray_creating_zeros_ones.html">4.2.3. Creating arrays of zeros or ones</a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-35"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="numpy_ndarray_creating_zeros_ones_exercise1.html">💪 Exercise 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="numpy_ndarray_creating_zeros_ones_exercise2.html">💪 Exercise 2</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="numpy_ndarray_creating_linspace.html">4.2.4. Creating linearly spaced arrays</a><input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-36"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="numpy_ndarray_creating_linspace_exercise1.html">💪 Exercise 1</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="numpy_arithmetics.html">4.3. Arithmetics</a><input class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-37"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="numpy_arithmetics_exercise.html">4.3.1. 💪 Exercise</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numpy_matmul.html">4.3.2. Matrix multiplication</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="numpy_trigonometry.html">4.4. Trigonometry</a><input class="toctree-checkbox" id="toctree-checkbox-38" name="toctree-checkbox-38" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-38"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="numpy_trigonometry_exercise1.html">4.4.1. 💪 Exercise 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numpy_trigonometry_exercise2.html">4.4.2. 💪 Exercise 2</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="numpy_inf_nan.html">4.5. Infinity and Not-A-Number (nan)</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="numpy_statistics.html">4.6. Statistical functions</a><input class="toctree-checkbox" id="toctree-checkbox-39" name="toctree-checkbox-39" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-39"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="numpy_statistics_exercise.html">4.6.1. 💪 Exercise</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="numpy_comparisons.html">4.7. Comparisons</a><input class="toctree-checkbox" id="toctree-checkbox-40" name="toctree-checkbox-40" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-40"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="numpy_comparisons_exercise.html">4.7.1. 💪 Exercise</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="numpy_logical_operators.html">4.8. Logical operators</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="numpy_indexing_slicing_1d.html">4.9. Indexing and slicing unidimensional arrays</a><input class="toctree-checkbox" id="toctree-checkbox-41" name="toctree-checkbox-41" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-41"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_1d_exercise.html">4.9.1. 💪 Exercise</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="numpy_filtering_1d.html">4.10. Filtering</a><input class="toctree-checkbox" id="toctree-checkbox-42" name="toctree-checkbox-42" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-42"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="numpy_filtering_1d_exercise1.html">4.10.1. 💪 Exercise 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numpy_filtering_1d_exercise2.html">4.10.2. 💪 Exercise 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numpy_filtering_1d_exercise3.html">4.10.3. 💪 Exercise 3</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="numpy_nd.html">4.11. Multidimensional arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numpy_indexing_nd.html">4.12. Indexing multidimensional arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numpy_slicing_nd.html">4.13. Slicing multidimensional arrays</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="numpy_filtering_nd.html">4.14. Filtering multidimensional arrays</a><input class="toctree-checkbox" id="toctree-checkbox-43" name="toctree-checkbox-43" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-43"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="numpy_filtering_nd_exercise.html">4.14.1. 💪 Exercise</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="numpy_exercises.html">4.15. Exercises</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part 2: Going further with Kinetics Toolkit</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="kineticstoolkit.html">1. Kinetics Toolkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ktk_importing.html">2. Importing Kinetics Toolkit</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="timeseries.html">3. Analyzing time-varying data</a><input class="toctree-checkbox" id="toctree-checkbox-44" name="toctree-checkbox-44" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-44"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="timeseries_basics.html">3.1. TimeSeries</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timeseries_manipulating.html">3.2. Manipulating TimeSeries</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="filters.html">3.3. Filtering</a><input class="toctree-checkbox" id="toctree-checkbox-45" name="toctree-checkbox-45" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-45"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="filters_butter.html">3.3.1. Butterworth filter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="filters_smooth_savgol.html">3.3.2. Moving average and Savitsky-Golay</a></li>
+<li class="toctree-l3"><a class="reference internal" href="filters_median.html">3.3.3. Removing artefacts using a median filter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cycles.html">3.4. Working with cycles</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="files.html">4. Reading and writing data files</a><input class="toctree-checkbox" id="toctree-checkbox-46" name="toctree-checkbox-46" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-46"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="files_c3d.html">4.1. Reading and writing C3D files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kinematics_load_visualize.html">4.2. Reading and visualizing markers in 3D</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timeseries_dataframes.html">4.3. Reading and writing Excel, CVS and other files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="loadsave.html">4.4. Saving and loading data in ktk.zip format</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="geometry.html">5. 3D rigid body geometry</a><input class="toctree-checkbox" id="toctree-checkbox-47" name="toctree-checkbox-47" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-47"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="geometry_basics.html">5.1. Coordinates: points, vectors and frames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometry_transform_moving_coordinates.html">5.2. The homogeneous transform: rotating and translating coordinates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometry_transform_changing_coordinate_system.html">5.3. The homogeneous transform: mapping coordinates to other coordinate systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometry_kinematic_chains.html">5.4. Kinematic chains</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometry_angles.html">5.5. Extracting angles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometry_dimension_conventions.html">5.6. Dimension conventions</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="kinematics.html">6. Kinematics analysis</a><input class="toctree-checkbox" id="toctree-checkbox-48" name="toctree-checkbox-48" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-48"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="kinematics_joint_angles.html">6.1. Calculating joint angles from a kinematic acquisition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kinematics_reconstructing_occluded_markers.html">6.2. Reconstructing occluded markers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kinematics_reconstructing_removed_markers.html">6.3. Reconstructing removed markers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kinematics_reconstructing_probed_points.html">6.4. Reconstructing probed points</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ktk_overview.html">An overview of Kinetics Toolkit</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="api_reference.html">📘 API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-49" name="toctree-checkbox-49" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-49"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="ktk_conventions.html">Conventions</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api_classes.html">Classes</a><input class="toctree-checkbox" id="toctree-checkbox-50" name="toctree-checkbox-50" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-50"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="api/ktk.TimeSeries.html">ktk.TimeSeries</a><input class="toctree-checkbox" id="toctree-checkbox-51" name="toctree-checkbox-51" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-51"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.add_data_info.html">ktk.TimeSeries.add_data_info</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.add_event.html">ktk.TimeSeries.add_event</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.copy.html">ktk.TimeSeries.copy</a></li>
@@ -236,14 +465,14 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeriesEvent.html">ktk.TimeSeriesEvent</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="api/ktk.Player.html">ktk.Player</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="api/ktk.Player.html">ktk.Player</a><input class="toctree-checkbox" id="toctree-checkbox-52" name="toctree-checkbox-52" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-52"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="api/ktk.Player.close.html">ktk.Player.close</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/ktk.Player.to_html5.html">ktk.Player.to_html5</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="api_functions.html">📖 Functions</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api_functions.html">Functions</a><input class="toctree-checkbox" id="toctree-checkbox-53" name="toctree-checkbox-53" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-53"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.import_extensions.html">ktk.import_extensions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.load.html">ktk.load</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.save.html">ktk.save</a></li>
@@ -252,8 +481,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.change_defaults.html">ktk.change_defaults</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="api_modules.html">📖 Modules</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="api/ktk.cycles.html">ktk.cycles</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api_modules.html">Modules</a><input class="toctree-checkbox" id="toctree-checkbox-54" name="toctree-checkbox-54" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-54"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="api/ktk.cycles.html">ktk.cycles</a><input class="toctree-checkbox" id="toctree-checkbox-55" name="toctree-checkbox-55" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-55"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="api/ktk.cycles.detect_cycles.html">ktk.cycles.detect_cycles</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/ktk.cycles.most_repeatable_cycles.html">ktk.cycles.most_repeatable_cycles</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/ktk.cycles.stack.html">ktk.cycles.stack</a></li>
@@ -261,11 +490,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l4"><a class="reference internal" href="api/ktk.cycles.unstack.html">ktk.cycles.unstack</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="api/ktk.doc.html">ktk.doc</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="api/ktk.doc.html">ktk.doc</a><input class="toctree-checkbox" id="toctree-checkbox-56" name="toctree-checkbox-56" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-56"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="api/ktk.doc.download.html">ktk.doc.download</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="api/ktk.filters.html">ktk.filters</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="api/ktk.filters.html">ktk.filters</a><input class="toctree-checkbox" id="toctree-checkbox-57" name="toctree-checkbox-57" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-57"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="api/ktk.filters.butter.html">ktk.filters.butter</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/ktk.filters.deriv.html">ktk.filters.deriv</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/ktk.filters.median.html">ktk.filters.median</a></li>
@@ -273,7 +502,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l4"><a class="reference internal" href="api/ktk.filters.smooth.html">ktk.filters.smooth</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="api/ktk.geometry.html">ktk.geometry</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="api/ktk.geometry.html">ktk.geometry</a><input class="toctree-checkbox" id="toctree-checkbox-58" name="toctree-checkbox-58" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-58"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="api/ktk.geometry.create_frames.html">ktk.geometry.create_frames</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/ktk.geometry.create_transforms.html">ktk.geometry.create_transforms</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/ktk.geometry.get_angles.html">ktk.geometry.get_angles</a></li>
@@ -284,7 +513,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l4"><a class="reference internal" href="api/ktk.geometry.register_points.html">ktk.geometry.register_points</a></li>
 </ul>
 </li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="api/ktk.kinematics.html">ktk.kinematics</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="api/ktk.kinematics.html">ktk.kinematics</a><input class="toctree-checkbox" id="toctree-checkbox-59" name="toctree-checkbox-59" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-59"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l4"><a class="reference internal" href="api/ktk.kinematics.create_cluster.html">ktk.kinematics.create_cluster</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/ktk.kinematics.extend_cluster.html">ktk.kinematics.extend_cluster</a></li>
 <li class="toctree-l4"><a class="reference internal" href="api/ktk.kinematics.track_cluster.html">ktk.kinematics.track_cluster</a></li>
@@ -292,71 +521,24 @@ const thebe_selector_output = ".output, .cell_output"
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="dev_extensions.html">📖 Developing extensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ktk_release_notes.html">🗓 Release Notes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="extensions.html">Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev_extensions.html">Developing extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ktk_release_notes.html">Release Notes</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="dev_contributing.html">👋 How to contribute</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="ktk_citing.html">📄 Citing</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dev_rules.html">📖 Development rules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dev_code_of_conduct.html">📖 Code of conduct</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dev_installing_from_github.html">📖 Installing from GitHub</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dev_coding_style.html">📖 Coding style</a></li>
-<li class="toctree-l2"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">🌎 GitHub repository</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contributing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="dev_contributing.html">How to contribute</a><input class="toctree-checkbox" id="toctree-checkbox-60" name="toctree-checkbox-60" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-60"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="ktk_citing.html">Citing</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="dev_developing.html">Developing</a><input class="toctree-checkbox" id="toctree-checkbox-61" name="toctree-checkbox-61" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-61"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="dev_rules.html">Development rules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dev_code_of_conduct.html">Code of conduct</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dev_installing_from_github.html">Installing from GitHub</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dev_coding_style.html">Coding style</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="python_for_beginners.html">📘 Learning Python for biomechanics</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="python_getting_started.html">📖 Getting started with Python</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="python_installing.html">📖 Installing Python, Spyder and the most important scientific packages</a></li>
-<li class="toctree-l3"><a class="reference internal" href="python_configuring_spyder.html">📖 Configuring Spyder for Python biomechanics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="python_using_spyder.html">📖 Using Spyder</a></li>
-</ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="python.html">📖 The Python language</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="python_arithmetics_and_variables.html">📖 Arithmetics and variables</a></li>
-<li class="toctree-l3"><a class="reference internal" href="python_numbers.html">📖 Numbers</a></li>
-<li class="toctree-l3"><a class="reference internal" href="python_strings.html">📖 Strings basics</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="python_functions.html">📖 Functions</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="python_functions_syntax.html">📖 Function syntax</a></li>
-<li class="toctree-l4"><a class="reference internal" href="python_functions_docstrings.html">📖 Docstrings</a></li>
-<li class="toctree-l4"><a class="reference internal" href="python_functions_keywords_defaults.html">📖 Keyword arguments and default values</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="python_conditions.html">📖 Conditions and booleans</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="python_lists.html">📖 Lists and tuples</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="python_lists_indexing.html">📖 Creating and indexing lists/tuples</a></li>
-<li class="toctree-l4"><a class="reference internal" href="python_lists_slicing.html">📖 Slicing lists</a></li>
-<li class="toctree-l4"><a class="reference internal" href="python_lists_mutability.html">📖 Manipulating lists</a></li>
-</ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="python_looping.html">📖 Looping</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="python_while.html">📖 Looping using <code class="docutils literal notranslate"><span class="pre">while</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="python_for_range.html">📖 Looping using <code class="docutils literal notranslate"><span class="pre">for</span></code> and <code class="docutils literal notranslate"><span class="pre">range</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="python_for_enumerate.html">📖 Looping though a list using <code class="docutils literal notranslate"><span class="pre">enumerate</span></code></a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="python_dicts.html">📖 Dictionaries</a></li>
-<li class="toctree-l3"><a class="reference internal" href="python_integration_exercises.html">📖 Integration exercises</a></li>
-</ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="matplotlib.html">📖 Matplotlib</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="matplotlib_import.html">📖 Importing <code class="docutils literal notranslate"><span class="pre">pyplot</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="matplotlib_frontend.html">📖 Non-blocking, interactive Matplotlib figures</a></li>
-<li class="toctree-l3"><a class="reference internal" href="matplotlib_plot.html">📖 Line plots</a></li>
-<li class="toctree-l3"><a class="reference internal" href="matplotlib_subplot.html">📖 Multiple plots side by side</a></li>
-<li class="toctree-l3"><a class="reference internal" href="matplotlib_style.html">📖 Markers, line style and colours</a></li>
-<li class="toctree-l3"><a class="reference internal" href="matplotlib_axis.html">📖 Setting the axes limits</a></li>
-<li class="toctree-l3"><a class="reference internal" href="matplotlib_ginput.html">📖 Graphical input</a></li>
-</ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="numpy.html">📖 NumPy</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="numpy_ndarray.html">📖 Arrays</a></li>
-<li class="toctree-l3"><a class="reference internal" href="numpy_arithmetics_and_comparisons.html">📖 Arithmetics and comparisons</a></li>
-<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_filtering_1d.html">📖 Indexing, slicing and filtering unidimensional arrays</a></li>
-<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_filtering_nd.html">📖 Indexing, slicing and filtering multidimensional arrays</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="pandas.html">🚧 Pandas</a></li>
+<li class="toctree-l2"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub repository</a></li>
 </ul>
 </li>
 </ul>
@@ -507,38 +689,74 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <aside class="margin sidebar">
-<p class="sidebar-title"></p>
-<div style="max-height:900px">
+  <section class="tex2jax_ignore mathjax_ignore" id="kinetics-toolkit">
+<h1>Kinetics Toolkit<a class="headerlink" href="#kinetics-toolkit" title="Permalink to this headline">#</a></h1>
+<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
+<div class="sd-row sd-g-2 sd-g-xs-2 sd-g-sm-2 sd-g-md-2 sd-g-lg-2 docutils">
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><strong>is a free online resource</strong> for students and researchers to learn about 3D biomechanical data processing using Python.</p>
+<ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="getting_started.html"><span class="doc std std-doc">Getting started</span></a></p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="python_for_biomechanics.html"><span class="doc std std-doc">The Python language</span></a></p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="kineticstoolkit.html"><span class="doc std std-doc">Kinetics Toolkit</span></a></p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sd-col sd-d-flex-row docutils">
+<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
+<div class="sd-card-body docutils">
+<p class="sd-card-text"><strong>is an open-source Python package</strong> to analyze biomechanical data with the users knowing what they are doing. No magical black box.</p>
+<ul class="simple">
+<li><p class="sd-card-text"><a class="reference internal" href="timeseries.html"><span class="doc std std-doc">Analyzing time-varying data</span></a></p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="files.html"><span class="doc std std-doc">Reading and writing data files</span></a></p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="geometry.html"><span class="doc std std-doc">3D rigid body geometry</span></a></p></li>
+<li><p class="sd-card-text"><a class="reference internal" href="kinematics.html"><span class="doc std std-doc">Kinematics analysis</span></a></p></li>
+</ul>
+<div class="docutils">
+<p class="sd-card-text"><a href="https://doi.org/10.21105/joss.03714"><img src="https://joss.theoj.org/papers/10.21105/joss.03714/status.svg" alt="JOSS"></a>
+<a href="https://anaconda.org/conda-forge/kineticstoolkit"><img src="https://anaconda.org/conda-forge/kineticstoolkit/badges/version.svg" alt="Anaconda"></a>
+<a href="https://anaconda.org/conda-forge/kineticstoolkit"><img src="https://anaconda.org/conda-forge/kineticstoolkit/badges/latest_release_date.svg" alt="Latest release"></a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<aside class="sidebar">
+<div class="style-max-height-600px docutils">
 <h3>
 <a href="https://github.com/felixchenier/kineticstoolkit/discussions">Announcements <img src="_static/images/github-logo.png" alt="Follow on GitHub" width="20px"></a>
 <a href="https://github.com/felixchenier/kineticstoolkit/discussions/categories/announcements.atom"><img src="_static/images/rss-icon.png" alt="Subscribe to RSS/Atom Feed" width="20px"></a>
 <a href="https://twitter.com/KineticsToolkit"><img src="_static/images/twitter-logo.png" alt="Follow on Twitter" width="20px"></a>
 </h3>
 <?php include("/home/kinetics/public_html/rss/rss.php");?>
-</div>
 <link rel="alternate" type="application/rss+html" title="Subscribe to Kinetics Toolkit Announcements" href="https://github.com/felixchenier/kineticstoolkit/discussions/categories/announcements.atom" />
-</aside>
-<section class="tex2jax_ignore mathjax_ignore" id="kinetics-toolkit">
-<h1>Kinetics Toolkit<a class="headerlink" href="#kinetics-toolkit" title="Permalink to this headline">#</a></h1>
-<ul class="simple">
-<li><p><strong>is an online resource for students and researchers</strong> to learn about 3D biomechanical data processing using Python;</p></li>
-<li><p><strong>is an open-source Python package</strong> that does (only) the heavy lifting of this processing, so users stay in control of their data.</p></li>
-</ul>
-<div align="center">
-<a href="https://doi.org/10.21105/joss.03714"><img src="https://joss.theoj.org/papers/10.21105/joss.03714/status.svg" alt="JOSS"></a>
-<a href="https://anaconda.org/conda-forge/kineticstoolkit"><img src="https://anaconda.org/conda-forge/kineticstoolkit/badges/version.svg" alt="Anaconda"></a>
-<a href="https://anaconda.org/conda-forge/kineticstoolkit"><img src="https://anaconda.org/conda-forge/kineticstoolkit/badges/latest_release_date.svg" alt="Latest release"></a>
 </div>
-<p></p>
-<p><a class="reference internal" href="kinematics_load_visualize.html"><span class="doc std std-doc"><img alt="example_code" src="_images/index_example.png" /></span></a></p>
-<p><a class="reference internal" href="kinematics_load_visualize.html"><span class="doc std std-doc"><img alt="example_result" src="_images/frontpage.gif" /></span></a></p>
+</aside>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">kineticstoolkit.lab</span> <span class="k">as</span> <span class="nn">ktk</span>
+<span class="n">markers</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">read_c3d</span><span class="p">(</span><span class="s2">&quot;filename.c3d&quot;</span><span class="p">)[</span><span class="s2">&quot;Points&quot;</span><span class="p">]</span>
+<span class="n">ktk</span><span class="o">.</span><span class="n">Player</span><span class="p">(</span><span class="n">markers</span><span class="p">,</span> <span class="n">interconnections</span><span class="o">=</span><span class="n">interconnections</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><a class="reference internal" href="kinematics_load_visualize.html"><span class="doc std std-doc"><img alt="example_result -width:half" src="_images/frontpage.gif" /></span></a></p>
+<p><a class="reference internal" href="kinematics_load_visualize.html"><span class="doc std std-doc">Click here for a complete tutorials on marker visualization</span></a></p>
 <p><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit/discussions">Questions, suggestions, discussions and collaborations</a> are highly welcome. Please see the numerous ways you can <a class="reference internal" href="dev_contributing.html"><span class="doc std std-doc">contribute</span></a> to this project.</p>
 <hr class="docutils" />
-<div align="center">
-<a href="https://felixchenier.uqam.ca"><img alt="-width:narrow" src="_static/images/logo_mosa.png"></a>
-&nbsp;&nbsp;&nbsp;<a href="https://uqam.ca"><img alt="-width:narrower" src="_static/images/logo_uqam.png"></a>
-&nbsp;&nbsp;&nbsp;<a href="https://crir.ca"><img alt="-width:narrower" src="_static/images/logo_crir.jpg"></a>
+<div class="style-align-center docutils">
+<p><a href="https://felixchenier.uqam.ca"><img alt="-width:narrow" src="_static/images/logo_mosa.png"></a>
+   <a href="https://uqam.ca"><img alt="-width:narrower" src="_static/images/logo_uqam.png"></a>
+   <a href="https://crir.ca"><img alt="-width:narrower" src="_static/images/logo_crir.jpg"></a></p>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
+</div>
+<div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
 </div>
@@ -573,11 +791,11 @@ document.write(`
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="right-next"
-       href="ktk_manual.html"
+       href="intro.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">📘 Manual</p>
+        <p class="prev-next-title">Introduction</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

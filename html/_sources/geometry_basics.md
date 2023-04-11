@@ -1,4 +1,4 @@
-# 📖 Coordinates: points, vectors and frames
+# Coordinates: points, vectors and frames
 
 :::{card} Summary
 This section defines the following terms and their representation as 4x1 and 4x4 matrices:

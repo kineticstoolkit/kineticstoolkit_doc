@@ -16,7 +16,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 📖 Working with cycles
+# Working with cycles
 
 :::{card} Summary
 This section shows the [](api/ktk.cycles.rst) module, which detects cycles in TimeSeries, time-normalizes these cycles, finds the most repeatable ones, and stack/ unstack them.

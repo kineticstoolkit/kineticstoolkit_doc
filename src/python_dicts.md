@@ -20,8 +20,8 @@ kernelspec:
 
 # Dictionaries
 
-:::{card} Summary
-This section presents the `dict` type, how to create a `dict`, how to add and remove elements, and how to loop through it.
-:::
+The last, very important built-in python type is the dictionary (`dict`). Like lists and tuples, a dictionary contains any number of elements. However, lists and tuples store elements in a sequential way that we address using indexes or slices, whereas dictionaries store elements non-sequentially using keys. This section introduces how to create, read and modify dictionaries.
 
-The last built-in python type that is very important to know is the dictionary (`dict`). Like lists and tuples, a dictionary contains any number of elements. However, lists and tuples store elements in a sequential way that we address using indexes or slices, whereas dictionaries store elements non-sequentially using keys.
+:::{tip}
+If you come from Matlab, Python's `dict` can be seen as a replacement for Matlab's `struct`.
+:::

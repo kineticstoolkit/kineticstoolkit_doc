@@ -13,11 +13,7 @@ kernelspec:
 
 # Graphical input
 
-:::{card} Summary
-This section presents the {{plt_ginput}} function, that allows a user to interactively get coordinates from a figure.
-:::
-
-Matplotlib provides extensive options to interact with figures, with different levels of complexity. The most basic one and one of the most helpful is {{plt_ginput}}. It allows the user to click on a number of points on the figure, and then returns these coordinates. For instance, these instructions:
+Matplotlib provides extensive options to interact with figures, with different levels of complexity. One of the most helpful (and also the most basic) is {{plt_ginput}}. It lets the user click on a number of points on the figure, and then returns these coordinates. For instance, these instructions:
 
 ```
 import matplotlib.pyplot as plt
@@ -26,7 +22,7 @@ plt.plot([0.0, 1.0, -1.0, 2.0, 0.5, 0.0])
 points = plt.ginput(10)  # 10 points
 ```
 
-generate the figure above, and let the user draw a maximum of 10 points.
+generate the figure above, and let the user click a maximum of 10 points.
 
 ![plt.ginput -width:wider](_static/images/matplotlib_ginput.png)
 

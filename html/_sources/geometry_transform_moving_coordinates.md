@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 📖 The homogeneous transform: rotating and translating coordinates
+# The homogeneous transform: rotating and translating coordinates
 
 :::{card} Summary
 This section defines the 4x4 homogeneous transform, shows how to use it to rotate and translate points, vectors and frames, and how to generate and use series of homogeneous transforms in Kinetics Toolkit using [](api/ktk.geometry.create_transforms.rst) and [](api/ktk.geometry.matmul.rst).

@@ -11,7 +11,7 @@ kernelspec:
   name: python3
 ---
 
-# Looping using `while`
+# Looping using **while**
 
 The `while` instruction repeats a code block as long as a condition is true. Its syntax is:
 
@@ -33,9 +33,13 @@ i = 0
 while i < 5:
     print(f"Now, the variable i is {i}.")
     i += 1
+
+print("done")
 ```
 
-In the following example, we made some measurements in metres that we stored into a list. We want to convert this list to another list where the measurements are in millimetres instead:
+We see that as long as `i` was strictly lower than 5, the `while` instruction executed the code block. When `i` equalled 5, the `(i < 5)` condition evaluated to False, and therefore the `while` instruction ceased to execute the code block.
+
+Here is a practical example where we made some measurements in metres that we stored into a list. We want to convert this list to another list where the measurements are in millimetres instead:
 
 ```{code-cell}
 # Measurements in meters:

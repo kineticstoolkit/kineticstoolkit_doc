@@ -17,7 +17,7 @@ kernelspec:
 ```
 
 
-# 📖 Dimension conventions
+# Dimension conventions
 
 :::{card} Summary
 This section indicates how to represent series of scalars, points, vectors, frames and transforms in Kinetics Toolkit.

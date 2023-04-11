@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 📖 Converting between TimeSeries and pandas DataFrames
+# Reading and writing Excel, CVS and other files
 
 :::{card} Summary
 This section shows how to import a pandas DataFrame as a TimeSeries, and how to export a TimeSeries as a pandas DataFrame.

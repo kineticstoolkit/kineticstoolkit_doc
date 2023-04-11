@@ -17,17 +17,11 @@ kernelspec:
 %matplotlib inline
 ```
 
-# Importing pyplot
+# Importing **pyplot**
 
-:::{card} Summary
-This section introduces the concept of a package and how to import its contents.
-:::
+Matplotlib, as many other libraries such as {{numpy}} or {{pandas}}, is a package that needs to be installed alongside Python. Normally, it should already be installed in your setup; it not, please refer to section [getting_started_installing](getting_started_installing.md) to install it.
 
-Matplotlib, as many other libraries such as [](numpy.md) or [](pandas.md), is a package that needs to be installed alongside Python. Normally, it should already be installed in your setup; it not, please refer to section [](python_installing.md) to install it.
-
-Once a package is installed, we need to tell Python to import its contents, each time we want to access it. This is usually done at the beginning of each Python file where we need the package, using the `import` statement.
-
-For the {{pyplot}} module of the {{matplotlib}} package, we would write:
+Once a package is installed, we need to tell Python to import its contents. This is usually done at the beginning of the Python file where we need the package, using the `import` statement. For the {{pyplot}} module of the {{matplotlib}} package, we would write:
 
 ```{code-cell} ipython3
 import matplotlib.pyplot

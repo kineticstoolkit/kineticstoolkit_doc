@@ -19,10 +19,6 @@ kernelspec:
 
 # Multiple plots side by side
 
-:::{card} Summary
-This section shows how to generate multiple plots in a same figure using {{plt_subplot}}, and how to optimize its distribution using {{plt_tight_layout}}.
-:::
-
 In some situations, it is useful to show multiple plots side by side in a same figure. This can be done using the {{plt_subplot}} function, which splits a figure in a grid, and specifies the location of the next plot on this grid. Its arguments are:
 
 1. The number of lines (int);
@@ -31,7 +27,6 @@ In some situations, it is useful to show multiple plots side by side in a same f
 
 ```{code-cell} ipython3
 :tags: [remove-input]
-
 import matplotlib.pyplot as plt
 
 for i in range(12):
@@ -45,6 +40,8 @@ plt.tight_layout()
 For instance, to spread five plots on two lines and three columns:
 
 ```{code-cell} ipython3
+import matplotlib.pyplot as plt
+
 y1 = [1.0, 2.0, 3.0, 1.0]
 y2 = [1.0, 3.0, -1.0, 2.0]
 y3 = [-1.0, 4.0, -2.0, 2.0]
@@ -74,7 +71,7 @@ plt.title("Fifth plot")
 plt.show()
 ```
 
-We can see that the titles of the second line overlaps with the horizontal axes of the first line. This is a common issue with Matplotlib, which does not know how to optimize the spacing while we progressively build the figure. We often need to call {{plt_tight_layout}} just after building the plot; this function optimizes the spacing so that everything looks clean.
+We can see that the titles of the second line overlaps with the horizontal axes of the first line. This is a common issue with Matplotlib: it does not know how to optimize the spacing while we progressively build the figure. Calling {{plt_tight_layout}} just after building the plot optimizes the spacing so that everything looks clean.
 
 ```{code-cell} ipython3
 plt.subplot(2, 3, 1)

@@ -16,7 +16,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 📖 Saving and loading
+# Saving and loading data in ktk.zip format
 
 Contrarily to Matlab with its mat file, python does not come with a single standard way to save data. To ease saving and sharing data, Kinetics Toolkit provides two functions that load and save its own ktk.zip format:
 

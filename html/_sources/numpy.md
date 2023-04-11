@@ -11,12 +11,10 @@ kernelspec:
   name: python3
 ---
 
-# 📖 NumPy
+# NumPy
 
-:::{card} Summary
-This section presents the NumPy package, which is one of the most important and powerful packages in data processing. NumPy is a huge package. This section covers the basics to get started with it for biomechanical analysis. To really master it, we recommend NumPy's [learning section](https://numpy.org/learn/).
-
-![NumPy Logo -width:narrower](_static/images/numpy_logo.png)
+:::{sidebar}
+![NumPy Logo](_static/images/numpy_logo.png)
 :::
 
 The main goal of NumPy is to perform mathematical operations not only on floats, but also on vectors and matrices, and to perform these operations very quickly.
@@ -47,6 +45,14 @@ np.mean(one_array)
 ```
 
 This chapter covers the basics of NumPy for biomechanics.
+
+:::{tip}
+NumPy is a huge package. This section covers the basics to get started with it for biomechanical analysis. To really master it, we recommend NumPy's [learning section](https://numpy.org/learn/).
+:::
+
+:::{tip}
+If you already know Matlab, then this [cheat sheet](https://numpy.org/doc/stable/user/numpy-for-matlab-users.html) could be useful.
+:::
 
 
 ```{tableofcontents}
