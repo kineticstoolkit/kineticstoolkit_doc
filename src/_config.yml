@@ -11,20 +11,6 @@ logo: logo.png
 execute:
   execute_notebooks: cache
 #  execute_notebooks: force
-html:
-  favicon                   : ""  # A path to a favicon image
-  use_edit_page_button      : false  # Whether to add an "edit this page" button to pages. If `true`, repository information in repository: must be filled in
-  use_repository_button     : false  # Whether to add a link to your repository button
-  use_issues_button         : false  # Whether to add an "open an issue" button
-  use_multitoc_numbering    : false   # Continuous numbering across parts/chapters
-  extra_footer              : ""  # Will be displayed underneath the footer.
-  google_analytics_id       : ""  # A GA id that can be used to track book views.
-  home_page_in_navbar       : true  # Whether to include your home page in the left Navigation Bar
-  baseurl                   : "https://kineticstoolkit.uqam.ca/doc/"  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
-  comments:
-    hypothesis              : false
-    utterances              : false
-  announcement              : "" # A banner announcement at the top of the site.  
 
 parse:
   myst_substitutions:
@@ -66,7 +52,7 @@ parse:
     np_arctan: "[np.arctan](https://numpy.org/doc/stable/reference/generated/numpy.arctan.html)"
     np_arctan2: "[np.arctan2](https://numpy.org/doc/stable/reference/generated/numpy.arctan2.html)"
     np_sqrt: "[np.sqrt](https://numpy.org/doc/stable/reference/generated/numpy.sqrt.html)"
-    np_abs: "[np.abs](https://numpy.org/doc/stable/reference/generated/numpy.abs.html)"
+    np_abs: "[np.abs](https://numpy.org/doc/stable/reference/generated/numpy.absolute.html)"
     np_rad2deg: "[np.rad2deg](https://numpy.org/doc/stable/reference/generated/numpy.rad2deg.html)"
     np_deg2rad: "[np.deg2rad](https://numpy.org/doc/stable/reference/generated/numpy.deg2rad.html)"
     np_pi: "[np.pi](https://numpy.org/doc/stable/reference/constants.html#numpy.pi)"
@@ -76,8 +62,8 @@ parse:
     np_isinf: "[np.isinf](https://numpy.org/doc/stable/reference/generated/numpy.isinf.html)"
     np_sum: "[np.sum](https://numpy.org/doc/stable/reference/generated/numpy.sum.html)"
     np_mean: "[np.mean](https://numpy.org/doc/stable/reference/generated/numpy.mean.html)"
-    np_min: "[np.min](https://numpy.org/doc/stable/reference/generated/numpy.min.html)"
-    np_max: "[np.max](https://numpy.org/doc/stable/reference/generated/numpy.max.html)"
+    np_min: "[np.min](https://numpy.org/doc/stable/reference/generated/numpy.amin.html)"
+    np_max: "[np.max](https://numpy.org/doc/stable/reference/generated/numpy.amax.html)"
     np_std: "[np.std](https://numpy.org/doc/stable/reference/generated/numpy.std.html)"
     np_median: "[np.median](https://numpy.org/doc/stable/reference/generated/numpy.median.html)"
     np_quantile: "[np.quantile](https://numpy.org/doc/stable/reference/generated/numpy.quantile.html)"
@@ -97,6 +83,7 @@ parse:
     pandas: "[pandas](https://pandas.pydata.org/)"
     pd_read_csv: "[pd.read_csv](https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html)"
 
+    ezc3d: "[ezc3d](https://github.com/pyomeca/ezc3d)"
     
     "stub": |
       ```{admonition} Section in development
@@ -112,16 +99,15 @@ parse:
       This section refers to unstable code. This code may not be tested, and the whole API and behaviour is expected to change in the future. Do not use this code for your research.
       ```
 
-
 sphinx:
   extra_extensions:
   - 'sphinx.ext.autodoc'     # Document objects using docstrings in API
   - 'sphinx.ext.autosummary' # Generate summary table pages (for autodoc)
   - 'sphinx.ext.napoleon'    # Parse numpy-style docstrings (for autodoc)
   - 'sphinx.ext.viewcode'
-  - 'myst_nb'
   - 'custom-directives'
   - 'sphinx_sitemap'
+  - 'myst_nb'
 
   config:
     html_baseurl: 'https://kineticstoolkit.uqam.ca/doc'
@@ -154,8 +140,26 @@ sphinx:
       - 'toc.md'
       - '_templates'
 
-    html_theme_options:
-      'show_toc_level': -1  # Sidebar local contents
-      'collapse_navigation': True
-      'navigation_depth': 4
-      extra_footer: "This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>."
+repository:
+  url: https://github.com/felixchenier/kineticstoolkit
+
+html:
+#  favicon                   : ''  # A path to a favicon image
+  use_repository_button     : true  # Whether to add a link to your repository button
+  use_issues_button         : true  # Whether to add an "open an issue" button
+  use_multitoc_numbering    : true   # Continuous numbering across parts/chapters
+  extra_footer              : ""  # Will be displayed underneath the footer.
+  google_analytics_id       : ""  # A GA id that can be used to track book views.
+  home_page_in_navbar       : false  # Whether to include your home page in the left Navigation Bar
+  baseurl                   : "https://kineticstoolkit.uqam.ca/doc/"  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
+  comments:
+    hypothesis              : false
+    utterances              : false
+  announcement              : "" # A banner announcement at the top of the site.  
+
+
+#    html_theme_options:
+#      'show_toc_level': -1  # Sidebar local contents
+#      'collapse_navigation': True
+#      'navigation_depth': 4
+#      extra_footer: "This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>."

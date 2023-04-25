@@ -5,7 +5,8 @@ format: jb-book
 root: [](index.md)
 
 parts:
-- caption: "Biomechanical analysis using Python and Kinetics Toolkit"
+- caption: "Biomechanical analysis using Python"
+  numbered: 3
     - file: [](intro.md)
 - caption: "Part 1: Learning Python for Biomechanics"
   numbered: 3
@@ -115,7 +116,7 @@ parts:
                 - file: [](numpy_ndarray_creating_zeros_ones_exercise1.md)
                 - file: [](numpy_ndarray_creating_zeros_ones_exercise2.md)
             - file: [](numpy_ndarray_creating_linspace.md)
-                - file: [](numpy_ndarray_creating_linspace_exercise1.md)
+                - file: [](numpy_ndarray_creating_linspace_exercise.md)
         - file: [](numpy_arithmetics.md)
             - file: [](numpy_arithmetics_exercise.md)
             - file: [](numpy_matmul.md)
@@ -131,19 +132,18 @@ parts:
         - file: [](numpy_indexing_slicing_1d.md)
             - file: [](numpy_indexing_slicing_1d_exercise.md)
         - file: [](numpy_filtering_1d.md)
-            - file: [](numpy_filtering_1d_exercise1.md)
-            - file: [](numpy_filtering_1d_exercise2.md)
-            - file: [](numpy_filtering_1d_exercise3.md)
-        - file: [](numpy_nd.md) #-- 🟡
-        - file: [](numpy_indexing_nd.md) #-- 🟡
-        - file: [](numpy_slicing_nd.md) #-- 🟡
-        - file: [](numpy_filtering_nd.md) #-- 🟡
-            - file: [](numpy_filtering_nd_exercise.md) #-- 🟡
-        - file: [](numpy_exercises.md) #-- 🟡
+            - file: [](numpy_indexing_slicing_filtering_1d_exercise1.md)
+            - file: [](numpy_indexing_slicing_filtering_1d_exercise2.md)
+            - file: [](numpy_indexing_slicing_filtering_1d_exercise3.md)
+        - file: [](numpy_nd.md)
+            - file: [](numpy_indexing_nd.md)
+            - file: [](numpy_slicing_nd.md)
+            - file: [](numpy_filtering_nd.md)
+            - file: [](numpy_filtering_nd_exercise.md)
+        - file: [](numpy_exercises.md)
 - caption: "Part 2: Going further with Kinetics Toolkit"
   numbered: 3
-    - file: [](kineticstoolkit.md) #-- 🔴
-    - file: [](ktk_importing.md) #-- 🟡
+    - file: [](kineticstoolkit.md)
     - file: [](timeseries.md) #-- 🔴
         - file: [](timeseries_basics.md) #-- 🔴
         - file: [](timeseries_manipulating.md) #-- 🟡
@@ -170,6 +170,7 @@ parts:
         - file: [](kinematics_reconstructing_removed_markers.md) #-- 🟡
         - file: [](kinematics_reconstructing_probed_points.md) #-- 🟡
 - caption: Reference
+  numbered: false
     - file: [](ktk_overview.md) #-- 🟡
     - file: [](api_reference.md) #-- 🟢
         - file: [](ktk_conventions.md) #-- 🔴
@@ -180,6 +181,7 @@ parts:
         - file: [](dev_extensions.md) #-- 🟡
         - file: [](ktk_release_notes.md) #-- 🔴
 - caption: Contributing
+  numbered: false
     - file: [](dev_contributing.md) #-- 🟡
         - file: [](ktk_citing.md) #-- 🟡
         - file: [](dev_developing.md)
