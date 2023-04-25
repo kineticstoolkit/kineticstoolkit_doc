@@ -1,17 +1,8 @@
 #!/bin/zsh
 export PYDEVD_DISABLE_FILE_VALIDATION=1
 
-rm -fR html
-
 ./create_toc.py
 
 cp src/_templates/* `python -c "import sphinx_book_theme as sbt; import os; print(os.path.dirname(sbt.__file__) + '/theme/sphinx_book_theme/components/')"`
 
-jupyter-book build src
-
-
-cp src/_build/html/index.html src/_build/html/index.php
-
-mv src/_build/html .
-
-open html/index.html
+jupyter-book build src --builder linkcheck
