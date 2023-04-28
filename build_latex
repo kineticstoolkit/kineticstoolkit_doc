@@ -5,17 +5,15 @@ rm -fR html
 
 
 cd src
+
 ./create_toc.py
+cp _config.yml _config_latex_temp.yml
+echo "      - 'api_*'" >> _config_latex_temp.yml
 cd ..
 
 
 cp src/_templates/* `python -c "import sphinx_book_theme as sbt; import os; print(os.path.dirname(sbt.__file__) + '/theme/sphinx_book_theme/components/')"`
 
-jupyter-book build -W -n --keep-going src
+jupyter-book build --builder=pdflatex --config=src/_config_latex_temp.yml src
 
-
-cp src/_build/html/index.html src/_build/html/index.php
-
-mv src/_build/html .
-
-open html/index.html
+open src/_build/latex/python.pdf

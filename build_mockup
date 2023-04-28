@@ -1,0 +1,13 @@
+#!/bin/zsh
+
+rm -fR mockup_src/_build/html
+cp src/create_toc.py mockup_src
+cp src/_config.yml mockup_src
+cp src/ktkdoctools.py mockup_src
+cd mockup_src
+ln -s ../src/_static
+./create_toc.py
+cd ..
+jupyter-book build mockup_src
+open mockup_src/_build/html/index.html
+

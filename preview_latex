@@ -1,0 +1,11 @@
+#!/bin/zsh
+
+cp src/_config.yml preview_src
+cp src/ktkdoctools.py preview_src
+cp src/"$1".md preview_src/index.md
+cd preview_src
+ln -s ../src/_static
+cd ..
+jupyter-book build --builder pdflatex preview_src
+open preview_src/_build/latex/python.pdf
+

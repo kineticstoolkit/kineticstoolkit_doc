@@ -1,7 +1,7 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: Kinetics Toolkit
+title: Biomechanical analysis using Python and the Kinetics Toolkit
 author: Félix Chénier
 copyright: 2020-2023
 logo: logo.png
@@ -97,7 +97,46 @@ parse:
     "dev": |    
       ```{warning}
       This section refers to unstable code. This code may not be tested, and the whole API and behaviour is expected to change in the future. Do not use this code for your research.
+      ```     
+    "interactive": | 
+      ```{caution}
+      Matplotlib must be interactive. See [this section](getting_started_configuring_spyder) for help.
       ```
+    
+
+repository:
+  url: https://github.com/felixchenier/kineticstoolkit
+
+html:
+#  favicon                   : ''  # A path to a favicon image
+  use_multitoc_numbering    : true   # Continuous numbering across parts/chapters
+  extra_footer              : ""  # Will be displayed underneath the footer.
+  google_analytics_id       : ""  # A GA id that can be used to track book views.
+  home_page_in_navbar       : false  # Whether to include your home page in the left Navigation Bar
+  baseurl                   : "https://kineticstoolkit.uqam.ca/doc/"  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
+  comments:
+    hypothesis              : false
+    utterances              : false
+  announcement              : "" # A banner announcement at the top of the site.  
+  show_navbar_depth         : 2
+
+latex:
+  latex_engine              : pdflatex  # one of 'pdflatex', 'xelatex' (recommended for unicode), 'luatex', 'platex', 'uplatex'
+  use_jupyterbook_latex     : true # use sphinx-jupyterbook-latex for pdf builds as default
+  latex_elements:  
+    pxunit: "0.3cm"
+
+
+  
+#html_theme_options:
+#  use_download_button       : true  # Add a button in the header to download the source file of the page
+#  use_repository_button     : true  # Whether to add a link to your repository button
+#  use_issues_button         : true  # Whether to add an "open an issue" button
+#  repository_url            : https://github.com/felixchenier/kineticstoolkit
+#  show_toc_level            : -1  # Sidebar local contents
+#  collapse_navigation       : True
+#  navigation_depth          : 4
+#  extra_footer: "This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>."
 
 sphinx:
   extra_extensions:
@@ -110,7 +149,7 @@ sphinx:
   - 'myst_nb'
 
   config:
-    html_baseurl: 'https://kineticstoolkit.uqam.ca/doc'
+#    html_baseurl: 'https://kineticstoolkit.uqam.ca/doc'
     add_module_names: False
     autosummary_generate: True
     autodoc_typehints: description
@@ -138,28 +177,4 @@ sphinx:
       - 'api/ktk.external.*'
       - 'api/ktk.pushrimkinetics*'
       - 'toc.md'
-      - '_templates'
-
-repository:
-  url: https://github.com/felixchenier/kineticstoolkit
-
-html:
-#  favicon                   : ''  # A path to a favicon image
-  use_repository_button     : true  # Whether to add a link to your repository button
-  use_issues_button         : true  # Whether to add an "open an issue" button
-  use_multitoc_numbering    : true   # Continuous numbering across parts/chapters
-  extra_footer              : ""  # Will be displayed underneath the footer.
-  google_analytics_id       : ""  # A GA id that can be used to track book views.
-  home_page_in_navbar       : false  # Whether to include your home page in the left Navigation Bar
-  baseurl                   : "https://kineticstoolkit.uqam.ca/doc/"  # The base URL where your book will be hosted. Used for creating image previews and social links. e.g.: https://mypage.com/mybook/
-  comments:
-    hypothesis              : false
-    utterances              : false
-  announcement              : "" # A banner announcement at the top of the site.  
-
-
-#    html_theme_options:
-#      'show_toc_level': -1  # Sidebar local contents
-#      'collapse_navigation': True
-#      'navigation_depth': 4
-#      extra_footer: "This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>."
+      - '_templates'  # Should be the last line of the file (-Felix)
