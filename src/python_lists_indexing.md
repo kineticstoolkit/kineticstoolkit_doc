@@ -121,7 +121,7 @@ some_string = list_of_strings[int(some_value / 2)]
 
 ## Nested lists
 
-As seen in the [previous section](python_lists_creating.md), lists can be nested, which means that a list can contain another list. To access a specific element of the inner list, we start by indexing the outer list, then the inner list. For example, to access the first element of the second list of `list_of_lists`:
+As seen in the [](python_lists_creating.md), lists can be nested, which means that a list can contain another list. To access a specific element of the inner list, we start by indexing the outer list, then the inner list. For example, to access the first element of the second list of `list_of_lists`:
 
 ```{code-cell} ipython3
 list_of_lists = [

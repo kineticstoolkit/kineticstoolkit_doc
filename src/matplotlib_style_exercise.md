@@ -17,9 +17,9 @@ kernelspec:
 %matplotlib inline
 ```
 
-## 💪 Plot styling
+## Exercise: Plot styling
 
-In [this previous exercise](matplotlib_plot_titles_labels_exercise2.md), using these data:
+In [](matplotlib_plot_titles_labels_exercise2.md), using these data:
 
 ```{code-cell} ipython3
 # Video camera data
@@ -42,8 +42,7 @@ plt.title("Race profile of a sprinter")
 plt.xlabel("Time (s)")
 plt.ylabel("Position (m)")
 plt.legend(["Video camera", "Timing gates"])
-plt.grid(True)
-plt.show()
+plt.grid(True);
 ```
 
 You now need to print it in black and white for publication in a journal. To maximize the clarity of the figure, you want to use markers and line styles instead of grey shades.
@@ -63,7 +62,5 @@ plt.title("Race profile of a sprinter")
 plt.xlabel("Time (s)")
 plt.ylabel("Position (m)")
 plt.legend(["Video camera", "Timing gates"])
-plt.grid(True)
-
-plt.show()
+plt.grid(True);
 ```

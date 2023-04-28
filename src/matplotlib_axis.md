@@ -19,7 +19,7 @@ kernelspec:
 
 # Setting the axes limits
 
-When we create a plot interactively, we can zoom on a particular section using the figure's Zoom ![](_static/images/matplotlib_zoom_to_rect.png) and Pan ![matplotlib_move](_static/images/matplotlib_move.png) buttons. It is also possible to zoom programmatically while we create the figure, using {{plt_axis}}.
+When we create a plot interactively, we can zoom on a particular section using the figure's Zoom and Pan buttons. It is also possible to zoom programmatically while we create the figure, using {{plt_axis}}.
 
 ## Rectangular zoom
 
@@ -41,17 +41,14 @@ random_data = [
     0.0119542 , 0.7257411 , 0.99901993, 0.69608303, 0.46573617
 ]
 
-plt.plot(random_data, "o-")
-plt.show()
+plt.plot(random_data, "o-");
 ```
 
 To zoom on a specific portion of the plot, we call {{plt_axis}}, which takes for argument a list containing `[xmin, xmax, ymin, ymax]`. For example, to better see the portion between $x \geq 20$ and $x \leq 30$:
 
 ```{code-cell}
 plt.plot(random_data, "o-")
-plt.axis([20, 30, 0, 1])
-
-plt.show()
+plt.axis([20, 30, 0, 1]);
 ```
 
 ## 📄 Square zoom
@@ -71,15 +68,12 @@ y = [ 0.        ,  0.25881905,  0.5       ,  0.70710678,  0.8660254 ,
      -0.70710678, -0.8660254 , -0.96592583, -1.        , -0.96592583,
      -0.8660254 , -0.70710678, -0.5       , -0.25881905, -0.        ]
      
-plt.plot(x, y, "o-")
-plt.show()
+plt.plot(x, y, "o-");
 ```
 
 This is solved by setting the axis to "square":
 
 ```{code-cell}
 plt.plot(x, y, "o-")
-plt.axis("square")
-
-plt.show()
+plt.axis("square");
 ```

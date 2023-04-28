@@ -19,67 +19,14 @@ kernelspec:
 
 # Default values
 
-::::{margin}
-```
-pandas.read_csv(
-    filepath_or_buffer,
-    *,
-    sep=NoDefault.no_default,
-    delimiter=None,
-    header='infer',
-    names=NoDefault.no_default,
-    index_col=None,
-    usecols=None,
-    squeeze=None,
-    prefix=NoDefault.no_default,
-    mangle_dupe_cols=True,
-    dtype=None,
-    engine=None,
-    converters=None,
-    true_values=None,
-    false_values=None,
-    skipinitialspace=False,
-    skiprows=None,
-    skipfooter=0,
-    nrows=None,
-    na_values=None,
-    keep_default_na=True,
-    na_filter=True,
-    verbose=False,
-    skip_blank_lines=True,
-    parse_dates=None,
-    infer_datetime_format=False,
-    keep_date_col=False,
-    date_parser=None,
-    dayfirst=False,
-    cache_dates=True,
-    iterator=False,
-    chunksize=None,
-    compression='infer',
-    thousands=None,
-    decimal='.',
-    lineterminator=None,
-    quotechar='"',
-    quoting=0,
-    doublequote=True,
-    escapechar=None,
-    comment=None,
-    encoding=None,
-    encoding_errors='strict',
-    dialect=None,
-    error_bad_lines=None,
-    warn_bad_lines=None,
-    on_bad_lines=None,
-    delim_whitespace=False,
-    low_memory=True,
-    memory_map=False,
-    float_precision=None,
-    storage_options=None
-)
-```
-::::
+In {{pd_read_csv}}, the only mandatory argument is `filepath_or_buffer`, which is the name of the csv file ({numref}`fig_pandas_read_csv_signature`). Every other argument has a default value, and exists only to modify the default behaviour of the function.
 
-In the {{pd_read_csv}} example (on the right), the only mandatory argument is the name of the csv file to read. Every other argument has a default value, and exists only to modify the default behaviour of the function.
+````{figure-md} fig_pandas_read_csv_signature
+:width: 6in
+![](_static/images/fig_pandas_read_csv_signature.png)
+
+Signature of pandas.read_csv.
+````
 
 Let's examine this concept with a simpler function. We define the following function that calculates the ground reaction force based on the acceleration and mass of a person's center of mass:
 

@@ -18,7 +18,7 @@ kernelspec:
 ```
 
 
-## 💪 Exercise 1
+# Exercise: Indexing/slicing/filtering unidimensional arrays 1
 
 We measured the step length of a person during 10 steps. Here are these measurements:
 

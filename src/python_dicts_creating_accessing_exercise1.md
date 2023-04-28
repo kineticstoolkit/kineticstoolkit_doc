@@ -18,7 +18,7 @@ kernelspec:
 ```
 
 
-# 💪 Creating and accessing dictionaries (1)
+# Exercise: Creating and accessing dictionaries 1
 
 Here is a list of dictionaries that contain personal information about the participants of a research project:
 

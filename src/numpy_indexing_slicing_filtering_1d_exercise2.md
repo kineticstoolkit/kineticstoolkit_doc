@@ -18,7 +18,7 @@ kernelspec:
 ```
 
 
-# 💪 Exercise 2
+# Exercise: Indexing/slicing/filtering unidimensional arrays 2
 
 The position of an object has been recorded in meters during one second at a sampling frequency of 100 Hz:
 
@@ -53,11 +53,15 @@ $$
 Write a program of only 1 to 2 lines that calculates the speed of the object. Then, plot the velocity and position on a same figure to check your result.
 
 :::{tip}
-Due to the calculation of speed that requires position values before and after the current sample, the velocity array will be 2 values shorter than the position array.
-
-
-![Speed calculation -width:wide](_static/images/speed_calculation.png)
+Due to the calculation of speed that requires position values before and after the current sample, the velocity array will be 2 values shorter than the position array, as illustrated in {numref}`fig_speed_calculation`.
 :::
+
+```{figure-md} fig_speed_calculation
+:width: 6in
+![](_static/images/fig_speed_calculation.png)
+
+Calculating speed leads to a shorter array.
+```
 
 ```{code-cell} ipython3
 :tags: [remove-cell]

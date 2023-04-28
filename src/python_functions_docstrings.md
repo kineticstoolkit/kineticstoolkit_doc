@@ -79,13 +79,16 @@ As you notice in the example above, there is more lines of documentation than li
 
 Since they are so ubiquitous, docstrings can be read without having to open the function's source code. Try executing the last function definition, then:
 
-:::{sidebar}
-![Spyder help](_static/images/python_function_spyder_help.png)
-:::
+- Type `format_info` in Spyder's help browser. The docstring appears, all well-formatted, as pictured in {numref}`fig_python_function_spyder_help`.
 
-1. Type `format_info` in Spyder's help browser. The docstring appears, all well-formatted (right image):
+```{figure-md} fig_python_function_spyder_help
+:width: 5in
+![](_static/images/fig_python_function_spyder_help.png)
 
-3. Or type `help(format_info)` in the console:
+Reading a docstring in Spyder's help pane.
+```
+
+- Or type `help(format_info)` in the console:
 
 ```{code-cell} ipython3
 help(format_info)

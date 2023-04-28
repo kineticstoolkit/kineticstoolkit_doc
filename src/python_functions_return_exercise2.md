@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 💪 Function return values (2)
+# Exercise: Function return values 2
 
 Based on the function `print_info` that you created a [previous example](python_functions_arguments_exercise.md), create a new function `format_info` that, instead of printing the information, creates a string and returns it, so that:
 

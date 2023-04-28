@@ -17,11 +17,9 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 💪 Creating and accessing dictionaries (3)
+# Exercise: Creating and accessing dictionaries 3
 
-Someone pushes a carriage using a dynamometer. The push force and position are measured in newtons and metres every tenth of a second, during five seconds.
-
-![Exercise 1 -width:wide](_static/images/carriage_dynamometer.png)
+Someone pushes a carriage using a dynamometer as picture in {numref}`fig_carriage_dynamometer`. The push force and position are measured in newtons and metres every tenth of a second, during five seconds.
 
 We have these two lists where data have been acquired at 10 Hz:
 
@@ -82,7 +80,7 @@ def calculate_speed_and_power(force, position, sampling_frequency):
 ```
 
 :::{tip}
-You are strongly encouraged to reuse the functions [calculate_speed](python_for_range_)exercise4.md) and [calculate_power](python_for_range_exercise3.md) that you wrote in these previous exercises.
+You are strongly encouraged to reuse the functions `calculate_speed` and `calculate_power` that you wrote in [](python_for_range_exercise4.md) and [](python_for_range_exercise3.md).
 :::
 
 ```{code-cell}

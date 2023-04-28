@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 💪 Integers and floats
+# Exercise: Integers and floats
 
 We want to create a variable named `mass` that will contain the mass of a person in kg. This person has a mass of 68 kg. Since this is a physical value, it should be a float, hence the decimal point:
 

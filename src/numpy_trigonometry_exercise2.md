@@ -17,9 +17,9 @@ kernelspec:
 %matplotlib inline
 ```
 
-## 💪 Exercise 2
+## Exercise: Trigonometry 2
 
-When we walk on an inclined treadmill, we must overcome a backward force equal to:
+When we walk on an inclined treadmill as in {refnum}`fig_gait_inclined`, we must overcome a backward force equal to:
 
 $$
 F = m g \sin \theta
@@ -27,7 +27,12 @@ $$
 
 where $m$ is the person's mass, $g$ is 9.81 m/s² and $\theta$ is the treadmill angle. Write a function names `plot_force` that takes the mass as an argument, and that plots $F$ for $\theta \in [-20, 20]$ degrees. Then, test your function for $m = 65$ kg.
 
-![Exercise 3 -height:short](_static/images/gait_inclined.png)
+```{figure-md} fig_gait_inclined
+:width: 3.5in
+![](_static/images/fig_gait_inclined.png)
+
+Walking on an inclined surface.
+```
 
 ```{code-cell} ipython3
 :tags: [hide-cell]

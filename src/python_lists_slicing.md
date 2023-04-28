@@ -106,5 +106,3 @@ means "return a list that containing the elements ending at index 8 (exclusive)"
 list_of_strings[2::2]
 ```
 
-
-

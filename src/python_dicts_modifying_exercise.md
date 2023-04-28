@@ -18,7 +18,7 @@ kernelspec:
 ```
 
 
-# 💪 Adding entries to dictionaries
+# Exercise: Adding entries to dictionaries
 
 Here is a list of dictionaries that contain personal information about the participants of a research project:
 
@@ -33,7 +33,9 @@ participants = [
 
 Write a code that adds a new key `BMI` to each of these dictionaries, that is the body-mass index.
 
-$\text{BMI} = \text{weight}/\text{height}^2$.
+```{math}
+\text{BMI} = \text{weight}/\text{height}^2
+```
 
 ```{code-cell} ipython3
 :tags: [hide-cell]

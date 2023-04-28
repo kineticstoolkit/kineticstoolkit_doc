@@ -18,7 +18,7 @@ kernelspec:
 ```
 
 
-# 💪 Exercise
+# Exercise: Filtering n-dimensional arrays
 
 We recorded this series of forces using a gait force platform, where the first axis corresponds to time and the second axis corresponds to the three force components $F_x$, $F_y$ and $F_z$.
 
@@ -74,8 +74,7 @@ import kineticstoolkit.lab as ktk
 plt.plot(forces)
 plt.xlabel("# sample")
 plt.ylabel("Force (N)")
-plt.legend(["Fx", "Fy", "Fz"])
-plt.show()
+plt.legend(["Fx", "Fy", "Fz"]);
 ```
 
 Write a code that calculates the mean of $F_x$, but only during the weight support phase. We consider that the weight support phase consists in any sample where $F_z > 10$.

@@ -17,11 +17,16 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 💪 Python basics (1)
+# Exercise: Python basics 1
 
-A sprinter runs through two timing gates spaced by 50 m. Each timing gate records the time (in seconds) at which the sprinter passes through it.
+A sprinter runs through two timing gates spaced by 50 m as shown in {numref}`fig_exercise_timing_gates`. Each timing gate records the time (in seconds) at which the sprinter passes through it.
 
-![exercices_illustration -width:normal](_static/images/exercise_timing_gates.png)
+```{figure-md} fig_exercise_timing_gates
+:width: 4in
+![](_static/images/fig_exercise_timing_gates.png)
+
+Two timing gates separated by 50 meters.
+```
 
 Given the following program:
 

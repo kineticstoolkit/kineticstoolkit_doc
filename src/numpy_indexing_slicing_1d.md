@@ -19,7 +19,7 @@ kernelspec:
 
 # Indexing and slicing unidimensional arrays
 
-In section [](numpy_ndarray_introduction.md), we learned that unidimensional arrays are indeed very similar to Python lists. In fact, indexing and slicing a unidimensional array is identical to [indexing](python_lists_indexing.md) and [slicing](python_lists_slicing.md) a Python list.
+In [](numpy_ndarray_introduction.md), we learned that unidimensional arrays are indeed very similar to Python lists. In fact, indexing and slicing a unidimensional array is identical to [indexing](python_lists_indexing.md) and [slicing](python_lists_slicing.md) a Python list.
 
 :::{tip}
 As a reminder:
@@ -40,8 +40,7 @@ data = np.array([0.0, 0.58, 0.95, 0.95, 0.58, 0.0, -0.59, -0.96, -0.96, -0.59])
 time = np.arange(10) / 10
 
 plt.plot(time, data, "s-")
-plt.grid(True)
-plt.show()
+plt.grid(True);
 ```
 
 As mentioned above, **indexing** a unidimensional array is identical to [indexing a list](python_lists_indexing.md). To read one element of a list/array:
@@ -82,8 +81,7 @@ time_subset = time[2:9:2]
 plt.plot(time, data, "s-", label="original data")
 plt.plot(time_subset, data_subset, "o-", label="subset")
 plt.grid(True)
-plt.legend()
-plt.show()
+plt.legend();
 ```
 
 To write several elements of a list/array:
@@ -99,8 +97,7 @@ modified_data[2:9:2] = [-0.7, -0.8, -0.9, -1.0]
 plt.plot(time, data, "s-", label="original data")
 plt.plot(time, modified_data, "o-", label="modified data")
 plt.grid(True)
-plt.legend()
-plt.show()
+plt.legend();
 ```
 
 

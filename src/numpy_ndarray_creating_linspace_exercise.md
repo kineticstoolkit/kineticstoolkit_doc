@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 💪 Exercise 1
+# Exercise: Creating linearly spaced arrays
 
 We recorded the force measured by a dynamometer at a sampling frequency of 100 Hz, during 2.5 seconds.
 

@@ -71,7 +71,7 @@ $$
 \end{bmatrix}
 $$
 
-we simply write:
+we write:
 
 ```{code-cell} ipython3
 a = np.array(

@@ -9,27 +9,16 @@ While a NumPy array could be seen as an extension of the [Python lists](python_l
 | Have a dynamic size that can be modified using `append`, `expand` and `pop`.                                                                 | Cannot "grow" as we do with lists.                                                          |
 | Only hold data, they don't provide methods to compute data.                                                                                  | Can be used directly for calculations such as linear algebra, filtering, etc.               |
 
-They can however be converted one to the other, as seen later in section [](numpy_ndarray_creating_from_lists.md).
+They can however be converted one to the other, as seen later in [](numpy_ndarray_creating_from_lists.md).
 
 Each dimension of a NumPy array has a corresponding axis, which allows addressing any value in the array:
 
 ::::{grid}
-:::{grid-item-card} One dimension
-:columns: 3
-![](_static/images/array_1d.png)
-:::
-:::{grid-item-card} Two dimensions
-:columns: 4
-![](_static/images/array_2d.png)
-:::
-:::{grid-item-card} Three dimensions
-:columns: 5
-![](_static/images/array_3d.png)
-
-:::
-:::{grid-item-card}
+:::{grid-item-card} One-dimension
 :columns: 3
 
+![](_static/images/fig_array_1d.png)
++++
 Every value is accessed exactly like a list:
 
 - 1st value: `the_array[0]`
@@ -37,9 +26,10 @@ Every value is accessed exactly like a list:
 - etc.
 
 :::
-:::{grid-item-card}
+:::{grid-item-card} Two dimensions
 :columns: 4
-
+![](_static/images/fig_array_2d.png)
++++
 Every value is accessed using two coordinates. For a matrix, these coordinates are:
 
 1. the line
@@ -50,11 +40,11 @@ For example:
 - 1st line, 1st column: `the_array[0, 0]`
 - 2nd line, 3rd column: `the_array[1, 2]`
 - etc.
-
 :::
-:::{grid-item-card}
+:::{grid-item-card} Three dimensions
 :columns: 5
-
+![](_static/images/array_3d.png)
++++
 Every value is accessed using three coordinates. For a series of matrices, these coordinates are:
 
 1. the matrix
@@ -66,7 +56,6 @@ For example:
 - 1st matrix, 1st line, 1st column: `the_array[0, 0, 0]`
 - 1st matrix, 2nd line, 3rd column: `the_array[0, 1, 2]`
 - etc.
-
 :::
 ::::
 
@@ -75,12 +64,12 @@ The **shape** of an array is its size on each of its dimensions. We get this inf
 ::::{grid}
 :::{grid-item-card} shape = `(4,)`
 :columns: 3
-![](_static/images/array_1d.png)
+![](_static/images/fig_array_1d.png)
 
 :::
 :::{grid-item-card} shape = `(3, 4)`
 :columns: 4
-![](_static/images/array_2d.png)
+![](_static/images/fig_array_2d.png)
 
 :::
 :::{grid-item-card} shape = `(3, 3, 4)`

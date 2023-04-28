@@ -18,7 +18,7 @@ kernelspec:
 ```
 
 
-# 💪 Exercise
+# Exercise: Comparisons
 
 We recorded this series of vertical forces using a gait force platform:
 
@@ -43,8 +43,7 @@ import kineticstoolkit.lab as ktk
 
 plt.plot(force)
 plt.xlabel("# sample")
-plt.ylabel("Force (N)")
-plt.show()
+plt.ylabel("Force (N)");
 ```
 
 We want to identify the weight support phase. We define this phase as any sample where the force is higher than 100 newton.
@@ -63,12 +62,9 @@ is_weight_support = force > 100
 # Verify
 plt.plot(force, label="Force (N)")
 plt.plot(is_weight_support * 1000, label="Weight support (True/False)")
-plt.legend()
+plt.legend();
 
 # Note that we plotted (is_weight_support * 1000) instead of
 # is_weight_support to match the vertical scale of the force plot
 # so that the comparison is more visible on the figure.
-
-plt.show()
 ```
-

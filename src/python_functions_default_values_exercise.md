@@ -17,13 +17,11 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 💪 Function argument's default values
+# Exercise: Function argument's default values
 
 Let's repeat the [timing gate exercise](python_basics_exercise1.md), but this time using a proper function.
 
-A sprinter runs through two timing gates spaced by 50 m. Each timing gate records the time (in seconds) at which the sprinter passes through it.
-
-![exercices_illustration -width:normal](_static/images/exercise_timing_gates.png)
+A sprinter runs through two timing gates spaced by 50 m as shown in {numref}`fig_exercise_timing_gates`. Each timing gate records the time (in seconds) at which the sprinter passes through it.
 
 Write a function named `calculate_speed` that takes two mandatory arguments, which are the time of each timing gate, and that returns the mean velocity of the sprinter between gates 1 and 2, so that calling:
 

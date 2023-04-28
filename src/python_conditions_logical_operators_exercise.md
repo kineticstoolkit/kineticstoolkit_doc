@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 💪 Conditions: boolean operators
+# Exercise: Logical operators
 
 Write a short code that checks the value of two integers named `dice1` and `dice2`, and that prints "You got double-six!", "You got one six!" or "You got no six." according to the dice values.
 

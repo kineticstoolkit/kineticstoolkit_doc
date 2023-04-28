@@ -17,13 +17,16 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 💪 Indexing lists (1)
+# Exercise: Indexing lists 1
 
-We measured some spatial parameters of gait using an instrumented walkway, as illustrated in Figure 1. This instrumented walkway stores the longitudinal distance between the origin and each heel strike in a list `y`, where each element corresponds to one heel strike:
+We measured some spatial parameters of gait using an instrumented walkway, as illustrated in Figure 1. This instrumented walkway stores the longitudinal distance between the origin and each heel strike in a list `y`, where each element corresponds to one heel strike, as shown in {numref}`fig_instrumented_walkway`.
 
-![Instrumented walkway -width:full](_static/images/instrumented_walkway.png)
+```{figure-md} fig_instrumented_walkway
+:width: 7in
+![](_static/images/fig_instrumented_walkway.png)
 
-*Figure 1. Foot coordinates obtained via an instrumented walkway*
+Foot coordinates obtained via an instrumented walkway.
+```
 
 We want to calculate the step length, which is the distance between one heel strike and the next one by the opposite foot. For a given participant, we recorded this `y` list:
 

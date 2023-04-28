@@ -66,9 +66,7 @@ plt.title("Fourth plot")
 
 plt.subplot(2, 3, 5)
 plt.plot(y5)
-plt.title("Fifth plot")
-
-plt.show()
+plt.title("Fifth plot");
 ```
 
 We can see that the titles of the second line overlaps with the horizontal axes of the first line. This is a common issue with Matplotlib: it does not know how to optimize the spacing while we progressively build the figure. Calling {{plt_tight_layout}} just after building the plot optimizes the spacing so that everything looks clean.
@@ -95,6 +93,4 @@ plt.plot(y5)
 plt.title("Fifth plot")
 
 plt.tight_layout()
-
-plt.show()
 ```

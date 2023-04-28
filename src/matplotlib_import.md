@@ -30,8 +30,7 @@ import matplotlib.pyplot
 Once imported, we can access this module's contents under the `matplotlib.pyplot` namespace:
 
 ```{code-cell} ipython3
-matplotlib.pyplot.plot([0, 1, 4], "o-")
-matplotlib.pyplot.show()
+matplotlib.pyplot.plot([0, 1, 4], "o-");
 ```
 
 :::{note}
@@ -49,6 +48,5 @@ import matplotlib.pyplot as plt
 This line behaves like the previous import, but this time `matplotlib.pyplot` is imported into the `plt` namespace instead of the `matplotlib.pyplot` namespace. This leads to shorter lines of code:
 
 ```{code-cell} ipython3
-plt.plot([0, 1, 4], "o-")  # instead of matplotlib.pyplot.plot([0, 1, 4], "o-")
-plt.show()                 # instead of matplotlib.pyplot.show()
+plt.plot([0, 1, 4], "o-");  # instead of matplotlib.pyplot.plot([0, 1, 4], "o-")
 ```

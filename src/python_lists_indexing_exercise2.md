@@ -18,7 +18,7 @@ kernelspec:
 ```
 
 
-# 💪 Indexing lists (2)
+# Exercise: Indexing lists 2
 
 You are happy with the function `calculate_step_length` you wrote in the [last exercise ](python_lists_indexing_exercise1.md), but sometimes, you obtain an IndexError:
 

@@ -18,7 +18,7 @@ kernelspec:
 ```
 
 
-# Filtering
+# Filtering unidimensional arrays
 
 :::{important}
 This section is about manipulating NumPy arrays, and more precisely about selecting specific indexes in an array using a mask of booleans or integers. This is not about filtering a signal using a moving average or Butterworth filter, which will be seen later in section [](filters.md).
@@ -26,7 +26,7 @@ This section is about manipulating NumPy arrays, and more precisely about select
 
 We learned how to access **one data** using indexing, and **multiple regularly-spaced data** using slicing. To read **multiple non-regularly-spaced data**, we use filtering. We call it filtering because we selectively filter out some data using a mask.
 
-Here is our original array or 10 values from the [last section](numpy_indexing_slicing_1d.md):
+Here is our original array or 10 values from [](numpy_indexing_slicing_1d.md):
 
 ```{code-cell} ipython3
 import numpy as np
@@ -36,8 +36,7 @@ data = np.array([0.0, 0.58, 0.95, 0.95, 0.58, 0.0, -0.59, -0.96, -0.96, -0.59])
 time = np.arange(10) / 10
 
 plt.plot(data, "s-")
-plt.grid(True)
-plt.show()
+plt.grid(True);
 ```
 
 Now, let's say we want to keep only the following indexes:
@@ -48,7 +47,6 @@ Now, let's say we want to keep only the following indexes:
 bool_mask = [True, False, False, True, False, False, False, False, True, True]
 
 plt.plot(time, data, "s-")
-plt.grid(True)
 for i, value in enumerate(bool_mask):
     if value:
         plt.text(
@@ -63,6 +61,7 @@ for i, value in enumerate(bool_mask):
         plt.text(
             time[i], data[i] + 0.04, "x", ha="center", fontsize=30, color="r"
         )
+plt.grid(True);        
 ```
 
 We can create a mask to select directly which items to keep, and which items to reject.
@@ -94,15 +93,14 @@ plt.subplot(3,1,3)
 plt.plot(time[int_mask], data[int_mask], "s-")
 plt.title("Filtered data, using a mask of int")
 
-plt.tight_layout()
-plt.show()
+plt.tight_layout();
 ```
 
 :::{tip}
 Since indexes can also be negative, then masks of integers can also use negative values.
 :::
 
-In section [](numpy_arithmetics.md), we learned how to generate arrays of bool by comparing an array to a number using comparison operators such as `==`, `<`, `>=`, etc. These comparisons make a powerful way to filter an array. For example, to keep every positive value and reject the rest:
+In [](numpy_arithmetics.md), we learned how to generate arrays of bool by comparing an array to a number using comparison operators such as `==`, `<`, `>=`, etc. These comparisons make a powerful way to filter an array. For example, to keep every positive value and reject the rest:
 
 ```{code-cell} ipython3
 to_keep = data >= 0  # Create a boolean mask of the values to keep
@@ -110,8 +108,7 @@ print(f"to_keep = {to_keep}")
 
 plt.plot(time, data, "s-", label="Original data")
 plt.plot(time[to_keep], data[to_keep], "o-", label="Filtered data")
-plt.legend()
-plt.show()
+plt.legend();
 ```
 
 Or, as another example, to replace any negative value by 0:
@@ -125,6 +122,5 @@ new_data[is_negative] = 0
 
 plt.plot(time, data, "s-", label="Original data")
 plt.plot(time, new_data, "o-", label="New data")
-plt.legend()
-plt.show()
+plt.legend();
 ```
