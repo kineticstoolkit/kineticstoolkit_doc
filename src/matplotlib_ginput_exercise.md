@@ -18,7 +18,7 @@ kernelspec:
 ```
 
 
-## Exercise: Graphical input
+# Exercise: Graphical input
 
 You recorded a force using a force sensor at a sampling frequency of 10 Hz. Here are the 44 first samples of this signal:
 

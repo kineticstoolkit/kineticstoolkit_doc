@@ -25,8 +25,3 @@ The more users, the more we will have a clear understanding of the users' needs.
 - [Clone the latest master branch](dev_installing_from_github.md) and start playing with the unstable stuff;
 - Make suggestions for improvements, new features, etc. on the [discussions forum](https://github.com/felixchenier/kineticstoolkit/discussions);
 - Develop new code or improve the existing one, after [reading how to contribute code](dev_rules.md).
-
-The following sections are resources to help helping:
-
-```{tableofcontents}
-```

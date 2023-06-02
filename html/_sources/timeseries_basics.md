@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.13.8
+    jupytext_version: 1.14.5
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -13,63 +13,56 @@ kernelspec:
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
+
 %matplotlib inline
 ```
 
-# TimeSeries
 
-:::{card} Summary
-This section presents the `TimeSeries` data container and its attributes.
-:::
+# The TimeSeries type
 
-TimeSeries are largely inspired by Matlab's `timeseries` and `tscollection`. Every TimeSeries contains the following attributes:
+The [ktk.TimeSeries](api/ktk.TimeSeries.rst) type is largely inspired by Matlab's `timeseries` and `tscollection`. Every TimeSeries contains time, data, events and metadata.
 
-- `time`: A numpy array that contains the time vector.
-- `data`: A dict where each entry is a numpy array, with the first dimension corresponding to time.
-- `events`: An optional list of events.
-- `time_info`: Metadata corresponding to time, that contains at least the time unit.
-- `data_info`: Optional metadata.
-
-## 📄 Time and Data
+## Time and data
 
 A TimeSeries in its simplest form contains a time vector and at least one data series. For example:
 
 ```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
 import numpy as np
+import matplotlib.pyplot as plt
 
-ts = ktk.TimeSeries()
-ts.time = np.arange(0, 10, 0.1)  # 10 seconds at 10 Hz
-ts.data["Sinus"] = np.sin(ts.time)
+
+ts = ktk.TimeSeries()                     # Create an empty TimeSeries
+ts.time = np.arange(0, 10, 0.1)           # Assign time
+ts.data["Sinus"] = np.sin(ts.time)        # Create a data series
+ts.data["Cosinus"] = np.cos(ts.time)      # Create another data series
+ts.data["SquareRoot"] = np.sqrt(ts.time)  # Create yet another data series
 
 ts
 ```
 
+To see the TimeSeries data:
+
 ```{code-cell} ipython3
 ts.data
 ```
 
-TimeSeries can be [plotted](api/ktk.TimeSeries.plot.rst) directly using Matplotlib:
+TimeSeries can be [plotted](api/ktk.TimeSeries.plot.rst) directly using Matplotlib, and we can also specify which of the series to plot.
 
 ```{code-cell} ipython3
+plt.subplot(1, 3, 1)
 ts.plot()
+
+plt.subplot(1, 3, 2)
+ts.plot("Cosinus")
+
+plt.subplot(1, 3, 3)
+ts.plot(["Sinus", "Cosinus"])
+
+plt.tight_layout()
 ```
 
-A TimeSeries can contain many independent data that share a same time vector:
-
-```{code-cell} ipython3
-ts.data["Cosinus"] = np.cos(ts.time)
-
-ts.data
-```
-
-```{code-cell} ipython3
-ts.plot()
-```
-
-A TimeSeries can also contain multidimensional data, as long as the first dimension corresponds to time.
-
-For the rest of this section, we will load a TimeSeries that contains forces and moments during manual wheelchair propulsion. These forces and moments are expressed as Nx4 series of vectors:
+A TimeSeries can also contain multidimensional data, as long as the first dimension corresponds to time. For instance, this [dataset of wheelchair propulsion kinetics](dataset_kinetics_wheelchair_propulsion.md) expresses forces and moments as Nx4 series of vectors:
 
 $$
 \text{Forces} = \begin{bmatrix}
@@ -92,16 +85,8 @@ M_x(N-1) & M_y(N-1) & M_z(N-1) & 0
 $$
 
 ```{code-cell} ipython3
-ts = ktk.load(ktk.doc.download("timeseries_example.ktk.zip"))
+ts = ktk.load(ktk.doc.download("kinetics_wheelchair_propulsion.ktk.zip"))
 
-ts
-```
-
-:::{tip}
-You can download and read any data shown in any tutorial on this website. Be sure to be connected to the internet, then [ktk.doc.download](api/ktk.doc.download.rst) will download the file for you.
-:::
-
-```{code-cell} ipython3
 ts.data
 ```
 
@@ -109,43 +94,9 @@ ts.data
 ts.plot()
 ```
 
-## 📄 Metadata
+## Events
 
-The `time_info` property associates metadata to the time vector. It is a dictionary where each key is the name of one metadata. By default, `time_info` includes the "Unit" metadata, which corresponds to "s". Any other metadata can be added by adding new keys in `time_info`.
-
-```{code-cell} ipython3
-ts.time_info
-```
-
-Similarly, the `data_info` property associates metadata to data. This property is a dictionary of dictionaries, where the outer key corresponds to the data key, and the inner key is the metadata. Use the [](api/ktk.TimeSeries.add_data_info.rst) method to ease the management of `data_info`:
-
-```{code-cell} ipython3
-ts = ts.add_data_info("Forces", "Unit", "N")
-ts = ts.add_data_info("Moments", "Unit", "Nm")
-
-ts.data_info
-```
-
-```{code-cell} ipython3
-ts.data_info["Forces"]
-```
-
-Unless explicitly mentioned, metadata is not used for calculation and is optional. It is simply a way to clarify the data by adding information to it. Some functions however read metadata: for example, the [](api/ktk.TimeSeries.plot.rst) method looks for possible "Unit" metadata and prints it on the y axis; the [ktk.Player](api/ktk.Player.rst) class looks for possible "Color" metadata to set the colour of 3D points.
-
-```{code-cell} ipython3
-ts.plot()
-```
-
-## 📄 Events
-
-In the figure above, we see that the TimeSeries contains cyclic data that could be characterized by events. We will add these events to the TimeSeries.
-
-There are several ways to edit the events of a TimeSeries:
-- Editing events manually, using the [](api/ktk.TimeSeries.add_event.rst) and [](api/ktk.TimeSeries.remove_event.rst) methods;
-- Editing events interactively, using the [](api/ktk.TimeSeries.ui_edit_events.rst) method;
-- Adding events automatically, for example using the [](api/ktk.cycles.rst) module that can detect cycles automatically.
-
-In this tutorial, we will add the events manually.
+In the figure above, we see that the TimeSeries contains cyclic data. These cycles could be delimited using events. There are several ways to edit the events of a TimeSeries, that will be presented later in [](timeseries_event_management.md). For now, we will add the events manually using [ktk.TimeSeries.add_event](api/ktk.TimeSeries.add_event.rst):
 
 ```{code-cell} ipython3
 ts = ts.add_event(8.56, "push")
@@ -160,7 +111,7 @@ ts = ts.add_event(14.86, "push")
 ts = ts.add_event(15.30, "recovery")
 ```
 
-These 11 events are now added to the TimeSeries' list of events:
+These 10 events are now added to the TimeSeries' list of events:
 
 ```{code-cell} ipython3
 ts
@@ -171,6 +122,33 @@ ts.events
 ```
 
 If we plot again the TimeSeries, we can see the added events.
+
+```{code-cell} ipython3
+ts.plot()
+```
+
+## Metadata
+
+The TimeSeries' `time_info` and `data_info` attributes are dictionaries that associate metadata to time and data. By default, `time_info` includes the "Unit" key, which corresponds to "s". Any other metadata can be added by adding new keys to `time_info`.
+
+```{code-cell} ipython3
+ts.time_info
+```
+
+Similarly, the `data_info` attribute is a dictionary that associates metadata to data.
+
+:::{tip}
+You may use the [ktk.TimeSeries.add_data_info](api/ktk.TimeSeries.add_data_info.rst) and [ktk.TimeSeries.remove_data_info](api/ktk.TimeSeries.remove_data_info.rst) methods to ease the management of `data_info`.
+:::
+
+```{code-cell} ipython3
+ts = ts.add_data_info("Forces", "Unit", "N")
+ts = ts.add_data_info("Moments", "Unit", "Nm")
+
+ts.data_info
+```
+
+Unless explicitly mentioned, metadata is not used for calculation and is strictly optional. Some functions however read metadata: for example, the [](api/ktk.TimeSeries.plot.rst) method looks for possible "Unit" metadata and prints it on the y axis; the [ktk.Player](api/ktk.Player.rst) class looks for possible "Color" metadata to set the colour of 3D points.
 
 ```{code-cell} ipython3
 ts.plot()

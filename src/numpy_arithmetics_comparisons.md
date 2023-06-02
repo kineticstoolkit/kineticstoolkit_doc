@@ -1,4 +1,0 @@
-# Arithmetics and comparisons
-
-```{tableofcontents}
-```

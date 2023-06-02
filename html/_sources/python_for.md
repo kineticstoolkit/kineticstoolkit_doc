@@ -37,5 +37,3 @@ for item in a_list:
 
 print("done.")
 ```
-
-The following exercises will show how powerful is the combination of lists and `for`.

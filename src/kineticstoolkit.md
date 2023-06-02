@@ -1,4 +1,0 @@
-# Kinetics Toolkit
-
-```{tableofcontents}
-```

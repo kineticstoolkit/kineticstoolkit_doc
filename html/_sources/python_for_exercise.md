@@ -18,7 +18,7 @@ kernelspec:
 ```
 
 
-# 💪 Looping using **for**
+# Exercise: Looping using **for**
 
 In an example of section [](python_while.md), we took some measurements in metres, that we needed to convert in millimeters.
 

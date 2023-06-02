@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.0
+    jupytext_version: 1.14.5
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -17,15 +17,26 @@ kernelspec:
 %matplotlib inline
 ```
 
-
 # Filtering multidimensional arrays
 
 In the previous section, we learned how to use lists of boolean and lists of integers to filter unidimensional arrays. This also works on multidimensional arrays, although filtering on axes other than the first one is somewhat unintuitive and may lead to unexpected array shapes. Luckily, in biomechanical data processing, filtering happens mainly on the first axis, which usually corresponds to time.
 
-**Example 10: Read the marker's coordinates at samples 0 and 2**
+**Example: Read the marker's coordinates at samples 0 and 2**
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
+import ktkdoctools
+import numpy as np
+import matplotlib.pyplot as plt
+
+position = np.array(
+    [
+        [0.497, 0.973, 0.010, 1.0],
+        [0.528, 0.973, 0.017, 1.0],
+        [0.589, 0.970, 0.025, 1.0],
+    ]
+)
 
 tbl = ktkdoctools.draw_table(position, title="position")
 
@@ -38,8 +49,22 @@ plt.show()
 ```
 
 ```{code-cell} ipython3
-mask = [0, 2]
+import numpy as np
 
+position = np.array(
+    [
+        [0.497, 0.973, 0.010, 1.0],
+        [0.528, 0.973, 0.017, 1.0],
+        [0.589, 0.970, 0.025, 1.0],
+    ]
+)
+
+mask = [0, 2]
 position[mask]
 ```
 
+or directly:
+
+```{code-cell} ipython3
+position[[0, 2]]
+```

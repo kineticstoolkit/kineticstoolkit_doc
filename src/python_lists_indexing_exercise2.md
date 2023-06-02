@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.0
+    jupytext_version: 1.14.5
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -17,13 +17,19 @@ kernelspec:
 %matplotlib inline
 ```
 
-
 # Exercise: Indexing lists 2
 
 You are happy with the function `calculate_step_length` you wrote in the [last exercise ](python_lists_indexing_exercise1.md), but sometimes, you obtain an IndexError:
 
 ```{code-cell} ipython3
 :tags: [raises-exception]
+
+def calculate_step_length(y, step):
+    return y[step + 1] - y[step]
+
+
+# y-coordinates of each heel strike, in meters
+y = [0.13, 0.72, 1.29, 1.93, 2.55, 3.12, 3.71, 4.34, 4.95, 5.56]
 
 calculate_step_length(y, 9)
 ```
@@ -65,6 +71,7 @@ def calculate_step_length(y, step):
         return y[step + 1] - y[step]
     else:
         return 0.0
+
 
 # Test it
 print(calculate_step_length(y, 0))

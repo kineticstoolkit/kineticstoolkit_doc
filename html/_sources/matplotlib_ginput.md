@@ -22,9 +22,15 @@ plt.plot([0.0, 1.0, -1.0, 2.0, 0.5, 0.0])
 points = plt.ginput(10)  # 10 points
 ```
 
-generate the figure above, and let the user click a maximum of 10 points.
+generate {numref}`fig_matplotlib_ginput` and let the user click a maximum of 10 points.
 
-![plt.ginput -width:wider](_static/images/matplotlib_ginput.png)
+```{figure-md} fig_matplotlib_ginput
+:width: 5in
+![plt.ginput -width:wider](_static/images/fig_matplotlib_ginput.png)
+
+Clicking and retrieving coordinates using plt.ginput.
+```
+
 
 - Left-click adds a point (red cross);
 - Right-click removes the last added point;

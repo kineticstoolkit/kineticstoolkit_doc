@@ -17,9 +17,9 @@ kernelspec:
 %matplotlib inline
 ```
 
-## Exercise: Trigonometry 2
+# Exercise: Trigonometry 2
 
-When we walk on an inclined treadmill as in {refnum}`fig_gait_inclined`, we must overcome a backward force equal to:
+When we walk on an inclined treadmill as in {numref}`fig_gait_inclined`, we must overcome a backward force equal to:
 
 $$
 F = m g \sin \theta

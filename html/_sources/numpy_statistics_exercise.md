@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 💪 Exercise
+# Exercise: Statistics
 
 We recorded this series of forces using a gait force platform, where the first axis corresponds to time and the second axis corresponds to $F_x$, $F_y$ and $F_z$.
 

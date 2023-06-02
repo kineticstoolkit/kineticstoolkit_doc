@@ -18,7 +18,7 @@ kernelspec:
 ```
 
 
-## 💪 Graphical input
+# Exercise: Graphical input
 
 You recorded a force using a force sensor at a sampling frequency of 10 Hz. Here are the 44 first samples of this signal:
 
@@ -68,8 +68,7 @@ time = [
 
 plt.plot(time, force)
 plt.xlabel("Time (s)")
-plt.ylabel("Force (uncalibrated signal in volts)")
-plt.show()
+plt.ylabel("Force (uncalibrated signal in volts)");
 ```
 
 This force spike was deliberately generated as a synchronization signal, by gently impacting the force sensor. We now need to read the time at which the spike occurs in the signal above.

@@ -23,6 +23,9 @@
       isnan
       matmul
       register_points
+      rotate
+      scale
+      translate
    
    
 

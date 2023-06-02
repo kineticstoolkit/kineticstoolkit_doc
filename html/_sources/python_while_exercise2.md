@@ -18,7 +18,7 @@ kernelspec:
 ```
 
 
-# 💪 Looping using **while** (2)
+# Exercise: Looping using **while** 2
 
 A therapist measures a patient's maximal shoulder flexion angle several times. Write a program that creates a list of all these measurements based on [user input](python_strings_input.md), following this example:
 

@@ -18,7 +18,7 @@ kernelspec:
 ```
 
 
-# 💪 Looping using **for** and **range** (1)
+# Exercise: Looping using **for** and **range** 1
 
 A therapist measures a patient's maximal shoulder flexion angle three times. Write a program that creates a list of these three measurements based on user input, following this example:
 

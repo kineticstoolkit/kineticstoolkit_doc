@@ -31,9 +31,7 @@ y1 = [0.0, 1.0, 4.0, 3.0, -2.0]
 y2 = [1.0, 2.0, 3.0, 4.0, 5.0]
 
 plt.plot(x, y1)
-plt.plot(x, y2)
-
-plt.show()
+plt.plot(x, y2);
 ```
 
 This figure is nice, but it lacks axes and a legend, maybe a grid, and also a title. These elements are added using the following functions:
@@ -67,9 +65,7 @@ plt.legend(["Instrument 1", "Instrument 2"])
 plt.title("Comparing a same measurement using two instruments")
 
 # Add a grid
-plt.grid(True)
-
-plt.show()
+plt.grid(True);
 ```
 
 :::{good-practice} Legend labels

@@ -20,7 +20,7 @@ kernelspec:
 
 # Indexing multidimensional arrays
 
-As for unidimensional arrays, we also index multidimensional arrays using integers in brackets. Using a single integer indexes the first dimension. For example:
+As for [unidimensional arrays](numpy_indexing_slicing_1d.md), we index multidimensional arrays using integers in brackets. Using a single integer indexes the first dimension. For example:
 
 **Example 1: Read the marker position at first sample**
 
@@ -28,6 +28,16 @@ As for unidimensional arrays, we also index multidimensional arrays using intege
 :tags: [remove-input]
 
 import ktkdoctools
+import numpy as np
+import matplotlib.pyplot as plt
+
+position = np.array(
+    [
+        [0.497, 0.973, 0.010, 1.0],
+        [0.528, 0.973, 0.017, 1.0],
+        [0.589, 0.970, 0.025, 1.0],
+    ]
+)
 
 tbl = ktkdoctools.draw_table(
     position,
@@ -40,6 +50,16 @@ for i in range(4):
 ```
 
 ```{code-cell} ipython3
+import numpy as np
+
+position = np.array(
+    [
+        [0.497, 0.973, 0.010, 1.0],
+        [0.528, 0.973, 0.017, 1.0],
+        [0.589, 0.970, 0.025, 1.0],
+    ]
+)
+
 position[0]
 ```
 
@@ -99,6 +119,23 @@ Both notations are equivalent, but the second one is more powerful (as we will s
 ```{code-cell} ipython3
 :tags: [remove-input]
 
+orientation = np.array(
+    [
+        [
+            [1.0, 0.0, 0.0, 0.0],
+            [0.0, 1.0, 0.0, 0.0],
+            [0.0, 0.0, 1.0, 0.0],
+            [0.0, 0.0, 0.0, 1.0],
+        ],
+        [
+            [1.0, 0.000, 0.000, 0.0],
+            [0.0, 0.999, -0.017, 0.0],
+            [0.0, 0.017, 0.999, 0.0],
+            [0.0, 0.000, 0.000, 1.0],
+        ],
+    ]
+)
+
 plt.subplot(1, 2, 1)
 tbl0 = ktkdoctools.draw_table(orientation[0], title="orientation[0]", width=5)
 
@@ -115,6 +152,23 @@ plt.show()
 
 ```{code-cell} ipython3
 # Orientation of the segment at second sample
+orientation = np.array(
+    [
+        [
+            [1.0, 0.0, 0.0, 0.0],
+            [0.0, 1.0, 0.0, 0.0],
+            [0.0, 0.0, 1.0, 0.0],
+            [0.0, 0.0, 0.0, 1.0],
+        ],
+        [
+            [1.0, 0.000, 0.000, 0.0],
+            [0.0, 0.999, -0.017, 0.0],
+            [0.0, 0.017, 0.999, 0.0],
+            [0.0, 0.000, 0.000, 1.0],
+        ],
+    ]
+)
+
 orientation[1]
 ```
 

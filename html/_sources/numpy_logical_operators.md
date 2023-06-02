@@ -27,6 +27,10 @@ In section [](python_conditions_logical_operators.md), we learned the logical op
 |            `or`             |                       `\|`                       |
 |            `and`            |                       `&`                        |
 
-The figure below illustrates the behaviour of each operator:
+{numref}`fig_numpy_boolean_operators` illustrates the behaviour of each operator.
 
-![Logical operators on Python and Numpy](_static/images/numpy_boolean_operators.png)
+```{figure-md} fig_numpy_boolean_operators
+![Logical operators on Python and Numpy](_static/images/fig_numpy_boolean_operators.png)
+
+Correspondence between logical operations on bool and ndarray.
+```

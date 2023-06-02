@@ -17,11 +17,16 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 💪 Exercise
+# Exercise: Arithmetics
 
-A ball is released from a point in air. Knowing that it was immobile when it was released, and that it gains negative speed at a rate of 9.81 m/s², plot a curve of its velocity during one second from release time.
+A ball is released from a point in air. Knowing that it was immobile when it was released, and that it gains negative speed at a rate of 9.81 m/s², plot a curve of its velocity as shown in {numref}`fig_falling_ball` during one second from release time.
 
-![Exercise 1 -height:short](_static/images/ball_vertical_speed.png)
+```{figure-md} fig_falling_ball
+:width: 3in
+![](_static/images/fig_falling_ball.png)
+
+Vertical velocity of a falling ball.
+```
 
 ::::{tip}
 :::{toggle}

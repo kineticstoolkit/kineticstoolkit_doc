@@ -171,7 +171,7 @@ where:
 - the $P$ vector is the position of the local coordinate system's origin.
 :::
 
-## 💪 Exercise
+## Exercise
 
 Figure 6 shows rotated local coordinate systems for both the upper arm and forearm. Knowing that the position of the elbow in global coordinates is $(0.34, 0.371, 0)$, and that the forearm is inclined by $50^\circ$ compared to the global reference frame, construct this 4x4 matrix: $^\text{global} _\text{forearm} T$.
 

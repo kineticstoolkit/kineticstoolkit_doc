@@ -19,9 +19,14 @@ kernelspec:
 
 # Logical operators
 
-In section [](python_conditions_boolean.md), we learned how to generate boolean values (True, False) using comparison operators such as `>` (greater than) or `<=` (less or equal to). For more complex comparison, we can combine and invert the results of many comparisons, using the logical operators `not`, `or` and `and`:
+In section [](python_conditions_boolean.md), we learned how to generate boolean values (True, False) using comparison operators such as `>` (greater than) or `<=` (less or equal to). For more complex comparison, we can combine and invert the results of many comparisons, using the logical operators `not`, `or` and `and`, as shown in {numref}`fig_logical_operators`.
 
-![Python logical operators -width:half](_static/images/Pasted%20image%2020230330110452.png)
+```{figure-md} fig_logical_operators
+:width: 3.5in
+![](_static/images/fig_logical_operators.png)
+
+Truth table of `not`, `or` and `and`.
+```
 
 Using these operators, we can construct more complex comparisons and program flows, such as this example:
 

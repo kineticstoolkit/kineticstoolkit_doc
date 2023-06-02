@@ -46,15 +46,17 @@ When we create a new numeric variable, the variable is defined:
 
 ```{code-cell} ipython3
 an_int = 3
-a_float = 3.0
+a_float = 3.1
 ```
 
-The type of an existing variable can be known with the functions `type`, or `isinstance`:
+The type of an existing variable can be known with the function `type`:
 
 ```{code-cell}
 print(type(an_int))
 print(type(a_float))
 ```
+
+or `isinstance`:
 
 ```{code-cell}
 print(isinstance(an_int, int))  # Is it an integer?
@@ -64,17 +66,11 @@ print(isinstance(an_int, float))  # Is it a float?
 A variable can be converted from an `int` to a `float` using the `float()` function:
 
 ```{code-cell} ipython3
-new_variable = float(an_int)
-
-print(new_variable)
-print(type(new_variable))
+float(an_int)
 ```
 
 A variable can be converted from a `float` to an `int` using the `int()` function. Please note, however, that the decimal component of the number is lost:
 
 ```{code-cell} ipython3
-new_variable = int(a_float)
-
-print(new_variable)
-print(type(new_variable))
+int(a_float)
 ```

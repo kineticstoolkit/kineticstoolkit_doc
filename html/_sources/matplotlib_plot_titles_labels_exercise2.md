@@ -18,7 +18,7 @@ kernelspec:
 ```
 
 
-# 💪 Plotting a series (2)
+# Exercise: Plotting a series 2
 
 Using a video camera, you recorded the position of a sprinter each 2 seconds. The recorded data are:
 
@@ -46,8 +46,7 @@ plt.title("Race profile of a sprinter")
 plt.xlabel("Time (s)")
 plt.ylabel("Position (m)")
 plt.legend(["Video camera", "Timing gates"])
-plt.grid(True)
-plt.show()
+plt.grid(True);
 ```
 
 ```{code-cell} ipython3
@@ -61,5 +60,5 @@ plt.title("Race profile of a sprinter")
 plt.xlabel("Time (s)")
 plt.ylabel("Position (m)")
 plt.grid(True)
-plt.legend(["Video camera", "Timing gates"])
+plt.legend(["Video camera", "Timing gates"]);
 ```

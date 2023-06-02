@@ -17,11 +17,16 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 💪 Looping through a dictionary
+# Exercise: Looping through a dictionary
 
-We affix an inclinometer on a person's arm. We ask the person to reach different positions in the sagittal plane, twice.
+We affix an inclinometer on a person's arm. We ask the person to reach different positions in the sagittal plane as shown in {numref}`python_dicts_looping_exercise`. Each position is reached twice.
 
-![dict exercise positions -width:wider](_static/images/dict_exercise.png)
+```{figure-md} fig_shoulder_flexion_inclinometer
+:width: 7in
+![](_static/images/fig_shoulder_flexion_inclinometer.png)
+
+Different shoulder flexion angles.
+```
 
 The inclinometer's readings are stored in a dictionary as follows:
 
@@ -38,6 +43,7 @@ incline = {
 ```
 
 Write a code that creates a new dictionary named `flexion`, that calculates the shoulder flexion angle for each repetition of TargetA, TargetB and TargetC. This new dictionary (`flexion`), will have this form:
+
 ```
 {
     "TargetA_Repetition1": (flexion angle),

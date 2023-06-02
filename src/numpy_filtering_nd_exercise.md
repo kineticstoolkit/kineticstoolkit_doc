@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.0
+    jupytext_version: 1.14.5
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -17,12 +17,13 @@ kernelspec:
 %matplotlib inline
 ```
 
-
 # Exercise: Filtering n-dimensional arrays
 
 We recorded this series of forces using a gait force platform, where the first axis corresponds to time and the second axis corresponds to the three force components $F_x$, $F_y$ and $F_z$.
 
 ```{code-cell} ipython3
+import numpy as np
+
 forces = np.array(
     [
         [0.17619048, 0.82380952, 17.61904762],
@@ -70,7 +71,8 @@ forces = np.array(
 ```{code-cell} ipython3
 :tags: [remove-input]
 
-import kineticstoolkit.lab as ktk
+import matplotlib.pyplot as plt
+
 plt.plot(forces)
 plt.xlabel("# sample")
 plt.ylabel("Force (N)")

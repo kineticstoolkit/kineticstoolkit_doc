@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 💪 Strings
+# Exercise: Strings
 
 For these two variables:
 

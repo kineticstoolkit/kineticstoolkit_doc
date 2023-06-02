@@ -99,7 +99,7 @@ $$
 Take a look at how using this notation, the upper and lower indices cancel out to give the final transformation.
 :::
 
-## 💪 Exercise
+## Exercise
 
 Develop the three terms of the equation above to solve this example. No need to try performing the matrix multiplication itself. Then toggle the solution below to verify your solution.
 

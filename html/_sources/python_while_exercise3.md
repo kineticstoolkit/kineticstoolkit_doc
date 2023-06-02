@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 💪 Looping using **while** (3)
+# Exercise: Looping using **while** 3
 
 Using a force plate, we recorded the vertical ground reaction force during one step, at a sampling frequency of 20 Hz:
 

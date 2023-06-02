@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 💪 Exercise 1
+# Exercise: Creating arrays using zeros and ones 1
 
 We recorded the force measured by a dynamometer at a sampling frequency of 100 Hz, during 2.5 seconds. Unfortunately, the dynamometer was not plugged in, and we only recorded a series of zero.
 

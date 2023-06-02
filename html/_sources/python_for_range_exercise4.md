@@ -17,11 +17,13 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 💪 Looping using **for** and **range** (4)
+# Exercise: Looping using **for** and **range** 4
 
 Knowing that:
 
-$v(t) = \left( {p(t+1) - p(t-1)} \right) * \dfrac{\text{sampling frequency}}{2}$
+```{math}
+v(t) = \left( {p(t+1) - p(t-1)} \right) * \dfrac{\text{sampling frequency}}{2}
+```
 
 write this function:
 
@@ -62,10 +64,17 @@ list_of_positions = [
 ```
 
 :::{tip}
-It will be impossible to calculate speed on the first sample, because it would need the position before the first sample. It will also be impossible to calculate speed on the last sample, because it would need the position after the last sample. Simply fill the first and last sample of the speed with zero.
-
-![Padding speed with zero -width:wide](_static/images/padding_speed_with_zero.png)
+It will be impossible to calculate speed on the first sample, because it would need the position before the first sample. It will also be impossible to calculate speed on the last sample, because it would need the position after the last sample. Simply fill the first and last sample of the speed with zero as shown in {numref}`fig_padding_speed_with_zero`.
 :::
+
+```{figure-md} fig_padding_speed_with_zero
+:width: 6in
+
+![](_static/images/fig_padding_speed_with_zero.png)
+
+Padding the first and last indexes of `speed` with zeros.
+```
+
 
 ```{code-cell}
 :tags: [hide-cell]

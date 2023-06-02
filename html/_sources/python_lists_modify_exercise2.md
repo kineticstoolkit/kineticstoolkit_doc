@@ -18,7 +18,7 @@ kernelspec:
 ```
 
 
-# 💪 Modifying lists (2)
+# Exercise: Modifying lists 2
 
 Here is the progression of a person's maximal flexion angle of the shoulder during a 4-month stretching program, with the outer list corresponding to the month, and the inner lists being 10 consecutive measurements performed during the month.
 

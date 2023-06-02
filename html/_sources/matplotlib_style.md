@@ -90,6 +90,4 @@ plt.plot(y, "oc")
 plt.title("round markers, no line, cyan")
 
 plt.tight_layout()
-
-plt.show()
 ```

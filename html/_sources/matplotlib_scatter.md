@@ -1,3 +1,0 @@
-# 🚧 Scatter plots
-
-{{stub}}

@@ -1,16 +1,18 @@
 # Analyzing time-varying data
 
-:::{card} Summary
-The [TimeSeries](api/ktk.TimeSeries.rst) class is used in most Kinetic Toolkit's modules and is the only class that users have to learn in addition to python standard types and numpy arrays.
+In biomechanics, we often process data that is function of time, e.g., electromyography, marker trajectories, force series, etc. When we analyze only a few data and that the sampling frequency is constant, using NumPy is usually sufficient for processing such data. This is what we did in last section in the different [exercises with NumPy](numpy_exercises.md).
 
-The three roles of the TimeSeries class are to:
+However, things can get more complicated when:
+- data are of different natures, such as marker trajectories, EMG, measured forces, calculated forces, etc.;
+- data were recorded by unsynchronized instruments at different sampling frequencies;
+- data were recorded with inconstant sample frequencies;
+- data are missing (e.g., occluded markers);
+- data are noisy;
+- etc.
 
-1. organize multidimensional data in time;
-2. manage events;
-3. associate metadata to data.
+For these reasons, Kinetics Toolkit provides a new type of variable: the [TimeSeries](api/ktk.TimeSeries.rst), which is presented in the next section.
 
-The following sections show how to work with TimeSeries, and explain their relations with numpy arrays and pandas DataFrames.
-:::
+**Chapter Contents**
 
 ```{tableofcontents}
 ```

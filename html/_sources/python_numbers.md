@@ -25,9 +25,11 @@ Up to now, we referred to numbers simply as "numbers". In reality, numbers belon
 - Real numbers: `float`
 - Complex numbers: `complex`
 
-![number sets -height:shorter](_static/images/number_sets.png)
+```{figure-md} fig_number_sets
+:width: 6in
+![](_static/images/fig_number_sets.png)
 
-For now, we will focus only on integers and floats.
-
-```{tableofcontents}
+The three sets of numbers in Python.
 ```
+
+We will however focus only on `int` and `float`.

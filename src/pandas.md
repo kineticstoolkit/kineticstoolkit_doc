@@ -1,5 +1,0 @@
-# 🚧 Pandas
-
-{{ stub }}
-
-#todo 

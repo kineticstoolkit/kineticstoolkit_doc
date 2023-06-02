@@ -13,11 +13,7 @@ kernelspec:
 
 # NumPy
 
-:::{sidebar}
-![NumPy Logo](_static/images/numpy_logo.png)
-:::
-
-The main goal of NumPy is to perform mathematical operations not only on floats, but also on vectors and matrices, and to perform these operations very quickly.
+The main goal of {{numpy}} is to perform mathematical operations not only on floats, but also on vectors and matrices, and to perform these operations very quickly.
 
 As an example, let's say we need to average multiple measurements. We could do this easily using basic Python code, by summing every element of a list, and then by dividing the sum by the number of elements:
 
@@ -47,13 +43,17 @@ np.mean(one_array)
 This chapter covers the basics of NumPy for biomechanics.
 
 :::{tip}
-NumPy is a huge package. This section covers the basics to get started with it for biomechanical analysis. To really master it, we recommend NumPy's [learning section](https://numpy.org/learn/).
-:::
-
-:::{tip}
 If you already know Matlab, then this [cheat sheet](https://numpy.org/doc/stable/user/numpy-for-matlab-users.html) could be useful.
 :::
 
+```{figure-md} fig_numpy_logo
+:width: 4in
+![NumPy Logo](_static/images/fig_numpy_logo.png)
+
+Numpy logo.
+```
+
+**Chapter Contents**
 
 ```{tableofcontents}
 ```

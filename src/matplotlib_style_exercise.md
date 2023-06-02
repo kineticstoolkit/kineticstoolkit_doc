@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-## Exercise: Plot styling
+# Exercise: Plot styling
 
 In [](matplotlib_plot_titles_labels_exercise2.md), using these data:
 

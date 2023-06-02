@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 💪 Function arguments
+# Exercise: Function arguments
 
 Create a function named `print_info()` that, when it is called using:
 

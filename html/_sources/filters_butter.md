@@ -18,13 +18,11 @@ kernelspec:
 
 # Butterworth filter
 
-:::{card} Summary
 This section shows how to remove specific ranges of frequencies from a TimeSeries using [ktk.filters.butter](api/ktk.filters.butter.rst).
-:::
 
-The Butterworth filter may be the most used filter in biomechanics. It removes ranges of frequencies from the signal's frequency spectrum. Normally, we first identify the frequency range of our data, so that we can remove any signal outside this range. This removes noise, without removing information from the data.
+The Butterworth filter may be the most used filter in biomechanics. It removes ranges of frequencies from the signal's frequency spectrum. Normally, we first identify the frequency range of our data, so that we can remove any signal outside this range.
 
-The following section will show different use cases for the [ktk.filters.butter](api/ktk.filters.butter.rst) function. Let's start by loading some noisy data.
+Let's start by loading some noisy data.
 
 ```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
@@ -32,49 +30,38 @@ import matplotlib.pyplot as plt
 
 ts_noisy = ktk.load(ktk.doc.download("filters_noisy_signals.ktk.zip"))
 
-ts_noisy.plot()
-plt.title("Noisy signals")
-plt.tight_layout()
+ts_noisy.plot();
 ```
 
-## ⚙️ Example 1: Low-pass, no-lag filter
+## Low-pass filter
 
-Here is what we get if we filter out higher frequencies using a no-lag Butterworth filter of order 2:
+The default setting for [ktk.filters.butter](api/ktk.filters.butter.rst) is to apply a low-pass, no-lag filter of order 2. To filter with a cut-off frequency of 20 Hz:
 
 ```{code-cell} ipython3
-plt.subplot(1, 3, 1)
-ts_noisy.plot()
-plt.title("Before filtering")
-
-plt.subplot(1, 3, 2)
-temp = ktk.filters.butter(ts_noisy, fc=20)
-temp.plot()
-plt.title("Low-pass 2nd order at 20 Hz")
-plt.tight_layout()
-
-plt.subplot(1, 3, 3)
-temp = ktk.filters.butter(ts_noisy, fc=4)
-temp.plot()
-plt.title("Low-pass 2nd order at 4 Hz")
-plt.tight_layout()
+ts_filtered = ktk.filters.butter(ts_noisy, fc=20)
+ts_filtered.plot()
 ```
 
-As expected, when filtering lower frequencies, the signal is clearer but transitions are less sharp and the most dynamic information may be lost.
+You are encouraged to experiment with different cut-off frequencies to observe its effect on the results. In the figure above, we observed that while 20 Hz was probably correct for the sine wave, it still filtered out the most dynamic components, most notably in the square and pulse signals.
 
-## ⚙️ Example 2: High-pass, no-lag filter
+## High-pass filter
 
-Here is what we get if we filter out lower frequencies using a no-lag Butterworth filter of order 2.
+The inverse operation is the high-pass filter. Let's observe what we removed from the original signal in the figure above:
 
 ```{code-cell} ipython3
-plt.subplot(1, 2, 1)
-ts_noisy.plot()
-plt.title("Before filtering")
-
-plt.subplot(1, 2, 2)
-temp = ktk.filters.butter(ts_noisy, btype="highpass", fc=60)
-temp.plot()
-plt.title("High-pass 2nd order at 60 Hz")
-plt.tight_layout()
+ts_filtered = ktk.filters.butter(ts_noisy, btype="highpass", fc=20)
+ts_filtered.plot()
 ```
 
-Only the transitions are kept, all the stable parts of the signal were removed.
+Only the transitions are kept, all the stable parts of the signal are removed.
+
+## Band-pass filter
+
+We can combine both low-pass and high-pass in a band-pass filter. This type of filter is commonly used in processing of electromyography, to filter both high-frequency noise and low-frequency movement artifact.
+
+To remove frequencies between 10 and 80 Hz:
+
+```{code-cell} ipython3
+ts_filtered = ktk.filters.butter(ts_noisy, btype="bandpass", fc=[10, 80])
+ts_filtered.plot()
+```

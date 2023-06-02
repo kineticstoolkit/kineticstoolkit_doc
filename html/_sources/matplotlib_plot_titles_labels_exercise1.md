@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 💪 Plotting a series (1)
+# Exercise: Plotting a series 1
 
 Using a video camera, you recorded the position of a sprinter each 2 seconds. The recorded data are:
 
@@ -37,8 +37,7 @@ plt.plot(t, p)
 plt.title("Race profile of a sprinter")
 plt.xlabel("Time (s)")
 plt.ylabel("Position (m)")
-plt.grid(True)
-plt.show()
+plt.grid(True);
 ```
 
 ```{code-cell} ipython3
@@ -50,5 +49,5 @@ plt.plot(t, p)
 plt.title("Race profile of a sprinter")
 plt.xlabel("Time (s)")
 plt.ylabel("Position (m)")
-plt.grid(True)
+plt.grid(True);
 ```

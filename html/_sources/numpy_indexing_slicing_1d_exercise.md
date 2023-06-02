@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 💪 Exercise
+# Exercise: Indexing and slicing unidimensional arrays
 
 You used an accelerometer to detect a small movement. The acceleration returned by the instrument is expressed by this list, at a sampling frequency of 100 Hz.
 
@@ -36,8 +36,7 @@ time = np.arange(acc.shape[0]) / 100
 plt.plot(time, acc, "o-r")
 plt.xlabel("Time (s)")
 plt.ylabel("Acceleration")
-plt.grid(True)
-plt.show()
+plt.grid(True);
 ```
 
 However, by carefully inspecting your signal, you realize that the data is late by 40 milliseconds. You want to fix this delay, but you also want to keep the same number of samples in your signal.
@@ -66,8 +65,7 @@ plt.plot(
 )
 plt.xlabel("Time (s)")
 plt.ylabel("Acceleration")
-plt.grid(True)
-plt.show()
+plt.grid(True);
 ```
 
 ::::{tip}
@@ -120,6 +118,5 @@ plt.subplot(1, 3, 3)
 plt.plot(acc, "o-")
 plt.title("End result")
 
-plt.tight_layout()
-plt.show()
+plt.tight_layout();
 ```

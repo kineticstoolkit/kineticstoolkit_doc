@@ -18,14 +18,13 @@ kernelspec:
 
 # Moving average and Savitsky-Golay
 
-:::{card} Summary
-This section shows how to smooth a noisy signal using [ktk.filters.smooth](api/ktk.filters.smooth.rst), or how to smooth and derivate a noisy signal using the more generic [ktk.filters.savgol](api/ktk.filters.savgol.rst) function.
-:::
+This section presents the following functions:
+- [ktk.filters.smooth](api/ktk.filters.smooth.rst)
+- [ktk.filters.savgol](api/ktk.filters.savgol.rst).
 
+## Smoothing using a moving average
 
-## ⚙️ Example 1: Smoothing using a moving average
-
-The moving average is an excellent filter to remove noise that is related to a specific time pattern. A classic example is the day-to-day evaluation of a process that is sensible to week-ends (for example, the number of workers who enter a building). A moving average with a window length of 7 days is ideal to evaluate the generic trend of this signal without considering intra-week fluctuations. Although its use in biomechanics is less obvious, this filter may be useful in some situation. Let's first load some noisy data:
+The moving average is an excellent filter to remove noise that is related to a specific time pattern. A classic example is the day-to-day evaluation of a process that is sensible to week-ends (for example, the number of workers who enter a building). A moving average with a window length of 7 days is ideal to evaluate the generic trend of this signal without considering intra-week fluctuations. Let's first load some noisy data:
 
 ```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
@@ -33,92 +32,84 @@ import matplotlib.pyplot as plt
 
 ts = ktk.load(ktk.doc.download("filters_types_of_noise.ktk.zip"))
 
-# Plot it
-ts.plot(["clean", "periodic_noise"], marker=".")
-plt.grid(True)
-plt.tight_layout()
+ts.plot(["clean", "periodic_noise"], '.-')
 ```
 
-In this signal, we observe that appart from random noise, there seems to be a periodic signal with a period of five seconds, that we may consider as noise. Since it has a constant period, the moving average is a nice candidate for filtering out this noise.
+This signal contains periodic noise with a period of five seconds. Using a 5-second moving average filter:
 
 ```{code-cell} ipython3
 filtered = ktk.filters.smooth(ts, window_length=5)
+```
 
-ts.plot(["clean", "periodic_noise"], marker=".")
+gives the blue curve below:
 
-filtered.plot("periodic_noise", marker=".", color="k")
-
-plt.title("Removing the fast, constant rate variation (black curve)")
-plt.grid(True)
-plt.tight_layout()
+```{code-cell} ipython3
+:tags: [remove-input]
+filtered.rename_data("periodic_noise", "filtered", in_place=True)
+ts.merge(filtered).plot(["clean", "periodic_noise", "filtered"], '.-')
 ```
 
 As expected, the 5-sample period noise was completely removed. The signal was however also averaged and we therefore lost some dynamics in the signal.
 
 
-## ⚙️ Example 2: Smoothing using a Savitzky-Golay filter
+## Smoothing using a Savitzky-Golay filter
 
-The Savitzky-Golay filter is a generalization of the moving average. Instead of taking the mean of the n points of a moving window, the Savitzky-Golay filter fits a polynomial of a given order over each window (a moving average is therefore a Savitzky-Golay filter with a polynomial of order 0).
+The Savitzky-Golay filter is a generalization of the moving average. Instead of taking the mean of the n points of a moving window, the Savitzky-Golay filter fits a polynomial of a given order over each window. A moving average is therefore a particular case of Savitzky-Golay filter with a polynomial of order 0.
 
 It is a powerful filter for data that is heavily quantized, particularly if we want to derivate these data. Let's plot some heavily quantized data:
 
 ```{code-cell} ipython3
-ts = ktk.load(ktk.doc.download("filters_types_of_noise.ktk.zip"))
-
-# Plot it
-ts.plot(["clean", "quantized"], marker=".")
-plt.grid(True)
-plt.tight_layout()
+ts.plot(["clean", "quantized"], ".-")
 ```
 
-Smoothing this signal using a second-order Savitzky-Golay filter with a window length of 7:
+To smooth this signal using a second-order Savitzky-Golay filter with a window length of 7:
 
 ```{code-cell} ipython3
 filtered = ktk.filters.savgol(ts, poly_order=2, window_length=7)
-
-ts.plot(["clean", "quantized"], marker=".", linestyle="--")
-filtered.plot(["quantized"], marker=".", color="k")
-
-plt.title(
-    "Smoothed signal using a Savitzky-Golay filter of order=2 and window_length=7"
-)
-plt.grid(True)
-plt.tight_layout()
 ```
 
-## ⚙️ Example 3: Deriving using a Savitzky-Golay filter
-
-This sort of signal that suffers from bad resolution is very difficult to derivate because it is filled with fast-changing plateaus that, once derived, are transformed to series of spikes. Let's see the result with a bare derivation without filtering, using [ktk.filters.deriv](api/ktk.filters.deriv.rst):
+which gives the blue curve below:
 
 ```{code-cell} ipython3
-# Try to derivate
-derivate = ktk.filters.deriv(ts)
-
-# Plot it
-derivate.plot(["clean", "quantized"], marker=".")
-plt.grid(True)
-plt.tight_layout()
+:tags: [remove-input]
+filtered.rename_data("quantized", "filtered", in_place=True)
+ts.merge(filtered).plot(["clean", "quantized", "filtered"], '.-')
 ```
 
-Since the Savitzky-Golay filter fits a polynomial instead of just smoothing the signal, then the derivative of the filtered signal is automatically given by deriving the polynomial instead of the signal. Let's see how deriving the quantized signal using a 2nd-order Savitzky-Golay filter with a window length of 7 compares to deriving the original, clean signal:
+## Deriving using a Savitzky-Golay filter
+
+Heavily quantized signals are often difficult to derivate because they contain lors of plateaus that, once derived, are transformed to series of spikes. For instance, let's see how deriving a quantized signal works withouth filtering, using [ktk.filters.deriv](api/ktk.filters.deriv.rst):
 
 ```{code-cell} ipython3
-# Filter and derivate the noisy signal
-derivate_savgol = ktk.filters.savgol(
+derived = ktk.filters.deriv(ts)
+
+derived.plot(["clean", "quantized"], ".-")
+```
+
+Deriving using a Savitzky-Golay filter consists in deriving the polynomial that is fitted over the moving window. Using a 2nd-order Savitzky-Golay filter with a window length of 7:
+
+```{code-cell} ipython3
+derived_savgol = ktk.filters.savgol(
     ts, poly_order=2, window_length=7, deriv=1
 )
-
-# Plot the derivative of the clean signal
-derivate.plot(["clean", "quantized"], marker=".", linestyle="--")
-
-# Plot the filtered derivative of the quantized signal
-derivate_savgol.plot("quantized", marker=".", color="k")
-
-plt.title(
-    "Derived signal using a Savitzky-Golay filter of order=2 and window_length=7 (black)"
-)
-plt.grid(True)
-plt.tight_layout()
 ```
 
-As observed, the derivative of the highly-quantized signal is very similar to the derivative of the clean signal.
+which gives the blue curve below:
+
+```{code-cell} ipython3
+:tags: [remove-input]
+derived.rename_data("clean", "derivative of the clean signal", in_place=True)
+derived.rename_data("quantized", "derived from quantized signal, without filtering", in_place=True)
+derived_savgol.rename_data("quantized", "derived from quantized signal, using savgol", in_place=True)
+derived_savgol.resample(derived.time, fill_value="extrap", in_place=True)
+derived.merge(derived_savgol).plot(
+    [
+        "derivative of the clean signal",
+        "derived from quantized signal, without filtering",
+        "derived from quantized signal, using savgol",
+    ],
+    '.-'
+)
+```
+
+As observed, the derivative of the highly-quantized signal is similar to the derivative of the clean signal.

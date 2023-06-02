@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 💪 Slicing lists (1)
+# Exercise: Slicing lists 1
 
 Here is a list:
 

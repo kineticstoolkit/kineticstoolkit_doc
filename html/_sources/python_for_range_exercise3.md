@@ -17,11 +17,17 @@ kernelspec:
 %matplotlib inline
 ```
 
-# 💪 Looping using **for** and **range** (3)
+# Exercise: Looping using **for** and **range** 3
 
-Someone pushes a carriage using a dynamometer. The push force is measured in newtons every tenth of a second, during five seconds.
+Someone pushes a carriage using a dynamometer as shown in {numref}`fig_carriage_dynamometer`. The push force is measured in newtons every tenth of a second, during five seconds.
 
-![Exercise 1 -width:wide](_static/images/carriage_dynamometer.png)
+```{figure-md} fig_carriage_dynamometer
+:width: 5in
+![](_static/images/fig_carriage_dynamometer.png)
+
+Pushing a carriage using a dynamometer.
+```
+
 
 ```{code-cell}
 push_force = [

@@ -22,7 +22,7 @@
 
 - [](getting_started.md)
 - [](python_intro.md)
-- [](ktk_installing_importing.md)
+- [](ktk_importing.md)
 :::
 
 :::{grid-item-card}
@@ -49,10 +49,9 @@ markers = ktk.read_c3d("filename.c3d")["Points"]
 ktk.Player(markers, interconnections=interconnections)
 ```
 
+![](_static/images/frontpage.gif)
 
-[![example_result](_static/images/frontpage.gif)](kinematics_load_visualize.md)
-
-[Click here for a complete tutorials on marker visualization](kinematics_load_visualize.md)
+[Click here for a complete tutorials on marker visualization](files_read_c3d.md)
 
 [Questions, suggestions, discussions and collaborations](https://github.com/felixchenier/kineticstoolkit/discussions) are highly welcome. Please see the numerous ways you can [contribute](dev_contributing.md) to this project.
 

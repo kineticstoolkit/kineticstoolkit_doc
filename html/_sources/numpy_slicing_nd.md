@@ -22,10 +22,22 @@ kernelspec:
 
 We just learned how to index multidimensional matrices using indexes separated by commas. Slicing works the same way: for a given dimension, all we need is to use a slice instead of an index.
 
-**Example 7: Read the marker's y coordinate at samples 0 and 1**
+**Example 1: Read the marker's y coordinate at samples 0 and 1**
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
+import ktkdoctools
+import numpy as np
+import matplotlib.pyplot as plt
+
+position = np.array(
+    [
+        [0.497, 0.973, 0.010, 1.0],
+        [0.528, 0.973, 0.017, 1.0],
+        [0.589, 0.970, 0.025, 1.0],
+    ]
+)
 
 tbl = ktkdoctools.draw_table(position, title="position")
 
@@ -37,10 +49,20 @@ plt.show()
 ```
 
 ```{code-cell} ipython3
+import numpy as np
+
+position = np.array(
+    [
+        [0.497, 0.973, 0.010, 1.0],
+        [0.528, 0.973, 0.017, 1.0],
+        [0.589, 0.970, 0.025, 1.0],
+    ]
+)
+
 position[0:2, 1]
 ```
 
-**Example 8: Read the marker's y and z coordinates at samples 0 and 1**
+**Example 2: Read the marker's y and z coordinates at samples 0 and 1**
 
 ```{code-cell} ipython3
 :tags: [remove-input]
@@ -63,7 +85,7 @@ position[0:2, 1:3]
 A slice can be as simple as a column operator `:`. This is a slice with no bound, which literally means from the beginning up to the end. In other words, "all data on this dimension".
 :::
 
-**Example 9: Read the marker's z coordinate at all samples**
+**Example 3: Read the marker's z coordinate at all samples**
 
 ```{code-cell} ipython3
 :tags: [remove-input]

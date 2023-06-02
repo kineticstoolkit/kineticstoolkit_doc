@@ -12,7 +12,7 @@ Any data that can be read as a pandas DataFrame (e.g., `csv`, `txt`, Excel, SQL)
 
 In addition to importing and exporting, Kinetics Toolkit offers [](api/ktk.load.rst) and [](api/ktk.save.rst) functions, which store standard python types, numpy arrays, basic pandas DataFrames and Series, and kineticstoolkit TimeSeries in a portable zipped `json` format. See this [tutorial](loadsave.md) for more information.
 
-![Kinetics Toolkit dataflow -width:full](_static/images/ktk_dataflow.png)
+![Kinetics Toolkit dataflow -width:full](_static/images/fig_ktk_dataflow.png)
 
 ## Processing and visualizing your data
 
@@ -25,7 +25,7 @@ Once your data are read as TimeSeries, you can use:
 - the [cycles](api/ktk.cycles.rst) module to detect, time-normalize, combine cycles, find most repeatable cycles, etc. ([tutorials](cycles.md));
 - the [geometry](api/ktk.geometry.rst) module to create rigid transforms, frames, convert between local and global coordinates, extract angles, etc. ([tutorials](geometry.md));
 - the [kinematics](api/ktk.kinematics.rst) module to create and track marker clusters, reconstruct virtual markers, etc. ([tutorials](kinematics.md));
-- the [Player](api/ktk.Player.rst) class to visualize animated, interconnected markers and frames in an interactive 3D environment ([tutorial](kinematics_load_visualize.md));
+- the [Player](api/ktk.Player.rst) class to visualize animated, interconnected markers and frames in an interactive 3D environment ([tutorial](files_read_c3d.md));
 - the [TimeSeries.plot](api/ktk.TimeSeries.plot.rst) method to plot 2D graphes of your TimeSeries contents, including the events.
 
 If applicable, you can also use your current functions:

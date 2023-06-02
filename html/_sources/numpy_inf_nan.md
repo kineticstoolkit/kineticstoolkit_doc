@@ -53,3 +53,14 @@ np.isinf(c)
 
 :::{good-practice} Missing data
 It is common in data analysis to use `np.nan` for representing missing data. For instance, we could record the (x, y, z) trajectory of a reflective marker and use (`nan`, `nan`, `nan`) when the marker is not seen by the cameras.
+:::
+
+Instead of getting an array of bool, we may want to know exactly which indexes are `nan` of `inf`. We can get these indexes using {{np_nonzero}}:
+
+```{code-cell}
+np.nonzero(np.isnan(c))
+```
+
+```{code-cell}
+np.nonzero(np.isinf(c))
+```

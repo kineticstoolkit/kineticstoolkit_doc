@@ -1,3 +1,17 @@
+::::{margin}
+```{div} style="max-height:600px"
+<h3>
+<a href="https://github.com/felixchenier/kineticstoolkit/discussions">Announcements <img src="_static/images/github-logo.png" alt="Follow on GitHub" width="20px"></a>
+<a href="https://kineticstoolkit.uqam.ca/announcements.atom"><img src="_static/images/rss-icon.png" alt="Subscribe to RSS/Atom Feed" width="20px"></a>
+</h3>
+
+<?php include("/home/kinetics/public_html/rss/rss.php");?>
+
+<link rel="alternate" type="application/rss+html" title="Subscribe to Kinetics Toolkit Announcements" href="https://github.com/felixchenier/kineticstoolkit/discussions/categories/announcements.atom" />
+```
+::::
+
+
 # Kinetics Toolkit
 
 ::::{grid}
@@ -7,8 +21,8 @@
 **is a free online resource** for students and researchers to learn about 3D biomechanical data processing using Python.
 
 - [](getting_started.md)
-- [](python_for_biomechanics.md)
-- [](kineticstoolkit.md)
+- [](python_intro.md)
+- [](ktk_importing.md)
 :::
 
 :::{grid-item-card}
@@ -29,30 +43,15 @@
 
 ::::
 
-::::{sidebar}
-```{div} style="max-height:600px"
-<h3>
-<a href="https://github.com/felixchenier/kineticstoolkit/discussions">Announcements <img src="_static/images/github-logo.png" alt="Follow on GitHub" width="20px"></a>
-<a href="https://github.com/felixchenier/kineticstoolkit/discussions/categories/announcements.atom"><img src="_static/images/rss-icon.png" alt="Subscribe to RSS/Atom Feed" width="20px"></a>
-<a href="https://twitter.com/KineticsToolkit"><img src="_static/images/twitter-logo.png" alt="Follow on Twitter" width="20px"></a>
-</h3>
-
-<?php include("/home/kinetics/public_html/rss/rss.php");?>
-
-<link rel="alternate" type="application/rss+html" title="Subscribe to Kinetics Toolkit Announcements" href="https://github.com/felixchenier/kineticstoolkit/discussions/categories/announcements.atom" />
-```
-::::
-
 ```
 import kineticstoolkit.lab as ktk
 markers = ktk.read_c3d("filename.c3d")["Points"]
 ktk.Player(markers, interconnections=interconnections)
 ```
 
+![](_static/images/frontpage.gif)
 
-[![example_result -width:half](_static/images/frontpage.gif)](kinematics_load_visualize.md)
-
-[Click here for a complete tutorials on marker visualization](kinematics_load_visualize.md)
+[Click here for a complete tutorials on marker visualization](files_read_c3d.md)
 
 [Questions, suggestions, discussions and collaborations](https://github.com/felixchenier/kineticstoolkit/discussions) are highly welcome. Please see the numerous ways you can [contribute](dev_contributing.md) to this project.
 
@@ -63,4 +62,3 @@ ktk.Player(markers, interconnections=interconnections)
 &nbsp;&nbsp;&nbsp;<a href="https://uqam.ca"><img alt="-width:narrower" src="_static/images/logo_uqam.png"></a>
 &nbsp;&nbsp;&nbsp;<a href="https://crir.ca"><img alt="-width:narrower" src="_static/images/logo_crir.jpg"></a>
 ```
-
