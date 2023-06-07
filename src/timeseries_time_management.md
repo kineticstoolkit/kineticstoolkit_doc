@@ -176,7 +176,7 @@ resampled_instrument1.plot("data1", "r.-")
 instrument2.plot("data2", "g.-")
 ```
 
-:::note
+:::{note}
 
 We already learned the [ktk.TimeSeries.merge](api/ktk.TimeSeries.merge.rst) method to combine two TimeSeries. If both TimeSeries have different sampling rates as in t he previous example, then [ktk.TimeSeries.merge](api/ktk.TimeSeries.merge.rst) will fail. We need to resample the TimeSeries before merging them, as we did above.
 
@@ -192,7 +192,6 @@ ts1 = ts1.merge(ts2, resample=True)
 ```
 :::
 
-+++
 
 ## Time shifting
 

@@ -34,7 +34,7 @@ print("Hello world")
 
 
 ::::::{note}
-In section [](spyder_console.md), we learned that running a command already prints the result to the console. However, it only prints the result of the last performed operation, while `print` explicitly prints something when it is called.
+We already know that running a command prints its result to the console. However, it only prints the result of the last performed operation, while `print` explicitly prints something when it is called.
 
 :::::{grid}
 ::::{grid-item-card} Without `print`
