@@ -166,9 +166,9 @@ parts:
     - file: [](files.md)
         - file: [](files_read_c3d.md)
         - file: [](files_write_c3d.md)
-        - file: [](timeseries_dataframes.md) #-- 🔴
-        - file: [](loadsave.md) #-- 🔴
-    - file: [](player.md) #-- 🔴
+        - file: [](files_read_csv.md)
+        - file: [](files_write_csv.md)
+        - file: [](files_loadsave.md)
     - file: [](geometry.md) #-- 🟡
         - file: [](geometry_basics.md) #-- 🟡
         - file: [](geometry_transform_moving_coordinates.md) #-- 🟡
@@ -176,6 +176,7 @@ parts:
         - file: [](geometry_kinematic_chains.md) #-- 🟡
         - file: [](geometry_angles.md) #-- 🟡
         - file: [](geometry_dimension_conventions.md) #-- 🔴
+    - file: [](player.md) #-- 🔴
     - file: [](kinematics.md)
         - file: [](kinematics_joint_angles.md) #-- 🟡
         - file: [](kinematics_reconstructing_occluded_markers.md) #-- 🟡
