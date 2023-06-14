@@ -17,14 +17,13 @@ kernelspec:
 %matplotlib inline
 ```
 
+# Interactive 3D visualizer
+
 :::{caution}
 If you arrived here straight from the home page, you may want to read a bit on the TimeSeries class ([tutorial](timeseries.md), [API](api/ktk.TimeSeries.rst)) to fully understand this tutorial.
 :::
 
-
-# Visualizing 3d markers interactively
-
-## Visualizing the markers
+## Visualizing 3D markers
 
 Now we'll take a look at this acquisition using [](api/ktk.Player.rst), a matplotlib-based interactive user interface aimed at visualizing markers, rigid bodies and segments in three dimensions.
 
@@ -168,4 +167,44 @@ player = ktk.Player(
 )
 
 player._to_animation()
+```
+
+## Visualizing 3D frames
+
+If we provide TimeSeries that include data with a shape of Nx4x4, these data are considered as frames and are shown accordingly. For instance, let's create a series of frame that revolves around the three axes:
+
+```{code-cell} ipython3
+:tags: [remove-output]
+
+import kineticstoolkit.lab as ktk
+import numpy as np
+
+
+# Create a TimeSeries with two rotating frames
+frames = ktk.TimeSeries(time=np.linspace(0, 5, 100))
+
+frames.data["RotationAroundX"] = ktk.geometry.create_transforms(
+    angles=np.linspace(0, 2 * np.pi, 100),
+    translations=[[0.2, 0.0, 0.0]],
+    seq="x",
+)
+
+frames.data["RotationAroundZ"] = ktk.geometry.create_transforms(
+    angles=np.linspace(0, 2 * np.pi, 100),
+    translations=[[0.0, 0.0, 0.2]],
+    seq="z",
+)
+
+# Show these frames in the Player
+ktk.Player(frames)
+```
+
+```{code-cell} ipython3
+:tags: [remove-input]
+
+ktk.Player(frames, azimuth=0.8, elevation=0.16, zoom=10)._to_animation()
+```
+
+```{code-cell} ipython3
+
 ```
