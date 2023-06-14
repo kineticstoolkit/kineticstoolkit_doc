@@ -19,28 +19,18 @@ kernelspec:
 
 # Kinematic chains
 
-:::{card} Summary
-This section introduces the concept of kinematic chains, shows how it relates to homogeneous transforms, and how we can navigate between chain elements in Kinetics Toolkit.
-:::
+## Series of homogeneous transforms
 
-## 📄 Series of homogeneous transforms
+Now that we understand how powerful homogeneous transforms are, we will take it one step further, and chain multiple transforms.
 
-Now that we understand how powerful homogeneous transforms are, we will take it one step further, and chain multiple transforms. We will start with the last example from section [](geometry_transform_changing_coordinate_system.md). We still know this information:
+In this example, we will calculate the position of the wrist in global coordinates, according to {numref}`fig_geometry_basics_exercise`, based on this known information:
 
 - the length of the upper arm is 38 cm;
 - the shoulder is located 15 cm forward and 70 cm upward to the global origin;
 - the upper arm is inclined at 30 degrees of the vertical.
-
-to which we add:
-
 - the length of the forearm is 34 cm;
 - the elbow is flexed 20 degrees.
 
-Based on this information, we want to calculate the position of the wrist in global coordinates.
-
-![forearm_rotated -height:normal](_static/images/geometry_forearm_rotated.png)
-
-*Figure 1. Local coordinates for both the upper arm and the forearm*
 
 **Solution:**
 
@@ -134,7 +124,7 @@ $$
 
 :::
 
-## 📄 Navigating between chain elements using Kinetics Toolkit
+## Navigating between chain elements using Kinetics Toolkit
 
 We already know enough functions of the [ktk.geometry](api/ktk.geometry.rst) module to solve this example. The first step is to create the known frames and positions:
 

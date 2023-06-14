@@ -169,13 +169,35 @@ parts:
         - file: [](files_read_csv.md)
         - file: [](files_write_csv.md)
         - file: [](files_loadsave.md)
-    - file: [](geometry.md) #-- 🟡
-        - file: [](geometry_basics.md) #-- 🟡
-        - file: [](geometry_transform_moving_coordinates.md) #-- 🟡
-        - file: [](geometry_transform_changing_coordinate_system.md) #-- 🟡
-        - file: [](geometry_kinematic_chains.md) #-- 🟡
-        - file: [](geometry_angles.md) #-- 🟡
-        - file: [](geometry_dimension_conventions.md) #-- 🔴
+    - file: [](geometry.md)
+        - file: [](geometry_basics.md)
+            - file: [](geometry_global_coordinates.md)
+            - file: [](geometry_points_vectors.md)
+            - file: [](geometry_local_coordinates.md)
+            - file: [](geometry_frames.md)
+            - file: [](geometry_basics_exercise.md)
+            - file: [](geometry_dimension_conventions.md)
+            - file: [](geometry_dimension_conventions_exercise1.md)
+            - file: [](geometry_dimension_conventions_exercise2.md)
+            - file: [](geometry_dimension_conventions_exercise3.md)
+        - file: [](geometry_transform_moving_coordinates.md)
+            - file: [](geometry_transform_moving_points.md)
+            - file: [](geometry_transform_rotating_vectors.md)
+            - file: [](geometry_transform_moving_frames.md)
+            - file: [](geometry_moving_coordinates_exercise1.md)
+            - file: [](geometry_moving_coordinates_exercise2.md)
+            - file: [](geometry_moving_coordinates_exercise3.md)
+        - file: [](geometry_transform_changing_coordinate_system.md)
+            - file: [](geometry_transform_local_to_global_coordinates.md)
+            - file: [](geometry_transform_global_to_local_coordinates.md)
+            - file: [](geometry_transform_changing_coordinate_system_example.md)
+        - file: [](geometry_kinematic_chains.md)
+        - file: [](geometry_angles.md)
+            - file: [](geometry_2d_angles.md)
+            - file: [](geometry_3d_angles.md)
+            - file: [](geometry_3d_angles_ktk.md)
+            - file: [](geometry_3d_angles_choosing_seq.md)
+        - file: [](geometry_exercises.md)
     - file: [](player.md) #-- 🔴
     - file: [](kinematics.md)
         - file: [](kinematics_joint_angles.md) #-- 🟡
@@ -200,7 +222,6 @@ parts:
       title: GitHub repository
 - caption: Reference
   numbered: false
-    - file: [](ktk_overview.md) #-- 🟡
     - file: [](api_reference.md) #-- 🟢
         - file: [](ktk_conventions.md) #-- 🔴
         - file: [](api_classes.md) #-- 🟢
