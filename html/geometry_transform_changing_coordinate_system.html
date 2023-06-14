@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>10.3. The homogeneous transform: mapping coordinates to other coordinate systems &#8212; Biomechanical analysis using Python and the Kinetics Toolkit</title>
+    <title>9.3. The homogeneous transform: mapping coordinates to other coordinate systems &#8212; Biomechanical analysis using Python and the Kinetics Toolkit</title>
   
   
   
@@ -61,15 +61,13 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
-    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'geometry_transform_changing_coordinate_system';</script>
     <link rel="canonical" href="https://kineticstoolkit.uqam.ca/doc/geometry_transform_changing_coordinate_system.html" />
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="10.4. Kinematic chains" href="geometry_kinematic_chains.html" />
-    <link rel="prev" title="10.2. The homogeneous transform: rotating and translating coordinates" href="geometry_transform_moving_coordinates.html" />
+    <link rel="next" title="9.3.1. Mapping local coordinates to global coordinates" href="geometry_transform_local_to_global_coordinates.html" />
+    <link rel="prev" title="9.2.6. Exercise: A fixed point in a moving coordinate system" href="geometry_moving_coordinates_exercise3.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
   </head>
@@ -345,21 +343,52 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 has-children"><a class="reference internal" href="files.html">8. Reading and writing data files</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="files_read_c3d.html">8.1. Reading C3D files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="files_write_c3d.html">8.2. Writing C3D files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="timeseries_dataframes.html">8.3. Reading and writing Excel, CVS and other files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="loadsave.html">8.4. Saving and loading data in ktk.zip format</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files_read_csv.html">8.3. Reading CSV files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files_write_csv.html">8.4. Writing CSV files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files_loadsave.html">8.5. Saving and loading KTK.ZIP files</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="player.html">9. Visualizing 3d markers interactively</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="geometry.html">10. 3D rigid body geometry</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="geometry_basics.html">10.1. Coordinates: points, vectors and frames</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geometry_transform_moving_coordinates.html">10.2. The homogeneous transform: rotating and translating coordinates</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">10.3. The homogeneous transform: mapping coordinates to other coordinate systems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geometry_kinematic_chains.html">10.4. Kinematic chains</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geometry_angles.html">10.5. Extracting angles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geometry_dimension_conventions.html">10.6. Dimension conventions</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="geometry.html">9. 3D rigid body geometry</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_basics.html">9.1. Coordinates: points, vectors and frames</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="geometry_global_coordinates.html">9.1.1. Global coordinate system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_points_vectors.html">9.1.2. Points and vectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_local_coordinates.html">9.1.3. Local coordinate system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_frames.html">9.1.4. Frames</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_basics_exercise.html">9.1.5. Exercise: Frame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_dimension_conventions.html">9.1.6. Dimension conventions in Kinetics Toolkit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_dimension_conventions_exercise1.html">9.1.7. Exercise: Expressing a series of points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_dimension_conventions_exercise2.html">9.1.8. Exercise: Expressing a constant vector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_dimension_conventions_exercise3.html">9.1.9. Exercise: Expressing a series of frames</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="kinematics.html">11. Kinematics analysis</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_transform_moving_coordinates.html">9.2. Rotating and translating coordinates</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="geometry_transform_moving_points.html">9.2.1. Moving points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_transform_rotating_vectors.html">9.2.2. Rotating vectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_transform_moving_frames.html">9.2.3. Moving frames</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_moving_coordinates_exercise1.html">9.2.4. Exercise: Moving a point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_moving_coordinates_exercise2.html">9.2.5. Exercise: Moving a trajectory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_moving_coordinates_exercise3.html">9.2.6. Exercise: A fixed point in a moving coordinate system</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">9.3. The homogeneous transform: mapping coordinates to other coordinate systems</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="geometry_transform_local_to_global_coordinates.html">9.3.1. Mapping local coordinates to global coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_transform_global_to_local_coordinates.html">9.3.2. Mapping global coordinates to local coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_transform_changing_coordinate_system_example.html">9.3.3. Local to global coordinates example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="geometry_kinematic_chains.html">9.4. Kinematic chains</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_angles.html">9.5. Extracting angles</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="geometry_2d_angles.html">9.5.1. 2D angles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_3d_angles.html">9.5.2. 3D angles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_3d_angles_ktk.html">9.5.3. Extracting 3D angles using Kinetics Toolkit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_3d_angles_choosing_seq.html">9.5.4. Choosing a rotation sequence</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="geometry_exercises.html">9.6. Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="player.html">10. Interactive 3D visualizer</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="kinematics.html">11. Kinematics analysis</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="kinematics_joint_angles.html">11.1. Calculating joint angles from a kinematic acquisition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="kinematics_reconstructing_occluded_markers.html">11.2. Reconstructing occluded markers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="kinematics_reconstructing_removed_markers.html">11.3. Reconstructing removed markers</a></li>
@@ -367,139 +396,134 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="datasets.html">12. Datasets</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="dataset_kinematics_tennis_serve.html">12.1. Tennis serve kinematics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dataset_kinetics_wheelchair_propulsion.html">12.2. Wheelchair propulsion kinetics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dataset_emg.html">12.3. Electromyography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ktk_conventions.html">Conventions</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="api_classes.html">Classes</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.TimeSeries.html">ktk.TimeSeries</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-26"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.add_data_info.html">ktk.TimeSeries.add_data_info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.add_event.html">ktk.TimeSeries.add_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.copy.html">ktk.TimeSeries.copy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.count_events.html">ktk.TimeSeries.count_events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.fill_missing_samples.html">ktk.TimeSeries.fill_missing_samples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.from_dataframe.html">ktk.TimeSeries.from_dataframe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_index_after_event.html">ktk.TimeSeries.get_index_after_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_index_after_time.html">ktk.TimeSeries.get_index_after_time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_index_at_event.html">ktk.TimeSeries.get_index_at_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_index_at_time.html">ktk.TimeSeries.get_index_at_time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_index_before_event.html">ktk.TimeSeries.get_index_before_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_index_before_time.html">ktk.TimeSeries.get_index_before_time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_sample_rate.html">ktk.TimeSeries.get_sample_rate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_subset.html">ktk.TimeSeries.get_subset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_after_event.html">ktk.TimeSeries.get_ts_after_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_after_index.html">ktk.TimeSeries.get_ts_after_index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_after_time.html">ktk.TimeSeries.get_ts_after_time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_before_event.html">ktk.TimeSeries.get_ts_before_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_before_index.html">ktk.TimeSeries.get_ts_before_index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_before_time.html">ktk.TimeSeries.get_ts_before_time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_between_events.html">ktk.TimeSeries.get_ts_between_events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_between_indexes.html">ktk.TimeSeries.get_ts_between_indexes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_between_times.html">ktk.TimeSeries.get_ts_between_times</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.isnan.html">ktk.TimeSeries.isnan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.merge.html">ktk.TimeSeries.merge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.plot.html">ktk.TimeSeries.plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.remove_data.html">ktk.TimeSeries.remove_data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.remove_data_info.html">ktk.TimeSeries.remove_data_info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.remove_duplicate_events.html">ktk.TimeSeries.remove_duplicate_events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.remove_event.html">ktk.TimeSeries.remove_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.rename_data.html">ktk.TimeSeries.rename_data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.rename_event.html">ktk.TimeSeries.rename_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.resample.html">ktk.TimeSeries.resample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.shift.html">ktk.TimeSeries.shift</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.sort_events.html">ktk.TimeSeries.sort_events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.to_dataframe.html">ktk.TimeSeries.to_dataframe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.trim_events.html">ktk.TimeSeries.trim_events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.ui_edit_events.html">ktk.TimeSeries.ui_edit_events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.ui_sync.html">ktk.TimeSeries.ui_sync</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="dev_contributors.html">13. Credits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dev_contributing.html">14. How to contribute</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ktk_citing.html">15. Citing</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="dev_developing.html">16. Developing</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="dev_rules.html">16.1. Development rules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dev_code_of_conduct.html">16.2. Code of conduct</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dev_installing_from_github.html">16.3. Installing from GitHub</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dev_coding_style.html">16.4. Coding style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/ktk.TimeSeriesEvent.html">ktk.TimeSeriesEvent</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.Player.html">ktk.Player</a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-27"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.Player.close.html">ktk.Player.close</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.Player.to_html5.html">ktk.Player.to_html5</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="api_functions.html">Functions</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/ktk.import_extensions.html">ktk.import_extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/ktk.load.html">ktk.load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/ktk.save.html">ktk.save</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/ktk.read_c3d.html">ktk.read_c3d</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/ktk.write_c3d.html">ktk.write_c3d</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/ktk.change_defaults.html">ktk.change_defaults</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="api_modules.html">Modules</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.cycles.html">ktk.cycles</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-30"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.cycles.detect_cycles.html">ktk.cycles.detect_cycles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.cycles.most_repeatable_cycles.html">ktk.cycles.most_repeatable_cycles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.cycles.stack.html">ktk.cycles.stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.cycles.time_normalize.html">ktk.cycles.time_normalize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.cycles.unstack.html">ktk.cycles.unstack</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.doc.html">ktk.doc</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-31"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.doc.download.html">ktk.doc.download</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.filters.html">ktk.filters</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.filters.butter.html">ktk.filters.butter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.filters.deriv.html">ktk.filters.deriv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.filters.median.html">ktk.filters.median</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.filters.savgol.html">ktk.filters.savgol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.filters.smooth.html">ktk.filters.smooth</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.geometry.html">ktk.geometry</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-33"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_frames.html">ktk.geometry.create_frames</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_transforms.html">ktk.geometry.create_transforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_angles.html">ktk.geometry.get_angles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_global_coordinates.html">ktk.geometry.get_global_coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_local_coordinates.html">ktk.geometry.get_local_coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.isnan.html">ktk.geometry.isnan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.matmul.html">ktk.geometry.matmul</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.register_points.html">ktk.geometry.register_points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.rotate.html">ktk.geometry.rotate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.scale.html">ktk.geometry.scale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.translate.html">ktk.geometry.translate</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.kinematics.html">ktk.kinematics</a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-34"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.kinematics.create_cluster.html">ktk.kinematics.create_cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.kinematics.extend_cluster.html">ktk.kinematics.extend_cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.kinematics.track_cluster.html">ktk.kinematics.track_cluster</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">Extensions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="datasets.html">Datasets</a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-35"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="dataset_kinematics_tennis_serve.html">Tennis serve kinematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataset_kinetics_wheelchair_propulsion.html">Wheelchair propulsion kinetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataset_emg.html">Electromyography</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dev_contributors.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev_contributing.html">How to contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ktk_citing.html">Citing</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="dev_developing.html">Developing</a><input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-36"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="dev_extensions.html">Developing extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev_rules.html">Development rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev_code_of_conduct.html">Code of conduct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev_installing_from_github.html">Installing from GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev_coding_style.html">Coding style</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub repository</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ktk_overview.html">An overview of Kinetics Toolkit</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="api_reference.html">📘 API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="ktk_conventions.html">Conventions</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="api_classes.html">Classes</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="api/ktk.TimeSeries.html">ktk.TimeSeries</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.add_data_info.html">ktk.TimeSeries.add_data_info</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.add_event.html">ktk.TimeSeries.add_event</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.copy.html">ktk.TimeSeries.copy</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.count_events.html">ktk.TimeSeries.count_events</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.fill_missing_samples.html">ktk.TimeSeries.fill_missing_samples</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.from_dataframe.html">ktk.TimeSeries.from_dataframe</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.get_index_after_event.html">ktk.TimeSeries.get_index_after_event</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.get_index_after_time.html">ktk.TimeSeries.get_index_after_time</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.get_index_at_event.html">ktk.TimeSeries.get_index_at_event</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.get_index_at_time.html">ktk.TimeSeries.get_index_at_time</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.get_index_before_event.html">ktk.TimeSeries.get_index_before_event</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.get_index_before_time.html">ktk.TimeSeries.get_index_before_time</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.get_sample_rate.html">ktk.TimeSeries.get_sample_rate</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.get_subset.html">ktk.TimeSeries.get_subset</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_after_event.html">ktk.TimeSeries.get_ts_after_event</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_after_index.html">ktk.TimeSeries.get_ts_after_index</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_after_time.html">ktk.TimeSeries.get_ts_after_time</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_before_event.html">ktk.TimeSeries.get_ts_before_event</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_before_index.html">ktk.TimeSeries.get_ts_before_index</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_before_time.html">ktk.TimeSeries.get_ts_before_time</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_between_events.html">ktk.TimeSeries.get_ts_between_events</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_between_indexes.html">ktk.TimeSeries.get_ts_between_indexes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_between_times.html">ktk.TimeSeries.get_ts_between_times</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.isnan.html">ktk.TimeSeries.isnan</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.merge.html">ktk.TimeSeries.merge</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.plot.html">ktk.TimeSeries.plot</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.remove_data.html">ktk.TimeSeries.remove_data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.remove_data_info.html">ktk.TimeSeries.remove_data_info</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.remove_duplicate_events.html">ktk.TimeSeries.remove_duplicate_events</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.remove_event.html">ktk.TimeSeries.remove_event</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.rename_data.html">ktk.TimeSeries.rename_data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.rename_event.html">ktk.TimeSeries.rename_event</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.resample.html">ktk.TimeSeries.resample</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.shift.html">ktk.TimeSeries.shift</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.sort_events.html">ktk.TimeSeries.sort_events</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.to_dataframe.html">ktk.TimeSeries.to_dataframe</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.trim_events.html">ktk.TimeSeries.trim_events</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.ui_edit_events.html">ktk.TimeSeries.ui_edit_events</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.ui_sync.html">ktk.TimeSeries.ui_sync</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeriesEvent.html">ktk.TimeSeriesEvent</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="api/ktk.Player.html">ktk.Player</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-26"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.Player.close.html">ktk.Player.close</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.Player.to_html5.html">ktk.Player.to_html5</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="api_functions.html">Functions</a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-27"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.import_extensions.html">ktk.import_extensions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.load.html">ktk.load</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.save.html">ktk.save</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.read_c3d.html">ktk.read_c3d</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.write_c3d.html">ktk.write_c3d</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.change_defaults.html">ktk.change_defaults</a></li>
-</ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="api_modules.html">Modules</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="api/ktk.cycles.html">ktk.cycles</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.cycles.detect_cycles.html">ktk.cycles.detect_cycles</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.cycles.most_repeatable_cycles.html">ktk.cycles.most_repeatable_cycles</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.cycles.stack.html">ktk.cycles.stack</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.cycles.time_normalize.html">ktk.cycles.time_normalize</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.cycles.unstack.html">ktk.cycles.unstack</a></li>
-</ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="api/ktk.doc.html">ktk.doc</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-30"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.doc.download.html">ktk.doc.download</a></li>
-</ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="api/ktk.filters.html">ktk.filters</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-31"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.filters.butter.html">ktk.filters.butter</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.filters.deriv.html">ktk.filters.deriv</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.filters.median.html">ktk.filters.median</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.filters.savgol.html">ktk.filters.savgol</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.filters.smooth.html">ktk.filters.smooth</a></li>
-</ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="api/ktk.geometry.html">ktk.geometry</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.geometry.create_frames.html">ktk.geometry.create_frames</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.geometry.create_transforms.html">ktk.geometry.create_transforms</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.geometry.get_angles.html">ktk.geometry.get_angles</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.geometry.get_global_coordinates.html">ktk.geometry.get_global_coordinates</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.geometry.get_local_coordinates.html">ktk.geometry.get_local_coordinates</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.geometry.isnan.html">ktk.geometry.isnan</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.geometry.matmul.html">ktk.geometry.matmul</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.geometry.register_points.html">ktk.geometry.register_points</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.geometry.rotate.html">ktk.geometry.rotate</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.geometry.scale.html">ktk.geometry.scale</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.geometry.translate.html">ktk.geometry.translate</a></li>
-</ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="api/ktk.kinematics.html">ktk.kinematics</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-33"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.kinematics.create_cluster.html">ktk.kinematics.create_cluster</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.kinematics.extend_cluster.html">ktk.kinematics.extend_cluster</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.kinematics.track_cluster.html">ktk.kinematics.track_cluster</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="extensions.html">Extensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dev_extensions.html">Developing extensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ktk_release_notes.html">Release Notes</a></li>
-</ul>
-</li>
 </ul>
 
     </div>
@@ -623,9 +647,7 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</label>
+
 </div></div>
       
     </div>
@@ -641,17 +663,6 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping-local-coordinates-to-global-coordinates">10.3.1. 📄 Mapping local coordinates to global coordinates</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping-global-coordinates-to-local-coordinates">10.3.2. 📄 Mapping global coordinates to local coordinates</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-to-our-example">10.3.3. 📄 Application to our example</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-coordinate-systems-using-kinetics-toolkit">10.3.4. 📄 Changing coordinate systems using Kinetics Toolkit</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -662,254 +673,12 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="the-homogeneous-transform-mapping-coordinates-to-other-coordinate-systems">
-<h1><span class="section-number">10.3. </span>The homogeneous transform: mapping coordinates to other coordinate systems<a class="headerlink" href="#the-homogeneous-transform-mapping-coordinates-to-other-coordinate-systems" title="Permalink to this headline">#</a></h1>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Summary</div>
-<p class="sd-card-text">This section shows the role of the homogeneous transform in moving from local to global coordinates, and how to perform these operations in Kinetics Toolkit using <a class="reference internal" href="api/ktk.geometry.get_global_coordinates.html"><span class="doc std std-doc">ktk.geometry.get_global_coordinates</span></a> and <a class="reference internal" href="api/ktk.geometry.get_local_coordinates.html"><span class="doc std std-doc">ktk.geometry.get_local_coordinates</span></a>.</p>
-</div>
-</div>
+<h1><span class="section-number">9.3. </span>The homogeneous transform: mapping coordinates to other coordinate systems<a class="headerlink" href="#the-homogeneous-transform-mapping-coordinates-to-other-coordinate-systems" title="Permalink to this headline">#</a></h1>
 <p>In section <a class="reference internal" href="geometry_basics.html"><span class="doc std std-doc">Coordinates: points, vectors and frames</span></a>, we learned the frame, which is a 4x4 matrix that defines the <strong>position and orientation of a coordinate system, in respect to a reference coordinate system.</strong></p>
 <p>In section <a class="reference internal" href="#"><span class="doc std std-doc">The homogeneous transform: mapping coordinates to other coordinate systems</span></a>, we learned that the same 4x4 matrix can also be defined as a <strong>translation and rotation of a point, vector, or frame.</strong></p>
 <p>In this new section, we will use both definitions to see the third and last role of the homogeneous transform, which is <strong>remapping points, vectors and frames from a given coordinate system to another coordinate system.</strong></p>
-<section id="mapping-local-coordinates-to-global-coordinates">
-<h2><span class="section-number">10.3.1. </span>📄 Mapping local coordinates to global coordinates<a class="headerlink" href="#mapping-local-coordinates-to-global-coordinates" title="Permalink to this headline">#</a></h2>
-<p>Let’s start with this example, where we want to express the yellow point in global coordinates.</p>
-<p><img alt="change_coordinate_system -height:short" src="_images/geometry_change_coordinate_system.png" /></p>
-<p><em>Figure 1. Expressing a local point in global coordinates.</em></p>
-<p>The unknown is the yellow point’s coordinates in respect to the global frame:</p>
-<div class="math notranslate nohighlight">
-\[
-^\text{global}p = \text{?}
-\]</div>
-<p>Instead of considering point <span class="math notranslate nohighlight">\(p\)</span> as a point in its own local coordinate system, let’s imagine that it was first expressed in the global reference frame (<span class="math notranslate nohighlight">\(^\text{global} p_\text{initial}\)</span>). Then, it was rotated by 30 degrees around the origin, then translated by (7, 5, 0) to reach its final position (<span class="math notranslate nohighlight">\(^\text{global} p_\text{transformed}\)</span>):</p>
-<p><img alt="transformation_sequence -height:short" src="_images/geometry_transformation_sequence.png" /></p>
-<p><em>Figure 2. Transformation sequence from local coordinates to global coordinates.</em></p>
-<p>This operation is expressed by:</p>
-<div class="math notranslate nohighlight">
-\[
-^\text{global} p_\text{transformed}
-~~~ =
-~~~ T
-~~~ ^\text{global}p_\text{initial}
-\]</div>
-<p>These two ways of seing this problem are completely equivalent:</p>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="text-center head"><p>Local point in global coordinates (Fig. 1)</p></th>
-<th class="text-center head"><p>Rotating/translating a point (Fig. 2)</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(^\text{global}p ~~~ = ~~~ ^\text{global}_\text{local}T ~~~ ^\text{local}p\)</span></p></td>
-<td class="text-center"><p><span class="math notranslate nohighlight">\(^\text{global} p_\text{transformed} = ~~~ T ~~~ ^\text{global}p_\text{initial}\)</span></p></td>
-</tr>
-<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(^\text{global}p\)</span></p></td>
-<td class="text-center"><p><span class="math notranslate nohighlight">\(^\text{global} p_\text{transformed}\)</span></p></td>
-</tr>
-<tr class="row-even"><td class="text-center"><p><span class="math notranslate nohighlight">\(^\text{global}_\text{local}T\)</span></p></td>
-<td class="text-center"><p><span class="math notranslate nohighlight">\(T\)</span></p></td>
-</tr>
-<tr class="row-odd"><td class="text-center"><p><span class="math notranslate nohighlight">\(^\text{local}p\)</span></p></td>
-<td class="text-center"><p><span class="math notranslate nohighlight">\(^\text{global}p_\text{initial}\)</span></p></td>
-</tr>
-</tbody>
-</table>
-<p>See how the left equation allows passing from local coordinates to global coordinates!</p>
-<p>We know the yellow point’s coordinate (2, 1, 0) in respect to the local frame:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-^\text{local}p = \begin{bmatrix}
-2 \\ 1 \\ 0 \\ 1
-\end{bmatrix}
-\end{split}\]</div>
-<p>We also know how to express the local frame:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-~^\text{global}_\text{local}T = \begin{bmatrix}
-\cos(30) &amp; -\sin(30) &amp; 0 &amp; 7 \\
-\sin(30) &amp; \cos(30) &amp; 0 &amp; 5 \\
-0 &amp; 0 &amp; 1 &amp; 0 \\
-0 &amp; 0 &amp; 0 &amp; 1
-\end{bmatrix}
-\end{split}\]</div>
-<p>Therefore:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-^\text{global}p
-=
-\begin{bmatrix}
-\cos(30) &amp; -\sin(30) &amp; 0 &amp; 7 \\
-\sin(30) &amp; \cos(30) &amp; 0 &amp; 5 \\
-0 &amp; 0 &amp; 1 &amp; 0 \\
-0 &amp; 0 &amp; 0 &amp; 1
-\end{bmatrix}
-\begin{bmatrix}
-2 \\ 1 \\ 0 \\ 1
-\end{bmatrix}
-\\ =
-\begin{bmatrix}
-0.866 &amp; -0.5 &amp; 0 &amp; 7 \\
-0.5 &amp; 0.866 &amp; 0 &amp; 5 \\
-0 &amp; 0 &amp; 1 &amp; 0 \\
-0 &amp; 0 &amp; 0 &amp; 1
-\end{bmatrix}
-\begin{bmatrix}
-2 \\ 1 \\ 0 \\ 1
-\end{bmatrix}
-=
-\begin{bmatrix}
-8.232 \\ 6.866 \\ 0 \\ 1
-\end{bmatrix}
-\end{split}\]</div>
-<p>The position of the yellow points, in global coordinates, is (8.232, 6.866, 0).</p>
-</section>
-<section id="mapping-global-coordinates-to-local-coordinates">
-<h2><span class="section-number">10.3.2. </span>📄 Mapping global coordinates to local coordinates<a class="headerlink" href="#mapping-global-coordinates-to-local-coordinates" title="Permalink to this headline">#</a></h2>
-<p>Since we get global coordinates using:</p>
-<div class="math notranslate nohighlight">
-\[
-^\text{global}p 
-~~~ =
-~~~ ^\text{global}_\text{local}T
-~~~ ^\text{local}p 
-\]</div>
-<p>then the reverse transform is literally the inverse of the homogeneous matrix:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-^\text{global}_\text{local}T^{-1}
-~~~ ^\text{global}p 
-~~~ =
-~~~ ^\text{global}_\text{local}T^{-1}
-~~~ ^\text{global}_\text{local}T
-~~~ ^\text{local}p 
-\\=
-~~~ ^\text{local}p 
-\end{split}\]</div>
-</section>
-<section id="application-to-our-example">
-<h2><span class="section-number">10.3.3. </span>📄 Application to our example<a class="headerlink" href="#application-to-our-example" title="Permalink to this headline">#</a></h2>
-<p>This ability of switching between coordinate systems is very powerful. Let’s get back to our initial pose.</p>
-<p><img alt="upper_arm_rotated -height:normal" src="_images/geometry_upper_arm_rotated.png" /></p>
-<p><em>Figure 3. Expressing the position and orientation of the upper arm.</em></p>
-<p>Using this information:</p>
-<ol class="arabic simple">
-<li><p>the length of the upper arm is 38 cm;</p></li>
-<li><p>the shoulder is located 15 cm forward and 70 cm upward to the global origin;</p></li>
-<li><p>the upper arm is inclined at 30 degrees of the vertical.</p></li>
-</ol>
-<p>We want to know the position of the elbow in global coordinates.</p>
-<p><strong>Solution:</strong></p>
-<p>The first information allows us to express the position of the elbow in the local upper arm coordinate system:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-~^\text{upper arm}p_\text{elbow} = \begin{bmatrix}
-0 \\ -0.38 \\ 0 \\ 1
-\end{bmatrix}
-\end{split}\]</div>
-<p>The second and third informations allow us to express the upper arm frame:</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-~^\text{global}_\text{upper arm}T = \begin{bmatrix}
-\cos(30) &amp; -\sin(30) &amp; 0 &amp; 0.15 \\
-\sin(30) &amp; \cos(30) &amp; 0 &amp; 0.7 \\
-0 &amp; 0 &amp; 1 &amp; 0 \\
-0 &amp; 0 &amp; 0 &amp; 1
-\end{bmatrix} \\=
-\begin{bmatrix}
-0.866 &amp; -0.5 &amp; 0 &amp; 0.15 \\
-0.5 &amp; 0.866 &amp; 0 &amp; 0.7 \\
-0 &amp; 0 &amp; 1 &amp; 0 \\
-0 &amp; 0 &amp; 0 &amp; 1
-\end{bmatrix}
-\end{split}\]</div>
-<p>Therefore, the position of the elbow in the global coordinate system is:</p>
-<div class="math notranslate nohighlight">
-\[
-^\text{global}p_\text{elbow}
-~~~=
-~~~^\text{global}_\text{upper arm}T
-~~~^\text{upper arm}p_\text{elbow}
-\]</div>
-<div class="math notranslate nohighlight">
-\[\begin{split}
-^\text{global}p_\text{elbow}
-\\=
-\begin{bmatrix}
-0.866 &amp; -0.5 &amp; 0 &amp; 0.15 \\
-0.5 &amp; 0.866 &amp; 0 &amp; 0.7 \\
-0 &amp; 0 &amp; 1 &amp; 0 \\
-0 &amp; 0 &amp; 0 &amp; 1
-\end{bmatrix}
-\begin{bmatrix}
-0 \\ -0.38 \\ 0 \\ 1
-\end{bmatrix} \\=
-\begin{bmatrix}
-0.34 \\ 0.371 \\ 0 \\ 1
-\end{bmatrix}
-\end{split}\]</div>
-<p>Its final coordinates are <span class="math notranslate nohighlight">\((0.34, 0.371, 0)\)</span>.</p>
-</section>
-<section id="changing-coordinate-systems-using-kinetics-toolkit">
-<h2><span class="section-number">10.3.4. </span>📄 Changing coordinate systems using Kinetics Toolkit<a class="headerlink" href="#changing-coordinate-systems-using-kinetics-toolkit" title="Permalink to this headline">#</a></h2>
-<p>Using the <a class="reference internal" href="api/ktk.geometry.create_transforms.html"><span class="doc std std-doc">ktk.geometry.create_transforms</span></a> and <a class="reference internal" href="api/ktk.geometry.matmul.html"><span class="doc std std-doc">ktk.geometry.matmul</span></a> functions introduced in the previous section, we can solve this problem following:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">kineticstoolkit.lab</span> <span class="k">as</span> <span class="nn">ktk</span>
-
-<span class="n">T</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">create_transforms</span><span class="p">(</span>
-    <span class="n">seq</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">,</span> <span class="n">angles</span><span class="o">=</span><span class="p">[</span><span class="mi">30</span><span class="p">],</span> <span class="n">translations</span><span class="o">=</span><span class="p">[[</span><span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">,</span> <span class="mi">0</span><span class="p">]],</span> <span class="n">degrees</span><span class="o">=</span><span class="kc">True</span>
-<span class="p">)</span>
-
-<span class="n">local_p_elbow</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.38</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]</span>
-
-<span class="n">global_p_elbow</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="n">local_p_elbow</span><span class="p">)</span>
-
-<span class="n">global_p_elbow</span>
-</pre></div>
+<div class="toctree-wrapper compound">
 </div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.34      , 0.37091035, 0.        , 1.        ]])
-</pre></div>
-</div>
-</div>
-</div>
-<p>However, Kinetics Toolkit also provides the functions <a class="reference internal" href="api/ktk.geometry.get_global_coordinates.html"><span class="doc std std-doc">ktk.geometry.get_global_coordinates</span></a> and <a class="reference internal" href="api/ktk.geometry.get_local_coordinates.html"><span class="doc std std-doc">ktk.geometry.get_local_coordinates</span></a> to quickly change from one coordinate system to another. While these functions are only shortcuts to invert and multiply matrices, they switch between coordinate systems in a way that may be easier to remember:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">global_p_elbow</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">get_global_coordinates</span><span class="p">(</span>
-    <span class="n">local_coordinates</span><span class="o">=</span><span class="n">local_p_elbow</span><span class="p">,</span> <span class="n">reference_frames</span><span class="o">=</span><span class="n">T</span>
-<span class="p">)</span>
-
-<span class="n">global_p_elbow</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[0.34      , 0.37091035, 0.        , 1.        ]])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">local_p_elbow</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">get_local_coordinates</span><span class="p">(</span>
-    <span class="n">global_coordinates</span><span class="o">=</span><span class="n">global_p_elbow</span><span class="p">,</span> <span class="n">reference_frames</span><span class="o">=</span><span class="n">T</span>
-<span class="p">)</span>
-
-<span class="n">local_p_elbow</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.  , -0.38,  0.  ,  1.  ]])
-</pre></div>
-</div>
-</div>
-</div>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -944,20 +713,20 @@ Summary</div>
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="geometry_transform_moving_coordinates.html"
+       href="geometry_moving_coordinates_exercise3.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">10.2. </span>The homogeneous transform: rotating and translating coordinates</p>
+        <p class="prev-next-title"><span class="section-number">9.2.6. </span>Exercise: A fixed point in a moving coordinate system</p>
       </div>
     </a>
     <a class="right-next"
-       href="geometry_kinematic_chains.html"
+       href="geometry_transform_local_to_global_coordinates.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">10.4. </span>Kinematic chains</p>
+        <p class="prev-next-title"><span class="section-number">9.3.1. </span>Mapping local coordinates to global coordinates</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -970,23 +739,6 @@ Summary</div>
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping-local-coordinates-to-global-coordinates">10.3.1. 📄 Mapping local coordinates to global coordinates</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mapping-global-coordinates-to-local-coordinates">10.3.2. 📄 Mapping global coordinates to local coordinates</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-to-our-example">10.3.3. 📄 Application to our example</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#changing-coordinate-systems-using-kinetics-toolkit">10.3.4. 📄 Changing coordinate systems using Kinetics Toolkit</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>

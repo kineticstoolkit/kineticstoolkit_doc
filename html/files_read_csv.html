@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>8.3. Reading and writing Excel, CVS and other files &#8212; Biomechanical analysis using Python and the Kinetics Toolkit</title>
+    <title>8.3. Reading CSV files &#8212; Biomechanical analysis using Python and the Kinetics Toolkit</title>
   
   
   
@@ -61,12 +61,12 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'timeseries_dataframes';</script>
-    <link rel="canonical" href="https://kineticstoolkit.uqam.ca/doc/timeseries_dataframes.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'files_read_csv';</script>
+    <link rel="canonical" href="https://kineticstoolkit.uqam.ca/doc/files_read_csv.html" />
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="8.4. Saving and loading data in ktk.zip format" href="loadsave.html" />
+    <link rel="next" title="8.4. Writing CSV files" href="files_write_csv.html" />
     <link rel="prev" title="8.2. Writing C3D files" href="files_write_c3d.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="None"/>
@@ -343,21 +343,52 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="files.html">8. Reading and writing data files</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="files_read_c3d.html">8.1. Reading C3D files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="files_write_c3d.html">8.2. Writing C3D files</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">8.3. Reading and writing Excel, CVS and other files</a></li>
-<li class="toctree-l2"><a class="reference internal" href="loadsave.html">8.4. Saving and loading data in ktk.zip format</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">8.3. Reading CSV files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files_write_csv.html">8.4. Writing CSV files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files_loadsave.html">8.5. Saving and loading KTK.ZIP files</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="player.html">9. Visualizing 3d markers interactively</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="geometry.html">10. 3D rigid body geometry</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="geometry_basics.html">10.1. Coordinates: points, vectors and frames</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geometry_transform_moving_coordinates.html">10.2. The homogeneous transform: rotating and translating coordinates</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geometry_transform_changing_coordinate_system.html">10.3. The homogeneous transform: mapping coordinates to other coordinate systems</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geometry_kinematic_chains.html">10.4. Kinematic chains</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geometry_angles.html">10.5. Extracting angles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="geometry_dimension_conventions.html">10.6. Dimension conventions</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="geometry.html">9. 3D rigid body geometry</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_basics.html">9.1. Coordinates: points, vectors and frames</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="geometry_global_coordinates.html">9.1.1. Global coordinate system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_points_vectors.html">9.1.2. Points and vectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_local_coordinates.html">9.1.3. Local coordinate system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_frames.html">9.1.4. Frames</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_basics_exercise.html">9.1.5. Exercise: Frame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_dimension_conventions.html">9.1.6. Dimension conventions in Kinetics Toolkit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_dimension_conventions_exercise1.html">9.1.7. Exercise: Expressing a series of points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_dimension_conventions_exercise2.html">9.1.8. Exercise: Expressing a constant vector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_dimension_conventions_exercise3.html">9.1.9. Exercise: Expressing a series of frames</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="kinematics.html">11. Kinematics analysis</a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_transform_moving_coordinates.html">9.2. Rotating and translating coordinates</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="geometry_transform_moving_points.html">9.2.1. Moving points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_transform_rotating_vectors.html">9.2.2. Rotating vectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_transform_moving_frames.html">9.2.3. Moving frames</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_moving_coordinates_exercise1.html">9.2.4. Exercise: Moving a point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_moving_coordinates_exercise2.html">9.2.5. Exercise: Moving a trajectory</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_moving_coordinates_exercise3.html">9.2.6. Exercise: A fixed point in a moving coordinate system</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_transform_changing_coordinate_system.html">9.3. The homogeneous transform: mapping coordinates to other coordinate systems</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="geometry_transform_local_to_global_coordinates.html">9.3.1. Mapping local coordinates to global coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_transform_global_to_local_coordinates.html">9.3.2. Mapping global coordinates to local coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_transform_changing_coordinate_system_example.html">9.3.3. Local to global coordinates example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="geometry_kinematic_chains.html">9.4. Kinematic chains</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_angles.html">9.5. Extracting angles</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="geometry_2d_angles.html">9.5.1. 2D angles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_3d_angles.html">9.5.2. 3D angles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_3d_angles_ktk.html">9.5.3. Extracting 3D angles using Kinetics Toolkit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_3d_angles_choosing_seq.html">9.5.4. Choosing a rotation sequence</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="geometry_exercises.html">9.6. Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="player.html">10. Interactive 3D visualizer</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="kinematics.html">11. Kinematics analysis</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="kinematics_joint_angles.html">11.1. Calculating joint angles from a kinematic acquisition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="kinematics_reconstructing_occluded_markers.html">11.2. Reconstructing occluded markers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="kinematics_reconstructing_removed_markers.html">11.3. Reconstructing removed markers</a></li>
@@ -365,139 +396,134 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </li>
 </ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="datasets.html">12. Datasets</a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="dataset_kinematics_tennis_serve.html">12.1. Tennis serve kinematics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dataset_kinetics_wheelchair_propulsion.html">12.2. Wheelchair propulsion kinetics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dataset_emg.html">12.3. Electromyography</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ktk_conventions.html">Conventions</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="api_classes.html">Classes</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.TimeSeries.html">ktk.TimeSeries</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-26"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.add_data_info.html">ktk.TimeSeries.add_data_info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.add_event.html">ktk.TimeSeries.add_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.copy.html">ktk.TimeSeries.copy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.count_events.html">ktk.TimeSeries.count_events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.fill_missing_samples.html">ktk.TimeSeries.fill_missing_samples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.from_dataframe.html">ktk.TimeSeries.from_dataframe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_index_after_event.html">ktk.TimeSeries.get_index_after_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_index_after_time.html">ktk.TimeSeries.get_index_after_time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_index_at_event.html">ktk.TimeSeries.get_index_at_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_index_at_time.html">ktk.TimeSeries.get_index_at_time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_index_before_event.html">ktk.TimeSeries.get_index_before_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_index_before_time.html">ktk.TimeSeries.get_index_before_time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_sample_rate.html">ktk.TimeSeries.get_sample_rate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_subset.html">ktk.TimeSeries.get_subset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_after_event.html">ktk.TimeSeries.get_ts_after_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_after_index.html">ktk.TimeSeries.get_ts_after_index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_after_time.html">ktk.TimeSeries.get_ts_after_time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_before_event.html">ktk.TimeSeries.get_ts_before_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_before_index.html">ktk.TimeSeries.get_ts_before_index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_before_time.html">ktk.TimeSeries.get_ts_before_time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_between_events.html">ktk.TimeSeries.get_ts_between_events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_between_indexes.html">ktk.TimeSeries.get_ts_between_indexes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_between_times.html">ktk.TimeSeries.get_ts_between_times</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.isnan.html">ktk.TimeSeries.isnan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.merge.html">ktk.TimeSeries.merge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.plot.html">ktk.TimeSeries.plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.remove_data.html">ktk.TimeSeries.remove_data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.remove_data_info.html">ktk.TimeSeries.remove_data_info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.remove_duplicate_events.html">ktk.TimeSeries.remove_duplicate_events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.remove_event.html">ktk.TimeSeries.remove_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.rename_data.html">ktk.TimeSeries.rename_data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.rename_event.html">ktk.TimeSeries.rename_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.resample.html">ktk.TimeSeries.resample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.shift.html">ktk.TimeSeries.shift</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.sort_events.html">ktk.TimeSeries.sort_events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.to_dataframe.html">ktk.TimeSeries.to_dataframe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.trim_events.html">ktk.TimeSeries.trim_events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.ui_edit_events.html">ktk.TimeSeries.ui_edit_events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.ui_sync.html">ktk.TimeSeries.ui_sync</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="dev_contributors.html">13. Credits</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dev_contributing.html">14. How to contribute</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ktk_citing.html">15. Citing</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="dev_developing.html">16. Developing</a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="dev_rules.html">16.1. Development rules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dev_code_of_conduct.html">16.2. Code of conduct</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dev_installing_from_github.html">16.3. Installing from GitHub</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dev_coding_style.html">16.4. Coding style</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/ktk.TimeSeriesEvent.html">ktk.TimeSeriesEvent</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.Player.html">ktk.Player</a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-27"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.Player.close.html">ktk.Player.close</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.Player.to_html5.html">ktk.Player.to_html5</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="api_functions.html">Functions</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/ktk.import_extensions.html">ktk.import_extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/ktk.load.html">ktk.load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/ktk.save.html">ktk.save</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/ktk.read_c3d.html">ktk.read_c3d</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/ktk.write_c3d.html">ktk.write_c3d</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/ktk.change_defaults.html">ktk.change_defaults</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="api_modules.html">Modules</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.cycles.html">ktk.cycles</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-30"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.cycles.detect_cycles.html">ktk.cycles.detect_cycles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.cycles.most_repeatable_cycles.html">ktk.cycles.most_repeatable_cycles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.cycles.stack.html">ktk.cycles.stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.cycles.time_normalize.html">ktk.cycles.time_normalize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.cycles.unstack.html">ktk.cycles.unstack</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.doc.html">ktk.doc</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-31"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.doc.download.html">ktk.doc.download</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.filters.html">ktk.filters</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.filters.butter.html">ktk.filters.butter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.filters.deriv.html">ktk.filters.deriv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.filters.median.html">ktk.filters.median</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.filters.savgol.html">ktk.filters.savgol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.filters.smooth.html">ktk.filters.smooth</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.geometry.html">ktk.geometry</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-33"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_frames.html">ktk.geometry.create_frames</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_transforms.html">ktk.geometry.create_transforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_angles.html">ktk.geometry.get_angles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_global_coordinates.html">ktk.geometry.get_global_coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_local_coordinates.html">ktk.geometry.get_local_coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.isnan.html">ktk.geometry.isnan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.matmul.html">ktk.geometry.matmul</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.register_points.html">ktk.geometry.register_points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.rotate.html">ktk.geometry.rotate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.scale.html">ktk.geometry.scale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.translate.html">ktk.geometry.translate</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.kinematics.html">ktk.kinematics</a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-34"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.kinematics.create_cluster.html">ktk.kinematics.create_cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.kinematics.extend_cluster.html">ktk.kinematics.extend_cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.kinematics.track_cluster.html">ktk.kinematics.track_cluster</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">Extensions</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="datasets.html">Datasets</a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-35"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="dataset_kinematics_tennis_serve.html">Tennis serve kinematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataset_kinetics_wheelchair_propulsion.html">Wheelchair propulsion kinetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataset_emg.html">Electromyography</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dev_contributors.html">Credits</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dev_contributing.html">How to contribute</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ktk_citing.html">Citing</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="dev_developing.html">Developing</a><input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-36"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="dev_extensions.html">Developing extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev_rules.html">Development rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev_code_of_conduct.html">Code of conduct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev_installing_from_github.html">Installing from GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev_coding_style.html">Coding style</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub repository</a></li>
-</ul>
-<p aria-level="2" class="caption" role="heading"><span class="caption-text">Reference</span></p>
-<ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="ktk_overview.html">An overview of Kinetics Toolkit</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="api_reference.html">📘 API Reference</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2"><a class="reference internal" href="ktk_conventions.html">Conventions</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="api_classes.html">Classes</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="api/ktk.TimeSeries.html">ktk.TimeSeries</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.add_data_info.html">ktk.TimeSeries.add_data_info</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.add_event.html">ktk.TimeSeries.add_event</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.copy.html">ktk.TimeSeries.copy</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.count_events.html">ktk.TimeSeries.count_events</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.fill_missing_samples.html">ktk.TimeSeries.fill_missing_samples</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.from_dataframe.html">ktk.TimeSeries.from_dataframe</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.get_index_after_event.html">ktk.TimeSeries.get_index_after_event</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.get_index_after_time.html">ktk.TimeSeries.get_index_after_time</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.get_index_at_event.html">ktk.TimeSeries.get_index_at_event</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.get_index_at_time.html">ktk.TimeSeries.get_index_at_time</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.get_index_before_event.html">ktk.TimeSeries.get_index_before_event</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.get_index_before_time.html">ktk.TimeSeries.get_index_before_time</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.get_sample_rate.html">ktk.TimeSeries.get_sample_rate</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.get_subset.html">ktk.TimeSeries.get_subset</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_after_event.html">ktk.TimeSeries.get_ts_after_event</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_after_index.html">ktk.TimeSeries.get_ts_after_index</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_after_time.html">ktk.TimeSeries.get_ts_after_time</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_before_event.html">ktk.TimeSeries.get_ts_before_event</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_before_index.html">ktk.TimeSeries.get_ts_before_index</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_before_time.html">ktk.TimeSeries.get_ts_before_time</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_between_events.html">ktk.TimeSeries.get_ts_between_events</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_between_indexes.html">ktk.TimeSeries.get_ts_between_indexes</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_between_times.html">ktk.TimeSeries.get_ts_between_times</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.isnan.html">ktk.TimeSeries.isnan</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.merge.html">ktk.TimeSeries.merge</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.plot.html">ktk.TimeSeries.plot</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.remove_data.html">ktk.TimeSeries.remove_data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.remove_data_info.html">ktk.TimeSeries.remove_data_info</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.remove_duplicate_events.html">ktk.TimeSeries.remove_duplicate_events</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.remove_event.html">ktk.TimeSeries.remove_event</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.rename_data.html">ktk.TimeSeries.rename_data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.rename_event.html">ktk.TimeSeries.rename_event</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.resample.html">ktk.TimeSeries.resample</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.shift.html">ktk.TimeSeries.shift</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.sort_events.html">ktk.TimeSeries.sort_events</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.to_dataframe.html">ktk.TimeSeries.to_dataframe</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.trim_events.html">ktk.TimeSeries.trim_events</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.ui_edit_events.html">ktk.TimeSeries.ui_edit_events</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.TimeSeries.ui_sync.html">ktk.TimeSeries.ui_sync</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeriesEvent.html">ktk.TimeSeriesEvent</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="api/ktk.Player.html">ktk.Player</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-26"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.Player.close.html">ktk.Player.close</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.Player.to_html5.html">ktk.Player.to_html5</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="api_functions.html">Functions</a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-27"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.import_extensions.html">ktk.import_extensions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.load.html">ktk.load</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.save.html">ktk.save</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.read_c3d.html">ktk.read_c3d</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.write_c3d.html">ktk.write_c3d</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.change_defaults.html">ktk.change_defaults</a></li>
-</ul>
-</li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="api_modules.html">Modules</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="api/ktk.cycles.html">ktk.cycles</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.cycles.detect_cycles.html">ktk.cycles.detect_cycles</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.cycles.most_repeatable_cycles.html">ktk.cycles.most_repeatable_cycles</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.cycles.stack.html">ktk.cycles.stack</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.cycles.time_normalize.html">ktk.cycles.time_normalize</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.cycles.unstack.html">ktk.cycles.unstack</a></li>
-</ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="api/ktk.doc.html">ktk.doc</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-30"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.doc.download.html">ktk.doc.download</a></li>
-</ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="api/ktk.filters.html">ktk.filters</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-31"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.filters.butter.html">ktk.filters.butter</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.filters.deriv.html">ktk.filters.deriv</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.filters.median.html">ktk.filters.median</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.filters.savgol.html">ktk.filters.savgol</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.filters.smooth.html">ktk.filters.smooth</a></li>
-</ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="api/ktk.geometry.html">ktk.geometry</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.geometry.create_frames.html">ktk.geometry.create_frames</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.geometry.create_transforms.html">ktk.geometry.create_transforms</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.geometry.get_angles.html">ktk.geometry.get_angles</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.geometry.get_global_coordinates.html">ktk.geometry.get_global_coordinates</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.geometry.get_local_coordinates.html">ktk.geometry.get_local_coordinates</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.geometry.isnan.html">ktk.geometry.isnan</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.geometry.matmul.html">ktk.geometry.matmul</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.geometry.register_points.html">ktk.geometry.register_points</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.geometry.rotate.html">ktk.geometry.rotate</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.geometry.scale.html">ktk.geometry.scale</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.geometry.translate.html">ktk.geometry.translate</a></li>
-</ul>
-</li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="api/ktk.kinematics.html">ktk.kinematics</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-33"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.kinematics.create_cluster.html">ktk.kinematics.create_cluster</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.kinematics.extend_cluster.html">ktk.kinematics.extend_cluster</a></li>
-<li class="toctree-l4"><a class="reference internal" href="api/ktk.kinematics.track_cluster.html">ktk.kinematics.track_cluster</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="extensions.html">Extensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="dev_extensions.html">Developing extensions</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ktk_release_notes.html">Release Notes</a></li>
-</ul>
-</li>
 </ul>
 
     </div>
@@ -552,7 +578,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="_sources/timeseries_dataframes.md" target="_blank"
+      <li><a href="_sources/files_read_csv.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -634,7 +660,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Reading and writing Excel, CVS and other files</h1>
+    <h1>Reading CSV files</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -644,9 +670,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-importing-a-csv-file">8.3.1. ⚙️ Example 1: Importing a csv file</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-importing-multidimensional-data">8.3.2. ⚙️ Example 2: Importing multidimensional data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-converting-a-c3d-file-to-csv">8.3.3. ⚙️ Example 3: Converting a c3d file to csv</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-multidimensional-data">8.3.1. Importing multidimensional data</a></li>
 </ul>
             </nav>
         </div>
@@ -658,27 +682,10 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="reading-and-writing-excel-cvs-and-other-files">
-<h1><span class="section-number">8.3. </span>Reading and writing Excel, CVS and other files<a class="headerlink" href="#reading-and-writing-excel-cvs-and-other-files" title="Permalink to this headline">#</a></h1>
-<div class="sd-card sd-sphinx-override sd-mb-3 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Summary</div>
-<p class="sd-card-text">This section shows how to import a pandas DataFrame as a TimeSeries, and how to export a TimeSeries as a pandas DataFrame.</p>
-</div>
-</div>
-<p>To ensure a great compatibility between Kinetics Toolkit and other frameworks, TimeSeries can be converted from and to pandas DataFrames using the <a class="reference internal" href="api/ktk.TimeSeries.from_dataframe.html"><span class="doc std std-doc">ktk.TimeSeries.from_dataframe</span></a> and <a class="reference internal" href="api/ktk.TimeSeries.to_dataframe.html"><span class="doc std std-doc">ktk.TimeSeries.to_dataframe</span></a> methods, and thus benefit from the myriad of options offered by pandas. This section showcases these functions using examples.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">kineticstoolkit.lab</span> <span class="k">as</span> <span class="nn">ktk</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</pre></div>
-</div>
-</div>
-</div>
-<section id="example-1-importing-a-csv-file">
-<h2><span class="section-number">8.3.1. </span>⚙️ Example 1: Importing a csv file<a class="headerlink" href="#example-1-importing-a-csv-file" title="Permalink to this headline">#</a></h2>
-<p>In this example, we want to import the contents of this csv file:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="reading-csv-files">
+<h1><span class="section-number">8.3. </span>Reading CSV files<a class="headerlink" href="#reading-csv-files" title="Permalink to this headline">#</a></h1>
+<p>To ensure a great compatibility between Kinetics Toolkit and other frameworks, TimeSeries can be converted from and to Pandas <a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.html">DataFrame</a> using the <a class="reference internal" href="api/ktk.TimeSeries.from_dataframe.html"><span class="doc std std-doc">ktk.TimeSeries.from_dataframe</span></a> and <a class="reference internal" href="api/ktk.TimeSeries.to_dataframe.html"><span class="doc std std-doc">ktk.TimeSeries.to_dataframe</span></a> methods. Therefore, as long as a data file can be opened in Pandas, it can then be converted to a TimeSeries, as shown in <a class="reference internal" href="files.html#fig-ktk-dataflow"><span class="std std-numref">Fig. 8.1</span></a>.</p>
+<p>Comma Separated Values (CSV) files are ubiquitous in research. They are text files were values are separated usually by commas, but sometimes by other delimiters such as <code class="docutils literal notranslate"><span class="pre">;</span></code> or tabs. The first line often contains labels to indicate the nature of each column. Here is the contents of a typical CSV file:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">Time</span><span class="p">,</span><span class="n">Force</span><span class="p">,</span><span class="n">Position</span>
     <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span>
     <span class="mf">0.1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.01</span>
@@ -693,10 +700,14 @@ Summary</div>
     <span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.1</span>
 </pre></div>
 </div>
-<p>First, we will read it as a pandas DataFrame using <code class="docutils literal notranslate"><span class="pre">pd.read_csv()</span></code>:</p>
+<p>First, we will read it as a DataFrame using <a class="reference external" href="https://pandas.pydata.org/docs/reference/api/pandas.read_csv.html">pd.read_csv</a>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">kineticstoolkit.lab</span> <span class="k">as</span> <span class="nn">ktk</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
     <span class="n">ktk</span><span class="o">.</span><span class="n">doc</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;timeseries_dataframe_example1.csv&quot;</span><span class="p">),</span>
     <span class="n">index_col</span><span class="o">=</span><span class="s2">&quot;Time&quot;</span><span class="p">,</span>
 <span class="p">)</span>
@@ -793,46 +804,26 @@ Summary</div>
 </table>
 </div></div></div>
 </div>
-<p>Note the <code class="docutils literal notranslate"><span class="pre">index_col</span></code> parameter: the DataFrame index must correspond to time in seconds.</p>
-<p>Then, we import it as a TimeSeries:</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Note the use of the <code class="docutils literal notranslate"><span class="pre">index_col</span></code> parameter. This is the name of the column that corresponds to time. It is always required to correctly convert the DataFrame to a TimeSeries.</p>
+</div>
+<p>We now convert the DataFrame to a TimeSeries:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">TimeSeries</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 
-<span class="n">ts</span>
+<span class="n">ts</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TimeSeries with attributes:
-         time: array([0. , 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1. ])
-         data: &lt;dict with 2 entries&gt;
-    time_info: {&#39;Unit&#39;: &#39;s&#39;}
-    data_info: {}
-       events: []
-</pre></div>
+<img alt="_images/76412001354b0b877e3857f76e0afb2f357556591ff3e6a838a72a5bb400ef18.png" src="_images/76412001354b0b877e3857f76e0afb2f357556591ff3e6a838a72a5bb400ef18.png" />
 </div>
 </div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">data</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-       &#39;Force&#39;: array([0. , 0. , 0. , 0. , 0.3, 0.5, 0.6, 0.5, 0.3, 0. , 0. ])
-    &#39;Position&#39;: &lt;array of shape (11,)&gt;
-}
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="example-2-importing-multidimensional-data">
-<h2><span class="section-number">8.3.2. </span>⚙️ Example 2: Importing multidimensional data<a class="headerlink" href="#example-2-importing-multidimensional-data" title="Permalink to this headline">#</a></h2>
-<p>TimeSeries are well suited for multidimensional data. In the last example, the force sensor was unidimensional; however, for a tridimensional force sensor, we would expect three signals (x, y, z). In this second example, we will import the following csv file:</p>
+<section id="importing-multidimensional-data">
+<h2><span class="section-number">8.3.1. </span>Importing multidimensional data<a class="headerlink" href="#importing-multidimensional-data" title="Permalink to this headline">#</a></h2>
+<p>TimeSeries are well suited for multidimensional data. In the first example, the force sensor was unidimensional; however, for a tridimensional force sensor, we would expect three signals (x, y, z). In this new example, we will import the following CSV file:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="n">Time</span><span class="p">,</span><span class="n">Fx</span><span class="p">,</span><span class="n">Fy</span><span class="p">,</span><span class="n">Fz</span><span class="p">,</span><span class="n">Position</span>
     <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mf">9.81</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span>
     <span class="mf">0.1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mf">9.81</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.01</span>
@@ -847,13 +838,13 @@ Summary</div>
     <span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mf">9.81</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mf">0.1</span>
 </pre></div>
 </div>
-<p>As for example 1, we first read the csv file as a DataFrame:</p>
+<p>We first read the csv file as a DataFrame:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span>
-        <span class="n">ktk</span><span class="o">.</span><span class="n">doc</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;timeseries_dataframe_example2.csv&quot;</span><span class="p">),</span>
-        <span class="n">index_col</span><span class="o">=</span><span class="s2">&quot;Time&quot;</span><span class="p">,</span>
-    <span class="p">)</span>
+    <span class="n">ktk</span><span class="o">.</span><span class="n">doc</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;timeseries_dataframe_example2.csv&quot;</span><span class="p">),</span>
+    <span class="n">index_col</span><span class="o">=</span><span class="s2">&quot;Time&quot;</span><span class="p">,</span>
+<span class="p">)</span>
 
 <span class="n">df</span>
 </pre></div>
@@ -993,8 +984,8 @@ Summary</div>
 </div>
 </div>
 </div>
-<p>The csv file was correctly read as a TimeSeries. However, force components are scattered into three separate arrays. Would it be possible to read it as one Nx3 array instead?</p>
-<p>To this effect, simply rename the columns of the DataFrame, either in the original csv file or after reading it, using index brackets:</p>
+<p>The CSV file was correctly read as a TimeSeries. However, force components are scattered into three separate arrays. Would it be possible to read it as one Nx3 array instead?</p>
+<p>To this effect, simply rename the columns of the DataFrame, either in the original CSV file or after reading it, using index brackets:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Forces[0]&quot;</span><span class="p">,</span> <span class="s2">&quot;Forces[1]&quot;</span><span class="p">,</span> <span class="s2">&quot;Forces[2]&quot;</span><span class="p">,</span> <span class="s2">&quot;Position&quot;</span><span class="p">]</span>
@@ -1117,7 +1108,7 @@ Summary</div>
 </table>
 </div></div></div>
 </div>
-<p>Finally, we can import this new DataFrame as a TimeSeries, with the three forces signals combined in one Nx3 array:</p>
+<p>We can now import this new DataFrame as a TimeSeries, with the three forces signals combined in one Nx3 array:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">TimeSeries</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
@@ -1158,408 +1149,6 @@ Summary</div>
 </div>
 </div>
 <p>For series of arrays with more than one dimension, the brackets would have multiple indexes. For example, a series of Nx4x4 homogeneous matrices would require 16 columns and the indexes would go from [0,0] to [3,3].</p>
-</section>
-<section id="example-3-converting-a-c3d-file-to-csv">
-<h2><span class="section-number">8.3.3. </span>⚙️ Example 3: Converting a c3d file to csv<a class="headerlink" href="#example-3-converting-a-c3d-file-to-csv" title="Permalink to this headline">#</a></h2>
-<p>In this example, we will read 3d marker positions from a sample <code class="docutils literal notranslate"><span class="pre">c3d</span></code> file, and then export these positions to a <code class="docutils literal notranslate"><span class="pre">csv</span></code> file. We first read the <code class="docutils literal notranslate"><span class="pre">c3d</span></code> file using the <a class="reference internal" href="api/ktk.kinematics.html"><span class="doc std std-doc">ktk.kinematics</span></a> module, which results in a TimeSeries with 26 markers:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">markers</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">read_c3d</span><span class="p">(</span>
-    <span class="n">ktk</span><span class="o">.</span><span class="n">doc</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;kinematics_basket_sprint.c3d&quot;</span><span class="p">)</span>
-<span class="p">)[</span><span class="s2">&quot;Points&quot;</span><span class="p">]</span>
-
-<span class="n">markers</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>TimeSeries with attributes:
-         time: &lt;array of shape (3678,)&gt;
-         data: &lt;dict with 26 entries&gt;
-    time_info: {&#39;Unit&#39;: &#39;s&#39;}
-    data_info: &lt;dict with 26 entries&gt;
-       events: []
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">markers</span><span class="o">.</span><span class="n">data</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-         &#39;WheelchairL:Marker1&#39;: &lt;array of shape (3678, 4)&gt;
-                 &#39;SWL:Marker2&#39;: &lt;array of shape (3678, 4)&gt;
-         &#39;WheelchairL:Marker2&#39;: &lt;array of shape (3678, 4)&gt;
-                &#39;ArmL:Marker1&#39;: &lt;array of shape (3678, 4)&gt;
-                 &#39;SWL:Marker3&#39;: &lt;array of shape (3678, 4)&gt;
-                &#39;ArmL:Marker2&#39;: &lt;array of shape (3678, 4)&gt;
-                &#39;ArmL:Marker3&#39;: &lt;array of shape (3678, 4)&gt;
-                 &#39;SWL:Marker4&#39;: &lt;array of shape (3678, 4)&gt;
-         &#39;WheelchairL:Marker4&#39;: &lt;array of shape (3678, 4)&gt;
-                &#39;ArmL:Marker4&#39;: &lt;array of shape (3678, 4)&gt;
-         &#39;WheelchairL:Marker3&#39;: &lt;array of shape (3678, 4)&gt;
-                 &#39;SWL:Marker1&#39;: &lt;array of shape (3678, 4)&gt;
-            &#39;ForearmL:Marker4&#39;: &lt;array of shape (3678, 4)&gt;
-            &#39;ForearmL:Marker2&#39;: &lt;array of shape (3678, 4)&gt;
-            &#39;ForearmL:Marker1&#39;: &lt;array of shape (3678, 4)&gt;
-            &#39;ForearmL:Marker3&#39;: &lt;array of shape (3678, 4)&gt;
-              &#39;BodyL:Forehead&#39;: &lt;array of shape (3678, 4)&gt;
-               &#39;BodyL:TempleL&#39;: &lt;array of shape (3678, 4)&gt;
-                  &#39;BodyL:EarL&#39;: &lt;array of shape (3678, 4)&gt;
-                    &#39;BodyL:C7&#39;: &lt;array of shape (3678, 4)&gt;
-             &#39;BodyL:AcromionL&#39;: &lt;array of shape (3678, 4)&gt;
-        &#39;BodyL:ScapularSpineL&#39;: &lt;array of shape (3678, 4)&gt;
-              &#39;BodyL:ScapulaL&#39;: &lt;array of shape (3678, 4)&gt;
-    &#39;BodyL:LateralEpicondyleL&#39;: &lt;array of shape (3678, 4)&gt;
-                 &#39;BodyL:HandL&#39;: &lt;array of shape (3678, 4)&gt;
-                   &#39;Sync:Sync&#39;: &lt;array of shape (3678, 4)&gt;
-}
-</pre></div>
-</div>
-</div>
-</div>
-<p>To convert this TimeSeries to a <code class="docutils literal notranslate"><span class="pre">csv</span></code>, we first create a DataFrame:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">to_dataframe</span><span class="p">()</span>
-
-<span class="n">df</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_html"><div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>WheelchairL:Marker1[0]</th>
-      <th>WheelchairL:Marker1[1]</th>
-      <th>WheelchairL:Marker1[2]</th>
-      <th>WheelchairL:Marker1[3]</th>
-      <th>SWL:Marker2[0]</th>
-      <th>SWL:Marker2[1]</th>
-      <th>SWL:Marker2[2]</th>
-      <th>SWL:Marker2[3]</th>
-      <th>WheelchairL:Marker2[0]</th>
-      <th>WheelchairL:Marker2[1]</th>
-      <th>...</th>
-      <th>BodyL:LateralEpicondyleL[2]</th>
-      <th>BodyL:LateralEpicondyleL[3]</th>
-      <th>BodyL:HandL[0]</th>
-      <th>BodyL:HandL[1]</th>
-      <th>BodyL:HandL[2]</th>
-      <th>BodyL:HandL[3]</th>
-      <th>Sync:Sync[0]</th>
-      <th>Sync:Sync[1]</th>
-      <th>Sync:Sync[2]</th>
-      <th>Sync:Sync[3]</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0.000000</th>
-      <td>-3.524661</td>
-      <td>0.215200</td>
-      <td>0.110191</td>
-      <td>1.0</td>
-      <td>-3.934213</td>
-      <td>0.504548</td>
-      <td>0.229110</td>
-      <td>1.0</td>
-      <td>-3.645581</td>
-      <td>0.387794</td>
-      <td>...</td>
-      <td>0.764236</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>0.008333</th>
-      <td>-3.524656</td>
-      <td>0.215261</td>
-      <td>0.110211</td>
-      <td>1.0</td>
-      <td>-3.934245</td>
-      <td>0.504561</td>
-      <td>0.229135</td>
-      <td>1.0</td>
-      <td>-3.645604</td>
-      <td>0.387806</td>
-      <td>...</td>
-      <td>0.764501</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>0.016667</th>
-      <td>-3.524663</td>
-      <td>0.215265</td>
-      <td>0.110188</td>
-      <td>1.0</td>
-      <td>-3.934267</td>
-      <td>0.504554</td>
-      <td>0.229110</td>
-      <td>1.0</td>
-      <td>-3.645613</td>
-      <td>0.387797</td>
-      <td>...</td>
-      <td>0.764576</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>0.025000</th>
-      <td>-3.524717</td>
-      <td>0.215277</td>
-      <td>0.110216</td>
-      <td>1.0</td>
-      <td>-3.934273</td>
-      <td>0.504570</td>
-      <td>0.229134</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>...</td>
-      <td>0.764424</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>0.033333</th>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.0</td>
-      <td>-3.934285</td>
-      <td>0.504551</td>
-      <td>0.229123</td>
-      <td>1.0</td>
-      <td>-3.645678</td>
-      <td>0.387845</td>
-      <td>...</td>
-      <td>0.764722</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>...</th>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-    <tr>
-      <th>30.608333</th>
-      <td>-4.566282</td>
-      <td>0.122749</td>
-      <td>0.105461</td>
-      <td>1.0</td>
-      <td>-4.967510</td>
-      <td>0.341469</td>
-      <td>0.394767</td>
-      <td>1.0</td>
-      <td>-4.688922</td>
-      <td>0.289875</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>30.616667</th>
-      <td>-4.566328</td>
-      <td>0.122829</td>
-      <td>0.105476</td>
-      <td>1.0</td>
-      <td>-4.967561</td>
-      <td>0.341444</td>
-      <td>0.394741</td>
-      <td>1.0</td>
-      <td>-4.688970</td>
-      <td>0.289905</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>30.625000</th>
-      <td>-4.566387</td>
-      <td>0.122936</td>
-      <td>0.105503</td>
-      <td>1.0</td>
-      <td>-4.967603</td>
-      <td>0.341415</td>
-      <td>0.394747</td>
-      <td>1.0</td>
-      <td>-4.688965</td>
-      <td>0.289807</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>30.633333</th>
-      <td>-4.566429</td>
-      <td>0.122963</td>
-      <td>0.105526</td>
-      <td>1.0</td>
-      <td>-4.967635</td>
-      <td>0.341392</td>
-      <td>0.394735</td>
-      <td>1.0</td>
-      <td>-4.689065</td>
-      <td>0.289964</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.0</td>
-    </tr>
-    <tr>
-      <th>30.641667</th>
-      <td>-4.566450</td>
-      <td>0.122906</td>
-      <td>0.105509</td>
-      <td>1.0</td>
-      <td>-4.967660</td>
-      <td>0.341366</td>
-      <td>0.394742</td>
-      <td>1.0</td>
-      <td>-4.689056</td>
-      <td>0.289848</td>
-      <td>...</td>
-      <td>NaN</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.0</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>1.0</td>
-    </tr>
-  </tbody>
-</table>
-<p>3678 rows × 104 columns</p>
-</div></div></div>
-</div>
-<p>Then we export this DataFrame to a <code class="docutils literal notranslate"><span class="pre">csv</span></code> file. Let’s print the first 3 lines of this file:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;output.csv&quot;</span><span class="p">,</span> <span class="n">index_label</span><span class="o">=</span><span class="s2">&quot;Time&quot;</span><span class="p">)</span>
-
-<span class="o">!</span>head<span class="w"> </span>-3<span class="w"> </span>output.csv
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Time,WheelchairL:Marker1[0],WheelchairL:Marker1[1],WheelchairL:Marker1[2],WheelchairL:Marker1[3],SWL:Marker2[0],SWL:Marker2[1],SWL:Marker2[2],SWL:Marker2[3],WheelchairL:Marker2[0],WheelchairL:Marker2[1],WheelchairL:Marker2[2],WheelchairL:Marker2[3],ArmL:Marker1[0],ArmL:Marker1[1],ArmL:Marker1[2],ArmL:Marker1[3],SWL:Marker3[0],SWL:Marker3[1],SWL:Marker3[2],SWL:Marker3[3],ArmL:Marker2[0],ArmL:Marker2[1],ArmL:Marker2[2],ArmL:Marker2[3],ArmL:Marker3[0],ArmL:Marker3[1],ArmL:Marker3[2],ArmL:Marker3[3],SWL:Marker4[0],SWL:Marker4[1],SWL:Marker4[2],SWL:Marker4[3],WheelchairL:Marker4[0],WheelchairL:Marker4[1],WheelchairL:Marker4[2],WheelchairL:Marker4[3],ArmL:Marker4[0],ArmL:Marker4[1],ArmL:Marker4[2],ArmL:Marker4[3],WheelchairL:Marker3[0],WheelchairL:Marker3[1],WheelchairL:Marker3[2],WheelchairL:Marker3[3],SWL:Marker1[0],SWL:Marker1[1],SWL:Marker1[2],SWL:Marker1[3],ForearmL:Marker4[0],ForearmL:Marker4[1],ForearmL:Marker4[2],ForearmL:Marker4[3],ForearmL:Marker2[0],ForearmL:Marker2[1],ForearmL:Marker2[2],ForearmL:Marker2[3],ForearmL:Marker1[0],ForearmL:Marker1[1],ForearmL:Marker1[2],ForearmL:Marker1[3],ForearmL:Marker3[0],ForearmL:Marker3[1],ForearmL:Marker3[2],ForearmL:Marker3[3],BodyL:Forehead[0],BodyL:Forehead[1],BodyL:Forehead[2],BodyL:Forehead[3],BodyL:TempleL[0],BodyL:TempleL[1],BodyL:TempleL[2],BodyL:TempleL[3],BodyL:EarL[0],BodyL:EarL[1],BodyL:EarL[2],BodyL:EarL[3],BodyL:C7[0],BodyL:C7[1],BodyL:C7[2],BodyL:C7[3],BodyL:AcromionL[0],BodyL:AcromionL[1],BodyL:AcromionL[2],BodyL:AcromionL[3],BodyL:ScapularSpineL[0],BodyL:ScapularSpineL[1],BodyL:ScapularSpineL[2],BodyL:ScapularSpineL[3],BodyL:ScapulaL[0],BodyL:ScapulaL[1],BodyL:ScapulaL[2],BodyL:ScapulaL[3],BodyL:LateralEpicondyleL[0],BodyL:LateralEpicondyleL[1],BodyL:LateralEpicondyleL[2],BodyL:LateralEpicondyleL[3],BodyL:HandL[0],BodyL:HandL[1],BodyL:HandL[2],BodyL:HandL[3],Sync:Sync[0],Sync:Sync[1],Sync:Sync[2],Sync:Sync[3]
-0.0,-3.5246613025665283,0.21519966423511505,0.11019133776426315,1.0,-3.9342129230499268,0.5045475363731384,0.22911034524440765,1.0,-3.645580768585205,0.38779446482658386,0.10485337674617767,1.0,-4.0042266845703125,0.36295318603515625,0.8396015167236328,1.0,-3.9981279373168945,0.5287423729896545,0.2820318639278412,1.0,-4.021210193634033,0.4377657473087311,0.8063696622848511,1.0,-3.9946937561035156,0.39543473720550537,0.7873198986053467,1.0,-3.9486939907073975,0.519663393497467,0.28927138447761536,1.0,-4.20930814743042,0.14434117078781128,0.2019164264202118,1.0,-4.021429538726807,0.41899240016937256,0.8502042889595032,1.0,-4.136894226074219,0.3172760009765625,0.6129055023193359,1.0,-3.9810829162597656,0.48662567138671875,0.3892707824707031,1.0,,,,1.0,,,,1.0,,,,1.0,,,,1.0,,,,1.0,-4.0600433349609375,0.23282623291015625,1.189638614654541,1.0,-4.103321075439453,0.18779754638671875,1.1406006813049316,1.0,,,,1.0,-4.084765434265137,0.29806995391845703,1.0233711004257202,1.0,,,,1.0,-4.203365325927734,0.24196624755859375,0.9863858222961426,1.0,-4.018681049346924,0.45418137311935425,0.7642364501953125,1.0,,,,1.0,,,,1.0
-0.008333333333333333,-3.524656057357788,0.2152605801820755,0.11021056771278381,1.0,-3.9342453479766846,0.504561185836792,0.2291354537010193,1.0,-3.645604133605957,0.38780584931373596,0.10483838617801666,1.0,-4.00421142578125,0.36289215087890625,0.8397216796875,1.0,-3.998145818710327,0.5287748575210571,0.28202518820762634,1.0,-4.021191596984863,0.4377143383026123,0.8063974976539612,1.0,-3.994676113128662,0.3954068720340729,0.7874189615249634,1.0,-3.948732614517212,0.5196871757507324,0.28924620151519775,1.0,-4.209348201751709,0.144420325756073,0.20189251005649567,1.0,-4.021409511566162,0.4189983904361725,0.8502702116966248,1.0,-4.136981964111328,0.31737518310546875,0.6128959655761719,1.0,-3.9822897911071777,0.48861852288246155,0.38990485668182373,1.0,,,,1.0,,,,1.0,,,,1.0,,,,1.0,,,,1.0,,,,1.0,-4.103385925292969,0.18770599365234375,1.140615463256836,1.0,,,,1.0,-4.084664344787598,0.2982177734375,1.0235826969146729,1.0,,,,1.0,-4.203266143798828,0.242034912109375,0.9864768981933594,1.0,-4.0186238288879395,0.45348453521728516,0.7645010948181152,1.0,,,,1.0,,,,1.0
-</pre></div>
-</div>
-</div>
-</div>
 </section>
 </section>
 
@@ -1604,11 +1193,11 @@ Summary</div>
       </div>
     </a>
     <a class="right-next"
-       href="loadsave.html"
+       href="files_write_csv.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">8.4. </span>Saving and loading data in ktk.zip format</p>
+        <p class="prev-next-title"><span class="section-number">8.4. </span>Writing CSV files</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1630,9 +1219,7 @@ Summary</div>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-1-importing-a-csv-file">8.3.1. ⚙️ Example 1: Importing a csv file</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-2-importing-multidimensional-data">8.3.2. ⚙️ Example 2: Importing multidimensional data</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#example-3-converting-a-c3d-file-to-csv">8.3.3. ⚙️ Example 3: Converting a c3d file to csv</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-multidimensional-data">8.3.1. Importing multidimensional data</a></li>
 </ul>
   </nav></div>
 

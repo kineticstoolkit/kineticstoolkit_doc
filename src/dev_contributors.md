@@ -8,17 +8,15 @@ Félix Chénier
 - [Université du Québec à Montréal](https://uqam.ca)
 - [Centre for Interdisciplinary Research in Rehabilitation of Greater Montreal](https://crir.ca)
 
-## Credits
-
 🙏 Huge thanks for these very nice people:
 
-### Editors and reviewers - Journal of Open Source Software
+## Editors and reviewers - Journal of Open Source Software
 
 - [Marie E. Rognes](https://marierognes.org/)
 - [Ryan Alcantara](https://www.ryan-alcantara.com/)
 - [Morten Enemark Lund](https://github.com/melund)
 
-### [Data sharing: Tennis serve](dataset_kinematics_tennis_serve.md)
+## [Data sharing: Tennis serve](dataset_kinematics_tennis_serve.md)
 
 - Fraje Watson
 - Steve Taylor

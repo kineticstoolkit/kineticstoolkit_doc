@@ -18,10 +18,6 @@ kernelspec:
 
 # Reconstructing removed markers
 
-:::{card} Summary
-This tutorial explains how to use the [ktk.kinematics](api/ktk.kinematics.rst) module to reconstruct markers that were present during a calibration acquisition, but that were then removed.
-:::
-
 Rigid bodies affixed to segments are generally used to reconstruct points where it is difficult or impossible to affix a real marker. For example, if a marker would be at risk of falling during the action, it can be installed during a short calibration acquisition, and then removed during the action.
 
 The following example represents such a situation:
@@ -29,7 +25,7 @@ The following example represents such a situation:
 - After removing the elbow epicondyle marker, a wheelchair propulsion acquisition was recorded.
 - We want to reconstruct the trajectory of the left lateral elbow epicondyle during the propulsion acquisition, even if it was not present during this acquisition.
 
-## 📄 Loading sample data
+## Loading sample data
 
 We will create two TimeSeries, one representing the markers available during the static acquisition, and the other representing the markers available during the propulsion acquisition.
 
@@ -78,7 +74,7 @@ plt.suptitle("Propulsion acquisition")
 plt.tight_layout()
 ```
 
-## 📄 Creating a cluster of markers
+## Creating a cluster of markers
 
 The idea is very similar to the previous tutorial, where we reconstructed missing markers that belonged to the same rigid body. In this new example, since the lateral elbow epicondyle belongs to the same segment as the rigid body, then we can also include it in the marker cluster.
 
@@ -95,7 +91,7 @@ print(cluster["ArmL3"])
 print(cluster["LateralEpicondyleL"])
 ```
 
-## 📄 Tracking the cluster
+## Tracking the cluster
 
 Now, we can track this cluster to reconstruct the whole set of four markers, including the epicondyle, during the propulsion acquisitions.
 

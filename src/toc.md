@@ -198,35 +198,35 @@ parts:
             - file: [](geometry_3d_angles_ktk.md)
             - file: [](geometry_3d_angles_choosing_seq.md)
         - file: [](geometry_exercises.md)
-    - file: [](player.md) #-- 🔴
+    - file: [](player.md)
     - file: [](kinematics.md)
-        - file: [](kinematics_joint_angles.md) #-- 🟡
-        - file: [](kinematics_reconstructing_occluded_markers.md) #-- 🟡
-        - file: [](kinematics_reconstructing_removed_markers.md) #-- 🟡
-        - file: [](kinematics_reconstructing_probed_points.md) #-- 🟡
+        - file: [](kinematics_joint_angles.md)
+        - file: [](kinematics_reconstructing_occluded_markers.md)
+        - file: [](kinematics_reconstructing_removed_markers.md)
+        - file: [](kinematics_reconstructing_probed_points.md)
+
+- caption: API Reference
+  numbered: false
+    - file: [](ktk_conventions.md)
+    - file: [](api_classes.md)
+    - file: [](api_functions.md)
+    - file: [](api_modules.md)
+    - file: [](extensions.md)
+
 - caption: Appendix
-  numbered: true
+  numbered: false
     - file: [](datasets.md)
         - file: [](dataset_kinematics_tennis_serve.md)
         - file: [](dataset_kinetics_wheelchair_propulsion.md)
         - file: [](dataset_emg.md)
     - file: [](dev_contributors.md)
-    - file: [](dev_contributing.md) #-- 🟡
-    - file: [](ktk_citing.md) #-- 🟡
+    - file: [](dev_contributing.md)
+    - file: [](ktk_citing.md)
     - file: [](dev_developing.md)
-        - file: [](dev_rules.md) #-- 🟡
-        - file: [](dev_code_of_conduct.md) #-- 🟡
-        - file: [](dev_installing_from_github.md) #-- 🟡
-        - file: [](dev_coding_style.md) #-- 🟡
+        - file: [](dev_extensions.md)
+        - file: [](dev_rules.md)
+        - file: [](dev_code_of_conduct.md)
+        - file: [](dev_installing_from_github.md)
+        - file: [](dev_coding_style.md)
     - url: https://github.com/felixchenier/kineticstoolkit
       title: GitHub repository
-- caption: Reference
-  numbered: false
-    - file: [](api_reference.md) #-- 🟢
-        - file: [](ktk_conventions.md) #-- 🔴
-        - file: [](api_classes.md) #-- 🟢
-        - file: [](api_functions.md) #-- 🟢
-        - file: [](api_modules.md) #-- 🟢
-        - file: [](extensions.md) #-- 🟡
-        - file: [](dev_extensions.md) #-- 🟡
-        - file: [](ktk_release_notes.md) #-- 🔴

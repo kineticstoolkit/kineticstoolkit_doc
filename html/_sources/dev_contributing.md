@@ -6,14 +6,9 @@ There is no need to be a developer to contribute to this project. Here are some 
 
 - [Install Kinetics Toolkit](getting_started_installing.md), browse the [documentation](https://kineticstoolkit.uqam.ca), try it and check how it fits your workflow;
 - Talk about it in your networks;
-- Share your success, make suggestions, propose ideas, etc.:
-    - on the [discussions forum](https://github.com/felixchenier/kineticstoolkit/discussions)
-    - on [Twitter](https://twitter.com/intent/tweet?screen_name=kineticstoolkit&ref_src=twsrc%5Etfw)
+- Share your success, make suggestions, propose ideas, on the [discussions forum](https://github.com/felixchenier/kineticstoolkit/discussions);
 - Report bugs on the [issue tracker](https://github.com/felixchenier/kineticstoolkit/issues);
 - Consider [citing it](ktk_citing.md) in your work;
-- Follow [@kineticstoolkit](https://twitter.com/kineticstoolkit?ref_src=twsrc%5Etfw) on Twitter to stay informed.
-
-The more users, the more we will have a clear understanding of the users' needs.
 
 ## As an instructor
 
