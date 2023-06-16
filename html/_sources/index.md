@@ -46,8 +46,6 @@ ktk.Player(markers, interconnections=interconnections)
 ![](_static/images/frontpage.gif)
 [Click here for a complete tutorials on marker visualization](files_read_c3d.md)
 
-[Questions, suggestions, discussions and collaborations](https://github.com/felixchenier/kineticstoolkit/discussions) are highly welcome. Please see the numerous ways you can [contribute](dev_contributing.md) to this project.
-
 :::
 
 :::{grid-item-card}
@@ -65,6 +63,8 @@ ktk.Player(markers, interconnections=interconnections)
 
 :::
 ::::
+
+[Questions, suggestions, discussions and collaborations](https://github.com/felixchenier/kineticstoolkit/discussions) are highly welcome. Please see the numerous ways you can [contribute](dev_contributing.md) to this project.
 
 
 -----------
