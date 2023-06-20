@@ -20,9 +20,9 @@ kernelspec:
 
 # Looping using **for** and **range**
 
-A range is very similar to a [slice](python_lists_slicing.md), as it specifies a series of values using an (optional) initial value, a final value, and an (optional) increment. For example, `range(0, 9, 2)` creates a series of values from 0 (inclusive) to 9 (exclusive) by steps of 2. Thus, 0, 2, 4, 6 and 8.
+A range is a series of values created by specifying an (optional) initial value, a final value, and an (optional) increment. For example, `range(0, 9, 2)` creates a series of values from 0 (inclusive) to 9 (exclusive) by steps of 2. Thus, 0, 2, 4, 6 and 8. Note the similarity in expressing a range and a slice.
 
-A range makes an ideal counter, and it is often used with `for` loops to repeat a code block a given number of time:
+A range makes an ideal counter, and it is often used with `for` to repeat a code block a given number of time:
 
 ```{code-cell}
 for i in range(5):  # Repeat the following code block 5 times

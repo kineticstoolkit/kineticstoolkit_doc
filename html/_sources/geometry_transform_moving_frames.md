@@ -19,7 +19,7 @@ kernelspec:
 
 # Moving frames
 
-If we get back to the definition of a frame, we remind that the first three columns are three vectors (the direction of three axes), and the fourth column is a point (the position of the origin). Therefore, since an homogeneous transform can move both points and vectors, then it can also move complete frames.
+If we get back to the [definition of a frame](geometry_frames.md), we remind that the first three columns are three vectors (the direction of three axes), and the fourth column is a point (the position of the origin). Therefore, since an homogeneous transform can move both points and vectors, then it can also move complete frames.
 
 ```{figure-md} fig_geometry_moving_frames
 :width: 5in
@@ -29,7 +29,7 @@ Rotating and translating a local frame in respect to the global reference frame.
 ```
 
 
-Let's use the same homogeneous transform to rotate and translate the frame  $^\text{global} _\text{local-initial} F$ (which reads as *Frame 'local' in its initial pose, expressed in global coordinates*).
+Let's use the same homogeneous transform to rotate and translate the frame  $^\text{global} _\text{local-initial} F$ (which reads as *Frame 'local' in its initial pose, expressed in global coordinates*) as shown in {numref}`fig_geometry_moving_frames`.
 
 $$
 ^\text{global} _\text{local-tranformed} F ~~~ = ~~~ T ~~~ ^\text{global} _\text{local-initial} F
@@ -84,7 +84,7 @@ $$
 
 ## Application in Kinetics Toolkit
 
-The transform $T$ used in this section can be created using:
+The transform $T$ is created using:
 
 ```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
@@ -103,7 +103,7 @@ T
 The initial local frame is expressed as:
 
 ```{code-cell} ipython3
-local_frame = np.array(
+initial_frame = np.array(
     [
         [
             [1.0, 0.0, 0.0, 10.0],
@@ -115,19 +115,19 @@ local_frame = np.array(
 )
 ```
 
-The rotated vector is:
+The rotated frame is:
 
 ```{code-cell} ipython3
-ktk.geometry.matmul(T, local_frame)
+ktk.geometry.matmul(T, initial_frame)
 ```
 
-## Direct movement in Kinetics Toolkit
+## Direct transformation in Kinetics Toolkit
 
-We can also rotate and translate the local frame using [ktk.geometry.rotate](api/ktk.geometry.rotate.rst) and [ktk.geometry.translate](api/ktk.geometry.translate.rst):
+We can also rotate and translate the initial frame using [ktk.geometry.rotate](api/ktk.geometry.rotate.rst) and [ktk.geometry.translate](api/ktk.geometry.translate.rst):
 
 ```{code-cell} ipython3
 rotated_frame = ktk.geometry.rotate(
-    local_frame, seq="z", angles=[30], degrees=True
+    initial_frame, seq="z", angles=[30], degrees=True
 )
 final_frame = ktk.geometry.translate(rotated_frame, [[2.0, 0.0, 0.0]])
 

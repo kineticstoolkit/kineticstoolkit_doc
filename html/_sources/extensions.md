@@ -11,9 +11,9 @@ Here are links to known extensions, where you can find a detailed description, t
 
 ## Using extensions
 
-Use [](api/ktk.import_extensions.rst) to import all installed extensions into the `ktk.ext` namespace. For example, if you installed the pushrimkinetics extension above, then its functions will be available as `ktk.ext.pushrimkinetics.read_smartwheel()`, `ktk.ext.pushrimkinetics.calculate_power()`, etc.
+Use [ktk.import_extensions](api/ktk.import_extensions.rst) to import all installed extensions into the `ktk.ext` namespace. For example, if you installed the pushrimkinetics extension above, then its functions will be available as `ktk.ext.pushrimkinetics.read_smartwheel()`, `ktk.ext.pushrimkinetics.calculate_power()`, etc.
 
-If you imported Kinetics Toolkit in [lab mode](getting_started_installing.md), the extensions are already imported. There is no need to use [](api/ktk.import_extensions.rst).
+If you imported Kinetics Toolkit in [lab mode](getting_started_installing.md), the extensions are already imported. There is no need to use [ktk.import_extensions](api/ktk.import_extensions.rst).
 
 ## Developing extensions
 

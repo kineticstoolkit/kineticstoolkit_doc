@@ -1,39 +1,8 @@
 # Kinetics Toolkit
 
-::::{grid}
-:gutter: 2
-
-:::{grid-item-card} 
-**is a free online resource** for students and researchers to learn about 3D biomechanical data processing using Python.
-
-- [](getting_started.md)
-- [](python_intro.md)
-- [](matplotlib.md)
-- [](numpy.md)
-:::
-
-:::{grid-item-card}
-**is an open-source Python package** to analyze biomechanical data with the users knowing what they are doing. No magical black box.
-
-- [](timeseries.md)
-- [](files.md)
-- [](geometry.md)
-- [](player.md)
-- [](kinematics.md)
-
-```{div}
-<a href="https://doi.org/10.21105/joss.03714"><img src="https://joss.theoj.org/papers/10.21105/joss.03714/status.svg" alt="JOSS"></a>
-<a href="https://anaconda.org/conda-forge/kineticstoolkit"><img src="https://anaconda.org/conda-forge/kineticstoolkit/badges/version.svg" alt="Anaconda"></a>
-<a href="https://anaconda.org/conda-forge/kineticstoolkit"><img src="https://anaconda.org/conda-forge/kineticstoolkit/badges/latest_release_date.svg" alt="Latest release"></a>
-```
-
-:::
-
-::::
-
+**An open-source Python package to facilitate research in biomechanics**
 
 ::::{grid}
-:gutter: 2
 
 :::{grid-item-card}
 
@@ -43,13 +12,33 @@ markers = ktk.read_c3d("filename.c3d")["Points"]
 ktk.Player(markers, interconnections=interconnections)
 ```
 
-![](_static/images/frontpage.gif)
-[Click here for a complete tutorials on marker visualization](files_read_c3d.md)
+[![](_static/images/frontpage.gif)](player.md)
+
+Kinetics Toolkit is an open-source Python package to facilitate research in biomechanics. It provides tools for:
+- [TimeSeries analysis](timeseries.md), including [data](timeseries_data_management.md), [time](timeseries_time_management.md) and [event](timeseries_event_management.md) management, [time-domain and frequency-domain noise filtering](filters.md), and [cycle management](cycles.md);
+- [File management](files.md), including reading/writing C3D, CSV and any file supported by {{pandas}};
+- [Rigid body geometry](geometry.md), including manipulation of series of [points, vectors](geometry_points_vectors.md), [frames](geometry_frames.md) and [homogeneous transforms](geometry_transform_moving_coordinates.md), [coordinate system changes](geometry_transform_changing_coordinate_system.md), and [3D angle extraction](geometry_angles.md);
+- [Interactive visualization of 3D markers and rigid bodies](player.md);
+- [Kinematic operations](kinematics.md) such as reconstruction of [occluded](kinematics_reconstructing_occluded_markers.md), [removed](kinematics_reconstructing_removed_markers.md) or [probed](kinematics_reconstructing_probed_points.md) markers;
+- And more using [extensions](extensions.md).
+
+It is a programming library, and programming can be hard for new users. Therefore, we also provide the free, electronic book **Biomechanical Analysis using Python and Kinetics Toolkit**, which guides new programmers from the basics to advanced, generic 3D biomechanical analysis. This book covers:
+- [The Python programming language](python_intro.md), including [arithmetics](python_arithmetics.md), [variables](python_variables.md), [numbers](python_numbers.md), [strings](python_strings.md), [functions](python_functions.md), [conditions](python_conditions.md), [lists](python_lists.md), [loops](python_looping.md) and [dictionaries](python_dicts.md);
+- [Matplotlib](matplotlib.md), to generate print-quality graphics and to analyze curves interactively;
+- [NumPy](numpy.md) basics, including [n-dimensional arrays](numpy_ndarray.md), [arithmetics](numpy_arithmetics.md), [trigonometry](numpy_trigonometry.md), [infinity/nan](numpy_inf_nan.md), [statistical functions](numpy_statistics.md), [comparisons](numpy_comparisons.md), [logical operators](numpy_logical_operators.md), [indexing, slicing](numpy_indexing_slicing_1d.md) and [filtering arrays](numpy_filtering_nd.md).
+
+It also covers all the features of Kinetics Toolkit, with reproducible examples based on real, downloadable data.
+
+
+```{div}
+<a href="https://doi.org/10.21105/joss.03714"><img src="https://joss.theoj.org/papers/10.21105/joss.03714/status.svg" alt="JOSS"></a>
+<a href="https://anaconda.org/conda-forge/kineticstoolkit"><img src="https://anaconda.org/conda-forge/kineticstoolkit/badges/version.svg" alt="Anaconda"></a>
+<a href="https://anaconda.org/conda-forge/kineticstoolkit"><img src="https://anaconda.org/conda-forge/kineticstoolkit/badges/latest_release_date.svg" alt="Latest release"></a>
+```
 
 :::
 
 :::{grid-item-card}
-
 ```{div} style="max-height:400px"
 <h3>
 <a href="https://github.com/felixchenier/kineticstoolkit/discussions">Announcements <img src="_static/images/github-logo.png" alt="Follow on GitHub" width="20px"></a>
@@ -64,10 +53,6 @@ ktk.Player(markers, interconnections=interconnections)
 :::
 ::::
 
-[Questions, suggestions, discussions and collaborations](https://github.com/felixchenier/kineticstoolkit/discussions) are highly welcome. Please see the numerous ways you can [contribute](dev_contributing.md) to this project.
-
-
------------
 
 ```{div} style="align:center;"
 <a href="https://felixchenier.uqam.ca"><img alt="-width:narrow" src="_static/images/logo_mosa.png"></a>

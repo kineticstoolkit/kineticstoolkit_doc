@@ -20,7 +20,7 @@ kernelspec:
 
 # Indexing and slicing strings
 
-We just saw how to index and slice lists. The exact same behaviour applies to strings: we can extract one or many characters from a string by slicing it:
+We learned how to index and slice lists. The exact same behaviour applies to strings: we can extract one or many characters from a string by slicing it:
 
 ```{code-cell} ipython3
 string = "This is a sample string that we will index and slice"

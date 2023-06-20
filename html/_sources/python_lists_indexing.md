@@ -14,7 +14,7 @@ kernelspec:
 
 # Indexing a list
 
-Every element of a list is accessible using an index. The first data is at index 0, the second at index 1, etc.
+Every element of a list is accessible using an index. The first element is at index 0, the second at index 1, etc.
 
 :::{note}
 Zero-based addressing (first index is 0) is common in generic programming languages such as C, C++, Java, Go, PHP, Ruby, and Rust. Being a generic programming language itself, Python also uses zero-addressing. Other languages that are usually more aimed to mathematics, such as Matlab, R, Julia, and Mathematica, use one-based addressing (first index is 1). No convention is inherently better than another, but for non-programmers, it may take a bit of time to adapt to zero-based addressing.
@@ -121,7 +121,7 @@ some_string = list_of_strings[int(some_value / 2)]
 
 ## Nested lists
 
-As seen in the [](python_lists_creating.md), lists can be nested, which means that a list can contain another list. To access a specific element of the inner list, we start by indexing the outer list, then the inner list. For example, to access the first element of the second list of `list_of_lists`:
+As seen in section [](python_lists_creating.md), lists can be nested, which means that a list can contain another list. To access a specific element of the inner list, we start by indexing the outer list, then the inner list. For example, to access the first element of the second list of `list_of_lists`:
 
 ```{code-cell} ipython3
 list_of_lists = [
@@ -145,10 +145,10 @@ then we access the first element of this result:
 temp[0]  # First element of the second element of list_of_lists
 ```
 
-or, one one line:
+or on one line:
 
 ```{code-cell} ipython3
 list_of_lists[1][0]
 ```
 
-where `list_of_lists[1]` returns the list `['one', 'two', 'three']`, and `[0]` addresses this new list.
+where `list_of_lists[1]` returns the list `['one', 'two', 'three']`, and `[0]` indexes this new list.

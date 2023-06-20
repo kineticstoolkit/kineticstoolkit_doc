@@ -21,13 +21,6 @@ kernelspec:
 
 In {{pd_read_csv}}, the only mandatory argument is `filepath_or_buffer`, which is the name of the csv file ({numref}`fig_pandas_read_csv_signature`). Every other argument has a default value, and exists only to modify the default behaviour of the function.
 
-````{figure-md} fig_pandas_read_csv_signature
-:width: 6in
-![](_static/images/fig_pandas_read_csv_signature.png)
-
-Signature of pandas.read_csv.
-````
-
 Let's examine this concept with a simpler function. We define the following function that calculates the ground reaction force based on the acceleration and mass of a person's center of mass:
 
 ```{code-cell} ipython3

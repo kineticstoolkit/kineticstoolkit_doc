@@ -23,9 +23,9 @@ Now that we know how to make comparisons, we can control the flow of the program
 
 ```
 if condition:
-    perform_task2()
     perform_task1()
     perform_task2()
+    perform_task3()
 ```
 
 The `if` checks if a condition is met. The code block that follows the `if` statement is executed only if the condition evaluates to `True`.

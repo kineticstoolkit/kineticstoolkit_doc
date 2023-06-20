@@ -43,6 +43,5 @@ import matplotlib.pyplot as plt
 
 angle = np.linspace(0, 2 * np.pi, 100)
 
-plt.plot(angle, np.sin(angle))
-plt.show()
+plt.plot(angle, np.sin(angle));
 ```

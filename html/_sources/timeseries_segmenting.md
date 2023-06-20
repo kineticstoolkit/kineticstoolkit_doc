@@ -42,7 +42,7 @@ ts.plot()
 
 ## Using indexes
 
-If we know that the sync event happened at index 1049 (we could know it using `index = ts.get_index_at_event("sync")`), we could discard any data that happened before this index:
+If we know that the sync event happened at index 1049 (we could know it using `index = ts.get_index_at_event("sync")`), we can discard any data that happened before this index:
 
 ```{code-cell} ipython3
 new_ts = ts.get_ts_after_index(1049)

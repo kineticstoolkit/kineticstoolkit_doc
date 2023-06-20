@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.13.8
+    jupytext_version: 1.14.5
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -13,6 +13,7 @@ kernelspec:
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
+
 %matplotlib inline
 ```
 
@@ -36,16 +37,14 @@ Calculating joint angles requires the following steps:
 
 **Step 5.** Interpret these Euler angle as rotations around anatomical axes.
 
-```{code-cell} ipython3
-import kineticstoolkit.lab as ktk
-```
-
 ## Read and visualize marker trajectories
 
-We start by downloading and visualizing some data, as shown in previous section:
+We start by downloading and visualizing some data:
 
 ```{code-cell} ipython3
 :tags: [remove-output]
+
+import kineticstoolkit.lab as ktk
 
 # Read the markers
 markers = ktk.read_c3d(
@@ -78,7 +77,6 @@ interconnections = {
 
 # Visualize in the player
 ktk.Player(markers, interconnections=interconnections)
-
 ```
 
 ```{code-cell} ipython3
@@ -94,24 +92,29 @@ viewing_options = {
 
 # Create the player
 player = ktk.Player(
-    markers, interconnections=interconnections, **viewing_options
+    markers.get_ts_between_times(0, 1),
+    interconnections=interconnections,
+    **viewing_options
 )
 
 # Show one second (only needed in Notebooks)
-player.to_html5(start_time=0, stop_time=1)
+player._to_animation()
 ```
 
 ## Create local coordinate systems
 
-To calculate the elbow angles, we need to express frames for the arm and forearm segments. The elbow angles will be extracted from the homogeneous transform between both frames.
-
-We will use the recommendations of the International Society of Biomechanics [^1] to define these local coordinate systems:
+To calculate the elbow angles, we need to express frames for the arm and forearm segments. We will use the recommendations of the International Society of Biomechanics [^1] to define these local coordinate systems:
 
 ### Arm coordinate system
 
 Following the ISB recommendations, the local coordinate system for the humerus is defined as follow:
 
-**1. The origin is GH (glenohumeral joint).**
+1. The origin is GH (glenohumeral joint).
+2. The y axis is the line between GH and the midpoint of EL (lateral elbow epicondyle) and EM (medial elbow epicondyle), pointing to GH.
+3. The x axis is the normal to the GH-EL-EM plane, pointing forward.
+4. The z axis is perpendicular to x and y, pointing to the right.
+
+**1. The origin is GH (glenohumeral joint)**
 
 We don't have a marker for the glenohumeral join, but we have one for the acromion. We will approximate GH by the acromion.
 
@@ -137,13 +140,9 @@ yz = markers.data["LateralEpicondyleR"] - markers.data["MedialEpicondyleR"]
 
 Note that the direction of the yz vector is important. For the plane normal to be forward, the cross product of y and yz must also point forward. In this case, following the [right-hand/screw rule](https://en.wikipedia.org/wiki/Right-hand_rule), y (upward) cross yz (right) effectively yields a forward vector.
 
-As an easier rule of thumb, look at the next definition: the z vector will point to right. Then just make the yz vector also point to (grossly) right.
+As an easier rule of thumb, look at the definition 4: the z vector will point to right. Then just make the yz vector also point to (grossly) right since in anatomical position, the right lateral epicondyle is at the right of the right medial epicondyle.
 
-**4. The z axis is perpendicular to x and y, pointing to the right.**
-
-We have now defined everything to create the series of humerus frame.
-
-We first create an empty TimeSeries for our frames:
+We have now defined everything to create the series of humerus frame. We first create an empty TimeSeries for our frames:
 
 ```{code-cell} ipython3
 frames = ktk.TimeSeries(time=markers.time)
@@ -169,11 +168,14 @@ ktk.Player(
 :tags: [remove-input]
 
 player = ktk.Player(
-    markers, frames, interconnections=interconnections, **viewing_options
+    markers.get_ts_between_times(0, 1),
+    frames.get_ts_between_times(0, 1),
+    interconnections=interconnections,
+    **viewing_options
 )
 
 # Show one second in this Jupyter notebook
-player.to_html5(start_time=0, stop_time=1)
+player._to_animation()
 ```
 
 ### Forearm frame
@@ -226,11 +228,14 @@ ktk.Player(
 :tags: [remove-input]
 
 player = ktk.Player(
-    markers, frames, interconnections=interconnections, **viewing_options
+    markers.get_ts_between_times(0, 1),
+    frames.get_ts_between_times(0, 1),
+    interconnections=interconnections,
+    **viewing_options
 )
 
 # Show one second in this Jupyter notebook
-player.to_html5(start_time=0, stop_time=1)
+player._to_animation()
 ```
 
 ## Find the series of homogeneous transforms between both segments
@@ -247,7 +252,7 @@ arm_to_forearm
 
 ## Extract the series of Euler angles
 
-We now have a series of homogeneous matrices, from which we will now extract Euler angles corresponding to flexion and pronation. We will use the [](api/ktk.geometry.get_angles.rst) function to extract these Euler angles. We however fist need to define the sequence of rotation for these angles. Still following the recommendations of the International Society of Biomechanics [^1], we define the series of rotations from the arm to forearm as:
+We now have a series of homogeneous matrices, from which we will now extract Euler angles corresponding to flexion and pronation. We will use the [ktk.geometry.get_angles](api/ktk.geometry.get_angles.rst) function to extract these Euler angles. We however fist need to define the sequence of rotation for these angles. Still following the recommendations of the International Society of Biomechanics [^1], we define the series of rotations from the arm to forearm as:
 
 **First rotation:** Around the humerus' z axis. Corresponds to a flexion (positive) or hyperextension (negative).
 
@@ -255,7 +260,7 @@ We now have a series of homogeneous matrices, from which we will now extract Eul
 
 **Third rotation:** Around the forearm's rotated y axis. Corresponds to a pronation (positive) or supination (negative).
 
-These rotations are relative to moving axes (every other rotation is performed around a new frame generated by the previous rotation). Therefore, we will use 'ZXY' (capital letters - see [](api/ktk.geometry.get_angles.rst) for the conventions) as the sequence of rotations.
+These rotations are relative to moving axes (every other rotation is performed around a new frame generated by the previous rotation). Therefore, we will use 'ZXY' (capital letters - see [ktk.geometry.get_angles](api/ktk.geometry.get_angles.rst) for the conventions) as the sequence of rotations.
 
 ```{code-cell} ipython3
 euler_angles = ktk.geometry.get_angles(arm_to_forearm, "ZXY", degrees=True)

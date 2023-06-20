@@ -17,21 +17,21 @@ kernelspec:
 %matplotlib inline
 ```
 
-# Integers and floats
+# Difference between integers and floats
 
 Usually, floats and integers fulfil different roles:
 
 ::::{grid}
 :::{grid-item-card}
 **Floats** are used to represent real, physical values:
-- Force in newtons
-- Distance in meters
-- Power in watts
-- Angle in radians
+- A force in newtons
+- A distance in meters
+- A power in watts
+- An angle in radians
 - etc.
 :::
 :::{grid-item-card}
-**Integers** are used to represents:
+**Integers** are used to represents ranks, indexes, counts, etc:
 - An index in a list (e.g, 5th value of a list)
 - A number of repetitions
 - A number of events

@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.4
+    jupytext_version: 1.14.5
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -17,16 +17,15 @@ kernelspec:
 %matplotlib inline
 ```
 
-
 # Filtering unidimensional arrays
 
 :::{important}
-This section is about manipulating NumPy arrays, and more precisely about selecting specific indexes in an array using a mask of booleans or integers. This is not about filtering a signal using a moving average or Butterworth filter, which will be seen later in section [](filters.md).
+This section is about manipulating NumPy arrays, and more precisely about selecting specific indexes in an array using a mask of booleans or integers. This is not about filtering a time series using a moving average or Butterworth filter, which will be seen later in section [](filters.md).
 :::
 
 We learned how to access **one data** using indexing, and **multiple regularly-spaced data** using slicing. To read **multiple non-regularly-spaced data**, we use filtering. We call it filtering because we selectively filter out some data using a mask.
 
-Here is our original array or 10 values from [](numpy_indexing_slicing_1d.md):
+Using these NumPy arrays:
 
 ```{code-cell} ipython3
 import numpy as np
@@ -34,12 +33,9 @@ import matplotlib.pyplot as plt
 
 data = np.array([0.0, 0.58, 0.95, 0.95, 0.58, 0.0, -0.59, -0.96, -0.96, -0.59])
 time = np.arange(10) / 10
-
-plt.plot(data, "s-")
-plt.grid(True);
 ```
 
-Now, let's say we want to keep only the following indexes:
+Let's say we want to keep only the following indexes:
 
 ```{code-cell} ipython3
 :tags: [remove-input]
@@ -100,11 +96,11 @@ plt.tight_layout();
 Since indexes can also be negative, then masks of integers can also use negative values.
 :::
 
-In [](numpy_arithmetics.md), we learned how to generate arrays of bool by comparing an array to a number using comparison operators such as `==`, `<`, `>=`, etc. These comparisons make a powerful way to filter an array. For example, to keep every positive value and reject the rest:
+In section [](numpy_arithmetics.md), we learned how to generate arrays of bool by comparing an array to a number using comparison operators such as `==`, `<`, `>=`, etc. These comparisons are a powerful way to filter an array. For example, to keep every positive value and reject the rest:
 
 ```{code-cell} ipython3
 to_keep = data >= 0  # Create a boolean mask of the values to keep
-print(f"to_keep = {to_keep}")
+print("to_keep =", to_keep)
 
 plt.plot(time, data, "s-", label="Original data")
 plt.plot(time[to_keep], data[to_keep], "o-", label="Filtered data")
@@ -115,7 +111,7 @@ Or, as another example, to replace any negative value by 0:
 
 ```{code-cell} ipython3
 is_negative = data < 0
-print(f"is_negative = {is_negative}")
+print("is_negative =", is_negative)
 
 new_data = data.copy()
 new_data[is_negative] = 0  

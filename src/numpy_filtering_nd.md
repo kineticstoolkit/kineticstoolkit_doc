@@ -19,7 +19,7 @@ kernelspec:
 
 # Filtering multidimensional arrays
 
-In the previous section, we learned how to use lists of boolean and lists of integers to filter unidimensional arrays. This also works on multidimensional arrays, although filtering on axes other than the first one is somewhat unintuitive and may lead to unexpected array shapes. Luckily, in biomechanical data processing, filtering happens mainly on the first axis, which usually corresponds to time.
+In section [](numpy_filtering_1d.md), we learned how to use lists of boolean and lists of integers to filter unidimensional arrays. This also works on multidimensional arrays, although filtering on axes other than the first one is somewhat unintuitive and may lead to unexpected array shapes. Luckily, in biomechanical data processing, filtering happens mainly on the first axis, which usually corresponds to time.
 
 **Example: Read the marker's coordinates at samples 0 and 2**
 

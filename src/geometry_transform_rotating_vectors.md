@@ -19,7 +19,7 @@ kernelspec:
 
 # Rotating vectors
 
-For this second example, let's apply this same transform to a vector of 10 units toward de x axis (10, 0, 0).
+For this second example, let's apply this same transform to a vector of 10 units toward de x axis (10, 0, 0) as shown in {numref}`fig_geometry_moving_vectors`.
 
 ```{figure-md} fig_geometry_moving_vectors
 :width: 4in
@@ -85,7 +85,7 @@ ktk.geometry.matmul(T, [[10, 0, 0, 1]])
 ```
 
 
-## Direct movement in Kinetics Toolkit
+## Direct transformation in Kinetics Toolkit
 
 We can also rotate the vector directly using [ktk.geometry.rotate](api/ktk.geometry.rotate.rst):
 

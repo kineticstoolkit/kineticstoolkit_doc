@@ -1,6 +1,6 @@
 # Exercise: Frame
 
-{numref}`fig_geometry_basics_exercise` shows rotated local coordinate systems for both the upper arm and forearm. Knowing that the position of the elbow in global coordinates is $(0.34, 0.371, 0)$, and that the forearm is inclined by $50^\circ$ compared to the global reference frame, construct this 4x4 matrix: $^\text{global} _\text{forearm} T$.
+{numref}`fig_geometry_basics_exercise` shows inclined local coordinate systems for both the upper arm and forearm. Knowing that the position of the elbow in global coordinates is $(0.34, 0.371, 0)$, and that the forearm is inclined by $50^\circ$ compared to the global reference frame, construct this 4x4 matrix: $^\text{global} _\text{forearm} T$.
 
 ```{figure-md} fig_geometry_basics_exercise
 :width: 3in

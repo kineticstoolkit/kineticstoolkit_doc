@@ -19,7 +19,7 @@ kernelspec:
 
 # Moving points
 
-Let say we want to rotate the point located at (10, 0, 0) by 30 degrees around the origin's z axis, then translate it 2 units to the right:
+Let say we want to rotate the point located at (10, 0, 0) by 30 degrees around the origin's z axis, then translate it 2 units to the right as shown in {numref}`fig_geometry_moving_points`.
 
 ```{figure-md} fig_geometry_moving_points
 :width: 4in
@@ -94,7 +94,7 @@ The function [ktk.geometry.matmul](api/ktk.geometry.matmul.rst) performs matrix 
 ktk.geometry.matmul(T, [[10, 0, 0, 1]])
 ```
 
-## Direct movement in Kinetics Toolkit
+## Direct transformation in Kinetics Toolkit
 
 Kinetics Toolkit's geometry module also provides simpler function to provide basic geometry operations, such as [ktk.geometry.rotate](api/ktk.geometry.rotate.rst), [ktk.geometry.translate](api/ktk.geometry.translate.rst) and [ktk.geometry.scale](api/ktk.geometry.scale.rst). If we don't need to express a full homogeneous transform, then we can use these simpler functions:
 

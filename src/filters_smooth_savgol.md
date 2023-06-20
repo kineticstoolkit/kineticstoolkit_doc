@@ -16,11 +16,12 @@ kernelspec:
 %matplotlib inline
 ```
 
-# Moving average and Savitsky-Golay
+# Moving average, Savitsky-Golay and deriving filters
 
 This section presents the following functions:
 - [ktk.filters.smooth](api/ktk.filters.smooth.rst)
-- [ktk.filters.savgol](api/ktk.filters.savgol.rst).
+- [ktk.filters.savgol](api/ktk.filters.savgol.rst)
+- [ktk.filters.deriv](api/ktk.filters.deriv.rst).
 
 ## Smoothing using a moving average
 
@@ -76,7 +77,7 @@ filtered.rename_data("quantized", "filtered", in_place=True)
 ts.merge(filtered).plot(["clean", "quantized", "filtered"], '.-')
 ```
 
-## Deriving using a Savitzky-Golay filter
+## Deriving TimeSeries
 
 Heavily quantized signals are often difficult to derivate because they contain lors of plateaus that, once derived, are transformed to series of spikes. For instance, let's see how deriving a quantized signal works withouth filtering, using [ktk.filters.deriv](api/ktk.filters.deriv.rst):
 
@@ -86,7 +87,7 @@ derived = ktk.filters.deriv(ts)
 derived.plot(["clean", "quantized"], ".-")
 ```
 
-Deriving using a Savitzky-Golay filter consists in deriving the polynomial that is fitted over the moving window. Using a 2nd-order Savitzky-Golay filter with a window length of 7:
+We can derive a signal using a Savitzky-Golay filter, which consists in deriving the polynomial that is fitted over the moving window. Using a 2nd-order Savitzky-Golay filter with a window length of 7:
 
 ```{code-cell} ipython3
 derived_savgol = ktk.filters.savgol(
@@ -101,7 +102,7 @@ which gives the blue curve below:
 derived.rename_data("clean", "derivative of the clean signal", in_place=True)
 derived.rename_data("quantized", "derived from quantized signal, without filtering", in_place=True)
 derived_savgol.rename_data("quantized", "derived from quantized signal, using savgol", in_place=True)
-derived_savgol.resample(derived.time, fill_value="extrap", in_place=True)
+derived_savgol.resample(derived.time, in_place=True)
 derived.merge(derived_savgol).plot(
     [
         "derivative of the clean signal",

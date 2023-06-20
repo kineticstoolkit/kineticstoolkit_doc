@@ -19,7 +19,7 @@ kernelspec:
 
 # Exercise: Slicing lists 2
 
-Let's get back to the spatial parameters of gait measured in [previously](python_lists_indexing_exercise1.md). For a given participant, we recorded this `y`:
+Let's get back to the spatial parameters of gait measured [previously](python_lists_indexing_exercise1.md). For a given participant, we recorded this `y`:
 
 ```{code-cell}
 # y-coordinates of each heel strike, in meters

@@ -28,7 +28,7 @@ We affix an inclinometer on a person's arm. We ask the person to reach different
 Different shoulder flexion angles.
 ```
 
-The inclinometer's readings are stored in a dictionary as follows:
+The inclinometer's readings are stored in degrees into a dictionary as follows:
 
 ```{code-cell} ipython3
 incline = {

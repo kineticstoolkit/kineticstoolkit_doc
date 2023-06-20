@@ -7,6 +7,6 @@ Suppose that we take three measurements of a given quantity (for instance, the h
 height = (height1 + height2 + height3) / 3
 ```
 
-But what if we take hundreds of even thousands of measurements? At some point, it will be impossible to write clean code that process so many variables.
+But what if we take hundreds of even thousands of measurements? At some point, it will be impossible to write clean code that processes so many variables.
 
-Python provides powerful constructs to contain large numbers of values in a structured way: the list, the tuple, the dictionary and the set, with the most useful and versatiles being the list and dictionary. This section shows the list and the tuple.
+Python provides powerful constructs to contain large numbers of values in a structured way, the most common being the list, the tuple and the dictionary. This section introduces the list and the tuple.

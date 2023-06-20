@@ -5,7 +5,7 @@ format: jb-book
 root: [](index.md)
 
 parts:
-- caption: "The Basics"
+- caption: "Part I. Getting Started"
   numbered: true
     - file: [](getting_started_intro.md)
     - file: [](getting_started.md)
@@ -13,7 +13,7 @@ parts:
         - file: [](getting_started_configuring_spyder.md)
         - file: [](getting_started_using_spyder.md)
 
-- caption: "Learning Python for Biomechanics"
+- caption: "Part II. Learning Python for Biomechanics"
   numbered: true
     - file: [](python_intro.md)
         - file: [](python_basics.md)
@@ -109,12 +109,13 @@ parts:
         - file: [](numpy_import.md)
         - file: [](numpy_ndarray.md)
             - file: [](numpy_ndarray_introduction.md)
+            - file: [](numpy_ndarray_dimensions.md)
             - file: [](numpy_ndarray_creating_from_lists.md)
             - file: [](numpy_ndarray_creating_zeros_ones.md)
                 - file: [](numpy_ndarray_creating_zeros_ones_exercise1.md)
                 - file: [](numpy_ndarray_creating_zeros_ones_exercise2.md)
             - file: [](numpy_ndarray_creating_linspace.md)
-            - file: [](numpy_ndarray_creating_linspace_exercise.md)
+                - file: [](numpy_ndarray_creating_linspace_exercise.md)
         - file: [](numpy_arithmetics.md)
             - file: [](numpy_arithmetics_exercise.md)
         - file: [](numpy_matmul.md)
@@ -140,7 +141,7 @@ parts:
                 - file: [](numpy_filtering_nd_exercise.md)
         - file: [](numpy_exercises.md)
 
-- caption: "Going further with Kinetics Toolkit"
+- caption: "Part III. Going further with Kinetics Toolkit"
   numbered: true
     - file: [](ktk_importing.md)
     - file: [](timeseries.md)
@@ -175,7 +176,7 @@ parts:
             - file: [](geometry_points_vectors.md)
             - file: [](geometry_local_coordinates.md)
             - file: [](geometry_frames.md)
-            - file: [](geometry_basics_exercise.md)
+                - file: [](geometry_basics_exercise.md)
             - file: [](geometry_dimension_conventions.md)
                 - file: [](geometry_dimension_conventions_exercise1.md)
                 - file: [](geometry_dimension_conventions_exercise2.md)
@@ -205,6 +206,20 @@ parts:
         - file: [](kinematics_reconstructing_removed_markers.md)
         - file: [](kinematics_reconstructing_probed_points.md)
 
+- caption: Appendix
+  numbered: false
+    - file: [](datasets.md)
+        - file: [](dataset_kinematics_tennis_serve.md)
+        - file: [](dataset_kinetics_wheelchair_propulsion.md)
+        - file: [](dataset_emg.md)
+    - file: [](ktk_citing.md)
+    - file: [](dev_contributors.md)
+        - file: [](dev_extensions.md)
+        - file: [](dev_rules.md)
+        - file: [](dev_code_of_conduct.md)
+        - file: [](dev_installing_from_github.md)
+        - file: [](dev_coding_style.md)
+
 - caption: API Reference
   numbered: false
     - file: [](ktk_conventions.md)
@@ -212,21 +227,5 @@ parts:
     - file: [](api_functions.md)
     - file: [](api_modules.md)
     - file: [](extensions.md)
-
-- caption: Appendix
-  numbered: false
-    - file: [](datasets.md)
-        - file: [](dataset_kinematics_tennis_serve.md)
-        - file: [](dataset_kinetics_wheelchair_propulsion.md)
-        - file: [](dataset_emg.md)
-    - file: [](dev_contributors.md)
-    - file: [](dev_contributing.md)
-    - file: [](ktk_citing.md)
-    - file: [](dev_developing.md)
-        - file: [](dev_extensions.md)
-        - file: [](dev_rules.md)
-        - file: [](dev_code_of_conduct.md)
-        - file: [](dev_installing_from_github.md)
-        - file: [](dev_coding_style.md)
     - url: https://github.com/felixchenier/kineticstoolkit
       title: GitHub repository

@@ -18,7 +18,7 @@ kernelspec:
 
 # Reconstructing probed points
 
-In the previous section, we learned how to reconstructed "virtual" markers that are not physically attached to a bony landmark, but that were during a previous acquisition. Sometimes, it is completely impossible to affix a marker on a landmark, for example if the landmark is obstructed with clothes or other objects. In these situation, it may be possible to use a digitizing probe ({numref}`fig_kinematics_probe`) to point landmarks during short acquisitions of a few seconds, and use these probed points to reconstruct the landmarks trajectory during other acquisitions.
+In section [](kinematics_reconstructing_removed_markers.md), we learned how to reconstructed "virtual" markers that are not physically attached to a bony landmark, but that were during a static calibration acquisition. Sometimes, it is completely impossible to affix a marker on a landmark, for example if the landmark is obstructed with clothes or other objects. In these situation, it may be possible to use a digitizing probe ({numref}`fig_kinematics_probe`) to point landmarks during short acquisitions of a few seconds, and use these probed points to reconstruct the landmarks trajectory during other acquisitions.
 
 ```{figure-md} fig_kinematics_probe
 :width: 4in
@@ -30,12 +30,12 @@ A digitizing probe (Optitrack).
 
 The whole process is a bit more complex than in the previous tutorials, but the tools provided by Kinetics Toolkit will help. The following example represents such a situation, where the following acquisitions were performed:
 - With a rigid body of three markers affixed to the right arm, an acquisition of a few seconds was recorded while another person touched the medial elbow epicondyle with the tip of the probe. Both were barely moving.
-- A wheelchair propulsion acquisition was then recorded.
-- We want to reconstruct the trajectory of the right medial elbow epicondyle during the propulsion acquisition, even if it was not present during the acquisition.
+- A task acquisition was then recorded.
+- We want to reconstruct the trajectory of the right medial elbow epicondyle during the task, even if it was not present during the task.
 
 ## Loading sample data
 
-We will create two TimeSeries, one representing the markers available during the probing acquisition, and the other representing the markers available during the propulsion acquisition.
+We will create two TimeSeries, one that represents the markers during the probing acquisition, and the other representing the markers during the task acquisition.
 
 ```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
@@ -55,17 +55,17 @@ markers_probing.data
 
 ```{code-cell} ipython3
 # Propulsion acquisition
-markers_propulsion = ktk.read_c3d(
+markers_task = ktk.read_c3d(
     ktk.doc.download("kinematics_racing_propulsion.c3d")
 )["Points"]
-markers_propulsion = markers_propulsion.get_subset(["ArmR1", "ArmR2", "ArmR3"])
+markers_task = markers_task.get_subset(["ArmR1", "ArmR2", "ArmR3"])
 
-markers_propulsion.data
+markers_task.data
 ```
 
 ## Defining the probe calibration
 
-Before beginning with this tutorial, we must know the configuration of the probe. What we need is the position of the probe markers in the probe's local coordinate system, assuming that this coordinate system's origin is at the probe tip. These positions are generally found in rigid body configuration files or in calibration certificates. In this tutorial, our probe has four markers with the following local coordinates:
+We must know the configuration of the probe. What we need is the position of the probe markers in the probe's local coordinate system, assuming that this coordinate system's origin is at the probe tip. These positions are generally found in rigid body configuration files or in calibration certificates. In this tutorial, our probe has four markers with the following local coordinates:
 
 - Probe1: (0.0021213, -0.0158328, 0.0864285) m
 - Probe2: (0.0021213, 0.0158508, 0.0864285) m
@@ -84,9 +84,9 @@ probe = {
 }
 ```
 
-## Tracking the probe in the probing acquisition
+## Tracking the probe during the probing acquisition
 
-In the probing acquisition, since the probe tip points on the medial epicondyle, we can consider the probe tip as if it was a real marker affixed on the medial epicondyle. The first step is therefore to track the probe tip during the probing acquisition, using the four markers of the probe.
+In the probing acquisition, since the probe tip points on the medial epicondyle, we can consider the probe tip as if it was a real marker affixed on the medial epicondyle. The first step is therefore to track the probe tip using the four markers of the probe.
 
 ```{code-cell} ipython3
 reconstructed_probe_markers_during_probing = ktk.kinematics.track_cluster(
@@ -97,7 +97,7 @@ reconstructed_probe_markers_during_probing = ktk.kinematics.track_cluster(
 reconstructed_probe_markers_during_probing.data
 ```
 
-Since we reconstructed the trajectory of the probe tip during the probing acquisition, we can now consider that this trajectory is the same as if a real marker had been affixed on the medial epicondyle.
+We can now consider that the trajectory of the probe tip is the same as if a real marker had been affixed on the medial epicondyle.
 
 ```{code-cell} ipython3
 markers_probing.data[
@@ -109,7 +109,7 @@ markers_probing.data
 
 ## Creating a cluster of markers
 
-We are now in the same situation as the beginning of the previous tutorial. We can now create a cluster that includes the three rigid body markers, **and** the medial epicondyle.
+We are now in the same situation as the beginning of section [](kinematics_reconstructing_removed_markers.md). We can now create a cluster that includes the three rigid body markers, **and** the medial epicondyle.
 
 ```{code-cell} ipython3
 cluster = ktk.kinematics.create_cluster(
@@ -125,22 +125,22 @@ print(cluster["MedialEpicondyleR"])
 
 ## Tracking the cluster
 
-Now, exactly like on the previous tutorial, we use this cluster to reconstruct the whole set of four "markers" during the propulsion acquisitions, including the epicondyle.
+Now, we use this cluster to reconstruct the whole set of four "markers" during the task acquisitions, including the epicondyle.
 
 ```{code-cell} ipython3
-reconstructed_markers_propulsion = ktk.kinematics.track_cluster(
-    markers_propulsion,
+reconstructed_markers_task = ktk.kinematics.track_cluster(
+    markers_task,
     cluster,
 )
 
 # Plot the results
 plt.subplot(2, 2, 1)
-reconstructed_markers_propulsion.plot("ArmR1")
+reconstructed_markers_task.plot("ArmR1")
 plt.subplot(2, 2, 2)
-reconstructed_markers_propulsion.plot("ArmR2")
+reconstructed_markers_task.plot("ArmR2")
 plt.subplot(2, 2, 3)
-reconstructed_markers_propulsion.plot("ArmR3")
+reconstructed_markers_task.plot("ArmR3")
 plt.subplot(2, 2, 4)
-reconstructed_markers_propulsion.plot("MedialEpicondyleR")
+reconstructed_markers_task.plot("MedialEpicondyleR")
 plt.tight_layout()
 ```

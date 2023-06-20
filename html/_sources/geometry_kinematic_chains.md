@@ -34,7 +34,7 @@ In this example, we will calculate the position of the wrist in global coordinat
 
 **Solution:**
 
-The way to solve this problem is to see it as a chain of parent-child relations between coordinate systems (CS). Before solving this problem, let's consider the previous example in the form of a parent-child chain.
+The way to solve this problem is to see it as a chain of parent-child relations between coordinate systems (CS). Let's consider the previous example in the form of a parent-child chain.
 
 $$
 \text{global CS} \rightarrow \text{upper arm CS} \rightarrow \text{elbow}
@@ -89,44 +89,10 @@ $$
 Take a look at how using this notation, the upper and lower indices cancel out to give the final transformation.
 :::
 
-## Exercise
-
-Develop the three terms of the equation above to solve this example. No need to try performing the matrix multiplication itself. Then toggle the solution below to verify your solution.
-
-:::{toggle}
-
-$$
-^\text{forearm}p_\text{wrist} =
-\begin{bmatrix}
-0 \\ -0.34 \\ 0 \\ 1
-\end{bmatrix}
-$$
-
-$$
-^\text{upper arm}_\text{forearm}T =
-\begin{bmatrix}
-\cos(20) & -\sin(20) & 0 & 0 \\
-\sin(20) & \cos(20) & 0 & -0.38 \\
-0 & 0 & 1 & 0 \\
-0 & 0 & 0 & 1
-\end{bmatrix}
-$$
-
-$$
-^\text{global}_\text{upper arm}T =
-\begin{bmatrix}
-\cos(30) & -\sin(30) & 0 & 0.15 \\
-\sin(30) & \cos(30) & 0 & 0.7 \\
-0 & 0 & 1 & 0 \\
-0 & 0 & 0 & 1
-\end{bmatrix}
-$$
-
-:::
 
 ## Navigating between chain elements using Kinetics Toolkit
 
-We already know enough functions of the [ktk.geometry](api/ktk.geometry.rst) module to solve this example. The first step is to create the known frames and positions:
+Using Kinetics Toolkit, we can solve this example by performing the last equation. We first express the local position of the wrist, and the reference frames of the forearm and upper arm:
 
 ```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
@@ -145,7 +111,7 @@ global_T_upperarm = ktk.geometry.create_transforms(
 )
 ```
 
-One method to reach the final answer is to simply perform the multiplication using [ktk.geometry.matmul](api/ktk.geometry.matmul.rst):
+Then we apply the multiplication directly:
 
 ```{code-cell} ipython3
 global_p_wrist = ktk.geometry.matmul(
@@ -155,7 +121,7 @@ global_p_wrist = ktk.geometry.matmul(
 global_p_wrist
 ```
 
-Another, equivalent method, is to iteratively expressing everything in global coordinates using [ktk.geometry.get_global_coordinates](api/ktk.geometry.get_global_coordinates.rst). We already defined the upper arm frame:
+Another, equivalent method, is to iteratively express everything in global coordinates using [ktk.geometry.get_global_coordinates](api/ktk.geometry.get_global_coordinates.rst). We already defined the upper arm frame:
 
 ```{code-cell} ipython3
 global_T_upperarm

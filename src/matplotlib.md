@@ -9,7 +9,7 @@ Matplotlib is a standard for producing high-quality and interactive figures. The
 Matplotlib logo
 ```
 
-Matplotlib can generate a high diversity of plots. Here are different examples that are relevant to biomechanics, directly reproduced from the {{matplotlib}} website:
+Matplotlib can generate a high diversity of plots. Here are different examples that are relevant to biomechanics, reproduced from the {{matplotlib}} website:
 
 |              {{plt_plot}}               |              {{plt_scatter}}               |              {{plt_fill_between}}               | 
 |:---------------------------------------:|:------------------------------------------:|:-----------------------------------------------:|
@@ -19,7 +19,7 @@ Matplotlib can generate a high diversity of plots. Here are different examples t
 |:-----------------------------------------:|:-------------------------------------------:|:--------------------------------------:|
 | ![](_static/images/matplotlib_imshow.jpg) | ![](_static/images/matplotlib_errorbar.jpg) | ![](_static/images/matplotlib_bar.jpg) |
 
-This guide focuses uniquely on line plots using {{plt_plot}}. After learning it and [](numpy.md), any other type of plot will become relatively easy to draw just be reading their documentation.
+This chapter focuses uniquely on line plots using {{plt_plot}}. However, after learning this type of plot and [](numpy.md), any other type of plot will become relatively easy to draw just by reading their documentation.
 
 **Chapter Contents**
 

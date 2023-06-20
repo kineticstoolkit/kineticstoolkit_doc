@@ -20,7 +20,7 @@ kernelspec:
 
 # Exercise: Looping using **for**
 
-In an example of section [](python_while.md), we took some measurements in metres, that we needed to convert in millimeters.
+In section [](python_while.md), we took some measurements in metres, that we needed to convert to millimeters.
 
 ```{code-cell}
 meters = [0.329, 0.009, 0.210, 0.726, 0.686, 0.912, 0.285, 0.833, 0.334, 0.165]

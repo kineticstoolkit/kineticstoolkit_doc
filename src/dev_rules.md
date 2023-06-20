@@ -19,7 +19,7 @@ Kinetics Toolkit supports extensions. This means you can program and distribute 
 
 ## Rule 4: Contributing code to the core library
 
-Before contributing code to the core library, please start a discussion [discussion](https://github.com/felixchenier/kineticstoolkit/discussions) to avoid misunderstanding or disappointment before even starting to code. Everybody's efforts should converge toward an efficient direction. Once we agree on the feature being developed, use the usual method of forking, writing, testing, and writing a pull request that is described [here](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models).
+Before contributing code to the core library, please start a [discussion](https://github.com/felixchenier/kineticstoolkit/discussions) to avoid misunderstanding or disappointment before even starting to code. Everybody's efforts should converge toward an efficient direction. Once we agree on the feature being developed, use the usual method of forking, writing, testing, and writing a pull request that is described [here](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/getting-started/about-collaborative-development-models).
 
 Before creating a pull request, please ensure that:
 

@@ -1,18 +1,18 @@
 # Installing from GitHub
 
-To help developping Kinetics Toolkits by testing it or extending it, you can install it directly from git-hub.
+To help developping Kinetics Toolkits by testing it or extending it, you can install it directly from GitHub.
 
 ## To check out the master branch
-
-First start by installing the [stable version](getting_started_installing.md), which will take care of most dependencies. Then, you:
 
 1. Clone the git repository: `git clone https://github.com/felixchenier/kineticstoolkit.git kineticstoolkit`
 
 2. Add the `kineticstoolkit` folder to your `PYTHONPATH` according to your favourite IDE and python installation.
 
+You will need to install Kinetics Toolkit's dependencies if you don't already installed them.
+
 ## To modify Kinetics Toolkit's code
 
-First install these additional modules:
+First install these modules:
 
 - pytest
 - mypy

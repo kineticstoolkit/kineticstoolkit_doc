@@ -19,7 +19,7 @@ kernelspec:
 
 # Exercise: Function return values 2
 
-Based on the function `print_info` that you created a [previous example](python_functions_arguments_exercise.md), create a new function `format_info` that, instead of printing the information, creates a string and returns it, so that:
+Based on the function `print_info` that you created [previously](python_functions_arguments_exercise.md), write a function named `format_info` that returns a string so that:
 
 ```
 print(format_info(1, "Catherina", "Smith", 20, 1.5, 50.2))
@@ -35,10 +35,8 @@ prints this:
     BMI: 22.31
     =============
 
-Instead of calculating the BMI manually in the function, use a call to the `calculate_bmi` function that you wrote [previously](python_functions_return_exercise1.md).
-
 :::{tip}
-You may want to return section [](python_strings.md) for a refresh on how to include [line breaks in strings](python_strings_long_strings.md), how to create [long strings ](python_strings_long_strings.md), and how to [add variables in strings](python_strings_fstrings.md).
+You may want to return section [](python_strings.md) for a refresher on how to include [line breaks in strings](python_strings_long_strings.md), how to create [long strings](python_strings_long_strings.md), and how to [add variables in strings](python_strings_fstrings.md).
 :::
 
 ```{code-cell} ipython3

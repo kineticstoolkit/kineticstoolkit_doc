@@ -35,6 +35,7 @@ a) Do this exercise by creating the corresponding homogeneous transform using [k
 
 ```{code-cell} ipython3
 :tags: [hide-cell]
+
 import kineticstoolkit.lab as ktk
 import numpy as np
 
@@ -58,9 +59,9 @@ ktk.geometry.matmul(T, p)
 
 b) Do this exercise using the [ktk.geometry.rotate](api/ktk.geometry.rotate.rst) and [ktk.geometry.translate](api/ktk.geometry.translate.rst) function.
 
-
 ```{code-cell} ipython3
 :tags: [hide-cell]
+
 p = np.array(
     [
         [3.0, 4.0, 5.0, 1.0],

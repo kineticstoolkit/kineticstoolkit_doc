@@ -26,8 +26,8 @@ empty_dict = {}
 dict_of_integers = {1: 11, 2: 22, 5: 55}
 ```
 
-Here, we used integers for both the keys and values. In reality:
-- the key can be of many types, the most common being integers or strings;
+Here, we used integers for both the keys and values, but in reality:
+- the key can be of many types such as integers or strings;
 - the value can be of any type.
 
 ```{code-cell} ipython3

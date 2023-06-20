@@ -32,4 +32,4 @@ Up to now, we referred to numbers simply as "numbers". In reality, numbers belon
 The three sets of numbers in Python.
 ```
 
-We will however focus only on `int` and `float`.
+We will however focus only on integers (`int`) and real numbers (`float`).

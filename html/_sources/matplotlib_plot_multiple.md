@@ -24,7 +24,6 @@ Many series can be plotted on the same figure, simply by calling `plt.plot` mult
 ```{code-cell} ipython3
 import matplotlib.pyplot as plt
 
-
 x = [0.0, 5.0, 10.0, 15.0, 20.0]
 y1 = [0.0, 1.0, 4.0, 3.0, -2.0]
 y2 = [1.0, 2.0, 3.0, 4.0, 5.0]
@@ -33,7 +32,7 @@ plt.plot(x, y1)
 plt.plot(x, y2);
 ```
 
-By default, any new plot is added to the same figure. To generate new figures, you have the following options:
+By default, any new plot is added to the same figure. To generate new figures, you may use the following functions:
 
-- `plt.figure()`: The {{plt_figure}} function prepares a new, empty figure that will be used for each subsequent plot, leaving the original one intact.
-- `plt.clf()`: The {{plt_clf}} function **cl**ears the current **f**igure.
+- {{plt_figure}} prepares a new, empty figure that will be used for each subsequent plot, leaving the original one intact.
+- {{plt_clf}} **cl**ears the current **f**igure.

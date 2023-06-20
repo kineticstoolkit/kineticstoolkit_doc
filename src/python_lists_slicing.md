@@ -13,15 +13,15 @@ kernelspec:
 
 # Slicing lists
 
-We already learned how to [index](python_lists_indexing.md) a list: using an integer between square brackets `[]` to extract one data from a list. Sometimes, we need to extract not only one data, but a sub-list containing multiple data. For instance, we may want to keep a certain portion of a list and discard the rest. This is done using slicing.
+We already learned how to [index](python_lists_indexing.md) a list, using an integer between square brackets `[]` to extract one element from a list. Sometimes, we need to extract not only one element, but a sub-list containing multiple elements. For instance, we may want to keep a certain portion of a list and discard the rest. This is done using slicing.
 
-:::{important}
+:::{note}
 Everything on this page also applies to tuples.
 :::
 
 ## Slicing syntax
 
-The syntax for slicing is similar to indexing, the main difference being the use of a column operator `:`. To extract one element from a list, say for example the 3rd element (at index 2), we would use:
+The syntax for slicing is similar to indexing, the main difference being the use of a column operator `:` inside the brackets. To extract one element from a list, say for example the 3rd element (at index 2), we would use:
 
 ```{code-cell}
 list_of_strings = [
@@ -78,21 +78,14 @@ If this last example was harder to understand, let's reuse this tip.
 
 ## Single bounds
 
-Sometimes, we want to slice a list with only one bound. For example, to get every element from index 2 up to the end, we could use:
-
-```{code-cell}
-# From index 2 (inclusive) to the end of the list (exclusive)
-list_of_strings[2:len(list_of_strings)]
-```
-
-There is however a simpler way: simply don't specify an "up to" index.
+We can slice a list with only one bound. For example, to get every element from index 2 up to the end, we simply don't specify an "up to" index:
 
 ```{code-cell}
 # From index 2 (inclusive)
 list_of_strings[2:]
 ```
 
-This means "return a list containing the elements beginning at index 2". Similarly:
+Similarly:
 
 ```{code-cell}
 # Up to index 8 (exclusive)

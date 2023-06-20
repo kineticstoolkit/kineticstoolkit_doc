@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# Setting the axes limits
+# Setting axes limits
 
 When we create a plot interactively, we can zoom on a particular section using the figure's Zoom and Pan buttons. It is also possible to zoom programmatically while we create the figure, using {{plt_axis}}.
 
@@ -51,9 +51,11 @@ plt.plot(random_data, "o-")
 plt.axis([20, 30, 0, 1]);
 ```
 
-## 📄 Square zoom
+## Square zoom
 
-By defaults, plots are rectangular and will adapt their shape to maximize the span on both x and y axes. However, in some circumstances, we need both x and y axes to have the same scale, e.g., to plot the (x, y) trajectory of a point in space. To set the same scale to both axes, we use `plt.axis("square")`. For example, plotting the (x, y) coordinates of a true circle looks like an ellipse by default:
+By defaults, plots are rectangular and will adapt their shape to optimize the scale on both x and y axes. However, in some circumstances, we need both x and y axes to have the same scale, e.g., to plot the (x, y) trajectory of a point in space. To set the same scale to both axes, we use `plt.axis("square")`.
+
+For example, plotting the (x, y) coordinates of a true circle looks like an ellipse by default:
 
 ```{code-cell}
 x = [ 1.        ,  0.96592583,  0.8660254 ,  0.70710678,  0.5       ,

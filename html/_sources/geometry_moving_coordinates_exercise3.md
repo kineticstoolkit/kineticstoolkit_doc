@@ -51,6 +51,7 @@ b) Do this exercise using the [ktk.geometry.rotate](api/ktk.geometry.rotate.rst)
 
 ```{code-cell} ipython3
 :tags: [hide-cell]
+
 p_elbow_ref_arm = np.array([[0.0, -0.5, 0.0, 1.0]])
 
 ktk.geometry.rotate(

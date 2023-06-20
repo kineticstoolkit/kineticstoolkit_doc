@@ -23,7 +23,7 @@ At the end of the example of section [](geometry_kinematic_chains.md), we had ca
 
 Let's see how we could extract the elbow flexion angle from those two frames.
 
-The first step is to calculate the homogeneous transform from the upper arm to the forearm. We learned that this is the same as expressing the forearm frame in reference to the upper arm frame.
+The first step is to calculate the homogeneous transform from the upper arm to the forearm. This is the same as expressing the forearm frame in reference to the upper arm frame.
 
 ```{code-cell} ipython3
 import kineticstoolkit.lab as ktk

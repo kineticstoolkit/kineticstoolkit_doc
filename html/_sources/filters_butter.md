@@ -18,9 +18,7 @@ kernelspec:
 
 # Butterworth filter
 
-This section shows how to remove specific ranges of frequencies from a TimeSeries using [ktk.filters.butter](api/ktk.filters.butter.rst).
-
-The Butterworth filter may be the most used filter in biomechanics. It removes ranges of frequencies from the signal's frequency spectrum. Normally, we first identify the frequency range of our data, so that we can remove any signal outside this range.
+The Butterworth filter may be the most used filter in biomechanics. It removes ranges of frequencies from the signal's frequency spectrum. Normally, we first identify the frequency range of our data, so that we can remove any signal frequencies outside this range.
 
 Let's start by loading some noisy data.
 
@@ -53,7 +51,7 @@ ts_filtered = ktk.filters.butter(ts_noisy, btype="highpass", fc=20)
 ts_filtered.plot()
 ```
 
-Only the transitions are kept, all the stable parts of the signal are removed.
+Only the transitions were kept; all the stable parts of the signal were removed.
 
 ## Band-pass filter
 

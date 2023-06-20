@@ -76,9 +76,9 @@ To know the sample rate of a TimeSeries (i.e., the number of data points per sec
 ts.get_sample_rate()
 ```
 
-## Resampling to a new frequency
+## Resampling
 
-To resample the TimeSeries to a different sample rate, we use [ktk.TimeSeries.resample](api/ktk.TimeSeries.resample.rst), which takes a new frequency or time array as argument. To downsample our TimeSeries to 20Hz, we would do:
+To resample the TimeSeries to a different sample rate, we use [ktk.TimeSeries.resample](api/ktk.TimeSeries.resample.rst), which takes either a new frequency or a new time array as argument. To downsample our TimeSeries to 20Hz, we would do:
 
 ```{code-cell} ipython3
 ts_20Hz = ts.resample(20.0)
@@ -93,10 +93,10 @@ ts_20Hz.plot([], ".-")
 ```
 
 :::{good-practice} Filtering before downsampling
-It is usually important to filter a signal before downsampling it, to respect the [Nyquist–Shannon sampling theorem](https://en.wikipedia.org/wiki/Nyquist%E2%80%93Shannon_sampling_theorem) and thus avoid aliasing. Filtering will be seen [later](filters.md).
+It is usually important to [filter](filters.md) a signal before downsampling it, to respect the [Nyquist–Shannon sampling theorem](https://en.wikipedia.org/wiki/Nyquist%E2%80%93Shannon_sampling_theorem) and thus avoid aliasing.
 :::
 
-We use the same method to upsample. Note that when we upsample a signal, we may want to select the interpolation method because different interpolation methods may produce much different results. For example, let's upscale the `ts_20Hz` signal using different interpolation methods:
+We use the same method to upsample a signal. Note that in this case, we may want to select the interpolation method since different interpolation methods may produce much different results. For example, if we upscale the `ts_20Hz` signal using different interpolation methods:
 
 ```{code-cell} ipython3
 # Zero order (sample-and-hold)
@@ -112,7 +112,7 @@ ts_200Hz_cubic = ts_20Hz.resample(200.0, kind="cubic")
 ts_200Hz_pchip = ts_20Hz.resample(200.0, kind="pchip")
 ```
 
-which gives:
+we get:
 
 ```{code-cell} ipython3
 :tags: [remove-input]
@@ -140,9 +140,7 @@ plt.title("pchip")
 plt.tight_layout()
 ```
 
-## Resampling to new times
-
-Instead of specifying a new frequency, we can resample directly on a new array of times. This is practical if we want to combine data from individual instruments thay may have their own sampling frequency.
+Instead of specifying a new frequency, we can resample directly to a new time array. This is practical to combine data from individual instruments thay may have their own sampling frequency.
 
 ```{code-cell} ipython3
 instrument1 = ktk.TimeSeries()
@@ -176,9 +174,9 @@ resampled_instrument1.plot("data1", "r.-")
 instrument2.plot("data2", "g.-")
 ```
 
-:::{note}
+:::{tip}
 
-We already learned the [ktk.TimeSeries.merge](api/ktk.TimeSeries.merge.rst) method to combine two TimeSeries. If both TimeSeries have different sampling rates as in t he previous example, then [ktk.TimeSeries.merge](api/ktk.TimeSeries.merge.rst) will fail. We need to resample the TimeSeries before merging them, as we did above.
+We already learned the [ktk.TimeSeries.merge](api/ktk.TimeSeries.merge.rst) method to combine two TimeSeries. If both TimeSeries have different sampling rates as in the previous example, then [ktk.TimeSeries.merge](api/ktk.TimeSeries.merge.rst) will fail. We need to resample the TimeSeries before merging them, as we did above.
 
 ```
 ts1 = ts1.resample(ts2.time, kind="...")

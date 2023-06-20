@@ -30,7 +30,7 @@ dict_of_integers = {1: 11, 2: 22, 5: 55}
 dict_of_integers[3]
 ```
 
-However, assigning a value to a key that does not exist **creates** this key. This is how we add entries to a dictionary:
+However, assigning a value to a key that does not exist **creates** this key. This is in fact how we add entries to a dictionary:
 
 ```{code-cell} ipython3
 dict_of_integers[3] = 33

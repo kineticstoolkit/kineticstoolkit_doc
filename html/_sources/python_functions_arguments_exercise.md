@@ -35,7 +35,7 @@ prints this:
     BMI: 22.31
     =============
 
-Then try your function. Please use clear names for your function's arguments.
+Then try your function. Use clear names for your function's arguments.
 
 :::{note}
 The body-mass index (BMI) is calculated using $\text{weight}/\text{height}^2$.

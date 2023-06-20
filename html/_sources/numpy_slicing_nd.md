@@ -82,7 +82,7 @@ position[0:2, 1:3]
 ```
 
 :::{tip}
-A slice can be as simple as a column operator `:`. This is a slice with no bound, which literally means from the beginning up to the end. In other words, "all data on this dimension".
+A slice can be as simple as a column operator `:`. This is a slice with no bound, which literally means from the beginning up to the end. In other words, "all data on this axis".
 :::
 
 **Example 3: Read the marker's z coordinate at all samples**

@@ -31,12 +31,10 @@ NumPy provides common statistical functions such as:
 - {{np_quantile}}
 
 
-which all take an array as an argument. For multidimensional arrays, these functions accept an additional `axis` argument that indicates which axis to perform the operation on. For example, for a matrix ({numref}`fig_array_2d_float`), an operation on the first axis is performed on the **lines**:
-:::
+which all take an array as an argument. For multidimensional arrays, these functions accept an additional `axis` argument to select which axis (lines, columns, etc.) to perform the operation on. For example, for a matrix, an operation on the first axis is performed on the **lines**:
 
 ```{code-cell} ipython3
 import numpy as np
-
 
 a = np.array(
     [

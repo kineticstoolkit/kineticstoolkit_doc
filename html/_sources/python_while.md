@@ -37,7 +37,7 @@ while i < 5:
 print("done")
 ```
 
-We see that as long as `i` was strictly lower than 5, the `while` instruction executed the code block. When `i` equalled 5, the `(i < 5)` condition evaluated to False, and therefore the `while` instruction ceased to execute the code block.
+We see that as long as `i` was strictly lower than 5, the `while` instruction executed the code block. When `i` equalled 5, the `(i < 5)` condition evaluated to False, and therefore the `while` instruction stopped executing the code block.
 
 Here is a practical example where we made some measurements in metres that we stored into a list. We want to convert this list to another list where the measurements are in millimetres instead:
 
@@ -60,5 +60,5 @@ millimeters
 ```
 
 :::{good-practice} Looping
-While this example works perfectly well and is indeed a correct demonstration of how `while` works, we will see in the next sections that for this specific example, other methods such as using [for](python_for.md) or [NumPy](numpy.md) would be less error-prone and faster.
+While this example works perfectly well and is indeed a correct demonstration of how `while` works, we will see later that for this specific example, other methods such as using [for](python_for.md) or [NumPy](numpy.md) would be less error-prone and faster.
 :::

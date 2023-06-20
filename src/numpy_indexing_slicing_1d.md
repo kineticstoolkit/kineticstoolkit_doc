@@ -19,7 +19,7 @@ kernelspec:
 
 # Indexing and slicing unidimensional arrays
 
-In [](numpy_ndarray_introduction.md), we learned that unidimensional arrays are indeed very similar to Python lists. In fact, indexing and slicing a unidimensional array is identical to [indexing](python_lists_indexing.md) and [slicing](python_lists_slicing.md) a Python list.
+Indexing and slicing a unidimensional array is identical to [indexing](python_lists_indexing.md) and [slicing](python_lists_slicing.md) a Python list.
 
 :::{tip}
 As a reminder:
@@ -29,8 +29,8 @@ As a reminder:
 :::
 
 Through this section, we will work with two example arrays:
-- `data`: some random data
-- `time`: the time the corresponds to the `data` series.
+- `data`: some random data;
+- `time`: the corresponding time.
 
 ```{code-cell} ipython3
 import numpy as np
@@ -69,7 +69,7 @@ data[-1]
 ```
 
 
-Similarly, **slicing** a unidimentional array is identical to [slicing a list](python_lists_slicing.md). To read several elements of a list/array:
+**Slicing** a unidimentional array is identical to [slicing a list](python_lists_slicing.md). To read several elements of a list/array:
 
 ```{code-cell} ipython3
 # Keep only the values at indexes 2, 4, 6 and 8 of the original array

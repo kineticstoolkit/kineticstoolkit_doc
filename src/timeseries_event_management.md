@@ -71,7 +71,7 @@ print(ts.count_events('recovery'), " occurrences of event 'recovery'")
 
 ## Renaming events
 
-Renaming events is done using [ktk.TimeSeries.rename_event](api/ktk.TimeSeries.rename_event.rst):
+Renaming events is performed using [ktk.TimeSeries.rename_event](api/ktk.TimeSeries.rename_event.rst):
 
 ```{code-cell} ipython3
 ts = ts.rename_event("push", "lastpush", occurrence=4)
@@ -163,13 +163,15 @@ ts.plot()
 
 Finally, it is possible to edit the events interactively, using [ktk.TimeSeries.ui_edit_events](api/ktk.TimeSeries.ui_edit_events.rst). This allows to add, remove and move events by clicking on a figure.
 
-{{interactive}}
+:::{note}
+Matplotlib must be interactive. See section [](getting_started_configuring_spyder.md) do help.
+:::
 
 ```
 ts = ts.ui_edit_events()
 ```
 
-which gives {numref}`fig_timeseries.ui_edit_events_1` and {numref}`fig_timeseries.ui_edit_events_2`.
+which creates the interactive windows shown in {numref}`fig_timeseries.ui_edit_events_1` and {numref}`fig_timeseries.ui_edit_events_2`.
 
 
 ```{figure-md} fig_timeseries.ui_edit_events_1

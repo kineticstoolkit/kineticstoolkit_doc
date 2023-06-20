@@ -20,21 +20,19 @@ kernelspec:
 # Interactive 3D visualizer
 
 :::{caution}
-If you arrived here straight from the home page, you may want to read a bit on the TimeSeries class ([tutorial](timeseries.md), [API](api/ktk.TimeSeries.rst)) to fully understand this tutorial.
+If you arrived here straight from the home page, you may want to read a bit on the [TimeSeries type](timeseries.md) to fully understand this tutorial.
 :::
 
 ## Visualizing 3D markers
 
-Now we'll take a look at this acquisition using [](api/ktk.Player.rst), a matplotlib-based interactive user interface aimed at visualizing markers, rigid bodies and segments in three dimensions.
-
-Note that for the `Player` class to be interactive, you must select an interactive backend for IPython. See [](getting_started_installing.md) for more information.
+Kinetics Toolkit provides an interactive Matplotlib-based user interface to visualize markers, frames and segments in three dimensions. Note that for the `Player` class to be interactive, you must select an interactive Matplotlib backend. See section [](getting_started_installing.md) for more information.
 
 ```{code-cell} ipython3
 :tags: [remove-output]
 
 import kineticstoolkit.lab as ktk
 
-# Set an interactive backend
+# Set an interactive backend, not required if already enabled in Spyder
 %matplotlib qt5
 
 # Download and read markers from a sample C3D file
@@ -71,7 +69,7 @@ Note the colored global reference frame on the bottom. This reference frame and 
 
 ## Interconnecting the markers
 
-To ease the visualization, it is often practical to interconnect markers with lines. Here, we create those links as a dictionary.
+To ease the visualization, it is often practical to interconnect markers with lines. We create these links as a dictionary.
 
 ```{code-cell} ipython3
 interconnections = dict()  # Will contain all segment definitions
@@ -149,7 +147,7 @@ interconnections["TrunkPelvis"] = {
 }
 ```
 
-Now we can load a Player again with the segments we just defined:
+Now we can instanciate a Player again with the segments we just defined:
 
 ```{code-cell} ipython3
 :tags: [remove-output]
@@ -171,7 +169,7 @@ player._to_animation()
 
 ## Visualizing 3D frames
 
-If we provide TimeSeries that include data with a shape of Nx4x4, these data are considered as frames and are shown accordingly. For instance, let's create a series of frame that revolves around the three axes:
+TimeSeries data with a shape of (N, 4, 4) are considered as frames and are shown accordingly. For instance, let's create two series of frames that revolve around the x and z axes:
 
 ```{code-cell} ipython3
 :tags: [remove-output]

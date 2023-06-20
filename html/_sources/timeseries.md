@@ -1,6 +1,6 @@
 # Analyzing time-varying data
 
-In biomechanics, we often process data that is function of time, e.g., electromyography, marker trajectories, force series, etc. When we analyze only a few data and that the sampling frequency is constant, using NumPy is usually sufficient for processing such data. This is what we did in last section in the different [exercises with NumPy](numpy_exercises.md).
+In biomechanics, we often process data that is function of time, e.g., electromyography, marker trajectories, force series, etc. When we analyze only a few data and that the sampling frequency is constant, using NumPy is usually sufficient. This is what we did in last section in the different [NumPy exercises](numpy_exercises.md).
 
 However, things can get more complicated when:
 - data are of different natures, such as marker trajectories, EMG, measured forces, calculated forces, etc.;
@@ -10,7 +10,7 @@ However, things can get more complicated when:
 - data are noisy;
 - etc.
 
-For these reasons, Kinetics Toolkit provides a new type of variable: the [TimeSeries](api/ktk.TimeSeries.rst), which is presented in the next section.
+For these reasons, Kinetics Toolkit provides a new type of variable: the [TimeSeries](api/ktk.TimeSeries.rst).
 
 **Chapter Contents**
 

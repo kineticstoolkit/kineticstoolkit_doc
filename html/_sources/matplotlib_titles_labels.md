@@ -20,37 +20,24 @@ kernelspec:
 
 # Title, axis labels, legend and grid
 
-In the previous sections, we learned how to plot one or many series:
+We can add axis labels, a legend, a title and a grid using these functions:
+
+- {{plt_xlabel}} adds a label for the horizontal (x) axis;
+- {{plt_ylabel}} adds a label for the vertical (y) axis;
+- {{plt_legend}} adds a legend to identify the series;
+- {{plt_title}} adds a title to the graph;
+- {{plt_grid}} adds a grid to the background.
+
+For example:
 
 ```{code-cell} ipython3
 import matplotlib.pyplot as plt
-
 
 x = [0.0, 5.0, 10.0, 15.0, 20.0]
 y1 = [0.0, 1.0, 4.0, 3.0, -2.0]
 y2 = [1.0, 2.0, 3.0, 4.0, 5.0]
 
-plt.plot(x, y1)
-plt.plot(x, y2);
-```
-
-This figure is nice, but it lacks axes and a legend, maybe a grid, and also a title. These elements are added using the following functions:
-
-- {{plt_xlabel}}: Add a label for the horizontal (x) axis
-- {{plt_ylabel}}: Add a label for the vertical (y) axis
-- {{plt_legend}}: Add a legend to identify the series
-- {{plt_title}}: Add a title to the graph
-- {{plt_grid}}: Add a grid in the background
-
-
-```{code-cell} ipython3
-import matplotlib.pyplot as plt
-
-
-x = [0.0, 5.0, 10.0, 15.0, 20.0]
-y1 = [0.0, 1.0, 4.0, 3.0, -2.0]
-y2 = [1.0, 2.0, 3.0, 4.0, 5.0]
-
+# Plot the data
 plt.plot(x, y1)
 plt.plot(x, y2)
 
@@ -58,7 +45,7 @@ plt.plot(x, y2)
 plt.xlabel("Time (s)")
 plt.ylabel("Amplitude (m)")
 
-# Add a legend (same order as the plt.plot functions above)
+# Add a legend (labels are in the same order as they have been plotted)
 plt.legend(["Instrument 1", "Instrument 2"])
 
 # Add a title
@@ -77,7 +64,7 @@ plt.plot(x, y2)
 plt.legend(["Instrument 1", "Instrument 2"])
 ```
 
-we do:
+we may do:
 
 ```
 plt.plot(x, y1, label="Instrument 1")

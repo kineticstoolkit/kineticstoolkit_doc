@@ -19,14 +19,14 @@ kernelspec:
 
 # Variables
 
-Variables are fundamental in programming. A variable is a space in memory to store a value. For example, we could have two variables, `a` and `b`, that both store a different number:
+Variables are fundamental in programming. A variable is a space in memory to store a value. For example, we could create two variables, `a` and `b`, that both store a different number:
 
 ```{code-cell} ipython3
 a = 4
 b = 3
 ```
 
-Now, we can refer to the value of a variable by referring to the variable name:
+From there, we can refer to the value of a variable by referring to its name:
 
 ```{code-cell} ipython3
 a + 1
@@ -56,10 +56,10 @@ c = c + 1
 c
 ```
 
-As with the previous example, we instructed Python to calculate the result of `c + 1` and to store it in the variable `c`.
+where we instructed Python to calculate the result of `c + 1` and to store it in the variable `c`.
 
 :::{tip}
-The exemple above could be written in a shorter form using the increment `+=` operator. This notation is very common and may help avoid typographic errors in more complex statements.
+The exemple above can be written in a shorter form using the increment `+=` operator. This notation is very common and may help avoid typographic errors in more complex statements.
 
 These shorthands exist for every arithmetical operation:
 

@@ -21,8 +21,6 @@ kernelspec:
 
 Someone pushes a carriage using a dynamometer as picture in {numref}`fig_carriage_dynamometer`. The push force and position are measured in newtons and metres every tenth of a second, during five seconds.
 
-We have these two lists where data have been acquired at 10 Hz:
-
 ```{code-cell}
 push_force = [
     91.19, 99.22, 93.11, 91.76, 94.93, 96.54, 92.27, 96.01, 92.48,
@@ -80,7 +78,7 @@ def calculate_speed_and_power(force, position, sampling_frequency):
 ```
 
 :::{tip}
-You are strongly encouraged to reuse the functions `calculate_speed` and `calculate_power` that you wrote in [](python_for_range_exercise4.md) and [](python_for_range_exercise3.md).
+You are strongly encouraged to reuse the functions `calculate_speed` and `calculate_power` that you wrote in [](python_for_range_exercise3.md) and [](python_for_range_exercise4.md).
 :::
 
 ```{code-cell}

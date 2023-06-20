@@ -19,7 +19,7 @@ kernelspec:
 
 # Working with cycles
 
-This section introduces the [](api/ktk.cycles.rst) module and its functions:
+This section introduces the [ktk.cycles](api/ktk.cycles.rst) module and its functions:
 
 - [ktk.cycles.detect_cycles](api/ktk.cycles.detect_cycles.rst)
 - [ktk.cycles.time_normalize](api/ktk.cycles.time_normalize.rst)
@@ -50,7 +50,7 @@ The [ktk.cycles.detect_cycles](api/ktk.cycles.detect_cycles.rst) function detect
 - The start of the second phase, also named using the `event_names` parameters;
 - The end of the cycle, always named `_`.
 
-The function does not modify the TimeSeries data, only the events. It uses two thresholds applied to an unidimensional signal from this TimeSeries. In this example, this signal will be the total force $F_{tot}$. This could also apply to gait, or one could also use only the vertical ground reaction force, depending on the lab's convention or methods.
+The function does not modify the TimeSeries data, only the events. It uses two thresholds applied to a unidimensional signal from the TimeSeries. In this example, this signal will be the total force $F_{tot}$. This could also apply to gait, or one could also use only the vertical ground reaction force, depending on the lab's conventions or methods.
 
 Let's calculate $F_{tot}$ based on the three force components, and add it as a new data of the TimeSeries as it will be our source for detecting the cycles.
 
@@ -85,10 +85,6 @@ ts_with_events.plot(["Forces", "Ftot"])
 
 There are other arguments available to filter out more cycles, such as max durations, and minimal/maximal peak height. These arguments are documented in the [ktk.cycles.detect_cycles](api/ktk.cycles.detect_cycles.rst) function. Here, we may reject pushes that do not reach a minimal peak height of 45 N.
 
-:::{good-practice} Manual editing
-Although detecting cycles automatically seems time-saving, it is always an excellent idea to manually inspect any signal that is being processed based on such "arbitrary" constraints. Use the interactive [ktk.TimeSeries.ui_edit_events](api/ktk.TimeSeries.ui_edit_events.rst) method to inspect, correct and manually identify cycles.
-:::
-
 ```{code-cell} ipython3
 ts_with_events = ktk.cycles.detect_cycles(
     ts,
@@ -106,13 +102,13 @@ plt.tight_layout()
 We observe an `_` event at the end. There are in fact such `_` events at the end of each cycle (look how each next push's 'p' letter seems underlined). As explained above, the `detect_cycles` function adds an `_` event at the end of each cycle. These events are usefull to extract cycles of phases using TimeSeries methods such as [ktk.TimeSeries.get_ts_between_events](api/ktk.TimeSeries.get_ts_between_events.rst).
 :::
 
-
+:::{good-practice} Manual editing
+Although detecting cycles automatically seems time-saving, it is always an excellent idea to manually inspect any signal that is being processed based on such "arbitrary" constraints. Use the interactive [ktk.TimeSeries.ui_edit_events](api/ktk.TimeSeries.ui_edit_events.rst) method to inspect, correct and manually identify cycles.
+:::
 
 ## Time-normalizing cycles
 
-Once the cycles have been detected, we can time-normalize them using [ktk.cycles.time_normalize](api/ktk.cycles.time_normalize.rst) to get them on the same time scale (a percentage of the cycle).
-
-Here, every complete cycle will be time-normalized from 0 to 100%, with a new cycle starting at every multiple of 100%:
+Once the cycles have been detected, we can time-normalize them using [ktk.cycles.time_normalize](api/ktk.cycles.time_normalize.rst). Here, every complete cycle will be time-normalized from 0 to 100%.
 
 ```{code-cell} ipython3
 ts_normalized_on_cycle = ktk.cycles.time_normalize(
@@ -168,7 +164,7 @@ The inverse operation of [ktk.cycles.stack](api/ktk.cycles.stack.rst) is [ktk.cy
 
 ## Finding the most repeatable cycles
 
-We can sort the cycles in order of reproducibility (get which cycles are the most repeatable, and which cycles are unique)[ktk.cycles.most_repeatable_cycles](api/ktk.cycles.most_repeatable_cycles.rst). Here, we will base this analysis on the `Ftot` signal.
+We can sort the cycles in order of reproducibility (get which cycles are the most repeatable, and which cycles are unique) using [ktk.cycles.most_repeatable_cycles](api/ktk.cycles.most_repeatable_cycles.rst). Here, we will base this analysis on the `Ftot` signal.
 
 ```{code-cell} ipython3
 index = ktk.cycles.most_repeatable_cycles(data["Ftot"])

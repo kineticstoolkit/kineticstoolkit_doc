@@ -13,7 +13,7 @@ kernelspec:
 
 # NumPy
 
-The main goal of {{numpy}} is to perform mathematical operations not only on floats, but also on vectors and matrices, and to perform these operations very quickly.
+NumPy is a central package in the Python ecosystem and is used by virtually every science-related module. The main goal of {{numpy}} is to perform mathematical operations not only on floats, but also on vectors and matrices, and to perform these operations very quickly.
 
 As an example, let's say we need to average multiple measurements. We could do this easily using basic Python code, by summing every element of a list, and then by dividing the sum by the number of elements:
 
@@ -31,13 +31,12 @@ mean = sum / len(list_of_float)
 mean
 ```
 
-NumPy makes it much easier:
+NumPy makes it both easier and faster:
 
 ```{code-cell} ipython3
 import numpy as np
 
-one_array = np.array([1.0, 2.0, 3.0, 2.5, 2.75, 1.5])
-np.mean(one_array)
+np.mean(list_of_float)
 ```
 
 This chapter covers the basics of NumPy for biomechanics.

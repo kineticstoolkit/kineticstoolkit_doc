@@ -5,6 +5,7 @@ While points and vectors are generally relatively easy to express in a given coo
 - What is the initial, non-rotated orientation of the upper arm?
 - By how many degrees has it been rotated from its initial orientation?
 - Around which axes?
+- In what order?
 
 The first step to answer these questions is to create a **local coordinate system** for the upper arm. This local coordinate system will be attached to the upper arm, and thus will move with it. To create such a coordinate system, we need to define where is the origin and orthonormal axes of the upper arm, in respect to the upper arm. In this example, we use the anatomical position as a reference to define this coordinate system ({numref}`fig_geometry_local_coordinates`):
 

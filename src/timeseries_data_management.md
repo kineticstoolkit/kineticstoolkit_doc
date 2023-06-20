@@ -26,7 +26,7 @@ This section shows how to use these methods for data management:
 - [ktk.TimeSeries.rename_data](api/ktk.TimeSeries.rename_data.rst)
 - [ktk.TimeSeries.remove_data](api/ktk.TimeSeries.remove_data.rst)
 
-We will use this sample kinematic acquisition of 39 bilateral markers with 1092 samples recorded at 50 Hz during tennis serve:
+We will use this sample [kinematic acquisition](dataset_kinematics_tennis_serve.md) of 39 bilateral markers with 1092 samples recorded at 50 Hz during tennis serve:
 
 ```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
@@ -70,8 +70,6 @@ markers_thorax.plot()
 
 ## Adding data
 
-### Method 1
-
 We can assign new data directly to the TimeSeries' data attribute:
 
 ```{code-cell} ipython3
@@ -79,8 +77,6 @@ markers_thorax.data["Derrick:C7"] = markers.data["Derrick:C7"]
 
 markers_thorax.data
 ```
-
-### Method 2
 
 However, when possible, a better way is to:
 - Subset the original TimeSeries using [ktk.TimeSeries.get_subset](api/ktk.TimeSeries.get_subset.rst);
@@ -93,7 +89,7 @@ markers_thorax.data
 ```
 
 :::{good-practice} Merging TimeSeries
-Using method 2 is more robust because it checks that both TimeSeries' time match together before merging. For example, trying to merge two TimeSeries that do not have the same length or sampling rate would generate an error (good) using method 2, whereas it would be undetected (bad) by method 1.
+Using the second method is more robust because it checks that both TimeSeries' time match together before merging. For example, trying to merge two TimeSeries that do not have the same length or sampling rate would generate an error (which is good) using method 2, whereas it would be undetected (which is bad) by method 1.
 :::
 
 ## Renaming data

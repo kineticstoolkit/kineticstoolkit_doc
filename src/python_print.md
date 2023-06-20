@@ -26,44 +26,12 @@ print(1 + 2)
 print(3 + 4)
 ```
 
-The `print` function works with any contents, be it numbers or words. Try typing this command in the console:
+The `print` function works with any contents, be it numbers or words:
 
 ```{code-cell} ipython3
 print("Hello world")
 ```
 
-
-::::::{note}
-We already know that running a command prints its result to the console. However, it only prints the result of the last performed operation, while `print` explicitly prints something when it is called.
-
-:::::{grid}
-::::{grid-item-card} Without `print`
-```
-1 + 2
-3 + 4
-```
-+++++
-Result:
-```
-7
-```
-::::
-
-::::{grid-item-card} With `print`
-```
-print(1 + 2)
-print(3 + 4)
-```
-+++++
-Result:
-```
-3
-7
-```
-::::
-
-:::::
-::::::
 
 :::{important}
 Python is case-sensitive. This means that `a` is not the same thing as `A`. Consequently,

@@ -20,9 +20,7 @@ kernelspec:
 
 # Exercise: Looping using **for** and **range** 2
 
-Redo [](python_while_exercise1.md), this time with a `for` instead of a `while`.
-
----
+Redo [](python_while_exercise1.md), this time with a `for` instead of a `while`:
 
 Using an instrumented walkway, we recorded the following positions of heel strike, first for the right heel, second for the left heel, third for the right heel, etc., according to {numref}`fig_instrumented_walkway`.
 

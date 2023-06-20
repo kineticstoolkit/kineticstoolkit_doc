@@ -17,7 +17,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# Including variables in strings using f-strings
+# Including variable contents in strings using f-strings
 
 We often use strings to report results. For instance, we could print a calculated ankle moment to the console using two `print` calls:
 
@@ -32,7 +32,7 @@ A single string that includes both the definition and the result would be more r
 
 > "The calculated ankle moment is 100.1 Nm."
 
-Including variables into strings is easily done using f-strings. F-strings' name comes from their `f` prefix. With f-strings, Python evaluates the content between curly braces `{}` and replaces this content by its result.
+Including variables into strings is easily done using f-strings. F-strings' name comes from their `f` prefix. With f-strings, Python evaluates the result of any instruction placed between curly braces `{}`:
 
 ```{code-cell} ipython3
 # Here, we create the sentence above.

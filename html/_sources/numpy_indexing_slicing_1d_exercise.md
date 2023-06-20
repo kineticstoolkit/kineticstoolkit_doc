@@ -79,7 +79,7 @@ Separate the problem in two separate steps. First shift the signal, then fill th
 :::
 
 :::{toggle}
-Shifting the signal is equivalent to read a certain portion of the signal, and then assign this portion to another portion of the signal.
+Shifting the signal is equivalent to reading a certain portion of the signal, and then assign this portion to another portion of the signal.
 :::
 
 ::::

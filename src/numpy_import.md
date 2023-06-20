@@ -13,7 +13,7 @@ kernelspec:
 
 # Importing NumPy
 
-It is very common to import NumPy using the `np` alias:
+As for Matplotlib, NumPy must be imported before using it. It is very common to import NumPy using the `np` alias:
 
 ```{code-cell}
 import numpy as np

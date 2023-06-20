@@ -19,7 +19,7 @@ kernelspec:
 
 # Boolean and comparisons
 
-Comparisons are performed using the operators `=`, `!=`, `>=`, `>`, `<=` and `<`, and always result in a variable of type boolean. We already know the following types of variable: `string`, `int`, `float` and `complex`. Boolean variables, `bool`, are the simplest: they can be only either `True` or `False`.
+Comparisons are performed using the operators `==`, `!=`, `>=`, `>`, `<=` and `<`, and always result in a variable of type boolean. We already know the following types of variable: `string`, `int`, `float` and `complex`. Boolean variables, `bool`, are the simplest: they can be either `True` or `False`.
 
 ::::{grid}
 :::{grid-item-card} Equal
@@ -74,7 +74,7 @@ False
 :::
 ::::
 
-Obviously, comparing a constant with another constant has little sense. However, comparing variables with constants, or variables with other variables, is very common and helpful:
+Obviously, comparing a constant with another constant has little sense. However, comparing variables with constants, or variables with other variables, is very common:
 
 ```{code-cell}
 WORLD_RECORD = 240

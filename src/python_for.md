@@ -13,7 +13,7 @@ kernelspec:
 
 # Looping using **for**
 
-We already learned to use [while](python_while.md) to repeat a code block as long as a condition is true. Whereas the `while` statement is very powerful and sufficient for any looping, it is sometimes clearer to use the `for` statement instead.
+We learned to use [while](python_while.md) to repeat a code block as long as a condition is true. Whereas the `while` statement is very powerful and sufficient for any looping, it is sometimes clearer to use the `for` statement instead.
 
 The `for` statement means: "repeat this code block for each element of this variable".
 
@@ -21,9 +21,9 @@ This means that we can easily iterate through each element of a list:
 
 ```
 for variable_name in the_list:
-    instruction1
-    instruction2
-    instruction3
+    instruction1()
+    instruction2()
+    instruction3()
     etc.
 ```
 

@@ -22,7 +22,7 @@ kernelspec:
 Knowing that:
 
 ```{math}
-v(t) = \left( {p(t+1) - p(t-1)} \right) * \dfrac{\text{sampling frequency}}{2}
+\text{speed}(t) = \left( {\text{position}(t+1) - \text{position}(t-1)} \right) * \dfrac{\text{sampling frequency}}{2}
 ```
 
 write this function:

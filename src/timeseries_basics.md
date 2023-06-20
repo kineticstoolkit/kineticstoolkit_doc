@@ -24,13 +24,12 @@ The [ktk.TimeSeries](api/ktk.TimeSeries.rst) type is largely inspired by Matlab'
 
 ## Time and data
 
-A TimeSeries in its simplest form contains a time vector and at least one data series. For example:
+A TimeSeries in its simplest form contains a time attribute and at least one data series. For example:
 
 ```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
 import numpy as np
 import matplotlib.pyplot as plt
-
 
 ts = ktk.TimeSeries()                     # Create an empty TimeSeries
 ts.time = np.arange(0, 10, 0.1)           # Assign time
@@ -96,7 +95,7 @@ ts.plot()
 
 ## Events
 
-In the figure above, we see that the TimeSeries contains cyclic data. These cycles could be delimited using events. There are several ways to edit the events of a TimeSeries, that will be presented later in [](timeseries_event_management.md). For now, we will add the events manually using [ktk.TimeSeries.add_event](api/ktk.TimeSeries.add_event.rst):
+In the figure above, we see that the TimeSeries contains cyclic data. These cycles could be delimited using events. There are several ways to edit the events of a TimeSeries, that will be presented later in section [](timeseries_event_management.md). For now, we will add the events manually using [ktk.TimeSeries.add_event](api/ktk.TimeSeries.add_event.rst):
 
 ```{code-cell} ipython3
 ts = ts.add_event(8.56, "push")
@@ -114,10 +113,6 @@ ts = ts.add_event(15.30, "recovery")
 These 10 events are now added to the TimeSeries' list of events:
 
 ```{code-cell} ipython3
-ts
-```
-
-```{code-cell} ipython3
 ts.events
 ```
 
@@ -129,17 +124,13 @@ ts.plot()
 
 ## Metadata
 
-The TimeSeries' `time_info` and `data_info` attributes are dictionaries that associate metadata to time and data. By default, `time_info` includes the "Unit" key, which corresponds to "s". Any other metadata can be added by adding new keys to `time_info`.
+The TimeSeries' `time_info` and `data_info` attributes are dictionaries that associate information to time and data. By default, `time_info` includes the "Unit" key, which corresponds to "s". Any other time information can be added by adding new keys to `time_info`.
 
 ```{code-cell} ipython3
 ts.time_info
 ```
 
-Similarly, the `data_info` attribute is a dictionary that associates metadata to data.
-
-:::{tip}
-You may use the [ktk.TimeSeries.add_data_info](api/ktk.TimeSeries.add_data_info.rst) and [ktk.TimeSeries.remove_data_info](api/ktk.TimeSeries.remove_data_info.rst) methods to ease the management of `data_info`.
-:::
+Similarly, the `data_info` attribute is a dictionary that associates information to data. You may use the [ktk.TimeSeries.add_data_info](api/ktk.TimeSeries.add_data_info.rst) and [ktk.TimeSeries.remove_data_info](api/ktk.TimeSeries.remove_data_info.rst) methods to ease the management of `data_info`:
 
 ```{code-cell} ipython3
 ts = ts.add_data_info("Forces", "Unit", "N")
@@ -148,7 +139,7 @@ ts = ts.add_data_info("Moments", "Unit", "Nm")
 ts.data_info
 ```
 
-Unless explicitly mentioned, metadata is not used for calculation and is strictly optional. Some functions however read metadata: for example, the [](api/ktk.TimeSeries.plot.rst) method looks for possible "Unit" metadata and prints it on the y axis; the [ktk.Player](api/ktk.Player.rst) class looks for possible "Color" metadata to set the colour of 3D points.
+Unless explicitly mentioned, metadata is not used for calculation and is strictly optional. Some functions however read metadata: for example, the [ktk.TimeSeries.plot](api/ktk.TimeSeries.plot.rst) method looks for possible "Unit" metadata and prints it on the y axis; and the [ktk.Player](api/ktk.Player.rst) class looks for possible "Color" metadata to set the colour of 3D points.
 
 ```{code-cell} ipython3
 ts.plot()

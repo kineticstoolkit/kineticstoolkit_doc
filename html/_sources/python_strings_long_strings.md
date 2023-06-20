@@ -19,7 +19,7 @@ kernelspec:
 
 # Creating long strings
 
-Normally, we want our code to fit in a given width and avoid lines that are too long. For instance, it is common to limit the width of a line to 80 characters.
+Normally, we want to avoid writing very long code lines. For instance, it is common to limit the width of a line to 80 characters.
 
 Following this limit may be difficult when creating long strings. To this effect, we can create split a long string on multiple lines, by enclosing multiple sub-strings between parentheses.
 

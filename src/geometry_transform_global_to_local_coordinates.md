@@ -18,6 +18,12 @@ $$
 ~~~ ^\text{global}_\text{local}T^{-1}
 ~~~ ^\text{global}_\text{local}T
 ~~~ ^\text{local}p 
-\\=
+$$
+
+$$
+^\text{global}_\text{local}T^{-1}
+~~~ ^\text{global}p 
+~~~
+=
 ~~~ ^\text{local}p 
 $$

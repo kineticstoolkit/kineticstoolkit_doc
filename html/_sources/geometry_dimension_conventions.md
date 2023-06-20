@@ -14,9 +14,9 @@ jupyter:
   nbformat_minor: 5
 ---
 
-# Dimension conventions in Kinetics Toolkit
+# Expressing series of points, vectors and frames in Kinetics Toolkit
 
-In the [](api/ktk.geometry.rst) module and in most of Kinetics Toolkit's module:
+To express points, vectors and frames in Kinetics Toolkit, we must follow these conventions:
 
 -   Every number, point, vector or matrix is considered as a **series**.
 -   The first dimension of any series corresponds to **time**.
@@ -106,10 +106,10 @@ Since a frame has a shape of (4, 4), then a **series** of N frames has a shape o
 
 ## Time-invariant coordinates
 
-Since most signals in Kinetics Toolkit as considered as a series, always ensure that the first dimension of any array is reserved to time, even for coordinates that do not vary in time. For example, the vector $[1, 2, 3, 0]$ must be expressed as `[[1.0, 2.0, 3.0, 0.0]]` (note the double brackets). Expressing it as `[1.0, 2.0, 3.0, 0.0]` (single brackets) would mean a series of 4 floats instead of one time-invariant vector.
+Always ensure that the first dimension of any array is reserved to time, even for coordinates that do not vary in time. For example, the vector $[1, 2, 3, 0]$ must be expressed as `[[1.0, 2.0, 3.0, 0.0]]` (note the double brackets). Expressing it as `[1.0, 2.0, 3.0, 0.0]` (single brackets) would mean a series of 4 floats instead of one time-invariant vector.
 
 :::{tip}
-A quick way to convert a constant array to a series is to use numpy's `newaxis`:
+A quick way to convert a constant array to a series is to use {{np_newaxis}}:
 
     one_vector = np.array([1.0, 2.0, 3.0, 0.0])
     series_of_one_vector = one_vector[np.newaxis]

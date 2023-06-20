@@ -19,7 +19,7 @@ kernelspec:
 
 # Multidimensional arrays
 
-In the previous section, we learned how to read one element of a unidimensional array using indexing, and how to read multiple elements of a unidimensional array using slicing and filtering. We will now generalize this to multidimensional arrays. Through this tutorial, we will use these two sample arrays:
+In the previous section, we learned how to access one element of a unidimensional array using indexing, and how to access multiple elements of a unidimensional array using slicing and filtering. We will now generalize this to multidimensional arrays. Through this tutorial, we will use these two sample arrays:
 
 **Sample array #1: Trajectory of a marker during three samples**
 

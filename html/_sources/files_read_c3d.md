@@ -27,7 +27,7 @@ import kineticstoolkit.lab as ktk
 filename = ktk.doc.download("c3d_test_suite_sample.c3d")
 ```
 
-We now read it using [ktk.read_c3d](api/ktk.read_c3d.rst):
+We read it using [ktk.read_c3d](api/ktk.read_c3d.rst):
 
 ```{code-cell} ipython3
 c3d_contents = ktk.read_c3d(filename)
@@ -50,8 +50,6 @@ You should not ignore this warning if you are reading a c3d file that has been p
 The content of the file is expressed as a dictionary with two keys:
 - `Points`: A TimeSeries that contains the point data (markers)
 - `Analogs` (only when applicable): A TimeSeries that contains the raw analog data from force platforms, EMG or other analog signals recorded into the c3d file.
-
-+++
 
 ## Points
 

@@ -14,9 +14,9 @@ jupyter:
   nbformat_minor: 5
 ---
 
-# Kinematics analysis
+# Kinematic analysis
 
-In this chapter, we will use the [ktk.Player](api/ktk.Player.rst) 3D visualizer and the [ktk.kinematics](api/ktk.kinematics.rst) module to visualize and process real-life acquisitions of 3d markers, to calculate a series of joint angles, and to reconstruct virtual markers using different methods such as calibration markers or probing.
+In this chapter, we will use the [ktk.kinematics](api/ktk.kinematics.rst) module to process real acquisitions of 3D markers, to calculate a series of joint angles, and to reconstruct virtual markers using different methods such as calibration markers or probing.
 
 ```{tableofcontents}
 ```

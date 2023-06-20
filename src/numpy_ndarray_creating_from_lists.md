@@ -19,7 +19,7 @@ kernelspec:
 
 # Creating arrays from lists
 
-A simple way to create an array from a list is to use the {{np_array}} function. To create a unidimensional array ({numref}`fig_array_1d_float`), we would do:
+A simple way to create an array from a list is to use the {{np_array}} function. To create the unidimensional array of {numref}`fig_array_1d_float`, we would write:
 
 ```{figure-md} fig_array_1d_float
 :width: 2in
@@ -42,7 +42,7 @@ It is also possible to convert back an array to a list, using its {{ndarray_toli
 array_1d.tolist()
 ```
 
-To create a bidimensional array ({numref}`fig_array_2d_float`), we would use nested lists:
+To create the bidimensional array of {numref}`fig_array_2d_float`, we would use nested lists:
 
 ```{figure-md} fig_array_2d_float
 :width: 3in
@@ -65,7 +65,7 @@ array_2d
 ```
 
 
-To create a tridimensional array ({numref}`fig_array_3d_float`), we would use multiple levels of nested lists:
+To create the tridimensional array of {numref}`fig_array_3d_float`, we would use multiple levels of nested lists:
 
 ```{figure-md} fig_array_3d_float
 :width: 4in

@@ -59,26 +59,27 @@ print("This is my first program")
 
 ## Writing code in a script
 
-Section B of {numref}`fig_spyder_interface` is the script editor. It is simply a text editor that allows saving  code as a .py text file, to execute it all together later. You can execute a script by clicking on the `Run File` button ({numref}`fig_spyder_toolbar`).
+Section B of {numref}`fig_spyder_interface` is the script editor. It is simply a text editor that allows saving  code as a .py text file, to execute it all together later. You can execute a script by clicking on the "Run File" button ({numref}`fig_spyder_toolbar`).
 
-As an exercise, create a file that prints "Hello World", save it as `hello_world.py`, and run it using the `Run File` button. You should see the text "Hello World" appear in the console.
+As an exercise, create a file that prints "Hello World", save it as `hello_world.py`, and run it using the "Run File" button. You should see the text "Hello World" appear in the console.
 
 ```{figure-md} fig_spyder_toolbar
 :width: 3in
 ![](_static/images/spyder_toolbar.png)
 
-Run file, Run current cell, Run current cell and advance.
+"Run file", "Run current cell", "Run current cell and advance".
 ```
 
 ## Code cell
 
-When a script grows in length, it can be practical to run only one section at a time. A script can be split into cells using this sequence of characters which acts as a separator:
+When a script grows in length, it can be practical to run only one section at a time. A script can be split into cells using this sequence of characters that acts as a separator:
 
 ```
 # %%
 ```
 
-You can also name cells by adding a title next to the separator. This is generally a good idea to keep control of your growing script:
+You can also name cells by adding a title next to the separator:
+
 ```
 # %% Load results from previous acquisition
 
@@ -90,13 +91,13 @@ You can also name cells by adding a title next to the separator. This is general
 
 ```
 
-You can execute a cell by placing the cursor in that cell, then by clicking on the middle or right button of {numref}`fig_spyder_toolbar`.
+You can execute a cell by placing the cursor in that cell, then by clicking on the "Run current cell" or "Run current cell and advance" button ({numref}`fig_spyder_toolbar`).
 
 As an exercise, create a file named `exercise.py` that contains two cells. A first cell prints "Hello world", and a second cell prints "This is my first program". Run the cell of your choice using the toolbar icons.
 
 ## Getting help
 
-Section C of {numref}`fig_spyder_interface` is a collection of various panes. The help pane is particularly helpful to navigate the documentation of a given module or package. For example, to better understand how to use the Python `max` function, you could write `max` in the help pane.
+Section C of {numref}`fig_spyder_interface` is a collection of various panes. The help pane is particularly helpful to navigate the documentation of a given module or package. For example, to better understand how to use the Python `max` function, write `max` in the help pane.
 
 ```{figure-md} fig_spyder_help_pane
 :width: 5in

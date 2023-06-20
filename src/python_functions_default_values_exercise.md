@@ -31,7 +31,7 @@ print(calculate_speed(1.3, 6.7))
 
 prints a value of 9.2593.
 
-In addition, this function should accommodate alternate distances between the timing gates, specified by a facultative argument named `distance_gates12`:
+In addition, this function should accommodate alternate distances between the timing gates, specified by an optional argument named `distance_gates12`:
 
 ```
 calculate_speed(1.3, 6.7, distance_gates12=75)

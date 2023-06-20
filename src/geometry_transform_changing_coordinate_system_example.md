@@ -82,31 +82,31 @@ $$
 \end{bmatrix}
 $$
 
-Its final coordinates are $(0.34, 0.371, 0)$.
+Its global coordinates are $(0.34, 0.371, 0)$.
 
 ## Changing coordinate systems using Kinetics Toolkit
 
-Using the [](api/ktk.geometry.create_transforms.rst) and [](api/ktk.geometry.matmul.rst) functions introduced in the previous section, we can solve this problem following:
+Using the [ktk.geometry.create_transforms](api/ktk.geometry.create_transforms.rst) and [ktk.geometry.matmul](api/ktk.geometry.matmul.rst) functions introduced in the previous section, we can solve this problem following:
 
 ```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
 
-T = ktk.geometry.create_transforms(
+T_upperarm = ktk.geometry.create_transforms(
     seq="z", angles=[30], translations=[[0.15, 0.7, 0]], degrees=True
 )
 
 local_p_elbow = [[0, -0.38, 0, 1]]
 
-global_p_elbow = ktk.geometry.matmul(T, local_p_elbow)
+global_p_elbow = ktk.geometry.matmul(T_upperarm, local_p_elbow)
 
 global_p_elbow
 ```
 
-However, Kinetics Toolkit also provides the functions [](api/ktk.geometry.get_global_coordinates.rst) and [](api/ktk.geometry.get_local_coordinates.rst) to quickly change from one coordinate system to another. While these functions are only shortcuts to invert and multiply matrices, they are easier to remember:
+However, Kinetics Toolkit also provides the functions [ktk.geometry.get_global_coordinates](api/ktk.geometry.get_global_coordinates.rst) and [ktk.geometry.get_local_coordinates](api/ktk.geometry.get_local_coordinates.rst) to quickly change from one coordinate system to another. While these functions are only shortcuts to invert and multiply matrices, they are easier to remember:
 
 ```{code-cell} ipython3
 global_p_elbow = ktk.geometry.get_global_coordinates(
-    local_coordinates=local_p_elbow, reference_frames=T
+    local_coordinates=local_p_elbow, reference_frames=T_upperarm
 )
 
 global_p_elbow
@@ -114,7 +114,7 @@ global_p_elbow
 
 ```{code-cell} ipython3
 local_p_elbow = ktk.geometry.get_local_coordinates(
-    global_coordinates=global_p_elbow, reference_frames=T
+    global_coordinates=global_p_elbow, reference_frames=T_upperarm
 )
 
 local_p_elbow

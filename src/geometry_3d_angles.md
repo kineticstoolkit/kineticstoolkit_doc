@@ -63,13 +63,13 @@ Also called Tait-Bryan angles, nautical angles, Heading/elevation/bank, or Yaw/p
 2. then around its new y axis that rotated with it during rotation 1;
 3. then around its new z axis that rotated with it during rotations 1 and 2.
 
-Figure 1 shows the six possible rotations using intrinsic cardan angles. In every case, the cube is rotated by 30 degrees around all axes: $\theta_x = \theta_y = \theta_z = 30^\circ$. The different final poses are only due to the different sequences of rotations.
+The animated figure below shows the six possible rotations using intrinsic cardan angles. In every case, the cube is rotated by 30 degrees around all axes: $\theta_x = \theta_y = \theta_z = 30^\circ$. The different final poses are only due to the different sequences of rotations.
 
 <video autoplay controls muted loop>
 <source src="_static/images/rotation_sequence_cardan_intrinsic.mp4" type="video/mp4">
 </video>
 
-*Figure 1. The six sequences of intrinsic cardan rotations (intrinsic = moving coordinate system)*
+*The six sequences of intrinsic cardan rotations (intrinsic = moving coordinate system)*
 
 **Extrinsic rotations** means that the rotations are all performed around the initial coordinate system. For a sequence of XYZ intrinsic rotations, the object is:
 
@@ -77,30 +77,30 @@ Figure 1 shows the six possible rotations using intrinsic cardan angles. In ever
 2. then around the initial, unrotated y axis;
 3. then around the initial, unrotated z axis.
 
-Figure 2 shows the six possible rotations using extrinsic cardan angles. Again, the cube is rotated by 30 degrees around all axes.
+The animated figure below shows the six possible rotations using extrinsic cardan angles. Again, the cube is rotated by 30 degrees around all axes.
 
 <video autoplay controls muted loop>
 <source src="_static/images/rotation_sequence_cardan_extrinsic.mp4" type="video/mp4">
 </video>
 
-*Figure 2. The six sequences of extrinsic Cardan rotations (extrinsic = fixed coordinate system)*
+*The six sequences of extrinsic Cardan rotations (extrinsic = fixed coordinate system)*
 
 
 ## Euler angles
 
-Also called proper Euler angles, of classic Euler angles, Euler angles are different than cardan angles in that the first and third axes are the same. Again, rotations can be either intrinsic (Figure 3) or extrinsic (Figure 4). As for figures 1 and 2, every rotation is a rotation of 30 degrees around a given axis.
+Also called proper Euler angles, of classic Euler angles, Euler angles are different than cardan angles in that the first and third axes are the same. Again, rotations can be either intrinsic or extrinsic, as shown in the two figures below. As for both previous figures, every rotation is a rotation of 30 degrees around a given axis.
 
 <video autoplay controls muted loop>
 <source src="_static/images/rotation_sequence_euler_intrinsic.mp4" type="video/mp4">
 </video>
 
-*Figure 3. The six sequences of intrinsic Euler rotations (intrinsic = moving coordinate system)*
+*The six sequences of intrinsic Euler rotations (intrinsic = moving coordinate system)*
 
 <video autoplay controls muted loop>
 <source src="_static/images/rotation_sequence_euler_extrinsic.mp4" type="video/mp4">
 </video>
 
-*Figure 4. The six sequences of extrinsic Euler rotations (extrinsic = fixed coordinate system)*
+*The six sequences of extrinsic Euler rotations (extrinsic = fixed coordinate system)*
 
 
 :::{note}

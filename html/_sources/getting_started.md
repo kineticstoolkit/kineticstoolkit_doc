@@ -1,6 +1,6 @@
-# Getting started
+# Where to start
 
-Depending on your background, you may want to start your journey through this website at different points:
+Depending on your background, you may want to start your journey at different points:
 
 :::::{tab-set}
 
@@ -28,9 +28,9 @@ Simply start at the beginning: [](getting_started_installing.md).
 
 ::::{tab-item} I already do biomechanical analysis under Python.
 :::{card}
-Great, then you may want to understand what Kinetics Toolkit could add to your Python workflow. Start directly here: [](ktk_importing.md).
+You may want to understand what Kinetics Toolkit could add to your Python workflow. Start directly here: [](ktk_importing.md).
 
-You can also consult the [API reference](api_reference.md).
+You may also consult the [API reference](api_reference.md).
 :::
 ::::
 

@@ -18,11 +18,11 @@ kernelspec:
 
 # Reconstructing occluded markers
 
-Often in kinematics acquisition, we affix rigid bodies containing several markers on the person's segments. These bodies have a minimum of three markers and allows reconstructing a complete local coordinate system for a given body segment. The importance of these rigid bodies will become clearer in the next tutorials.
+Often in kinematic acquisitions, we affix rigid bodies containing several markers on the person's segments. These bodies have a minimum of three markers and allows reconstructing a complete local coordinate system for a given body segment. The importance of these rigid bodies will become clearer in the next sections.
 
 It is often useful to have more than three markers on each rigid body, so that in case of occlusion (one marker is hidden and not recorded by the cameras) we can reconstruct its position using the position of every other marker. 
 
-Kinetics Toolkit provides an easy way to reconstruct missing markers based on the position of the remaining ones. This is the contents of this tutorial.
+Kinetics Toolkit provides an easy way to reconstruct missing markers based on the position of the remaining ones. This is the contents of this section.
 
 ## Loading sample data
 
@@ -82,7 +82,7 @@ plt.tight_layout()
 
 ## Create a cluster of markers
 
-To reconstruct the most that we can from these data, we begin by creating a cluster of markers. A cluster is the fixed, local position of every provided markers expressed in an abritrary, local coordinate system. The [](/api/ktk.kinematics.create_cluster.rst) function is used to create such a cluster. Note that for this function to work, all markers must be visible at the same time at least once.
+To reconstruct the most that we can from these data, we begin by creating a cluster of markers. A cluster is the fixed, local position of every provided markers expressed in an abritrary, local coordinate system. The [ktk.kinematics.create_cluster](api/ktk.kinematics.create_cluster.rst) function is used to create such a cluster. Note that for this function to work, all markers must be visible at the same time at least once.
 
 ```{code-cell} ipython3
 cluster = ktk.kinematics.create_cluster(

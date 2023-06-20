@@ -13,4 +13,4 @@ kernelspec:
 
 # Arrays
 
-NumPy arrays allow expressing data is series, tables and even in more dimensions, which allow representing vectors, matrices and series of matrices. This is absolutely required for biomechanical analysis, and therefore the next sections present how to create and work with arrays.
+NumPy arrays allow expressing data is series, tables and even in more dimensions, which allows representing vectors, matrices and series of matrices. This is absolutely required for biomechanical analysis, and therefore the next sections present how to create and work with arrays.

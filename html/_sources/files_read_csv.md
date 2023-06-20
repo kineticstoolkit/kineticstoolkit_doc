@@ -20,7 +20,7 @@ kernelspec:
 
 # Reading CSV files
 
-To ensure a great compatibility between Kinetics Toolkit and other frameworks, TimeSeries can be converted from and to Pandas {{pd_dataframe}} using the [](api/ktk.TimeSeries.from_dataframe.rst) and [](api/ktk.TimeSeries.to_dataframe.rst) methods. Therefore, as long as a data file can be opened in Pandas, it can then be converted to a TimeSeries, as shown in {numref}`fig_ktk_dataflow`.
+To ensure a great compatibility between Kinetics Toolkit and other frameworks, TimeSeries can be converted from and to Pandas {{pd_dataframe}} using the [ktk.TimeSeries.from_dataframe](api/ktk.TimeSeries.from_dataframe.rst) and [ktk.TimeSeries.to_dataframe](api/ktk.TimeSeries.to_dataframe.rst) methods. Therefore, as long as a data file can be opened in Pandas, it can then be converted to a TimeSeries, as shown in {numref}`fig_ktk_dataflow`.
 
 Comma Separated Values (CSV) files are ubiquitous in research. They are text files were values are separated usually by commas, but sometimes by other delimiters such as `;` or tabs. The first line often contains labels to indicate the nature of each column. Here is the contents of a typical CSV file:
 
@@ -45,7 +45,6 @@ First, we will read it as a DataFrame using {{pd_read_csv}}:
 import kineticstoolkit.lab as ktk
 import pandas as pd
 
-
 df = pd.read_csv(
     ktk.doc.download("timeseries_dataframe_example1.csv"),
     index_col="Time",
@@ -69,7 +68,7 @@ ts.plot()
 
 ## Importing multidimensional data
 
-TimeSeries are well suited for multidimensional data. In the first example, the force sensor was unidimensional; however, for a tridimensional force sensor, we would expect three signals (x, y, z). In this new example, we will import the following CSV file:
+In the first example, the force sensor was unidimensional; however, for a tridimensional force sensor, we would expect three signals (x, y, z). In this new example, we will import the following CSV file:
 
 ```
     Time,Fx,Fy,Fz,Position

@@ -30,7 +30,7 @@ step_length = np.array(
 )  # in meters
 ```
 
-For each of these questions, write a single line of code to print the requested step lengths:
+For each of these questions, write a single line of code that prints the requested step lengths:
 
 1. From the third step up to the end;
 2. The two last steps;

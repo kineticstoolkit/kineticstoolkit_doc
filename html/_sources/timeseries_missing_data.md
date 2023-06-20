@@ -38,7 +38,7 @@ markers.plot("Derrick:RSHO")
 
 ## Finding missing samples
 
-Similarly to NumPy's {{np_isnan}} function, TimeSeries provide a [ktk.geometry.isnan](api/ktk.geometry.isnan.rst) method to return which samples are missing, as a list of bool:
+Similarly to NumPy's {{np_isnan}} function, TimeSeries provide the [ktk.geometry.isnan](api/ktk.geometry.isnan.rst) method that returns which samples are missing as a list of bool:
 
 ```{code-cell}
 is_missing = markers.isnan("Derrick:RSHO")

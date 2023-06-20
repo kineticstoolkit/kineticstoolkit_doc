@@ -33,5 +33,5 @@ np.ones((3, 4))
 ```
 
 :::{tip}
-Note the double parenthesis. The argument to {{np_zeros}} and {{np_ones}} is a shape, which is a tuple. Writing `np.zeros(2, 5)` would generate an error, since this is not one tuple argument, but two integer arguments.
+Note the double parenthesis. The argument of {{np_zeros}} and {{np_ones}} is a shape, which is a tuple. Writing `np.zeros(2, 5)` would generate an error, since this is not one tuple argument, but two integer arguments.
 :::

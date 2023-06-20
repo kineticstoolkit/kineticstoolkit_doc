@@ -13,7 +13,7 @@ kernelspec:
 
 # Graphical input
 
-Matplotlib provides extensive options to interact with figures, with different levels of complexity. One of the most helpful (and also the most basic) is {{plt_ginput}}. It lets the user click on a number of points on the figure, and then returns these coordinates. For instance, these instructions:
+Matplotlib provides extensive options to interact with figures. One of the most helpful (and also the most basic) is {{plt_ginput}}. It lets the user click on a number of points on the figure, and then returns these coordinates. For instance, these instructions:
 
 ```
 import matplotlib.pyplot as plt
@@ -36,7 +36,7 @@ Clicking and retrieving coordinates using plt.ginput.
 - Right-click removes the last added point;
 - Middle-click stops and returns the current points.
 
-The function then returns the point coordinates as a list of (x, y) tuples.
+Points are returned as a list of (x, y) tuples.
 
 ```{code-cell} ipython3
 :tags: [remove-cell]

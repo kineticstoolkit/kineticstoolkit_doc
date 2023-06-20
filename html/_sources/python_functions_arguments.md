@@ -10,7 +10,7 @@ def print_sum(arg1, arg2):
     print(f"The sum of both variables is {arg1 + arg2}.")
 ```
 
-In reality, any name would work equally. For instance, we could also use `first` and `second`, as long as we refer to these names in the implementation:
+Virtually any other name would work equally. For instance, we could use `first` and `second`, as long as we also use these names in the implementation:
 
 ```
 def print_sum(first, second):
@@ -21,5 +21,5 @@ def print_sum(first, second):
 ```
 
 :::{good-practice} Clear argument names
-It is very important to use clear names for function arguments. Argument names are selected using the same best practices as standard [variable](python_variables.md) names.
+It is important to use clear names for function arguments. Argument names are selected using the same best practices as standard [variable](python_variables.md) names.
 :::

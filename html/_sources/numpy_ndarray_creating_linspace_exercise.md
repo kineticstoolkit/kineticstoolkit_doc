@@ -21,7 +21,7 @@ kernelspec:
 
 We recorded the force measured by a dynamometer at a sampling frequency of 100 Hz, during 2.5 seconds.
 
-Using one line of code (excluding the `import` line), create a NumPy array named `time`, that represents the time at which every measurement was recorded. The first element of this array will be 0 s., the second will be 0.01 s., etc.
+Using one line of code (excluding the `import` line), create a NumPy array named `time`, that represents the time corresponding to each sample. The first element of this array will be 0, the second will be 0.01, etc.
 
 ```{code-cell} ipython3
 :tags: [hide-cell]

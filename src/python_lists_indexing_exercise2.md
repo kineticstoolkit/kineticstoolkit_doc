@@ -19,15 +19,16 @@ kernelspec:
 
 # Exercise: Indexing lists 2
 
-You are happy with the function `calculate_step_length` you wrote in the [last exercise ](python_lists_indexing_exercise1.md), but sometimes, you obtain an IndexError:
+You are happy with the function `calculate_step_length` you wrote in the [previous exercise ](python_lists_indexing_exercise1.md), but sometimes, you obtain an IndexError:
+
+```{code-cell} ipython3
+:tags: [remove-cell]
+def calculate_step_length(y, step):
+    return y[step + 1] - y[step]
+```
 
 ```{code-cell} ipython3
 :tags: [raises-exception]
-
-def calculate_step_length(y, step):
-    return y[step + 1] - y[step]
-
-
 # y-coordinates of each heel strike, in meters
 y = [0.13, 0.72, 1.29, 1.93, 2.55, 3.12, 3.71, 4.34, 4.95, 5.56]
 

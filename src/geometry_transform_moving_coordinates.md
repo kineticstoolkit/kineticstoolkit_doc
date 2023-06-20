@@ -1,11 +1,12 @@
 
 # Rotating and translating coordinates
 
-In the previous section, we learned how to construct a frame: a 4x4 matrix that represents the position and orientation of a local coordinate system in respect to a reference coordinate system.
+We now know how to construct a frame, which is a 4x4 matrix that represents the position and orientation of a local coordinate system in respect to a reference coordinate system.
 
 We learned that a frame always has this form:
 
 $$
+T =
 \begin{bmatrix}
 R_{11} & R_{12} & R_{13} & P_x \\
 R_{21} & R_{22} & R_{23} & P_y \\

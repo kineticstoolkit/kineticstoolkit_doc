@@ -19,7 +19,7 @@ kernelspec:
 
 # Line plots
 
-The most common command of Matplotlib's pyplot module is probably {{plt_plot}}. This function plots series expressed either as [standard Python lists](python_lists.md), as [NumPy Arrays](numpy_ndarray.md) or as `Pandas DataFrames`. For unidimensional data, it takes one list (y) or two lists (x, y) as arguments, and plots it as a line graph.
+The most common command of Matplotlib's pyplot module is probably {{plt_plot}}. This function plots one or many series expressed either as [standard Python lists](python_lists.md), as [NumPy Arrays](numpy_ndarray.md) or as `Pandas DataFrames`. For unidimensional data, it takes one list (y) or two lists (x, y) as arguments.
 
 For exemple, to plot this list: `[1.0, 2.0, -1.0, -0.0]`:
 

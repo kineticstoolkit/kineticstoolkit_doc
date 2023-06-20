@@ -20,7 +20,7 @@ kernelspec:
 
 # Exercise: Graphical input
 
-You recorded a force using a force sensor at a sampling frequency of 10 Hz. Here are the 44 first samples of this signal:
+You recorded a force profile using a force sensor at a sampling frequency of 10 Hz. Here are the 44 first samples of this signal:
 
 ```
 force = [
@@ -71,9 +71,9 @@ plt.xlabel("Time (s)")
 plt.ylabel("Force (uncalibrated signal in volts)");
 ```
 
-This force spike was deliberately generated as a synchronization signal, by gently impacting the force sensor. We now need to read the time at which the spike occurs in the signal above.
+This force spike was deliberately generated as a synchronization signal, by gently impacting the force sensor. We need to read the time at which the spike occurs in the signal above.
 
-Rather than reading it approximately on the curve, write this interactive function:
+Instead of reading it approximately on the curve, write this interactive function:
 
 ```
 def get_spike_time(time: list[float], force: list[float]) -> float:
@@ -104,8 +104,6 @@ def get_spike_time(time: list[float], force: list[float]) -> float:
 :::{toggle}
 ```
 import matplotlib.pyplot as plt
-import numpy as np
-
 
 def get_spike_time(time, force):
     plt.plot(time, force)

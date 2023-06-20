@@ -19,7 +19,7 @@ kernelspec:
 
 # Comparisons
 
-As for [arithmetic operations on NumPy arrays](numpy_arithmetics.md), we can use comparison operators such as `>` or `==` to compare two arrays element-wise. In this case, the result is an array of bool:
+We can use comparison operators such as `>` or `==` to compare two arrays element-wise. In this case, the result is an array of bool:
 
 ```{code-cell} ipython3
 import numpy as np
@@ -44,7 +44,7 @@ a > b
 ```
 
 
-Comparisons can be made with a single number instead of a whole array:
+We can also compare arrays with a single number instead of a whole array:
 
 ```{code-cell} ipython3
 a > 5.0
@@ -56,4 +56,14 @@ a == 5.0
 
 ```{code-cell} ipython3
 a >= 5.0
+```
+
+
+To know the indexes of the array where the comparison returned true, we can use {{np_nonzero}}:
+
+```{code-cell}
+a = np.array([1.0, 2.2, 10.4, 4.6, 5.8, 6.0, 1.2])
+
+print("Result of the comparison:", a > 5)
+print("Indexes where the result was True:", np.nonzero(a > 5))
 ```

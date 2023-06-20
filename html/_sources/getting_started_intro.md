@@ -4,12 +4,12 @@ This book is a free and continuously improving tool to learn how to perform biom
 
 Part I presents how to create a working environment and navigate into the Spyder interface to write and execute your first program.
 
-Part II covers the basics of Python, Matplotlib and NumPy that are required to do general data processing. It includes numerous exercises that you can perform by yourself as you progress through the sections.
+Part II covers the basics of Python, Matplotlib and NumPy to perform general data processing. It includes numerous exercises that you can do by yourself as you progress through the sections.
 
-Part III presents topics related to biomechanics, such as time series analysis, filtering, 3d geometry, marker reconstruction techniques, etc. It also covers how to perform these operations using the open-source `kineticstoolkit` package:
+Part III presents topics related to biomechanics, such as time series analysis, filtering, 3D geometry, marker reconstruction techniques, etc., and how to perform these operations using the open-source `kineticstoolkit` package:
 
 https://kineticstoolkit.uqam.ca.
 
-This whole project is in constant progress, but it is stable enough to be used in many biomechanical analyses. See how you can contribute to this project in chapter [](dev_contributing.md), and stay up to date by visiting and participating in the discussion forum:
+See how you can contribute to this project in chapter [](dev_contributors.md), and stay up to date by visiting and participating in the discussion forum:
 
 https://github.com/felixchenier/kineticstoolkit/discussions.

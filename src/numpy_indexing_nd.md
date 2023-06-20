@@ -106,13 +106,13 @@ plt.show()
 position[1][2]
 ```
 
-This is perfectly valid. However, we normally use another notation that groups the indexes together between the brackets using commas `,`:
+This is perfectly valid. However, we normally use commas `,` to directly access the specified value:
 
 ```{code-cell} ipython3
 position[1, 2]
 ```
 
-Both notations are equivalent, but the second one is more powerful (as we will see in slicing). It makes it also clearer that we index one whole array, and not a list that is nested into another list.
+Both notations are equivalent, but the second one is more powerful (as we will see later in section [](numpy_slicing_nd.md)). It makes it also clearer that we index one whole array, and not a list that is nested into another list.
 
 **Example 4: Read the segment's orientation at second sample**
 

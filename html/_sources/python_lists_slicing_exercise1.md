@@ -32,7 +32,7 @@ What would be the code to transform `list_of_strings` into:
 ```
 
 :::{tip}
-You may want to view [negative indexing](python_lists_indexing.md) again.
+You may want to read on [negative indexing](python_lists_indexing.md) again.
 :::
 
 ```{code-cell} ipython3

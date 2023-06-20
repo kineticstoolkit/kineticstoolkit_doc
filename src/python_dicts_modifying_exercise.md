@@ -31,7 +31,7 @@ participants = [
 ]
 ```
 
-Write a code that adds a new key `BMI` to each of these dictionaries, that is the body-mass index.
+Write a code that adds a new key `BMI` to each of these dictionaries, where:
 
 ```{math}
 \text{BMI} = \text{weight}/\text{height}^2

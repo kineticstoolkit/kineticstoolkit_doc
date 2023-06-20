@@ -30,7 +30,7 @@ Vertical velocity of a falling ball.
 
 ::::{tip}
 :::{toggle}
-Start by creating a time array using {{np_arange}} or {{np_linspace}}. Then, use this time array to create a velocity array.
+Start by creating a time array using {{np_arange}} or {{np_linspace}}. Then, use this time array to create a velocity array. Finally, plot the velocity as a function of time.
 :::
 ::::
 

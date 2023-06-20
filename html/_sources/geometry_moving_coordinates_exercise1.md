@@ -31,6 +31,7 @@ a) Do this exercise by creating the corresponding homogeneous transform using [k
 
 ```{code-cell} ipython3
 :tags: [hide-cell]
+
 import kineticstoolkit.lab as ktk
 import numpy as np
 
@@ -47,6 +48,7 @@ b) Do this exercise using the [ktk.geometry.rotate](api/ktk.geometry.rotate.rst)
 
 ```{code-cell} ipython3
 :tags: [hide-cell]
+
 p = np.array([[1.0, 2.0, 0.0, 1.0]])
 
 rotated_p = ktk.geometry.rotate(p, angles=[np.deg2rad(20)], seq="z")

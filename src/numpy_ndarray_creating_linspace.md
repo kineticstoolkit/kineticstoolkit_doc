@@ -48,7 +48,7 @@ generates:
 array([0. , 0.1, 0.2, 0.3, 0.4])
 ```
 
-However, this practice is not recommended due to potential floating point problems that can generate surprising results. Without going further into these issues, just remind that in most cases, `np.arange` should be used only with integers. For the example above:
+However, this practice is not always recommended due to potential floating point issues that cannot guaranty the length of the resulting array. Without going further into these issues, just remind that in most cases, `np.arange` should be used only with integers. For the example above,
 
 ```
 np.arange(5) / 10
