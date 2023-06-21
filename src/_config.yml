@@ -4,7 +4,7 @@
 title: Biomechanical Analysis using Python and Kinetics Toolkit
 author: Félix Chénier
 copyright: 2020-2023
-logo: logo.png
+#logo: 'logo.png'
 
 # Force re-execution of notebooks on each build.
 # See https://jupyterbook.org/content/execute.html
@@ -14,7 +14,7 @@ execute:
 
 parse:
   myst_substitutions:
-  
+
     matplotlib: "[Matplotlib](https://matplotlib.org)"
     pyplot: "[pyplot](https://matplotlib.org/stable/api/pyplot_summary.html)"
     plt_plot: "[plt.plot](https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html)"
@@ -88,7 +88,7 @@ parse:
     dataframe_to_csv: "[to_csv](https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.DataFrame.to_csv.html)"
 
     ezc3d: "[ezc3d](https://github.com/pyomeca/ezc3d)"
-    
+
     "stub": |
       ```{admonition} Section in development
       :class: admonition-stub
@@ -98,11 +98,11 @@ parse:
       ```{admonition} Incomplete section
       Some elements of this section are incomplete or out of date. Please feel free to [contribute](dev_contributing.md).
       ```
-    "dev": |    
+    "dev": |
       ```{warning}
       This section refers to unstable code. This code may not be tested, and the whole API and behaviour is expected to change in the future. Do not use this code for your research.
-      ```     
-    
+      ```
+
 
 repository:
   url: https://github.com/felixchenier/kineticstoolkit
@@ -117,17 +117,17 @@ html:
   comments:
     hypothesis              : false
     utterances              : false
-  announcement              : "" # A banner announcement at the top of the site.  
+  announcement              : "" # A banner announcement at the top of the site.
   show_navbar_depth         : 3
 
 latex:
   latex_engine              : pdflatex  # one of 'pdflatex', 'xelatex' (recommended for unicode), 'luatex', 'platex', 'uplatex'
   use_jupyterbook_latex     : true # use sphinx-jupyterbook-latex for pdf builds as default
-  latex_elements:  
+  latex_elements:
     pxunit: "0.3cm"
 
 
-  
+
 #html_theme_options:
 #  use_download_button       : true  # Add a button in the header to download the source file of the page
 #  use_repository_button     : true  # Whether to add a link to your repository button
@@ -169,9 +169,12 @@ sphinx:
     napoleon_use_rtype: True
     html_favicon: favicon.ico
     html_theme_options:
-      'collapse_navigation': True
-      'navigation_depth': 4
-      extra_footer: "This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>."
+        collapse_navigation: True
+        navigation_depth: 4
+        logo:
+            'image_light': '_static/logo.png'
+            'image_dark': '_static/logo-dark.png'
+        extra_footer: "This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>."
     exclude_patterns:
       - '_build'
       - 'Thumbs.db'
