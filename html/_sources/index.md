@@ -1,6 +1,6 @@
 # Kinetics Toolkit
 
-**An open-source Python package to facilitate research in biomechanics**
+*An Open-Source Python Package to Facilitate Research in Biomechanics*
 
 ::::{grid}
 
@@ -39,8 +39,8 @@ It also covers all the features of Kinetics Toolkit, with reproducible examples 
 :::
 
 :::{grid-item-card}
-```{div} style="max-height:400px"
-<h3>
+```{div} style="max-height:1400px"
+<h3 style="margin:0px">
 <a href="https://github.com/felixchenier/kineticstoolkit/discussions">Announcements <img src="_static/images/github-logo.png" alt="Follow on GitHub" width="20px"></a>
 <a href="https://kineticstoolkit.uqam.ca/announcements.atom"><img src="_static/images/rss-icon.png" alt="Subscribe to RSS/Atom Feed" width="20px"></a>
 </h3>
@@ -55,7 +55,7 @@ It also covers all the features of Kinetics Toolkit, with reproducible examples 
 
 
 ```{div} style="align:center;"
-<a href="https://felixchenier.uqam.ca"><img alt="-width:narrow" src="_static/images/logo_mosa.png"></a>
-&nbsp;&nbsp;&nbsp;<a href="https://uqam.ca"><img alt="-width:narrower" src="_static/images/logo_uqam.png"></a>
-&nbsp;&nbsp;&nbsp;<a href="https://crir.ca"><img alt="-width:narrower" src="_static/images/logo_crir.jpg"></a>
+<a href="https://felixchenier.uqam.ca"><img style="width:30%;" src="_static/images/logo_mosa.png"></a>
+&nbsp;&nbsp;&nbsp;<a href="https://uqam.ca"><img style="width:20%;" src="_static/images/logo_uqam.png"></a>
+&nbsp;&nbsp;&nbsp;<a href="https://crir.ca"><img style="width:20%;" src="_static/images/logo_crir.jpg"></a>
 ```

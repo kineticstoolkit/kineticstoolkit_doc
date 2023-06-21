@@ -143,7 +143,7 @@ const thebe_selector_output = ".output, .cell_output"
     
     
     <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <script>document.write(`<img src="_static/logo-dark.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
   
 </a></div>
@@ -742,7 +742,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="kinetics-toolkit">
 <h1>Kinetics Toolkit<a class="headerlink" href="#kinetics-toolkit" title="Permalink to this headline">#</a></h1>
-<p><strong>An open-source Python package to facilitate research in biomechanics</strong></p>
+<p><em>An Open-Source Python Package to Facilitate Research in Biomechanics</em></p>
 <div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
 <div class="sd-row docutils">
 <div class="sd-col sd-d-flex-row docutils">
@@ -781,8 +781,8 @@ document.write(`
 <div class="sd-col sd-d-flex-row docutils">
 <div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
 <div class="sd-card-body docutils">
-<div class="style-max-height-400px docutils">
-<h3>
+<div class="style-max-height-1400px docutils">
+<h3 style="margin:0px">
 <a href="https://github.com/felixchenier/kineticstoolkit/discussions">Announcements <img src="_static/images/github-logo.png" alt="Follow on GitHub" width="20px"></a>
 <a href="https://kineticstoolkit.uqam.ca/announcements.atom"><img src="_static/images/rss-icon.png" alt="Subscribe to RSS/Atom Feed" width="20px"></a>
 </h3>
@@ -795,9 +795,9 @@ document.write(`
 </div>
 </div>
 <div class="style-align-center docutils">
-<p><a href="https://felixchenier.uqam.ca"><img alt="-width:narrow" src="_static/images/logo_mosa.png"></a>
-   <a href="https://uqam.ca"><img alt="-width:narrower" src="_static/images/logo_uqam.png"></a>
-   <a href="https://crir.ca"><img alt="-width:narrower" src="_static/images/logo_crir.jpg"></a></p>
+<p><a href="https://felixchenier.uqam.ca"><img style="width:30%;" src="_static/images/logo_mosa.png"></a>
+   <a href="https://uqam.ca"><img style="width:20%;" src="_static/images/logo_uqam.png"></a>
+   <a href="https://crir.ca"><img style="width:20%;" src="_static/images/logo_crir.jpg"></a></p>
 </div>
 <div class="toctree-wrapper compound">
 </div>
