@@ -12,8 +12,8 @@ Expressing a local point in global coordinates.
 The unknown is the yellow point's coordinates in respect to the global frame:
 
 $$
-^\text{global}p = \text{?}
-$$
+^\text{global} p = \text{?}
+$$ (eq_geometry_transform_unkown)
 
 Instead of considering point $p$ as a point in its own local coordinate system, let's imagine that it was first expressed in the global reference frame ($^\text{global} p_\text{initial}$). Then, it was rotated by 30 degrees around the origin, then translated by (7, 5, 0) to reach its final position ($^\text{global} p_\text{transformed}$), as shown in {numref}`fig_geometry_transformation_sequence`.
 
@@ -32,31 +32,35 @@ $$
 ~~~ =
 ~~~ T
 ~~~ ^\text{global} p_\text{initial}
+$$ (eq_geometry_transform_transformation)
+
+where $T$ represents a rotation of 30 degrees and a translation of (7, 5, 0) units.
+
+Now, let's put {numref}`fig_geometry_change_coordinate_system` and {numref}`fig_geometry_transformation_sequence` in relation.
+
+The first image of {numref}`fig_geometry_transformation_sequence` expresses the yellow point in its local reference frame. Therefore:
+
+$$
+^\text{global} p_\text{initial} = ^\text{local} p
+$$ (eq_geometry_localp_equivalence)
+
+The last image of {numref}`fig_geometry_transformation_sequence` expresses the yellow point in global coordinates. Therefore:
+
+$$
+^\text{global} p_\text{transformed} = ^\text{global} p
+$$ (eq_geometry_globalp_equivalence)
+
+By substituting {eq}`eq_geometry_localp_equivalence` and {eq}`eq_geometry_globalp_equivalence` into {eq}`eq_geometry_transform_transformation`, we get:
+
+$$
+^\text{global} p = T ~~~ ^\text{local} p
 $$
 
-where T is the transformation for local to global coordinates.
-
-Now, take time to realize that $^\text{global} p_\text{initial}$ really is the coordinates of $p$ in its local refrence frame (local_p), and $^\text{global} p_\text{transformed}$ is the coordinates of $p$ in the global reference frame.
-
-$$
-^\text{global} p = T ^\text{local} p
-$$
-
-where T is interpreted as the local reference frame.
+where T, which was formerly interpreted as the transformation applied in {numref}`fig_geometry_transformation_sequence`, is now interpreted as the local reference frame itself: a coordinate system that has been rotated by 30 degrees and translated by (7, 5, 0) units.
 
 We see that if we know the local coordinates of a point $^\text{local} p$, and we know the coordinates of its local reference frame $T$, then the global coordinates of the point are obtained simply by multiplying $T$ and $^\text{local} p$.
 
-These two ways of seing this problem are completely equivalent:
-
-| Local point in global coordinates (Fig. 1)                                  | Rotating/translating a point (Fig. 2)                                            |
-| :-------------------------------------------------------------------------: | :------------------------------------------------------------------------------: |
-| $^\text{global}p ~~~ = ~~~ ^\text{global}_\text{local}T ~~~ ^\text{local}p$ | $^\text{global} p_\text{transformed} = ~~~ T ~~~ ^\text{global}p_\text{initial}$ |
-| $^\text{global}p$                                                           | $^\text{global} p_\text{transformed}$                                            |
-| $^\text{global}_\text{local}T$                                              | $T$                                                                              |
-| $^\text{local}p$                                                            | $^\text{global}p_\text{initial}$                                                 |
-
-
-We know the yellow point's coordinate (2, 1, 0) in respect to the local frame:
+Now, let's solve the problem. We know the yellow point's coordinate (2, 1, 0) in respect to the local frame:
 
 $$
 ^\text{local}p = \begin{bmatrix}
