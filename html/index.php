@@ -744,7 +744,7 @@ document.write(`
 <h1>Kinetics Toolkit<a class="headerlink" href="#kinetics-toolkit" title="Permalink to this headline">#</a></h1>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
-<div style="max-width:1400px;">
+<div style="max-height:1500px;">
 <h3 style="margin:0px">
 <a href="https://github.com/felixchenier/kineticstoolkit/discussions">Announcements <img src="_static/images/github-logo.png" alt="Follow on GitHub" width="20px"></a>
 <a href="https://kineticstoolkit.uqam.ca/announcements.atom"><img src="_static/images/rss-icon.png" alt="Subscribe to RSS/Atom Feed" width="20px"></a>
