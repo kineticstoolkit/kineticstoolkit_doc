@@ -742,57 +742,42 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="kinetics-toolkit">
 <h1>Kinetics Toolkit<a class="headerlink" href="#kinetics-toolkit" title="Permalink to this headline">#</a></h1>
-<p><em>An Open-Source Python Package to Facilitate Research in Biomechanics</em></p>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row docutils">
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">kineticstoolkit.lab</span> <span class="k">as</span> <span class="nn">ktk</span>
-<span class="n">markers</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">read_c3d</span><span class="p">(</span><span class="s2">&quot;filename.c3d&quot;</span><span class="p">)[</span><span class="s2">&quot;Points&quot;</span><span class="p">]</span>
-<span class="n">ktk</span><span class="o">.</span><span class="n">Player</span><span class="p">(</span><span class="n">markers</span><span class="p">,</span> <span class="n">interconnections</span><span class="o">=</span><span class="n">interconnections</span><span class="p">)</span>
-</pre></div>
-</div>
-<p class="sd-card-text"><a class="reference internal" href="player.html"><span class="doc std std-doc"><img alt="" src="_images/frontpage.gif" /></span></a></p>
-<p class="sd-card-text">Kinetics Toolkit is an open-source Python package to facilitate research in biomechanics. It provides tools for:</p>
-<ul class="simple">
-<li><p class="sd-card-text"><a class="reference internal" href="timeseries.html"><span class="doc std std-doc">TimeSeries analysis</span></a>, including <a class="reference internal" href="timeseries_data_management.html"><span class="doc std std-doc">data</span></a>, <a class="reference internal" href="timeseries_time_management.html"><span class="doc std std-doc">time</span></a> and <a class="reference internal" href="timeseries_event_management.html"><span class="doc std std-doc">event</span></a> management, <a class="reference internal" href="filters.html"><span class="doc std std-doc">time-domain and frequency-domain noise filtering</span></a>, and <a class="reference internal" href="cycles.html"><span class="doc std std-doc">cycle management</span></a>;</p></li>
-<li><p class="sd-card-text"><a class="reference internal" href="files.html"><span class="doc std std-doc">File management</span></a>, including reading/writing C3D, CSV and any file supported by <a class="reference external" href="https://pandas.pydata.org/">Pandas</a>;</p></li>
-<li><p class="sd-card-text"><a class="reference internal" href="geometry.html"><span class="doc std std-doc">Rigid body geometry</span></a>, including manipulation of series of <a class="reference internal" href="geometry_points_vectors.html"><span class="doc std std-doc">points, vectors</span></a>, <a class="reference internal" href="geometry_frames.html"><span class="doc std std-doc">frames</span></a> and <a class="reference internal" href="geometry_transform_moving_coordinates.html"><span class="doc std std-doc">homogeneous transforms</span></a>, <a class="reference internal" href="geometry_transform_changing_coordinate_system.html"><span class="doc std std-doc">coordinate system changes</span></a>, and <a class="reference internal" href="geometry_angles.html"><span class="doc std std-doc">3D angle extraction</span></a>;</p></li>
-<li><p class="sd-card-text"><a class="reference internal" href="player.html"><span class="doc std std-doc">Interactive visualization of 3D markers and rigid bodies</span></a>;</p></li>
-<li><p class="sd-card-text"><a class="reference internal" href="kinematics.html"><span class="doc std std-doc">Kinematic operations</span></a> such as reconstruction of <a class="reference internal" href="kinematics_reconstructing_occluded_markers.html"><span class="doc std std-doc">occluded</span></a>, <a class="reference internal" href="kinematics_reconstructing_removed_markers.html"><span class="doc std std-doc">removed</span></a> or <a class="reference internal" href="kinematics_reconstructing_probed_points.html"><span class="doc std std-doc">probed</span></a> markers;</p></li>
-<li><p class="sd-card-text">And more using <a class="reference internal" href="extensions.html"><span class="doc std std-doc">extensions</span></a>.</p></li>
-</ul>
-<p class="sd-card-text">It is a programming library, and programming can be hard for new users. Therefore, we also provide the free, electronic book <strong>Biomechanical Analysis using Python and Kinetics Toolkit</strong>, which guides new programmers from the basics to advanced, generic 3D biomechanical analysis. This book covers:</p>
-<ul class="simple">
-<li><p class="sd-card-text"><a class="reference internal" href="python_intro.html"><span class="doc std std-doc">The Python programming language</span></a>, including <a class="reference internal" href="python_arithmetics.html"><span class="doc std std-doc">arithmetics</span></a>, <a class="reference internal" href="python_variables.html"><span class="doc std std-doc">variables</span></a>, <a class="reference internal" href="python_numbers.html"><span class="doc std std-doc">numbers</span></a>, <a class="reference internal" href="python_strings.html"><span class="doc std std-doc">strings</span></a>, <a class="reference internal" href="python_functions.html"><span class="doc std std-doc">functions</span></a>, <a class="reference internal" href="python_conditions.html"><span class="doc std std-doc">conditions</span></a>, <a class="reference internal" href="python_lists.html"><span class="doc std std-doc">lists</span></a>, <a class="reference internal" href="python_looping.html"><span class="doc std std-doc">loops</span></a> and <a class="reference internal" href="python_dicts.html"><span class="doc std std-doc">dictionaries</span></a>;</p></li>
-<li><p class="sd-card-text"><a class="reference internal" href="matplotlib.html"><span class="doc std std-doc">Matplotlib</span></a>, to generate print-quality graphics and to analyze curves interactively;</p></li>
-<li><p class="sd-card-text"><a class="reference internal" href="numpy.html"><span class="doc std std-doc">NumPy</span></a> basics, including <a class="reference internal" href="numpy_ndarray.html"><span class="doc std std-doc">n-dimensional arrays</span></a>, <a class="reference internal" href="numpy_arithmetics.html"><span class="doc std std-doc">arithmetics</span></a>, <a class="reference internal" href="numpy_trigonometry.html"><span class="doc std std-doc">trigonometry</span></a>, <a class="reference internal" href="numpy_inf_nan.html"><span class="doc std std-doc">infinity/nan</span></a>, <a class="reference internal" href="numpy_statistics.html"><span class="doc std std-doc">statistical functions</span></a>, <a class="reference internal" href="numpy_comparisons.html"><span class="doc std std-doc">comparisons</span></a>, <a class="reference internal" href="numpy_logical_operators.html"><span class="doc std std-doc">logical operators</span></a>, <a class="reference internal" href="numpy_indexing_slicing_1d.html"><span class="doc std std-doc">indexing, slicing</span></a> and <a class="reference internal" href="numpy_filtering_nd.html"><span class="doc std std-doc">filtering arrays</span></a>.</p></li>
-</ul>
-<p class="sd-card-text">It also covers all the features of Kinetics Toolkit, with reproducible examples based on real, downloadable data.</p>
-<div class="docutils">
-<p class="sd-card-text"><a href="https://doi.org/10.21105/joss.03714"><img src="https://joss.theoj.org/papers/10.21105/joss.03714/status.svg" alt="JOSS"></a>
-<a href="https://anaconda.org/conda-forge/kineticstoolkit"><img src="https://anaconda.org/conda-forge/kineticstoolkit/badges/version.svg" alt="Anaconda"></a>
-<a href="https://anaconda.org/conda-forge/kineticstoolkit"><img src="https://anaconda.org/conda-forge/kineticstoolkit/badges/latest_release_date.svg" alt="Latest release"></a></p>
-</div>
-</div>
-</div>
-</div>
-<div class="sd-col sd-d-flex-row docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="style-max-height-1400px docutils">
+<aside class="margin sidebar">
+<p class="sidebar-title"></p>
 <h3 style="margin:0px">
 <a href="https://github.com/felixchenier/kineticstoolkit/discussions">Announcements <img src="_static/images/github-logo.png" alt="Follow on GitHub" width="20px"></a>
 <a href="https://kineticstoolkit.uqam.ca/announcements.atom"><img src="_static/images/rss-icon.png" alt="Subscribe to RSS/Atom Feed" width="20px"></a>
 </h3>
 <?php include("/home/kinetics/public_html/rss/rss.php");?>
 <link rel="alternate" type="application/rss+html" title="Subscribe to Kinetics Toolkit Announcements" href="https://github.com/felixchenier/kineticstoolkit/discussions/categories/announcements.atom" />
+</aside>
+<p><em>An Open-Source Python Package to Facilitate Research in Biomechanics</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">kineticstoolkit.lab</span> <span class="k">as</span> <span class="nn">ktk</span>
+<span class="n">markers</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">read_c3d</span><span class="p">(</span><span class="s2">&quot;filename.c3d&quot;</span><span class="p">)[</span><span class="s2">&quot;Points&quot;</span><span class="p">]</span>
+<span class="n">ktk</span><span class="o">.</span><span class="n">Player</span><span class="p">(</span><span class="n">markers</span><span class="p">,</span> <span class="n">interconnections</span><span class="o">=</span><span class="n">interconnections</span><span class="p">)</span>
+</pre></div>
 </div>
-</div>
-</div>
-</div>
-</div>
+<p><a class="reference internal" href="player.html"><span class="doc std std-doc"><img alt="" src="_images/frontpage.gif" /></span></a></p>
+<p>Kinetics Toolkit is an open-source Python package to facilitate research in biomechanics. It provides tools for:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="timeseries.html"><span class="doc std std-doc">Analyzing timeseries</span></a>, including <a class="reference internal" href="timeseries_data_management.html"><span class="doc std std-doc">data</span></a>, <a class="reference internal" href="timeseries_time_management.html"><span class="doc std std-doc">time</span></a> and <a class="reference internal" href="timeseries_event_management.html"><span class="doc std std-doc">event</span></a> management, <a class="reference internal" href="filters.html"><span class="doc std std-doc">time-domain and frequency-domain noise filtering</span></a>, and <a class="reference internal" href="cycles.html"><span class="doc std std-doc">cycle management</span></a>;</p></li>
+<li><p><a class="reference internal" href="files.html"><span class="doc std std-doc">Managing files</span></a>, including reading/writing C3D, CSV and any file supported by <a class="reference external" href="https://pandas.pydata.org/">Pandas</a>;</p></li>
+<li><p><a class="reference internal" href="geometry.html"><span class="doc std std-doc">Performing rigid body geometry operations</span></a>, including manipulation of series of <a class="reference internal" href="geometry_points_vectors.html"><span class="doc std std-doc">points, vectors</span></a>, <a class="reference internal" href="geometry_frames.html"><span class="doc std std-doc">frames</span></a> and <a class="reference internal" href="geometry_transform_moving_coordinates.html"><span class="doc std std-doc">homogeneous transforms</span></a>, <a class="reference internal" href="geometry_transform_changing_coordinate_system.html"><span class="doc std std-doc">coordinate system changes</span></a>, and <a class="reference internal" href="geometry_angles.html"><span class="doc std std-doc">3D angle extraction</span></a>;</p></li>
+<li><p><a class="reference internal" href="player.html"><span class="doc std std-doc">Visualizing 3D markers and rigid bodies interactively</span></a>;</p></li>
+<li><p><a class="reference internal" href="kinematics.html"><span class="doc std std-doc">Performing kinematic operations</span></a> such as reconstructing <a class="reference internal" href="kinematics_reconstructing_occluded_markers.html"><span class="doc std std-doc">occluded</span></a>, <a class="reference internal" href="kinematics_reconstructing_removed_markers.html"><span class="doc std std-doc">removed</span></a> or <a class="reference internal" href="kinematics_reconstructing_probed_points.html"><span class="doc std std-doc">probed</span></a> markers;</p></li>
+<li><p>And more using <a class="reference internal" href="extensions.html"><span class="doc std std-doc">extensions</span></a>.</p></li>
+</ul>
+<p>It is a programming library, and programming can be hard for new users. Therefore, we also provide the free, electronic book <a class="reference internal" href="getting_started_intro.html"><span class="doc std std-doc">Biomechanical Analysis using Python and Kinetics Toolkit</span></a>, which guides new programmers from the basics to advanced, generic 3D biomechanical analysis. This book covers:</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="python_intro.html"><span class="doc std std-doc">The Python programming language</span></a>, including <a class="reference internal" href="python_arithmetics.html"><span class="doc std std-doc">arithmetics</span></a>, <a class="reference internal" href="python_variables.html"><span class="doc std std-doc">variables</span></a>, <a class="reference internal" href="python_numbers.html"><span class="doc std std-doc">numbers</span></a>, <a class="reference internal" href="python_strings.html"><span class="doc std std-doc">strings</span></a>, <a class="reference internal" href="python_functions.html"><span class="doc std std-doc">functions</span></a>, <a class="reference internal" href="python_conditions.html"><span class="doc std std-doc">conditions</span></a>, <a class="reference internal" href="python_lists.html"><span class="doc std std-doc">lists</span></a>, <a class="reference internal" href="python_looping.html"><span class="doc std std-doc">loops</span></a> and <a class="reference internal" href="python_dicts.html"><span class="doc std std-doc">dictionaries</span></a>;</p></li>
+<li><p><a class="reference internal" href="matplotlib.html"><span class="doc std std-doc">Matplotlib</span></a>, to generate print-quality graphics and to analyze curves interactively;</p></li>
+<li><p><a class="reference internal" href="numpy.html"><span class="doc std std-doc">NumPy</span></a> basics, including <a class="reference internal" href="numpy_ndarray.html"><span class="doc std std-doc">n-dimensional arrays</span></a>, <a class="reference internal" href="numpy_arithmetics.html"><span class="doc std std-doc">arithmetics</span></a>, <a class="reference internal" href="numpy_trigonometry.html"><span class="doc std std-doc">trigonometry</span></a>, <a class="reference internal" href="numpy_inf_nan.html"><span class="doc std std-doc">infinity/nan</span></a>, <a class="reference internal" href="numpy_statistics.html"><span class="doc std std-doc">statistical functions</span></a>, <a class="reference internal" href="numpy_comparisons.html"><span class="doc std std-doc">comparisons</span></a>, <a class="reference internal" href="numpy_logical_operators.html"><span class="doc std std-doc">logical operators</span></a>, <a class="reference internal" href="numpy_indexing_slicing_1d.html"><span class="doc std std-doc">indexing, slicing</span></a> and <a class="reference internal" href="numpy_filtering_nd.html"><span class="doc std std-doc">filtering arrays</span></a>.</p></li>
+</ul>
+<p>It also covers all the features of Kinetics Toolkit, with reproducible examples based on real, downloadable data.</p>
+<div class="docutils">
+<p><a href="https://doi.org/10.21105/joss.03714"><img src="https://joss.theoj.org/papers/10.21105/joss.03714/status.svg" alt="JOSS"></a>
+<a href="https://anaconda.org/conda-forge/kineticstoolkit"><img src="https://anaconda.org/conda-forge/kineticstoolkit/badges/version.svg" alt="Anaconda"></a>
+<a href="https://anaconda.org/conda-forge/kineticstoolkit"><img src="https://anaconda.org/conda-forge/kineticstoolkit/badges/latest_release_date.svg" alt="Latest release"></a></p>
 </div>
 <div class="style-align-center docutils">
 <p><a href="https://felixchenier.uqam.ca"><img style="width:30%;" src="_static/images/logo_mosa.png"></a>
