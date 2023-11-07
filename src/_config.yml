@@ -160,15 +160,19 @@ sphinx:
   - 'custom-directives'
   - 'sphinx_sitemap'
   - 'myst_nb'
+  - 'sphinxext.opengraph'    # Generate metadata for social media
 
   config:
 #    html_baseurl: 'https://kineticstoolkit.uqam.ca/doc'
     add_module_names: False
+
     autosummary_generate: True
+
     autodoc_typehints: description
     autodoc_type_aliases:
         'ArrayLike': 'ArrayLike'
         'TimeSeries': 'TimeSeries'
+
     napoleon_google_docstring: False
     napoleon_numpy_docstring: True
     napoleon_include_init_with_doc: False
@@ -180,6 +184,17 @@ sphinx:
     napoleon_use_ivar: False
     napoleon_use_param: True
     napoleon_use_rtype: True
+
+    ogp_site_url: "https://kineticstoolkit.uqam.ca/doc/"
+    ogp_description_length: 200
+    ogp_site_name: "Kinetics Toolkit"
+    # ogp_social_cards:         Configuration for automatically creating social media card PNGs for each page. For more information, see the social media cards docs.
+    ogp_image: "https://kineticstoolkit.uqam.ca/doc/_static/logo.png"
+    ogp_image_alt: "Kinetics Toolkit Logo"
+    ogp_type: "image/png"
+    # ogp_custom_meta_tags        This is not required. List of custom html snippets to insert.
+    # ogp_enable_meta_description        This is not required. When True, generates <meta name="description" content="..."> from the page.
+    
     html_favicon: favicon.ico
     html_theme_options:
         collapse_navigation: True
@@ -187,10 +202,8 @@ sphinx:
         logo:
             'image_light': '_static/logo.png'
             'image_dark': '_static/logo-dark.png'
-        extra_footer: |
-            This website is built using <a href="https://jupyterbook.org">jupyter-book</a>.
-            <meta property="og:image" content="https://kineticstoolkit.uqam.ca/doc/_static/logo.png">
-            <meta property="og:image:type" content="image/png">
+        extra_footer: "This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>."
+
     exclude_patterns:
       - '_build'
       - 'Thumbs.db'

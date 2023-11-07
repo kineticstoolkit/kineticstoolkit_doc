@@ -8,6 +8,14 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<meta property="og:title" content="Kinetics Toolkit" />
+<meta property="og:type" content="image/png" />
+<meta property="og:url" content="https://kineticstoolkit.uqam.ca/doc/index.html" />
+<meta property="og:site_name" content="Kinetics Toolkit" />
+<meta property="og:description" content=": An Open-Source Python Package to Facilitate Research in Biomechanics Kinetics Toolkit is an open-source Python package to facilitate research in biomechanics. It provides tools for: Analyzing tim..." />
+<meta property="og:image" content="https://kineticstoolkit.uqam.ca/doc/_static/logo.png" />
+<meta property="og:image:alt" content="Kinetics Toolkit Logo" />
+<meta name="description" content=": An Open-Source Python Package to Facilitate Research in Biomechanics Kinetics Toolkit is an open-source Python package to facilitate research in biomechanics. It provides tools for: Analyzing tim..." />
 
     <title>Kinetics Toolkit &#8212; Biomechanical Analysis using Python and Kinetics Toolkit</title>
   
@@ -880,10 +888,7 @@ By Félix Chénier
   <div class="footer-item">
     
 <div class="extra_footer">
-  This website is built using <a href="https://jupyterbook.org">jupyter-book</a>.
-<meta property="og:image" content="https://kineticstoolkit.uqam.ca/doc/_static/logo.png">
-<meta property="og:image:type" content="image/png">
-
+  This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>.
 </div>
   </div>
   
