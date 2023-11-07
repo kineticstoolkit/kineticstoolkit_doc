@@ -745,7 +745,7 @@ document.write(`
 <h1>ktk.read_c3d<a class="headerlink" href="#ktk-read-c3d" title="Permalink to this headline">#</a></h1>
 <dl class="py function">
 <dt class="sig sig-object py" id="ktk.read_c3d">
-<span class="sig-name descname"><span class="pre">read_c3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convert_point_unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kineticstoolkit/files.html#read_c3d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ktk.read_c3d" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">read_c3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convert_point_unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_event_context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kineticstoolkit/files.html#read_c3d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ktk.read_c3d" title="Permalink to this definition">#</a></dt>
 <dd><p>Read point and analog data from a C3D file.</p>
 <p>Point positions are returned in <cite>output[“Points”]</cite> as a TimeSeries, where
 each point corresponds to a data key. Each point position is expressed as
@@ -773,6 +773,12 @@ This function reads these values as points regardless of their nature.</p>
 expressed in other units such as mm in the C3D file. False to keep
 points as is. When unset, if points are stored in a unit other than
 meters, then a warning is issued. See caution note below.</p></li>
+<li><p><strong>include_event_context</strong> (<em>bool</em>) – Optional. True to include the event context, for C3D files that use
+this field. If False, the events in the output TimeSeries are named
+after the events names in the C3D files, e.g.: “Start”, “Heel Strike”,
+“Toe Off”. If True, the events in the output TimeSeries are named using
+this scheme “context:name”, e.g.,: “General:Start”,
+“Right:Heel strike”, “Left:Toe Off”. The default is False.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -915,7 +921,10 @@ By Félix Chénier
   <div class="footer-item">
     
 <div class="extra_footer">
-  This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>.
+  This website is built using <a href="https://jupyterbook.org">jupyter-book</a>.
+<meta property="og:image" content="https://kineticstoolkit.uqam.ca/doc/_static/logo.png">
+<meta property="og:image:type" content="image/png">
+
 </div>
   </div>
   

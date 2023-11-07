@@ -745,13 +745,17 @@ document.write(`
 <h1>ktk.TimeSeries.get_index_after_event<a class="headerlink" href="#ktk-timeseries-get-index-after-event" title="Permalink to this headline">#</a></h1>
 <dl class="py method">
 <dt class="sig sig-object py" id="ktk.TimeSeries.get_index_after_event">
-<span class="sig-prename descclassname"><span class="pre">TimeSeries.</span></span><span class="sig-name descname"><span class="pre">get_index_after_event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">occurrence</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kineticstoolkit/timeseries.html#TimeSeries.get_index_after_event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ktk.TimeSeries.get_index_after_event" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">TimeSeries.</span></span><span class="sig-name descname"><span class="pre">get_index_after_event</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">occurrence</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inclusive</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kineticstoolkit/timeseries.html#TimeSeries.get_index_after_event"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ktk.TimeSeries.get_index_after_event" title="Permalink to this definition">#</a></dt>
 <dd><p>Get the time index that is just after the specified event occurrence.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>name</strong> (<em>str</em>) – Event name</p></li>
 <li><p><strong>occurrence</strong> (<em>int</em>) – Occurrence of the event. The default is 0.</p></li>
+<li><p><strong>inclusive</strong> (<em>bool</em>) – True to allow including one sample before the event if needed, to
+make sure that the event time is part of the output TimeSeries’s
+time. False to make sure that the returned TimeSeries does not
+include the event time. Default is False.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -782,6 +786,10 @@ document.write(`
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span><span class="o">.</span><span class="n">get_index_after_event</span><span class="p">(</span><span class="s1">&#39;event&#39;</span><span class="p">,</span> <span class="n">occurrence</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="go">4</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span><span class="o">.</span><span class="n">get_index_after_event</span><span class="p">(</span><span class="s1">&#39;event&#39;</span><span class="p">,</span> <span class="n">inclusive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">2</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -879,7 +887,10 @@ By Félix Chénier
   <div class="footer-item">
     
 <div class="extra_footer">
-  This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>.
+  This website is built using <a href="https://jupyterbook.org">jupyter-book</a>.
+<meta property="og:image" content="https://kineticstoolkit.uqam.ca/doc/_static/logo.png">
+<meta property="og:image:type" content="image/png">
+
 </div>
   </div>
   

@@ -780,8 +780,16 @@ document.write(`
 </dl>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
-<p>Tuples are also supported but will be loaded back as lists, without
-warning.</p>
+<ul class="simple">
+<li><p>Tuples are also supported but will be loaded back as lists, without</p></li>
+</ul>
+<p>warning.
+- Complex Pandas Series (e.g., series or different types) may not be
+supported. Only the following attributes of the Series are saved:
+name, index, and the data itself.
+- Complex Pandas DataFrames (e.g., multiindex, columns of different types)
+may not be supported. Only the following attributes of the DataFrame are
+saved: columns, index, and the data itself.</p>
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
@@ -882,7 +890,10 @@ By Félix Chénier
   <div class="footer-item">
     
 <div class="extra_footer">
-  This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>.
+  This website is built using <a href="https://jupyterbook.org">jupyter-book</a>.
+<meta property="og:image" content="https://kineticstoolkit.uqam.ca/doc/_static/logo.png">
+<meta property="og:image:type" content="image/png">
+
 </div>
   </div>
   

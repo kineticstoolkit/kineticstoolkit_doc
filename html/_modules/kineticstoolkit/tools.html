@@ -726,6 +726,26 @@ document.write(`
 <span class="kn">import</span> <span class="nn">warnings</span>
 
 
+<span class="k">def</span> <span class="nf">tqdm</span><span class="p">(</span><span class="n">the_range</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return a range or a tqdm&#39;s progress bar range if tqdm is installed.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    The same as tqdm.tqdm, with the first begin the range.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    the_range if tqdm is not installed. tqdm.tqdm if tqdm is installed.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">import</span> <span class="nn">tqdm</span>  <span class="c1"># noqa</span>
+
+        <span class="k">return</span> <span class="n">tqdm</span><span class="o">.</span><span class="n">tqdm</span><span class="p">(</span><span class="n">the_range</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">the_range</span>
+
+
 <div class="viewcode-block" id="change_defaults"><a class="viewcode-back" href="../../api/ktk.change_defaults.html#ktk.change_defaults">[docs]</a><span class="k">def</span> <span class="nf">change_defaults</span><span class="p">(</span>
     <span class="n">change_ipython_dict_repr</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="n">change_matplotlib_defaults</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
@@ -879,7 +899,10 @@ By Félix Chénier
   <div class="footer-item">
     
 <div class="extra_footer">
-  This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>.
+  This website is built using <a href="https://jupyterbook.org">jupyter-book</a>.
+<meta property="og:image" content="https://kineticstoolkit.uqam.ca/doc/_static/logo.png">
+<meta property="og:image:type" content="image/png">
+
 </div>
   </div>
   

@@ -13,6 +13,19 @@ execute:
 #  execute_notebooks: force
 
 parse:
+  myst_enable_extensions:  # default extensions to enable in the myst parser. See https://myst-parser.readthedocs.io/en/latest/using/syntax-optional.html
+    # - amsmath
+    - colon_fence
+    # - deflist
+    - dollarmath
+    # - html_admonition
+    # - html_image
+    - linkify
+    # - replacements
+    # - smartquotes
+    - substitution
+    - tasklist
+
   myst_substitutions:
 
     matplotlib: "[Matplotlib](https://matplotlib.org)"
@@ -174,7 +187,10 @@ sphinx:
         logo:
             'image_light': '_static/logo.png'
             'image_dark': '_static/logo-dark.png'
-        extra_footer: "This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>."
+        extra_footer: |
+            This website is built using <a href="https://jupyterbook.org">jupyter-book</a>.
+            <meta property="og:image" content="https://kineticstoolkit.uqam.ca/doc/_static/logo.png">
+            <meta property="og:image:type" content="image/png">
     exclude_patterns:
       - '_build'
       - 'Thumbs.db'

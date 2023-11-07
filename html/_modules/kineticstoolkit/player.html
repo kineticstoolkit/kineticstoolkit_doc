@@ -862,6 +862,22 @@ document.write(`
         <span class="k">if</span> <span class="s2">&quot;current_frame&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
             <span class="n">current_index</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;current_frame&quot;</span><span class="p">]</span>
 
+        <span class="c1"># Ensure that ts contains TimeSeries, and that they are non-empty</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">ts</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;You must provide at least one TimeSeries (e.g., markers, &quot;</span>
+                <span class="s2">&quot;frames) when you create a Player.&quot;</span>
+            <span class="p">)</span>
+        <span class="k">for</span> <span class="n">one_ts</span> <span class="ow">in</span> <span class="n">ts</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">one_ts</span><span class="p">,</span> <span class="n">TimeSeries</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+                    <span class="s2">&quot;Player only accepts TimeSeries as data inputs.&quot;</span>
+                <span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">one_ts</span><span class="o">.</span><span class="n">time</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s2">&quot;At least one of the provided TimeSeries has zero samples.&quot;</span>
+                <span class="p">)</span>
+
         <span class="c1"># ---------------------------------------------------------------</span>
         <span class="c1"># Set self.n_indexes and self.time, and verify that we have at least</span>
         <span class="c1"># markers or rigid bodies.</span>
@@ -1796,7 +1812,10 @@ By Félix Chénier
   <div class="footer-item">
     
 <div class="extra_footer">
-  This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>.
+  This website is built using <a href="https://jupyterbook.org">jupyter-book</a>.
+<meta property="og:image" content="https://kineticstoolkit.uqam.ca/doc/_static/logo.png">
+<meta property="og:image:type" content="image/png">
+
 </div>
   </div>
   

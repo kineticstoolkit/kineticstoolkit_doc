@@ -752,7 +752,15 @@ document.write(`
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>time1</strong> (<em>float</em>) – Times to look for in the TimeSeries’ time vector.</p></li>
 <li><p><strong>time2</strong> (<em>float</em>) – Times to look for in the TimeSeries’ time vector.</p></li>
-<li><p><strong>inclusive</strong> (<em>bool</em>) – Optional. True to include the given time in the comparison.</p></li>
+<li><p><strong>inclusive</strong> (<em>bool</em><em> | </em><em>collections.abc.Sequence</em><em>[</em><em>bool</em><em>]</em>) – <p>Optional. Either a bool or a sequence of two bools. Used to
+specify which times are returned:</p>
+<ul>
+<li><p>False or [False, False] (default): time1 &lt; time &lt; time2</p></li>
+<li><p>True or [True, True]: time1 &lt;= time &lt;= time2</p></li>
+<li><p>[True, False]: time1 &lt;= time &lt; time2</p></li>
+<li><p>[False, True]: time1 &lt; time &lt;= time2</p></li>
+</ul>
+</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -760,6 +768,9 @@ document.write(`
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p><a class="reference internal" href="ktk.TimeSeries.html#ktk.TimeSeries" title="ktk.TimeSeries">TimeSeries</a></p>
+</dd>
+<dt class="field-even">Raises</dt>
+<dd class="field-even"><p><strong>TimeSeriesRangeError</strong> – If there is no data between the specified times.</p>
 </dd>
 </dl>
 <div class="admonition seealso">
@@ -778,6 +789,10 @@ document.write(`
 </div>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span><span class="o">.</span><span class="n">get_ts_between_times</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">inclusive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">time</span>
 <span class="go">array([0.2, 0.3, 0.4, 0.5])</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span><span class="o">.</span><span class="n">get_ts_between_times</span><span class="p">(</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">inclusive</span><span class="o">=</span><span class="p">[</span><span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">])</span><span class="o">.</span><span class="n">time</span>
+<span class="go">array([0.2, 0.3, 0.4])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -875,7 +890,10 @@ By Félix Chénier
   <div class="footer-item">
     
 <div class="extra_footer">
-  This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>.
+  This website is built using <a href="https://jupyterbook.org">jupyter-book</a>.
+<meta property="og:image" content="https://kineticstoolkit.uqam.ca/doc/_static/logo.png">
+<meta property="og:image:type" content="image/png">
+
 </div>
   </div>
   

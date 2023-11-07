@@ -781,8 +781,14 @@ document.write(`
 
 <span class="sd">    Caution</span>
 <span class="sd">    -------</span>
-<span class="sd">    Tuples are also supported but will be loaded back as lists, without</span>
+<span class="sd">    - Tuples are also supported but will be loaded back as lists, without</span>
 <span class="sd">    warning.</span>
+<span class="sd">    - Complex Pandas Series (e.g., series or different types) may not be</span>
+<span class="sd">    supported. Only the following attributes of the Series are saved:</span>
+<span class="sd">    name, index, and the data itself.</span>
+<span class="sd">    - Complex Pandas DataFrames (e.g., multiindex, columns of different types)</span>
+<span class="sd">    may not be supported. Only the following attributes of the DataFrame are</span>
+<span class="sd">    saved: columns, index, and the data itself.</span>
 
 <span class="sd">    See also</span>
 <span class="sd">    --------</span>
@@ -822,7 +828,6 @@ document.write(`
                 <span class="k">return</span> <span class="p">{</span>
                     <span class="s2">&quot;class__&quot;</span><span class="p">:</span> <span class="s2">&quot;pandas.Series&quot;</span><span class="p">,</span>
                     <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">name</span><span class="p">),</span>
-                    <span class="s2">&quot;dtype&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">obj</span><span class="o">.</span><span class="n">dtype</span><span class="p">),</span>
                     <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
                     <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
                 <span class="p">}</span>
@@ -831,7 +836,6 @@ document.write(`
                 <span class="k">return</span> <span class="p">{</span>
                     <span class="s2">&quot;class__&quot;</span><span class="p">:</span> <span class="s2">&quot;pandas.DataFrame&quot;</span><span class="p">,</span>
                     <span class="s2">&quot;columns&quot;</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
-                    <span class="s2">&quot;dtypes&quot;</span><span class="p">:</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span> <span class="k">for</span> <span class="n">dtype</span> <span class="ow">in</span> <span class="n">obj</span><span class="o">.</span><span class="n">dtypes</span><span class="p">],</span>
                     <span class="s2">&quot;index&quot;</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
                     <span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
                 <span class="p">}</span>
@@ -908,7 +912,6 @@ document.write(`
         <span class="k">elif</span> <span class="n">to_class</span> <span class="o">==</span> <span class="s2">&quot;pandas.DataFrame&quot;</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
                 <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">],</span>
-                <span class="n">dtype</span><span class="o">=</span><span class="n">obj</span><span class="p">[</span><span class="s2">&quot;dtypes&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span>
                 <span class="n">columns</span><span class="o">=</span><span class="n">obj</span><span class="p">[</span><span class="s2">&quot;columns&quot;</span><span class="p">],</span>
                 <span class="n">index</span><span class="o">=</span><span class="n">obj</span><span class="p">[</span><span class="s2">&quot;index&quot;</span><span class="p">],</span>
             <span class="p">)</span>
@@ -916,7 +919,6 @@ document.write(`
         <span class="k">elif</span> <span class="n">to_class</span> <span class="o">==</span> <span class="s2">&quot;pandas.Series&quot;</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span>
                 <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">],</span>
-                <span class="n">dtype</span><span class="o">=</span><span class="n">obj</span><span class="p">[</span><span class="s2">&quot;dtype&quot;</span><span class="p">],</span>
                 <span class="n">name</span><span class="o">=</span><span class="n">obj</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">],</span>
                 <span class="n">index</span><span class="o">=</span><span class="n">obj</span><span class="p">[</span><span class="s2">&quot;index&quot;</span><span class="p">],</span>
             <span class="p">)</span>
@@ -988,6 +990,7 @@ document.write(`
     <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">convert_point_unit</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">include_event_context</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">TimeSeries</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -996,7 +999,7 @@ document.write(`
 <span class="sd">    Point positions are returned in `output[&quot;Points&quot;]` as a TimeSeries, where</span>
 <span class="sd">    each point corresponds to a data key. Each point position is expressed as</span>
 <span class="sd">    an Nx4 point series::</span>
-<span class="sd">        </span>
+
 <span class="sd">        [</span>
 <span class="sd">            [x0, y0, z0, 1.0],</span>
 <span class="sd">            [x1, y1, z1, 1.0],</span>
@@ -1023,6 +1026,14 @@ document.write(`
 <span class="sd">        expressed in other units such as mm in the C3D file. False to keep</span>
 <span class="sd">        points as is. When unset, if points are stored in a unit other than</span>
 <span class="sd">        meters, then a warning is issued. See caution note below.</span>
+
+<span class="sd">    include_event_context</span>
+<span class="sd">        Optional. True to include the event context, for C3D files that use</span>
+<span class="sd">        this field. If False, the events in the output TimeSeries are named</span>
+<span class="sd">        after the events names in the C3D files, e.g.: &quot;Start&quot;, &quot;Heel Strike&quot;,</span>
+<span class="sd">        &quot;Toe Off&quot;. If True, the events in the output TimeSeries are named using</span>
+<span class="sd">        this scheme &quot;context:name&quot;, e.g.,: &quot;General:Start&quot;,</span>
+<span class="sd">        &quot;Right:Heel strike&quot;, &quot;Left:Toe Off&quot;. The default is False.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -1148,6 +1159,11 @@ document.write(`
         <span class="n">event_names</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">event_times</span> <span class="o">=</span> <span class="p">[]</span>
 
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">event_contexts</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">][</span><span class="s2">&quot;EVENT&quot;</span><span class="p">][</span><span class="s2">&quot;CONTEXTS&quot;</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+        <span class="n">event_contexts</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&quot;</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">event_names</span><span class="p">]</span>
+
     <span class="c1"># ---------------------------------</span>
     <span class="c1"># Create the points TimeSeries</span>
     <span class="n">points</span> <span class="o">=</span> <span class="n">TimeSeries</span><span class="p">()</span>
@@ -1158,8 +1174,22 @@ document.write(`
     <span class="n">point_unit</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">][</span><span class="s2">&quot;POINT&quot;</span><span class="p">][</span><span class="s2">&quot;UNITS&quot;</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">point_start</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;header&quot;</span><span class="p">][</span><span class="s2">&quot;points&quot;</span><span class="p">][</span><span class="s2">&quot;first_frame&quot;</span><span class="p">]</span>
     <span class="n">start_time</span> <span class="o">=</span> <span class="n">point_start</span> <span class="o">/</span> <span class="n">point_rate</span>
-    <span class="n">labels</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">][</span><span class="s2">&quot;POINT&quot;</span><span class="p">][</span><span class="s2">&quot;LABELS&quot;</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">]</span>
     <span class="n">n_points</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">][</span><span class="s2">&quot;POINT&quot;</span><span class="p">][</span><span class="s2">&quot;USED&quot;</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="n">labels</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">][</span><span class="s2">&quot;POINT&quot;</span><span class="p">][</span><span class="s2">&quot;LABELS&quot;</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">]</span>
+    <span class="c1"># Check if labels2, labels3, labels4,.... exist.</span>
+    <span class="c1"># https://www.c3d.org/HTML/default.htm?turl=Documents%2Fpointlabels2.htm</span>
+    <span class="n">i_additional_labels</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">str_labels</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;LABELS</span><span class="si">{</span><span class="n">i_additional_labels</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">additional_labels</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">][</span><span class="s2">&quot;POINT&quot;</span><span class="p">][</span><span class="n">str_labels</span><span class="p">][</span>
+                <span class="s2">&quot;value&quot;</span>
+            <span class="p">]</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="n">labels</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">additional_labels</span><span class="p">)</span>
+        <span class="n">i_additional_labels</span> <span class="o">+=</span> <span class="mi">1</span>
 
     <span class="c1"># Solve the point unit conversion mess (issue #147)</span>
     <span class="n">scales</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;mm&quot;</span><span class="p">:</span> <span class="mf">0.001</span><span class="p">,</span> <span class="s2">&quot;cm&quot;</span><span class="p">:</span> <span class="mf">0.01</span><span class="p">,</span> <span class="s2">&quot;dm&quot;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">}</span>
@@ -1220,13 +1250,23 @@ document.write(`
             <span class="p">)</span>
             <span class="n">points</span> <span class="o">=</span> <span class="n">points</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">,</span> <span class="n">point_unit</span><span class="p">)</span>
 
-    <span class="n">points</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">points</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="n">point_rate</span> <span class="o">+</span> <span class="n">start_time</span>
-    <span class="p">)</span>
+    <span class="k">if</span> <span class="n">n_points</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">points</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">points</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="n">point_rate</span> <span class="o">+</span> <span class="n">start_time</span>
+        <span class="p">)</span>
 
     <span class="c1"># Add events</span>
-    <span class="k">for</span> <span class="n">i_event</span><span class="p">,</span> <span class="n">event_name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">event_names</span><span class="p">):</span>
-        <span class="n">points</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="n">event_times</span><span class="p">[</span><span class="n">i_event</span><span class="p">],</span> <span class="n">event_name</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i_event</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">event_names</span><span class="p">)):</span>
+        <span class="n">event_time</span> <span class="o">=</span> <span class="n">event_times</span><span class="p">[</span><span class="n">i_event</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">include_event_context</span><span class="p">:</span>
+            <span class="n">event_name</span> <span class="o">=</span> <span class="n">event_contexts</span><span class="p">[</span><span class="n">i_event</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span> <span class="o">+</span> <span class="n">event_names</span><span class="p">[</span><span class="n">i_event</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">event_name</span> <span class="o">=</span> <span class="n">event_names</span><span class="p">[</span><span class="n">i_event</span><span class="p">]</span>
+        <span class="n">points</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span>
+            <span class="n">event_time</span><span class="p">,</span>
+            <span class="n">event_name</span><span class="p">,</span>
+            <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span>
     <span class="n">points</span><span class="o">.</span><span class="n">sort_events</span><span class="p">(</span><span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
     <span class="c1"># Add to output</span>
@@ -1237,6 +1277,26 @@ document.write(`
     <span class="n">analog_rate</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">][</span><span class="s2">&quot;ANALOG&quot;</span><span class="p">][</span><span class="s2">&quot;RATE&quot;</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
     <span class="n">units</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">][</span><span class="s2">&quot;ANALOG&quot;</span><span class="p">][</span><span class="s2">&quot;UNITS&quot;</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">]</span>
     <span class="n">n_analogs</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">][</span><span class="s2">&quot;ANALOG&quot;</span><span class="p">][</span><span class="s2">&quot;USED&quot;</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># Check if labels2, labels3, labels4,.... exist.</span>
+    <span class="c1"># https://www.c3d.org/HTML/default.htm?turl=Documents%2Fpointlabels2.htm</span>
+    <span class="c1"># In contrast to the points case, units is an array of strings.</span>
+    <span class="n">i_additional_labels</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="n">str_labels</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;LABELS</span><span class="si">{</span><span class="n">i_additional_labels</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="n">str_units</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;UNITS</span><span class="si">{</span><span class="n">i_additional_labels</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">additional_labels</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">][</span><span class="s2">&quot;ANALOG&quot;</span><span class="p">][</span><span class="n">str_labels</span><span class="p">][</span>
+                <span class="s2">&quot;value&quot;</span>
+            <span class="p">]</span>
+            <span class="n">additional_units</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">][</span><span class="s2">&quot;ANALOG&quot;</span><span class="p">][</span><span class="n">str_units</span><span class="p">][</span>
+                <span class="s2">&quot;value&quot;</span>
+            <span class="p">]</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="n">labels</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">additional_labels</span><span class="p">)</span>
+        <span class="n">units</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">additional_units</span><span class="p">)</span>
+        <span class="n">i_additional_labels</span> <span class="o">+=</span> <span class="mi">1</span>
 
     <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># There are analogs</span>
         <span class="n">analogs</span> <span class="o">=</span> <span class="n">TimeSeries</span><span class="p">()</span>
@@ -1253,10 +1313,11 @@ document.write(`
                     <span class="n">units</span><span class="p">[</span><span class="n">i_label</span><span class="p">]</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span> <span class="s2">&quot;ignore&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">),</span>
                     <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                 <span class="p">)</span>
-
-        <span class="n">analogs</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">analogs</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="n">analog_rate</span> <span class="o">+</span> <span class="n">start_time</span>
-        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">n_analogs</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">analogs</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">analogs</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="n">analog_rate</span>
+                <span class="o">+</span> <span class="n">start_time</span>
+            <span class="p">)</span>
 
         <span class="c1"># Add events</span>
         <span class="k">for</span> <span class="n">i_event</span><span class="p">,</span> <span class="n">event_name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">event_names</span><span class="p">):</span>
@@ -1331,14 +1392,14 @@ document.write(`
 <span class="sd">    points</span>
 <span class="sd">        Points trajectories, where data key corresponds to a point, expressed</span>
 <span class="sd">        as an Nx4 point series::</span>
-<span class="sd">            </span>
+
 <span class="sd">            [</span>
 <span class="sd">                [x0, y0, z0, 1.0],</span>
 <span class="sd">                [x1, y1, z1, 1.0],</span>
 <span class="sd">                [x2, y2, z2, 1.0],</span>
 <span class="sd">                ...,</span>
 <span class="sd">            ]</span>
-<span class="sd">        </span>
+
 <span class="sd">        Events from this TimeSeries are also added to the c3d.</span>
 
 <span class="sd">    analogs</span>
@@ -1568,7 +1629,10 @@ By Félix Chénier
   <div class="footer-item">
     
 <div class="extra_footer">
-  This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>.
+  This website is built using <a href="https://jupyterbook.org">jupyter-book</a>.
+<meta property="og:image" content="https://kineticstoolkit.uqam.ca/doc/_static/logo.png">
+<meta property="og:image:type" content="image/png">
+
 </div>
   </div>
   

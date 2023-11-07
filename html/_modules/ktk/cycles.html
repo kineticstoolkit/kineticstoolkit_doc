@@ -726,6 +726,7 @@ document.write(`
     <span class="n">check_types</span><span class="p">,</span>
     <span class="n">TimeSeriesEventNotFoundError</span><span class="p">,</span>
 <span class="p">)</span>
+<span class="kn">from</span> <span class="nn">kineticstoolkit.tools</span> <span class="kn">import</span> <span class="n">tqdm</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 <span class="kn">from</span> <span class="nn">numpy.typing</span> <span class="kn">import</span> <span class="n">ArrayLike</span>
 
@@ -815,7 +816,7 @@ document.write(`
 
     <span class="n">is_phase1</span> <span class="o">=</span> <span class="kc">True</span>
 
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Detecting cycles&quot;</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">directions</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;rising&quot;</span><span class="p">:</span>
             <span class="n">crossing1</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">thresholds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
             <span class="n">crossing2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">thresholds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -838,7 +839,11 @@ document.write(`
     <span class="c1"># Remove cycles where criteria are not reached.</span>
     <span class="n">valid_events</span> <span class="o">=</span> <span class="p">[]</span>
 
-    <span class="k">for</span> <span class="n">i_event</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">events</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">i_event</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span>
+        <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">events</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+        <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Removing cycles that do not match the specified criteria&quot;</span><span class="p">,</span>
+        <span class="n">delay</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="p">):</span>
         <span class="n">time1</span> <span class="o">=</span> <span class="n">events</span><span class="p">[</span><span class="n">i_event</span><span class="p">]</span><span class="o">.</span><span class="n">time</span>
         <span class="n">time2</span> <span class="o">=</span> <span class="n">events</span><span class="p">[</span><span class="n">i_event</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">time</span>
         <span class="k">try</span><span class="p">:</span>
@@ -1014,25 +1019,13 @@ document.write(`
 
         <span class="c1"># Resample this cycle on span + 1</span>
         <span class="c1"># (and get the first points after)</span>
-        <span class="k">try</span><span class="p">:</span>
-            <span class="n">subts</span> <span class="o">=</span> <span class="n">subts</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span>
-                <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span>
-                    <span class="n">extended_begin_time</span><span class="p">,</span>
-                    <span class="n">extended_end_time</span><span class="p">,</span>
-                    <span class="n">span</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">span</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
-                <span class="p">)</span>
+        <span class="n">subts</span> <span class="o">=</span> <span class="n">subts</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span>
+                <span class="n">extended_begin_time</span><span class="p">,</span>
+                <span class="n">extended_end_time</span><span class="p">,</span>
+                <span class="n">span</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">span</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
             <span class="p">)</span>
-        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-            <span class="n">subts</span> <span class="o">=</span> <span class="n">subts_backup</span>  <span class="c1"># In case the try messed with subts</span>
-            <span class="n">subts</span> <span class="o">=</span> <span class="n">subts</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span>
-                <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span>
-                    <span class="n">extended_begin_time</span><span class="p">,</span>
-                    <span class="n">extended_end_time</span><span class="p">,</span>
-                    <span class="n">span</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">span</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
-                <span class="p">),</span>
-                <span class="n">fill_value</span><span class="o">=</span><span class="s2">&quot;extrapolate&quot;</span><span class="p">,</span>
-            <span class="p">)</span>
-            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cycle </span><span class="si">{</span><span class="n">i_cycle</span><span class="si">}</span><span class="s2"> has been extrapolated.&quot;</span><span class="p">)</span>
+        <span class="p">)</span>
 
         <span class="c1"># Keep only the first points (the last one belongs to the next cycle)</span>
         <span class="n">subts</span> <span class="o">=</span> <span class="n">subts</span><span class="o">.</span><span class="n">get_ts_between_indexes</span><span class="p">(</span>
@@ -1394,7 +1387,10 @@ By Félix Chénier
   <div class="footer-item">
     
 <div class="extra_footer">
-  This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>.
+  This website is built using <a href="https://jupyterbook.org">jupyter-book</a>.
+<meta property="og:image" content="https://kineticstoolkit.uqam.ca/doc/_static/logo.png">
+<meta property="og:image:type" content="image/png">
+
 </div>
   </div>
   
