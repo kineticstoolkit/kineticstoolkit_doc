@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.13.8
+    jupytext_version: 1.14.5
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -13,6 +13,7 @@ kernelspec:
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
+
 %matplotlib inline
 ```
 
@@ -33,8 +34,9 @@ This section shows how to use these methods to segment TimeSeries:
 All these methods do the same: they extract a new TimeSeries using a criteria based on index, time or event. We will once again use [kinetic data of wheelchair propulsion](dataset_kinetics_wheelchair_propulsion.md):
 
 ```{code-cell} ipython3
-import kineticstoolkit.lab as ktk
 import matplotlib.pyplot as plt
+
+import kineticstoolkit.lab as ktk
 
 ts = ktk.load(ktk.doc.download("kinetics_wheelchair_propulsion_events.ktk.zip"))
 ts.plot()
@@ -65,14 +67,11 @@ Or, we could simply use the event itself:
 new_ts = ts.get_ts_after_event("sync")
 ```
 
-
 These methods are very helpful to analyze only specific sections of a TimeSeries. For instance, to analyze only the four first pushes and get rid of any other data, we would do:
 
 ```{code-cell} ipython3
 # Extract the four pushes
-first_four_pushes = ts.get_ts_between_events(
-    "push", "push", 0, 4, inclusive=True
-)
+first_four_pushes = ts.get_ts_between_events("push", "push", 0, 4, inclusive=True)
 
 # Remove the events outside the resulting TimeSeries
 first_four_pushes = first_four_pushes.trim_events()
@@ -81,6 +80,32 @@ first_four_pushes = first_four_pushes.trim_events()
 first_four_pushes.plot()
 ```
 
-:::{note}
-In this example, we set `inclusive=True` to ensure that the push 0 and push 4 events are included in the resulting TimeSeries.
-:::
+Note the use of `inclusive=True` in this example. This optional parameter indicates wether the "before", "after" or "between" term in the method name is inclusive (<=, >=) or strict (<, >). Different combinations lead to different results:
+
+```{code-cell} ipython3
+plt.subplot(2, 2, 1)
+ts1 = ts.get_ts_between_events("push", "push", 0, 4, inclusive=False)
+ts1 = ts1.trim_events()
+ts1.plot(legend=False)
+plt.xlabel("Inclusive = False")
+
+plt.subplot(2, 2, 2)
+ts2 = ts.get_ts_between_events("push", "push", 0, 4, inclusive=True)
+ts2 = ts2.trim_events()
+ts2.plot(legend=False)
+plt.xlabel("Inclusive = True")
+
+plt.subplot(2, 2, 3)
+ts3 = ts.get_ts_between_events("push", "push", 0, 4, inclusive=[False, True])
+ts3 = ts3.trim_events()
+ts3.plot(legend=False)
+plt.xlabel("Inclusive = [False, True]")
+
+plt.subplot(2, 2, 4)
+ts4 = ts.get_ts_between_events("push", "push", 0, 4, inclusive=[True, False])
+ts4 = ts4.trim_events()
+ts4.plot(legend=False)
+plt.xlabel("Inclusive = [True, False]")
+
+plt.tight_layout()
+```
