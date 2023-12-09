@@ -382,7 +382,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../../ktk_importing.html">6. Importing Kinetics Toolkit</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../timeseries.html">7. Analyzing time-varying data</a><input class="toctree-checkbox" id="toctree-checkbox-43" name="toctree-checkbox-43" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-43"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../timeseries_basics.html">7.1. The TimeSeries type</a><input class="toctree-checkbox" id="toctree-checkbox-44" name="toctree-checkbox-44" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-44"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../timeseries_basics_exercise.html">7.1.4. Exercise: Creating a TimeSeries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../timeseries_basics_exercise.html">7.1.5. Exercise: Creating a TimeSeries</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../timeseries_manipulating.html">7.2. Manipulating TimeSeries</a><input class="toctree-checkbox" id="toctree-checkbox-45" name="toctree-checkbox-45" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-45"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -499,11 +499,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../../ktk_conventions.html">Conventions</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../api_classes.html">Classes</a><input class="toctree-checkbox" id="toctree-checkbox-62" name="toctree-checkbox-62" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-62"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../api/ktk.TimeSeries.html">ktk.TimeSeries</a><input class="toctree-checkbox" id="toctree-checkbox-63" name="toctree-checkbox-63" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-63"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.add_data.html">ktk.TimeSeries.add_data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.add_data_info.html">ktk.TimeSeries.add_data_info</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.add_event.html">ktk.TimeSeries.add_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.copy.html">ktk.TimeSeries.copy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.count_events.html">ktk.TimeSeries.count_events</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.fill_missing_samples.html">ktk.TimeSeries.fill_missing_samples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.from_array.html">ktk.TimeSeries.from_array</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.from_dataframe.html">ktk.TimeSeries.from_dataframe</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_index_after_event.html">ktk.TimeSeries.get_index_after_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_index_after_time.html">ktk.TimeSeries.get_index_after_time</a></li>
@@ -733,7 +735,7 @@ document.write(`
 
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">kineticstoolkit._timeseries</span> <span class="kn">import</span> <span class="n">TimeSeries</span><span class="p">,</span> <span class="n">TimeSeriesEvent</span>
+<span class="kn">from</span> <span class="nn">kineticstoolkit.timeseries</span> <span class="kn">import</span> <span class="n">TimeSeries</span><span class="p">,</span> <span class="n">TimeSeriesEvent</span>
 <span class="kn">from</span> <span class="nn">kineticstoolkit.exceptions</span> <span class="kn">import</span> <span class="p">(</span>
     <span class="n">check_types</span><span class="p">,</span>
     <span class="n">TimeSeriesEventNotFoundError</span><span class="p">,</span>
@@ -775,7 +777,7 @@ document.write(`
 <span class="sd">      corresponds to the start of phase 1</span>
 <span class="sd">    - event_names[1]:</span>
 <span class="sd">      corresponds to the start of phase 2</span>
-<span class="sd">    - &#39;_&#39;:</span>
+<span class="sd">    - &quot;_&quot;:</span>
 <span class="sd">      corresponds to the end of the cycle.</span>
 
 <span class="sd">    Parameters</span>
@@ -787,14 +789,14 @@ document.write(`
 <span class="sd">        unidimensional.</span>
 <span class="sd">    event_names</span>
 <span class="sd">        Optional. Event names to add in the output TimeSeries. Default is</span>
-<span class="sd">        [&#39;phase1&#39;, &#39;phase2&#39;].</span>
+<span class="sd">        [&quot;phase1&quot;, &quot;phase2&quot;].</span>
 <span class="sd">    thresholds</span>
 <span class="sd">        Optional. Values to cross to register phase changes. Default is</span>
 <span class="sd">        [0., 1.].</span>
 <span class="sd">    directions</span>
 <span class="sd">        Optional. Directions to cross thresholds to register phase changes.</span>
-<span class="sd">        Either [&#39;rising&#39;, &#39;falling&#39;] or [&#39;falling&#39;, &#39;rising&#39;]. Default is</span>
-<span class="sd">        [&#39;rising&#39;, &#39;falling&#39;].</span>
+<span class="sd">        Either [&quot;rising&quot;, &quot;falling&quot;] or [&quot;falling&quot;, &quot;rising&quot;]. Default is</span>
+<span class="sd">        [&quot;rising&quot;, &quot;falling&quot;].</span>
 <span class="sd">    min_durations</span>
 <span class="sd">        Optional. Minimal phase durations in seconds. Default is [0., 0.].</span>
 <span class="sd">    max_durations</span>
@@ -914,7 +916,7 @@ document.write(`
 <span class="sd">    put end to end. For example, for a TimeSeries that contains three</span>
 <span class="sd">    cycles, a time normalization with 100 points will give a TimeSeries</span>
 <span class="sd">    of length 300. The TimeSeries&#39; events are also time-normalized, including</span>
-<span class="sd">    event_name1 but with event_name2 renamed as &#39;_&#39;.</span>
+<span class="sd">    event_name1 but with event_name2 renamed as &quot;_&quot;.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1224,14 +1226,14 @@ document.write(`
 <span class="c1">#     &gt;&gt;&gt; import kineticstoolkit.lab as ktk</span>
 <span class="c1">#     &gt;&gt;&gt; # Create a TimeSeries with different time-normalized events</span>
 <span class="c1">#     &gt;&gt;&gt; ts = ktk.TimeSeries(time=np.arange(400))  # 4 cycles of 100%</span>
-<span class="c1">#     &gt;&gt;&gt; ts = ts.add_event(9, &#39;event1&#39;)    # event1 at 9% of cycle 0</span>
-<span class="c1">#     &gt;&gt;&gt; ts = ts.add_event(110, &#39;event1&#39;)  # event1 at 10% of cycle 1</span>
-<span class="c1">#     &gt;&gt;&gt; ts = ts.add_event(312, &#39;event1&#39;)  # event1 at 12% of cycle 3</span>
-<span class="c1">#     &gt;&gt;&gt; ts = ts.add_event(382, &#39;event1&#39;)  # 2nd occ. event1 at 82% of cycle 3</span>
+<span class="c1">#     &gt;&gt;&gt; ts = ts.add_event(9, &quot;event1&quot;)    # event1 at 9% of cycle 0</span>
+<span class="c1">#     &gt;&gt;&gt; ts = ts.add_event(110, &quot;event1&quot;)  # event1 at 10% of cycle 1</span>
+<span class="c1">#     &gt;&gt;&gt; ts = ts.add_event(312, &quot;event1&quot;)  # event1 at 12% of cycle 3</span>
+<span class="c1">#     &gt;&gt;&gt; ts = ts.add_event(382, &quot;event1&quot;)  # 2nd occ. event1 at 82% of cycle 3</span>
 
 <span class="c1">#     &gt;&gt;&gt; # Stack these events</span>
 <span class="c1">#     &gt;&gt;&gt; events = ktk.cycles.stack_events(ts)</span>
-<span class="c1">#     &gt;&gt;&gt; events[&#39;event1&#39;]</span>
+<span class="c1">#     &gt;&gt;&gt; events[&quot;event1&quot;]</span>
 <span class="c1">#     [[9.0], [10.0], [], [12.0, 82.0]]</span>
 
 <span class="c1">#     &quot;&quot;&quot;</span>

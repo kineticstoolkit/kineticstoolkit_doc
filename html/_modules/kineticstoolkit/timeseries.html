@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>kineticstoolkit._timeseries &#8212; Biomechanical Analysis using Python and Kinetics Toolkit</title>
+    <title>kineticstoolkit.timeseries &#8212; Biomechanical Analysis using Python and Kinetics Toolkit</title>
   
   
   
@@ -62,8 +62,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/kineticstoolkit/_timeseries';</script>
-    <link rel="canonical" href="https://kineticstoolkit.uqam.ca/doc/_modules/kineticstoolkit/_timeseries.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/kineticstoolkit/timeseries';</script>
+    <link rel="canonical" href="https://kineticstoolkit.uqam.ca/doc/_modules/kineticstoolkit/timeseries.html" />
     <link rel="shortcut icon" href="../../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
@@ -382,7 +382,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../../ktk_importing.html">6. Importing Kinetics Toolkit</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../timeseries.html">7. Analyzing time-varying data</a><input class="toctree-checkbox" id="toctree-checkbox-43" name="toctree-checkbox-43" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-43"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../timeseries_basics.html">7.1. The TimeSeries type</a><input class="toctree-checkbox" id="toctree-checkbox-44" name="toctree-checkbox-44" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-44"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../timeseries_basics_exercise.html">7.1.4. Exercise: Creating a TimeSeries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../timeseries_basics_exercise.html">7.1.5. Exercise: Creating a TimeSeries</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../timeseries_manipulating.html">7.2. Manipulating TimeSeries</a><input class="toctree-checkbox" id="toctree-checkbox-45" name="toctree-checkbox-45" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-45"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -499,11 +499,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../../ktk_conventions.html">Conventions</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../api_classes.html">Classes</a><input class="toctree-checkbox" id="toctree-checkbox-62" name="toctree-checkbox-62" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-62"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../api/ktk.TimeSeries.html">ktk.TimeSeries</a><input class="toctree-checkbox" id="toctree-checkbox-63" name="toctree-checkbox-63" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-63"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.add_data.html">ktk.TimeSeries.add_data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.add_data_info.html">ktk.TimeSeries.add_data_info</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.add_event.html">ktk.TimeSeries.add_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.copy.html">ktk.TimeSeries.copy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.count_events.html">ktk.TimeSeries.count_events</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.fill_missing_samples.html">ktk.TimeSeries.fill_missing_samples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.from_array.html">ktk.TimeSeries.from_array</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.from_dataframe.html">ktk.TimeSeries.from_dataframe</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_index_after_event.html">ktk.TimeSeries.get_index_after_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_index_after_time.html">ktk.TimeSeries.get_index_after_time</a></li>
@@ -702,7 +704,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <h1>Source code for kineticstoolkit._timeseries</h1><div class="highlight"><pre>
+  <h1>Source code for kineticstoolkit.timeseries</h1><div class="highlight"><pre>
 <span></span><span class="ch">#!/usr/bin/env python3</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="c1">#</span>
@@ -770,6 +772,7 @@ document.write(`
 
     <span class="nd">@classmethod</span>
     <span class="k">def</span> <span class="fm">__dir__</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the directory for the TimeSeries.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="p">[</span>
             <span class="s2">&quot;copy&quot;</span><span class="p">,</span>
             <span class="c1"># Data info management</span>
@@ -778,6 +781,7 @@ document.write(`
             <span class="c1"># Data management</span>
             <span class="s2">&quot;get_subset&quot;</span><span class="p">,</span>
             <span class="s2">&quot;merge&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;add_data&quot;</span><span class="p">,</span>
             <span class="s2">&quot;rename_data&quot;</span><span class="p">,</span>
             <span class="s2">&quot;remove_data&quot;</span><span class="p">,</span>
             <span class="c1"># Time management</span>
@@ -819,9 +823,10 @@ document.write(`
             <span class="s2">&quot;ui_edit_events&quot;</span><span class="p">,</span>
             <span class="s2">&quot;ui_sync&quot;</span><span class="p">,</span>
             <span class="s2">&quot;plot&quot;</span><span class="p">,</span>
-            <span class="c1"># Dataframe</span>
-            <span class="s2">&quot;from_dataframe&quot;</span><span class="p">,</span>
+            <span class="c1"># IO</span>
             <span class="s2">&quot;to_dataframe&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;from_dataframe&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;from_array&quot;</span><span class="p">,</span>
         <span class="p">]</span>
 
 
@@ -864,7 +869,7 @@ document.write(`
 
 <span class="sd">    Example</span>
 <span class="sd">    -------</span>
-<span class="sd">    &gt;&gt;&gt; event = ktk.TimeSeriesEvent(time=1.5, name=&#39;event_name&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; event = ktk.TimeSeriesEvent(time=1.5, name=&quot;event_name&quot;)</span>
 <span class="sd">    &gt;&gt;&gt; event</span>
 <span class="sd">    TimeSeriesEvent(time=1.5, name=&#39;event_name&#39;)</span>
 
@@ -895,7 +900,7 @@ document.write(`
 
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
-<span class="sd">        &gt;&gt;&gt; event = ktk.TimeSeriesEvent(time=1.5, name=&#39;event_name&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; event = ktk.TimeSeriesEvent(time=1.5, name=&quot;event_name&quot;)</span>
 <span class="sd">        &gt;&gt;&gt; event._to_tuple()</span>
 <span class="sd">        (1.5, &#39;event_name&#39;)</span>
 
@@ -908,7 +913,7 @@ document.write(`
 
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
-<span class="sd">        &gt;&gt;&gt; event = ktk.TimeSeriesEvent(time=1.5, name=&#39;event_name&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; event = ktk.TimeSeriesEvent(time=1.5, name=&quot;event_name&quot;)</span>
 <span class="sd">        &gt;&gt;&gt; event._to_list()</span>
 <span class="sd">        [1.5, &#39;event_name&#39;]</span>
 
@@ -921,7 +926,7 @@ document.write(`
 
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
-<span class="sd">        &gt;&gt;&gt; event = ktk.TimeSeriesEvent(time=1.5, name=&#39;event_name&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; event = ktk.TimeSeriesEvent(time=1.5, name=&quot;event_name&quot;)</span>
 <span class="sd">        &gt;&gt;&gt; event._to_dict()</span>
 <span class="sd">        {&#39;Time&#39;: 1.5, &#39;Name&#39;: &#39;event_name&#39;}</span>
 
@@ -947,13 +952,13 @@ document.write(`
 <span class="sd">        which first dimension corresponds to time.</span>
 
 <span class="sd">    time_info : dict[str, Any]</span>
-<span class="sd">        Contains metadata relative to time. The default is {&#39;Unit&#39;: &#39;s&#39;}</span>
+<span class="sd">        Contains metadata relative to time. The default is {&quot;Unit&quot;: &quot;s&quot;}</span>
 
 <span class="sd">    data_info : dict[str, dict[str, Any]]</span>
 <span class="sd">        Contains facultative metadata relative to data. For example, the</span>
-<span class="sd">        data_info attribute could indicate the unit of data[&#39;Forces&#39;]::</span>
+<span class="sd">        data_info attribute could indicate the unit of data[&quot;Forces&quot;]::</span>
 
-<span class="sd">            data[&#39;Forces&#39;] = {&#39;Unit&#39;: &#39;N&#39;}</span>
+<span class="sd">            data[&quot;Forces&quot;] = {&quot;Unit&quot;: &quot;N&quot;}</span>
 
 <span class="sd">        To facilitate the management of data_info, please use</span>
 <span class="sd">        `ktk.TimeSeries.add_data_info`.</span>
@@ -961,9 +966,163 @@ document.write(`
 <span class="sd">    events : list[TimeSeriesEvent]</span>
 <span class="sd">        list of events.</span>
 
-<span class="sd">    Example</span>
-<span class="sd">    -------</span>
-<span class="sd">    &gt;&gt;&gt; ts = ktk.TimeSeries(time=np.arange(0,100))</span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    A TimeSeries can be constructed from another TimeSeries, a Pandas DataFrame</span>
+<span class="sd">    or any array with at least one dimension.</span>
+
+<span class="sd">    1. Creating an empty TimeSeries::</span>
+
+<span class="sd">    &gt;&gt;&gt; ktk.TimeSeries()</span>
+<span class="sd">    TimeSeries with attributes:</span>
+<span class="sd">             time: array([], dtype=float64)</span>
+<span class="sd">             data: {}</span>
+<span class="sd">        time_info: {&#39;Unit&#39;: &#39;s&#39;}</span>
+<span class="sd">        data_info: {}</span>
+<span class="sd">           events: []</span>
+
+<span class="sd">    2. Creating a TimeSeries an allocating time and data::</span>
+
+<span class="sd">    &gt;&gt;&gt; ktk.TimeSeries(time=np.arange(0, 10), data={&quot;test&quot;:np.arange(0, 10)})</span>
+<span class="sd">    TimeSeries with attributes:</span>
+<span class="sd">             time: array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</span>
+<span class="sd">             data: {&#39;test&#39;: array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])}</span>
+<span class="sd">        time_info: {&#39;Unit&#39;: &#39;s&#39;}</span>
+<span class="sd">        data_info: {}</span>
+<span class="sd">           events: []</span>
+
+<span class="sd">    3. Creating a TimeSeries as a copy of another TimeSeries::</span>
+
+<span class="sd">    &gt;&gt;&gt; ts1 = ktk.TimeSeries(time=np.arange(0, 10), data={&quot;test&quot;:np.arange(0, 10)})</span>
+<span class="sd">    &gt;&gt;&gt; ts2 = ktk.TimeSeries(ts1)</span>
+<span class="sd">    &gt;&gt;&gt; ts2</span>
+<span class="sd">    TimeSeries with attributes:</span>
+<span class="sd">             time: array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</span>
+<span class="sd">             data: {&#39;test&#39;: array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])}</span>
+<span class="sd">        time_info: {&#39;Unit&#39;: &#39;s&#39;}</span>
+<span class="sd">        data_info: {}</span>
+<span class="sd">           events: []</span>
+
+<span class="sd">    See Also: TimeSeries.copy</span>
+
+<span class="sd">    4. Creating a TimeSeries from a Pandas DataFrame::</span>
+
+<span class="sd">    &gt;&gt;&gt; df = pd.DataFrame()</span>
+<span class="sd">    &gt;&gt;&gt; df.index = [0., 0.1, 0.2, 0.3, 0.4]  # Time in seconds</span>
+<span class="sd">    &gt;&gt;&gt; df[&quot;x&quot;] = [0., 1., 2., 3., 4.]</span>
+<span class="sd">    &gt;&gt;&gt; df[&quot;y&quot;] = [5., 6., 7., 8., 9.]</span>
+<span class="sd">    &gt;&gt;&gt; df[&quot;z&quot;] = [0., 0., 0., 0., 0.]</span>
+<span class="sd">    &gt;&gt;&gt; df</span>
+<span class="sd">           x    y    z</span>
+<span class="sd">    0.0  0.0  5.0  0.0</span>
+<span class="sd">    0.1  1.0  6.0  0.0</span>
+<span class="sd">    0.2  2.0  7.0  0.0</span>
+<span class="sd">    0.3  3.0  8.0  0.0</span>
+<span class="sd">    0.4  4.0  9.0  0.0</span>
+
+<span class="sd">    &gt;&gt;&gt; ts = ktk.TimeSeries(df)</span>
+<span class="sd">    &gt;&gt;&gt; ts</span>
+<span class="sd">    TimeSeries with attributes:</span>
+<span class="sd">             time: array([0. , 0.1, 0.2, 0.3, 0.4])</span>
+<span class="sd">             data: &lt;dict with 3 entries&gt;</span>
+<span class="sd">        time_info: {&#39;Unit&#39;: &#39;s&#39;}</span>
+<span class="sd">        data_info: {}</span>
+<span class="sd">           events: []</span>
+
+<span class="sd">    &gt;&gt;&gt; ts.data</span>
+<span class="sd">    {&#39;x&#39;: array([0., 1., 2., 3., 4.]), &#39;y&#39;: array([5., 6., 7., 8., 9.]), &#39;z&#39;: array([0., 0., 0., 0., 0.])}</span>
+
+<span class="sd">    See Also: TimeSeries.from_dataframe</span>
+
+<span class="sd">    5. Creating a multidimensional TimeSeries from a Pandas DataFrame (using</span>
+<span class="sd">    brackets in column names)::</span>
+
+<span class="sd">    &gt;&gt;&gt; df = pd.DataFrame()</span>
+<span class="sd">    &gt;&gt;&gt; df.index = [0., 0.1, 0.2, 0.3, 0.4]  # Time in seconds</span>
+<span class="sd">    &gt;&gt;&gt; df[&quot;point[0]&quot;] = [0., 1., 2., 3., 4.]</span>
+<span class="sd">    &gt;&gt;&gt; df[&quot;point[1]&quot;] = [5., 6., 7., 8., 9.]</span>
+<span class="sd">    &gt;&gt;&gt; df[&quot;point[2]&quot;] = [0., 0., 0., 0., 0.]</span>
+<span class="sd">    &gt;&gt;&gt; df</span>
+<span class="sd">         point[0]  point[1]  point[2]</span>
+<span class="sd">    0.0       0.0       5.0       0.0</span>
+<span class="sd">    0.1       1.0       6.0       0.0</span>
+<span class="sd">    0.2       2.0       7.0       0.0</span>
+<span class="sd">    0.3       3.0       8.0       0.0</span>
+<span class="sd">    0.4       4.0       9.0       0.0</span>
+
+<span class="sd">    &gt;&gt;&gt; ts = ktk.TimeSeries(df)</span>
+<span class="sd">    &gt;&gt;&gt; ts.data</span>
+<span class="sd">    {&#39;point&#39;: array([[0., 5., 0.],</span>
+<span class="sd">           [1., 6., 0.],</span>
+<span class="sd">           [2., 7., 0.],</span>
+<span class="sd">           [3., 8., 0.],</span>
+<span class="sd">           [4., 9., 0.]])}</span>
+
+<span class="sd">    See Also: TimeSeries.from_dataframe</span>
+
+<span class="sd">    6. Creating a multidimensional TimeSeries of higher order from a Pandas</span>
+<span class="sd">    DataFrame (using brackets and commas in column names)::</span>
+
+<span class="sd">    &gt;&gt;&gt; df = pd.DataFrame()</span>
+<span class="sd">    &gt;&gt;&gt; df.index = [0., 0.1, 0.2, 0.3, 0.4]  # Time in seconds</span>
+<span class="sd">    &gt;&gt;&gt; df[&quot;rot[0,0]&quot;] = np.cos([0., 0.1, 0.2, 0.3, 0.4])</span>
+<span class="sd">    &gt;&gt;&gt; df[&quot;rot[0,1]&quot;] = -np.sin([0., 0.1, 0.2, 0.3, 0.4])</span>
+<span class="sd">    &gt;&gt;&gt; df[&quot;rot[1,0]&quot;] = np.sin([0., 0.1, 0.2, 0.3, 0.4])</span>
+<span class="sd">    &gt;&gt;&gt; df[&quot;rot[1,1]&quot;] = np.cos([0., 0.1, 0.2, 0.3, 0.4])</span>
+<span class="sd">    &gt;&gt;&gt; df[&quot;trans[0]&quot;] = [0., 0.1, 0.2, 0.3, 0.4]</span>
+<span class="sd">    &gt;&gt;&gt; df[&quot;trans[1]&quot;] = [5., 6., 7., 8., 9.]</span>
+<span class="sd">    &gt;&gt;&gt; df</span>
+<span class="sd">         rot[0,0]  rot[0,1]  rot[1,0]  rot[1,1]  trans[0]  trans[1]</span>
+<span class="sd">    0.0  1.000000 -0.000000  0.000000  1.000000       0.0       5.0</span>
+<span class="sd">    0.1  0.995004 -0.099833  0.099833  0.995004       0.1       6.0</span>
+<span class="sd">    0.2  0.980067 -0.198669  0.198669  0.980067       0.2       7.0</span>
+<span class="sd">    0.3  0.955336 -0.295520  0.295520  0.955336       0.3       8.0</span>
+<span class="sd">    0.4  0.921061 -0.389418  0.389418  0.921061       0.4       9.0</span>
+
+<span class="sd">    &gt;&gt;&gt; ts = ktk.TimeSeries(df)</span>
+<span class="sd">    &gt;&gt;&gt; ts.data</span>
+<span class="sd">    {&#39;rot&#39;: array([[[ 1.        , -0.        ],</span>
+<span class="sd">            [ 0.        ,  1.        ]],</span>
+<span class="sd">    &lt;BLANKLINE&gt;</span>
+<span class="sd">           [[ 0.99500417, -0.09983342],</span>
+<span class="sd">            [ 0.09983342,  0.99500417]],</span>
+<span class="sd">    &lt;BLANKLINE&gt;</span>
+<span class="sd">           [[ 0.98006658, -0.19866933],</span>
+<span class="sd">            [ 0.19866933,  0.98006658]],</span>
+<span class="sd">    &lt;BLANKLINE&gt;</span>
+<span class="sd">           [[ 0.95533649, -0.29552021],</span>
+<span class="sd">            [ 0.29552021,  0.95533649]],</span>
+<span class="sd">    &lt;BLANKLINE&gt;</span>
+<span class="sd">           [[ 0.92106099, -0.38941834],</span>
+<span class="sd">            [ 0.38941834,  0.92106099]]]), &#39;trans&#39;: array([[0. , 5. ],</span>
+<span class="sd">           [0.1, 6. ],</span>
+<span class="sd">           [0.2, 7. ],</span>
+<span class="sd">           [0.3, 8. ],</span>
+<span class="sd">           [0.4, 9. ]])}</span>
+
+<span class="sd">    See Also: TimeSeries.from_dataframe</span>
+
+<span class="sd">    7. Creating a TimeSeries from any array (results in a TimeSeries with a</span>
+<span class="sd">    single data key named &quot;data&quot; and with a matching time property with a</span>
+<span class="sd">    period of 1 second - unless time attribute is also defined)::</span>
+
+<span class="sd">    &gt;&gt;&gt; ktk.TimeSeries([0.1, 0.2, 0.3, 0.4, 0.5])</span>
+<span class="sd">    TimeSeries with attributes:</span>
+<span class="sd">             time: array([0., 1., 2., 3., 4.])</span>
+<span class="sd">             data: {&#39;data&#39;: array([0.1, 0.2, 0.3, 0.4, 0.5])}</span>
+<span class="sd">        time_info: {&#39;Unit&#39;: &#39;s&#39;}</span>
+<span class="sd">        data_info: {}</span>
+<span class="sd">           events: []</span>
+
+<span class="sd">    &gt;&gt;&gt; ktk.TimeSeries([0.1, 0.2, 0.3, 0.4, 0.5], time=[0.1, 0.2, 0.3, 0.4, 0.5])</span>
+<span class="sd">    TimeSeries with attributes:</span>
+<span class="sd">             time: array([0.1, 0.2, 0.3, 0.4, 0.5])</span>
+<span class="sd">             data: {&#39;data&#39;: array([0.1, 0.2, 0.3, 0.4, 0.5])}</span>
+<span class="sd">        time_info: {&#39;Unit&#39;: &#39;s&#39;}</span>
+<span class="sd">        data_info: {}</span>
+<span class="sd">           events: []</span>
+
+<span class="sd">    See Also: TimeSerise.from_array</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -971,17 +1130,60 @@ document.write(`
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
+        <span class="n">src</span><span class="p">:</span> <span class="kc">None</span> <span class="o">|</span> <span class="n">TimeSeries</span> <span class="o">|</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">ArrayLike</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
         <span class="n">time</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">=</span> <span class="p">[],</span>
         <span class="n">time_info</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;s&quot;</span><span class="p">},</span>
-        <span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span>
+        <span class="n">data</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">ArrayLike</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span>
         <span class="n">data_info</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{},</span>
         <span class="n">events</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">TimeSeriesEvent</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span>
     <span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">time</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">time_info</span> <span class="o">=</span> <span class="n">time_info</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">data_info</span> <span class="o">=</span> <span class="n">data_info</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">events</span> <span class="o">=</span> <span class="n">events</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="c1"># Default constructor</span>
+        <span class="k">if</span> <span class="n">src</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">time</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">time_info</span> <span class="o">=</span> <span class="n">time_info</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data_info</span> <span class="o">=</span> <span class="n">data_info</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">events</span> <span class="o">=</span> <span class="n">events</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="k">return</span>
+
+        <span class="c1"># Else, construct based on a source:</span>
+        <span class="k">def</span> <span class="nf">_assign_self</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">time</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">data</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">time_info</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">time_info</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">data_info</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">data_info</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">events</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+        <span class="c1"># If src is compatible with a TimeSeries, then assign it.</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">_assign_self</span><span class="p">(</span><span class="n">src</span><span class="p">)</span>
+            <span class="k">return</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+            <span class="k">pass</span>  <span class="c1"># It was not a TimeSeries, or something compatible.</span>
+
+        <span class="c1"># From DataFrame</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+            <span class="n">_assign_self</span><span class="p">(</span>
+                <span class="n">TimeSeries</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">(</span>
+                    <span class="n">src</span><span class="p">,</span>
+                    <span class="n">time_info</span><span class="o">=</span><span class="n">time_info</span><span class="p">,</span>
+                    <span class="n">data_info</span><span class="o">=</span><span class="n">data_info</span><span class="p">,</span>
+                    <span class="n">events</span><span class="o">=</span><span class="n">events</span><span class="p">,</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+            <span class="k">return</span>
+
+        <span class="c1"># Else, it&#39;s an array (thanks to runtime static tests)</span>
+        <span class="n">_assign_self</span><span class="p">(</span>
+            <span class="n">TimeSeries</span><span class="o">.</span><span class="n">from_array</span><span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">src</span><span class="p">),</span>
+                <span class="n">time</span><span class="o">=</span><span class="n">time</span><span class="p">,</span>
+                <span class="n">time_info</span><span class="o">=</span><span class="n">time_info</span><span class="p">,</span>
+                <span class="n">data_info</span><span class="o">=</span><span class="n">data_info</span><span class="p">,</span>
+                <span class="n">events</span><span class="o">=</span><span class="n">events</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
 
     <span class="c1"># Properties</span>
     <span class="nd">@property</span>
@@ -1492,13 +1694,13 @@ document.write(`
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
 <span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries()</span>
-<span class="sd">        &gt;&gt;&gt; ts = ts.add_data_info(&#39;Forces&#39;, &#39;Unit&#39;, &#39;N&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; ts = ts.add_data_info(&#39;Marker1&#39;, &#39;Color&#39;, [43, 2, 255])</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_data_info(&quot;Forces&quot;, &quot;Unit&quot;, &quot;N&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_data_info(&quot;Marker1&quot;, &quot;Color&quot;, [43, 2, 255])</span>
 
-<span class="sd">        &gt;&gt;&gt; ts.data_info[&#39;Forces&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; ts.data_info[&quot;Forces&quot;]</span>
 <span class="sd">        {&#39;Unit&#39;: &#39;N&#39;}</span>
 
-<span class="sd">        &gt;&gt;&gt; ts.data_info[&#39;Marker1&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; ts.data_info[&quot;Marker1&quot;]</span>
 <span class="sd">        {&#39;Color&#39;: [43, 2, 255]}</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1561,12 +1763,12 @@ document.write(`
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
 <span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries()</span>
-<span class="sd">        &gt;&gt;&gt; ts = ts.add_data_info(&#39;Forces&#39;, &#39;Unit&#39;, &#39;N&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; ts.data_info[&#39;Forces&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_data_info(&quot;Forces&quot;, &quot;Unit&quot;, &quot;N&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; ts.data_info[&quot;Forces&quot;]</span>
 <span class="sd">        {&#39;Unit&#39;: &#39;N&#39;}</span>
 
-<span class="sd">        &gt;&gt;&gt; ts = ts.remove_data_info(&#39;Forces&#39;, &#39;Unit&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; ts.data_info[&#39;Forces&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.remove_data_info(&quot;Forces&quot;, &quot;Unit&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; ts.data_info[&quot;Forces&quot;]</span>
 <span class="sd">        {}</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -1586,7 +1788,7 @@ document.write(`
 
     <span class="c1"># %% Data management</span>
 
-    <span class="k">def</span> <span class="nf">add_data</span><span class="p">(</span>
+<div class="viewcode-block" id="TimeSeries.add_data"><a class="viewcode-back" href="../../api/ktk.TimeSeries.add_data.html#ktk.TimeSeries.add_data">[docs]</a>    <span class="k">def</span> <span class="nf">add_data</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">data_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">data_value</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span>
@@ -1597,7 +1799,8 @@ document.write(`
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Add new data to the TimeSeries.</span>
 
-<span class="sd">        Functionally, both of these lines are equivalent::</span>
+<span class="sd">        Conceptually, these two lines are equivalent::</span>
+
 <span class="sd">            timeseries.data[&quot;name&quot;] = value</span>
 <span class="sd">            timeseries = timeseries.add_data(name, value)</span>
 
@@ -1698,7 +1901,7 @@ document.write(`
 
         <span class="c1"># Add the data</span>
         <span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">data_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_to_add</span>
-        <span class="k">return</span> <span class="n">ts</span>
+        <span class="k">return</span> <span class="n">ts</span></div>
 
 <div class="viewcode-block" id="TimeSeries.rename_data"><a class="viewcode-back" href="../../api/ktk.TimeSeries.rename_data.html#ktk.TimeSeries.rename_data">[docs]</a>    <span class="k">def</span> <span class="nf">rename_data</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">old_data_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">new_data_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">in_place</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
@@ -1735,8 +1938,8 @@ document.write(`
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
 <span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries()</span>
-<span class="sd">        &gt;&gt;&gt; ts.data[&#39;test&#39;] = np.arange(10)</span>
-<span class="sd">        &gt;&gt;&gt; ts = ts.add_data_info(&#39;test&#39;, &#39;Unit&#39;, &#39;m&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_data(&quot;test&quot;, np.arange(10))</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_data_info(&quot;test&quot;, &quot;Unit&quot;, &quot;m&quot;)</span>
 
 <span class="sd">        &gt;&gt;&gt; ts.data</span>
 <span class="sd">        {&#39;test&#39;: array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])}</span>
@@ -1744,7 +1947,7 @@ document.write(`
 <span class="sd">        &gt;&gt;&gt; ts.data_info</span>
 <span class="sd">        {&#39;test&#39;: {&#39;Unit&#39;: &#39;m&#39;}}</span>
 
-<span class="sd">        &gt;&gt;&gt; ts = ts.rename_data(&#39;test&#39;, &#39;signal&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.rename_data(&quot;test&quot;, &quot;signal&quot;)</span>
 
 <span class="sd">        &gt;&gt;&gt; ts.data</span>
 <span class="sd">        {&#39;signal&#39;: array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])}</span>
@@ -1801,10 +2004,10 @@ document.write(`
 
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
-<span class="sd">        &gt;&gt;&gt; # Prepare a test TimeSeries with data &#39;test&#39;</span>
+<span class="sd">        &gt;&gt;&gt; # Prepare a test TimeSeries with data &quot;test&quot;</span>
 <span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries()</span>
-<span class="sd">        &gt;&gt;&gt; ts.data[&#39;test&#39;] = np.arange(10)</span>
-<span class="sd">        &gt;&gt;&gt; ts = ts.add_data_info(&#39;test&#39;, &#39;Unit&#39;, &#39;m&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_data(&quot;test&quot;, np.arange(10))</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_data_info(&quot;test&quot;, &quot;Unit&quot;, &quot;m&quot;)</span>
 
 <span class="sd">        &gt;&gt;&gt; ts.data</span>
 <span class="sd">        {&#39;test&#39;: array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])}</span>
@@ -1812,8 +2015,8 @@ document.write(`
 <span class="sd">        &gt;&gt;&gt; ts.data_info</span>
 <span class="sd">        {&#39;test&#39;: {&#39;Unit&#39;: &#39;m&#39;}}</span>
 
-<span class="sd">        &gt;&gt;&gt; # Now remove data &#39;test&#39;</span>
-<span class="sd">        &gt;&gt;&gt; ts = ts.remove_data(&#39;test&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; # Now remove data &quot;test&quot;</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.remove_data(&quot;test&quot;)</span>
 
 <span class="sd">        &gt;&gt;&gt; ts.data</span>
 <span class="sd">        {}</span>
@@ -1986,9 +2189,9 @@ document.write(`
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        time</span>
-<span class="sd">            The time of the event, in the same unit as `time_info[&#39;Unit&#39;]`.</span>
+<span class="sd">            The time of the event, in the same unit as `time_info[&quot;Unit&quot;]`.</span>
 <span class="sd">        name</span>
-<span class="sd">            Optional. The name of the event. The default is &#39;event&#39;.</span>
+<span class="sd">            Optional. The name of the event. The default is &quot;event&quot;.</span>
 <span class="sd">        in_place</span>
 <span class="sd">            Optional. True to modify and return the original TimeSeries. False</span>
 <span class="sd">            to return a modified copy of the TimeSeries while leaving the</span>
@@ -2014,9 +2217,9 @@ document.write(`
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
 <span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries()</span>
-<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(5.5, &#39;event1&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(10.8, &#39;event2&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(2.3, &#39;event2&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(5.5, &quot;event1&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(10.8, &quot;event2&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(2.3, &quot;event2&quot;)</span>
 
 <span class="sd">        &gt;&gt;&gt; ts.events</span>
 <span class="sd">        [TimeSeriesEvent(time=5.5, name=&#39;event1&#39;),</span>
@@ -2080,22 +2283,22 @@ document.write(`
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
 <span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries()</span>
-<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(5.5, &#39;event1&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(10.8, &#39;event2&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(2.3, &#39;event2&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(5.5, &quot;event1&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(10.8, &quot;event2&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(2.3, &quot;event2&quot;)</span>
 
 <span class="sd">        &gt;&gt;&gt; ts.events</span>
 <span class="sd">        [TimeSeriesEvent(time=5.5, name=&#39;event1&#39;),</span>
 <span class="sd">         TimeSeriesEvent(time=10.8, name=&#39;event2&#39;),</span>
 <span class="sd">         TimeSeriesEvent(time=2.3, name=&#39;event2&#39;)]</span>
 
-<span class="sd">        &gt;&gt;&gt; ts = ts.rename_event(&#39;event2&#39;, &#39;event3&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.rename_event(&quot;event2&quot;, &quot;event3&quot;)</span>
 <span class="sd">        &gt;&gt;&gt; ts.events</span>
 <span class="sd">        [TimeSeriesEvent(time=5.5, name=&#39;event1&#39;),</span>
 <span class="sd">         TimeSeriesEvent(time=10.8, name=&#39;event3&#39;),</span>
 <span class="sd">         TimeSeriesEvent(time=2.3, name=&#39;event3&#39;)]</span>
 
-<span class="sd">        &gt;&gt;&gt; ts = ts.rename_event(&#39;event3&#39;, &#39;event4&#39;, occurrence=0)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.rename_event(&quot;event3&quot;, &quot;event4&quot;, occurrence=0)</span>
 <span class="sd">        &gt;&gt;&gt; ts.events</span>
 <span class="sd">        [TimeSeriesEvent(time=5.5, name=&#39;event1&#39;),</span>
 <span class="sd">         TimeSeriesEvent(time=10.8, name=&#39;event3&#39;),</span>
@@ -2159,21 +2362,21 @@ document.write(`
 <span class="sd">        -------</span>
 <span class="sd">        &gt;&gt;&gt; # Instanciate a timeseries with some events</span>
 <span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries()</span>
-<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(5.5, &#39;event1&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(10.8, &#39;event2&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(2.3, &#39;event2&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(5.5, &quot;event1&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(10.8, &quot;event2&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(2.3, &quot;event2&quot;)</span>
 
 <span class="sd">        &gt;&gt;&gt; ts.events</span>
 <span class="sd">        [TimeSeriesEvent(time=5.5, name=&#39;event1&#39;),</span>
 <span class="sd">         TimeSeriesEvent(time=10.8, name=&#39;event2&#39;),</span>
 <span class="sd">         TimeSeriesEvent(time=2.3, name=&#39;event2&#39;)]</span>
 
-<span class="sd">        &gt;&gt;&gt; ts = ts.remove_event(&#39;event1&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.remove_event(&quot;event1&quot;)</span>
 <span class="sd">        &gt;&gt;&gt; ts.events</span>
 <span class="sd">        [TimeSeriesEvent(time=10.8, name=&#39;event2&#39;),</span>
 <span class="sd">         TimeSeriesEvent(time=2.3, name=&#39;event2&#39;)]</span>
 
-<span class="sd">        &gt;&gt;&gt; ts = ts.remove_event(&#39;event2&#39;, 1)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.remove_event(&quot;event2&quot;, 1)</span>
 <span class="sd">        &gt;&gt;&gt; ts.events</span>
 <span class="sd">        [TimeSeriesEvent(time=2.3, name=&#39;event2&#39;)]</span>
 
@@ -2216,6 +2419,17 @@ document.write(`
 <span class="sd">        -------</span>
 <span class="sd">        int</span>
 <span class="sd">            The number of occurrences.</span>
+
+<span class="sd">        Example</span>
+<span class="sd">        -------</span>
+<span class="sd">        &gt;&gt;&gt; # Instanciate a timeseries with some events</span>
+<span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries()</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(5.5, &quot;event1&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(10.8, &quot;event2&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(2.3, &quot;event2&quot;)</span>
+
+<span class="sd">        &gt;&gt;&gt; ts.count_events(&quot;event2&quot;)</span>
+<span class="sd">        2</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_check_well_typed</span><span class="p">()</span>
@@ -2315,10 +2529,10 @@ document.write(`
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
 <span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries(time=np.arange(100)/10)</span>
-<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(2, &#39;two&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(1, &#39;one&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(3, &#39;three&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(3, &#39;three&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(2, &quot;two&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(1, &quot;one&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(3, &quot;three&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(3, &quot;three&quot;)</span>
 
 <span class="sd">        &gt;&gt;&gt; ts.events</span>
 <span class="sd">        [TimeSeriesEvent(time=2, name=&#39;two&#39;),</span>
@@ -2623,15 +2837,15 @@ document.write(`
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
 <span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries(time=np.arange(10)/10)</span>
-<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(0.2, &#39;event&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(0.36, &#39;event&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(0.2, &quot;event&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(0.36, &quot;event&quot;)</span>
 <span class="sd">        &gt;&gt;&gt; ts.time</span>
 <span class="sd">        array([0. , 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])</span>
 
-<span class="sd">        &gt;&gt;&gt; ts.get_index_at_event(&#39;event&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; ts.get_index_at_event(&quot;event&quot;)</span>
 <span class="sd">        2</span>
 
-<span class="sd">        &gt;&gt;&gt; ts.get_index_at_event(&#39;event&#39;, occurrence=1)</span>
+<span class="sd">        &gt;&gt;&gt; ts.get_index_at_event(&quot;event&quot;, occurrence=1)</span>
 <span class="sd">        4</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -2681,18 +2895,18 @@ document.write(`
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
 <span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries(time=np.arange(10)/10)</span>
-<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(0.2, &#39;event&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(0.36, &#39;event&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(0.2, &quot;event&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(0.36, &quot;event&quot;)</span>
 <span class="sd">        &gt;&gt;&gt; ts.time</span>
 <span class="sd">        array([0. , 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])</span>
 
-<span class="sd">        &gt;&gt;&gt; ts.get_index_before_event(&#39;event&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; ts.get_index_before_event(&quot;event&quot;)</span>
 <span class="sd">        1</span>
 
-<span class="sd">        &gt;&gt;&gt; ts.get_index_before_event(&#39;event&#39;, occurrence=1)</span>
+<span class="sd">        &gt;&gt;&gt; ts.get_index_before_event(&quot;event&quot;, occurrence=1)</span>
 <span class="sd">        3</span>
 
-<span class="sd">        &gt;&gt;&gt; ts.get_index_before_event(&#39;event&#39;, occurrence=0, inclusive=True)</span>
+<span class="sd">        &gt;&gt;&gt; ts.get_index_before_event(&quot;event&quot;, occurrence=0, inclusive=True)</span>
 <span class="sd">        2</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -2749,18 +2963,18 @@ document.write(`
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
 <span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries(time=np.arange(10)/10)</span>
-<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(0.2, &#39;event&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(0.36, &#39;event&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(0.2, &quot;event&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(0.36, &quot;event&quot;)</span>
 <span class="sd">        &gt;&gt;&gt; ts.time</span>
 <span class="sd">        array([0. , 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])</span>
 
-<span class="sd">        &gt;&gt;&gt; ts.get_index_after_event(&#39;event&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; ts.get_index_after_event(&quot;event&quot;)</span>
 <span class="sd">        3</span>
 
-<span class="sd">        &gt;&gt;&gt; ts.get_index_after_event(&#39;event&#39;, occurrence=1)</span>
+<span class="sd">        &gt;&gt;&gt; ts.get_index_after_event(&quot;event&quot;, occurrence=1)</span>
 <span class="sd">        4</span>
 
-<span class="sd">        &gt;&gt;&gt; ts.get_index_after_event(&#39;event&#39;, inclusive=True)</span>
+<span class="sd">        &gt;&gt;&gt; ts.get_index_after_event(&quot;event&quot;, inclusive=True)</span>
 <span class="sd">        2</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -3221,21 +3435,21 @@ document.write(`
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
 <span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries(time=np.arange(10)/10)</span>
-<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(0.2, &#39;event&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(0.35, &#39;event&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(0.2, &quot;event&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(0.35, &quot;event&quot;)</span>
 <span class="sd">        &gt;&gt;&gt; ts.time</span>
 <span class="sd">        array([0. , 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])</span>
 
-<span class="sd">        &gt;&gt;&gt; ts.get_ts_before_event(&#39;event&#39;).time</span>
+<span class="sd">        &gt;&gt;&gt; ts.get_ts_before_event(&quot;event&quot;).time</span>
 <span class="sd">        array([0. , 0.1])</span>
 
-<span class="sd">        &gt;&gt;&gt; ts.get_ts_before_event(&#39;event&#39;, inclusive=True).time</span>
+<span class="sd">        &gt;&gt;&gt; ts.get_ts_before_event(&quot;event&quot;, inclusive=True).time</span>
 <span class="sd">        array([0. , 0.1, 0.2])</span>
 
-<span class="sd">        &gt;&gt;&gt; ts.get_ts_before_event(&#39;event&#39;, 1).time</span>
+<span class="sd">        &gt;&gt;&gt; ts.get_ts_before_event(&quot;event&quot;, 1).time</span>
 <span class="sd">        array([0. , 0.1, 0.2, 0.3])</span>
 
-<span class="sd">        &gt;&gt;&gt; ts.get_ts_before_event(&#39;event&#39;, 1, inclusive=True).time</span>
+<span class="sd">        &gt;&gt;&gt; ts.get_ts_before_event(&quot;event&quot;, 1, inclusive=True).time</span>
 <span class="sd">        array([0. , 0.1, 0.2, 0.3, 0.4])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -3295,21 +3509,21 @@ document.write(`
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
 <span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries(time=np.arange(10)/10)</span>
-<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(0.2, &#39;event&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(0.35, &#39;event&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(0.2, &quot;event&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(0.35, &quot;event&quot;)</span>
 <span class="sd">        &gt;&gt;&gt; ts.time</span>
 <span class="sd">        array([0. , 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])</span>
 
-<span class="sd">        &gt;&gt;&gt; ts.get_ts_after_event(&#39;event&#39;).time</span>
+<span class="sd">        &gt;&gt;&gt; ts.get_ts_after_event(&quot;event&quot;).time</span>
 <span class="sd">        array([0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])</span>
 
-<span class="sd">        &gt;&gt;&gt; ts.get_ts_after_event(&#39;event&#39;, inclusive=True).time</span>
+<span class="sd">        &gt;&gt;&gt; ts.get_ts_after_event(&quot;event&quot;, inclusive=True).time</span>
 <span class="sd">        array([0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])</span>
 
-<span class="sd">        &gt;&gt;&gt; ts.get_ts_after_event(&#39;event&#39;, 1).time</span>
+<span class="sd">        &gt;&gt;&gt; ts.get_ts_after_event(&quot;event&quot;, 1).time</span>
 <span class="sd">        array([0.4, 0.5, 0.6, 0.7, 0.8, 0.9])</span>
 
-<span class="sd">        &gt;&gt;&gt; ts.get_ts_after_event(&#39;event&#39;, 1, inclusive=True).time</span>
+<span class="sd">        &gt;&gt;&gt; ts.get_ts_after_event(&quot;event&quot;, 1, inclusive=True).time</span>
 <span class="sd">        array([0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -3381,15 +3595,15 @@ document.write(`
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
 <span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries(time=np.arange(10)/10)</span>
-<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(0.2, &#39;event&#39;)</span>
-<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(0.55, &#39;event&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(0.2, &quot;event&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_event(0.55, &quot;event&quot;)</span>
 <span class="sd">        &gt;&gt;&gt; ts.time</span>
 <span class="sd">        array([0. , 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9])</span>
 
-<span class="sd">        &gt;&gt;&gt; ts.get_ts_between_events(&#39;event&#39;, &#39;event&#39;, 0, 1).time</span>
+<span class="sd">        &gt;&gt;&gt; ts.get_ts_between_events(&quot;event&quot;, &quot;event&quot;, 0, 1).time</span>
 <span class="sd">        array([0.3, 0.4, 0.5])</span>
 
-<span class="sd">        &gt;&gt;&gt; ts.get_ts_between_events(&#39;event&#39;, &#39;event&#39;, 0, 1, \</span>
+<span class="sd">        &gt;&gt;&gt; ts.get_ts_between_events(&quot;event&quot;, &quot;event&quot;, 0, 1, \</span>
 <span class="sd">                                     inclusive=True).time</span>
 <span class="sd">        array([0.2, 0.3, 0.4, 0.5, 0.6])</span>
 
@@ -3497,6 +3711,12 @@ document.write(`
 <span class="sd">        --------</span>
 <span class="sd">        ktk.TimeSeries.resample</span>
 
+<span class="sd">        Example</span>
+<span class="sd">        -------</span>
+<span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries(time=np.arange(100)/10)  # 100 samples at 10 Hz</span>
+<span class="sd">        &gt;&gt;&gt; ts.get_sample_rate()</span>
+<span class="sd">        10.0</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">check_types</span><span class="p">(</span><span class="n">TimeSeries</span><span class="o">.</span><span class="n">get_sample_rate</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_check_well_shaped</span><span class="p">()</span>
@@ -3542,9 +3762,9 @@ document.write(`
 <span class="sd">            property of the output TimeSeries.</span>
 <span class="sd">        kind</span>
 <span class="sd">            Optional. The interpolation method. This input may take any value</span>
-<span class="sd">            supported by scipy.interpolate.interp1d, such as &#39;linear&#39;,</span>
-<span class="sd">            &#39;nearest&#39;, &#39;zero&#39;, &#39;slinear&#39;, &#39;quadratic&#39;, &#39;cubic&#39;, &#39;previous&#39;,</span>
-<span class="sd">            &#39;next&#39;. Additionally, kind can be &#39;pchip&#39;.</span>
+<span class="sd">            supported by scipy.interpolate.interp1d, such as &quot;linear&quot;,</span>
+<span class="sd">            &quot;nearest&quot;, &quot;zero&quot;, &quot;slinear&quot;, &quot;quadratic&quot;, &quot;cubic&quot;, &quot;previous&quot;,</span>
+<span class="sd">            &quot;next&quot;. Additionally, kind can be &quot;pchip&quot;.</span>
 <span class="sd">        in_place</span>
 <span class="sd">            Optional. True to modify and return the original TimeSeries. False</span>
 <span class="sd">            to return a modified copy of the TimeSeries while leaving the</span>
@@ -3572,10 +3792,10 @@ document.write(`
 <span class="sd">        Example</span>
 <span class="sd">        --------</span>
 <span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries(time=np.arange(10.))</span>
-<span class="sd">        &gt;&gt;&gt; ts.data[&#39;data&#39;] = ts.time ** 2</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_data(&quot;data&quot;, ts.time ** 2)</span>
 <span class="sd">        &gt;&gt;&gt; ts.time</span>
 <span class="sd">        array([0., 1., 2., 3., 4., 5., 6., 7., 8., 9.])</span>
-<span class="sd">        &gt;&gt;&gt; ts.data[&#39;data&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; ts.data[&quot;data&quot;]</span>
 <span class="sd">        array([ 0.,  1.,  4.,  9., 16., 25., 36., 49., 64., 81.])</span>
 
 <span class="sd">        # Example 1: Resampling at 2 Hz</span>
@@ -3585,7 +3805,7 @@ document.write(`
 <span class="sd">        &gt;&gt;&gt; ts1.time</span>
 <span class="sd">        array([0. , 0.5, 1. , 1.5, 2. , 2.5, 3. , 3.5, 4. , 4.5, 5. , 5.5, 6. , 6.5, 7. , 7.5, 8. , 8.5, 9. ])</span>
 
-<span class="sd">        &gt;&gt;&gt; ts1.data[&#39;data&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; ts1.data[&quot;data&quot;]</span>
 <span class="sd">        array([ 0. ,  0.5,  1. ,  2.5,  4. ,  6.5,  9. , 12.5, 16. , 20.5, 25. , 30.5, 36. , 42.5, 49. , 56.5, 64. , 72.5, 81. ])</span>
 
 <span class="sd">        # Example 2: Resampling on new times</span>
@@ -3594,12 +3814,12 @@ document.write(`
 <span class="sd">        &gt;&gt;&gt; ts2.time</span>
 <span class="sd">        array([0. , 0.5, 1. , 1.5, 2. ])</span>
 
-<span class="sd">        &gt;&gt;&gt; ts2.data[&#39;data&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; ts2.data[&quot;data&quot;]</span>
 <span class="sd">        array([0. , 0.5, 1. , 2.5, 4. ])</span>
 
 <span class="sd">        # Example 3: Resampling at 2 Hz with missing data in the original ts</span>
-<span class="sd">        &gt;&gt;&gt; ts.data[&#39;data&#39;][[0, 1, 5, 8, 9]] = np.nan</span>
-<span class="sd">        &gt;&gt;&gt; ts.data[&#39;data&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; ts.data[&quot;data&quot;][[0, 1, 5, 8, 9]] = np.nan</span>
+<span class="sd">        &gt;&gt;&gt; ts.data[&quot;data&quot;]</span>
 <span class="sd">        array([nan, nan,  4.,  9., 16., nan, 36., 49., nan, nan])</span>
 
 <span class="sd">        &gt;&gt;&gt; ts3 = ts.resample(2.0)</span>
@@ -3607,7 +3827,7 @@ document.write(`
 <span class="sd">        &gt;&gt;&gt; ts3.time</span>
 <span class="sd">        array([0. , 0.5, 1. , 1.5, 2. , 2.5, 3. , 3.5, 4. , 4.5, 5. , 5.5, 6. , 6.5, 7. , 7.5, 8. , 8.5, 9. ])</span>
 
-<span class="sd">        &gt;&gt;&gt; ts3.data[&#39;data&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; ts3.data[&quot;data&quot;]</span>
 <span class="sd">        array([ nan,  nan,  nan,  nan,  4. ,  6.5,  9. , 12.5, 16. ,  nan,  nan, nan, 36. , 42.5, 49. ,  nan,  nan,  nan,  nan])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -3734,13 +3954,13 @@ document.write(`
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
 <span class="sd">            &gt;&gt;&gt; ts = ktk.TimeSeries(time = np.arange(10))</span>
-<span class="sd">            &gt;&gt;&gt; ts.data[&#39;signal1&#39;] = ts.time</span>
-<span class="sd">            &gt;&gt;&gt; ts.data[&#39;signal2&#39;] = ts.time**2</span>
-<span class="sd">            &gt;&gt;&gt; ts.data[&#39;signal3&#39;] = ts.time**3</span>
+<span class="sd">            &gt;&gt;&gt; ts = ts.add_data(&quot;signal1&quot;, ts.time)</span>
+<span class="sd">            &gt;&gt;&gt; ts = ts.add_data(&quot;signal2&quot;, ts.time**2)</span>
+<span class="sd">            &gt;&gt;&gt; ts = ts.add_data(&quot;signal3&quot;, ts.time**3)</span>
 <span class="sd">            &gt;&gt;&gt; ts.data.keys()</span>
 <span class="sd">            dict_keys([&#39;signal1&#39;, &#39;signal2&#39;, &#39;signal3&#39;])</span>
 
-<span class="sd">            &gt;&gt;&gt; ts2 = ts.get_subset([&#39;signal1&#39;, &#39;signal3&#39;])</span>
+<span class="sd">            &gt;&gt;&gt; ts2 = ts.get_subset([&quot;signal1&quot;, &quot;signal3&quot;])</span>
 <span class="sd">            &gt;&gt;&gt; ts2.data.keys()</span>
 <span class="sd">            dict_keys([&#39;signal1&#39;, &#39;signal3&#39;])</span>
 
@@ -3911,12 +4131,12 @@ document.write(`
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
 <span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries(time=np.arange(4))</span>
-<span class="sd">        &gt;&gt;&gt; ts.data[&#39;Data&#39;] = np.zeros((4, 2))</span>
-<span class="sd">        &gt;&gt;&gt; ts.data[&#39;Data&#39;][2, :] = np.nan</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_data(&quot;data&quot;, np.zeros((4, 2)))</span>
+<span class="sd">        &gt;&gt;&gt; ts.data[&quot;data&quot;][2, :] = np.nan</span>
 <span class="sd">        &gt;&gt;&gt; ts.data</span>
-<span class="sd">        {&#39;Data&#39;: array([[ 0.,  0.], [ 0.,  0.], [nan, nan], [ 0.,  0.]])}</span>
+<span class="sd">        {&#39;data&#39;: array([[ 0.,  0.], [ 0.,  0.], [nan, nan], [ 0.,  0.]])}</span>
 
-<span class="sd">        &gt;&gt;&gt; ts.isnan(&#39;Data&#39;)</span>
+<span class="sd">        &gt;&gt;&gt; ts.isnan(&quot;data&quot;)</span>
 <span class="sd">        array([False, False,  True, False])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -3946,9 +4166,9 @@ document.write(`
 <span class="sd">            zero to fill all missing samples.</span>
 <span class="sd">        method</span>
 <span class="sd">            Optional. The interpolation method. This input may take any value</span>
-<span class="sd">            supported by scipy.interpolate.interp1d, such as &#39;linear&#39;,</span>
-<span class="sd">            &#39;nearest&#39;, &#39;zero&#39;, &#39;slinear&#39;, &#39;quadratic&#39;, &#39;cubic&#39;, &#39;previous&#39; or</span>
-<span class="sd">            &#39;next&#39;.</span>
+<span class="sd">            supported by scipy.interpolate.interp1d, such as &quot;linear&quot;,</span>
+<span class="sd">            &quot;nearest&quot;, &quot;zero&quot;, &quot;slinear&quot;, &quot;quadratic&quot;, &quot;cubic&quot;, &quot;previous&quot; or</span>
+<span class="sd">            &quot;next&quot;.</span>
 <span class="sd">        in_place</span>
 <span class="sd">            Optional. True to modify and return the original TimeSeries. False</span>
 <span class="sd">            to return a modified copy of the TimeSeries while leaving the</span>
@@ -4405,20 +4625,20 @@ document.write(`
 <span class="sd">        Additional positional and keyboard arguments are passed to</span>
 <span class="sd">        matplotlib&#39;s ``pyplot.plot`` function::</span>
 
-<span class="sd">            ts.plot([&#39;Forces&#39;], &#39;--&#39;)</span>
+<span class="sd">            ts.plot([&quot;Forces&quot;], &quot;--&quot;)</span>
 
 <span class="sd">        plots the forces using a dashed line style.</span>
 
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
-<span class="sd">        For a TimeSeries ``ts`` with data keys being &#39;Forces&#39;, &#39;Moments&#39; and</span>
-<span class="sd">        &#39;Angle&#39;::</span>
+<span class="sd">        For a TimeSeries ``ts`` with data keys being &quot;Forces&quot;, &quot;Moments&quot; and</span>
+<span class="sd">        &quot;Angle&quot;::</span>
 
 <span class="sd">            ts.plot()</span>
 
 <span class="sd">        plots all data (Forces, Moments and Angle), whereas::</span>
 
-<span class="sd">            ts.plot([&#39;Forces&#39;, &#39;Moments&#39;])</span>
+<span class="sd">            ts.plot([&quot;Forces&quot;, &quot;Moments&quot;])</span>
 
 <span class="sd">        plots only the forces and moments, without plotting the angle.</span>
 
@@ -4547,18 +4767,18 @@ document.write(`
                 <span class="n">loc</span><span class="o">=</span><span class="n">legend_location</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">1</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span> <span class="o">/</span> <span class="mi">40</span><span class="p">)</span>
             <span class="p">)</span>  <span class="c1"># Max 40 items per line</span></div>
 
-    <span class="c1"># %% Dataframe interaction</span>
+    <span class="c1"># %% Input/Output</span>
 
     <span class="k">def</span> <span class="nf">_to_dataframe_and_info</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Implements TimeSeries.to_dataframe with additional data_info.</span>
+<span class="sd">        Implement TimeSeries.to_dataframe with additional data_info.</span>
 
 <span class="sd">        The second element of the output tuple is a list where each element</span>
 <span class="sd">        corresponds to a column of the DataFrame, and each element is a copy</span>
 <span class="sd">        of the inner data_info dictionary for this data. For instance,</span>
-<span class="sd">        an element of the list could be: {&#39;Unit&#39;: &#39;N&#39;}.</span>
+<span class="sd">        an element of the list could be: {&quot;Unit&quot;: &quot;N&quot;}.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># Init</span>
         <span class="n">df_out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
@@ -4656,7 +4876,7 @@ document.write(`
 <span class="sd">        pd.DataFrame</span>
 <span class="sd">            DataFrame with the index as the TimeSeries&#39; time.</span>
 
-<span class="sd">        See also</span>
+<span class="sd">        See Also</span>
 <span class="sd">        --------</span>
 <span class="sd">        ktk.TimeSeries.from_dataframe</span>
 
@@ -4665,9 +4885,9 @@ document.write(`
 <span class="sd">        Example with unidimensional data:</span>
 
 <span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries(time=np.arange(3) / 10)</span>
-<span class="sd">        &gt;&gt;&gt; ts.data[&#39;Data&#39;] = np.array([0.0, 2.0, 3.0])</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_data(&quot;test&quot;, np.array([0.0, 2.0, 3.0]))</span>
 <span class="sd">        &gt;&gt;&gt; ts.to_dataframe()</span>
-<span class="sd">             Data</span>
+<span class="sd">             test</span>
 <span class="sd">        0.0   0.0</span>
 <span class="sd">        0.1   2.0</span>
 <span class="sd">        0.2   3.0</span>
@@ -4675,15 +4895,15 @@ document.write(`
 <span class="sd">        Example with multidimensional data:</span>
 
 <span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries(time=np.arange(4) / 10)</span>
-<span class="sd">        &gt;&gt;&gt; ts.data[&#39;Data&#39;] = np.repeat([[0.0, 2.0, 3.0]], 4, axis=0)</span>
-<span class="sd">        &gt;&gt;&gt; ts.data[&#39;Data&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_data(&quot;test&quot;, np.repeat([[0.0, 2.0, 3.0]], 4, axis=0))</span>
+<span class="sd">        &gt;&gt;&gt; ts.data[&quot;test&quot;]</span>
 <span class="sd">        array([[0., 2., 3.],</span>
 <span class="sd">               [0., 2., 3.],</span>
 <span class="sd">               [0., 2., 3.],</span>
 <span class="sd">               [0., 2., 3.]])</span>
 
 <span class="sd">        &gt;&gt;&gt; ts.to_dataframe()</span>
-<span class="sd">              Data[0]  Data[1]  Data[2]</span>
+<span class="sd">              test[0]  test[1]  test[2]</span>
 <span class="sd">         0.0      0.0      2.0      3.0</span>
 <span class="sd">         0.1      0.0      2.0      3.0</span>
 <span class="sd">         0.2      0.0      2.0      3.0</span>
@@ -4694,7 +4914,15 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">_check_well_shaped</span><span class="p">()</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_to_dataframe_and_info</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span></div>
 
-<div class="viewcode-block" id="TimeSeries.from_dataframe"><a class="viewcode-back" href="../../api/ktk.TimeSeries.from_dataframe.html#ktk.TimeSeries.from_dataframe">[docs]</a>    <span class="k">def</span> <span class="nf">from_dataframe</span><span class="p">(</span><span class="n">dataframe</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="o">/</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
+<div class="viewcode-block" id="TimeSeries.from_dataframe"><a class="viewcode-back" href="../../api/ktk.TimeSeries.from_dataframe.html#ktk.TimeSeries.from_dataframe">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">from_dataframe</span><span class="p">(</span>
+        <span class="n">dataframe</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
+        <span class="o">/</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">time_info</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;s&quot;</span><span class="p">},</span>
+        <span class="n">data_info</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{},</span>
+        <span class="n">events</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">TimeSeriesEvent</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create a new TimeSeries from a Pandas Dataframe.</span>
 
@@ -4702,9 +4930,9 @@ document.write(`
 <span class="sd">        [0], [1], [0,0], [0,1], etc. are converted to multidimensional</span>
 <span class="sd">        arrays. For example, if a DataFrame has these column names::</span>
 
-<span class="sd">            &#39;Forces[0]&#39;, &#39;Forces[1]&#39;, &#39;Forces[2]&#39;, &#39;Forces[3]&#39;</span>
+<span class="sd">            &quot;Forces[0]&quot;, &quot;Forces[1]&quot;, &quot;Forces[2]&quot;, &quot;Forces[3]&quot;</span>
 
-<span class="sd">        then a single data key is created (&#39;Forces&#39;) and the shape of the</span>
+<span class="sd">        then a single data key is created (&quot;Forces&quot;) and the shape of the</span>
 <span class="sd">        data is Nx4.</span>
 
 <span class="sd">        Parameters</span>
@@ -4712,50 +4940,114 @@ document.write(`
 <span class="sd">        dataframe</span>
 <span class="sd">            A Pandas DataFrame where the index corresponds to time, and</span>
 <span class="sd">            where each column corresponds to a data key.</span>
+<span class="sd">        time_info</span>
+<span class="sd">            Optional. Will be copied to the TimeSeries&#39; time_info attribute.</span>
+<span class="sd">        data_info</span>
+<span class="sd">            Optional. Will be copied to the TimeSeries&#39; data_info attribute.</span>
+<span class="sd">        events</span>
+<span class="sd">            Optional. Will be copied to the TimeSeries&#39; events attribute.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        TimeSeries</span>
 <span class="sd">            The converted TimeSeries.</span>
 
-<span class="sd">        See also</span>
+<span class="sd">        See Also</span>
 <span class="sd">        --------</span>
 <span class="sd">        ktk.TimeSeries.to_dataframe</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
-<span class="sd">        Example with unidimensional data:</span>
+<span class="sd">        **Example with unidimensional data**</span>
+
+<span class="sd">        Create a DataFrame with two series of 3 samples:</span>
 
 <span class="sd">        &gt;&gt;&gt; import pandas as pd</span>
 <span class="sd">        &gt;&gt;&gt; df = pd.DataFrame([[1., 2.], [3., 4.], [5., 6.]])</span>
-<span class="sd">        &gt;&gt;&gt; df.columns = [&#39;data1&#39;, &#39;data2&#39;]</span>
+<span class="sd">        &gt;&gt;&gt; df.columns = [&quot;test1&quot;, &quot;test2&quot;]</span>
 <span class="sd">        &gt;&gt;&gt; df</span>
-<span class="sd">           data1  data2</span>
+<span class="sd">           test1  test2</span>
 <span class="sd">        0    1.0    2.0</span>
 <span class="sd">        1    3.0    4.0</span>
 <span class="sd">        2    5.0    6.0</span>
 
+<span class="sd">        Convert to a TimeSeries:</span>
+
 <span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries.from_dataframe(df)</span>
 <span class="sd">        &gt;&gt;&gt; ts.data</span>
-<span class="sd">        {&#39;data1&#39;: array([1., 3., 5.]), &#39;data2&#39;: array([2., 4., 6.])}</span>
+<span class="sd">        {&#39;test1&#39;: array([1., 3., 5.]), &#39;test2&#39;: array([2., 4., 6.])}</span>
 
-<span class="sd">        Example with multidimensional data:</span>
+<span class="sd">        **Example with multidimensional data**</span>
 
-<span class="sd">        &gt;&gt;&gt; df.columns = [&#39;data[0]&#39;, &#39;data[1]&#39;]</span>
+<span class="sd">        Create a DataFrame with one series of 3 samples of dimension 2:</span>
+
+<span class="sd">        &gt;&gt;&gt; df = pd.DataFrame([[1., 2.], [3., 4.], [5., 6.]])</span>
+<span class="sd">        &gt;&gt;&gt; df.columns = [&quot;test[0]&quot;, &quot;test[1]&quot;]</span>
 <span class="sd">        &gt;&gt;&gt; df</span>
-<span class="sd">           data[0]  data[1]</span>
+<span class="sd">           test[0]  test[1]</span>
 <span class="sd">        0      1.0      2.0</span>
 <span class="sd">        1      3.0      4.0</span>
 <span class="sd">        2      5.0      6.0</span>
 
+<span class="sd">        Convert to a TimeSeries:</span>
+
 <span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries.from_dataframe(df)</span>
 <span class="sd">        &gt;&gt;&gt; ts.data</span>
-<span class="sd">        {&#39;data&#39;: array([[1., 2.], [3., 4.], [5., 6.]])}</span>
+<span class="sd">        {&#39;test&#39;: array([[1., 2.], [3., 4.], [5., 6.]])}</span>
+
+<span class="sd">        **Example with even more dimensions**</span>
+
+<span class="sd">        Create a DataFrame with one series of 5 samples of dimension 2x2 (rot)</span>
+<span class="sd">        and one series of 5 samples of dimension 2 (trans):</span>
+
+<span class="sd">        &gt;&gt;&gt; df = pd.DataFrame()</span>
+<span class="sd">        &gt;&gt;&gt; df.index = [0., 0.1, 0.2, 0.3, 0.4]  # Time in seconds</span>
+<span class="sd">        &gt;&gt;&gt; df[&quot;rot[0,0]&quot;] = np.cos([0., 0.1, 0.2, 0.3, 0.4])</span>
+<span class="sd">        &gt;&gt;&gt; df[&quot;rot[0,1]&quot;] = -np.sin([0., 0.1, 0.2, 0.3, 0.4])</span>
+<span class="sd">        &gt;&gt;&gt; df[&quot;rot[1,0]&quot;] = np.sin([0., 0.1, 0.2, 0.3, 0.4])</span>
+<span class="sd">        &gt;&gt;&gt; df[&quot;rot[1,1]&quot;] = np.cos([0., 0.1, 0.2, 0.3, 0.4])</span>
+<span class="sd">        &gt;&gt;&gt; df[&quot;trans[0]&quot;] = [0., 0.1, 0.2, 0.3, 0.4]</span>
+<span class="sd">        &gt;&gt;&gt; df[&quot;trans[1]&quot;] = [5., 6., 7., 8., 9.]</span>
+<span class="sd">        &gt;&gt;&gt; df</span>
+<span class="sd">             rot[0,0]  rot[0,1]  rot[1,0]  rot[1,1]  trans[0]  trans[1]</span>
+<span class="sd">        0.0  1.000000 -0.000000  0.000000  1.000000       0.0       5.0</span>
+<span class="sd">        0.1  0.995004 -0.099833  0.099833  0.995004       0.1       6.0</span>
+<span class="sd">        0.2  0.980067 -0.198669  0.198669  0.980067       0.2       7.0</span>
+<span class="sd">        0.3  0.955336 -0.295520  0.295520  0.955336       0.3       8.0</span>
+<span class="sd">        0.4  0.921061 -0.389418  0.389418  0.921061       0.4       9.0</span>
+
+<span class="sd">        Convert to a TimeSeries:</span>
+
+<span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries(df)</span>
+<span class="sd">        &gt;&gt;&gt; ts.data</span>
+<span class="sd">        {&#39;rot&#39;: array([[[ 1.        , -0.        ],</span>
+<span class="sd">                [ 0.        ,  1.        ]],</span>
+<span class="sd">        &lt;BLANKLINE&gt;</span>
+<span class="sd">               [[ 0.99500417, -0.09983342],</span>
+<span class="sd">                [ 0.09983342,  0.99500417]],</span>
+<span class="sd">        &lt;BLANKLINE&gt;</span>
+<span class="sd">               [[ 0.98006658, -0.19866933],</span>
+<span class="sd">                [ 0.19866933,  0.98006658]],</span>
+<span class="sd">        &lt;BLANKLINE&gt;</span>
+<span class="sd">               [[ 0.95533649, -0.29552021],</span>
+<span class="sd">                [ 0.29552021,  0.95533649]],</span>
+<span class="sd">        &lt;BLANKLINE&gt;</span>
+<span class="sd">               [[ 0.92106099, -0.38941834],</span>
+<span class="sd">                [ 0.38941834,  0.92106099]]]), &#39;trans&#39;: array([[0. , 5. ],</span>
+<span class="sd">               [0.1, 6. ],</span>
+<span class="sd">               [0.2, 7. ],</span>
+<span class="sd">               [0.3, 8. ],</span>
+<span class="sd">               [0.4, 9. ]])}</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">check_types</span><span class="p">(</span><span class="n">TimeSeries</span><span class="o">.</span><span class="n">from_dataframe</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
 
-        <span class="n">ts</span> <span class="o">=</span> <span class="n">TimeSeries</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">dataframe</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">())</span>
+        <span class="n">ts</span> <span class="o">=</span> <span class="n">TimeSeries</span><span class="p">(</span>
+            <span class="n">time</span><span class="o">=</span><span class="n">dataframe</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">(),</span>
+            <span class="n">time_info</span><span class="o">=</span><span class="n">time_info</span><span class="p">,</span>
+            <span class="n">data_info</span><span class="o">=</span><span class="n">data_info</span><span class="p">,</span>
+            <span class="n">events</span><span class="o">=</span><span class="n">events</span><span class="p">,</span>
+        <span class="p">)</span>
 
         <span class="c1"># Remove spaces in indexes between brackets</span>
         <span class="n">columns</span> <span class="o">=</span> <span class="n">dataframe</span><span class="o">.</span><span class="n">columns</span>
@@ -4806,6 +5098,84 @@ document.write(`
                 <span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span>
                     <span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="p">[</span><span class="n">n_samples</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="n">highest_dims</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
                 <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">ts</span></div>
+
+<div class="viewcode-block" id="TimeSeries.from_array"><a class="viewcode-back" href="../../api/ktk.TimeSeries.from_array.html#ktk.TimeSeries.from_array">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">from_array</span><span class="p">(</span>
+        <span class="n">array</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span>
+        <span class="o">/</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">data_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;data&quot;</span><span class="p">,</span>
+        <span class="n">time</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">=</span> <span class="p">[],</span>
+        <span class="n">time_info</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;s&quot;</span><span class="p">},</span>
+        <span class="n">data_info</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{},</span>
+        <span class="n">events</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">TimeSeriesEvent</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Create a new TimeSeries from an array.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        array</span>
+<span class="sd">            An array or list where the first dimension corresponds to time.</span>
+<span class="sd">        data_key</span>
+<span class="sd">            The name of the data (used as the key in the TimeSeries&#39; data</span>
+<span class="sd">            attribute).</span>
+<span class="sd">        time</span>
+<span class="sd">            Optional. An array that indicates the time for each sample. Its</span>
+<span class="sd">            length must match the first dimension of the data array. If None</span>
+<span class="sd">            (default), a matching time attribute of with a period of one second</span>
+<span class="sd">            is created.</span>
+<span class="sd">        time_info</span>
+<span class="sd">            Optional. Will be copied to the TimeSeries&#39; time_info attribute.</span>
+<span class="sd">        data_info</span>
+<span class="sd">            Optional. Will be copied to the TimeSeries&#39; data_info attribute.</span>
+<span class="sd">        events</span>
+<span class="sd">            Optional. Will be copied to the TimeSeries&#39; events attribute.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        TimeSeries</span>
+<span class="sd">            The new TimeSeries.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        **Using default time**</span>
+
+<span class="sd">        &gt;&gt;&gt; ktk.TimeSeries([0.1, 0.2, 0.3, 0.4, 0.5])</span>
+<span class="sd">        TimeSeries with attributes:</span>
+<span class="sd">                 time: array([0., 1., 2., 3., 4.])</span>
+<span class="sd">                 data: {&#39;data&#39;: array([0.1, 0.2, 0.3, 0.4, 0.5])}</span>
+<span class="sd">            time_info: {&#39;Unit&#39;: &#39;s&#39;}</span>
+<span class="sd">            data_info: {}</span>
+<span class="sd">               events: []</span>
+
+<span class="sd">        **Specifiying time**</span>
+
+<span class="sd">        &gt;&gt;&gt; ktk.TimeSeries([0.1, 0.2, 0.3, 0.4, 0.5], time=[0.1, 0.2, 0.3, 0.4, 0.5])</span>
+<span class="sd">        TimeSeries with attributes:</span>
+<span class="sd">                 time: array([0.1, 0.2, 0.3, 0.4, 0.5])</span>
+<span class="sd">                 data: {&#39;data&#39;: array([0.1, 0.2, 0.3, 0.4, 0.5])}</span>
+<span class="sd">            time_info: {&#39;Unit&#39;: &#39;s&#39;}</span>
+<span class="sd">            data_info: {}</span>
+<span class="sd">               events: []</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_types</span><span class="p">(</span><span class="n">TimeSeries</span><span class="o">.</span><span class="n">from_array</span><span class="p">,</span> <span class="nb">locals</span><span class="p">())</span>
+
+        <span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">time</span><span class="p">)</span>
+        <span class="n">ts</span> <span class="o">=</span> <span class="n">TimeSeries</span><span class="p">(</span>
+            <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="n">data_key</span><span class="p">:</span> <span class="n">array</span><span class="p">},</span>
+            <span class="n">time_info</span><span class="o">=</span><span class="n">time_info</span><span class="p">,</span>
+            <span class="n">data_info</span><span class="o">=</span><span class="n">data_info</span><span class="p">,</span>
+            <span class="n">events</span><span class="o">=</span><span class="n">events</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">time</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">ts</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">data_key</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="mf">1.0</span>  <span class="c1"># floats</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">ts</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">time</span>
 
         <span class="k">return</span> <span class="n">ts</span></div>
 
@@ -4940,7 +5310,7 @@ document.write(`
 <span class="sd">        TimeSeries</span>
 <span class="sd">            A new TimeSeries that fulfils the specified conditions.</span>
 
-<span class="sd">        See also</span>
+<span class="sd">        See Also</span>
 <span class="sd">        --------</span>
 <span class="sd">        ktk.TimeSeries.get_ts_between_indexes</span>
 <span class="sd">        ktk.TimeSeries.get_ts_between_times</span>

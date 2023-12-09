@@ -44,6 +44,10 @@ ts.plot("Forces")
 
 ## Detecting cycles
 
+:::{warning}
+This section may change by the time Kinetics Toolkit reaches version 1.0. The current function [ktk.cycles.detect_cycles](api/ktk.cycles.detect_cycles.rst) attempts to do too much and therefore it is not generic enough. In the future, it will likely be replaced by several, more specific and more optimized functions. It will however likely stay available for several years, as it is not deprecated yet, and deprecated functions live for 2 years before removal.
+:::
+
 The [ktk.cycles.detect_cycles](api/ktk.cycles.detect_cycles.rst) function detects biphasic cycles in a TimeSeries, and adds transitions as events. Each cycle has three events:
 
 - The start of the first phase, named using the `event_names` parameters;
@@ -55,7 +59,10 @@ The function does not modify the TimeSeries data, only the events. It uses two t
 Let's calculate $F_{tot}$ based on the three force components, and add it as a new data of the TimeSeries as it will be our source for detecting the cycles.
 
 ```{code-cell} ipython3
-ts.data["Ftot"] = np.sqrt(np.sum(ts.data["Forces"] ** 2, axis=1))
+ts = ts.add_data(
+    "Ftot", np.sqrt(np.sum(ts.data["Forces"] ** 2, axis=1))
+)    
+
 ts.plot(["Forces", "Ftot"])
 ```
 

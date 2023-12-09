@@ -393,7 +393,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../ktk_importing.html">6. Importing Kinetics Toolkit</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../timeseries.html">7. Analyzing time-varying data</a><input class="toctree-checkbox" id="toctree-checkbox-43" name="toctree-checkbox-43" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-43"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../timeseries_basics.html">7.1. The TimeSeries type</a><input class="toctree-checkbox" id="toctree-checkbox-44" name="toctree-checkbox-44" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-44"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../timeseries_basics_exercise.html">7.1.4. Exercise: Creating a TimeSeries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../timeseries_basics_exercise.html">7.1.5. Exercise: Creating a TimeSeries</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../timeseries_manipulating.html">7.2. Manipulating TimeSeries</a><input class="toctree-checkbox" id="toctree-checkbox-45" name="toctree-checkbox-45" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-45"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -510,11 +510,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../ktk_conventions.html">Conventions</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../api_classes.html">Classes</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-62" name="toctree-checkbox-62" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-62"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 has-children"><a class="reference internal" href="ktk.TimeSeries.html">ktk.TimeSeries</a><input class="toctree-checkbox" id="toctree-checkbox-63" name="toctree-checkbox-63" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-63"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.add_data.html">ktk.TimeSeries.add_data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.add_data_info.html">ktk.TimeSeries.add_data_info</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.add_event.html">ktk.TimeSeries.add_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.copy.html">ktk.TimeSeries.copy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.count_events.html">ktk.TimeSeries.count_events</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.fill_missing_samples.html">ktk.TimeSeries.fill_missing_samples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.from_array.html">ktk.TimeSeries.from_array</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.from_dataframe.html">ktk.TimeSeries.from_dataframe</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_index_after_event.html">ktk.TimeSeries.get_index_after_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_index_after_time.html">ktk.TimeSeries.get_index_after_time</a></li>
@@ -801,15 +803,15 @@ expressed as a Nx4x4 array. Multiple TimeSeries can be provided.</p></li>
 <li><p><strong>interconnections</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – <p>Optional. Each key corresponds to an inerconnection between markers,
 where one interconnection is another dict with the following keys:</p>
 <ul>
-<li><p>’Links’: list of lists strings, where each string is a marker
+<li><p>”Links”: list of lists strings, where each string is a marker
 name. For example, to create a link that spans Marker1 and Marker2,
 and another link that spans Marker3, Marker4 and Marker5,
-interconnections[‘Links’] would be:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="s1">&#39;Marker1&#39;</span><span class="p">,</span> <span class="s1">&#39;Marker2&#39;</span><span class="p">],</span> <span class="p">[</span><span class="s1">&#39;Marker3&#39;</span><span class="p">,</span> <span class="s1">&#39;Marker4&#39;</span><span class="p">,</span> <span class="s1">&#39;Marker5&#39;</span><span class="p">]]</span>
+interconnections[“Links”] would be:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="s2">&quot;Marker1&quot;</span><span class="p">,</span> <span class="s2">&quot;Marker2&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Marker3&quot;</span><span class="p">,</span> <span class="s2">&quot;Marker4&quot;</span><span class="p">,</span> <span class="s2">&quot;Marker5&quot;</span><span class="p">]]</span>
 </pre></div>
 </div>
 </li>
-<li><p>’Color’: character or tuple (RGB) that represents the color of the
+<li><p>”Color”: character or tuple (RGB) that represents the color of the
 link. Color must be a valid value for matplotlib’s
 plots.</p></li>
 </ul>
@@ -818,7 +820,7 @@ plots.</p></li>
 <li><p><strong>marker_radius</strong> (<em>float</em>) – Optional. Sets the marker radius as defined by matplotlib.</p></li>
 <li><p><strong>axis_length</strong> (<em>float</em>) – Optional. Sets the rigid body size in meters.</p></li>
 <li><p><strong>up</strong> (<em>str</em>) – Optional. Defines the ground plane by setting which axis is up. May be
-{‘x’, ‘y’, ‘z’, ‘-x’, ‘-y’, ‘-z’}. Default is ‘y’.</p></li>
+{“x”, “y”, “z”, “-x”, “-y”, “-z”}. Default is “y”.</p></li>
 <li><p><strong>zoom</strong> (<em>float</em>) – Optional. Sets the initial camera zoom.</p></li>
 <li><p><strong>azimuth</strong> (<em>float</em>) – Optional. Sets the initial camera azimuth in radians.</p></li>
 <li><p><strong>elevation</strong> (<em>float</em>) – Optional. Sets the initial camera elevation in radians.</p></li>

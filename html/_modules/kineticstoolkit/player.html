@@ -382,7 +382,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../../ktk_importing.html">6. Importing Kinetics Toolkit</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../timeseries.html">7. Analyzing time-varying data</a><input class="toctree-checkbox" id="toctree-checkbox-43" name="toctree-checkbox-43" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-43"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../timeseries_basics.html">7.1. The TimeSeries type</a><input class="toctree-checkbox" id="toctree-checkbox-44" name="toctree-checkbox-44" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-44"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../timeseries_basics_exercise.html">7.1.4. Exercise: Creating a TimeSeries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../timeseries_basics_exercise.html">7.1.5. Exercise: Creating a TimeSeries</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../timeseries_manipulating.html">7.2. Manipulating TimeSeries</a><input class="toctree-checkbox" id="toctree-checkbox-45" name="toctree-checkbox-45" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-45"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -499,11 +499,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../../ktk_conventions.html">Conventions</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../api_classes.html">Classes</a><input class="toctree-checkbox" id="toctree-checkbox-62" name="toctree-checkbox-62" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-62"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../api/ktk.TimeSeries.html">ktk.TimeSeries</a><input class="toctree-checkbox" id="toctree-checkbox-63" name="toctree-checkbox-63" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-63"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.add_data.html">ktk.TimeSeries.add_data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.add_data_info.html">ktk.TimeSeries.add_data_info</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.add_event.html">ktk.TimeSeries.add_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.copy.html">ktk.TimeSeries.copy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.count_events.html">ktk.TimeSeries.count_events</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.fill_missing_samples.html">ktk.TimeSeries.fill_missing_samples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.from_array.html">ktk.TimeSeries.from_array</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.from_dataframe.html">ktk.TimeSeries.from_dataframe</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_index_after_event.html">ktk.TimeSeries.get_index_after_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_index_after_time.html">ktk.TimeSeries.get_index_after_time</a></li>
@@ -736,7 +738,7 @@ document.write(`
 
 <span class="n">REPR_HTML_MAX_DURATION</span> <span class="o">=</span> <span class="mi">10</span>  <span class="c1"># Max duration for _repr_html</span>
 
-<span class="kn">from</span> <span class="nn">kineticstoolkit._timeseries</span> <span class="kn">import</span> <span class="n">TimeSeries</span>
+<span class="kn">from</span> <span class="nn">kineticstoolkit.timeseries</span> <span class="kn">import</span> <span class="n">TimeSeries</span>
 <span class="kn">from</span> <span class="nn">kineticstoolkit.decorators</span> <span class="kn">import</span> <span class="n">deprecated</span>
 <span class="kn">import</span> <span class="nn">kineticstoolkit.geometry</span> <span class="k">as</span> <span class="nn">geometry</span>
 
@@ -794,14 +796,14 @@ document.write(`
 <span class="sd">        Optional. Each key corresponds to an inerconnection between markers,</span>
 <span class="sd">        where one interconnection is another dict with the following keys:</span>
 
-<span class="sd">        - &#39;Links&#39;: list of lists strings, where each string is a marker</span>
+<span class="sd">        - &quot;Links&quot;: list of lists strings, where each string is a marker</span>
 <span class="sd">          name. For example, to create a link that spans Marker1 and Marker2,</span>
 <span class="sd">          and another link that spans Marker3, Marker4 and Marker5,</span>
-<span class="sd">          interconnections[&#39;Links&#39;] would be::</span>
+<span class="sd">          interconnections[&quot;Links&quot;] would be::</span>
 
-<span class="sd">              [[&#39;Marker1&#39;, &#39;Marker2&#39;], [&#39;Marker3&#39;, &#39;Marker4&#39;, &#39;Marker5&#39;]]</span>
+<span class="sd">              [[&quot;Marker1&quot;, &quot;Marker2&quot;], [&quot;Marker3&quot;, &quot;Marker4&quot;, &quot;Marker5&quot;]]</span>
 
-<span class="sd">        - &#39;Color&#39;: character or tuple (RGB) that represents the color of the</span>
+<span class="sd">        - &quot;Color&quot;: character or tuple (RGB) that represents the color of the</span>
 <span class="sd">          link. Color must be a valid value for matplotlib&#39;s</span>
 <span class="sd">          plots.</span>
 
@@ -816,7 +818,7 @@ document.write(`
 
 <span class="sd">    up</span>
 <span class="sd">        Optional. Defines the ground plane by setting which axis is up. May be</span>
-<span class="sd">        {&#39;x&#39;, &#39;y&#39;, &#39;z&#39;, &#39;-x&#39;, &#39;-y&#39;, &#39;-z&#39;}. Default is &#39;y&#39;.</span>
+<span class="sd">        {&quot;x&quot;, &quot;y&quot;, &quot;z&quot;, &quot;-x&quot;, &quot;-y&quot;, &quot;-z&quot;}. Default is &quot;y&quot;.</span>
 
 <span class="sd">    zoom</span>
 <span class="sd">        Optional. Sets the initial camera zoom.</span>
@@ -1056,6 +1058,7 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">_first_refresh</span><span class="p">()</span>
 
     <span class="k">def</span> <span class="fm">__dir__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Return directory.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="p">[</span><span class="s2">&quot;to_html5&quot;</span><span class="p">,</span> <span class="s2">&quot;close&quot;</span><span class="p">]</span>
 
     <span class="k">def</span> <span class="nf">_create_figure</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>

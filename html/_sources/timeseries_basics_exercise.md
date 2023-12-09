@@ -61,7 +61,7 @@ ts = ktk.TimeSeries()
 ts.time = np.arange(100)/100
 
 # Assign the position
-ts.data["Position"] = p
+ts = ts.add_data("Position", p)
 
 # Add the position unit
 ts = ts.add_data_info("Position", "Unit", "m")
@@ -80,7 +80,7 @@ ts = ktk.TimeSeries()
 ts.time = np.arange(100)/100
 
 # Assign the position
-ts.data["Position"] = p
+ts = ts.add_data("Position", p)
 
 # Add the position unit
 ts = ts.add_data_info("Position", "Unit", "m")

@@ -382,7 +382,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../../ktk_importing.html">6. Importing Kinetics Toolkit</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../timeseries.html">7. Analyzing time-varying data</a><input class="toctree-checkbox" id="toctree-checkbox-43" name="toctree-checkbox-43" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-43"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../timeseries_basics.html">7.1. The TimeSeries type</a><input class="toctree-checkbox" id="toctree-checkbox-44" name="toctree-checkbox-44" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-44"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../timeseries_basics_exercise.html">7.1.4. Exercise: Creating a TimeSeries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../timeseries_basics_exercise.html">7.1.5. Exercise: Creating a TimeSeries</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../timeseries_manipulating.html">7.2. Manipulating TimeSeries</a><input class="toctree-checkbox" id="toctree-checkbox-45" name="toctree-checkbox-45" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-45"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -499,11 +499,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../../ktk_conventions.html">Conventions</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../api_classes.html">Classes</a><input class="toctree-checkbox" id="toctree-checkbox-62" name="toctree-checkbox-62" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-62"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../api/ktk.TimeSeries.html">ktk.TimeSeries</a><input class="toctree-checkbox" id="toctree-checkbox-63" name="toctree-checkbox-63" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-63"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.add_data.html">ktk.TimeSeries.add_data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.add_data_info.html">ktk.TimeSeries.add_data_info</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.add_event.html">ktk.TimeSeries.add_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.copy.html">ktk.TimeSeries.copy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.count_events.html">ktk.TimeSeries.count_events</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.fill_missing_samples.html">ktk.TimeSeries.fill_missing_samples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.from_array.html">ktk.TimeSeries.from_array</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.from_dataframe.html">ktk.TimeSeries.from_dataframe</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_index_after_event.html">ktk.TimeSeries.get_index_after_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_index_after_time.html">ktk.TimeSeries.get_index_after_time</a></li>
@@ -890,8 +892,8 @@ document.write(`
 <span class="sd">    ----------</span>
 <span class="sd">    seq</span>
 <span class="sd">        Optional. Specifies sequence of axes for rotations. Up to 3 characters</span>
-<span class="sd">        belonging to the set {&#39;X&#39;, &#39;Y&#39;, &#39;Z&#39;} for intrinsic rotations (moving</span>
-<span class="sd">        axes), or {&#39;x&#39;, &#39;y&#39;, &#39;z&#39;} for extrinsic rotations (fixed axes).</span>
+<span class="sd">        belonging to the set {&quot;X&quot;, &quot;Y&quot;, &quot;Z&quot;} for intrinsic rotations (moving</span>
+<span class="sd">        axes), or {&quot;x&quot;, &quot;y&quot;, &quot;z&quot;} for extrinsic rotations (fixed axes).</span>
 <span class="sd">        Extrinsic and intrinsic rotations cannot be mixed in one function call.</span>
 <span class="sd">        Required if angles is specified.</span>
 
@@ -928,7 +930,7 @@ document.write(`
 <span class="sd">    np.ndarray</span>
 <span class="sd">        An Nx4x4 series of homogeneous transforms.</span>
 
-<span class="sd">    See also</span>
+<span class="sd">    See Also</span>
 <span class="sd">    --------</span>
 <span class="sd">    ktk.geometry.create_frames, ktk.geometry.rotate, ktk.geometry.translate,</span>
 <span class="sd">    ktk.geometry.scale</span>
@@ -939,7 +941,7 @@ document.write(`
 <span class="sd">    degrees around x:</span>
 
 <span class="sd">        &gt;&gt;&gt; import kineticstoolkit.lab as ktk</span>
-<span class="sd">        &gt;&gt;&gt; ktk.geometry.create_transforms(seq=&#39;x&#39;, angles=[0, 90], degrees=True)</span>
+<span class="sd">        &gt;&gt;&gt; ktk.geometry.create_transforms(seq=&quot;x&quot;, angles=[0, 90], degrees=True)</span>
 <span class="sd">        array([[[ 1.,  0.,  0.,  0.],</span>
 <span class="sd">                [ 0.,  1.,  0.,  0.],</span>
 <span class="sd">                [ 0.,  0.,  1.,  0.],</span>
@@ -1025,8 +1027,8 @@ document.write(`
 
 <span class="sd">    seq</span>
 <span class="sd">        Specifies sequence of axes for rotations. Up to 3 characters</span>
-<span class="sd">        belonging to the set {&#39;X&#39;, &#39;Y&#39;, &#39;Z&#39;} for intrinsic rotations (moving</span>
-<span class="sd">        axes), or {&#39;x&#39;, &#39;y&#39;, &#39;z&#39;} for extrinsic rotations (fixed axes).</span>
+<span class="sd">        belonging to the set {&quot;X&quot;, &quot;Y&quot;, &quot;Z&quot;} for intrinsic rotations (moving</span>
+<span class="sd">        axes), or {&quot;x&quot;, &quot;y&quot;, &quot;z&quot;} for extrinsic rotations (fixed axes).</span>
 <span class="sd">        Extrinsic and intrinsic rotations cannot be mixed in one function call.</span>
 
 <span class="sd">    angles</span>
@@ -1053,7 +1055,7 @@ document.write(`
 <span class="sd">    np.ndarray</span>
 <span class="sd">        Array_like of shape (N, ...): the rotated coordinates.</span>
 
-<span class="sd">    See also</span>
+<span class="sd">    See Also</span>
 <span class="sd">    --------</span>
 <span class="sd">    ktk.geometry.translate, ktk.geometry.scale, ktk.geometry.create_transforms,</span>
 <span class="sd">    ktk.geometry.matmul</span>
@@ -1065,7 +1067,7 @@ document.write(`
 
 <span class="sd">        &gt;&gt;&gt; import kineticstoolkit.lab as ktk</span>
 <span class="sd">        &gt;&gt;&gt; angles = np.array([[0, 45], [10, 45], [20, 45], [30, 45], [40, 45]])</span>
-<span class="sd">        &gt;&gt;&gt; ktk.geometry.rotate([[1, 0, 0, 1]], &#39;zx&#39;, angles, degrees=True)</span>
+<span class="sd">        &gt;&gt;&gt; ktk.geometry.rotate([[1, 0, 0, 1]], &quot;zx&quot;, angles, degrees=True)</span>
 <span class="sd">        array([[1.        , 0.        , 0.        , 1.        ],</span>
 <span class="sd">               [0.98480775, 0.1227878 , 0.1227878 , 1.        ],</span>
 <span class="sd">               [0.93969262, 0.24184476, 0.24184476, 1.        ],</span>
@@ -1094,7 +1096,7 @@ document.write(`
 <span class="sd">    np.ndarray</span>
 <span class="sd">        Array_like of shape (N, ...): the translated coordinates.</span>
 
-<span class="sd">    See also</span>
+<span class="sd">    See Also</span>
 <span class="sd">    --------</span>
 <span class="sd">    ktk.geometry.rotate, ktk.geometry.scale, ktk.geometry.create_transforms,</span>
 <span class="sd">    ktk.geometry.matmul</span>
@@ -1133,7 +1135,7 @@ document.write(`
 <span class="sd">    np.ndarray</span>
 <span class="sd">        Array_like of shape (N, ...): the translated coordinates.</span>
 
-<span class="sd">    See also</span>
+<span class="sd">    See Also</span>
 <span class="sd">    --------</span>
 <span class="sd">    ktk.geometry.rotate, ktk.geometry.translate,</span>
 <span class="sd">    ktk.geometry.create_transforms, ktk.geometry.matmul</span>
@@ -1170,8 +1172,8 @@ document.write(`
 <span class="sd">        An Nx4x4 series of transformation matrices.</span>
 
 <span class="sd">    seq</span>
-<span class="sd">        3 characters belonging to the set {&#39;X&#39;, &#39;Y&#39;, &#39;Z&#39;} for intrinsic</span>
-<span class="sd">        rotations (moving axes), or {&#39;x&#39;, &#39;y&#39;, &#39;z&#39;} for extrinsic rotations</span>
+<span class="sd">        3 characters belonging to the set {&quot;X&quot;, &quot;Y&quot;, &quot;Z&quot;} for intrinsic</span>
+<span class="sd">        rotations (moving axes), or {&quot;x&quot;, &quot;y&quot;, &quot;z&quot;} for extrinsic rotations</span>
 <span class="sd">        (fixed axes). Adjacent axes cannot be the same. Extrinsic and</span>
 <span class="sd">        intrinsic rotations cannot be mixed in one function call.</span>
 
@@ -1284,7 +1286,7 @@ document.write(`
 <span class="sd">    np.ndarray</span>
 <span class="sd">        Series of frames (Nx4x4).</span>
 
-<span class="sd">    See also</span>
+<span class="sd">    See Also</span>
 <span class="sd">    --------</span>
 <span class="sd">    ktk.geometry.create_transforms</span>
 
@@ -1369,7 +1371,7 @@ document.write(`
 <span class="sd">        Series of local coordinates in the same shape than</span>
 <span class="sd">        `global_coordinates`.</span>
 
-<span class="sd">    See also</span>
+<span class="sd">    See Also</span>
 <span class="sd">    --------</span>
 <span class="sd">    ktk.geometry.get_global_coordinates</span>
 
@@ -1430,7 +1432,7 @@ document.write(`
 <span class="sd">        Series of global coordinates in the same shape than</span>
 <span class="sd">        `local_coordinates`.</span>
 
-<span class="sd">    See also</span>
+<span class="sd">    See Also</span>
 <span class="sd">    --------</span>
 <span class="sd">    ktk.geometry.get_local_coordinates</span>
 

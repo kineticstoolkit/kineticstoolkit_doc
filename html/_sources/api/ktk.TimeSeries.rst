@@ -14,11 +14,13 @@
       :toctree:
       :nosignatures:
    
+      ~TimeSeries.add_data
       ~TimeSeries.add_data_info
       ~TimeSeries.add_event
       ~TimeSeries.copy
       ~TimeSeries.count_events
       ~TimeSeries.fill_missing_samples
+      ~TimeSeries.from_array
       ~TimeSeries.from_dataframe
       ~TimeSeries.get_index_after_event
       ~TimeSeries.get_index_after_time

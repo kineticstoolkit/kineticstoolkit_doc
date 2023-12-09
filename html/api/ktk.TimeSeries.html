@@ -76,7 +76,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="shortcut icon" href="../_static/favicon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="ktk.TimeSeries.add_data_info" href="ktk.TimeSeries.add_data_info.html" />
+    <link rel="next" title="ktk.TimeSeries.add_data" href="ktk.TimeSeries.add_data.html" />
     <link rel="prev" title="Classes" href="../api_classes.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -393,7 +393,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../ktk_importing.html">6. Importing Kinetics Toolkit</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../timeseries.html">7. Analyzing time-varying data</a><input class="toctree-checkbox" id="toctree-checkbox-43" name="toctree-checkbox-43" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-43"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../timeseries_basics.html">7.1. The TimeSeries type</a><input class="toctree-checkbox" id="toctree-checkbox-44" name="toctree-checkbox-44" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-44"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../timeseries_basics_exercise.html">7.1.4. Exercise: Creating a TimeSeries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../timeseries_basics_exercise.html">7.1.5. Exercise: Creating a TimeSeries</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../timeseries_manipulating.html">7.2. Manipulating TimeSeries</a><input class="toctree-checkbox" id="toctree-checkbox-45" name="toctree-checkbox-45" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-45"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -510,11 +510,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../ktk_conventions.html">Conventions</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="../api_classes.html">Classes</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-62" name="toctree-checkbox-62" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-62"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">ktk.TimeSeries</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-63" name="toctree-checkbox-63" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-63"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.add_data.html">ktk.TimeSeries.add_data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.add_data_info.html">ktk.TimeSeries.add_data_info</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.add_event.html">ktk.TimeSeries.add_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.copy.html">ktk.TimeSeries.copy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.count_events.html">ktk.TimeSeries.count_events</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.fill_missing_samples.html">ktk.TimeSeries.fill_missing_samples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.from_array.html">ktk.TimeSeries.from_array</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.from_dataframe.html">ktk.TimeSeries.from_dataframe</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_index_after_event.html">ktk.TimeSeries.get_index_after_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_index_after_time.html">ktk.TimeSeries.get_index_after_time</a></li>
@@ -765,15 +767,16 @@ document.write(`
 <h1>ktk.TimeSeries<a class="headerlink" href="#ktk-timeseries" title="Permalink to this heading">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="ktk.TimeSeries">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TimeSeries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'Unit':</span> <span class="pre">'s'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kineticstoolkit/_timeseries.html#TimeSeries"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ktk.TimeSeries" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">TimeSeries</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{'Unit':</span> <span class="pre">'s'}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">events</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kineticstoolkit/timeseries.html#TimeSeries"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ktk.TimeSeries" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>A class that holds time, data series, events and metadata.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>src</strong> (<em>None</em><em> | </em><a class="reference internal" href="#ktk.TimeSeries" title="ktk.TimeSeries"><em>TimeSeries</em></a><em> | </em><em>pd.DataFrame</em><em> | </em><em>ArrayLike</em>) – </p></li>
 <li><p><strong>time</strong> (<em>ArrayLike</em>) – </p></li>
 <li><p><strong>time_info</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em>) – </p></li>
-<li><p><strong>data</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>np.ndarray</em><em>]</em>) – </p></li>
+<li><p><strong>data</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>ArrayLike</em><em>]</em>) – </p></li>
 <li><p><strong>data_info</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – </p></li>
 <li><p><strong>events</strong> (<em>list</em><em>[</em><a class="reference internal" href="ktk.TimeSeriesEvent.html#ktk.TimeSeriesEvent" title="ktk.TimeSeriesEvent"><em>TimeSeriesEvent</em></a><em>]</em>) – </p></li>
 </ul>
@@ -805,7 +808,7 @@ which first dimension corresponds to time.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="ktk.TimeSeries.time_info">
 <span class="sig-name descname"><span class="pre">time_info</span></span><a class="headerlink" href="#ktk.TimeSeries.time_info" title="Permalink to this definition">#</a></dt>
-<dd><p>Contains metadata relative to time. The default is {‘Unit’: ‘s’}</p>
+<dd><p>Contains metadata relative to time. The default is {“Unit”: “s”}</p>
 <dl class="field-list simple">
 <dt class="field-odd">Type</dt>
 <dd class="field-odd"><p>dict[str, Any]</p>
@@ -817,8 +820,8 @@ which first dimension corresponds to time.</p>
 <dt class="sig sig-object py" id="ktk.TimeSeries.data_info">
 <span class="sig-name descname"><span class="pre">data_info</span></span><a class="headerlink" href="#ktk.TimeSeries.data_info" title="Permalink to this definition">#</a></dt>
 <dd><p>Contains facultative metadata relative to data. For example, the
-data_info attribute could indicate the unit of data[‘Forces’]:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;Forces&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;Unit&#39;</span><span class="p">:</span> <span class="s1">&#39;N&#39;</span><span class="p">}</span>
+data_info attribute could indicate the unit of data[“Forces”]:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Forces&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Unit&quot;</span><span class="p">:</span> <span class="s2">&quot;N&quot;</span><span class="p">}</span>
 </pre></div>
 </div>
 <p>To facilitate the management of data_info, please use
@@ -841,10 +844,180 @@ data_info attribute could indicate the unit of data[‘Forces’]:</p>
 </dl>
 </dd></dl>
 
-<p class="rubric">Example</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">TimeSeries</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">))</span>
+<p class="rubric">Examples</p>
+<p>A TimeSeries can be constructed from another TimeSeries, a Pandas DataFrame
+or any array with at least one dimension.</p>
+<ol class="arabic simple">
+<li><p>Creating an empty TimeSeries:</p></li>
+</ol>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ktk</span><span class="o">.</span><span class="n">TimeSeries</span><span class="p">()</span>
+<span class="go">TimeSeries with attributes:</span>
+<span class="go">         time: array([], dtype=float64)</span>
+<span class="go">         data: {}</span>
+<span class="go">    time_info: {&#39;Unit&#39;: &#39;s&#39;}</span>
+<span class="go">    data_info: {}</span>
+<span class="go">       events: []</span>
 </pre></div>
 </div>
+<ol class="arabic simple" start="2">
+<li><p>Creating a TimeSeries an allocating time and data:</p></li>
+</ol>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ktk</span><span class="o">.</span><span class="n">TimeSeries</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;test&quot;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)})</span>
+<span class="go">TimeSeries with attributes:</span>
+<span class="go">         time: array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</span>
+<span class="go">         data: {&#39;test&#39;: array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])}</span>
+<span class="go">    time_info: {&#39;Unit&#39;: &#39;s&#39;}</span>
+<span class="go">    data_info: {}</span>
+<span class="go">       events: []</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>Creating a TimeSeries as a copy of another TimeSeries:</p></li>
+</ol>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ts1</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">TimeSeries</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">data</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;test&quot;</span><span class="p">:</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)})</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ts2</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">TimeSeries</span><span class="p">(</span><span class="n">ts1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ts2</span>
+<span class="go">TimeSeries with attributes:</span>
+<span class="go">         time: array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])</span>
+<span class="go">         data: {&#39;test&#39;: array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])}</span>
+<span class="go">    time_info: {&#39;Unit&#39;: &#39;s&#39;}</span>
+<span class="go">    data_info: {}</span>
+<span class="go">       events: []</span>
+</pre></div>
+</div>
+<p>See Also: TimeSeries.copy</p>
+<ol class="arabic simple" start="4">
+<li><p>Creating a TimeSeries from a Pandas DataFrame:</p></li>
+</ol>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">]</span>  <span class="c1"># Time in seconds</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;x&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">5.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">,</span> <span class="mf">7.</span><span class="p">,</span> <span class="mf">8.</span><span class="p">,</span> <span class="mf">9.</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;z&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span>
+<span class="go">       x    y    z</span>
+<span class="go">0.0  0.0  5.0  0.0</span>
+<span class="go">0.1  1.0  6.0  0.0</span>
+<span class="go">0.2  2.0  7.0  0.0</span>
+<span class="go">0.3  3.0  8.0  0.0</span>
+<span class="go">0.4  4.0  9.0  0.0</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">TimeSeries</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span>
+<span class="go">TimeSeries with attributes:</span>
+<span class="go">         time: array([0. , 0.1, 0.2, 0.3, 0.4])</span>
+<span class="go">         data: &lt;dict with 3 entries&gt;</span>
+<span class="go">    time_info: {&#39;Unit&#39;: &#39;s&#39;}</span>
+<span class="go">    data_info: {}</span>
+<span class="go">       events: []</span>
+</pre></div>
+</div>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span><span class="o">.</span><span class="n">data</span>
+<span class="go">{&#39;x&#39;: array([0., 1., 2., 3., 4.]), &#39;y&#39;: array([5., 6., 7., 8., 9.]), &#39;z&#39;: array([0., 0., 0., 0., 0.])}</span>
+</pre></div>
+</div>
+<p>See Also: TimeSeries.from_dataframe</p>
+<p>5. Creating a multidimensional TimeSeries from a Pandas DataFrame (using
+brackets in column names):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">]</span>  <span class="c1"># Time in seconds</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;point[0]&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;point[1]&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">5.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">,</span> <span class="mf">7.</span><span class="p">,</span> <span class="mf">8.</span><span class="p">,</span> <span class="mf">9.</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;point[2]&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>point[0]  point[1]  point[2]</p>
+</div></blockquote>
+<p>0.0       0.0       5.0       0.0
+0.1       1.0       6.0       0.0
+0.2       2.0       7.0       0.0
+0.3       3.0       8.0       0.0
+0.4       4.0       9.0       0.0</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">TimeSeries</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span><span class="o">.</span><span class="n">data</span>
+<span class="go">{&#39;point&#39;: array([[0., 5., 0.],</span>
+<span class="go">       [1., 6., 0.],</span>
+<span class="go">       [2., 7., 0.],</span>
+<span class="go">       [3., 8., 0.],</span>
+<span class="go">       [4., 9., 0.]])}</span>
+</pre></div>
+</div>
+<p>See Also: TimeSeries.from_dataframe</p>
+<p>6. Creating a multidimensional TimeSeries of higher order from a Pandas
+DataFrame (using brackets and commas in column names):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">]</span>  <span class="c1"># Time in seconds</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;rot[0,0]&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;rot[0,1]&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;rot[1,0]&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;rot[1,1]&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">([</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;trans[0]&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;trans[1]&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mf">5.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">,</span> <span class="mf">7.</span><span class="p">,</span> <span class="mf">8.</span><span class="p">,</span> <span class="mf">9.</span><span class="p">]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df</span>
+</pre></div>
+</div>
+<blockquote>
+<div><p>rot[0,0]  rot[0,1]  rot[1,0]  rot[1,1]  trans[0]  trans[1]</p>
+</div></blockquote>
+<p>0.0  1.000000 -0.000000  0.000000  1.000000       0.0       5.0
+0.1  0.995004 -0.099833  0.099833  0.995004       0.1       6.0
+0.2  0.980067 -0.198669  0.198669  0.980067       0.2       7.0
+0.3  0.955336 -0.295520  0.295520  0.955336       0.3       8.0
+0.4  0.921061 -0.389418  0.389418  0.921061       0.4       9.0</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">TimeSeries</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span><span class="o">.</span><span class="n">data</span>
+<span class="go">{&#39;rot&#39;: array([[[ 1.        , -0.        ],</span>
+<span class="go">        [ 0.        ,  1.        ]],</span>
+
+<span class="go">       [[ 0.99500417, -0.09983342],</span>
+<span class="go">        [ 0.09983342,  0.99500417]],</span>
+
+<span class="go">       [[ 0.98006658, -0.19866933],</span>
+<span class="go">        [ 0.19866933,  0.98006658]],</span>
+
+<span class="go">       [[ 0.95533649, -0.29552021],</span>
+<span class="go">        [ 0.29552021,  0.95533649]],</span>
+
+<span class="go">       [[ 0.92106099, -0.38941834],</span>
+<span class="go">        [ 0.38941834,  0.92106099]]]), &#39;trans&#39;: array([[0. , 5. ],</span>
+<span class="go">       [0.1, 6. ],</span>
+<span class="go">       [0.2, 7. ],</span>
+<span class="go">       [0.3, 8. ],</span>
+<span class="go">       [0.4, 9. ]])}</span>
+</pre></div>
+</div>
+<p>See Also: TimeSeries.from_dataframe</p>
+<p>7. Creating a TimeSeries from any array (results in a TimeSeries with a
+single data key named “data” and with a matching time property with a
+period of 1 second - unless time attribute is also defined):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ktk</span><span class="o">.</span><span class="n">TimeSeries</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
+</pre></div>
+</div>
+<dl>
+<dt>TimeSeries with attributes:</dt><dd><blockquote>
+<div><p>time: array([0., 1., 2., 3., 4.])
+data: {‘data’: array([0.1, 0.2, 0.3, 0.4, 0.5])}</p>
+</div></blockquote>
+<p>time_info: {‘Unit’: ‘s’}
+data_info: {}</p>
+<blockquote>
+<div><p>events: []</p>
+</div></blockquote>
+</dd>
+</dl>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ktk</span><span class="o">.</span><span class="n">TimeSeries</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
+<span class="go">TimeSeries with attributes:</span>
+<span class="go">         time: array([0.1, 0.2, 0.3, 0.4, 0.5])</span>
+<span class="go">         data: {&#39;data&#39;: array([0.1, 0.2, 0.3, 0.4, 0.5])}</span>
+<span class="go">    time_info: {&#39;Unit&#39;: &#39;s&#39;}</span>
+<span class="go">    data_info: {}</span>
+<span class="go">       events: []</span>
+</pre></div>
+</div>
+<p>See Also: TimeSerise.from_array</p>
 <p class="rubric">Methods</p>
 <table class="autosummary longtable table autosummary">
 <colgroup>
@@ -852,20 +1025,26 @@ data_info attribute could indicate the unit of data[‘Forces’]:</p>
 <col style="width: 90%" />
 </colgroup>
 <tbody>
-<tr class="row-odd"><td><p><a class="reference internal" href="ktk.TimeSeries.add_data_info.html#ktk.TimeSeries.add_data_info" title="ktk.TimeSeries.add_data_info"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_data_info</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ktk.TimeSeries.add_data.html#ktk.TimeSeries.add_data" title="ktk.TimeSeries.add_data"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_data</span></code></a></p></td>
+<td><p>Add new data to the TimeSeries.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="ktk.TimeSeries.add_data_info.html#ktk.TimeSeries.add_data_info" title="ktk.TimeSeries.add_data_info"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_data_info</span></code></a></p></td>
 <td><p>Add metadata to TimeSeries' data.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ktk.TimeSeries.add_event.html#ktk.TimeSeries.add_event" title="ktk.TimeSeries.add_event"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_event</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ktk.TimeSeries.add_event.html#ktk.TimeSeries.add_event" title="ktk.TimeSeries.add_event"><code class="xref py py-obj docutils literal notranslate"><span class="pre">add_event</span></code></a></p></td>
 <td><p>Add an event to the TimeSeries.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ktk.TimeSeries.copy.html#ktk.TimeSeries.copy" title="ktk.TimeSeries.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ktk.TimeSeries.copy.html#ktk.TimeSeries.copy" title="ktk.TimeSeries.copy"><code class="xref py py-obj docutils literal notranslate"><span class="pre">copy</span></code></a></p></td>
 <td><p>Deep copy of a TimeSeries.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ktk.TimeSeries.count_events.html#ktk.TimeSeries.count_events" title="ktk.TimeSeries.count_events"><code class="xref py py-obj docutils literal notranslate"><span class="pre">count_events</span></code></a></p></td>
+<tr class="row-odd"><td><p><a class="reference internal" href="ktk.TimeSeries.count_events.html#ktk.TimeSeries.count_events" title="ktk.TimeSeries.count_events"><code class="xref py py-obj docutils literal notranslate"><span class="pre">count_events</span></code></a></p></td>
 <td><p>Count the number of occurrence of a given event name.</p></td>
 </tr>
-<tr class="row-odd"><td><p><a class="reference internal" href="ktk.TimeSeries.fill_missing_samples.html#ktk.TimeSeries.fill_missing_samples" title="ktk.TimeSeries.fill_missing_samples"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fill_missing_samples</span></code></a></p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ktk.TimeSeries.fill_missing_samples.html#ktk.TimeSeries.fill_missing_samples" title="ktk.TimeSeries.fill_missing_samples"><code class="xref py py-obj docutils literal notranslate"><span class="pre">fill_missing_samples</span></code></a></p></td>
 <td><p>Fill missing samples using a given method.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="ktk.TimeSeries.from_array.html#ktk.TimeSeries.from_array" title="ktk.TimeSeries.from_array"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_array</span></code></a></p></td>
+<td><p>Create a new TimeSeries from an array.</p></td>
 </tr>
 <tr class="row-even"><td><p><a class="reference internal" href="ktk.TimeSeries.from_dataframe.html#ktk.TimeSeries.from_dataframe" title="ktk.TimeSeries.from_dataframe"><code class="xref py py-obj docutils literal notranslate"><span class="pre">from_dataframe</span></code></a></p></td>
 <td><p>Create a new TimeSeries from a Pandas Dataframe.</p></td>
@@ -1015,11 +1194,11 @@ data_info attribute could indicate the unit of data[‘Forces’]:</p>
       </div>
     </a>
     <a class="right-next"
-       href="ktk.TimeSeries.add_data_info.html"
+       href="ktk.TimeSeries.add_data.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">ktk.TimeSeries.add_data_info</p>
+        <p class="prev-next-title">ktk.TimeSeries.add_data</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

@@ -382,7 +382,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../../ktk_importing.html">6. Importing Kinetics Toolkit</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../timeseries.html">7. Analyzing time-varying data</a><input class="toctree-checkbox" id="toctree-checkbox-43" name="toctree-checkbox-43" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-43"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../timeseries_basics.html">7.1. The TimeSeries type</a><input class="toctree-checkbox" id="toctree-checkbox-44" name="toctree-checkbox-44" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-44"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../timeseries_basics_exercise.html">7.1.4. Exercise: Creating a TimeSeries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../timeseries_basics_exercise.html">7.1.5. Exercise: Creating a TimeSeries</a></li>
 </ul>
 </li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../timeseries_manipulating.html">7.2. Manipulating TimeSeries</a><input class="toctree-checkbox" id="toctree-checkbox-45" name="toctree-checkbox-45" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-45"><i class="fa-solid fa-chevron-down"></i></label><ul>
@@ -499,11 +499,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="../../ktk_conventions.html">Conventions</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../api_classes.html">Classes</a><input class="toctree-checkbox" id="toctree-checkbox-62" name="toctree-checkbox-62" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-62"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../api/ktk.TimeSeries.html">ktk.TimeSeries</a><input class="toctree-checkbox" id="toctree-checkbox-63" name="toctree-checkbox-63" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-63"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.add_data.html">ktk.TimeSeries.add_data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.add_data_info.html">ktk.TimeSeries.add_data_info</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.add_event.html">ktk.TimeSeries.add_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.copy.html">ktk.TimeSeries.copy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.count_events.html">ktk.TimeSeries.count_events</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.fill_missing_samples.html">ktk.TimeSeries.fill_missing_samples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.from_array.html">ktk.TimeSeries.from_array</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.from_dataframe.html">ktk.TimeSeries.from_dataframe</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_index_after_event.html">ktk.TimeSeries.get_index_after_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_index_after_time.html">ktk.TimeSeries.get_index_after_time</a></li>
@@ -920,8 +922,8 @@ document.write(`
 <span class="sd">    order</span>
 <span class="sd">        Optional. Order of the filter. Default is 2.</span>
 <span class="sd">    btype</span>
-<span class="sd">        Optional. Can be either &#39;lowpass&#39;, &#39;highpass&#39;, &#39;bandpass&#39; or</span>
-<span class="sd">        &#39;bandstop&#39;. Default is &#39;lowpass&#39;.</span>
+<span class="sd">        Optional. Can be either &quot;lowpass&quot;, &quot;highpass&quot;, &quot;bandpass&quot; or</span>
+<span class="sd">        &quot;bandstop&quot;. Default is &quot;lowpass&quot;.</span>
 <span class="sd">    filtfilt</span>
 <span class="sd">        Optional. If True, the filter is applied two times in reverse direction</span>
 <span class="sd">        to eliminate time lag. If False, the filter is applied only in forward</span>
@@ -999,12 +1001,12 @@ document.write(`
 <span class="sd">    Example</span>
 <span class="sd">    -------</span>
 <span class="sd">    &gt;&gt;&gt; ts = ktk.TimeSeries(time=np.arange(0, 0.5, 0.1))</span>
-<span class="sd">    &gt;&gt;&gt; ts.data[&#39;data&#39;] = np.array([0.0, 0.0, 1.0, 1.0, 0.0])</span>
+<span class="sd">    &gt;&gt;&gt; ts = ts.add_data(&quot;test&quot;, np.array([0.0, 0.0, 1.0, 1.0, 0.0]))</span>
 
 <span class="sd">    &gt;&gt;&gt; # Source data</span>
 <span class="sd">    &gt;&gt;&gt; ts.time</span>
 <span class="sd">    array([0. , 0.1, 0.2, 0.3, 0.4])</span>
-<span class="sd">    &gt;&gt;&gt; ts.data[&#39;data&#39;]</span>
+<span class="sd">    &gt;&gt;&gt; ts.data[&quot;test&quot;]</span>
 <span class="sd">    array([0., 0., 1., 1., 0.])</span>
 
 <span class="sd">    &gt;&gt;&gt; # First derivative</span>
@@ -1012,7 +1014,7 @@ document.write(`
 
 <span class="sd">    &gt;&gt;&gt; ts1.time</span>
 <span class="sd">    array([0.05, 0.15, 0.25, 0.35])</span>
-<span class="sd">    &gt;&gt;&gt; ts1.data[&#39;data&#39;]</span>
+<span class="sd">    &gt;&gt;&gt; ts1.data[&quot;test&quot;]</span>
 <span class="sd">    array([  0.,  10.,   0., -10.])</span>
 
 <span class="sd">    &gt;&gt;&gt; # Second derivative</span>
@@ -1020,7 +1022,7 @@ document.write(`
 
 <span class="sd">    &gt;&gt;&gt; ts2.time</span>
 <span class="sd">    array([0.1, 0.2, 0.3])</span>
-<span class="sd">    &gt;&gt;&gt; ts2.data[&#39;data&#39;]</span>
+<span class="sd">    &gt;&gt;&gt; ts2.data[&quot;test&quot;]</span>
 <span class="sd">    array([ 100., -100., -100.])</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -1056,10 +1058,10 @@ document.write(`
 
 <span class="sd">    Example</span>
 <span class="sd">    -------</span>
-<span class="sd">    &gt;&gt;&gt; ts = ktk.TimeSeries(time=np.arange(0, 0.5, 0.1))</span>
-<span class="sd">    &gt;&gt;&gt; ts.data[&#39;data1&#39;] = np.array([10., 11., 11., 20., 14., 15.])</span>
-<span class="sd">    &gt;&gt;&gt; ts = ktk.filters.median(ts)</span>
-<span class="sd">    &gt;&gt;&gt; ts.data[&#39;data1&#39;]</span>
+<span class="sd">    &gt;&gt;&gt; ts = ktk.TimeSeries(time=np.arange(0, 6))</span>
+<span class="sd">    &gt;&gt;&gt; ts = ts.add_data(&quot;test&quot;, [10., 11., 11., 20., 14., 15.])</span>
+<span class="sd">    &gt;&gt;&gt; ts2 = ktk.filters.median(ts)</span>
+<span class="sd">    &gt;&gt;&gt; ts2.data[&quot;test&quot;]</span>
 <span class="sd">    array([10., 11., 11., 14., 15., 15.])</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>

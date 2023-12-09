@@ -29,13 +29,26 @@ A TimeSeries in its simplest form contains a time attribute and at least one dat
 ```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
 import numpy as np
+import pandas as pd
 import matplotlib.pyplot as plt
 
 ts = ktk.TimeSeries()                     # Create an empty TimeSeries
 ts.time = np.arange(0, 10, 0.1)           # Assign time
-ts.data["Sinus"] = np.sin(ts.time)        # Create a data series
-ts.data["Cosinus"] = np.cos(ts.time)      # Create another data series
-ts.data["SquareRoot"] = np.sqrt(ts.time)  # Create yet another data series
+ts.data["Sinus"] = np.sin(ts.time)        # Add a data series
+ts.data["Cosinus"] = np.cos(ts.time)      # Add another data series
+ts.data["SquareRoot"] = np.sqrt(ts.time)  # Add yet another data series
+
+ts
+```
+
+We can also add data to a TimeSeries using its [add_data](api/ktk.TimeSeries.add_data.rst) method. This method checks that each data series has the same number of samples, whereas assigning it directly to `data` (as above) does not perform such verification.
+
+```{code-cell} ipython3
+ts = ktk.TimeSeries()                             # Create an empty TimeSeries
+ts.time = np.arange(0, 10, 0.1)                   # Assign time
+ts = ts.add_data("Sinus", np.sin(ts.time))        # Add a data series
+ts = ts.add_data("Cosinus", np.cos(ts.time))      # Add another data series
+ts = ts.add_data("SquareRoot", np.sqrt(ts.time))  # Add yet another data series
 
 ts
 ```
@@ -143,4 +156,39 @@ Unless explicitly mentioned, metadata is not used for calculation and is strictl
 
 ```{code-cell} ipython3
 ts.plot()
+```
+
+## Converting variables to TimeSeries
+
+We can convert a [list](python_lists.md), a [NumPy array](numpy_ndarray.md), a Pandas {{pd_series}} or a Pandas {{pd_dataframe}} to a TimeSeries, using this form:
+
+```{code-cell} ipython3
+example_list = [1, 2, 3, 4, 5]
+example_array = np.array([1, 2, 3, 4, 5])
+example_series = pd.Series([1, 2, 3, 4, 5])
+example_dataframe = pd.DataFrame([[1, 2], [3, 4], [5, 6], [7, 8]], columns=["x", "y"])
+```
+
+### List to TimeSeries
+
+```{code-cell} ipython3
+ktk.TimeSeries(example_list)
+```
+
+### Array to TimeSeries
+
+```{code-cell} ipython3
+ktk.TimeSeries(example_array)
+```
+
+### Series to TimeSeries
+
+```{code-cell} ipython3
+ktk.TimeSeries(example_series)
+```
+
+### DataFrame to TimeSeries
+
+```{code-cell} ipython3
+ktk.TimeSeries(example_dataframe)
 ```

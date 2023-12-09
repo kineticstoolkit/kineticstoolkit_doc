@@ -12,10 +12,10 @@
 <meta property="og:type" content="image/png" />
 <meta property="og:url" content="https://kineticstoolkit.uqam.ca/doc/timeseries_data_management.html" />
 <meta property="og:site_name" content="Kinetics Toolkit" />
-<meta property="og:description" content="This section shows how to use these methods for data management: ktk.TimeSeries.get_subset, ktk.TimeSeries.merge, ktk.TimeSeries.rename_data, ktk.TimeSeries.remove_data. We will use this sample kin..." />
+<meta property="og:description" content="This section shows how to use these methods for data management: ktk.TimeSeries.add_data, ktk.TimeSeries.rename_data, ktk.TimeSeries.remove_data, ktk.TimeSeries.get_subset, ktk.TimeSeries.merge. We..." />
 <meta property="og:image" content="https://kineticstoolkit.uqam.ca/doc/_static/logo-social.png" />
 <meta property="og:image:alt" content="Kinetics Toolkit Logo" />
-<meta name="description" content="This section shows how to use these methods for data management: ktk.TimeSeries.get_subset, ktk.TimeSeries.merge, ktk.TimeSeries.rename_data, ktk.TimeSeries.remove_data. We will use this sample kin..." />
+<meta name="description" content="This section shows how to use these methods for data management: ktk.TimeSeries.add_data, ktk.TimeSeries.rename_data, ktk.TimeSeries.remove_data, ktk.TimeSeries.get_subset, ktk.TimeSeries.merge. We..." />
 <meta property='og:image:width' content=500 />
 <meta property='og:image:height' content=264 />
 
@@ -395,7 +395,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="ktk_importing.html">6. Importing Kinetics Toolkit</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="timeseries.html">7. Analyzing time-varying data</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-43" name="toctree-checkbox-43" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-43"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
 <li class="toctree-l2 has-children"><a class="reference internal" href="timeseries_basics.html">7.1. The TimeSeries type</a><input class="toctree-checkbox" id="toctree-checkbox-44" name="toctree-checkbox-44" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-44"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="timeseries_basics_exercise.html">7.1.4. Exercise: Creating a TimeSeries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="timeseries_basics_exercise.html">7.1.5. Exercise: Creating a TimeSeries</a></li>
 </ul>
 </li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="timeseries_manipulating.html">7.2. Manipulating TimeSeries</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-45" name="toctree-checkbox-45" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-45"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
@@ -512,11 +512,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="ktk_conventions.html">Conventions</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="api_classes.html">Classes</a><input class="toctree-checkbox" id="toctree-checkbox-62" name="toctree-checkbox-62" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-62"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.TimeSeries.html">ktk.TimeSeries</a><input class="toctree-checkbox" id="toctree-checkbox-63" name="toctree-checkbox-63" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-63"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.add_data.html">ktk.TimeSeries.add_data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.add_data_info.html">ktk.TimeSeries.add_data_info</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.add_event.html">ktk.TimeSeries.add_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.copy.html">ktk.TimeSeries.copy</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.count_events.html">ktk.TimeSeries.count_events</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.fill_missing_samples.html">ktk.TimeSeries.fill_missing_samples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.from_array.html">ktk.TimeSeries.from_array</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.from_dataframe.html">ktk.TimeSeries.from_dataframe</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_index_after_event.html">ktk.TimeSeries.get_index_after_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_index_after_time.html">ktk.TimeSeries.get_index_after_time</a></li>
@@ -779,10 +781,11 @@ document.write(`
 <h1><span class="section-number">7.2.1. </span>Data management<a class="headerlink" href="#data-management" title="Permalink to this heading">#</a></h1>
 <p>This section shows how to use these methods for data management:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="api/ktk.TimeSeries.get_subset.html"><span class="doc std std-doc">ktk.TimeSeries.get_subset</span></a></p></li>
-<li><p><a class="reference internal" href="api/ktk.TimeSeries.merge.html"><span class="doc std std-doc">ktk.TimeSeries.merge</span></a></p></li>
+<li><p><a class="reference internal" href="api/ktk.TimeSeries.add_data.html"><span class="doc std std-doc">ktk.TimeSeries.add_data</span></a></p></li>
 <li><p><a class="reference internal" href="api/ktk.TimeSeries.rename_data.html"><span class="doc std std-doc">ktk.TimeSeries.rename_data</span></a></p></li>
 <li><p><a class="reference internal" href="api/ktk.TimeSeries.remove_data.html"><span class="doc std std-doc">ktk.TimeSeries.remove_data</span></a></p></li>
+<li><p><a class="reference internal" href="api/ktk.TimeSeries.get_subset.html"><span class="doc std std-doc">ktk.TimeSeries.get_subset</span></a></p></li>
+<li><p><a class="reference internal" href="api/ktk.TimeSeries.merge.html"><span class="doc std std-doc">ktk.TimeSeries.merge</span></a></p></li>
 </ul>
 <p>We will use this sample <a class="reference internal" href="dataset_kinematics_tennis_serve.html"><span class="doc std std-doc">kinematic acquisition</span></a> of 39 bilateral markers with 1092 samples recorded at 50 Hz during tennis serve:</p>
 <div class="cell docutils container">
@@ -798,7 +801,7 @@ document.write(`
 </div>
 <section id="removing-data">
 <h2><span class="section-number">7.2.1.1. </span>Removing data<a class="headerlink" href="#removing-data" title="Permalink to this heading">#</a></h2>
-<p>This TimeSeries has many markers, which makes lots of data to visualize and process:</p>
+<p>The TimeSeries loaded above has many markers, which makes lots of data to visualize and process:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">markers</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">legend</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -809,7 +812,9 @@ document.write(`
 <img alt="_images/ee061d68e50d3d175accd0c5a11582bc71d1214c121aad6905e28652cdd79824.png" src="_images/ee061d68e50d3d175accd0c5a11582bc71d1214c121aad6905e28652cdd79824.png" />
 </div>
 </div>
-<p>If not all data is required for analysis, we can subset the TimeSeries into a new, smaller TimeSeries, using <a class="reference internal" href="api/ktk.TimeSeries.get_subset.html"><span class="doc std std-doc">ktk.TimeSeries.get_subset</span></a>. For instance, to process only the markers of the thorax:</p>
+<p>We can remove superfluous data from this TimeSeries using two methods:</p>
+<p><strong>1. Subsetting a TimeSeries</strong></p>
+<p>We can use <a class="reference internal" href="api/ktk.TimeSeries.get_subset.html"><span class="doc std std-doc">ktk.TimeSeries.get_subset</span></a> to select which data to <strong>keep</strong> from a TimeSeries. For instance, to process only the markers of the thorax:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">markers_thorax</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">get_subset</span><span class="p">(</span>
@@ -829,7 +834,8 @@ document.write(`
 <img alt="_images/a42cf1de7696364729f7fdb41892392a8f20099d969497146570c902f1ac6221.png" src="_images/a42cf1de7696364729f7fdb41892392a8f20099d969497146570c902f1ac6221.png" />
 </div>
 </div>
-<p>We could also remove data one by one from a TimeSeries using <a class="reference internal" href="api/ktk.TimeSeries.remove_data.html"><span class="doc std std-doc">ktk.TimeSeries.remove_data</span></a>:</p>
+<p><strong>2. Removing data one at a time</strong></p>
+<p>We can also use <a class="reference internal" href="api/ktk.TimeSeries.remove_data.html"><span class="doc std std-doc">ktk.TimeSeries.remove_data</span></a>, to select which data to <strong>remove</strong> from a TimeSeries:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">markers_thorax</span> <span class="o">=</span> <span class="n">markers_thorax</span><span class="o">.</span><span class="n">remove_data</span><span class="p">(</span><span class="s2">&quot;Derrick:C7&quot;</span><span class="p">)</span>
@@ -846,53 +852,48 @@ document.write(`
 </section>
 <section id="adding-data">
 <h2><span class="section-number">7.2.1.2. </span>Adding data<a class="headerlink" href="#adding-data" title="Permalink to this heading">#</a></h2>
-<p>We can assign new data directly to the TimeSeries’ data attribute:</p>
+<p>There are three ways to add new data to a TimeSeries. In the last step, we removed the marker “Derrick:C7” from <code class="docutils literal notranslate"><span class="pre">markers_thorax</span></code>. To put it back, we could use any of these methods:</p>
+<p><strong>1. Setting the data attribute directly</strong></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">markers_thorax</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Derrick:C7&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Derrick:C7&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_to_add</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Derrick:C7&quot;</span><span class="p">]</span>
 
-<span class="n">markers_thorax</span><span class="o">.</span><span class="n">data</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-    &#39;Derrick:STRN&#39;: &lt;array of shape (1092, 4)&gt;
-    &#39;Derrick:CLAV&#39;: &lt;array of shape (1092, 4)&gt;
-      &#39;Derrick:C7&#39;: &lt;array of shape (1092, 4)&gt;
-}
+<span class="n">markers_thorax</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Derrick:C7&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_to_add</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>However, when possible, a better way is to:</p>
-<ul class="simple">
-<li><p>Subset the original TimeSeries using <a class="reference internal" href="api/ktk.TimeSeries.get_subset.html"><span class="doc std std-doc">ktk.TimeSeries.get_subset</span></a>;</p></li>
-<li><p>Merge this subset with the new TimeSeries using <a class="reference internal" href="api/ktk.TimeSeries.merge.html"><span class="doc std std-doc">ktk.TimeSeries.merge</span></a> method:</p></li>
-</ul>
+<p>This method does not perform any check.</p>
+<p><strong>2. Using <code class="docutils literal notranslate"><span class="pre">add_data</span></code></strong></p>
+<p>Usually, we would rather use the <a class="reference internal" href="api/ktk.TimeSeries.add_data.html"><span class="doc std std-doc">ktk.TimeSeries.add_data</span></a> method, which performs two additional tests:</p>
+<ol class="arabic simple">
+<li><p>It ensures that we don’t inadvertently overwrite data that was already present in the TimeSeries, using an optional <code class="docutils literal notranslate"><span class="pre">overwrite</span></code> paramater.</p></li>
+<li><p>It ensures that the shape of the data is coherent with other data already in the TimeSeries. This way, combining data with different lengths or sampling rates would likely produce an error, which is a good thing to prevent further mistakes in data analysis.</p></li>
+</ol>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">markers_thorax</span> <span class="o">=</span> <span class="n">markers_thorax</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">markers</span><span class="o">.</span><span class="n">get_subset</span><span class="p">(</span><span class="s2">&quot;Derrick:T10&quot;</span><span class="p">))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">markers_thorax</span> <span class="o">=</span> <span class="n">markers_thorax</span><span class="o">.</span><span class="n">add_data</span><span class="p">(</span><span class="s2">&quot;Derrick:C7&quot;</span><span class="p">,</span> <span class="n">data_to_add</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>3. Using <code class="docutils literal notranslate"><span class="pre">merge</span></code></strong></p>
+<p>In this third method, we first subset the source TimeSeries to keep only the markers to add in the destination TimeSeries. Then, we merge both TimeSeries.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts_subset</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">get_subset</span><span class="p">(</span><span class="s2">&quot;Derrick:C7&quot;</span><span class="p">)</span>
 
-<span class="n">markers_thorax</span><span class="o">.</span><span class="n">data</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-    &#39;Derrick:STRN&#39;: &lt;array of shape (1092, 4)&gt;
-    &#39;Derrick:CLAV&#39;: &lt;array of shape (1092, 4)&gt;
-      &#39;Derrick:C7&#39;: &lt;array of shape (1092, 4)&gt;
-     &#39;Derrick:T10&#39;: &lt;array of shape (1092, 4)&gt;
-}
+<span class="n">markers_thorax</span> <span class="o">=</span> <span class="n">markers_thorax</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">ts_subset</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<div class="admonition-good-practice admonition">
-<p class="admonition-title">Good practice: Merging TimeSeries</p>
-<p>Using the second method is more robust because it checks that both TimeSeries’ time match together before merging. For example, trying to merge two TimeSeries that do not have the same length or sampling rate would generate an error (which is good) using method 2, whereas it would be undetected (which is bad) by method 1.</p>
-</div>
+<p>This method performs three tests:</p>
+<ol class="arabic simple">
+<li><p>Same as <a class="reference internal" href="api/ktk.TimeSeries.add_data.html"><span class="doc std std-doc">ktk.TimeSeries.add_data</span></a>: it ensures that we don’t inadvertently overwrite data.</p></li>
+<li><p>Same as <a class="reference internal" href="api/ktk.TimeSeries.add_data.html"><span class="doc std std-doc">ktk.TimeSeries.add_data</span></a>: it ensures that the shape of the data is coherent with other data already in the TimeSeries.</p></li>
+<li><p>It ensures that both TimeSeries have the same time attribute. This is the safest method to ensure that all data have both the same length and same sample rate.</p></li>
+</ol>
 </section>
 <section id="renaming-data">
 <h2><span class="section-number">7.2.1.3. </span>Renaming data<a class="headerlink" href="#renaming-data" title="Permalink to this heading">#</a></h2>
@@ -909,12 +910,40 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-            &#39;Sternum&#39;: &lt;array of shape (1092, 4)&gt;
-    &#39;Interclavicular&#39;: &lt;array of shape (1092, 4)&gt;
-                 &#39;C7&#39;: &lt;array of shape (1092, 4)&gt;
-                &#39;T10&#39;: &lt;array of shape (1092, 4)&gt;
-}
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="nn">File ~/Documents/git/kineticstoolkit_doc/src/kineticstoolkit/timeseries.py:1257,</span> in <span class="ni">TimeSeries.rename_data</span><span class="nt">(self, old_data_key, new_data_key, in_place)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1256</span> <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1257</span>     <span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">new_data_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">old_data_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1258</span> <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+
+<span class="ne">KeyError</span>: &#39;Derrick:T10&#39;
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">line</span> <span class="mi">4</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> <span class="n">markers_thorax</span> <span class="o">=</span> <span class="n">markers_thorax</span><span class="o">.</span><span class="n">rename_data</span><span class="p">(</span><span class="s1">&#39;Derrick:CLAV&#39;</span><span class="p">,</span> <span class="s2">&quot;Interclavicular&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">markers_thorax</span> <span class="o">=</span> <span class="n">markers_thorax</span><span class="o">.</span><span class="n">rename_data</span><span class="p">(</span><span class="s1">&#39;Derrick:C7&#39;</span><span class="p">,</span> <span class="s2">&quot;C7&quot;</span><span class="p">)</span>
+<span class="ne">----&gt; </span><span class="mi">4</span> <span class="n">markers_thorax</span> <span class="o">=</span> <span class="n">markers_thorax</span><span class="o">.</span><span class="n">rename_data</span><span class="p">(</span><span class="s1">&#39;Derrick:T10&#39;</span><span class="p">,</span> <span class="s2">&quot;T10&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">6</span> <span class="n">markers_thorax</span><span class="o">.</span><span class="n">data</span>
+
+<span class="nn">File ~/Documents/git/kineticstoolkit_doc/src/kineticstoolkit/timeseries.py:1259,</span> in <span class="ni">TimeSeries.rename_data</span><span class="nt">(self, old_data_key, new_data_key, in_place)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1257</span>     <span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">new_data_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">old_data_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1258</span> <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1259</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_raise_data_key_error</span><span class="p">(</span><span class="n">old_data_key</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1261</span> <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1262</span>     <span class="n">ts</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">new_data_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">data_info</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">old_data_key</span><span class="p">)</span>
+
+<span class="nn">File ~/Documents/git/kineticstoolkit_doc/src/kineticstoolkit/timeseries.py:882,</span> in <span class="ni">TimeSeries._raise_data_key_error</span><span class="nt">(self, data_key)</span>
+<span class="g g-Whitespace">    </span><span class="mi">881</span> <span class="k">def</span> <span class="nf">_raise_data_key_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_key</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">882</span>     <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">883</span>         <span class="sa">f</span><span class="s2">&quot;The key &#39;</span><span class="si">{</span><span class="n">data_key</span><span class="si">}</span><span class="s2">&#39; was not found among the &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">884</span>         <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2"> key(s) of the TimeSeries&#39; &quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">885</span>         <span class="s2">&quot;data_info attribute.&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">886</span>     <span class="p">)</span>
+
+<span class="ne">KeyError</span>: &quot;The key &#39;Derrick:T10&#39; was not found among the 3 key(s) of the TimeSeries&#39; data_info attribute.&quot;
 </pre></div>
 </div>
 </div>
