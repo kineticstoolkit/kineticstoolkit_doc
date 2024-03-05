@@ -54,13 +54,13 @@ import kineticstoolkit.lab as ktk
 
 filename = ktk.doc.download("kinematics_tennis_serve.c3d")
 markers = ktk.read_c3d(filename)["Points"]
-player = ktk.Player(markers)
+player = ktk.Player(markers, up="z", anterior="-y")
 ```
 
 ```{code-cell} ipython3
 :tags: [remove-input]
 
-player = ktk.Player(markers.get_ts_between_times(2, 5), up="z")
+player = ktk.Player(markers.get_ts_between_times(2, 5), up="z", anterior="-y")
 player._to_animation()
 ```
 
@@ -70,4 +70,54 @@ player._to_animation()
 filename = ktk.doc.download("kinematics_tennis_serve_nan.c3d")
 markers = ktk.read_c3d(filename)["Points"]
 markers.plot("Derrick:RSHO")
+```
+
+- `kinematics_tennis_serve_2players.c3d`: Similar to `kinematics_tennis_serve.c3d`, but with a simulated second player named Viktor. In this case, the marker set is:
+
+| Marker       | Definition                          | Marker       | Definition                           |
+| ------------ | ----------------------------------- | ------------ | ------------------------------------ |
+| Derrick:LTOE | Left toe                            | Derrick:RTOE | Right toe                            |
+| Derrick:LHEE | Left heel                           | Derrick:RHEE | Right heel                           |
+| Derrick:LANK | Left ankle                          | Derrick:RANK | Right ankle                          |
+| Derrick:LKNE | Left knee                           | Derrick:RKNE | Right knee                           |
+| Derrick:LASI | Left anterior-superior iliac spine  | Derrick:RASI | Right anterior-superior iliac spine  |
+| Derrick:LPSI | Left posterior-superior iliac spine | Derrick:RPSI | Right posterior-superior iliac spine |
+| Derrick:LSHO | Left shoulder                       | Derrick:RSHO | Right shoulder                       |
+| Derrick:LELB | Left elbow                          | Derrick:RELB | Right elbow                          |
+| Derrick:LWRA | Left wrist (A)                      | Derrick:RWRA | Right wrist (A)                      |
+| Derrick:LWRB | Left wrist (B)                      | Derrick:RWRB | Right wrist (B)                      |
+| Derrick:LFIN | Left finger                         | Derrick:RFIN | Right finger                         |
+| Derrick:LFHD | Left forehead                       | Derrick:RFHD | Right forehead                       |
+| Derrick:LBHD | Left backhead                       | Derrick:RBHD | Right backhead                       |
+| Derrick:C7   | C7                                  | Derrick:T10  | T10                                  |
+| Derrick:STRN | Sternum                             | Derrick:CLAV | Interclavicular space                |
+| Viktor:LTOE  | Left toe                            | Viktor:RTOE  | Right toe                            |
+| Viktor:LHEE  | Left heel                           | Viktor:RHEE  | Right heel                           |
+| Viktor:LANK  | Left ankle                          | Viktor:RANK  | Right ankle                          |
+| Viktor:LKNE  | Left knee                           | Viktor:RKNE  | Right knee                           |
+| Viktor:LASI  | Left anterior-superior iliac spine  | Viktor:RASI  | Right anterior-superior iliac spine  |
+| Viktor:LPSI  | Left posterior-superior iliac spine | Viktor:RPSI  | Right posterior-superior iliac spine |
+| Viktor:LSHO  | Left shoulder                       | Viktor:RSHO  | Right shoulder                       |
+| Viktor:LELB  | Left elbow                          | Viktor:RELB  | Right elbow                          |
+| Viktor:LWRA  | Left wrist (A)                      | Viktor:RWRA  | Right wrist (A)                      |
+| Viktor:LWRB  | Left wrist (B)                      | Viktor:RWRB  | Right wrist (B)                      |
+| Viktor:LFIN  | Left finger                         | Viktor:RFIN  | Right finger                         |
+| Viktor:LFHD  | Left forehead                       | Viktor:RFHD  | Right forehead                       |
+| Viktor:LBHD  | Left backhead                       | Viktor:RBHD  | Right backhead                       |
+| Viktor:C7    | C7                                  | Viktor:T10   | T10                                  |
+| Viktor:STRN  | Sternum                             | Viktor:CLAV  | Interclavicular space                |
+
+```{code-cell} ipython3
+:tags: [remove_output]
+
+filename = ktk.doc.download("kinematics_tennis_serve_2players.c3d")
+markers = ktk.read_c3d(filename)["Points"]
+player = ktk.Player(markers, up="z", anterior="-y")
+```
+
+```{code-cell} ipython3
+:tags: [remove-input]
+
+player = ktk.Player(markers.get_ts_between_times(2, 5), up="z", anterior="-y")
+player._to_animation()
 ```

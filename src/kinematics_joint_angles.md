@@ -74,31 +74,29 @@ interconnections = {
         ],
     },
 }
+```
 
+Showing these markers in the Player:
+
+```{code-cell} ipython3
+:tags: [remove-output]
 # Visualize in the player
-ktk.Player(markers, interconnections=interconnections)
+%matplotlib qt5
+
+p = ktk.Player(markers, interconnections=interconnections)
 ```
 
 ```{code-cell} ipython3
 :tags: [remove-input]
-
-# Set the point of view for 3D visualization
-viewing_options = {
-    "zoom": 3.5,
-    "azimuth": 0.8,
-    "elevation": 0.16,
-    "translation": (0.2, -0.7),
-}
-
-# Create the player
-player = ktk.Player(
-    markers.get_ts_between_times(0, 1),
-    interconnections=interconnections,
-    **viewing_options
-)
+p.set_contents(markers.get_ts_between_times(0, 1))
+p.zoom=3.5
+p.azimuth=0.8
+p.elevation=0.16
+p.pan=(0.2, -0.7)
+p.playback_speed=0.25
 
 # Show one second (only needed in Notebooks)
-player._to_animation()
+p._to_animation()
 ```
 
 ## Create local coordinate systems
@@ -157,25 +155,17 @@ frames.data["ArmR"] = ktk.geometry.create_frames(origin=origin, y=y, yz=yz)
 Let's visualize it:
 
 ```{code-cell} ipython3
-:tags: [remove-output]
-
-ktk.Player(
-    markers, frames, interconnections=interconnections
-)
+p.set_contents(markers.merge(frames))
 ```
 
 ```{code-cell} ipython3
 :tags: [remove-input]
-
-player = ktk.Player(
-    markers.get_ts_between_times(0, 1),
-    frames.get_ts_between_times(0, 1),
-    interconnections=interconnections,
-    **viewing_options
+p.set_contents(
+    markers.get_ts_between_times(0, 1).merge(
+        frames.get_ts_between_times(0, 1)
+    )
 )
-
-# Show one second in this Jupyter notebook
-player._to_animation()
+p._to_animation()
 ```
 
 ### Forearm frame
@@ -217,26 +207,19 @@ frames.data["ForearmR"] = ktk.geometry.create_frames(origin=origin, y=y, yz=yz)
 Let's visualize our markers with both new frames:
 
 ```{code-cell} ipython3
-:tags: [remove-output]
-
-ktk.Player(
-    markers, frames, interconnections=interconnections
-)
+p.set_contents(markers.merge(frames))
 ```
 
 ```{code-cell} ipython3
 :tags: [remove-input]
-
-player = ktk.Player(
-    markers.get_ts_between_times(0, 1),
-    frames.get_ts_between_times(0, 1),
-    interconnections=interconnections,
-    **viewing_options
+p.set_contents(
+    markers.get_ts_between_times(0, 1).merge(
+        frames.get_ts_between_times(0, 1)
+    )
 )
-
-# Show one second in this Jupyter notebook
-player._to_animation()
+p._to_animation()
 ```
+
 
 ## Find the series of homogeneous transforms between both segments
 
@@ -273,6 +256,12 @@ euler_angles
 Now that we calculated the angles, we create a last TimeSeries that represents the meaning of these angles.
 
 ```{code-cell} ipython3
+:tags: [remove-input]
+import matplotlib.pyplot as plt
+plt.figure()
+```
+
+```{code-cell} ipython3
 angles = ktk.TimeSeries(time=markers.time)
 
 angles.data["Elbow flexion"] = euler_angles[:, 0]
@@ -282,6 +271,17 @@ angles = angles.add_data_info("Elbow flexion", "Unit", "deg")
 angles = angles.add_data_info("Forearm pronation", "Unit", "deg")
 
 angles.plot()
+```
+
+```{code-cell} ipython3
+:tags: [remove-input]
+# Hack because now Matplotlib is qt5 and it won't revert back to inline.
+from IPython.display import Image
+import os
+import matplotlib.pyplot as plt
+plt.savefig("temp.png")
+display(Image("temp.png", embed=True))
+os.remove("temp.png")
 ```
 
 From this curve, we can now see that the elbow goes from a total extension to a flexion of about 100 degrees, while the forearm stays in a pronated angle of about 125 to 170 degrees (defined from a fully supinated position in anatomical position).

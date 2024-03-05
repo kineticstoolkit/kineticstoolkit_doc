@@ -16,19 +16,17 @@
 *An Open-Source Python Package to Facilitate Research in Biomechanics*
 
 
-```
-import kineticstoolkit.lab as ktk
-markers = ktk.read_c3d("filename.c3d")["Points"]
-ktk.Player(markers, interconnections=interconnections)
-```
+<video controls loop muted autoplay>  
+  <source src="_static/images/player.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
 
-[![](_static/images/frontpage.gif)](player.md)
 
 Kinetics Toolkit is an open-source Python package to facilitate research in biomechanics. It provides tools for:
 - [Analyzing timeseries](timeseries.md), including [data](timeseries_data_management.md), [time](timeseries_time_management.md) and [event](timeseries_event_management.md) management, [time-domain and frequency-domain noise filtering](filters.md), and [cycle management](cycles.md);
 - [Managing files](files.md), including reading/writing C3D, CSV and any file supported by {{pandas}};
 - [Performing rigid body geometry operations](geometry.md), including manipulation of series of [points, vectors](geometry_points_vectors.md), [frames](geometry_frames.md) and [homogeneous transforms](geometry_transform_moving_coordinates.md), [coordinate system changes](geometry_transform_changing_coordinate_system.md), and [3D angle extraction](geometry_angles.md);
-- [Visualizing 3D markers and rigid bodies interactively](player.md);
+- [Visualizing 3D points and frames interactively](player.md);
 - [Performing kinematic operations](kinematics.md) such as reconstructing [occluded](kinematics_reconstructing_occluded_markers.md), [removed](kinematics_reconstructing_removed_markers.md) or [probed](kinematics_reconstructing_probed_points.md) markers;
 - And more using [extensions](extensions.md).
 
@@ -48,7 +46,7 @@ It also covers all the features of Kinetics Toolkit, with reproducible examples 
 
 
 ```{div} style="align:center;"
-<a href="https://felixchenier.uqam.ca"><img style="width:30%;" src="_static/images/logo_mosa.png"></a>
-&nbsp;&nbsp;&nbsp;<a href="https://uqam.ca"><img style="width:20%;" src="_static/images/logo_uqam.png"></a>
-&nbsp;&nbsp;&nbsp;<a href="https://crir.ca"><img style="width:20%;" src="_static/images/logo_crir.jpg"></a>
+<a href="https://felixchenier.uqam.ca"><img width=30% src="_static/images/logo_mosa.png"></a>
+&nbsp;&nbsp;&nbsp;<a href="https://uqam.ca"><img width=20% src="_static/images/logo_uqam.png"></a>
+&nbsp;&nbsp;&nbsp;<a href="https://crir.ca"><img width=20% src="_static/images/logo_crir.jpg"></a>
 ```

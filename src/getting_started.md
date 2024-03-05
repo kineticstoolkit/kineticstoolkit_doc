@@ -30,7 +30,7 @@ Simply start at the beginning: [](getting_started_installing.md).
 :::{card}
 You may want to understand what Kinetics Toolkit could add to your Python workflow. Start directly here: [](ktk_importing.md).
 
-You may also consult the [API reference](api_reference.md).
+You may also consult the API Reference.
 :::
 ::::
 
