@@ -310,3 +310,7 @@ p.to_video("exported_video.mp4", show_progress_bar=False)
 display(Video("exported_video.mp4", embed=True, width=600, html_attributes='loop autoplay controls'))
 os.remove("exported_video.mp4")
 ```
+
+```{note}
+To create videos, the package `ffmpeg` must be installed on your computer. If you installed Kinetics Toolkit using `conda`, then it is already installed. If you used `pip`, you must install it manually.
+```
