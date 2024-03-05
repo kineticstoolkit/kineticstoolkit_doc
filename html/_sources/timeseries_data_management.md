@@ -124,7 +124,6 @@ Finally, [ktk.TimeSeries.rename_data](api/ktk.TimeSeries.rename_data.rst) rename
 markers_thorax = markers_thorax.rename_data('Derrick:STRN', "Sternum")
 markers_thorax = markers_thorax.rename_data('Derrick:CLAV', "Interclavicular")
 markers_thorax = markers_thorax.rename_data('Derrick:C7', "C7")
-markers_thorax = markers_thorax.rename_data('Derrick:T10', "T10")
 
 markers_thorax.data
 ```

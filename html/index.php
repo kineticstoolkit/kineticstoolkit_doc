@@ -40,13 +40,13 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
@@ -60,18 +60,14 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'index';</script>
     <link rel="canonical" href="https://kineticstoolkit.uqam.ca/doc/index.html" />
@@ -169,7 +165,17 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Getting Started</span></p>
 <ul class="nav bd-sidenav">
@@ -479,8 +485,14 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="geometry_exercises.html">9.6. Exercices</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="player.html">10. Interactive 3D visualizer</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="kinematics.html">11. Kinematic analysis</a><input class="toctree-checkbox" id="toctree-checkbox-59" name="toctree-checkbox-59" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-59"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="player.html">10. Visualizing 3D points and frames</a><input class="toctree-checkbox" id="toctree-checkbox-59" name="toctree-checkbox-59" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-59"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="player_basics.html">10.1. Player basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player_interconnections.html">10.2. Interconnecting the points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player_frames.html">10.3. Visualizing frames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player_styling_exporting.html">10.4. Styling and exporting</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="kinematics.html">11. Kinematic analysis</a><input class="toctree-checkbox" id="toctree-checkbox-60" name="toctree-checkbox-60" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-60"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="kinematics_joint_angles.html">11.1. Calculating joint angles from a kinematic acquisition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="kinematics_reconstructing_occluded_markers.html">11.2. Reconstructing occluded markers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="kinematics_reconstructing_removed_markers.html">11.3. Reconstructing removed markers</a></li>
@@ -490,14 +502,14 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="datasets.html">Datasets</a><input class="toctree-checkbox" id="toctree-checkbox-60" name="toctree-checkbox-60" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-60"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="datasets.html">Datasets</a><input class="toctree-checkbox" id="toctree-checkbox-61" name="toctree-checkbox-61" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-61"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="dataset_kinematics_tennis_serve.html">Tennis serve kinematics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dataset_kinetics_wheelchair_propulsion.html">Wheelchair propulsion kinetics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dataset_emg.html">Electromyography</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ktk_citing.html">Citing</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="dev_contributors.html">Contributors</a><input class="toctree-checkbox" id="toctree-checkbox-61" name="toctree-checkbox-61" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-61"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="dev_contributors.html">Contributors</a><input class="toctree-checkbox" id="toctree-checkbox-62" name="toctree-checkbox-62" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-62"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="dev_extensions.html">Developing extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dev_rules.html">Development rules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dev_code_of_conduct.html">Code of conduct</a></li>
@@ -509,8 +521,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="ktk_conventions.html">Conventions</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="api_classes.html">Classes</a><input class="toctree-checkbox" id="toctree-checkbox-62" name="toctree-checkbox-62" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-62"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.TimeSeries.html">ktk.TimeSeries</a><input class="toctree-checkbox" id="toctree-checkbox-63" name="toctree-checkbox-63" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-63"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="api_classes.html">Classes</a><input class="toctree-checkbox" id="toctree-checkbox-63" name="toctree-checkbox-63" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-63"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.TimeSeries.html">ktk.TimeSeries</a><input class="toctree-checkbox" id="toctree-checkbox-64" name="toctree-checkbox-64" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-64"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.add_data.html">ktk.TimeSeries.add_data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.add_data_info.html">ktk.TimeSeries.add_data_info</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.add_event.html">ktk.TimeSeries.add_event</a></li>
@@ -519,6 +531,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.fill_missing_samples.html">ktk.TimeSeries.fill_missing_samples</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.from_array.html">ktk.TimeSeries.from_array</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.from_dataframe.html">ktk.TimeSeries.from_dataframe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_event_index.html">ktk.TimeSeries.get_event_index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_event_time.html">ktk.TimeSeries.get_event_time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_index_after_event.html">ktk.TimeSeries.get_index_after_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_index_after_time.html">ktk.TimeSeries.get_index_after_time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_index_at_event.html">ktk.TimeSeries.get_index_at_event</a></li>
@@ -530,6 +544,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_after_event.html">ktk.TimeSeries.get_ts_after_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_after_index.html">ktk.TimeSeries.get_ts_after_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_after_time.html">ktk.TimeSeries.get_ts_after_time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_at_event.html">ktk.TimeSeries.get_ts_at_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_at_time.html">ktk.TimeSeries.get_ts_at_time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_before_event.html">ktk.TimeSeries.get_ts_before_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_before_index.html">ktk.TimeSeries.get_ts_before_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_before_time.html">ktk.TimeSeries.get_ts_before_time</a></li>
@@ -548,21 +564,31 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.resample.html">ktk.TimeSeries.resample</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.shift.html">ktk.TimeSeries.shift</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.sort_events.html">ktk.TimeSeries.sort_events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.sync_event.html">ktk.TimeSeries.sync_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.to_dataframe.html">ktk.TimeSeries.to_dataframe</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.trim_events.html">ktk.TimeSeries.trim_events</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.ui_edit_events.html">ktk.TimeSeries.ui_edit_events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.ui_get_ts_between_clicks.html">ktk.TimeSeries.ui_get_ts_between_clicks</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.ui_sync.html">ktk.TimeSeries.ui_sync</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="api/ktk.TimeSeriesEvent.html">ktk.TimeSeriesEvent</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.Player.html">ktk.Player</a><input class="toctree-checkbox" id="toctree-checkbox-64" name="toctree-checkbox-64" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-64"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.Player.html">ktk.Player</a><input class="toctree-checkbox" id="toctree-checkbox-65" name="toctree-checkbox-65" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-65"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.Player.close.html">ktk.Player.close</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.Player.to_html5.html">ktk.Player.to_html5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.Player.get_contents.html">ktk.Player.get_contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.Player.get_interconnections.html">ktk.Player.get_interconnections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.Player.pause.html">ktk.Player.pause</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.Player.play.html">ktk.Player.play</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.Player.set_contents.html">ktk.Player.set_contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.Player.set_interconnections.html">ktk.Player.set_interconnections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.Player.set_view.html">ktk.Player.set_view</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.Player.to_image.html">ktk.Player.to_image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.Player.to_video.html">ktk.Player.to_video</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="api_functions.html">Functions</a><input class="toctree-checkbox" id="toctree-checkbox-65" name="toctree-checkbox-65" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-65"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="api_functions.html">Functions</a><input class="toctree-checkbox" id="toctree-checkbox-66" name="toctree-checkbox-66" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-66"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="api/ktk.import_extensions.html">ktk.import_extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/ktk.load.html">ktk.load</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/ktk.save.html">ktk.save</a></li>
@@ -571,8 +597,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="api/ktk.change_defaults.html">ktk.change_defaults</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="api_modules.html">Modules</a><input class="toctree-checkbox" id="toctree-checkbox-66" name="toctree-checkbox-66" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-66"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.cycles.html">ktk.cycles</a><input class="toctree-checkbox" id="toctree-checkbox-67" name="toctree-checkbox-67" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-67"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="api_modules.html">Modules</a><input class="toctree-checkbox" id="toctree-checkbox-67" name="toctree-checkbox-67" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-67"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.cycles.html">ktk.cycles</a><input class="toctree-checkbox" id="toctree-checkbox-68" name="toctree-checkbox-68" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-68"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.cycles.detect_cycles.html">ktk.cycles.detect_cycles</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.cycles.most_repeatable_cycles.html">ktk.cycles.most_repeatable_cycles</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.cycles.stack.html">ktk.cycles.stack</a></li>
@@ -580,11 +606,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.cycles.unstack.html">ktk.cycles.unstack</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.doc.html">ktk.doc</a><input class="toctree-checkbox" id="toctree-checkbox-68" name="toctree-checkbox-68" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-68"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.doc.html">ktk.doc</a><input class="toctree-checkbox" id="toctree-checkbox-69" name="toctree-checkbox-69" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-69"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.doc.download.html">ktk.doc.download</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.filters.html">ktk.filters</a><input class="toctree-checkbox" id="toctree-checkbox-69" name="toctree-checkbox-69" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-69"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.filters.html">ktk.filters</a><input class="toctree-checkbox" id="toctree-checkbox-70" name="toctree-checkbox-70" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-70"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.filters.butter.html">ktk.filters.butter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.filters.deriv.html">ktk.filters.deriv</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.filters.median.html">ktk.filters.median</a></li>
@@ -592,7 +618,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.filters.smooth.html">ktk.filters.smooth</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.geometry.html">ktk.geometry</a><input class="toctree-checkbox" id="toctree-checkbox-70" name="toctree-checkbox-70" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-70"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.geometry.html">ktk.geometry</a><input class="toctree-checkbox" id="toctree-checkbox-71" name="toctree-checkbox-71" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-71"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_frames.html">ktk.geometry.create_frames</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_transforms.html">ktk.geometry.create_transforms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_angles.html">ktk.geometry.get_angles</a></li>
@@ -606,7 +632,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.translate.html">ktk.geometry.translate</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.kinematics.html">ktk.kinematics</a><input class="toctree-checkbox" id="toctree-checkbox-71" name="toctree-checkbox-71" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-71"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.kinematics.html">ktk.kinematics</a><input class="toctree-checkbox" id="toctree-checkbox-72" name="toctree-checkbox-72" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-72"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.kinematics.create_cluster.html">ktk.kinematics.create_cluster</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.kinematics.extend_cluster.html">ktk.kinematics.extend_cluster</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.kinematics.track_cluster.html">ktk.kinematics.track_cluster</a></li>
@@ -778,37 +804,35 @@ document.write(`
 </div>
 </aside>
 <p><em>An Open-Source Python Package to Facilitate Research in Biomechanics</em></p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">kineticstoolkit.lab</span> <span class="k">as</span> <span class="nn">ktk</span>
-<span class="n">markers</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">read_c3d</span><span class="p">(</span><span class="s2">&quot;filename.c3d&quot;</span><span class="p">)[</span><span class="s2">&quot;Points&quot;</span><span class="p">]</span>
-<span class="n">ktk</span><span class="o">.</span><span class="n">Player</span><span class="p">(</span><span class="n">markers</span><span class="p">,</span> <span class="n">interconnections</span><span class="o">=</span><span class="n">interconnections</span><span class="p">)</span>
-</pre></div>
-</div>
-<p><a class="reference internal" href="player.html"><span class="doc std std-doc"><img alt="" src="_images/frontpage.gif" /></span></a></p>
+<video controls loop muted autoplay>  
+  <source src="_static/images/player.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
 <p>Kinetics Toolkit is an open-source Python package to facilitate research in biomechanics. It provides tools for:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="timeseries.html"><span class="doc std std-doc">Analyzing timeseries</span></a>, including <a class="reference internal" href="timeseries_data_management.html"><span class="doc std std-doc">data</span></a>, <a class="reference internal" href="timeseries_time_management.html"><span class="doc std std-doc">time</span></a> and <a class="reference internal" href="timeseries_event_management.html"><span class="doc std std-doc">event</span></a> management, <a class="reference internal" href="filters.html"><span class="doc std std-doc">time-domain and frequency-domain noise filtering</span></a>, and <a class="reference internal" href="cycles.html"><span class="doc std std-doc">cycle management</span></a>;</p></li>
-<li><p><a class="reference internal" href="files.html"><span class="doc std std-doc">Managing files</span></a>, including reading/writing C3D, CSV and any file supported by <a class="reference external" href="https://pandas.pydata.org/">Pandas</a>;</p></li>
-<li><p><a class="reference internal" href="geometry.html"><span class="doc std std-doc">Performing rigid body geometry operations</span></a>, including manipulation of series of <a class="reference internal" href="geometry_points_vectors.html"><span class="doc std std-doc">points, vectors</span></a>, <a class="reference internal" href="geometry_frames.html"><span class="doc std std-doc">frames</span></a> and <a class="reference internal" href="geometry_transform_moving_coordinates.html"><span class="doc std std-doc">homogeneous transforms</span></a>, <a class="reference internal" href="geometry_transform_changing_coordinate_system.html"><span class="doc std std-doc">coordinate system changes</span></a>, and <a class="reference internal" href="geometry_angles.html"><span class="doc std std-doc">3D angle extraction</span></a>;</p></li>
-<li><p><a class="reference internal" href="player.html"><span class="doc std std-doc">Visualizing 3D markers and rigid bodies interactively</span></a>;</p></li>
-<li><p><a class="reference internal" href="kinematics.html"><span class="doc std std-doc">Performing kinematic operations</span></a> such as reconstructing <a class="reference internal" href="kinematics_reconstructing_occluded_markers.html"><span class="doc std std-doc">occluded</span></a>, <a class="reference internal" href="kinematics_reconstructing_removed_markers.html"><span class="doc std std-doc">removed</span></a> or <a class="reference internal" href="kinematics_reconstructing_probed_points.html"><span class="doc std std-doc">probed</span></a> markers;</p></li>
-<li><p>And more using <a class="reference internal" href="extensions.html"><span class="doc std std-doc">extensions</span></a>.</p></li>
+<li><p><a class="reference internal" href="timeseries.html"><span class="std std-doc">Analyzing timeseries</span></a>, including <a class="reference internal" href="timeseries_data_management.html"><span class="std std-doc">data</span></a>, <a class="reference internal" href="timeseries_time_management.html"><span class="std std-doc">time</span></a> and <a class="reference internal" href="timeseries_event_management.html"><span class="std std-doc">event</span></a> management, <a class="reference internal" href="filters.html"><span class="std std-doc">time-domain and frequency-domain noise filtering</span></a>, and <a class="reference internal" href="cycles.html"><span class="std std-doc">cycle management</span></a>;</p></li>
+<li><p><a class="reference internal" href="files.html"><span class="std std-doc">Managing files</span></a>, including reading/writing C3D, CSV and any file supported by <a class="reference external" href="https://pandas.pydata.org/">Pandas</a>;</p></li>
+<li><p><a class="reference internal" href="geometry.html"><span class="std std-doc">Performing rigid body geometry operations</span></a>, including manipulation of series of <a class="reference internal" href="geometry_points_vectors.html"><span class="std std-doc">points, vectors</span></a>, <a class="reference internal" href="geometry_frames.html"><span class="std std-doc">frames</span></a> and <a class="reference internal" href="geometry_transform_moving_coordinates.html"><span class="std std-doc">homogeneous transforms</span></a>, <a class="reference internal" href="geometry_transform_changing_coordinate_system.html"><span class="std std-doc">coordinate system changes</span></a>, and <a class="reference internal" href="geometry_angles.html"><span class="std std-doc">3D angle extraction</span></a>;</p></li>
+<li><p><a class="reference internal" href="player.html"><span class="std std-doc">Visualizing 3D points and frames interactively</span></a>;</p></li>
+<li><p><a class="reference internal" href="kinematics.html"><span class="std std-doc">Performing kinematic operations</span></a> such as reconstructing <a class="reference internal" href="kinematics_reconstructing_occluded_markers.html"><span class="std std-doc">occluded</span></a>, <a class="reference internal" href="kinematics_reconstructing_removed_markers.html"><span class="std std-doc">removed</span></a> or <a class="reference internal" href="kinematics_reconstructing_probed_points.html"><span class="std std-doc">probed</span></a> markers;</p></li>
+<li><p>And more using <a class="reference internal" href="extensions.html"><span class="std std-doc">extensions</span></a>.</p></li>
 </ul>
-<p>It is a programming library, and programming can be hard for new users. Therefore, we also provide the free, electronic book <a class="reference internal" href="getting_started_intro.html"><span class="doc std std-doc">Biomechanical Analysis using Python and Kinetics Toolkit</span></a>, which guides new programmers from the basics to advanced, generic 3D biomechanical analysis. This book covers:</p>
+<p>It is a programming library, and programming can be hard for new users. Therefore, we also provide the free, electronic book <a class="reference internal" href="getting_started_intro.html"><span class="std std-doc">Biomechanical Analysis using Python and Kinetics Toolkit</span></a>, which guides new programmers from the basics to advanced, generic 3D biomechanical analysis. This book covers:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="python_intro.html"><span class="doc std std-doc">The Python programming language</span></a>, including <a class="reference internal" href="python_arithmetics.html"><span class="doc std std-doc">arithmetics</span></a>, <a class="reference internal" href="python_variables.html"><span class="doc std std-doc">variables</span></a>, <a class="reference internal" href="python_numbers.html"><span class="doc std std-doc">numbers</span></a>, <a class="reference internal" href="python_strings.html"><span class="doc std std-doc">strings</span></a>, <a class="reference internal" href="python_functions.html"><span class="doc std std-doc">functions</span></a>, <a class="reference internal" href="python_conditions.html"><span class="doc std std-doc">conditions</span></a>, <a class="reference internal" href="python_lists.html"><span class="doc std std-doc">lists</span></a>, <a class="reference internal" href="python_looping.html"><span class="doc std std-doc">loops</span></a> and <a class="reference internal" href="python_dicts.html"><span class="doc std std-doc">dictionaries</span></a>;</p></li>
-<li><p><a class="reference internal" href="matplotlib.html"><span class="doc std std-doc">Matplotlib</span></a>, to generate print-quality graphics and to analyze curves interactively;</p></li>
-<li><p><a class="reference internal" href="numpy.html"><span class="doc std std-doc">NumPy</span></a> basics, including <a class="reference internal" href="numpy_ndarray.html"><span class="doc std std-doc">n-dimensional arrays</span></a>, <a class="reference internal" href="numpy_arithmetics.html"><span class="doc std std-doc">arithmetics</span></a>, <a class="reference internal" href="numpy_trigonometry.html"><span class="doc std std-doc">trigonometry</span></a>, <a class="reference internal" href="numpy_inf_nan.html"><span class="doc std std-doc">infinity/nan</span></a>, <a class="reference internal" href="numpy_statistics.html"><span class="doc std std-doc">statistical functions</span></a>, <a class="reference internal" href="numpy_comparisons.html"><span class="doc std std-doc">comparisons</span></a>, <a class="reference internal" href="numpy_logical_operators.html"><span class="doc std std-doc">logical operators</span></a>, <a class="reference internal" href="numpy_indexing_slicing_1d.html"><span class="doc std std-doc">indexing, slicing</span></a> and <a class="reference internal" href="numpy_filtering_nd.html"><span class="doc std std-doc">filtering arrays</span></a>.</p></li>
+<li><p><a class="reference internal" href="python_intro.html"><span class="std std-doc">The Python programming language</span></a>, including <a class="reference internal" href="python_arithmetics.html"><span class="std std-doc">arithmetics</span></a>, <a class="reference internal" href="python_variables.html"><span class="std std-doc">variables</span></a>, <a class="reference internal" href="python_numbers.html"><span class="std std-doc">numbers</span></a>, <a class="reference internal" href="python_strings.html"><span class="std std-doc">strings</span></a>, <a class="reference internal" href="python_functions.html"><span class="std std-doc">functions</span></a>, <a class="reference internal" href="python_conditions.html"><span class="std std-doc">conditions</span></a>, <a class="reference internal" href="python_lists.html"><span class="std std-doc">lists</span></a>, <a class="reference internal" href="python_looping.html"><span class="std std-doc">loops</span></a> and <a class="reference internal" href="python_dicts.html"><span class="std std-doc">dictionaries</span></a>;</p></li>
+<li><p><a class="reference internal" href="matplotlib.html"><span class="std std-doc">Matplotlib</span></a>, to generate print-quality graphics and to analyze curves interactively;</p></li>
+<li><p><a class="reference internal" href="numpy.html"><span class="std std-doc">NumPy</span></a> basics, including <a class="reference internal" href="numpy_ndarray.html"><span class="std std-doc">n-dimensional arrays</span></a>, <a class="reference internal" href="numpy_arithmetics.html"><span class="std std-doc">arithmetics</span></a>, <a class="reference internal" href="numpy_trigonometry.html"><span class="std std-doc">trigonometry</span></a>, <a class="reference internal" href="numpy_inf_nan.html"><span class="std std-doc">infinity/nan</span></a>, <a class="reference internal" href="numpy_statistics.html"><span class="std std-doc">statistical functions</span></a>, <a class="reference internal" href="numpy_comparisons.html"><span class="std std-doc">comparisons</span></a>, <a class="reference internal" href="numpy_logical_operators.html"><span class="std std-doc">logical operators</span></a>, <a class="reference internal" href="numpy_indexing_slicing_1d.html"><span class="std std-doc">indexing, slicing</span></a> and <a class="reference internal" href="numpy_filtering_nd.html"><span class="std std-doc">filtering arrays</span></a>.</p></li>
 </ul>
 <p>It also covers all the features of Kinetics Toolkit, with reproducible examples based on real, downloadable data.</p>
 <div class="docutils">
-<p><a href="https://doi.org/10.21105/joss.03714"><img src="https://joss.theoj.org/papers/10.21105/joss.03714/status.svg" alt="JOSS"></a>
-<a href="https://anaconda.org/conda-forge/kineticstoolkit"><img src="https://anaconda.org/conda-forge/kineticstoolkit/badges/version.svg" alt="Anaconda"></a>
-<a href="https://anaconda.org/conda-forge/kineticstoolkit"><img src="https://anaconda.org/conda-forge/kineticstoolkit/badges/latest_release_date.svg" alt="Latest release"></a></p>
+<p><a href="https://doi.org/10.21105/joss.03714"><img alt="JOSS" src="https://joss.theoj.org/papers/10.21105/joss.03714/status.svg" /></a>
+<a href="https://anaconda.org/conda-forge/kineticstoolkit"><img alt="Anaconda" src="https://anaconda.org/conda-forge/kineticstoolkit/badges/version.svg" /></a>
+<a href="https://anaconda.org/conda-forge/kineticstoolkit"><img alt="Latest release" src="https://anaconda.org/conda-forge/kineticstoolkit/badges/latest_release_date.svg" /></a></p>
 </div>
 <div class="style-align-center docutils">
-<p><a href="https://felixchenier.uqam.ca"><img style="width:30%;" src="_static/images/logo_mosa.png"></a>
-   <a href="https://uqam.ca"><img style="width:20%;" src="_static/images/logo_uqam.png"></a>
-   <a href="https://crir.ca"><img style="width:20%;" src="_static/images/logo_crir.jpg"></a></p>
+<p><a href="https://felixchenier.uqam.ca"><a class="reference internal" href="_images/logo_mosa.png"><img alt="_images/logo_mosa.png" src="_images/logo_mosa.png" style="width: 30%;" /></a></a>
+   <a href="https://uqam.ca"><a class="reference internal" href="_images/logo_uqam.png"><img alt="_images/logo_uqam.png" src="_images/logo_uqam.png" style="width: 20%;" /></a></a>
+   <a href="https://crir.ca"><a class="reference internal" href="_images/logo_crir.jpg"><img alt="_images/logo_crir.jpg" src="_images/logo_crir.jpg" style="width: 20%;" /></a></a></p>
 </div>
 <div class="toctree-wrapper compound">
 </div>
@@ -886,7 +910,7 @@ By Félix Chénier
     
   <p class="copyright">
     
-      © Copyright 2020-2023.
+      © Copyright 2020-2024.
       <br/>
     
   </p>

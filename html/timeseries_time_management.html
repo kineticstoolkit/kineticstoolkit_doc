@@ -40,13 +40,13 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
-    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
@@ -60,18 +60,14 @@
     <script src="_static/doctools.js"></script>
     <script src="_static/clipboard.min.js"></script>
     <script src="_static/copybutton.js"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'timeseries_time_management';</script>
     <link rel="canonical" href="https://kineticstoolkit.uqam.ca/doc/timeseries_time_management.html" />
@@ -170,7 +166,17 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Getting Started</span></p>
 <ul class="nav bd-sidenav">
@@ -480,8 +486,14 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="geometry_exercises.html">9.6. Exercices</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="player.html">10. Interactive 3D visualizer</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="kinematics.html">11. Kinematic analysis</a><input class="toctree-checkbox" id="toctree-checkbox-59" name="toctree-checkbox-59" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-59"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="player.html">10. Visualizing 3D points and frames</a><input class="toctree-checkbox" id="toctree-checkbox-59" name="toctree-checkbox-59" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-59"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="player_basics.html">10.1. Player basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player_interconnections.html">10.2. Interconnecting the points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player_frames.html">10.3. Visualizing frames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player_styling_exporting.html">10.4. Styling and exporting</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="kinematics.html">11. Kinematic analysis</a><input class="toctree-checkbox" id="toctree-checkbox-60" name="toctree-checkbox-60" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-60"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="kinematics_joint_angles.html">11.1. Calculating joint angles from a kinematic acquisition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="kinematics_reconstructing_occluded_markers.html">11.2. Reconstructing occluded markers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="kinematics_reconstructing_removed_markers.html">11.3. Reconstructing removed markers</a></li>
@@ -491,14 +503,14 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="datasets.html">Datasets</a><input class="toctree-checkbox" id="toctree-checkbox-60" name="toctree-checkbox-60" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-60"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="datasets.html">Datasets</a><input class="toctree-checkbox" id="toctree-checkbox-61" name="toctree-checkbox-61" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-61"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="dataset_kinematics_tennis_serve.html">Tennis serve kinematics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dataset_kinetics_wheelchair_propulsion.html">Wheelchair propulsion kinetics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dataset_emg.html">Electromyography</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ktk_citing.html">Citing</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="dev_contributors.html">Contributors</a><input class="toctree-checkbox" id="toctree-checkbox-61" name="toctree-checkbox-61" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-61"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="dev_contributors.html">Contributors</a><input class="toctree-checkbox" id="toctree-checkbox-62" name="toctree-checkbox-62" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-62"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="dev_extensions.html">Developing extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dev_rules.html">Development rules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dev_code_of_conduct.html">Code of conduct</a></li>
@@ -510,8 +522,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="ktk_conventions.html">Conventions</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="api_classes.html">Classes</a><input class="toctree-checkbox" id="toctree-checkbox-62" name="toctree-checkbox-62" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-62"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.TimeSeries.html">ktk.TimeSeries</a><input class="toctree-checkbox" id="toctree-checkbox-63" name="toctree-checkbox-63" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-63"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="api_classes.html">Classes</a><input class="toctree-checkbox" id="toctree-checkbox-63" name="toctree-checkbox-63" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-63"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.TimeSeries.html">ktk.TimeSeries</a><input class="toctree-checkbox" id="toctree-checkbox-64" name="toctree-checkbox-64" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-64"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.add_data.html">ktk.TimeSeries.add_data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.add_data_info.html">ktk.TimeSeries.add_data_info</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.add_event.html">ktk.TimeSeries.add_event</a></li>
@@ -520,6 +532,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.fill_missing_samples.html">ktk.TimeSeries.fill_missing_samples</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.from_array.html">ktk.TimeSeries.from_array</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.from_dataframe.html">ktk.TimeSeries.from_dataframe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_event_index.html">ktk.TimeSeries.get_event_index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_event_time.html">ktk.TimeSeries.get_event_time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_index_after_event.html">ktk.TimeSeries.get_index_after_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_index_after_time.html">ktk.TimeSeries.get_index_after_time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_index_at_event.html">ktk.TimeSeries.get_index_at_event</a></li>
@@ -531,6 +545,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_after_event.html">ktk.TimeSeries.get_ts_after_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_after_index.html">ktk.TimeSeries.get_ts_after_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_after_time.html">ktk.TimeSeries.get_ts_after_time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_at_event.html">ktk.TimeSeries.get_ts_at_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_at_time.html">ktk.TimeSeries.get_ts_at_time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_before_event.html">ktk.TimeSeries.get_ts_before_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_before_index.html">ktk.TimeSeries.get_ts_before_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_before_time.html">ktk.TimeSeries.get_ts_before_time</a></li>
@@ -549,21 +565,31 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.resample.html">ktk.TimeSeries.resample</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.shift.html">ktk.TimeSeries.shift</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.sort_events.html">ktk.TimeSeries.sort_events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.sync_event.html">ktk.TimeSeries.sync_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.to_dataframe.html">ktk.TimeSeries.to_dataframe</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.trim_events.html">ktk.TimeSeries.trim_events</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.ui_edit_events.html">ktk.TimeSeries.ui_edit_events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.ui_get_ts_between_clicks.html">ktk.TimeSeries.ui_get_ts_between_clicks</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.ui_sync.html">ktk.TimeSeries.ui_sync</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="api/ktk.TimeSeriesEvent.html">ktk.TimeSeriesEvent</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.Player.html">ktk.Player</a><input class="toctree-checkbox" id="toctree-checkbox-64" name="toctree-checkbox-64" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-64"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.Player.html">ktk.Player</a><input class="toctree-checkbox" id="toctree-checkbox-65" name="toctree-checkbox-65" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-65"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.Player.close.html">ktk.Player.close</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.Player.to_html5.html">ktk.Player.to_html5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.Player.get_contents.html">ktk.Player.get_contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.Player.get_interconnections.html">ktk.Player.get_interconnections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.Player.pause.html">ktk.Player.pause</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.Player.play.html">ktk.Player.play</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.Player.set_contents.html">ktk.Player.set_contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.Player.set_interconnections.html">ktk.Player.set_interconnections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.Player.set_view.html">ktk.Player.set_view</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.Player.to_image.html">ktk.Player.to_image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.Player.to_video.html">ktk.Player.to_video</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="api_functions.html">Functions</a><input class="toctree-checkbox" id="toctree-checkbox-65" name="toctree-checkbox-65" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-65"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="api_functions.html">Functions</a><input class="toctree-checkbox" id="toctree-checkbox-66" name="toctree-checkbox-66" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-66"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="api/ktk.import_extensions.html">ktk.import_extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/ktk.load.html">ktk.load</a></li>
 <li class="toctree-l2"><a class="reference internal" href="api/ktk.save.html">ktk.save</a></li>
@@ -572,8 +598,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="api/ktk.change_defaults.html">ktk.change_defaults</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="api_modules.html">Modules</a><input class="toctree-checkbox" id="toctree-checkbox-66" name="toctree-checkbox-66" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-66"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.cycles.html">ktk.cycles</a><input class="toctree-checkbox" id="toctree-checkbox-67" name="toctree-checkbox-67" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-67"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="api_modules.html">Modules</a><input class="toctree-checkbox" id="toctree-checkbox-67" name="toctree-checkbox-67" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-67"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.cycles.html">ktk.cycles</a><input class="toctree-checkbox" id="toctree-checkbox-68" name="toctree-checkbox-68" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-68"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.cycles.detect_cycles.html">ktk.cycles.detect_cycles</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.cycles.most_repeatable_cycles.html">ktk.cycles.most_repeatable_cycles</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.cycles.stack.html">ktk.cycles.stack</a></li>
@@ -581,11 +607,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.cycles.unstack.html">ktk.cycles.unstack</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.doc.html">ktk.doc</a><input class="toctree-checkbox" id="toctree-checkbox-68" name="toctree-checkbox-68" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-68"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.doc.html">ktk.doc</a><input class="toctree-checkbox" id="toctree-checkbox-69" name="toctree-checkbox-69" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-69"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.doc.download.html">ktk.doc.download</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.filters.html">ktk.filters</a><input class="toctree-checkbox" id="toctree-checkbox-69" name="toctree-checkbox-69" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-69"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.filters.html">ktk.filters</a><input class="toctree-checkbox" id="toctree-checkbox-70" name="toctree-checkbox-70" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-70"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.filters.butter.html">ktk.filters.butter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.filters.deriv.html">ktk.filters.deriv</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.filters.median.html">ktk.filters.median</a></li>
@@ -593,7 +619,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.filters.smooth.html">ktk.filters.smooth</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.geometry.html">ktk.geometry</a><input class="toctree-checkbox" id="toctree-checkbox-70" name="toctree-checkbox-70" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-70"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.geometry.html">ktk.geometry</a><input class="toctree-checkbox" id="toctree-checkbox-71" name="toctree-checkbox-71" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-71"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_frames.html">ktk.geometry.create_frames</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_transforms.html">ktk.geometry.create_transforms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_angles.html">ktk.geometry.get_angles</a></li>
@@ -607,7 +633,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.translate.html">ktk.geometry.translate</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.kinematics.html">ktk.kinematics</a><input class="toctree-checkbox" id="toctree-checkbox-71" name="toctree-checkbox-71" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-71"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.kinematics.html">ktk.kinematics</a><input class="toctree-checkbox" id="toctree-checkbox-72" name="toctree-checkbox-72" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-72"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.kinematics.create_cluster.html">ktk.kinematics.create_cluster</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.kinematics.extend_cluster.html">ktk.kinematics.extend_cluster</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.kinematics.track_cluster.html">ktk.kinematics.track_cluster</a></li>
@@ -781,9 +807,9 @@ document.write(`
 <h1><span class="section-number">7.2.2. </span>Time management<a class="headerlink" href="#time-management" title="Permalink to this heading">#</a></h1>
 <p>This section shows how to use these methods for time management:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="api/ktk.TimeSeries.get_sample_rate.html"><span class="doc std std-doc">ktk.TimeSeries.get_sample_rate</span></a></p></li>
-<li><p><a class="reference internal" href="api/ktk.TimeSeries.resample.html"><span class="doc std std-doc">ktk.TimeSeries.resample</span></a></p></li>
-<li><p><a class="reference internal" href="api/ktk.TimeSeries.shift.html"><span class="doc std std-doc">ktk.TimeSeries.shift</span></a></p></li>
+<li><p><a class="reference internal" href="api/ktk.TimeSeries.get_sample_rate.html"><span class="std std-doc">ktk.TimeSeries.get_sample_rate</span></a></p></li>
+<li><p><a class="reference internal" href="api/ktk.TimeSeries.resample.html"><span class="std std-doc">ktk.TimeSeries.resample</span></a></p></li>
+<li><p><a class="reference internal" href="api/ktk.TimeSeries.shift.html"><span class="std std-doc">ktk.TimeSeries.shift</span></a></p></li>
 </ul>
 <p>We will use this sample TimeSeries:</p>
 <div class="cell docutils container">
@@ -838,7 +864,7 @@ document.write(`
 </div>
 <section id="sample-rate">
 <h2><span class="section-number">7.2.2.1. </span>Sample rate<a class="headerlink" href="#sample-rate" title="Permalink to this heading">#</a></h2>
-<p>To know the sample rate of a TimeSeries (i.e., the number of data points per second), we use <a class="reference internal" href="api/ktk.TimeSeries.get_sample_rate.html"><span class="doc std std-doc">ktk.TimeSeries.get_sample_rate</span></a>:</p>
+<p>To know the sample rate of a TimeSeries (i.e., the number of data points per second), we use <a class="reference internal" href="api/ktk.TimeSeries.get_sample_rate.html"><span class="std std-doc">ktk.TimeSeries.get_sample_rate</span></a>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">get_sample_rate</span><span class="p">()</span>
@@ -854,7 +880,7 @@ document.write(`
 </section>
 <section id="resampling">
 <h2><span class="section-number">7.2.2.2. </span>Resampling<a class="headerlink" href="#resampling" title="Permalink to this heading">#</a></h2>
-<p>To resample the TimeSeries to a different sample rate, we use <a class="reference internal" href="api/ktk.TimeSeries.resample.html"><span class="doc std std-doc">ktk.TimeSeries.resample</span></a>, which takes either a new frequency or a new time array as argument. To downsample our TimeSeries to 20Hz, we would do:</p>
+<p>To resample the TimeSeries to a different sample rate, we use <a class="reference internal" href="api/ktk.TimeSeries.resample.html"><span class="std std-doc">ktk.TimeSeries.resample</span></a>, which takes either a new frequency or a new time array as argument. To downsample our TimeSeries to 20Hz, we would do:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts_20Hz</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="mf">20.0</span><span class="p">)</span>
@@ -870,7 +896,7 @@ document.write(`
 </div>
 <div class="admonition-good-practice admonition">
 <p class="admonition-title">Good practice: Filtering before downsampling</p>
-<p>It is usually important to <a class="reference internal" href="filters.html"><span class="doc std std-doc">filter</span></a> a signal before downsampling it, to respect the <a class="reference external" href="https://en.wikipedia.org/wiki/Nyquist%E2%80%93Shannon_sampling_theorem">Nyquist–Shannon sampling theorem</a> and thus avoid aliasing.</p>
+<p>It is usually important to <a class="reference internal" href="filters.html"><span class="std std-doc">filter</span></a> a signal before downsampling it, to respect the <a class="reference external" href="https://en.wikipedia.org/wiki/Nyquist%E2%80%93Shannon_sampling_theorem">Nyquist–Shannon sampling theorem</a> and thus avoid aliasing.</p>
 </div>
 <p>We use the same method to upsample a signal. Note that in this case, we may want to select the interpolation method since different interpolation methods may produce much different results. For example, if we upscale the <code class="docutils literal notranslate"><span class="pre">ts_20Hz</span></code> signal using different interpolation methods:</p>
 <div class="cell docutils container">
@@ -917,7 +943,7 @@ document.write(`
 <img alt="_images/dfcc188f932a7403ce4c3037deaf67acf887af1afa7459127b3e8bb3715479f8.png" src="_images/dfcc188f932a7403ce4c3037deaf67acf887af1afa7459127b3e8bb3715479f8.png" />
 </div>
 </div>
-<p>Using <a class="reference internal" href="api/ktk.TimeSeries.resample.html"><span class="doc std std-doc">ktk.TimeSeries.resample</span></a>, we can either resample <code class="docutils literal notranslate"><span class="pre">instrument2</span></code> over <code class="docutils literal notranslate"><span class="pre">instrument1</span></code>’s time:</p>
+<p>Using <a class="reference internal" href="api/ktk.TimeSeries.resample.html"><span class="std std-doc">ktk.TimeSeries.resample</span></a>, we can either resample <code class="docutils literal notranslate"><span class="pre">instrument2</span></code> over <code class="docutils literal notranslate"><span class="pre">instrument1</span></code>’s time:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resampled_instrument2</span> <span class="o">=</span> <span class="n">instrument2</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">instrument1</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
@@ -947,12 +973,12 @@ document.write(`
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>We already learned the <a class="reference internal" href="api/ktk.TimeSeries.merge.html"><span class="doc std std-doc">ktk.TimeSeries.merge</span></a> method to combine two TimeSeries. If both TimeSeries have different sampling rates as in the previous example, then <a class="reference internal" href="api/ktk.TimeSeries.merge.html"><span class="doc std std-doc">ktk.TimeSeries.merge</span></a> will fail. We need to resample the TimeSeries before merging them, as we did above.</p>
+<p>We already learned the <a class="reference internal" href="api/ktk.TimeSeries.merge.html"><span class="std std-doc">ktk.TimeSeries.merge</span></a> method to combine two TimeSeries. If both TimeSeries have different sampling rates as in the previous example, then <a class="reference internal" href="api/ktk.TimeSeries.merge.html"><span class="std std-doc">ktk.TimeSeries.merge</span></a> will fail. We need to resample the TimeSeries before merging them, as we did above.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ts1</span> <span class="o">=</span> <span class="n">ts1</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">ts2</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;...&quot;</span><span class="p">)</span>
 <span class="n">ts1</span> <span class="o">=</span> <span class="n">ts1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">ts1</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>However, as a shortcut, <a class="reference internal" href="api/ktk.TimeSeries.merge.html"><span class="doc std std-doc">ktk.TimeSeries.merge</span></a> can also do the resampling for us using a linear interpolation:</p>
+<p>However, as a shortcut, <a class="reference internal" href="api/ktk.TimeSeries.merge.html"><span class="std std-doc">ktk.TimeSeries.merge</span></a> can also do the resampling for us using a linear interpolation:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ts1</span> <span class="o">=</span> <span class="n">ts1</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">ts2</span><span class="p">,</span> <span class="n">resample</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -960,7 +986,7 @@ document.write(`
 </section>
 <section id="time-shifting">
 <h2><span class="section-number">7.2.2.3. </span>Time shifting<a class="headerlink" href="#time-shifting" title="Permalink to this heading">#</a></h2>
-<p>In the original TimeSeries, we observe a brief transient in the signal that may be generated by an impact or pulse just before the action. It is common to generate such transients in data acquisition to synchronize data from different instruments. In this case, we may want to time-shift the TimeSeries so that this synchronization signal happens at 0 seconds. To do so, we use <a class="reference internal" href="api/ktk.TimeSeries.shift.html"><span class="doc std std-doc">ktk.TimeSeries.shift</span></a>:</p>
+<p>In the original TimeSeries, we observe a brief transient in the signal that may be generated by an impact or pulse just before the action. It is common to generate such transients in data acquisition to synchronize data from different instruments. In this case, we may want to time-shift the TimeSeries so that this synchronization signal happens at 0 seconds. To do so, we use <a class="reference internal" href="api/ktk.TimeSeries.shift.html"><span class="std std-doc">ktk.TimeSeries.shift</span></a>:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">synced_ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">shift</span><span class="p">(</span><span class="o">-</span><span class="mf">7.32</span><span class="p">)</span>  <span class="c1"># Subtract every time, including events, by 7.32</span>
@@ -1066,7 +1092,7 @@ By Félix Chénier
     
   <p class="copyright">
     
-      © Copyright 2020-2023.
+      © Copyright 2020-2024.
       <br/>
     
   </p>

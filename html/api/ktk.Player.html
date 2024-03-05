@@ -38,13 +38,13 @@
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
-    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
     <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
@@ -58,18 +58,14 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js"></script>
-    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
-const thebe_selector = ".thebe,.cell"
-const thebe_selector_input = "pre"
-const thebe_selector_output = ".output, .cell_output"
-</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'api/ktk.Player';</script>
     <link rel="canonical" href="https://kineticstoolkit.uqam.ca/doc/api/ktk.Player.html" />
@@ -168,7 +164,17 @@ const thebe_selector_output = ".output, .cell_output"
   
   
 </a></div>
-        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+        <div class="sidebar-primary-item">
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Getting Started</span></p>
 <ul class="nav bd-sidenav">
@@ -478,8 +484,14 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../geometry_exercises.html">9.6. Exercices</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../player.html">10. Interactive 3D visualizer</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../kinematics.html">11. Kinematic analysis</a><input class="toctree-checkbox" id="toctree-checkbox-59" name="toctree-checkbox-59" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-59"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../player.html">10. Visualizing 3D points and frames</a><input class="toctree-checkbox" id="toctree-checkbox-59" name="toctree-checkbox-59" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-59"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../player_basics.html">10.1. Player basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../player_interconnections.html">10.2. Interconnecting the points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../player_frames.html">10.3. Visualizing frames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../player_styling_exporting.html">10.4. Styling and exporting</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../kinematics.html">11. Kinematic analysis</a><input class="toctree-checkbox" id="toctree-checkbox-60" name="toctree-checkbox-60" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-60"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../kinematics_joint_angles.html">11.1. Calculating joint angles from a kinematic acquisition</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kinematics_reconstructing_occluded_markers.html">11.2. Reconstructing occluded markers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../kinematics_reconstructing_removed_markers.html">11.3. Reconstructing removed markers</a></li>
@@ -489,14 +501,14 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
 <ul class="nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../datasets.html">Datasets</a><input class="toctree-checkbox" id="toctree-checkbox-60" name="toctree-checkbox-60" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-60"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../datasets.html">Datasets</a><input class="toctree-checkbox" id="toctree-checkbox-61" name="toctree-checkbox-61" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-61"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../dataset_kinematics_tennis_serve.html">Tennis serve kinematics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dataset_kinetics_wheelchair_propulsion.html">Wheelchair propulsion kinetics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dataset_emg.html">Electromyography</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../ktk_citing.html">Citing</a></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../dev_contributors.html">Contributors</a><input class="toctree-checkbox" id="toctree-checkbox-61" name="toctree-checkbox-61" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-61"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../dev_contributors.html">Contributors</a><input class="toctree-checkbox" id="toctree-checkbox-62" name="toctree-checkbox-62" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-62"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="../dev_extensions.html">Developing extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dev_rules.html">Development rules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../dev_code_of_conduct.html">Code of conduct</a></li>
@@ -508,8 +520,8 @@ const thebe_selector_output = ".output, .cell_output"
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">API Reference</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../ktk_conventions.html">Conventions</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="../api_classes.html">Classes</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-62" name="toctree-checkbox-62" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-62"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
-<li class="toctree-l2 has-children"><a class="reference internal" href="ktk.TimeSeries.html">ktk.TimeSeries</a><input class="toctree-checkbox" id="toctree-checkbox-63" name="toctree-checkbox-63" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-63"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../api_classes.html">Classes</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-63" name="toctree-checkbox-63" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-63"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="ktk.TimeSeries.html">ktk.TimeSeries</a><input class="toctree-checkbox" id="toctree-checkbox-64" name="toctree-checkbox-64" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-64"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.add_data.html">ktk.TimeSeries.add_data</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.add_data_info.html">ktk.TimeSeries.add_data_info</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.add_event.html">ktk.TimeSeries.add_event</a></li>
@@ -518,6 +530,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.fill_missing_samples.html">ktk.TimeSeries.fill_missing_samples</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.from_array.html">ktk.TimeSeries.from_array</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.from_dataframe.html">ktk.TimeSeries.from_dataframe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_event_index.html">ktk.TimeSeries.get_event_index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_event_time.html">ktk.TimeSeries.get_event_time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_index_after_event.html">ktk.TimeSeries.get_index_after_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_index_after_time.html">ktk.TimeSeries.get_index_after_time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_index_at_event.html">ktk.TimeSeries.get_index_at_event</a></li>
@@ -529,6 +543,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_ts_after_event.html">ktk.TimeSeries.get_ts_after_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_ts_after_index.html">ktk.TimeSeries.get_ts_after_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_ts_after_time.html">ktk.TimeSeries.get_ts_after_time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_ts_at_event.html">ktk.TimeSeries.get_ts_at_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_ts_at_time.html">ktk.TimeSeries.get_ts_at_time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_ts_before_event.html">ktk.TimeSeries.get_ts_before_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_ts_before_index.html">ktk.TimeSeries.get_ts_before_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_ts_before_time.html">ktk.TimeSeries.get_ts_before_time</a></li>
@@ -547,21 +563,31 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.resample.html">ktk.TimeSeries.resample</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.shift.html">ktk.TimeSeries.shift</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.sort_events.html">ktk.TimeSeries.sort_events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.sync_event.html">ktk.TimeSeries.sync_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.to_dataframe.html">ktk.TimeSeries.to_dataframe</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.trim_events.html">ktk.TimeSeries.trim_events</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.ui_edit_events.html">ktk.TimeSeries.ui_edit_events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.ui_get_ts_between_clicks.html">ktk.TimeSeries.ui_get_ts_between_clicks</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.ui_sync.html">ktk.TimeSeries.ui_sync</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="ktk.TimeSeriesEvent.html">ktk.TimeSeriesEvent</a></li>
-<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">ktk.Player</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-64" name="toctree-checkbox-64" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-64"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">ktk.Player</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-65" name="toctree-checkbox-65" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-65"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="ktk.Player.close.html">ktk.Player.close</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ktk.Player.to_html5.html">ktk.Player.to_html5</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ktk.Player.get_contents.html">ktk.Player.get_contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ktk.Player.get_interconnections.html">ktk.Player.get_interconnections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ktk.Player.pause.html">ktk.Player.pause</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ktk.Player.play.html">ktk.Player.play</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ktk.Player.set_contents.html">ktk.Player.set_contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ktk.Player.set_interconnections.html">ktk.Player.set_interconnections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ktk.Player.set_view.html">ktk.Player.set_view</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ktk.Player.to_image.html">ktk.Player.to_image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ktk.Player.to_video.html">ktk.Player.to_video</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../api_functions.html">Functions</a><input class="toctree-checkbox" id="toctree-checkbox-65" name="toctree-checkbox-65" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-65"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api_functions.html">Functions</a><input class="toctree-checkbox" id="toctree-checkbox-66" name="toctree-checkbox-66" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-66"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l2"><a class="reference internal" href="ktk.import_extensions.html">ktk.import_extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ktk.load.html">ktk.load</a></li>
 <li class="toctree-l2"><a class="reference internal" href="ktk.save.html">ktk.save</a></li>
@@ -570,8 +596,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="ktk.change_defaults.html">ktk.change_defaults</a></li>
 </ul>
 </li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../api_modules.html">Modules</a><input class="toctree-checkbox" id="toctree-checkbox-66" name="toctree-checkbox-66" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-66"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="ktk.cycles.html">ktk.cycles</a><input class="toctree-checkbox" id="toctree-checkbox-67" name="toctree-checkbox-67" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-67"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../api_modules.html">Modules</a><input class="toctree-checkbox" id="toctree-checkbox-67" name="toctree-checkbox-67" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-67"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="ktk.cycles.html">ktk.cycles</a><input class="toctree-checkbox" id="toctree-checkbox-68" name="toctree-checkbox-68" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-68"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="ktk.cycles.detect_cycles.html">ktk.cycles.detect_cycles</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.cycles.most_repeatable_cycles.html">ktk.cycles.most_repeatable_cycles</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.cycles.stack.html">ktk.cycles.stack</a></li>
@@ -579,11 +605,11 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="ktk.cycles.unstack.html">ktk.cycles.unstack</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="ktk.doc.html">ktk.doc</a><input class="toctree-checkbox" id="toctree-checkbox-68" name="toctree-checkbox-68" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-68"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="ktk.doc.html">ktk.doc</a><input class="toctree-checkbox" id="toctree-checkbox-69" name="toctree-checkbox-69" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-69"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="ktk.doc.download.html">ktk.doc.download</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="ktk.filters.html">ktk.filters</a><input class="toctree-checkbox" id="toctree-checkbox-69" name="toctree-checkbox-69" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-69"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="ktk.filters.html">ktk.filters</a><input class="toctree-checkbox" id="toctree-checkbox-70" name="toctree-checkbox-70" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-70"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="ktk.filters.butter.html">ktk.filters.butter</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.filters.deriv.html">ktk.filters.deriv</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.filters.median.html">ktk.filters.median</a></li>
@@ -591,7 +617,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="ktk.filters.smooth.html">ktk.filters.smooth</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="ktk.geometry.html">ktk.geometry</a><input class="toctree-checkbox" id="toctree-checkbox-70" name="toctree-checkbox-70" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-70"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="ktk.geometry.html">ktk.geometry</a><input class="toctree-checkbox" id="toctree-checkbox-71" name="toctree-checkbox-71" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-71"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="ktk.geometry.create_frames.html">ktk.geometry.create_frames</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.geometry.create_transforms.html">ktk.geometry.create_transforms</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.geometry.get_angles.html">ktk.geometry.get_angles</a></li>
@@ -605,7 +631,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l3"><a class="reference internal" href="ktk.geometry.translate.html">ktk.geometry.translate</a></li>
 </ul>
 </li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="ktk.kinematics.html">ktk.kinematics</a><input class="toctree-checkbox" id="toctree-checkbox-71" name="toctree-checkbox-71" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-71"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="ktk.kinematics.html">ktk.kinematics</a><input class="toctree-checkbox" id="toctree-checkbox-72" name="toctree-checkbox-72" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-72"><i class="fa-solid fa-chevron-down"></i></label><ul>
 <li class="toctree-l3"><a class="reference internal" href="ktk.kinematics.create_cluster.html">ktk.kinematics.create_cluster</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.kinematics.extend_cluster.html">ktk.kinematics.extend_cluster</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.kinematics.track_cluster.html">ktk.kinematics.track_cluster</a></li>
@@ -767,71 +793,96 @@ document.write(`
 <h1>ktk.Player<a class="headerlink" href="#ktk-player" title="Permalink to this heading">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="ktk.Player">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Player</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">ts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interconnections</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">marker_radius</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.008</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axis_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interconnection_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">up</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'y'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zoom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">azimuth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elevation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">translation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">track</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">perspective</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kineticstoolkit/player.html#Player"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ktk.Player" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Player</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">ts</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interconnections</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_index</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">current_time</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">playback_speed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">up</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'y'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">anterior</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'x'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zoom</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">azimuth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">elevation</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pan</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">perspective</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">track</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_point_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.8,</span> <span class="pre">0.8,</span> <span class="pre">0.8)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">point_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interconnection_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_subdivision_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_origin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grid_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.3,</span> <span class="pre">0.3,</span> <span class="pre">0.3)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">background_color</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(0.0,</span> <span class="pre">0.0,</span> <span class="pre">0.0)</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kineticstoolkit/player.html#Player"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ktk.Player" title="Permalink to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<p>A class that allows visualizing markers and rigid bodies in 3D.</p>
-<p><code class="docutils literal notranslate"><span class="pre">player</span> <span class="pre">=</span> <span class="pre">ktk.Player(parameters)</span></code> creates and launches an interactive
-Player instance. Once the window is open, pressing <code class="docutils literal notranslate"><span class="pre">h</span></code> brings this help
-overlay:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ktk</span><span class="o">.</span><span class="n">Player</span> <span class="n">help</span>
-<span class="o">----------------------------------------------------</span>
-<span class="n">KEYBOARD</span> <span class="n">COMMANDS</span>
-<span class="n">show</span><span class="o">/</span><span class="n">hide</span> <span class="n">this</span> <span class="n">help</span> <span class="p">:</span> <span class="n">h</span>
-<span class="n">previous</span> <span class="n">index</span>      <span class="p">:</span> <span class="n">left</span>
-<span class="nb">next</span> <span class="n">index</span>          <span class="p">:</span> <span class="n">right</span>
-<span class="n">previous</span> <span class="n">second</span>     <span class="p">:</span> <span class="n">shift</span><span class="o">+</span><span class="n">left</span>
-<span class="nb">next</span> <span class="n">second</span>         <span class="p">:</span> <span class="n">shift</span><span class="o">+</span><span class="n">right</span>
-<span class="n">play</span><span class="o">/</span><span class="n">pause</span>          <span class="p">:</span> <span class="n">space</span>
-<span class="mi">2</span><span class="n">x</span> <span class="n">playback</span> <span class="n">speed</span>   <span class="p">:</span> <span class="o">+</span>
-<span class="mf">0.5</span><span class="n">x</span> <span class="n">playback</span> <span class="n">speed</span> <span class="p">:</span> <span class="o">-</span>
-<span class="n">toggle</span> <span class="n">track</span>        <span class="p">:</span> <span class="n">t</span>
-<span class="n">toggle</span> <span class="n">perspective</span>  <span class="p">:</span> <span class="n">d</span> <span class="p">(</span><span class="n">depth</span><span class="p">)</span>
-<span class="o">----------------------------------------------------</span>
-<span class="n">MOUSE</span> <span class="n">COMMANDS</span>
-<span class="n">select</span> <span class="n">a</span> <span class="n">marker</span>     <span class="p">:</span> <span class="n">left</span><span class="o">-</span><span class="n">click</span>
-<span class="mi">3</span><span class="n">d</span> <span class="n">rotate</span>           <span class="p">:</span> <span class="n">left</span><span class="o">-</span><span class="n">drag</span>
-<span class="n">pan</span>                 <span class="p">:</span> <span class="n">middle</span><span class="o">-</span><span class="n">drag</span> <span class="ow">or</span> <span class="n">shift</span><span class="o">+</span><span class="n">left</span><span class="o">-</span><span class="n">drag</span>
-<span class="n">zoom</span>                <span class="p">:</span> <span class="n">right</span><span class="o">-</span><span class="n">drag</span> <span class="ow">or</span> <span class="n">wheel</span>
-</pre></div>
-</div>
+<p>A class that allows visualizing points and frames in 3D.</p>
+<p><cite>player = ktk.Player(parameters)</cite> creates and launches an interactive
+Player instance. Once the window is open, press <cite>h</cite> to show a help
+overlay.</p>
+<p>All of the following parameters are also accessible as read/write
+properties, except the contents and the interconnections that are
+accessible using <cite>get_contents</cite>, <cite>set_contents</cite>, <cite>get_interconnections</cite>
+and <cite>set_interconnections</cite>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>*ts</strong> (<a class="reference internal" href="ktk.TimeSeries.html#ktk.TimeSeries" title="ktk.TimeSeries"><em>TimeSeries</em></a>) – Contains the markers and rigid bodies to visualize, where each data
-key is either a marker position expressed as Nx4 array, or a frame
+<li><p><strong>*ts</strong> (<a class="reference internal" href="ktk.TimeSeries.html#ktk.TimeSeries" title="kineticstoolkit.timeseries.TimeSeries"><em>TimeSeries</em></a>) – Contains the points and frames to visualize, where each data
+key is either a point position expressed as Nx4 array, or a frame
 expressed as a Nx4x4 array. Multiple TimeSeries can be provided.</p></li>
-<li><p><strong>interconnections</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – <p>Optional. Each key corresponds to an inerconnection between markers,
-where one interconnection is another dict with the following keys:</p>
+<li><p><strong>interconnections</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – <p>Optional. Each key corresponds to an interconnection between points,
+where each interconnection is a nested dict with the following keys:</p>
 <ul>
-<li><p>”Links”: list of lists strings, where each string is a marker
-name. For example, to create a link that spans Marker1 and Marker2,
-and another link that spans Marker3, Marker4 and Marker5,
-interconnections[“Links”] would be:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[[</span><span class="s2">&quot;Marker1&quot;</span><span class="p">,</span> <span class="s2">&quot;Marker2&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Marker3&quot;</span><span class="p">,</span> <span class="s2">&quot;Marker4&quot;</span><span class="p">,</span> <span class="s2">&quot;Marker5&quot;</span><span class="p">]]</span>
+<li><p>”Links”: list of lists strings, where each string is a point
+name. For example, to create a link that connects Point1 to Point2,
+and another link that spans Point3, Point4 and Point5:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">interconnections</span><span class="p">[</span><span class="s2">&quot;Example&quot;</span><span class="p">][</span><span class="s2">&quot;Links&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s2">&quot;Point1&quot;</span><span class="p">,</span> <span class="s2">&quot;Point2&quot;</span><span class="p">],</span>
+    <span class="p">[</span><span class="s2">&quot;Point3&quot;</span><span class="p">,</span> <span class="s2">&quot;Point4&quot;</span><span class="p">,</span> <span class="s2">&quot;Point5&quot;</span><span class="p">]</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Point names can include wildcards (*) either as a prefix or as a
+suffix. This is useful to apply a single set of interconnections to
+multiple bodies. For instance, if the Player’s contents includes
+these points: [Body1_HipR, Body1_HipL, Body1_L5S1, Body2_HipR,
+Body2_HipL, Body2_L5S1], we could link L5S1 and both hips at once
+using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">interconnections</span><span class="p">[</span><span class="s2">&quot;Pelvis&quot;</span><span class="p">][</span><span class="s2">&quot;Links&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">[</span><span class="s2">&quot;*_HipR&quot;</span><span class="p">,</span> <span class="s2">&quot;*_HipL&quot;</span><span class="p">,</span> <span class="s2">&quot;*_L5S1&quot;</span><span class="p">]</span>
+<span class="p">]</span>
 </pre></div>
 </div>
 </li>
 <li><p>”Color”: character or tuple (RGB) that represents the color of the
-link. Color must be a valid value for matplotlib’s
-plots.</p></li>
+link. These two examples are equivalent:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">interconnections</span><span class="p">[</span><span class="s2">&quot;Pelvis&quot;</span><span class="p">][</span><span class="s2">&quot;Color&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;r&#39;</span>
+<span class="n">interconnections</span><span class="p">[</span><span class="s2">&quot;Pelvis&quot;</span><span class="p">][</span><span class="s2">&quot;Color&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+</pre></div>
+</div>
+</li>
 </ul>
 </p></li>
-<li><p><strong>current_index</strong> (<em>int</em>) – Optional. Sets the inital index number to show.</p></li>
-<li><p><strong>marker_radius</strong> (<em>float</em>) – Optional. Sets the marker radius as defined by matplotlib.</p></li>
-<li><p><strong>axis_length</strong> (<em>float</em>) – Optional. Sets the rigid body size in meters.</p></li>
+<li><p><strong>current_index</strong> (<em>int</em>) – Optional. The current index being shown.</p></li>
+<li><p><strong>current_time</strong> (<em>float</em><em> | </em><em>None</em>) – Optional. The current time being shown.</p></li>
+<li><p><strong>playback_speed</strong> (<em>float</em>) – Optional. Speed multiplier. Set to 1.0 for normal speed, 1.5 to
+increase playback speed by 50%, etc.</p></li>
 <li><p><strong>up</strong> (<em>str</em>) – Optional. Defines the ground plane by setting which axis is up. May be
 {“x”, “y”, “z”, “-x”, “-y”, “-z”}. Default is “y”.</p></li>
-<li><p><strong>zoom</strong> (<em>float</em>) – Optional. Sets the initial camera zoom.</p></li>
-<li><p><strong>azimuth</strong> (<em>float</em>) – Optional. Sets the initial camera azimuth in radians.</p></li>
-<li><p><strong>elevation</strong> (<em>float</em>) – Optional. Sets the initial camera elevation in radians.</p></li>
-<li><p><strong>translation</strong> (<em>ArrayLike</em>) – Optional. Sets the initial camera translation (panning).</p></li>
-<li><p><strong>target</strong> (<em>ArrayLike</em>) – Optional. Sets the camera target in meters.</p></li>
-<li><p><strong>track</strong> (<em>bool</em>) – Optional. False to keep the scene static, True to track the last
-selected marker when changing index.</p></li>
+<li><p><strong>anterior</strong> (<em>str</em>) – Optional. Defines the anterior direction. May be
+{“x”, “y”, “z”, “-x”, “-y”, “-z”}. Default is “x”.</p></li>
+<li><p><strong>zoom</strong> (<em>float</em>) – Optional. Camera zoom multipler.</p></li>
+<li><p><strong>azimuth</strong> (<em>float</em>) – Optional. Camera azimuth in radians. If <cite>anterior</cite> is set, then an
+azimuth of 0 corresponds to the right sagittal plane, pi/2 to the
+front frontal plane, -pi/2 to the back frontal plane, etc.</p></li>
+<li><p><strong>elevation</strong> (<em>float</em>) – Optional. Camera elevation in radians. Default is 0.2. If <cite>up</cite> is set,
+then a value of 0 corresponds to a purely horizontal view, pi/2 to the
+top transverse plane, -pi/2 to the bottom transverse plane, etc.</p></li>
 <li><p><strong>perspective</strong> (<em>bool</em>) – Optional. True to draw the scene using perspective, False to draw the
 scene orthogonally.</p></li>
-<li><p><strong>axis_width</strong> (<em>float</em>) – </p></li>
-<li><p><strong>interconnection_width</strong> (<em>float</em>) – </p></li>
+<li><p><strong>pan</strong> (<em>tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em>) – Optional. Camera translation (panning). Default is (0.0, 0.0).</p></li>
+<li><p><strong>target</strong> (<em>tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em>) – Optional. Camera target in meters. Default is (0.0, 0.0, 0.0).</p></li>
+<li><p><strong>track</strong> (<em>bool</em>) – Optional. False to keep the camera static, True to follow the last
+selected point when changing index. Default is False.</p></li>
+<li><p><strong>default_point_color</strong> (<em>str</em><em> | </em><em>tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em>) – Optional. Default color for points that do not have a “Color”
+data_info. Can be a character or tuple (RGB) where each RGB color is
+between 0.0 and 1.0. Default is (0.8, 0.8, 0.8).</p></li>
+<li><p><strong>point_size</strong> (<em>float</em>) – Optional. Point size as defined by Matplotlib marker size. Default is
+4.0.</p></li>
+<li><p><strong>interconnection_width</strong> (<em>float</em>) – Optional. Width of the interconnections as defined by Matplotlib line
+width. Default is 1.5.</p></li>
+<li><p><strong>frame_size</strong> (<em>float</em>) – Optional. Length of the frame axes in meters. Default is 0.1.</p></li>
+<li><p><strong>frame_width</strong> (<em>float</em>) – Optional. Width of the frame axes as defined by Matplotlib line width.
+Default is 3.0.</p></li>
+<li><p><strong>grid_size</strong> (<em>float</em>) – Optional. Length of one side of the grid in meters. Default is 10.0.</p></li>
+<li><p><strong>grid_subdivision_size</strong> (<em>float</em>) – Optional. Length of one subdivision of the grid in meters. Default is
+1.0.</p></li>
+<li><p><strong>grid_width</strong> (<em>float</em>) – Optional. Width of the grid lines as defined by Matplotlib line width.
+Default is 1.0.</p></li>
+<li><p><strong>grid_origin</strong> (<em>tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em>) – Optional. Origin of the grid in meters. Default is (0.0, 0.0, 0.0).</p></li>
+<li><p><strong>grid_color</strong> (<em>str</em><em> | </em><em>tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em>) – Optional. Color of the grid. Can be a character or tuple (RGB) where
+each RGB color is between 0.0 and 1.0. Default is (0.3, 0.3, 0.3).</p></li>
+<li><p><strong>background_color</strong> (<em>str</em><em> | </em><em>tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em>) – Optional. Background color. Can be a character or tuple (RGB) where
+each RGB color is between 0.0 and 1.0. Default is (0.0, 0.0, 0.0).</p></li>
 </ul>
 </dd>
 </dl>
@@ -849,12 +900,119 @@ scene orthogonally.</p></li>
 <tr class="row-odd"><td><p><a class="reference internal" href="ktk.Player.close.html#ktk.Player.close" title="ktk.Player.close"><code class="xref py py-obj docutils literal notranslate"><span class="pre">close</span></code></a></p></td>
 <td><p>Close the Player and its associated window.</p></td>
 </tr>
-<tr class="row-even"><td><p><a class="reference internal" href="ktk.Player.to_html5.html#ktk.Player.to_html5" title="ktk.Player.to_html5"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_html5</span></code></a></p></td>
-<td><p><div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The function to_html5 is deprecated since 0.12 and is scheduled to be removed in 2024. This method has been removed because it did not return html5 and was mainly a hack for representing videos in tutorials. The supported way to use the Player is interactively.</p>
-</div>
-</p></td>
+<tr class="row-even"><td><p><a class="reference internal" href="ktk.Player.get_contents.html#ktk.Player.get_contents" title="ktk.Player.get_contents"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_contents</span></code></a></p></td>
+<td><p>Get contents value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="ktk.Player.get_interconnections.html#ktk.Player.get_interconnections" title="ktk.Player.get_interconnections"><code class="xref py py-obj docutils literal notranslate"><span class="pre">get_interconnections</span></code></a></p></td>
+<td><p>Get interconnections value.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="ktk.Player.pause.html#ktk.Player.pause" title="ktk.Player.pause"><code class="xref py py-obj docutils literal notranslate"><span class="pre">pause</span></code></a></p></td>
+<td><p>Pause the animation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="ktk.Player.play.html#ktk.Player.play" title="ktk.Player.play"><code class="xref py py-obj docutils literal notranslate"><span class="pre">play</span></code></a></p></td>
+<td><p>Start the animation.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="ktk.Player.set_contents.html#ktk.Player.set_contents" title="ktk.Player.set_contents"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_contents</span></code></a></p></td>
+<td><p>Set contents value.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="ktk.Player.set_interconnections.html#ktk.Player.set_interconnections" title="ktk.Player.set_interconnections"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_interconnections</span></code></a></p></td>
+<td><p>Set interconnections value.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="ktk.Player.set_view.html#ktk.Player.set_view" title="ktk.Player.set_view"><code class="xref py py-obj docutils literal notranslate"><span class="pre">set_view</span></code></a></p></td>
+<td><p>Set the current view to an orthogonal view in a given plane.</p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="ktk.Player.to_image.html#ktk.Player.to_image" title="ktk.Player.to_image"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_image</span></code></a></p></td>
+<td><p>Save the current view to an image file.</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference internal" href="ktk.Player.to_video.html#ktk.Player.to_video" title="ktk.Player.to_video"><code class="xref py py-obj docutils literal notranslate"><span class="pre">to_video</span></code></a></p></td>
+<td><p>Save the current view to an MP4 video file.</p></td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Attributes</p>
+<table class="autosummary longtable table autosummary">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">anterior</span></code></p></td>
+<td><p>Read/write anterior.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">azimuth</span></code></p></td>
+<td><p>Read/write azimuth.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">background_color</span></code></p></td>
+<td><p>Read/write background_color.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">contents</span></code></p></td>
+<td><p>Use get_contents or set_contents instead.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">current_index</span></code></p></td>
+<td><p>Read/write current_index.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">current_time</span></code></p></td>
+<td><p>Read/write current_time.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">default_point_color</span></code></p></td>
+<td><p>Read/write default_point_color.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">elevation</span></code></p></td>
+<td><p>Read/write elevation.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">frame_size</span></code></p></td>
+<td><p>Read/write frame_size.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">frame_width</span></code></p></td>
+<td><p>Read/write frame_width.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">grid_color</span></code></p></td>
+<td><p>Read/write grid_color.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">grid_origin</span></code></p></td>
+<td><p>Read/write grid_origin.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">grid_size</span></code></p></td>
+<td><p>Read/write grid_size.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">grid_subdivision_size</span></code></p></td>
+<td><p>Read/write grid_subdivision_size.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">grid_width</span></code></p></td>
+<td><p>Read/write grid_width.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">interconnection_width</span></code></p></td>
+<td><p>Read/write interconnection_width.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">interconnections</span></code></p></td>
+<td><p>Use get_interconnections or set_interconnections instead.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">pan</span></code></p></td>
+<td><p>Read/write pan as (x, y).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">perspective</span></code></p></td>
+<td><p>Read/write perspective.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">playback_speed</span></code></p></td>
+<td><p>Read/write playback_speed.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">point_size</span></code></p></td>
+<td><p>Read/write point_size.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">target</span></code></p></td>
+<td><p>Read/write target as (x, y, z).</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">title_text</span></code></p></td>
+<td><p>Read/write the text info on top of the figure.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">track</span></code></p></td>
+<td><p>Read/write track.</p></td>
+</tr>
+<tr class="row-odd"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">up</span></code></p></td>
+<td><p>Read/write up.</p></td>
+</tr>
+<tr class="row-even"><td><p><code class="xref py py-obj docutils literal notranslate"><span class="pre">zoom</span></code></p></td>
+<td><p>Read/write zoom.</p></td>
 </tr>
 </tbody>
 </table>
@@ -935,7 +1093,7 @@ By Félix Chénier
     
   <p class="copyright">
     
-      © Copyright 2020-2023.
+      © Copyright 2020-2024.
       <br/>
     
   </p>

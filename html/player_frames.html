@@ -1,0 +1,938 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<meta property="og:title" content="10.3. Visualizing frames" />
+<meta property="og:type" content="image/png" />
+<meta property="og:url" content="https://kineticstoolkit.uqam.ca/doc/player_frames.html" />
+<meta property="og:site_name" content="Kinetics Toolkit" />
+<meta property="og:description" content="In the last sections, we only visualized points. The Player can also draw frames, expressed as TimeSeries data with a shape of (N, 4, 4). For instance, let’s create two series of frames that revolv..." />
+<meta property="og:image" content="https://kineticstoolkit.uqam.ca/doc/_static/logo-social.png" />
+<meta property="og:image:alt" content="Kinetics Toolkit Logo" />
+<meta name="description" content="In the last sections, we only visualized points. The Player can also draw frames, expressed as TimeSeries data with a shape of (N, 4, 4). For instance, let’s create two series of frames that revolv..." />
+<meta property='og:image:width' content=500 />
+<meta property='og:image:height' content=264 />
+
+    <title>10.3. Visualizing frames &#8212; Biomechanical Analysis using Python and Kinetics Toolkit</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
+    <link rel="stylesheet" type="text/css" href="_static/css/custom.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'player_frames';</script>
+    <link rel="canonical" href="https://kineticstoolkit.uqam.ca/doc/player_frames.html" />
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="10.4. Styling and exporting" href="player_styling_exporting.html" />
+    <link rel="prev" title="10.2. Interconnecting the points" href="player_interconnections.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+    Back to top
+  </button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo.png" class="logo__image only-light" alt="Biomechanical Analysis using Python and Kinetics Toolkit - Home"/>
+    <script>document.write(`<img src="_static/logo-dark.png" class="logo__image only-dark" alt="Biomechanical Analysis using Python and Kinetics Toolkit - Home"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+ <script>
+ document.write(`
+   <button class="btn navbar-btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="getting_started_intro.html">1. Introduction</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="getting_started.html">2. Where to start</a><input class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="getting_started_installing.html">2.1. Installing Python, Spyder and Kinetics Toolkit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started_configuring_spyder.html">2.2. Configuring Spyder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started_using_spyder.html">2.3. Using Spyder</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part II. Learning Python for Biomechanics</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="python_intro.html">3. The Python Language</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python_basics.html">3.1. Python basics</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="python_arithmetics.html">3.1.1. Arithmetic operations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_print.html">3.1.2. Printing to the console</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_comments.html">3.1.3. Comments</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_variables.html">3.1.4. Variables</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_basics_exercise1.html">3.1.4.1. Exercise: Python basics 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python_basics_exercise2.html">3.1.4.2. Exercise: Python basics 2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python_numbers.html">3.2. Numbers</a><input class="toctree-checkbox" id="toctree-checkbox-5" name="toctree-checkbox-5" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-5"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_int_float.html">3.2.1. Difference between integers and floats</a><input class="toctree-checkbox" id="toctree-checkbox-6" name="toctree-checkbox-6" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-6"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_int_float_exercise.html">3.2.1.1. Exercise: Integers and floats</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="python_int_float_arithmetics.html">3.2.2. Arithmetic operations between integers and floats</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python_strings.html">3.3. Strings</a><input class="toctree-checkbox" id="toctree-checkbox-7" name="toctree-checkbox-7" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-7"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="python_strings_quotes.html">3.3.1. Creating strings using quotes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_strings_backslash.html">3.3.2. Backslash</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_strings_triple_quotes.html">3.3.3. Creating strings using triple-quotes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_strings_long_strings.html">3.3.4. Creating long strings</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_strings_fstrings.html">3.3.5. Including variable contents in strings using f-strings</a><input class="toctree-checkbox" id="toctree-checkbox-8" name="toctree-checkbox-8" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-8"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_strings_exercise.html">3.3.5.1. Exercise: Strings</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="python_strings_input.html">3.3.6. User input</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python_functions.html">3.4. Functions</a><input class="toctree-checkbox" id="toctree-checkbox-9" name="toctree-checkbox-9" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-9"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="python_functions_syntax.html">3.4.1. Function syntax</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_functions_arguments.html">3.4.2. Argument names</a><input class="toctree-checkbox" id="toctree-checkbox-10" name="toctree-checkbox-10" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-10"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_functions_arguments_exercise.html">3.4.2.1. Exercise: Function arguments</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_functions_return.html">3.4.3. Return values</a><input class="toctree-checkbox" id="toctree-checkbox-11" name="toctree-checkbox-11" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-11"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_functions_return_exercise1.html">3.4.3.1. Exercise: Function return values 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python_functions_return_exercise2.html">3.4.3.2. Exercise: Function return values 2</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="python_functions_docstrings.html">3.4.4. Docstrings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_functions_type_annotations.html">3.4.5. Type annotations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_functions_positional_keywords.html">3.4.6. Positional and keyword arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_functions_default_values.html">3.4.7. Default values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_functions_default_values_exercise.html">3.4.8. Exercise: Function argument’s default values</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python_conditions.html">3.5. Conditions and booleans</a><input class="toctree-checkbox" id="toctree-checkbox-12" name="toctree-checkbox-12" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-12"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="python_conditions_boolean.html">3.5.1. Boolean and comparisons</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_conditions_if_elif_else.html">3.5.2. Conditional code</a><input class="toctree-checkbox" id="toctree-checkbox-13" name="toctree-checkbox-13" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-13"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_conditions_if_elif_else_exercise.html">3.5.2.1. Exercise: if/elif/else</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_conditions_logical_operators.html">3.5.3. Logical operators</a><input class="toctree-checkbox" id="toctree-checkbox-14" name="toctree-checkbox-14" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-14"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_conditions_logical_operators_exercise.html">3.5.3.1. Exercise: Logical operators</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python_lists.html">3.6. Lists and tuples</a><input class="toctree-checkbox" id="toctree-checkbox-15" name="toctree-checkbox-15" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-15"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="python_lists_creating.html">3.6.1. Creating lists and tuples</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_lists_indexing.html">3.6.2. Indexing a list</a><input class="toctree-checkbox" id="toctree-checkbox-16" name="toctree-checkbox-16" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-16"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_lists_indexing_exercise1.html">3.6.2.4. Exercise: Indexing lists 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python_lists_indexing_exercise2.html">3.6.2.5. Exercise: Indexing lists 2</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_lists_slicing.html">3.6.3. Slicing lists</a><input class="toctree-checkbox" id="toctree-checkbox-17" name="toctree-checkbox-17" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-17"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_lists_slicing_exercise1.html">3.6.3.4. Exercise: Slicing lists 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python_lists_slicing_exercise2.html">3.6.3.5. Exercise: Slicing lists 2</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="python_strings_slicing.html">3.6.4. Indexing and slicing strings</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_lists_modify.html">3.6.5. Modifying lists</a><input class="toctree-checkbox" id="toctree-checkbox-18" name="toctree-checkbox-18" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-18"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_lists_modify_exercise1.html">3.6.5.5. Exercise: Modifying lists 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python_lists_modify_exercise2.html">3.6.5.6. Exercise: Modifying lists 2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python_looping.html">3.7. Looping</a><input class="toctree-checkbox" id="toctree-checkbox-19" name="toctree-checkbox-19" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-19"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_while.html">3.7.1. Looping using <strong>while</strong></a><input class="toctree-checkbox" id="toctree-checkbox-20" name="toctree-checkbox-20" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-20"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_while_exercise1.html">3.7.1.1. Exercise: Looping using <strong>while</strong> 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python_while_exercise2.html">3.7.1.2. Exercise: Looping using <strong>while</strong> 2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python_while_exercise3.html">3.7.1.3. Exercise: Looping using <strong>while</strong> 3</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_for.html">3.7.2. Looping using <strong>for</strong></a><input class="toctree-checkbox" id="toctree-checkbox-21" name="toctree-checkbox-21" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-21"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_for_exercise.html">3.7.2.1. Exercise: Looping using <strong>for</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_for_range.html">3.7.3. Looping using <strong>for</strong> and <strong>range</strong></a><input class="toctree-checkbox" id="toctree-checkbox-22" name="toctree-checkbox-22" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-22"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_for_range_exercise1.html">3.7.3.1. Exercise: Looping using <strong>for</strong> and <strong>range</strong> 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python_for_range_exercise2.html">3.7.3.2. Exercise: Looping using <strong>for</strong> and <strong>range</strong> 2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python_for_range_exercise3.html">3.7.3.3. Exercise: Looping using <strong>for</strong> and <strong>range</strong> 3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python_for_range_exercise4.html">3.7.3.4. Exercise: Looping using <strong>for</strong> and <strong>range</strong> 4</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="python_for_writing_list.html">3.7.4. Modifying a list while looping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_for_enumerate.html">3.7.5. Looping a list using <strong>for</strong> and <strong>enumerate</strong></a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="python_dicts.html">3.8. Dictionaries</a><input class="toctree-checkbox" id="toctree-checkbox-23" name="toctree-checkbox-23" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-23"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_dicts_creating_accessing.html">3.8.1. Creating dictionaries and accessing/modifying entries</a><input class="toctree-checkbox" id="toctree-checkbox-24" name="toctree-checkbox-24" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-24"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_dicts_creating_accessing_exercise1.html">3.8.1.1. Exercise: Creating and accessing dictionaries 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python_dicts_creating_accessing_exercise2.html">3.8.1.2. Exercise: Creating and accessing dictionaries 2</a></li>
+<li class="toctree-l4"><a class="reference internal" href="python_dicts_creating_accessing_exercise3.html">3.8.1.3. Exercise: Creating and accessing dictionaries 3</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_dicts_modifying.html">3.8.2. Adding and removing entries</a><input class="toctree-checkbox" id="toctree-checkbox-25" name="toctree-checkbox-25" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-25"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_dicts_modifying_exercise.html">3.8.2.1. Exercise: Adding entries to dictionaries</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_dicts_looping.html">3.8.3. Looping through a dictionary’s entries</a><input class="toctree-checkbox" id="toctree-checkbox-26" name="toctree-checkbox-26" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-26"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_dicts_looping_exercise.html">3.8.3.1. Exercise: Looping through a dictionary</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="python_exercises.html">3.9. Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="matplotlib.html">4. Matplotlib</a><input class="toctree-checkbox" id="toctree-checkbox-27" name="toctree-checkbox-27" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-27"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="matplotlib_import.html">4.1. Importing <strong>pyplot</strong></a></li>
+<li class="toctree-l2"><a class="reference internal" href="matplotlib_plot.html">4.2. Line plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matplotlib_plot_multiple.html">4.3. Plotting multiple series</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="matplotlib_titles_labels.html">4.4. Title, axis labels, legend and grid</a><input class="toctree-checkbox" id="toctree-checkbox-28" name="toctree-checkbox-28" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-28"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="matplotlib_plot_titles_labels_exercise1.html">4.4.1. Exercise: Plotting a series 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="matplotlib_plot_titles_labels_exercise2.html">4.4.2. Exercise: Plotting a series 2</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="matplotlib_subplot.html">4.5. Multiple plots side by side</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="matplotlib_style.html">4.6. Markers, line style and colours</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="matplotlib_style_exercise.html">4.6.1. Exercise: Plot styling</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="matplotlib_axis.html">4.7. Setting axes limits</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="matplotlib_ginput.html">4.8. Graphical input</a><input class="toctree-checkbox" id="toctree-checkbox-30" name="toctree-checkbox-30" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-30"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="matplotlib_ginput_exercise.html">4.8.1. Exercise: Graphical input</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="matplotlib_exercises.html">4.9. Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="numpy.html">5. NumPy</a><input class="toctree-checkbox" id="toctree-checkbox-31" name="toctree-checkbox-31" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-31"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="numpy_import.html">5.1. Importing NumPy</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="numpy_ndarray.html">5.2. Arrays</a><input class="toctree-checkbox" id="toctree-checkbox-32" name="toctree-checkbox-32" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-32"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="numpy_ndarray_introduction.html">5.2.1. Introduction to arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numpy_ndarray_dimensions.html">5.2.2. Array dimensions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numpy_ndarray_creating_from_lists.html">5.2.3. Creating arrays from lists</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="numpy_ndarray_creating_zeros_ones.html">5.2.4. Creating arrays of zeros or ones</a><input class="toctree-checkbox" id="toctree-checkbox-33" name="toctree-checkbox-33" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-33"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="numpy_ndarray_creating_zeros_ones_exercise1.html">5.2.4.1. Exercise: Creating arrays using zeros and ones 1</a></li>
+<li class="toctree-l4"><a class="reference internal" href="numpy_ndarray_creating_zeros_ones_exercise2.html">5.2.4.2. Exercise: Creating arrays using zeros and ones 2</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="numpy_ndarray_creating_linspace.html">5.2.5. Creating linearly spaced arrays</a><input class="toctree-checkbox" id="toctree-checkbox-34" name="toctree-checkbox-34" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-34"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="numpy_ndarray_creating_linspace_exercise.html">5.2.5.1. Exercise: Creating linearly spaced arrays</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="numpy_arithmetics.html">5.3. Arithmetics</a><input class="toctree-checkbox" id="toctree-checkbox-35" name="toctree-checkbox-35" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-35"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="numpy_arithmetics_exercise.html">5.3.1. Exercise: Arithmetics</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="numpy_matmul.html">5.4. Matrix multiplication</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="numpy_trigonometry.html">5.5. Trigonometry</a><input class="toctree-checkbox" id="toctree-checkbox-36" name="toctree-checkbox-36" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-36"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="numpy_trigonometry_exercise1.html">5.5.1. Exercise: Trigonometry 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numpy_trigonometry_exercise2.html">5.5.2. Exercise: Trigonometry 2</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="numpy_inf_nan.html">5.6. Infinity and Not-A-Number (nan)</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="numpy_statistics.html">5.7. Statistical functions</a><input class="toctree-checkbox" id="toctree-checkbox-37" name="toctree-checkbox-37" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-37"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="numpy_statistics_exercise.html">5.7.1. Exercise: Statistics</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="numpy_comparisons.html">5.8. Comparisons</a><input class="toctree-checkbox" id="toctree-checkbox-38" name="toctree-checkbox-38" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-38"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="numpy_comparisons_exercise.html">5.8.1. Exercise: Comparisons</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="numpy_logical_operators.html">5.9. Logical operators</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="numpy_indexing_slicing_1d.html">5.10. Indexing and slicing unidimensional arrays</a><input class="toctree-checkbox" id="toctree-checkbox-39" name="toctree-checkbox-39" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-39"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_1d_exercise.html">5.10.1. Exercise: Indexing and slicing unidimensional arrays</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="numpy_filtering_1d.html">5.11. Filtering unidimensional arrays</a><input class="toctree-checkbox" id="toctree-checkbox-40" name="toctree-checkbox-40" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-40"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_filtering_1d_exercise1.html">5.11.1. Exercise: Indexing/slicing/filtering unidimensional arrays 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_filtering_1d_exercise2.html">5.11.2. Exercise: Indexing/slicing/filtering unidimensional arrays 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_filtering_1d_exercise3.html">5.11.3. Exercise: Indexing/slicing/filtering unidimensional arrays 3</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="numpy_nd.html">5.12. Multidimensional arrays</a><input class="toctree-checkbox" id="toctree-checkbox-41" name="toctree-checkbox-41" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-41"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_nd.html">5.12.1. Indexing multidimensional arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numpy_slicing_nd.html">5.12.2. Slicing multidimensional arrays</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="numpy_filtering_nd.html">5.12.3. Filtering multidimensional arrays</a><input class="toctree-checkbox" id="toctree-checkbox-42" name="toctree-checkbox-42" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-42"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="numpy_filtering_nd_exercise.html">5.12.3.1. Exercise: Filtering n-dimensional arrays</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="numpy_exercises.html">5.13. Exercises</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Part III. Going further with Kinetics Toolkit</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ktk_importing.html">6. Importing Kinetics Toolkit</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="timeseries.html">7. Analyzing time-varying data</a><input class="toctree-checkbox" id="toctree-checkbox-43" name="toctree-checkbox-43" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-43"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="timeseries_basics.html">7.1. The TimeSeries type</a><input class="toctree-checkbox" id="toctree-checkbox-44" name="toctree-checkbox-44" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-44"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="timeseries_basics_exercise.html">7.1.5. Exercise: Creating a TimeSeries</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="timeseries_manipulating.html">7.2. Manipulating TimeSeries</a><input class="toctree-checkbox" id="toctree-checkbox-45" name="toctree-checkbox-45" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-45"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="timeseries_data_management.html">7.2.1. Data management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="timeseries_time_management.html">7.2.2. Time management</a></li>
+<li class="toctree-l3"><a class="reference internal" href="timeseries_event_management.html">7.2.3. Event management</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="timeseries_indexing.html">7.2.4. Indexing TimeSeries</a><input class="toctree-checkbox" id="toctree-checkbox-46" name="toctree-checkbox-46" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-46"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="timeseries_indexing_exercise.html">7.2.4.1. Exercise: Indexing TimeSeries</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="timeseries_segmenting.html">7.2.5. Segmenting TimeSeries</a><input class="toctree-checkbox" id="toctree-checkbox-47" name="toctree-checkbox-47" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-47"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="timeseries_segmenting_exercise.html">7.2.5.4. Exercise: Segmenting TimeSeries</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="timeseries_missing_data.html">7.2.6. Missing data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="timeseries_copy.html">7.2.7. Copying a TimeSeries</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="filters.html">7.3. Filtering TimeSeries</a><input class="toctree-checkbox" id="toctree-checkbox-48" name="toctree-checkbox-48" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-48"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="filters_butter.html">7.3.1. Butterworth filter</a><input class="toctree-checkbox" id="toctree-checkbox-49" name="toctree-checkbox-49" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-49"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="filters_butter_exercise.html">7.3.1.4. Exercise: Filtering EMG data</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="filters_smooth_savgol.html">7.3.2. Moving average, Savitsky-Golay and deriving filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="filters_median.html">7.3.3. Removing artefacts using a median filter</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cycles.html">7.4. Working with cycles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="timeseries_exercises.html">7.5. Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="files.html">8. Reading and writing data files</a><input class="toctree-checkbox" id="toctree-checkbox-50" name="toctree-checkbox-50" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-50"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="files_read_c3d.html">8.1. Reading C3D files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files_write_c3d.html">8.2. Writing C3D files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files_read_csv.html">8.3. Reading CSV files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files_write_csv.html">8.4. Writing CSV files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="files_loadsave.html">8.5. Saving and loading ktk.zip files</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="geometry.html">9. 3D rigid body geometry</a><input class="toctree-checkbox" id="toctree-checkbox-51" name="toctree-checkbox-51" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-51"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_basics.html">9.1. Coordinates: points, vectors and frames</a><input class="toctree-checkbox" id="toctree-checkbox-52" name="toctree-checkbox-52" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-52"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="geometry_global_coordinates.html">9.1.1. Global coordinate system</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_points_vectors.html">9.1.2. Points and vectors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_local_coordinates.html">9.1.3. Local coordinate system</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="geometry_frames.html">9.1.4. Frames</a><input class="toctree-checkbox" id="toctree-checkbox-53" name="toctree-checkbox-53" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-53"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="geometry_basics_exercise.html">9.1.4.1. Exercise: Frame</a></li>
+</ul>
+</li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="geometry_dimension_conventions.html">9.1.5. Expressing series of points, vectors and frames in Kinetics Toolkit</a><input class="toctree-checkbox" id="toctree-checkbox-54" name="toctree-checkbox-54" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-54"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="geometry_dimension_conventions_exercise1.html">9.1.5.7. Exercise: Expressing a series of points</a></li>
+<li class="toctree-l4"><a class="reference internal" href="geometry_dimension_conventions_exercise2.html">9.1.5.8. Exercise: Expressing a constant vector</a></li>
+<li class="toctree-l4"><a class="reference internal" href="geometry_dimension_conventions_exercise3.html">9.1.5.9. Exercise: Expressing a series of frames</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_transform_moving_coordinates.html">9.2. Rotating and translating coordinates</a><input class="toctree-checkbox" id="toctree-checkbox-55" name="toctree-checkbox-55" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-55"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="geometry_transform_moving_points.html">9.2.1. Moving points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_transform_rotating_vectors.html">9.2.2. Rotating vectors</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="geometry_transform_moving_frames.html">9.2.3. Moving frames</a><input class="toctree-checkbox" id="toctree-checkbox-56" name="toctree-checkbox-56" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-56"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l4"><a class="reference internal" href="geometry_moving_coordinates_exercise1.html">9.2.3.3. Exercise: Moving a point</a></li>
+<li class="toctree-l4"><a class="reference internal" href="geometry_moving_coordinates_exercise2.html">9.2.3.4. Exercise: Moving a trajectory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="geometry_moving_coordinates_exercise3.html">9.2.3.5. Exercise: A fixed point in a moving coordinate system</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_transform_changing_coordinate_system.html">9.3. The homogeneous transform: mapping coordinates to other coordinate systems</a><input class="toctree-checkbox" id="toctree-checkbox-57" name="toctree-checkbox-57" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-57"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="geometry_transform_local_to_global_coordinates.html">9.3.1. Mapping local coordinates to global coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_transform_global_to_local_coordinates.html">9.3.2. Mapping global coordinates to local coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_transform_changing_coordinate_system_example.html">9.3.3. Local to global coordinates example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="geometry_kinematic_chains.html">9.4. Kinematic chains</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_angles.html">9.5. Extracting angles</a><input class="toctree-checkbox" id="toctree-checkbox-58" name="toctree-checkbox-58" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-58"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="geometry_2d_angles.html">9.5.1. 2D angles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_3d_angles.html">9.5.2. 3D angles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_3d_angles_ktk.html">9.5.3. Extracting 3D angles using Kinetics Toolkit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_3d_angles_choosing_seq.html">9.5.4. Choosing a rotation sequence</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="geometry_exercises.html">9.6. Exercices</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="player.html">10. Visualizing 3D points and frames</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-59" name="toctree-checkbox-59" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-59"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="player_basics.html">10.1. Player basics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player_interconnections.html">10.2. Interconnecting the points</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">10.3. Visualizing frames</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player_styling_exporting.html">10.4. Styling and exporting</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="kinematics.html">11. Kinematic analysis</a><input class="toctree-checkbox" id="toctree-checkbox-60" name="toctree-checkbox-60" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-60"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="kinematics_joint_angles.html">11.1. Calculating joint angles from a kinematic acquisition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kinematics_reconstructing_occluded_markers.html">11.2. Reconstructing occluded markers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kinematics_reconstructing_removed_markers.html">11.3. Reconstructing removed markers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kinematics_reconstructing_probed_points.html">11.4. Reconstructing probed points</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Appendix</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="datasets.html">Datasets</a><input class="toctree-checkbox" id="toctree-checkbox-61" name="toctree-checkbox-61" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-61"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="dataset_kinematics_tennis_serve.html">Tennis serve kinematics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataset_kinetics_wheelchair_propulsion.html">Wheelchair propulsion kinetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataset_emg.html">Electromyography</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ktk_citing.html">Citing</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="dev_contributors.html">Contributors</a><input class="toctree-checkbox" id="toctree-checkbox-62" name="toctree-checkbox-62" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-62"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="dev_extensions.html">Developing extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev_rules.html">Development rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev_code_of_conduct.html">Code of conduct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev_installing_from_github.html">Installing from GitHub</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dev_coding_style.html">Coding style</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">API Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="ktk_conventions.html">Conventions</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="api_classes.html">Classes</a><input class="toctree-checkbox" id="toctree-checkbox-63" name="toctree-checkbox-63" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-63"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.TimeSeries.html">ktk.TimeSeries</a><input class="toctree-checkbox" id="toctree-checkbox-64" name="toctree-checkbox-64" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-64"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.add_data.html">ktk.TimeSeries.add_data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.add_data_info.html">ktk.TimeSeries.add_data_info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.add_event.html">ktk.TimeSeries.add_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.copy.html">ktk.TimeSeries.copy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.count_events.html">ktk.TimeSeries.count_events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.fill_missing_samples.html">ktk.TimeSeries.fill_missing_samples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.from_array.html">ktk.TimeSeries.from_array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.from_dataframe.html">ktk.TimeSeries.from_dataframe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_event_index.html">ktk.TimeSeries.get_event_index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_event_time.html">ktk.TimeSeries.get_event_time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_index_after_event.html">ktk.TimeSeries.get_index_after_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_index_after_time.html">ktk.TimeSeries.get_index_after_time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_index_at_event.html">ktk.TimeSeries.get_index_at_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_index_at_time.html">ktk.TimeSeries.get_index_at_time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_index_before_event.html">ktk.TimeSeries.get_index_before_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_index_before_time.html">ktk.TimeSeries.get_index_before_time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_sample_rate.html">ktk.TimeSeries.get_sample_rate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_subset.html">ktk.TimeSeries.get_subset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_after_event.html">ktk.TimeSeries.get_ts_after_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_after_index.html">ktk.TimeSeries.get_ts_after_index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_after_time.html">ktk.TimeSeries.get_ts_after_time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_at_event.html">ktk.TimeSeries.get_ts_at_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_at_time.html">ktk.TimeSeries.get_ts_at_time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_before_event.html">ktk.TimeSeries.get_ts_before_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_before_index.html">ktk.TimeSeries.get_ts_before_index</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_before_time.html">ktk.TimeSeries.get_ts_before_time</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_between_events.html">ktk.TimeSeries.get_ts_between_events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_between_indexes.html">ktk.TimeSeries.get_ts_between_indexes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_between_times.html">ktk.TimeSeries.get_ts_between_times</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.isnan.html">ktk.TimeSeries.isnan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.merge.html">ktk.TimeSeries.merge</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.plot.html">ktk.TimeSeries.plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.remove_data.html">ktk.TimeSeries.remove_data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.remove_data_info.html">ktk.TimeSeries.remove_data_info</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.remove_duplicate_events.html">ktk.TimeSeries.remove_duplicate_events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.remove_event.html">ktk.TimeSeries.remove_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.rename_data.html">ktk.TimeSeries.rename_data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.rename_event.html">ktk.TimeSeries.rename_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.resample.html">ktk.TimeSeries.resample</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.shift.html">ktk.TimeSeries.shift</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.sort_events.html">ktk.TimeSeries.sort_events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.sync_event.html">ktk.TimeSeries.sync_event</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.to_dataframe.html">ktk.TimeSeries.to_dataframe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.trim_events.html">ktk.TimeSeries.trim_events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.ui_edit_events.html">ktk.TimeSeries.ui_edit_events</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.ui_get_ts_between_clicks.html">ktk.TimeSeries.ui_get_ts_between_clicks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.ui_sync.html">ktk.TimeSeries.ui_sync</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="api/ktk.TimeSeriesEvent.html">ktk.TimeSeriesEvent</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.Player.html">ktk.Player</a><input class="toctree-checkbox" id="toctree-checkbox-65" name="toctree-checkbox-65" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-65"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.Player.close.html">ktk.Player.close</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.Player.get_contents.html">ktk.Player.get_contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.Player.get_interconnections.html">ktk.Player.get_interconnections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.Player.pause.html">ktk.Player.pause</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.Player.play.html">ktk.Player.play</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.Player.set_contents.html">ktk.Player.set_contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.Player.set_interconnections.html">ktk.Player.set_interconnections</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.Player.set_view.html">ktk.Player.set_view</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.Player.to_image.html">ktk.Player.to_image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.Player.to_video.html">ktk.Player.to_video</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="api_functions.html">Functions</a><input class="toctree-checkbox" id="toctree-checkbox-66" name="toctree-checkbox-66" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-66"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="api/ktk.import_extensions.html">ktk.import_extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/ktk.load.html">ktk.load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/ktk.save.html">ktk.save</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/ktk.read_c3d.html">ktk.read_c3d</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/ktk.write_c3d.html">ktk.write_c3d</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/ktk.change_defaults.html">ktk.change_defaults</a></li>
+</ul>
+</li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="api_modules.html">Modules</a><input class="toctree-checkbox" id="toctree-checkbox-67" name="toctree-checkbox-67" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-67"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.cycles.html">ktk.cycles</a><input class="toctree-checkbox" id="toctree-checkbox-68" name="toctree-checkbox-68" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-68"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.cycles.detect_cycles.html">ktk.cycles.detect_cycles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.cycles.most_repeatable_cycles.html">ktk.cycles.most_repeatable_cycles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.cycles.stack.html">ktk.cycles.stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.cycles.time_normalize.html">ktk.cycles.time_normalize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.cycles.unstack.html">ktk.cycles.unstack</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.doc.html">ktk.doc</a><input class="toctree-checkbox" id="toctree-checkbox-69" name="toctree-checkbox-69" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-69"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.doc.download.html">ktk.doc.download</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.filters.html">ktk.filters</a><input class="toctree-checkbox" id="toctree-checkbox-70" name="toctree-checkbox-70" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-70"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.filters.butter.html">ktk.filters.butter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.filters.deriv.html">ktk.filters.deriv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.filters.median.html">ktk.filters.median</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.filters.savgol.html">ktk.filters.savgol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.filters.smooth.html">ktk.filters.smooth</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.geometry.html">ktk.geometry</a><input class="toctree-checkbox" id="toctree-checkbox-71" name="toctree-checkbox-71" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-71"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_frames.html">ktk.geometry.create_frames</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_transforms.html">ktk.geometry.create_transforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_angles.html">ktk.geometry.get_angles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_global_coordinates.html">ktk.geometry.get_global_coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_local_coordinates.html">ktk.geometry.get_local_coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.isnan.html">ktk.geometry.isnan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.matmul.html">ktk.geometry.matmul</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.register_points.html">ktk.geometry.register_points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.rotate.html">ktk.geometry.rotate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.scale.html">ktk.geometry.scale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.translate.html">ktk.geometry.translate</a></li>
+</ul>
+</li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.kinematics.html">ktk.kinematics</a><input class="toctree-checkbox" id="toctree-checkbox-72" name="toctree-checkbox-72" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-72"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.kinematics.create_cluster.html">ktk.kinematics.create_cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.kinematics.extend_cluster.html">ktk.kinematics.extend_cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.kinematics.track_cluster.html">ktk.kinematics.track_cluster</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extensions.html">Extensions</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit">GitHub repository</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/player_frames.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch nav-link" data-mode="light"><i class="fa-solid fa-sun fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="dark"><i class="fa-solid fa-moon fa-lg"></i></span>
+    <span class="theme-switch nav-link" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Visualizing frames</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="visualizing-frames">
+<h1><span class="section-number">10.3. </span>Visualizing frames<a class="headerlink" href="#visualizing-frames" title="Permalink to this heading">#</a></h1>
+<p>In the last sections, we only visualized points. The Player can also draw <a class="reference internal" href="geometry_frames.html"><span class="std std-doc">frames</span></a>, expressed as TimeSeries data with a shape of (N, 4, 4). For instance, let’s create two series of frames that revolve around the x and z axes:</p>
+<div class="cell tag_remove-output docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">kineticstoolkit.lab</span> <span class="k">as</span> <span class="nn">ktk</span>
+
+<span class="c1"># Create a TimeSeries with two rotating frames</span>
+<span class="n">frames</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">TimeSeries</span><span class="p">(</span><span class="n">time</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
+
+<span class="n">frames</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;RotationAroundX&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">create_transforms</span><span class="p">(</span>
+    <span class="n">angles</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+    <span class="n">translations</span><span class="o">=</span><span class="p">[[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">]],</span>
+    <span class="n">seq</span><span class="o">=</span><span class="s2">&quot;x&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">frames</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;RotationAroundZ&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">create_transforms</span><span class="p">(</span>
+    <span class="n">angles</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+    <span class="n">translations</span><span class="o">=</span><span class="p">[[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">]],</span>
+    <span class="n">seq</span><span class="o">=</span><span class="s2">&quot;z&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Show these frames in the Player</span>
+<span class="n">p</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">Player</span><span class="p">(</span><span class="n">frames</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><video controls loop autoplay  >
+ <source src="data:video/mp4;base64,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" type="video/mp4">
+ Your browser does not support the video tag.
+ </video></div></div>
+</div>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="player_interconnections.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><span class="section-number">10.2. </span>Interconnecting the points</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="player_styling_exporting.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><span class="section-number">10.4. </span>Styling and exporting</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Félix Chénier
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2020-2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+<div class="extra_footer">
+  This website is built using <a href='https://jupyterbook.org'>jupyter-book</a>.
+</div>
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
