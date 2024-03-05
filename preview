@@ -6,6 +6,7 @@ cp src/"$1".md preview_src/index.md
 cd preview_src
 ln -s ../src/_static
 cd ..
+rm -fR preview_src/_build
 jupyter-book build preview_src
 open preview_src/_build/html/index.html
 
