@@ -48,20 +48,16 @@ These are the bilateral kinematics of four tennis serves, sampled at 50 Hz. The 
 - `kinematics_tennis_serve.c3d`: Labelled markers, no events, no forces, no analog signals
 
 ```{code-cell} ipython3
-:tags: [remove_output]
+:tags: [remove-input]
 
 import kineticstoolkit.lab as ktk
+ktk.config.interactive_backend_warning = False
 
 filename = ktk.doc.download("kinematics_tennis_serve.c3d")
 markers = ktk.read_c3d(filename)["Points"]
-player = ktk.Player(markers, up="z", anterior="-y")
-```
-
-```{code-cell} ipython3
-:tags: [remove-input]
-
 player = ktk.Player(markers.get_ts_between_times(2, 5), up="z", anterior="-y")
-player._to_animation()
+display(player._to_animation())
+player.close()
 ```
 
 - `kinematics_tennis_serve_nan.c3d`: Same as `kinematics_tennis_serve.c3d`, with simulated missing samples on Derrick:RSHO.
@@ -108,16 +104,10 @@ markers.plot("Derrick:RSHO")
 | Viktor:STRN  | Sternum                             | Viktor:CLAV  | Interclavicular space                |
 
 ```{code-cell} ipython3
-:tags: [remove_output]
-
+:tags: [remove-input]
 filename = ktk.doc.download("kinematics_tennis_serve_2players.c3d")
 markers = ktk.read_c3d(filename)["Points"]
-player = ktk.Player(markers, up="z", anterior="-y")
-```
-
-```{code-cell} ipython3
-:tags: [remove-input]
-
 player = ktk.Player(markers.get_ts_between_times(2, 5), up="z", anterior="-y")
-player._to_animation()
+display(player._to_animation())
+player.close()
 ```
