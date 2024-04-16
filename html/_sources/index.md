@@ -15,11 +15,7 @@
 
 *An Open-Source Python Package to Facilitate Research in Biomechanics*
 
-
-<video controls loop muted autoplay>  
-  <source src="_static/images/player.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
+![](_static/images/frontpage.gif)
 
 
 Kinetics Toolkit is an open-source Python package to facilitate research in biomechanics. It provides tools for:

@@ -804,10 +804,7 @@ document.write(`
 </div>
 </aside>
 <p><em>An Open-Source Python Package to Facilitate Research in Biomechanics</em></p>
-<video controls loop muted autoplay>  
-  <source src="_static/images/player.mp4" type="video/mp4">
-Your browser does not support the video tag.
-</video>
+<p><img alt="" src="_images/frontpage.gif" /></p>
 <p>Kinetics Toolkit is an open-source Python package to facilitate research in biomechanics. It provides tools for:</p>
 <ul class="simple">
 <li><p><a class="reference internal" href="timeseries.html"><span class="std std-doc">Analyzing timeseries</span></a>, including <a class="reference internal" href="timeseries_data_management.html"><span class="std std-doc">data</span></a>, <a class="reference internal" href="timeseries_time_management.html"><span class="std std-doc">time</span></a> and <a class="reference internal" href="timeseries_event_management.html"><span class="std std-doc">event</span></a> management, <a class="reference internal" href="filters.html"><span class="std std-doc">time-domain and frequency-domain noise filtering</span></a>, and <a class="reference internal" href="cycles.html"><span class="std std-doc">cycle management</span></a>;</p></li>
