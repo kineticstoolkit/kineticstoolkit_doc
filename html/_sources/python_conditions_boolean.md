@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.0
+    jupytext_version: 1.14.5
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -23,60 +23,74 @@ Comparisons are performed using the operators `==`, `!=`, `>=`, `>`, `<=` and `<
 
 ::::{grid}
 :::{grid-item-card} Equal
-:columns: 4
+:columns: 6
 ```
 10 == 5
 ```
-++++
+
++++
+
 False
 :::
-:::{grid-item-card} Greater or equal
-:columns: 4
+:::{grid-item-card} Unequal
+:columns: 6
 ```
-10 >= 5
+10 != 5
 ```
-++++
-True
-:::
-:::{grid-item-card} Strictly greater
-:columns: 4
-```
-10 > 5
-```
-++++
+
++++
+
 True
 :::
 ::::
 ::::{grid}
-:::{grid-item-card} Unequal
-:columns: 4
-```
-10 != 5
-```
-++++
-True
-:::
 :::{grid-item-card} Lower or equal
-:columns: 4
+:columns: 6
 ```
 10 <= 5
 ```
-++++
+
++++
+
 False
 :::
+:::{grid-item-card} Greater or equal
+:columns: 6
+```
+10 >= 5
+```
+
++++
+
+True
+:::
+::::
+::::{grid}
 :::{grid-item-card} Strictly lower
-:columns: 4
+:columns: 6
 ```
 10 < 5
 ```
-++++
+
++++
+
 False
+:::
+:::{grid-item-card} Strictly greater
+:columns: 6
+```
+10 > 5
+```
+
++++
+
+True
 :::
 ::::
 
 Obviously, comparing a constant with another constant has little sense. However, comparing variables with constants, or variables with other variables, is very common:
 
-```{code-cell}
+```{code-cell} ipython3
 WORLD_RECORD = 240
 my_score = 236
 

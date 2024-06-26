@@ -2,12 +2,19 @@
 
 Each dimension of a NumPy array has a corresponding axis, which allows addressing any value in the array:
 
+
+
+**One dimension**
+
 ::::{grid}
-:::{grid-item-card} One-dimension
-:columns: 3
+:::{grid-item}
+:columns: 5
 
 ![](_static/images/fig_array_1d.png)
-+++
+:::
+:::{grid-item}
+:columns: 7
+
 Every value is accessed exactly like a list:
 
 - 1st value: `the_array[0]`
@@ -15,10 +22,19 @@ Every value is accessed exactly like a list:
 - etc.
 
 :::
-:::{grid-item-card} Two dimensions
-:columns: 4
+::::
+
+**Two dimensions**
+
+::::{grid}
+:::{grid-item}
+:columns: 5
 ![](_static/images/fig_array_2d.png)
-+++
+:::
+
+:::{grid-item}
+:columns: 7
+
 Every value is accessed using two coordinates. For a matrix, these coordinates are:
 
 1. the line
@@ -30,10 +46,18 @@ For example:
 - 2nd line, 3rd column: `the_array[1, 2]`
 - etc.
 :::
-:::{grid-item-card} Three dimensions
+::::
+
+**Three dimensions**
+
+::::{grid}
+:::{grid-item}
 :columns: 5
-![](_static/images/array_3d.png)
-+++
+![](_static/images/fig_array_3d.png)
+:::
+:::{grid-item}
+:columns: 7
+
 Every value is accessed using three coordinates. For a series of matrices, these coordinates are:
 
 1. the matrix
@@ -50,21 +74,42 @@ For example:
 
 The **shape** of an array is its size on each of its dimensions. We get this information using its {{ndarray_shape}} property. For instance, the shape of these arrays would be:
 
+**One dimension**
+
 ::::{grid}
-:::{grid-item-card} shape = `(4,)`
-:columns: 3
-![](_static/images/fig_array_1d.png)
-
-:::
-:::{grid-item-card} shape = `(3, 4)`
-:columns: 4
-![](_static/images/fig_array_2d.png)
-
-:::
-:::{grid-item-card} shape = `(3, 3, 4)`
+:::{grid-item}
 :columns: 5
-![](_static/images/array_3d.png)
+![](_static/images/fig_array_1d.png)
+:::
+:::{grid-item}
+:columns: 7
+shape = `(4,)`
+:::
+::::
 
+**Two dimensions**
+
+::::{grid}
+:::{grid-item}
+:columns: 5
+![](_static/images/fig_array_2d.png)
+:::
+:::{grid-item}
+:columns: 7
+shape = `(3, 4)`
+:::
+::::
+
+**Three dimensions**
+
+::::{grid}
+:::{grid-item}
+:columns: 5
+![](_static/images/fig_array_3d.png)
+:::
+:::{grid-item}
+:columns: 7
+shape = `(3, 3, 4)`
 :::
 ::::
 

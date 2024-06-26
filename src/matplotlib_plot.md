@@ -43,46 +43,14 @@ You should normally see the plot in a new window, as shown in {numref}`fig_matpl
 
 The different buttons on the figure allow some interaction with the plot:
 
-::::{grid}
-:::{grid-item-card}
-:columns: 4
-![](_static/images/matplotlib_move.png)
-
-Move the figure around (panning)
-:::
-:::{grid-item-card}
-:columns: 4
-![](_static/images/matplotlib_zoom_to_rect.png)
-
-Zoom
-:::
-:::{grid-item-card}
-:columns: 4
-![](_static/images/matplotlib_back.png)
-
-Undo the last pan/zoom operation
-:::
-::::
-::::{grid}
-:::{grid-item-card}
-:columns: 4
-![](_static/images/matplotlib_forward.png)
-
-Redo the last pan/zoom operation
-:::
-:::{grid-item-card}
-:columns: 4
-![](_static/images/matplotlib_home.png)
-
-Reset to the initial pan/zoom
-:::
-:::{grid-item-card}
-:columns: 4
-![](_static/images/matplotlib_filesave.png)
-
-Save the figure to an image file.
-:::
-::::
+|                      Icon                       | Function                         |
+| :---------------------------------------------: | -------------------------------- |
+|     ![](_static/images/matplotlib_move.png)     | Move the figure around (panning) |
+| ![](_static/images/matplotlib_zoom_to_rect.png) | Zoom                             |
+|     ![](_static/images/matplotlib_back.png)     | Undo the last pan/zoom operation |
+|   ![](_static/images/matplotlib_forward.png)    | Redo the last pan/zoom operation |
+|     ![](_static/images/matplotlib_home.png)     | Reset to the initial pan/zoom    |
+|   ![](_static/images/matplotlib_filesave.png)   | Save the figure to an image file |
 
 By default, `x` starts at 0 and increments by 1 for each point. But we can also specify custom coordinates for `x`:
 

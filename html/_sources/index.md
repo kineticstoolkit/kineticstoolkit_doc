@@ -1,19 +1,23 @@
 # Kinetics Toolkit
 
+*An Open-Source Python Package to Facilitate Research in Biomechanics*
+
 ```{margin}
-<div style="max-height:1500px;">
-<h3 style="margin:0px">
-<a href="https://github.com/felixchenier/kineticstoolkit/discussions">Announcements <img src="_static/images/github-logo.png" alt="Follow on GitHub" width="20px"></a>
-<a href="https://kineticstoolkit.uqam.ca/announcements.atom"><img src="_static/images/rss-icon.png" alt="Subscribe to RSS/Atom Feed" width="20px"></a>
-</h3>
+<img src="_static/images/github-logo.png" alt="Follow on GitHub" width="20px"/>
 
-<?php include("/home/kinetics/public_html/rss/rss.php");?>
+<a href="https://github.com/orgs/kineticstoolkit/discussions/categories/announcements">
+Follow on GitHub
+</a>
 
-<link rel="alternate" type="application/rss+html" title="Subscribe to Kinetics Toolkit Announcements" href="https://github.com/felixchenier/kineticstoolkit/discussions/categories/announcements.atom" />
-</div>
+<br/>
+
+<img src="_static/images/rss-icon.png" alt="Subscribe to RSS/Atom Feed" width="20px"/>
+
+<a href="https://kineticstoolkit.uqam.ca/announcements.atom">
+RSS/Atom
+</a>
 ```
 
-*An Open-Source Python Package to Facilitate Research in Biomechanics*
 
 ![](_static/images/frontpage.gif)
 

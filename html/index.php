@@ -12,10 +12,10 @@
 <meta property="og:type" content="image/png" />
 <meta property="og:url" content="https://kineticstoolkit.uqam.ca/doc/index.html" />
 <meta property="og:site_name" content="Kinetics Toolkit" />
-<meta property="og:description" content=": An Open-Source Python Package to Facilitate Research in Biomechanics Kinetics Toolkit is an open-source Python package to facilitate research in biomechanics. It provides tools for: Analyzing tim..." />
+<meta property="og:description" content="An Open-Source Python Package to Facilitate Research in Biomechanics: Follow on GitHub Subscribe to RSS/Atom Feed Kinetics Toolkit is an open-source Python package to facilitate research in biomech..." />
 <meta property="og:image" content="https://kineticstoolkit.uqam.ca/doc/_static/logo-social.png" />
 <meta property="og:image:alt" content="Kinetics Toolkit Logo" />
-<meta name="description" content=": An Open-Source Python Package to Facilitate Research in Biomechanics Kinetics Toolkit is an open-source Python package to facilitate research in biomechanics. It provides tools for: Analyzing tim..." />
+<meta name="description" content="An Open-Source Python Package to Facilitate Research in Biomechanics: Follow on GitHub Subscribe to RSS/Atom Feed Kinetics Toolkit is an open-source Python package to facilitate research in biomech..." />
 <meta property='og:image:width' content=500 />
 <meta property='og:image:height' content=264 />
 
@@ -323,8 +323,8 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="matplotlib_subplot.html">4.5. Multiple plots side by side</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="matplotlib_style.html">4.6. Markers, line style and colours</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="matplotlib_style_exercise.html">4.6.1. Exercise: Plot styling</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="matplotlib_style.html">4.6. Markers, line style and colour</a><input class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="matplotlib_style_exercise.html">4.6.4. Exercise: Plot styling</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="matplotlib_axis.html">4.7. Setting axes limits</a></li>
@@ -792,18 +792,19 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="kinetics-toolkit">
 <h1>Kinetics Toolkit<a class="headerlink" href="#kinetics-toolkit" title="Permalink to this heading">#</a></h1>
+<p><em>An Open-Source Python Package to Facilitate Research in Biomechanics</em></p>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
-<div style="max-height:1500px;">
-<h3 style="margin:0px">
-<a href="https://github.com/felixchenier/kineticstoolkit/discussions">Announcements <img src="_static/images/github-logo.png" alt="Follow on GitHub" width="20px"></a>
-<a href="https://kineticstoolkit.uqam.ca/announcements.atom"><img src="_static/images/rss-icon.png" alt="Subscribe to RSS/Atom Feed" width="20px"></a>
-</h3>
-<?php include("/home/kinetics/public_html/rss/rss.php");?>
-<link rel="alternate" type="application/rss+html" title="Subscribe to Kinetics Toolkit Announcements" href="https://github.com/felixchenier/kineticstoolkit/discussions/categories/announcements.atom" />
-</div>
+<a class="reference internal image-reference" href="_images/github-logo.png"><img alt="Follow on GitHub" src="_images/github-logo.png" style="width: 20px;" /></a>
+<a href="https://github.com/orgs/kineticstoolkit/discussions/categories/announcements">
+Follow on GitHub
+</a>
+<br/>
+<a class="reference internal image-reference" href="_images/rss-icon.png"><img alt="Subscribe to RSS/Atom Feed" src="_images/rss-icon.png" style="width: 20px;" /></a>
+<a href="https://kineticstoolkit.uqam.ca/announcements.atom">
+RSS/Atom
+</a>
 </aside>
-<p><em>An Open-Source Python Package to Facilitate Research in Biomechanics</em></p>
 <p><img alt="" src="_images/frontpage.gif" /></p>
 <p>Kinetics Toolkit is an open-source Python package to facilitate research in biomechanics. It provides tools for:</p>
 <ul class="simple">

@@ -11,13 +11,19 @@ Matplotlib logo
 
 Matplotlib can generate a high diversity of plots. Here are different examples that are relevant to biomechanics, reproduced from the {{matplotlib}} website:
 
-|              {{plt_plot}}               |              {{plt_scatter}}               |              {{plt_fill_between}}               | 
-|:---------------------------------------:|:------------------------------------------:|:-----------------------------------------------:|
-| ![](_static/images/matplotlib_plot.jpg) | ![](_static/images/matplotlib_scatter.jpg) | ![](_static/images/matplotlib_fill_between.jpg) |
 
-|              {{plt_imshow}}               |              {{plt_errorbar}}               |              {{plt_bar}}               | 
-|:-----------------------------------------:|:-------------------------------------------:|:--------------------------------------:|
-| ![](_static/images/matplotlib_imshow.jpg) | ![](_static/images/matplotlib_errorbar.jpg) | ![](_static/images/matplotlib_bar.jpg) |
+
+|              {{plt_plot}}               |              {{plt_scatter}}               | 
+|:---------------------------------------:|:------------------------------------------:|
+| ![](_static/images/matplotlib_plot.jpg) | ![](_static/images/matplotlib_scatter.jpg) |
+
+|              {{plt_fill_between}}               |              {{plt_imshow}}               |
+|:-----------------------------------------------:|:-----------------------------------------:|
+| ![](_static/images/matplotlib_fill_between.jpg) | ![](_static/images/matplotlib_imshow.jpg) |
+
+|              {{plt_errorbar}}               |              {{plt_bar}}               | 
+|:-------------------------------------------:|:--------------------------------------:|
+| ![](_static/images/matplotlib_errorbar.jpg) | ![](_static/images/matplotlib_bar.jpg) |
 
 This chapter focuses uniquely on line plots using {{plt_plot}}. However, after learning this type of plot and [](numpy.md), any other type of plot will become relatively easy to draw just by reading their documentation.
 

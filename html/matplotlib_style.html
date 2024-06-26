@@ -8,18 +8,18 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
-<meta property="og:title" content="4.6. Markers, line style and colours" />
+<meta property="og:title" content="4.6. Markers, line style and colour" />
 <meta property="og:type" content="image/png" />
 <meta property="og:url" content="https://kineticstoolkit.uqam.ca/doc/matplotlib_style.html" />
 <meta property="og:site_name" content="Kinetics Toolkit" />
-<meta property="og:description" content="The optional, third argument fmt of the plt.plot function defines optional markers, line styles and line colours. This argument is a string composed of these characters: Marker. dot, o round, x cro..." />
+<meta property="og:description" content="The optional, third argument fmt of the plt.plot function defines optional markers, line styles and line colours. This argument is a string composed of these characters: Marker:. dot, o round, x cr..." />
 <meta property="og:image" content="https://kineticstoolkit.uqam.ca/doc/_static/logo-social.png" />
 <meta property="og:image:alt" content="Kinetics Toolkit Logo" />
-<meta name="description" content="The optional, third argument fmt of the plt.plot function defines optional markers, line styles and line colours. This argument is a string composed of these characters: Marker. dot, o round, x cro..." />
+<meta name="description" content="The optional, third argument fmt of the plt.plot function defines optional markers, line styles and line colours. This argument is a string composed of these characters: Marker:. dot, o round, x cr..." />
 <meta property='og:image:width' content=500 />
 <meta property='og:image:height' content=264 />
 
-    <title>4.6. Markers, line style and colours &#8212; Biomechanical Analysis using Python and Kinetics Toolkit</title>
+    <title>4.6. Markers, line style and colour &#8212; Biomechanical Analysis using Python and Kinetics Toolkit</title>
   
   
   
@@ -74,7 +74,7 @@
     <link rel="shortcut icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="4.6.1. Exercise: Plot styling" href="matplotlib_style_exercise.html" />
+    <link rel="next" title="4.6.4. Exercise: Plot styling" href="matplotlib_style_exercise.html" />
     <link rel="prev" title="4.5. Multiple plots side by side" href="matplotlib_subplot.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -324,8 +324,8 @@
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="matplotlib_subplot.html">4.5. Multiple plots side by side</a></li>
-<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">4.6. Markers, line style and colours</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul>
-<li class="toctree-l3"><a class="reference internal" href="matplotlib_style_exercise.html">4.6.1. Exercise: Plot styling</a></li>
+<li class="toctree-l2 current active has-children"><a class="current reference internal" href="#">4.6. Markers, line style and colour</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-29" name="toctree-checkbox-29" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-29"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l3"><a class="reference internal" href="matplotlib_style_exercise.html">4.6.4. Exercise: Plot styling</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="matplotlib_axis.html">4.7. Setting axes limits</a></li>
@@ -766,7 +766,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -777,11 +779,21 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Markers, line style and colours</h1>
+    <h1>Markers, line style and colour</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#marker">4.6.1. Marker</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#line-style">4.6.2. Line style</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#colour">4.6.3. Colour</a></li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -791,65 +803,45 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="markers-line-style-and-colours">
-<h1><span class="section-number">4.6. </span>Markers, line style and colours<a class="headerlink" href="#markers-line-style-and-colours" title="Permalink to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="markers-line-style-and-colour">
+<h1><span class="section-number">4.6. </span>Markers, line style and colour<a class="headerlink" href="#markers-line-style-and-colour" title="Permalink to this heading">#</a></h1>
 <p>The optional, third argument <code class="docutils literal notranslate"><span class="pre">fmt</span></code> of the <a class="reference external" href="https://matplotlib.org/stable/api/_as_gen/matplotlib.pyplot.plot.html">plt.plot</a> function defines optional markers, line styles and line colours. This argument is a string composed of these characters:</p>
-<div class="sd-container-fluid sd-sphinx-override sd-mb-4 docutils">
-<div class="sd-row docutils">
-<div class="sd-col sd-d-flex-row sd-col-4 sd-col-xs-4 sd-col-sm-4 sd-col-md-4 sd-col-lg-4 docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Marker</div>
+<section id="marker">
+<h2><span class="section-number">4.6.1. </span>Marker<a class="headerlink" href="#marker" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">.</span></code> dot</p></li>
-<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">o</span></code> round</p></li>
-<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">x</span></code> cross (x)</p></li>
-<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">+</span></code> cross (+)</p></li>
-<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">^</span></code> triangle</p></li>
-<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">d</span></code> diamond</p></li>
-<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">s</span></code> square</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">.</span></code> dot</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">o</span></code> round</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">x</span></code> cross (x)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">+</span></code> cross (+)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">^</span></code> triangle</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">d</span></code> diamond</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">s</span></code> square</p></li>
 </ul>
-<p class="sd-card-text">By default, no marker is plotted.</p>
-</div>
-</div>
-</div>
-<div class="sd-col sd-d-flex-row sd-col-4 sd-col-xs-4 sd-col-sm-4 sd-col-md-4 sd-col-lg-4 docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Line style</div>
+<p>By default, no marker is plotted.</p>
+</section>
+<section id="line-style">
+<h2><span class="section-number">4.6.2. </span>Line style<a class="headerlink" href="#line-style" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">-</span></code> full line</p></li>
-<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">--</span></code> dashed line</p></li>
-<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">-.</span></code> dash-dotted line</p></li>
-<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">:</span></code> dotted line</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-</span></code> full line</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--</span></code> dashed line</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">-.</span></code> dash-dotted line</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">:</span></code> dotted line</p></li>
 </ul>
-<p class="sd-card-text">Default is a full line, unless a marker has been set, in which case the default is no line.</p>
-</div>
-</div>
-</div>
-<div class="sd-col sd-d-flex-row sd-col-4 sd-col-xs-4 sd-col-sm-4 sd-col-md-4 sd-col-lg-4 docutils">
-<div class="sd-card sd-sphinx-override sd-w-100 sd-shadow-sm docutils">
-<div class="sd-card-body docutils">
-<div class="sd-card-title sd-font-weight-bold docutils">
-Colour</div>
+<p>Default is a full line, unless a marker has been set, in which case the default is no line.</p>
+</section>
+<section id="colour">
+<h2><span class="section-number">4.6.3. </span>Colour<a class="headerlink" href="#colour" title="Permalink to this heading">#</a></h2>
 <ul class="simple">
-<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">r</span></code> red</p></li>
-<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">g</span></code> green</p></li>
-<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">b</span></code> blue</p></li>
-<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">c</span></code> cyan</p></li>
-<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">m</span></code> magenta</p></li>
-<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">y</span></code> dark yellow</p></li>
-<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">w</span></code> white</p></li>
-<li><p class="sd-card-text"><code class="docutils literal notranslate"><span class="pre">k</span></code> black</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">r</span></code> red</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">g</span></code> green</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">b</span></code> blue</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">c</span></code> cyan</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">m</span></code> magenta</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">y</span></code> dark yellow</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">w</span></code> white</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">k</span></code> black</p></li>
 </ul>
-<p class="sd-card-text">Default is the next colour in the current colour cycle.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
+<p>Default is the next colour in the current colour cycle.</p>
 <p>Here are some examples:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -881,6 +873,7 @@ Colour</div>
 <img alt="_images/d2e41dea8111b621d67df876c89f80340e075a0ce808df2b71804eca08e6975d.png" src="_images/d2e41dea8111b621d67df876c89f80340e075a0ce808df2b71804eca08e6975d.png" />
 </div>
 </div>
+</section>
 <div class="toctree-wrapper compound">
 </div>
 </section>
@@ -929,7 +922,7 @@ Colour</div>
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">4.6.1. </span>Exercise: Plot styling</p>
+        <p class="prev-next-title"><span class="section-number">4.6.4. </span>Exercise: Plot styling</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -939,6 +932,22 @@ Colour</div>
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#marker">4.6.1. Marker</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#line-style">4.6.2. Line style</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#colour">4.6.3. Colour</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

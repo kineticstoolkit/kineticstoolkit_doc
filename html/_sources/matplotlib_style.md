@@ -17,13 +17,11 @@ kernelspec:
 %matplotlib inline
 ```
 
-# Markers, line style and colours
+# Markers, line style and colour
 
 The optional, third argument `fmt` of the {{plt_plot}} function defines optional markers, line styles and line colours. This argument is a string composed of these characters:
 
-::::{grid}
-:::{grid-item-card} Marker
-:columns: 4
+## Marker
 
 - `.` dot
 - `o` round
@@ -35,10 +33,7 @@ The optional, third argument `fmt` of the {{plt_plot}} function defines optional
 
 By default, no marker is plotted.
 
-:::
-
-:::{grid-item-card} Line style
-:columns: 4
+## Line style
 
 - `-` full line
 - `--` dashed line
@@ -47,10 +42,7 @@ By default, no marker is plotted.
 
 Default is a full line, unless a marker has been set, in which case the default is no line.
 
-:::
-
-:::{grid-item-card} Colour
-:columns: 4
+## Colour
 
 - `r` red
 - `g` green
@@ -62,9 +54,6 @@ Default is a full line, unless a marker has been set, in which case the default 
 - `k` black
 
 Default is the next colour in the current colour cycle.
-
-:::
-::::
 
 Here are some examples:
 
