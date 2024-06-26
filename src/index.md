@@ -2,21 +2,40 @@
 
 *An Open-Source Python Package to Facilitate Research in Biomechanics*
 
-```{margin}
-<img src="_static/images/github-logo.png" alt="Follow on GitHub" width="20px"/>
+```{div}
+<a href="https://doi.org/10.21105/joss.03714"><img src="https://joss.theoj.org/papers/10.21105/joss.03714/status.svg" alt="JOSS"></a>
+<a href="https://anaconda.org/conda-forge/kineticstoolkit"><img src="https://anaconda.org/conda-forge/kineticstoolkit/badges/version.svg" alt="Anaconda"></a>
+<a href="https://anaconda.org/conda-forge/kineticstoolkit"><img src="https://anaconda.org/conda-forge/kineticstoolkit/badges/latest_release_date.svg" alt="Latest release"></a>
+```
+
+
+````{margin}
+```{div}
+
+<img src="_static/images/github-logo.png" alt="GitHub logo" width="20px"/>
 
 <a href="https://github.com/orgs/kineticstoolkit/discussions/categories/announcements">
-Follow on GitHub
+Announcements
 </a>
 
 <br/>
 
-<img src="_static/images/rss-icon.png" alt="Subscribe to RSS/Atom Feed" width="20px"/>
+<img src="_static/images/rss-icon.png" alt="RSS/Atom icon" width="20px"/>
 
 <a href="https://kineticstoolkit.uqam.ca/announcements.atom">
 RSS/Atom
 </a>
+
+<br/>
+
+<img src="_static/images/linkedin-logo.png" alt="LinkedIn logo" width="20px"/>
+
+<a href="https://www.linkedin.com/in/felixchenier/">
+Félix Chénier
+</a>
+
 ```
+````
 
 
 ![](_static/images/frontpage.gif)
@@ -38,11 +57,7 @@ It is a programming library, and programming can be hard for new users. Therefor
 It also covers all the features of Kinetics Toolkit, with reproducible examples based on real, downloadable data.
 
 
-```{div}
-<a href="https://doi.org/10.21105/joss.03714"><img src="https://joss.theoj.org/papers/10.21105/joss.03714/status.svg" alt="JOSS"></a>
-<a href="https://anaconda.org/conda-forge/kineticstoolkit"><img src="https://anaconda.org/conda-forge/kineticstoolkit/badges/version.svg" alt="Anaconda"></a>
-<a href="https://anaconda.org/conda-forge/kineticstoolkit"><img src="https://anaconda.org/conda-forge/kineticstoolkit/badges/latest_release_date.svg" alt="Latest release"></a>
-```
+
 
 
 ```{div} style="align:center;"

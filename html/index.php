@@ -12,10 +12,10 @@
 <meta property="og:type" content="image/png" />
 <meta property="og:url" content="https://kineticstoolkit.uqam.ca/doc/index.html" />
 <meta property="og:site_name" content="Kinetics Toolkit" />
-<meta property="og:description" content="An Open-Source Python Package to Facilitate Research in Biomechanics: Follow on GitHub Subscribe to RSS/Atom Feed Kinetics Toolkit is an open-source Python package to facilitate research in biomech..." />
+<meta property="og:description" content="An Open-Source Python Package to Facilitate Research in Biomechanics JOSS Anaconda Latest release: GitHub logo RSS/Atom icon LinkedIn logo Kinetics Toolkit is an open-source Python package to facil..." />
 <meta property="og:image" content="https://kineticstoolkit.uqam.ca/doc/_static/logo-social.png" />
 <meta property="og:image:alt" content="Kinetics Toolkit Logo" />
-<meta name="description" content="An Open-Source Python Package to Facilitate Research in Biomechanics: Follow on GitHub Subscribe to RSS/Atom Feed Kinetics Toolkit is an open-source Python package to facilitate research in biomech..." />
+<meta name="description" content="An Open-Source Python Package to Facilitate Research in Biomechanics JOSS Anaconda Latest release: GitHub logo RSS/Atom icon LinkedIn logo Kinetics Toolkit is an open-source Python package to facil..." />
 <meta property='og:image:width' content=500 />
 <meta property='og:image:height' content=264 />
 
@@ -793,17 +793,29 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="kinetics-toolkit">
 <h1>Kinetics Toolkit<a class="headerlink" href="#kinetics-toolkit" title="Permalink to this heading">#</a></h1>
 <p><em>An Open-Source Python Package to Facilitate Research in Biomechanics</em></p>
+<div class="docutils">
+<p><a href="https://doi.org/10.21105/joss.03714"><img alt="JOSS" src="https://joss.theoj.org/papers/10.21105/joss.03714/status.svg" /></a>
+<a href="https://anaconda.org/conda-forge/kineticstoolkit"><img alt="Anaconda" src="https://anaconda.org/conda-forge/kineticstoolkit/badges/version.svg" /></a>
+<a href="https://anaconda.org/conda-forge/kineticstoolkit"><img alt="Latest release" src="https://anaconda.org/conda-forge/kineticstoolkit/badges/latest_release_date.svg" /></a></p>
+</div>
 <aside class="margin sidebar">
 <p class="sidebar-title"></p>
-<a class="reference internal image-reference" href="_images/github-logo.png"><img alt="Follow on GitHub" src="_images/github-logo.png" style="width: 20px;" /></a>
+<div class="docutils">
+<a class="reference internal image-reference" href="_images/github-logo.png"><img alt="GitHub logo" src="_images/github-logo.png" style="width: 20px;" /></a>
 <a href="https://github.com/orgs/kineticstoolkit/discussions/categories/announcements">
-Follow on GitHub
+Announcements
 </a>
 <br/>
-<a class="reference internal image-reference" href="_images/rss-icon.png"><img alt="Subscribe to RSS/Atom Feed" src="_images/rss-icon.png" style="width: 20px;" /></a>
+<a class="reference internal image-reference" href="_images/rss-icon.png"><img alt="RSS/Atom icon" src="_images/rss-icon.png" style="width: 20px;" /></a>
 <a href="https://kineticstoolkit.uqam.ca/announcements.atom">
 RSS/Atom
 </a>
+<br/>
+<a class="reference internal image-reference" href="_images/linkedin-logo.png"><img alt="LinkedIn logo" src="_images/linkedin-logo.png" style="width: 20px;" /></a>
+<a href="https://www.linkedin.com/in/felixchenier/">
+Félix Chénier
+</a>
+</div>
 </aside>
 <p><img alt="" src="_images/frontpage.gif" /></p>
 <p>Kinetics Toolkit is an open-source Python package to facilitate research in biomechanics. It provides tools for:</p>
@@ -822,11 +834,6 @@ RSS/Atom
 <li><p><a class="reference internal" href="numpy.html"><span class="std std-doc">NumPy</span></a> basics, including <a class="reference internal" href="numpy_ndarray.html"><span class="std std-doc">n-dimensional arrays</span></a>, <a class="reference internal" href="numpy_arithmetics.html"><span class="std std-doc">arithmetics</span></a>, <a class="reference internal" href="numpy_trigonometry.html"><span class="std std-doc">trigonometry</span></a>, <a class="reference internal" href="numpy_inf_nan.html"><span class="std std-doc">infinity/nan</span></a>, <a class="reference internal" href="numpy_statistics.html"><span class="std std-doc">statistical functions</span></a>, <a class="reference internal" href="numpy_comparisons.html"><span class="std std-doc">comparisons</span></a>, <a class="reference internal" href="numpy_logical_operators.html"><span class="std std-doc">logical operators</span></a>, <a class="reference internal" href="numpy_indexing_slicing_1d.html"><span class="std std-doc">indexing, slicing</span></a> and <a class="reference internal" href="numpy_filtering_nd.html"><span class="std std-doc">filtering arrays</span></a>.</p></li>
 </ul>
 <p>It also covers all the features of Kinetics Toolkit, with reproducible examples based on real, downloadable data.</p>
-<div class="docutils">
-<p><a href="https://doi.org/10.21105/joss.03714"><img alt="JOSS" src="https://joss.theoj.org/papers/10.21105/joss.03714/status.svg" /></a>
-<a href="https://anaconda.org/conda-forge/kineticstoolkit"><img alt="Anaconda" src="https://anaconda.org/conda-forge/kineticstoolkit/badges/version.svg" /></a>
-<a href="https://anaconda.org/conda-forge/kineticstoolkit"><img alt="Latest release" src="https://anaconda.org/conda-forge/kineticstoolkit/badges/latest_release_date.svg" /></a></p>
-</div>
 <div class="style-align-center docutils">
 <p><a href="https://felixchenier.uqam.ca"><a class="reference internal" href="_images/logo_mosa.png"><img alt="_images/logo_mosa.png" src="_images/logo_mosa.png" style="width: 30%;" /></a></a>
    <a href="https://uqam.ca"><a class="reference internal" href="_images/logo_uqam.png"><img alt="_images/logo_uqam.png" src="_images/logo_uqam.png" style="width: 20%;" /></a></a>
