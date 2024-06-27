@@ -20,6 +20,14 @@ Announcements
 
 <br/>
 
+<img src="_static/images/github-logo.png" alt="GitHub logo" width="20px"/>
+
+<a href="https://github.com/orgs/kineticstoolkit/discussions/categories/1-users-q-a">
+Users Q&A
+</a>
+
+<br/>
+
 <img src="_static/images/rss-icon.png" alt="RSS/Atom icon" width="20px"/>
 
 <a href="https://kineticstoolkit.uqam.ca/announcements.atom">

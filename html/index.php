@@ -12,10 +12,10 @@
 <meta property="og:type" content="image/png" />
 <meta property="og:url" content="https://kineticstoolkit.uqam.ca/doc/index.html" />
 <meta property="og:site_name" content="Kinetics Toolkit" />
-<meta property="og:description" content="An Open-Source Python Package to Facilitate Research in Biomechanics JOSS Anaconda Latest release: GitHub logo RSS/Atom icon LinkedIn logo Kinetics Toolkit is an open-source Python package to facil..." />
+<meta property="og:description" content="An Open-Source Python Package to Facilitate Research in Biomechanics JOSS Anaconda Latest release: GitHub logo GitHub logo RSS/Atom icon LinkedIn logo Kinetics Toolkit is an open-source Python pack..." />
 <meta property="og:image" content="https://kineticstoolkit.uqam.ca/doc/_static/logo-social.png" />
 <meta property="og:image:alt" content="Kinetics Toolkit Logo" />
-<meta name="description" content="An Open-Source Python Package to Facilitate Research in Biomechanics JOSS Anaconda Latest release: GitHub logo RSS/Atom icon LinkedIn logo Kinetics Toolkit is an open-source Python package to facil..." />
+<meta name="description" content="An Open-Source Python Package to Facilitate Research in Biomechanics JOSS Anaconda Latest release: GitHub logo GitHub logo RSS/Atom icon LinkedIn logo Kinetics Toolkit is an open-source Python pack..." />
 <meta property='og:image:width' content=500 />
 <meta property='og:image:height' content=264 />
 
@@ -804,6 +804,11 @@ document.write(`
 <a class="reference internal image-reference" href="_images/github-logo.png"><img alt="GitHub logo" src="_images/github-logo.png" style="width: 20px;" /></a>
 <a href="https://github.com/orgs/kineticstoolkit/discussions/categories/announcements">
 Announcements
+</a>
+<br/>
+<a class="reference internal image-reference" href="_images/github-logo.png"><img alt="GitHub logo" src="_images/github-logo.png" style="width: 20px;" /></a>
+<a href="https://github.com/orgs/kineticstoolkit/discussions/categories/1-users-q-a">
+Users Q&A
 </a>
 <br/>
 <a class="reference internal image-reference" href="_images/rss-icon.png"><img alt="RSS/Atom icon" src="_images/rss-icon.png" style="width: 20px;" /></a>
