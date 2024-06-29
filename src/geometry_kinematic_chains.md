@@ -98,7 +98,7 @@ Using Kinetics Toolkit, we can solve this example by performing the last equatio
 import kineticstoolkit.lab as ktk
 
 # position of the wrist in the forearm coordinate system
-forearm_p_wrist = [[0, 0.34, 0, 1]]
+forearm_p_wrist = [[0, -0.34, 0, 1]]
 
 # forearm frame in the upper arm coordinate system
 upperarm_T_forearm = ktk.geometry.create_transforms(
