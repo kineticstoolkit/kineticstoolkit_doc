@@ -519,8 +519,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.fill_missing_samples.html">ktk.TimeSeries.fill_missing_samples</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.from_array.html">ktk.TimeSeries.from_array</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.from_dataframe.html">ktk.TimeSeries.from_dataframe</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_event_index.html">ktk.TimeSeries.get_event_index</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_event_time.html">ktk.TimeSeries.get_event_time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_index_after_event.html">ktk.TimeSeries.get_index_after_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_index_after_time.html">ktk.TimeSeries.get_index_after_time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_index_at_event.html">ktk.TimeSeries.get_index_at_event</a></li>
@@ -532,8 +530,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_after_event.html">ktk.TimeSeries.get_ts_after_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_after_index.html">ktk.TimeSeries.get_ts_after_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_after_time.html">ktk.TimeSeries.get_ts_after_time</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_at_event.html">ktk.TimeSeries.get_ts_at_event</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_at_time.html">ktk.TimeSeries.get_ts_at_time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_before_event.html">ktk.TimeSeries.get_ts_before_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_before_index.html">ktk.TimeSeries.get_ts_before_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_before_time.html">ktk.TimeSeries.get_ts_before_time</a></li>
@@ -552,11 +548,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.resample.html">ktk.TimeSeries.resample</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.shift.html">ktk.TimeSeries.shift</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.sort_events.html">ktk.TimeSeries.sort_events</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.sync_event.html">ktk.TimeSeries.sync_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.to_dataframe.html">ktk.TimeSeries.to_dataframe</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.trim_events.html">ktk.TimeSeries.trim_events</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.ui_edit_events.html">ktk.TimeSeries.ui_edit_events</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.ui_get_ts_between_clicks.html">ktk.TimeSeries.ui_get_ts_between_clicks</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.ui_sync.html">ktk.TimeSeries.ui_sync</a></li>
 </ul>
 </li>
@@ -1026,11 +1020,11 @@ document.write(`
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">TimeSeries</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Read point and analog data from a C3D file.</span>
+<span class="sd">    Read point, analog and rotation data from a C3D file.</span>
 
-<span class="sd">    Point positions are returned in `output[&quot;Points&quot;]` as a TimeSeries, where</span>
-<span class="sd">    each point corresponds to a data key. Each point position is expressed as</span>
-<span class="sd">    an Nx4 point series::</span>
+<span class="sd">    If available, point positions are returned in `output[&quot;Points&quot;]` as a</span>
+<span class="sd">    TimeSeries, where each point corresponds to a data key. Each point position</span>
+<span class="sd">    is expressed as an Nx4 point series::</span>
 
 <span class="sd">        [</span>
 <span class="sd">            [x0, y0, z0, 1.0],</span>
@@ -1042,6 +1036,9 @@ document.write(`
 <span class="sd">    If available, analog data is returned in `output[&quot;Analogs&quot;]` as a</span>
 <span class="sd">    TimeSeries, where each analog signal is expressed as a unidimensional</span>
 <span class="sd">    array of length N.</span>
+
+<span class="sd">    If available, transform matrices are returned in `output[&quot;Rotations&quot;]` as</span>
+<span class="sd">    a TimeSeries, where each matrix series is expressed as an Nx4x4 series.</span>
 
 <span class="sd">    Some applications store calculated values such as angles, forces, moments,</span>
 <span class="sd">    powers, etc. into the C3D file. Storing these data is application-specific</span>
@@ -1070,8 +1067,8 @@ document.write(`
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    dict[ktk.TimeSeries]</span>
-<span class="sd">        A dict of TimeSeries, with keys being &quot;Points&quot; and if available,</span>
-<span class="sd">        &quot;Analogs&quot;.</span>
+<span class="sd">        A dict of TimeSeries, with keys being, if available: &quot;Points&quot;,</span>
+<span class="sd">        &quot;Analogs&quot; and/or &quot;Rotations&quot;.</span>
 
 <span class="sd">    Caution</span>
 <span class="sd">    -------</span>
@@ -1140,6 +1137,8 @@ document.write(`
     <span class="k">if</span> <span class="n">convert_point_unit</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">check_param</span><span class="p">(</span><span class="s2">&quot;convert_point_unit&quot;</span><span class="p">,</span> <span class="n">convert_point_unit</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
     <span class="n">check_param</span><span class="p">(</span><span class="s2">&quot;include_event_context&quot;</span><span class="p">,</span> <span class="n">include_event_context</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">filename</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.c3d&quot;</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The file name must end with &#39;.c3d&#39;.&quot;</span><span class="p">)</span>
 
     <span class="k">try</span><span class="p">:</span>
         <span class="kn">import</span> <span class="nn">ezc3d</span>
@@ -1207,14 +1206,16 @@ document.write(`
     <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
         <span class="n">event_contexts</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&quot;</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">event_names</span><span class="p">]</span>
 
-    <span class="c1"># ---------------------------------</span>
-    <span class="c1"># Create the points TimeSeries</span>
-    <span class="n">points</span> <span class="o">=</span> <span class="n">TimeSeries</span><span class="p">()</span>
-
+    <span class="c1"># -----------------</span>
+    <span class="c1"># Analogs</span>
+    <span class="c1"># -----------------</span>
     <span class="c1"># Get the marker label names and create a timeseries data entry for each</span>
     <span class="c1"># Get the labels</span>
     <span class="n">point_rate</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">][</span><span class="s2">&quot;POINT&quot;</span><span class="p">][</span><span class="s2">&quot;RATE&quot;</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">point_unit</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">][</span><span class="s2">&quot;POINT&quot;</span><span class="p">][</span><span class="s2">&quot;UNITS&quot;</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">][</span><span class="s2">&quot;POINT&quot;</span><span class="p">][</span><span class="s2">&quot;USED&quot;</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">point_unit</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">][</span><span class="s2">&quot;POINT&quot;</span><span class="p">][</span><span class="s2">&quot;UNITS&quot;</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">point_unit</span> <span class="o">=</span> <span class="s2">&quot;m&quot;</span>
     <span class="n">point_start</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;header&quot;</span><span class="p">][</span><span class="s2">&quot;points&quot;</span><span class="p">][</span><span class="s2">&quot;first_frame&quot;</span><span class="p">]</span>
     <span class="n">start_time</span> <span class="o">=</span> <span class="n">point_start</span> <span class="o">/</span> <span class="n">point_rate</span>
     <span class="n">n_points</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">][</span><span class="s2">&quot;POINT&quot;</span><span class="p">][</span><span class="s2">&quot;USED&quot;</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
@@ -1282,44 +1283,64 @@ document.write(`
         <span class="n">point_factor</span> <span class="o">=</span> <span class="mi">1</span>
         <span class="c1"># point_unit = Do not update</span>
 
-    <span class="k">for</span> <span class="n">i_label</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_points</span><span class="p">):</span>
-        <span class="c1"># Make sure it&#39;s UTF8, and strip leading and ending spaces</span>
-        <span class="n">label</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">i_label</span><span class="p">]</span>
-        <span class="n">key</span> <span class="o">=</span> <span class="n">label</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span> <span class="s2">&quot;ignore&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-        <span class="k">if</span> <span class="n">label</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">n_points</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># There are points</span>
+        <span class="n">points</span> <span class="o">=</span> <span class="n">TimeSeries</span><span class="p">()</span>
+
+        <span class="k">for</span> <span class="n">i_label</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_points</span><span class="p">):</span>
+            <span class="c1"># Make sure it&#39;s UTF8, and strip leading and ending spaces</span>
+            <span class="n">label</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">i_label</span><span class="p">]</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="n">label</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span> <span class="s2">&quot;ignore&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+            <span class="c1"># Ensure key is unique, in case of multiple series labelled</span>
+            <span class="c1"># with the same name</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">key</span> <span class="ow">in</span> <span class="n">points</span><span class="o">.</span><span class="n">data</span><span class="p">):</span>
+                <span class="n">suffix_integer</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="k">while</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">suffix_integer</span><span class="si">}</span><span class="s2">&quot;</span> <span class="ow">in</span> <span class="n">points</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+                    <span class="n">suffix_integer</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">suffix_integer</span><span class="si">}</span><span class="s2">&quot;</span>
+
             <span class="n">points</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
                 <span class="p">[</span><span class="n">point_factor</span><span class="p">,</span> <span class="n">point_factor</span><span class="p">,</span> <span class="n">point_factor</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
                 <span class="o">*</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;points&quot;</span><span class="p">][:,</span> <span class="n">i_label</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">T</span>
             <span class="p">)</span>
-            <span class="n">points</span> <span class="o">=</span> <span class="n">points</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">,</span> <span class="n">point_unit</span><span class="p">)</span>
+            <span class="n">points</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">,</span> <span class="n">point_unit</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">n_points</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">points</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="p">(</span>
-            <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">points</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="n">point_rate</span> <span class="o">+</span> <span class="n">start_time</span>
-        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">n_points</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">points</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">points</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="n">point_rate</span> <span class="o">+</span> <span class="n">start_time</span>
+            <span class="p">)</span>
 
-    <span class="c1"># Add events</span>
-    <span class="k">for</span> <span class="n">i_event</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">event_names</span><span class="p">)):</span>
-        <span class="n">event_time</span> <span class="o">=</span> <span class="n">event_times</span><span class="p">[</span><span class="n">i_event</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">include_event_context</span><span class="p">:</span>
-            <span class="n">event_name</span> <span class="o">=</span> <span class="n">event_contexts</span><span class="p">[</span><span class="n">i_event</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span> <span class="o">+</span> <span class="n">event_names</span><span class="p">[</span><span class="n">i_event</span><span class="p">]</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">event_name</span> <span class="o">=</span> <span class="n">event_names</span><span class="p">[</span><span class="n">i_event</span><span class="p">]</span>
-        <span class="n">points</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span>
-            <span class="n">event_time</span><span class="p">,</span>
-            <span class="n">event_name</span><span class="p">,</span>
-            <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-        <span class="p">)</span>
-    <span class="n">points</span><span class="o">.</span><span class="n">sort_events</span><span class="p">(</span><span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="c1"># Add events</span>
+        <span class="k">for</span> <span class="n">i_event</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">event_names</span><span class="p">)):</span>
+            <span class="n">event_time</span> <span class="o">=</span> <span class="n">event_times</span><span class="p">[</span><span class="n">i_event</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">include_event_context</span><span class="p">:</span>
+                <span class="n">event_name</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">event_contexts</span><span class="p">[</span><span class="n">i_event</span><span class="p">]</span> <span class="o">+</span> <span class="s2">&quot;:&quot;</span> <span class="o">+</span> <span class="n">event_names</span><span class="p">[</span><span class="n">i_event</span><span class="p">]</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">event_name</span> <span class="o">=</span> <span class="n">event_names</span><span class="p">[</span><span class="n">i_event</span><span class="p">]</span>
+            <span class="n">points</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span>
+                <span class="n">event_time</span><span class="p">,</span>
+                <span class="n">event_name</span><span class="p">,</span>
+                <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="p">)</span>
 
-    <span class="c1"># Add to output</span>
-    <span class="n">output</span><span class="p">[</span><span class="s2">&quot;Points&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">points</span>
+        <span class="n">output</span><span class="p">[</span><span class="s2">&quot;Points&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">points</span>
 
+    <span class="c1"># -----------------</span>
     <span class="c1"># Analogs</span>
+    <span class="c1"># -----------------</span>
     <span class="n">labels</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">][</span><span class="s2">&quot;ANALOG&quot;</span><span class="p">][</span><span class="s2">&quot;LABELS&quot;</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">]</span>
     <span class="n">analog_rate</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">][</span><span class="s2">&quot;ANALOG&quot;</span><span class="p">][</span><span class="s2">&quot;RATE&quot;</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-    <span class="n">units</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">][</span><span class="s2">&quot;ANALOG&quot;</span><span class="p">][</span><span class="s2">&quot;UNITS&quot;</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">]</span>
     <span class="n">n_analogs</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">][</span><span class="s2">&quot;ANALOG&quot;</span><span class="p">][</span><span class="s2">&quot;USED&quot;</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">units</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">][</span><span class="s2">&quot;ANALOG&quot;</span><span class="p">][</span><span class="s2">&quot;UNITS&quot;</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">units</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="s2">&quot;No unit&quot;</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+        <span class="c1"># No units in the file, create an empty unit for each label</span>
+        <span class="n">units</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&quot;</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">]</span>
 
     <span class="c1"># Check if labels2, labels3, labels4,.... exist.</span>
     <span class="c1"># https://www.c3d.org/HTML/default.htm?turl=Documents%2Fpointlabels2.htm</span>
@@ -1332,9 +1353,14 @@ document.write(`
             <span class="n">additional_labels</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">][</span><span class="s2">&quot;ANALOG&quot;</span><span class="p">][</span><span class="n">str_labels</span><span class="p">][</span>
                 <span class="s2">&quot;value&quot;</span>
             <span class="p">]</span>
-            <span class="n">additional_units</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">][</span><span class="s2">&quot;ANALOG&quot;</span><span class="p">][</span><span class="n">str_units</span><span class="p">][</span>
-                <span class="s2">&quot;value&quot;</span>
-            <span class="p">]</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">additional_units</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">][</span><span class="s2">&quot;ANALOG&quot;</span><span class="p">][</span><span class="n">str_units</span><span class="p">][</span>
+                    <span class="s2">&quot;value&quot;</span>
+                <span class="p">]</span>
+            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                <span class="c1"># If there are no additional units, just fill with blank spaces</span>
+                <span class="n">additional_units</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&quot;</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">additional_labels</span><span class="p">]</span>
+
         <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
             <span class="k">break</span>
         <span class="n">labels</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">additional_labels</span><span class="p">)</span>
@@ -1348,6 +1374,15 @@ document.write(`
             <span class="c1"># Strip leading and ending spaces</span>
             <span class="n">label</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">i_label</span><span class="p">]</span>
             <span class="n">key</span> <span class="o">=</span> <span class="n">label</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span> <span class="s2">&quot;ignore&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+            <span class="c1"># Ensure key is unique, in case of multiple series labelled</span>
+            <span class="c1"># with the same name</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">key</span> <span class="ow">in</span> <span class="n">analogs</span><span class="o">.</span><span class="n">data</span><span class="p">):</span>
+                <span class="n">suffix_integer</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="k">while</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">suffix_integer</span><span class="si">}</span><span class="s2">&quot;</span> <span class="ow">in</span> <span class="n">analogs</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+                    <span class="n">suffix_integer</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="n">key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">suffix_integer</span><span class="si">}</span><span class="s2">&quot;</span>
+
             <span class="n">analogs</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;analogs&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">,</span> <span class="n">i_label</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
             <span class="k">if</span> <span class="n">units</span><span class="p">[</span><span class="n">i_label</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
                 <span class="n">analogs</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span>
@@ -1363,11 +1398,68 @@ document.write(`
             <span class="p">)</span>
 
         <span class="c1"># Add events</span>
-        <span class="k">for</span> <span class="n">i_event</span><span class="p">,</span> <span class="n">event_name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">event_names</span><span class="p">):</span>
-            <span class="n">analogs</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="n">event_times</span><span class="p">[</span><span class="n">i_event</span><span class="p">],</span> <span class="n">event_name</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-        <span class="n">analogs</span><span class="o">.</span><span class="n">sort_events</span><span class="p">(</span><span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">analogs</span><span class="o">.</span><span class="n">events</span> <span class="o">=</span> <span class="n">points</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
         <span class="n">output</span><span class="p">[</span><span class="s2">&quot;Analogs&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">analogs</span>
+
+    <span class="c1"># -----------------</span>
+    <span class="c1"># Rotations</span>
+    <span class="c1"># -----------------</span>
+    <span class="c1"># Some files do not have a ROTATION parameter, do nothing for those.</span>
+    <span class="k">if</span> <span class="s2">&quot;ROTATION&quot;</span> <span class="ow">in</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">]:</span>
+        <span class="n">rotations</span> <span class="o">=</span> <span class="n">TimeSeries</span><span class="p">()</span>
+
+        <span class="c1"># Get the marker label names and create a timeseries data entry for each</span>
+        <span class="c1"># Get the labels</span>
+        <span class="n">rotation_rate</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">][</span><span class="s2">&quot;ROTATION&quot;</span><span class="p">][</span><span class="s2">&quot;RATE&quot;</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">rotation_start</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;header&quot;</span><span class="p">][</span><span class="s2">&quot;rotations&quot;</span><span class="p">][</span><span class="s2">&quot;first_frame&quot;</span><span class="p">]</span>
+        <span class="n">start_time</span> <span class="o">=</span> <span class="n">rotation_start</span> <span class="o">/</span> <span class="n">rotation_rate</span>
+        <span class="n">n_rotations</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">][</span><span class="s2">&quot;ROTATION&quot;</span><span class="p">][</span><span class="s2">&quot;USED&quot;</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="n">labels</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">][</span><span class="s2">&quot;ROTATION&quot;</span><span class="p">][</span><span class="s2">&quot;LABELS&quot;</span><span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># There are rotations</span>
+            <span class="c1"># no additional labels and scale conversion for rotation matrices</span>
+            <span class="c1"># move to adding data to the TimeSeries</span>
+            <span class="k">for</span> <span class="n">rotation_id</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_rotations</span><span class="p">):</span>
+                <span class="c1"># Make sure it&#39;s UTF8, and strip leading and ending spaces</span>
+                <span class="n">label</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">rotation_id</span><span class="p">]</span>
+                <span class="n">key</span> <span class="o">=</span> <span class="n">label</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">,</span> <span class="s2">&quot;ignore&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+                <span class="c1"># Ensure key is unique, in case of multiple series labelled</span>
+                <span class="c1"># with the same name</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">key</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">key</span> <span class="ow">in</span> <span class="n">rotations</span><span class="o">.</span><span class="n">data</span><span class="p">):</span>
+                    <span class="n">suffix_integer</span> <span class="o">=</span> <span class="mi">1</span>
+                    <span class="k">while</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">suffix_integer</span><span class="si">}</span><span class="s2">&quot;</span> <span class="ow">in</span> <span class="n">rotations</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+                        <span class="n">suffix_integer</span> <span class="o">+=</span> <span class="mi">1</span>
+                    <span class="n">key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">suffix_integer</span><span class="si">}</span><span class="s2">&quot;</span>
+
+                <span class="n">rotations</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span>
+                        <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;rotations&quot;</span><span class="p">][:,</span> <span class="p">:,</span> <span class="n">rotation_id</span><span class="p">,</span> <span class="p">:],</span>
+                        <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+                    <span class="p">)</span>
+                <span class="p">)</span>
+
+            <span class="k">if</span> <span class="n">n_rotations</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">rotations</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">rotations</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="n">rotation_rate</span>
+                    <span class="o">+</span> <span class="n">start_time</span>
+                <span class="p">)</span>
+
+            <span class="c1"># Matrices with nans should be complete nans. Some c3d may contain</span>
+            <span class="c1"># nans in the data but [0, 0, 0, 1] on the 4th line.</span>
+            <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">rotations</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
+                <span class="n">rotations</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">data</span><span class="p">][</span><span class="n">rotations</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="p">:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+            <span class="c1"># Add events</span>
+            <span class="k">for</span> <span class="n">i_event</span><span class="p">,</span> <span class="n">event_name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">event_names</span><span class="p">):</span>
+                <span class="n">rotations</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span>
+                    <span class="n">event_times</span><span class="p">[</span><span class="n">i_event</span><span class="p">],</span> <span class="n">event_name</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span>
+                <span class="p">)</span>
+
+            <span class="c1"># Add to output</span>
+            <span class="n">output</span><span class="p">[</span><span class="s2">&quot;Rotations&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">rotations</span>
 
     <span class="c1"># ---------------------------------</span>
     <span class="c1"># Create the platforms TimeSeries</span>
@@ -1410,11 +1502,7 @@ document.write(`
             <span class="n">platforms</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">,</span> <span class="n">moment_unit</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
         <span class="c1"># Add events</span>
-        <span class="k">for</span> <span class="n">i_event</span><span class="p">,</span> <span class="n">event_name</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">event_names</span><span class="p">):</span>
-            <span class="n">platforms</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span>
-                <span class="n">event_times</span><span class="p">[</span><span class="n">i_event</span><span class="p">],</span> <span class="n">event_name</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span>
-            <span class="p">)</span>
-        <span class="n">platforms</span><span class="o">.</span><span class="n">sort_events</span><span class="p">(</span><span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">platforms</span><span class="o">.</span><span class="n">events</span> <span class="o">=</span> <span class="n">points</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
         <span class="n">output</span><span class="p">[</span><span class="s2">&quot;ForcePlates&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">platforms</span>
 
@@ -1422,10 +1510,13 @@ document.write(`
 
 
 <div class="viewcode-block" id="write_c3d"><a class="viewcode-back" href="../../api/ktk.write_c3d.html#ktk.write_c3d">[docs]</a><span class="k">def</span> <span class="nf">write_c3d</span><span class="p">(</span>
-    <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">points</span><span class="p">:</span> <span class="n">TimeSeries</span><span class="p">,</span> <span class="n">analogs</span><span class="p">:</span> <span class="n">TimeSeries</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">points</span><span class="p">:</span> <span class="n">TimeSeries</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">analogs</span><span class="p">:</span> <span class="n">TimeSeries</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">rotations</span><span class="p">:</span> <span class="n">TimeSeries</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Write points and analog data to a C3D file.</span>
+<span class="sd">    Write points, analog, and rotations data to a C3D file.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1433,8 +1524,8 @@ document.write(`
 <span class="sd">        Path of the C3D file</span>
 
 <span class="sd">    points</span>
-<span class="sd">        Points trajectories, where data key corresponds to a point, expressed</span>
-<span class="sd">        as an Nx4 point series::</span>
+<span class="sd">        Optional. Points trajectories, where data key corresponds to a point,</span>
+<span class="sd">        expressed as an Nx4 point series::</span>
 
 <span class="sd">            [</span>
 <span class="sd">                [x0, y0, z0, 1.0],</span>
@@ -1452,9 +1543,17 @@ document.write(`
 <span class="sd">        1000x3, then three unidimensional series of length 1000 are created in</span>
 <span class="sd">        the C3D: Forces[0], Forces[1] and Forces[2].</span>
 
-<span class="sd">        The sample rate of `analogs` must be an integer multiple of the</span>
-<span class="sd">        `points`&#39;s sample rate. Also, `analogs.time[0]` must be the same as</span>
-<span class="sd">        `points.time[0]`.</span>
+<span class="sd">        If both `analogs` and `points` are specified, the sample rate of</span>
+<span class="sd">        `analogs` must be an integer multiple of the `points`&#39;s sample rate.</span>
+<span class="sd">        Also, `analogs.time[0]` must be the same as `points.time[0]`.</span>
+
+<span class="sd">    rotations</span>
+<span class="sd">        Optional. Rotation matrices, where each data key corresponds to a</span>
+<span class="sd">        rotation matrix, expressed as a Nx4x4 array.</span>
+
+<span class="sd">        If both `rotations` and `points` are specified, the sample rate of</span>
+<span class="sd">        `rotations` must be an integer multiple of the `points`&#39;s sample rate.</span>
+<span class="sd">        Also, `rotations.time[0]` must be the same as `rotations.time[0]`.</span>
 
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
@@ -1488,8 +1587,12 @@ document.write(`
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">check_param</span><span class="p">(</span><span class="s2">&quot;filename&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
-    <span class="n">check_param</span><span class="p">(</span><span class="s2">&quot;points&quot;</span><span class="p">,</span> <span class="n">points</span><span class="p">,</span> <span class="n">TimeSeries</span><span class="p">)</span>
+    <span class="n">check_param</span><span class="p">(</span><span class="s2">&quot;points&quot;</span><span class="p">,</span> <span class="n">points</span><span class="p">,</span> <span class="p">(</span><span class="n">TimeSeries</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">)))</span>
     <span class="n">check_param</span><span class="p">(</span><span class="s2">&quot;analogs&quot;</span><span class="p">,</span> <span class="n">analogs</span><span class="p">,</span> <span class="p">(</span><span class="n">TimeSeries</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">)))</span>
+    <span class="n">check_param</span><span class="p">(</span><span class="s2">&quot;rotations&quot;</span><span class="p">,</span> <span class="n">rotations</span><span class="p">,</span> <span class="p">(</span><span class="n">TimeSeries</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">)))</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">filename</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.c3d&quot;</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The file name must end with &#39;.c3d&#39;.&quot;</span><span class="p">)</span>
 
     <span class="k">try</span><span class="p">:</span>
         <span class="kn">import</span> <span class="nn">ezc3d</span>
@@ -1499,13 +1602,26 @@ document.write(`
             <span class="s2">&quot;to use this function. Please install it using: &quot;</span>
             <span class="s2">&quot;conda install -c conda-forge ezc3d&quot;</span>
         <span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">points</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Dummy point data must be created since analogs and rotations rate ratio</span>
+        <span class="c1"># are based on point rate.</span>
+        <span class="n">points</span> <span class="o">=</span> <span class="n">TimeSeries</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">rotations</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">points</span> <span class="o">=</span> <span class="n">rotations</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">copy_data</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">copy_data_info</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">analogs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">points</span> <span class="o">=</span> <span class="n">analogs</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">copy_data</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">copy_data_info</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;At least one of points, analogs, or rotations must be &quot;</span>
+                <span class="s2">&quot;provided. Writing empty C3D files is not supported.&quot;</span>
+            <span class="p">)</span>
+
     <span class="c1"># Create an empty c3d structure</span>
     <span class="n">c3d</span> <span class="o">=</span> <span class="n">ezc3d</span><span class="o">.</span><span class="n">c3d</span><span class="p">()</span>
 
     <span class="c1"># Add the points, but first make some checks</span>
-    <span class="n">points</span><span class="o">.</span><span class="n">_check_not_empty_data</span><span class="p">()</span>
     <span class="n">points</span><span class="o">.</span><span class="n">_check_constant_sample_rate</span><span class="p">()</span>
-
     <span class="n">point_rate</span> <span class="o">=</span> <span class="n">points</span><span class="o">.</span><span class="n">get_sample_rate</span><span class="p">()</span>
 
     <span class="n">point_unit</span> <span class="o">=</span> <span class="kc">None</span>
@@ -1514,7 +1630,8 @@ document.write(`
         <span class="k">if</span> <span class="n">points</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">4</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Point </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> is not a Nx4 series of points.&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span>
-            <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">points</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">][:,</span> <span class="mi">3</span><span class="p">],</span> <span class="mf">1.0</span><span class="p">),</span> <span class="n">where</span><span class="o">=~</span><span class="n">points</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">points</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">][:,</span> <span class="mi">3</span><span class="p">],</span> <span class="mf">1.0</span><span class="p">),</span>
+            <span class="n">where</span><span class="o">=~</span><span class="n">points</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">key</span><span class="p">),</span>
         <span class="p">):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Point </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> is not a series of [x, y, z, 1.0]&quot;</span><span class="p">)</span>
 
@@ -1557,19 +1674,19 @@ document.write(`
     <span class="c1"># Fill point data</span>
     <span class="n">c3d</span><span class="p">[</span><span class="s2">&quot;header&quot;</span><span class="p">][</span><span class="s2">&quot;points&quot;</span><span class="p">][</span><span class="s2">&quot;first_frame&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">points</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">point_rate</span><span class="p">)</span>
     <span class="n">c3d</span><span class="o">.</span><span class="n">add_parameter</span><span class="p">(</span><span class="s2">&quot;POINT&quot;</span><span class="p">,</span> <span class="s2">&quot;RATE&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">point_rate</span><span class="p">])</span>
-    <span class="n">c3d</span><span class="o">.</span><span class="n">add_parameter</span><span class="p">(</span><span class="s2">&quot;POINT&quot;</span><span class="p">,</span> <span class="s2">&quot;LABELS&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">point_list</span><span class="p">)])</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">point_list</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">c3d</span><span class="o">.</span><span class="n">add_parameter</span><span class="p">(</span><span class="s2">&quot;POINT&quot;</span><span class="p">,</span> <span class="s2">&quot;LABELS&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">point_list</span><span class="p">)])</span>
     <span class="n">c3d</span><span class="o">.</span><span class="n">add_parameter</span><span class="p">(</span><span class="s2">&quot;POINT&quot;</span><span class="p">,</span> <span class="s2">&quot;UNITS&quot;</span><span class="p">,</span> <span class="n">point_unit</span><span class="p">)</span>
 
     <span class="n">c3d</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;points&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">point_data</span>
 
     <span class="c1"># Fill analog data</span>
     <span class="k">if</span> <span class="n">analogs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">analogs</span><span class="o">.</span><span class="n">_check_not_empty_data</span><span class="p">()</span>
         <span class="n">analogs</span><span class="o">.</span><span class="n">_check_constant_sample_rate</span><span class="p">()</span>
         <span class="n">analog_rate</span> <span class="o">=</span> <span class="n">analogs</span><span class="o">.</span><span class="n">get_sample_rate</span><span class="p">()</span>
 
         <span class="n">rate_ratio</span> <span class="o">=</span> <span class="n">analog_rate</span> <span class="o">/</span> <span class="n">point_rate</span>
-        <span class="k">if</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">rate_ratio</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">rate_ratio</span><span class="p">)):</span>
+        <span class="k">if</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">rate_ratio</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">rate_ratio</span><span class="p">)):</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
                 <span class="s2">&quot;The sample rate of analogs must be an integer &quot;</span>
                 <span class="s2">&quot;multiple of the points sample rate.&quot;</span>
@@ -1595,7 +1712,48 @@ document.write(`
             <span class="p">[</span><span class="n">_</span><span class="p">[</span><span class="s2">&quot;Unit&quot;</span><span class="p">]</span> <span class="k">if</span> <span class="s2">&quot;Unit&quot;</span> <span class="ow">in</span> <span class="n">_</span> <span class="k">else</span> <span class="s2">&quot;&quot;</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">analogs_data_info</span><span class="p">],</span>
         <span class="p">)</span>
         <span class="n">c3d</span><span class="o">.</span><span class="n">add_parameter</span><span class="p">(</span><span class="s2">&quot;ANALOG&quot;</span><span class="p">,</span> <span class="s2">&quot;USED&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">analogs_data_info</span><span class="p">)])</span>
+        <span class="n">c3d</span><span class="p">[</span><span class="s2">&quot;header&quot;</span><span class="p">][</span><span class="s2">&quot;analogs&quot;</span><span class="p">][</span><span class="s2">&quot;first_frame&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span>
+            <span class="n">analogs</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">analog_rate</span>
+        <span class="p">)</span>
         <span class="n">c3d</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;analogs&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">df_analogs</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span><span class="o">.</span><span class="n">T</span><span class="p">)[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
+
+    <span class="c1"># fill rotation data</span>
+    <span class="k">if</span> <span class="n">rotations</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">rotations</span><span class="o">.</span><span class="n">_check_constant_sample_rate</span><span class="p">()</span>
+        <span class="n">rotation_rate</span> <span class="o">=</span> <span class="n">rotations</span><span class="o">.</span><span class="n">get_sample_rate</span><span class="p">()</span>
+
+        <span class="n">rate_ratio</span> <span class="o">=</span> <span class="n">rotation_rate</span> <span class="o">/</span> <span class="n">point_rate</span>
+        <span class="k">if</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">rate_ratio</span><span class="p">,</span> <span class="nb">round</span><span class="p">(</span><span class="n">rate_ratio</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;The sample rate of rotations must be an integer &quot;</span>
+                <span class="s2">&quot;multiple of the points sample rate.&quot;</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isclose</span><span class="p">(</span><span class="n">rotations</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">points</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="s2">&quot;Points and rotations must share the same starting time. &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;However, points.time[0] = </span><span class="si">{</span><span class="n">points</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> whereas &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;rotations.time[0] = </span><span class="si">{</span><span class="n">rotations</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">.&quot;</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Final data should be a 4x4xlen(rotations.data.keys())xlen(rotations.time)</span>
+        <span class="c1"># np.ndarray</span>
+        <span class="n">c3d_rotations</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span>
+            <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">rotations</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">()),</span> <span class="nb">len</span><span class="p">(</span><span class="n">rotations</span><span class="o">.</span><span class="n">time</span><span class="p">))</span>
+        <span class="p">)</span>
+        <span class="k">for</span> <span class="n">i_rot</span><span class="p">,</span> <span class="n">key</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">rotations</span><span class="o">.</span><span class="n">data</span><span class="p">):</span>
+            <span class="c1"># change from shape (len(rotations.time), 4, 4) to (4, 4, len(rotations.time))</span>
+            <span class="n">c3d_rotations</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">i_rot</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span>
+                <span class="n">rotations</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="n">c3d</span><span class="o">.</span><span class="n">add_parameter</span><span class="p">(</span><span class="s2">&quot;ROTATION&quot;</span><span class="p">,</span> <span class="s2">&quot;LABELS&quot;</span><span class="p">,</span> <span class="p">[</span><span class="o">*</span><span class="n">rotations</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">()])</span>
+        <span class="n">c3d</span><span class="o">.</span><span class="n">add_parameter</span><span class="p">(</span><span class="s2">&quot;ROTATION&quot;</span><span class="p">,</span> <span class="s2">&quot;RATE&quot;</span><span class="p">,</span> <span class="p">[</span><span class="n">rotation_rate</span><span class="p">])</span>
+        <span class="n">c3d</span><span class="o">.</span><span class="n">add_parameter</span><span class="p">(</span><span class="s2">&quot;ROTATION&quot;</span><span class="p">,</span> <span class="s2">&quot;USED&quot;</span><span class="p">,</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">rotations</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">())])</span>
+        <span class="n">c3d</span><span class="p">[</span><span class="s2">&quot;header&quot;</span><span class="p">][</span><span class="s2">&quot;rotations&quot;</span><span class="p">][</span><span class="s2">&quot;first_frame&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span>
+            <span class="n">rotations</span><span class="o">.</span><span class="n">time</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">rotation_rate</span>
+        <span class="p">)</span>
+        <span class="n">c3d</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;rotations&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">c3d_rotations</span>
 
     <span class="c1"># Write the data</span>
     <span class="n">c3d</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
@@ -1603,6 +1761,14 @@ document.write(`
     <span class="c1"># ---------------------------------</span>
     <span class="c1"># Add the events</span>
     <span class="n">c3d</span> <span class="o">=</span> <span class="n">ezc3d</span><span class="o">.</span><span class="n">c3d</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+
+    <span class="n">points</span> <span class="o">=</span> <span class="n">points</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">analogs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">points</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">analogs</span><span class="o">.</span><span class="n">events</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">rotations</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">points</span><span class="o">.</span><span class="n">events</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">rotations</span><span class="o">.</span><span class="n">events</span><span class="p">)</span>
+    <span class="n">points</span><span class="o">.</span><span class="n">remove_duplicate_events</span><span class="p">(</span><span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
     <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">points</span><span class="o">.</span><span class="n">events</span><span class="p">:</span>
         <span class="n">c3d</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span>
             <span class="n">time</span><span class="o">=</span><span class="p">[</span><span class="n">event</span><span class="o">.</span><span class="n">time</span> <span class="o">//</span> <span class="mi">60</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">mod</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="mi">60</span><span class="p">)],</span> <span class="n">label</span><span class="o">=</span><span class="n">event</span><span class="o">.</span><span class="n">name</span>

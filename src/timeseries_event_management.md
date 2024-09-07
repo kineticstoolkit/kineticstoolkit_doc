@@ -24,7 +24,6 @@ This section shows how to use these methods for event management:
 - [ktk.TimeSeries.count_events](api/ktk.TimeSeries.count_events.rst)
 - [ktk.TimeSeries.rename_event](api/ktk.TimeSeries.rename_event.rst)
 - [ktk.TimeSeries.remove_event](api/ktk.TimeSeries.remove_event.rst)
-- [ktk.TimeSeries.sort_events](api/ktk.TimeSeries.sort_events.rst)
 - [ktk.TimeSeries.remove_duplicate_events](api/ktk.TimeSeries.remove_duplicate_events.rst)
 - [ktk.TimeSeries.trim_events](api/ktk.TimeSeries.trim_events.rst)
 - [ktk.TimeSeries.ui_edit_events](api/ktk.TimeSeries.ui_edit_events.rst)
@@ -64,9 +63,9 @@ ts.plot()
 Each event is defined by its name, and if it is repeated multiple times, by an occurrence. To count these occurrences, we use [ktk.TimeSeries.count_events](api/ktk.TimeSeries.count_events.rst):
 
 ```{code-cell} ipython3
-print(ts.count_events('sync'), " occurrences of event 'sync'")
-print(ts.count_events('push'), " occurrences of event 'push'")
-print(ts.count_events('recovery'), " occurrences of event 'recovery'")
+print(ts.count_events('sync'), "occurrences of event 'sync'")
+print(ts.count_events('push'), "occurrences of event 'push'")
+print(ts.count_events('recovery'), "occurrences of event 'recovery'")
 ```
 
 ## Renaming events
@@ -87,31 +86,6 @@ To remove an occurrence of an event, we use [ktk.TimeSeries.remove_event](api/kt
 ```{code-cell} ipython3
 ts = ts.remove_event("push", occurrence=1)
 ts = ts.remove_event("recovery", occurrence=1)
-
-ts.plot()
-```
-
-## Sorting events
-
-Let's put back the push cycle we just removed.
-
-```{code-cell} ipython3
-ts = ts.add_event(10.50, "push")
-ts = ts.add_event(11.12, "recovery")
-
-ts.plot()
-```
-
-Observe carefully the figure above: what we would expect to be push 1 and recovery 1 are push 3 and recovery 3 instead. We understand that the events are sorted by **order of addition to the TimeSeries**, not by time. This is reflected in the TimeSeries' event list:
-
-```{code-cell} ipython3
-ts.events
-```
-
-To sort the events in time, we use [ktk.TimeSeries.sort_events](api/ktk.TimeSeries.sort_events.rst):
-
-```{code-cell} ipython3
-ts = ts.sort_events()
 
 ts.plot()
 ```

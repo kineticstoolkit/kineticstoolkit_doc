@@ -532,8 +532,6 @@
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.fill_missing_samples.html">ktk.TimeSeries.fill_missing_samples</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.from_array.html">ktk.TimeSeries.from_array</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.from_dataframe.html">ktk.TimeSeries.from_dataframe</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_event_index.html">ktk.TimeSeries.get_event_index</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_event_time.html">ktk.TimeSeries.get_event_time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_index_after_event.html">ktk.TimeSeries.get_index_after_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_index_after_time.html">ktk.TimeSeries.get_index_after_time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_index_at_event.html">ktk.TimeSeries.get_index_at_event</a></li>
@@ -545,8 +543,6 @@
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_after_event.html">ktk.TimeSeries.get_ts_after_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_after_index.html">ktk.TimeSeries.get_ts_after_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_after_time.html">ktk.TimeSeries.get_ts_after_time</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_at_event.html">ktk.TimeSeries.get_ts_at_event</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_at_time.html">ktk.TimeSeries.get_ts_at_time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_before_event.html">ktk.TimeSeries.get_ts_before_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_before_index.html">ktk.TimeSeries.get_ts_before_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.get_ts_before_time.html">ktk.TimeSeries.get_ts_before_time</a></li>
@@ -565,11 +561,9 @@
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.resample.html">ktk.TimeSeries.resample</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.shift.html">ktk.TimeSeries.shift</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.sort_events.html">ktk.TimeSeries.sort_events</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.sync_event.html">ktk.TimeSeries.sync_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.to_dataframe.html">ktk.TimeSeries.to_dataframe</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.trim_events.html">ktk.TimeSeries.trim_events</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.ui_edit_events.html">ktk.TimeSeries.ui_edit_events</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.ui_get_ts_between_clicks.html">ktk.TimeSeries.ui_get_ts_between_clicks</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.TimeSeries.ui_sync.html">ktk.TimeSeries.ui_sync</a></li>
 </ul>
 </li>
@@ -820,6 +814,11 @@ document.write(`
 <p>which gives the blue curve below:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>UserWarning [/Users/felix/Documents/git/kineticstoolkit_doc/src/kineticstoolkit/timeseries.py:3489] The key &#39;clean&#39; exists in both TimeSeries. According to the overwrite=False parameter, the new value has been ignored. Use on_conflict=&#39;mute&#39; to mute this warning.
+UserWarning [/Users/felix/Documents/git/kineticstoolkit_doc/src/kineticstoolkit/timeseries.py:3489] The key &#39;periodic_noise&#39; exists in both TimeSeries. According to the overwrite=False parameter, the new value has been ignored. Use on_conflict=&#39;mute&#39; to mute this warning.
+UserWarning [/Users/felix/Documents/git/kineticstoolkit_doc/src/kineticstoolkit/timeseries.py:3489] The key &#39;quantized&#39; exists in both TimeSeries. According to the overwrite=False parameter, the new value has been ignored. Use on_conflict=&#39;mute&#39; to mute this warning.
+</pre></div>
+</div>
 <img alt="_images/277b8b17c612926e5c67140c4eeaf0afa3751aecb2c6d3e85c13355e8834c4b8.png" src="_images/277b8b17c612926e5c67140c4eeaf0afa3751aecb2c6d3e85c13355e8834c4b8.png" />
 </div>
 </div>
@@ -834,6 +833,11 @@ document.write(`
 <p>which gives the blue curve below:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>UserWarning [/Users/felix/Documents/git/kineticstoolkit_doc/src/kineticstoolkit/timeseries.py:3489] The key &#39;clean&#39; exists in both TimeSeries. According to the overwrite=False parameter, the new value has been ignored. Use on_conflict=&#39;mute&#39; to mute this warning.
+UserWarning [/Users/felix/Documents/git/kineticstoolkit_doc/src/kineticstoolkit/timeseries.py:3489] The key &#39;periodic_noise&#39; exists in both TimeSeries. According to the overwrite=False parameter, the new value has been ignored. Use on_conflict=&#39;mute&#39; to mute this warning.
+UserWarning [/Users/felix/Documents/git/kineticstoolkit_doc/src/kineticstoolkit/timeseries.py:3489] The key &#39;quantized&#39; exists in both TimeSeries. According to the overwrite=False parameter, the new value has been ignored. Use on_conflict=&#39;mute&#39; to mute this warning.
+</pre></div>
+</div>
 <img alt="_images/3694791733143c15ce1d082bd70f4a07631a01707f941dc99e44491838863b78.png" src="_images/3694791733143c15ce1d082bd70f4a07631a01707f941dc99e44491838863b78.png" />
 </div>
 </div>

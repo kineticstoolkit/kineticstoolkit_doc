@@ -530,8 +530,6 @@
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.fill_missing_samples.html">ktk.TimeSeries.fill_missing_samples</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.from_array.html">ktk.TimeSeries.from_array</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.from_dataframe.html">ktk.TimeSeries.from_dataframe</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_event_index.html">ktk.TimeSeries.get_event_index</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_event_time.html">ktk.TimeSeries.get_event_time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_index_after_event.html">ktk.TimeSeries.get_index_after_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_index_after_time.html">ktk.TimeSeries.get_index_after_time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_index_at_event.html">ktk.TimeSeries.get_index_at_event</a></li>
@@ -543,8 +541,6 @@
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_ts_after_event.html">ktk.TimeSeries.get_ts_after_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_ts_after_index.html">ktk.TimeSeries.get_ts_after_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_ts_after_time.html">ktk.TimeSeries.get_ts_after_time</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_ts_at_event.html">ktk.TimeSeries.get_ts_at_event</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_ts_at_time.html">ktk.TimeSeries.get_ts_at_time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_ts_before_event.html">ktk.TimeSeries.get_ts_before_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_ts_before_index.html">ktk.TimeSeries.get_ts_before_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_ts_before_time.html">ktk.TimeSeries.get_ts_before_time</a></li>
@@ -563,11 +559,9 @@
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.resample.html">ktk.TimeSeries.resample</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.shift.html">ktk.TimeSeries.shift</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.sort_events.html">ktk.TimeSeries.sort_events</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.sync_event.html">ktk.TimeSeries.sync_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.to_dataframe.html">ktk.TimeSeries.to_dataframe</a></li>
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">ktk.TimeSeries.trim_events</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.ui_edit_events.html">ktk.TimeSeries.ui_edit_events</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.ui_get_ts_between_clicks.html">ktk.TimeSeries.ui_get_ts_between_clicks</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.ui_sync.html">ktk.TimeSeries.ui_sync</a></li>
 </ul>
 </li>
@@ -794,7 +788,7 @@ document.write(`
 <dl class="py method">
 <dt class="sig sig-object py" id="ktk.TimeSeries.trim_events">
 <span class="sig-prename descclassname"><span class="pre">TimeSeries.</span></span><span class="sig-name descname"><span class="pre">trim_events</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_place</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kineticstoolkit/timeseries.html#TimeSeries.trim_events"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ktk.TimeSeries.trim_events" title="Permalink to this definition">#</a></dt>
-<dd><p>Delete the events that are outside the TimeSeries’ time vector.</p>
+<dd><p>Delete the events that are outside the TimeSeries’ time attribute.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>in_place</strong> (<em>bool</em>) – Optional. True to modify and return the original TimeSeries. False
@@ -810,7 +804,7 @@ original TimeSeries intact. Default is False.</p>
 </dl>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="ktk.TimeSeries.add_event.html#ktk.TimeSeries.add_event" title="ktk.TimeSeries.add_event"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.TimeSeries.add_event</span></code></a>, <a class="reference internal" href="ktk.TimeSeries.rename_event.html#ktk.TimeSeries.rename_event" title="ktk.TimeSeries.rename_event"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.TimeSeries.rename_event</span></code></a>, <a class="reference internal" href="ktk.TimeSeries.remove_event.html#ktk.TimeSeries.remove_event" title="ktk.TimeSeries.remove_event"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.TimeSeries.remove_event</span></code></a>, <a class="reference internal" href="ktk.TimeSeries.sort_events.html#ktk.TimeSeries.sort_events" title="ktk.TimeSeries.sort_events"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.TimeSeries.sort_events</span></code></a>, <a class="reference internal" href="ktk.TimeSeries.ui_edit_events.html#ktk.TimeSeries.ui_edit_events" title="ktk.TimeSeries.ui_edit_events"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.TimeSeries.ui_edit_events</span></code></a></p>
+<p><a class="reference internal" href="ktk.TimeSeries.add_event.html#ktk.TimeSeries.add_event" title="ktk.TimeSeries.add_event"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.TimeSeries.add_event</span></code></a>, <a class="reference internal" href="ktk.TimeSeries.rename_event.html#ktk.TimeSeries.rename_event" title="ktk.TimeSeries.rename_event"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.TimeSeries.rename_event</span></code></a>, <a class="reference internal" href="ktk.TimeSeries.remove_event.html#ktk.TimeSeries.remove_event" title="ktk.TimeSeries.remove_event"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.TimeSeries.remove_event</span></code></a>, <a class="reference internal" href="ktk.TimeSeries.ui_edit_events.html#ktk.TimeSeries.ui_edit_events" title="ktk.TimeSeries.ui_edit_events"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.TimeSeries.ui_edit_events</span></code></a></p>
 </div>
 <p class="rubric">Example</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ts</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">TimeSeries</span><span class="p">(</span><span class="n">time</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>

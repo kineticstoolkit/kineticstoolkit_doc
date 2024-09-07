@@ -519,8 +519,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.fill_missing_samples.html">ktk.TimeSeries.fill_missing_samples</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.from_array.html">ktk.TimeSeries.from_array</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.from_dataframe.html">ktk.TimeSeries.from_dataframe</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_event_index.html">ktk.TimeSeries.get_event_index</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_event_time.html">ktk.TimeSeries.get_event_time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_index_after_event.html">ktk.TimeSeries.get_index_after_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_index_after_time.html">ktk.TimeSeries.get_index_after_time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_index_at_event.html">ktk.TimeSeries.get_index_at_event</a></li>
@@ -532,8 +530,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_after_event.html">ktk.TimeSeries.get_ts_after_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_after_index.html">ktk.TimeSeries.get_ts_after_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_after_time.html">ktk.TimeSeries.get_ts_after_time</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_at_event.html">ktk.TimeSeries.get_ts_at_event</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_at_time.html">ktk.TimeSeries.get_ts_at_time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_before_event.html">ktk.TimeSeries.get_ts_before_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_before_index.html">ktk.TimeSeries.get_ts_before_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_before_time.html">ktk.TimeSeries.get_ts_before_time</a></li>
@@ -552,11 +548,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.resample.html">ktk.TimeSeries.resample</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.shift.html">ktk.TimeSeries.shift</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.sort_events.html">ktk.TimeSeries.sort_events</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.sync_event.html">ktk.TimeSeries.sync_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.to_dataframe.html">ktk.TimeSeries.to_dataframe</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.trim_events.html">ktk.TimeSeries.trim_events</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.ui_edit_events.html">ktk.TimeSeries.ui_edit_events</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.ui_get_ts_between_clicks.html">ktk.TimeSeries.ui_get_ts_between_clicks</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.ui_sync.html">ktk.TimeSeries.ui_sync</a></li>
 </ul>
 </li>
@@ -765,6 +759,7 @@ document.write(`
 <span class="kn">from</span> <span class="nn">kineticstoolkit.tools</span> <span class="kn">import</span> <span class="n">check_interactive_backend</span>
 <span class="kn">import</span> <span class="nn">kineticstoolkit.geometry</span> <span class="k">as</span> <span class="nn">geometry</span>
 <span class="kn">from</span> <span class="nn">kineticstoolkit._repr</span> <span class="kn">import</span> <span class="n">_format_dict_entries</span>
+<span class="kn">from</span> <span class="nn">kineticstoolkit.exceptions</span> <span class="kn">import</span> <span class="n">TimeSeriesMergeConflictError</span>
 
 <span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -774,7 +769,7 @@ document.write(`
 <span class="kn">import</span> <span class="nn">time</span>
 <span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
 <span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
-<span class="kn">from</span> <span class="nn">kineticstoolkit.typing_</span> <span class="kn">import</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">check_param</span>
+<span class="kn">from</span> <span class="nn">kineticstoolkit.typing_</span> <span class="kn">import</span> <span class="n">check_param</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
 
 <span class="c1"># To fit the new viewpoint on selecting a new point</span>
@@ -1093,6 +1088,20 @@ document.write(`
         <span class="n">check_param</span><span class="p">(</span><span class="s2">&quot;ts&quot;</span><span class="p">,</span> <span class="n">ts</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="n">contents_type</span><span class="o">=</span><span class="n">TimeSeries</span><span class="p">)</span>
         <span class="c1"># The other parameters are checked by the property setters.</span>
 
+        <span class="c1"># Merge all input TimeSeries</span>
+        <span class="n">merged_ts</span> <span class="o">=</span> <span class="n">TimeSeries</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">one_ts</span> <span class="ow">in</span> <span class="n">ts</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">merged_ts</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">one_ts</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">on_conflict</span><span class="o">=</span><span class="s2">&quot;error&quot;</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">TimeSeriesMergeConflictError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+                    <span class="s2">&quot;Duplicate keys were found in at least two of the &quot;</span>
+                    <span class="s2">&quot;Player&#39;s input TimeSeries. When merging the inputs, we &quot;</span>
+                    <span class="sa">f</span><span class="s2">&quot;got this error: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2"> &quot;</span>
+                    <span class="s2">&quot;Please merge your input TimeSeries manually to avoid &quot;</span>
+                    <span class="s2">&quot;this situation. This will become an error in the future.&quot;</span>
+                <span class="p">)</span>
+
         <span class="c1"># Warn if Matplotlib is not interactive</span>
         <span class="n">check_interactive_backend</span><span class="p">()</span>
 
@@ -1173,11 +1182,7 @@ document.write(`
         <span class="c1"># is refreshed automatically</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_being_constructed</span> <span class="o">=</span> <span class="kc">False</span>
 
-        <span class="n">temp_ts</span> <span class="o">=</span> <span class="n">TimeSeries</span><span class="p">()</span>
-        <span class="k">for</span> <span class="n">one_ts</span> <span class="ow">in</span> <span class="n">ts</span><span class="p">:</span>
-            <span class="n">temp_ts</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">one_ts</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">set_contents</span><span class="p">(</span><span class="n">temp_ts</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">set_contents</span><span class="p">(</span><span class="n">merged_ts</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">set_interconnections</span><span class="p">(</span><span class="n">interconnections</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">grid_origin</span> <span class="o">=</span> <span class="n">grid_origin</span>  <span class="c1"># Refresh grid</span>
 
@@ -2265,7 +2270,7 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">_mpl_objects</span><span class="p">[</span><span class="s2">&quot;Axes&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">([</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_mpl_objects</span><span class="p">[</span><span class="s2">&quot;Axes&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">([</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
 
-    <span class="k">def</span> <span class="nf">_set_new_target</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">_set_new_target</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">target</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Set new target and adapts pan and zoom consequently.&quot;&quot;&quot;</span>
         <span class="c1"># Save the current view</span>
         <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">target</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>

@@ -530,8 +530,6 @@
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.fill_missing_samples.html">ktk.TimeSeries.fill_missing_samples</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.from_array.html">ktk.TimeSeries.from_array</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.from_dataframe.html">ktk.TimeSeries.from_dataframe</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_event_index.html">ktk.TimeSeries.get_event_index</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_event_time.html">ktk.TimeSeries.get_event_time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_index_after_event.html">ktk.TimeSeries.get_index_after_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_index_after_time.html">ktk.TimeSeries.get_index_after_time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_index_at_event.html">ktk.TimeSeries.get_index_at_event</a></li>
@@ -543,8 +541,6 @@
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_ts_after_event.html">ktk.TimeSeries.get_ts_after_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_ts_after_index.html">ktk.TimeSeries.get_ts_after_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_ts_after_time.html">ktk.TimeSeries.get_ts_after_time</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_ts_at_event.html">ktk.TimeSeries.get_ts_at_event</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_ts_at_time.html">ktk.TimeSeries.get_ts_at_time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_ts_before_event.html">ktk.TimeSeries.get_ts_before_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_ts_before_index.html">ktk.TimeSeries.get_ts_before_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.get_ts_before_time.html">ktk.TimeSeries.get_ts_before_time</a></li>
@@ -563,11 +559,9 @@
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.resample.html">ktk.TimeSeries.resample</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.shift.html">ktk.TimeSeries.shift</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.sort_events.html">ktk.TimeSeries.sort_events</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.sync_event.html">ktk.TimeSeries.sync_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.to_dataframe.html">ktk.TimeSeries.to_dataframe</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.trim_events.html">ktk.TimeSeries.trim_events</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.ui_edit_events.html">ktk.TimeSeries.ui_edit_events</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.ui_get_ts_between_clicks.html">ktk.TimeSeries.ui_get_ts_between_clicks</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.TimeSeries.ui_sync.html">ktk.TimeSeries.ui_sync</a></li>
 </ul>
 </li>
@@ -794,10 +788,10 @@ document.write(`
 <dl class="py function">
 <dt class="sig sig-object py" id="ktk.read_c3d">
 <span class="sig-name descname"><span class="pre">read_c3d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">convert_point_unit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">include_event_context</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kineticstoolkit/files.html#read_c3d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ktk.read_c3d" title="Permalink to this definition">#</a></dt>
-<dd><p>Read point and analog data from a C3D file.</p>
-<p>Point positions are returned in <cite>output[“Points”]</cite> as a TimeSeries, where
-each point corresponds to a data key. Each point position is expressed as
-an Nx4 point series:</p>
+<dd><p>Read point, analog and rotation data from a C3D file.</p>
+<p>If available, point positions are returned in <cite>output[“Points”]</cite> as a
+TimeSeries, where each point corresponds to a data key. Each point position
+is expressed as an Nx4 point series:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
     <span class="p">[</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">z0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
     <span class="p">[</span><span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">z1</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
@@ -809,6 +803,8 @@ an Nx4 point series:</p>
 <p>If available, analog data is returned in <cite>output[“Analogs”]</cite> as a
 TimeSeries, where each analog signal is expressed as a unidimensional
 array of length N.</p>
+<p>If available, transform matrices are returned in <cite>output[“Rotations”]</cite> as
+a TimeSeries, where each matrix series is expressed as an Nx4x4 series.</p>
 <p>Some applications store calculated values such as angles, forces, moments,
 powers, etc. into the C3D file. Storing these data is application-specific
 and is not standardized in the C3D file format (<a class="reference external" href="https://www.c3d.org">https://www.c3d.org</a>).
@@ -830,8 +826,8 @@ this scheme “context:name”, e.g.,: “General:Start”,
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>A dict of TimeSeries, with keys being “Points” and if available,
-“Analogs”.</p>
+<dd class="field-even"><p>A dict of TimeSeries, with keys being, if available: “Points”,
+“Analogs” and/or “Rotations”.</p>
 </dd>
 <dt class="field-odd">Return type</dt>
 <dd class="field-odd"><p>dict[<a class="reference internal" href="ktk.TimeSeries.html#ktk.TimeSeries" title="ktk.TimeSeries">ktk.TimeSeries</a>]</p>

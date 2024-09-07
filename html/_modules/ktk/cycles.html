@@ -519,8 +519,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.fill_missing_samples.html">ktk.TimeSeries.fill_missing_samples</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.from_array.html">ktk.TimeSeries.from_array</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.from_dataframe.html">ktk.TimeSeries.from_dataframe</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_event_index.html">ktk.TimeSeries.get_event_index</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_event_time.html">ktk.TimeSeries.get_event_time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_index_after_event.html">ktk.TimeSeries.get_index_after_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_index_after_time.html">ktk.TimeSeries.get_index_after_time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_index_at_event.html">ktk.TimeSeries.get_index_at_event</a></li>
@@ -532,8 +530,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_after_event.html">ktk.TimeSeries.get_ts_after_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_after_index.html">ktk.TimeSeries.get_ts_after_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_after_time.html">ktk.TimeSeries.get_ts_after_time</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_at_event.html">ktk.TimeSeries.get_ts_at_event</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_at_time.html">ktk.TimeSeries.get_ts_at_time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_before_event.html">ktk.TimeSeries.get_ts_before_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_before_index.html">ktk.TimeSeries.get_ts_before_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_before_time.html">ktk.TimeSeries.get_ts_before_time</a></li>
@@ -552,11 +548,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.resample.html">ktk.TimeSeries.resample</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.shift.html">ktk.TimeSeries.shift</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.sort_events.html">ktk.TimeSeries.sort_events</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.sync_event.html">ktk.TimeSeries.sync_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.to_dataframe.html">ktk.TimeSeries.to_dataframe</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.trim_events.html">ktk.TimeSeries.trim_events</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.ui_edit_events.html">ktk.TimeSeries.ui_edit_events</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.ui_get_ts_between_clicks.html">ktk.TimeSeries.ui_get_ts_between_clicks</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.ui_sync.html">ktk.TimeSeries.ui_sync</a></li>
 </ul>
 </li>
@@ -783,9 +777,9 @@ document.write(`
     <span class="n">thresholds</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>
     <span class="n">directions</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;rising&quot;</span><span class="p">,</span> <span class="s2">&quot;falling&quot;</span><span class="p">),</span>
     <span class="n">min_durations</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
-    <span class="n">max_durations</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">Inf</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">Inf</span><span class="p">),</span>
-    <span class="n">min_peak_heights</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">Inf</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">Inf</span><span class="p">),</span>
-    <span class="n">max_peak_heights</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">Inf</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">Inf</span><span class="p">),</span>
+    <span class="n">max_durations</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">),</span>
+    <span class="n">min_peak_heights</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">),</span>
+    <span class="n">max_peak_heights</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span><span class="p">),</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Detect cycles in a TimeSeries based on a dual threshold approach.</span>
@@ -821,13 +815,13 @@ document.write(`
 <span class="sd">        Optional. Minimal phase durations in seconds. Default is (0.0, 0.0).</span>
 <span class="sd">    max_durations</span>
 <span class="sd">        Optional. Maximal phase durations in seconds. Default is</span>
-<span class="sd">        (np.Inf, np.Inf)</span>
+<span class="sd">        (np.inf, np.inf)</span>
 <span class="sd">    min_peak_heights</span>
 <span class="sd">        Optional. Minimal peak values to be reached in both phases. Default is</span>
-<span class="sd">        (-np.Inf, -np.Inf).</span>
+<span class="sd">        (-np.inf, -np.inf).</span>
 <span class="sd">    max_peak_heights</span>
 <span class="sd">        Optional. Maximal peak values to be reached in both phases. Default is</span>
-<span class="sd">        (np.Inf, np.Inf).</span>
+<span class="sd">        (np.inf, np.inf).</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -940,7 +934,7 @@ document.write(`
         <span class="k">try</span><span class="p">:</span>
             <span class="n">time3</span> <span class="o">=</span> <span class="n">events</span><span class="p">[</span><span class="n">i_event</span> <span class="o">+</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">time</span>
         <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
-            <span class="n">time3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">Inf</span>
+            <span class="n">time3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
 
         <span class="n">sub_ts1</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">get_ts_between_times</span><span class="p">(</span><span class="n">time1</span><span class="p">,</span> <span class="n">time2</span><span class="p">,</span> <span class="n">inclusive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="n">sub_ts2</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">get_ts_between_times</span><span class="p">(</span><span class="n">time1</span><span class="p">,</span> <span class="n">time3</span><span class="p">,</span> <span class="n">inclusive</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -972,7 +966,6 @@ document.write(`
     <span class="n">tsout</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
     <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">valid_events</span><span class="p">:</span>
         <span class="n">tsout</span> <span class="o">=</span> <span class="n">tsout</span><span class="o">.</span><span class="n">add_event</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">event</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-    <span class="n">tsout</span><span class="o">.</span><span class="n">sort_events</span><span class="p">()</span>
 
     <span class="k">return</span> <span class="n">tsout</span></div>
 
@@ -1109,19 +1102,19 @@ document.write(`
         <span class="n">subts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">get_ts_between_times</span><span class="p">(</span>
             <span class="n">extended_begin_time</span><span class="p">,</span> <span class="n">extended_end_time</span><span class="p">,</span> <span class="n">inclusive</span><span class="o">=</span><span class="kc">True</span>
         <span class="p">)</span>
-        <span class="n">subts_backup</span> <span class="o">=</span> <span class="n">subts</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
         <span class="k">if</span> <span class="n">subts</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
 
-        <span class="c1"># Resample this cycle on span + 1</span>
-        <span class="c1"># (and get the first points after)</span>
+        <span class="c1"># Resample this cycle on span + 1 point</span>
+        <span class="c1"># (and remove the last point after)</span>
         <span class="n">subts</span> <span class="o">=</span> <span class="n">subts</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span>
             <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span>
                 <span class="n">extended_begin_time</span><span class="p">,</span>
                 <span class="n">extended_end_time</span><span class="p">,</span>
                 <span class="n">span</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">span</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span>
-            <span class="p">)</span>
+            <span class="p">),</span>
+            <span class="n">extrapolate</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
         <span class="p">)</span>
 
         <span class="c1"># Keep only the first points (the last one belongs to the next cycle)</span>
@@ -1135,7 +1128,6 @@ document.write(`
             <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">time</span> <span class="o">&gt;=</span> <span class="n">begin_time</span> <span class="ow">and</span> <span class="n">event</span><span class="o">.</span><span class="n">time</span> <span class="o">&lt;</span> <span class="n">end_time</span><span class="p">:</span>
                 <span class="n">events</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
         <span class="n">subts</span><span class="o">.</span><span class="n">events</span> <span class="o">=</span> <span class="n">events</span>
-        <span class="n">subts</span> <span class="o">=</span> <span class="n">subts</span><span class="o">.</span><span class="n">sort_events</span><span class="p">()</span>
 
         <span class="c1"># Separate start/end events from the other</span>
         <span class="n">start_end_events</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1187,7 +1179,6 @@ document.write(`
         <span class="n">new_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">n_cycles</span> <span class="o">*</span> <span class="p">(</span><span class="n">span</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">span</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
         <span class="n">dest_ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">new_shape</span><span class="p">)</span>
 
-    <span class="n">dest_ts</span> <span class="o">=</span> <span class="n">dest_ts</span><span class="o">.</span><span class="n">sort_events</span><span class="p">()</span>
     <span class="k">return</span> <span class="n">dest_ts</span></div>
 
 
@@ -1322,7 +1313,6 @@ document.write(`
 
 <span class="c1">#     &quot;&quot;&quot;</span>
 <span class="c1">#     ts = ts.copy()</span>
-<span class="c1">#     ts.sort_events()</span>
 
 <span class="c1">#     n_cycles = int(ts.time.shape[0] / n_points)</span>
 <span class="c1">#     out = {}  # type: dict[str, np.ndarray]</span>

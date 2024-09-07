@@ -519,8 +519,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.fill_missing_samples.html">ktk.TimeSeries.fill_missing_samples</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.from_array.html">ktk.TimeSeries.from_array</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.from_dataframe.html">ktk.TimeSeries.from_dataframe</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_event_index.html">ktk.TimeSeries.get_event_index</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_event_time.html">ktk.TimeSeries.get_event_time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_index_after_event.html">ktk.TimeSeries.get_index_after_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_index_after_time.html">ktk.TimeSeries.get_index_after_time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_index_at_event.html">ktk.TimeSeries.get_index_at_event</a></li>
@@ -532,8 +530,6 @@
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_after_event.html">ktk.TimeSeries.get_ts_after_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_after_index.html">ktk.TimeSeries.get_ts_after_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_after_time.html">ktk.TimeSeries.get_ts_after_time</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_at_event.html">ktk.TimeSeries.get_ts_at_event</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_at_time.html">ktk.TimeSeries.get_ts_at_time</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_before_event.html">ktk.TimeSeries.get_ts_before_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_before_index.html">ktk.TimeSeries.get_ts_before_index</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.get_ts_before_time.html">ktk.TimeSeries.get_ts_before_time</a></li>
@@ -552,11 +548,9 @@
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.resample.html">ktk.TimeSeries.resample</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.shift.html">ktk.TimeSeries.shift</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.sort_events.html">ktk.TimeSeries.sort_events</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.sync_event.html">ktk.TimeSeries.sync_event</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.to_dataframe.html">ktk.TimeSeries.to_dataframe</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.trim_events.html">ktk.TimeSeries.trim_events</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.ui_edit_events.html">ktk.TimeSeries.ui_edit_events</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.ui_get_ts_between_clicks.html">ktk.TimeSeries.ui_get_ts_between_clicks</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.TimeSeries.ui_sync.html">ktk.TimeSeries.ui_sync</a></li>
 </ul>
 </li>
@@ -758,13 +752,11 @@ document.write(`
 
 
 <span class="kn">import</span> <span class="nn">kineticstoolkit.geometry</span> <span class="k">as</span> <span class="nn">geometry</span>
-<span class="kn">from</span> <span class="nn">kineticstoolkit</span> <span class="kn">import</span> <span class="n">TimeSeries</span><span class="p">,</span> <span class="n">read_c3d</span><span class="p">,</span> <span class="n">write_c3d</span>
-<span class="kn">from</span> <span class="nn">kineticstoolkit.decorators</span> <span class="kn">import</span> <span class="n">deprecated</span>
+<span class="kn">from</span> <span class="nn">kineticstoolkit</span> <span class="kn">import</span> <span class="n">TimeSeries</span>
 <span class="kn">from</span> <span class="nn">kineticstoolkit.typing_</span> <span class="kn">import</span> <span class="n">check_param</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">warnings</span>
-<span class="kn">import</span> <span class="nn">struct</span>  <span class="c1"># To unpack data from N3D files</span>
 
 
 <span class="k">def</span> <span class="fm">__dir__</span><span class="p">():</span>
@@ -1071,159 +1063,6 @@ document.write(`
                     <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\t</span><span class="si">{:.5f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="n">i_frame</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
                 <span class="p">)</span>
             <span class="n">fid</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
-
-
-<span class="c1"># %% Deprecated</span>
-<span class="nd">@deprecated</span><span class="p">(</span>
-    <span class="n">since</span><span class="o">=</span><span class="s2">&quot;0.9&quot;</span><span class="p">,</span>
-    <span class="n">until</span><span class="o">=</span><span class="s2">&quot;2024&quot;</span><span class="p">,</span>
-    <span class="n">details</span><span class="o">=</span><span class="p">(</span>
-        <span class="s2">&quot;Please use the ktk.read_c3d() function that is more powerful &quot;</span>
-        <span class="s2">&quot;since it can also read analog data.&quot;</span>
-    <span class="p">),</span>
-<span class="p">)</span>
-<span class="k">def</span> <span class="nf">read_c3d_file</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Read markers from a C3D file.</span>
-
-<span class="sd">    The markers positions are returned in a TimeSeries where each marker</span>
-<span class="sd">    corresponds to a data key. Each marker position is expressed in this form:</span>
-
-<span class="sd">    array([[x0, y0, z0, 1.], [x1, y1, z1, 1.], [x2, y2, z2, 1.], ...])</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    filename</span>
-<span class="sd">        Path of the C3D file</span>
-
-<span class="sd">    Notes</span>
-<span class="sd">    -----</span>
-<span class="sd">    - This function relies on `ezc3d`, which is available on</span>
-<span class="sd">      conda-forge and on git-hub. Please install ezc3d before using</span>
-<span class="sd">      read_c3d_file. https://github.com/pyomeca/ezc3d</span>
-
-<span class="sd">    - The point unit must be either mm or m. In both cases, the final unit</span>
-<span class="sd">      returned in the output TimeSeries is m.</span>
-
-<span class="sd">    - As for any instrument, please check that your data loads correctly on</span>
-<span class="sd">      your first use (e.g., sampling frequency, position unit). It is</span>
-<span class="sd">      possible that read_c3d_file misses some corner cases.</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">read_c3d</span><span class="p">(</span><span class="n">filename</span><span class="p">)[</span><span class="s2">&quot;Points&quot;</span><span class="p">]</span>
-
-
-<span class="nd">@deprecated</span><span class="p">(</span>
-    <span class="n">since</span><span class="o">=</span><span class="s2">&quot;0.9&quot;</span><span class="p">,</span>
-    <span class="n">until</span><span class="o">=</span><span class="s2">&quot;2024&quot;</span><span class="p">,</span>
-    <span class="n">details</span><span class="o">=</span><span class="p">(</span>
-        <span class="s2">&quot;Please use the ktk.write_c3d() function that is more powerful &quot;</span>
-        <span class="s2">&quot;since it can also write analog data.&quot;</span>
-    <span class="p">),</span>
-<span class="p">)</span>
-<span class="k">def</span> <span class="nf">write_c3d_file</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">markers</span><span class="p">:</span> <span class="n">TimeSeries</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Write a markers TimeSeries to a C3D file.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    filename</span>
-<span class="sd">        Path of the C3D file</span>
-
-<span class="sd">    markers</span>
-<span class="sd">        Markers trajectories, following the same form as the TimeSeries</span>
-<span class="sd">        read by read_c3d_file.</span>
-
-<span class="sd">    Notes</span>
-<span class="sd">    -----</span>
-<span class="sd">    This function relies on `ezc3d`. Please install ezc3d before using</span>
-<span class="sd">    write_c3d_file. https://github.com/pyomeca/ezc3d</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">write_c3d</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">markers</span><span class="p">)</span>
-
-
-<span class="nd">@deprecated</span><span class="p">(</span>
-    <span class="n">since</span><span class="o">=</span><span class="s2">&quot;0.9&quot;</span><span class="p">,</span>
-    <span class="n">until</span><span class="o">=</span><span class="s2">&quot;2024&quot;</span><span class="p">,</span>
-    <span class="n">details</span><span class="o">=</span><span class="p">(</span><span class="s2">&quot;This function has been moved to the n3d extension.&quot;</span><span class="p">),</span>
-<span class="p">)</span>
-<span class="k">def</span> <span class="nf">read_n3d_file</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">labels</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[])</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Read markers from an NDI N3D file.</span>
-
-<span class="sd">    The markers positions are returned in a TimeSeries where each marker</span>
-<span class="sd">    corresponds to a data key. Each marker position is expressed in this form:</span>
-
-<span class="sd">    array([[x0, y0, z0, 1.], [x1, y1, z1, 1.], [x2, y2, z2, 1.], ...])</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    filename : str</span>
-<span class="sd">        Path of the N3D file.</span>
-<span class="sd">    labels : list of str (optional)</span>
-<span class="sd">        Marker names</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    TimeSeries</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s2">&quot;rb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fid</span><span class="p">:</span>
-        <span class="n">_</span> <span class="o">=</span> <span class="n">fid</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># 32</span>
-        <span class="n">n_markers</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="n">fid</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">2</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">n_data_per_marker</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="n">fid</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">2</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">n_columns</span> <span class="o">=</span> <span class="n">n_markers</span> <span class="o">*</span> <span class="n">n_data_per_marker</span>
-
-        <span class="n">n_frames</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;i&quot;</span><span class="p">,</span> <span class="n">fid</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
-
-        <span class="n">collection_frame_frequency</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="n">fid</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">user_comments</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;60s&quot;</span><span class="p">,</span> <span class="n">fid</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">60</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">system_comments</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;60s&quot;</span><span class="p">,</span> <span class="n">fid</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">60</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">file_description</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;30s&quot;</span><span class="p">,</span> <span class="n">fid</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">30</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">cutoff_filter_frequency</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;h&quot;</span><span class="p">,</span> <span class="n">fid</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">2</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">time_of_collection</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;8s&quot;</span><span class="p">,</span> <span class="n">fid</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">8</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">_</span> <span class="o">=</span> <span class="n">fid</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-        <span class="n">date_of_collection</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;8s&quot;</span><span class="p">,</span> <span class="n">fid</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">8</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">extended_header</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;73s&quot;</span><span class="p">,</span> <span class="n">fid</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">73</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
-
-        <span class="c1"># Read the rest and put it in an array</span>
-        <span class="n">ndi_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">n_frames</span><span class="p">,</span> <span class="n">n_columns</span><span class="p">))</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span>
-
-        <span class="k">for</span> <span class="n">i_frame</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_frames</span><span class="p">):</span>
-            <span class="k">for</span> <span class="n">i_column</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_columns</span><span class="p">):</span>
-                <span class="n">data</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s2">&quot;f&quot;</span><span class="p">,</span> <span class="n">fid</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">4</span><span class="p">))[</span><span class="mi">0</span><span class="p">]</span>
-                <span class="k">if</span> <span class="n">data</span> <span class="o">&lt;</span> <span class="o">-</span><span class="mf">1e25</span><span class="p">:</span>  <span class="c1"># technically, it is -3.697314e+28</span>
-                    <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">NaN</span>
-                <span class="n">ndi_array</span><span class="p">[</span><span class="n">i_frame</span><span class="p">,</span> <span class="n">i_column</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span>
-
-        <span class="c1"># Conversion from mm to meters</span>
-        <span class="n">ndi_array</span> <span class="o">/=</span> <span class="mi">1000</span>
-
-        <span class="c1"># Transformation to a TimeSeries</span>
-        <span class="n">ts</span> <span class="o">=</span> <span class="n">TimeSeries</span><span class="p">(</span>
-            <span class="n">time</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span>
-                <span class="mi">0</span><span class="p">,</span> <span class="n">n_frames</span> <span class="o">/</span> <span class="n">collection_frame_frequency</span><span class="p">,</span> <span class="n">n_frames</span>
-            <span class="p">)</span>
-        <span class="p">)</span>
-
-        <span class="k">for</span> <span class="n">i_marker</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_markers</span><span class="p">):</span>
-            <span class="k">if</span> <span class="n">labels</span> <span class="o">!=</span> <span class="p">[]:</span>
-                <span class="n">label</span> <span class="o">=</span> <span class="n">labels</span><span class="p">[</span><span class="n">i_marker</span><span class="p">]</span>
-            <span class="k">else</span><span class="p">:</span>
-                <span class="n">label</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Marker</span><span class="si">{</span><span class="n">i_marker</span><span class="si">}</span><span class="s2">&quot;</span>
-
-            <span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">block</span><span class="p">(</span>
-                <span class="p">[</span>
-                    <span class="p">[</span>
-                        <span class="n">ndi_array</span><span class="p">[:,</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">i_marker</span> <span class="p">:</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">i_marker</span> <span class="o">+</span> <span class="mi">3</span><span class="p">],</span>
-                        <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">n_frames</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span>
-                    <span class="p">]</span>
-                <span class="p">]</span>
-            <span class="p">)</span>
-            <span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">,</span> <span class="s2">&quot;m&quot;</span><span class="p">)</span>
-
-    <span class="k">return</span> <span class="n">ts</span>
 </pre></div>
 
                 </article>
