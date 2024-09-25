@@ -46,7 +46,7 @@ Félix Chénier
 ````
 
 
-![](_static/images/frontpage.gif)
+![Frontpage image - Demonstration of the Player](_static/images/frontpage.gif)
 
 
 Kinetics Toolkit is an open-source Python package to facilitate research in biomechanics. It provides tools for:
@@ -66,10 +66,8 @@ It also covers all the features of Kinetics Toolkit, with reproducible examples 
 
 
 
-
-
 ```{div} style="align:center;"
-<a href="https://felixchenier.uqam.ca"><img width=30% src="_static/images/logo_mosa.png"></a>
-&nbsp;&nbsp;&nbsp;<a href="https://uqam.ca"><img width=20% src="_static/images/logo_uqam.png"></a>
-&nbsp;&nbsp;&nbsp;<a href="https://crir.ca"><img width=20% src="_static/images/logo_crir.jpg"></a>
+<a href="https://felixchenier.uqam.ca"><img width=30% src="_static/images/logo_mosa.png" alt="Mobility and Adaptive Sports Research Lab"></a>
+&nbsp;&nbsp;&nbsp;<a href="https://uqam.ca"><img width=20% src="_static/images/logo_uqam.png" alt="Université du Québec à Montréal"></a>
+&nbsp;&nbsp;&nbsp;<a href="https://crir.ca"><img width=20% src="_static/images/logo_crir.jpg" alt="Centre for Interdisciplinary Research in Rehabilitation of Greater Montreal"></a>
 ```
