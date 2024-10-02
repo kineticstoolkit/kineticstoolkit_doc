@@ -1,10 +1,7 @@
 ﻿ktk.doc
 =======
 
-.. currentmodule:: ktk
-
-.. autoclass:: doc
-   :show-inheritance:
+.. automodule:: ktk.doc
 
    
    
@@ -12,4 +9,23 @@
 
    
    
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:
+      :nosignatures:
    
+      download
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+
