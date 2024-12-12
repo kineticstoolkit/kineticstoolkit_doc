@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.5
+    jupytext_version: 1.16.4
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -99,6 +99,12 @@ Usually, we would rather use the [ktk.TimeSeries.add_data](api/ktk.TimeSeries.ad
 ```{code-cell} ipython3
 markers_thorax = markers_thorax.add_data("Derrick:C7", data_to_add, overwrite=True)
 ```
+
+```{tip}
+[ktk.TimeSeries.add_data](api/ktk.TimeSeries.add_data.rst) match 1-sample inputs to the contents of the TimeSeries. For example, adding a value of `[3]` to a TimeSeries of 10 samples effectively adds a series of 10 samples: `[3, 3, 3, 3, 3, 3, 3, 3, 3, 3]`
+```
+
++++
 
 **3. Using `merge`**
 
