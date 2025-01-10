@@ -35,4 +35,5 @@ plt.plot(x, y2);
 By default, any new plot is added to the same figure. To generate new figures, you may use the following functions:
 
 - {{plt_figure}} prepares a new, empty figure that will be used for each subsequent plot, leaving the original one intact.
-- {{plt_clf}} **cl**ears the current **f**igure.
+- {{plt_clf}} clears the current figure.
+

@@ -68,7 +68,7 @@ $$
 \end{bmatrix}
 $$
 
-We also know how to express the local frame:
+We also know how to express the local frame as a homogeneous transform:
 
 $$
 ~^\text{global}_\text{local}T = \begin{bmatrix}

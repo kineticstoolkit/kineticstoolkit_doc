@@ -1,33 +1,35 @@
 ---
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: pandoc
-      format_version: 2.19.2
-      jupytext_version: 1.14.5
-  kernelspec:
-    display_name: Python 3 (ipykernel)
-    language: python
-    name: python3
-  nbformat: 4
-  nbformat_minor: 5
+jupytext:
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.16.4
+kernelspec:
+  display_name: Python 3 (ipykernel)
+  language: python
+  name: python3
 ---
 
-# Expressing series of points, vectors and frames in Kinetics Toolkit
++++ {"editable": true, "slideshow": {"slide_type": ""}}
 
-To express points, vectors and frames in Kinetics Toolkit, we must follow these conventions:
+# Expressing series of numbers, points, vectors and transforms in Kinetics Toolkit
 
--   Every number, point, vector or matrix is considered as a **series**.
--   The first dimension of any series corresponds to **time**.
-
-This is emphasized in the following examples:
+In Kinetics Toolkit, numbers, points, vectors and transforms are expressed as series, where the first dimension of any series corresponds to time. This is emphasized in the following examples:
 
 ## Series of numbers (float, int)
 
 Since a float or an integer has a no dimension, then a **series** of N floats of integers has one dimension of length N:
 
     [x(t0), x(t1), x(t2), ...]
+
+For example:
+
+```{code-cell} ipython3
+series_of_floats = [1.0, 1.1, 1.2, 1.3]
+```
+
++++ {"editable": true, "slideshow": {"slide_type": ""}}
 
 ## Series of points
 
@@ -38,7 +40,23 @@ Since a point has four coordinates (x, y, z, 1), then a **series** of N points h
         [x(t1), y(t1), z(t1), 1.0],
         [x(t2), y(t2), z(t2), 1.0],
         [ ... ,  ... ,  ... , ...],
-    ] 
+    ]
+
+The function [ktk.geometry.create_point_series](api/ktk.geometry.create_point_series.rst) converts 2D (Nx2) or 3D coordinates (Nx3, Nx4) to this convention:
+
+```{code-cell} ipython3
+import kineticstoolkit.lab as ktk
+
+# Create a point series for a 3D series of (x, y, z)
+ktk.geometry.create_point_series(
+    [[1.0, 2.0, 3.0], [1.0, 2.1, 3.0], [1.0, 2.2, 3.0]]
+)
+```
+
+```{code-cell} ipython3
+# Create a point series for a 2D series of (x, y)
+ktk.geometry.create_point_series([[1.0, 2.0], [1.0, 2.1], [1.0, 2.2]])
+```
 
 ## Series of vectors
 
@@ -49,11 +67,56 @@ Since a vector has four coordinates (x, y, z, 0), then a **series** of N vectors
         [x(t1), y(t1), z(t1), 0.0],
         [x(t2), y(t2), z(t2), 0.0],
         [ ... ,  ... ,  ... , ...],
-    ] 
+    ]
+
+The function [ktk.geometry.create_vector_series](api/ktk.geometry.create_vector_series.rst) converts 2D (Nx2) or 3D coordinates (Nx3, Nx4) to this convention:
+
+```{code-cell} ipython3
+# Create a vector series for a 3D series of (x, y, z)
+ktk.geometry.create_vector_series(
+    [[1.0, 2.0, 3.0], [1.0, 2.1, 3.0], [1.0, 2.2, 3.0]]
+)
+```
+
+```{code-cell} ipython3
+# Create a vector series for a 2D series of (x, y)
+ktk.geometry.create_vector_series([[1.0, 2.0], [1.0, 2.1], [1.0, 2.2]])
+```
+
+## Series of transforms
+
+Since a transform has a shape of (4, 4), then a **series** of N frames has a shape of (N, 4, 4):
+
+    [
+        [
+            [R00(t0), R01(t0), R02(t0), px(t0)],
+            [R10(t0), R11(t0), R12(t0), py(t0)],
+            [R20(t0), R21(t0), R22(t0), pz(t0)],
+            [    0.0,     0.0,     0.0,    1.0],
+        ],
+        [
+            [R00(t1), R01(t1), R02(t1), px(t1)],
+            [R10(t1), R11(t1), R12(t1), py(t1)],
+            [R20(t1), R21(t1), R22(t1), pz(t1)],
+            [    0.0,     0.0,     0.0,    1.0],
+        ],
+        ...
+    ]
+
+The function [ktk.geometry.create_transform_series](api/ktk.geometry.create_transform_series.rst) can create transforms using multiple input forms. Although we will explore this function in more details later, here is how to express a series of transforms based on rotation angles:
+
+```{code-cell} ipython3
+# Create a series of 2 transforms that represent a rotation
+# of 0°, then 1°, around z, and a position of (2, 3, 4), then
+# (2, 3.1, 4).
+ktk.geometry.create_transform_series(
+    angles=[0, 1], seq="z", degrees=True, positions=[[2, 3, 4], [2, 3.1, 4]]
+)
+```
 
 ## Series of point clouds
 
-We can  express M points together as an array of shape (4, M):
+We can express M points together as an array of shape (4, M):
 
 $$
 \begin{bmatrix}
@@ -84,31 +147,10 @@ Therefore, a **series** of N point clouds has a shape of (N, 4, M):
 
 The same applies for series of vector clouds.
 
-## Series of frames
-
-Since a frame has a shape of (4, 4), then a **series** of N frames has a shape of (N, 4, 4):
-
-    [
-        [
-            [R00(t0), R01(t0), R02(t0), Tx(t0)],
-            [R10(t0), R11(t0), R12(t0), Ty(t0)],
-            [R20(t0), R21(t0), R22(t0), Tz(t0)],
-            [    0.0,     0.0,     0.0,    1.0],
-        ],
-        [
-            [R00(t1), R01(t1), R02(t1), Tx(t1)],
-            [R10(t1), R11(t1), R12(t1), Ty(t1)],
-            [R20(t1), R21(t1), R22(t1), Tz(t1)],
-            [    0.0,     0.0,     0.0,    1.0],
-        ],
-        ...
-    }
-
 ## Time-invariant coordinates
 
 Always ensure that the first dimension of any array is reserved to time, even for coordinates that do not vary in time. For example, the vector $[1, 2, 3, 0]$ must be expressed as `[[1.0, 2.0, 3.0, 0.0]]` (note the double brackets). Expressing it as `[1.0, 2.0, 3.0, 0.0]` (single brackets) would mean a series of 4 floats instead of one time-invariant vector.
 
-:::{tip}
 A quick way to convert a constant array to a series is to use {{np_newaxis}}:
 
     one_vector = np.array([1.0, 2.0, 3.0, 0.0])

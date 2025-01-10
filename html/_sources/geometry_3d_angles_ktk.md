@@ -35,10 +35,10 @@ import kineticstoolkit.lab as ktk
 
 
 total_rotation = ktk.geometry.matmul(
-    ktk.geometry.create_transforms(angles=[15], seq="z", degrees=True),
+    ktk.geometry.create_transform_series(angles=[15], seq="z", degrees=True),
     ktk.geometry.matmul(
-        ktk.geometry.create_transforms(angles=[-10], seq="y", degrees=True),
-        ktk.geometry.create_transforms(angles=[20], seq="x", degrees=True),
+        ktk.geometry.create_transform_series(angles=[-10], seq="y", degrees=True),
+        ktk.geometry.create_transform_series(angles=[20], seq="x", degrees=True),
     ),
 )
 
@@ -61,4 +61,3 @@ print(ktk.geometry.get_angles(total_rotation, seq="xzy", degrees=True))
 print(ktk.geometry.get_angles(total_rotation, seq="zyx", degrees=True))
 print(ktk.geometry.get_angles(total_rotation, seq="ZXY", degrees=True))
 ```
-

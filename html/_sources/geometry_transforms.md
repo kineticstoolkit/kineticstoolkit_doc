@@ -1,8 +1,8 @@
-# Frames
+# Transforms
 
-We are now ready to introduce the **frame**, a 4x4 matrix that expresses both the position and the orientation of a coordinate system, in reference to another coordinate system.
+We are now ready to introduce the **homogeneous transform**, a 4x4 matrix that expresses both the position and the orientation of a coordinate system, in reference to another coordinate system.
 
-The fourth (easiest) column of a frame is the position of the local coordinate system's origin expressed in the reference coordinate system. In the example of Figure 4, this is:
+The fourth (easiest) column of a transform is the position of the local coordinate system's origin expressed in the reference coordinate system. In the example of Figure 4, this is:
 
 $$
 ~^\text{global}p_\text{upper arm} = \begin{bmatrix}
@@ -13,7 +13,7 @@ z_\text{upper arm} \\
 \end{bmatrix}
 $$
 
-The first three columns of a frame express the frame orientation. They are, in the reference coordinate system, the coordinates of three unit vectors that are respectively oriented toward the x, y and z axes of the local coordinate system.
+The first three columns of a transform express the orientation of the coordinate system into the reference coordinate system. They are, in the reference coordinate system, the coordinates of three unit vectors that are respectively oriented toward the x, y and z axes of the local coordinate system.
 
 ```{figure-md} fig_geometry_frame
 :width: 4in
@@ -30,7 +30,7 @@ Based on {numref}`fig_geometry_frame`, which illustrates this concept for the po
 | Upper arm y axis | $\begin{bmatrix} 0 \\ 1 \\ 0 \\ 0 \end{bmatrix}$ | $\begin{bmatrix} -\sin(\theta) \\ \cos(\theta) \\ 0 \\ 0 \end{bmatrix}$ |
 | Upper arm z axis | $\begin{bmatrix} 0 \\ 0 \\ 1 \\ 0 \end{bmatrix}$ |            $\begin{bmatrix} 0 \\ 0 \\ 1 \\ 0 \end{bmatrix}$             |
 
-Combining these four vectors into a single 4x4 matrix gives the frame $~^\text{global}_\text{upper arm}T$:
+Combining these four vectors into a single 4x4 matrix gives the transform $~^\text{global}_\text{upper arm}T$:
 
 $$
 ~^\text{global}_\text{upper arm}T = \begin{bmatrix}
@@ -43,7 +43,7 @@ $$
 
 where the expression $~^\text{global}_\text{upper arm}T$ is read as: Position and orientation of the upper arm coordinate system, expressed in the global coordinate system.
 
-For example, if the shoulder is located 15 cm forward and 70 cm upward to the global origin, and the upper arm is inclined at 30 degrees of the vertical, then the position and orientation of the upper arm coordinate system is expressed by the frame:
+For example, if the shoulder is located 15 cm forward and 70 cm upward to the global origin, and the upper arm is inclined at 30 degrees of the vertical, then the position and orientation of the upper arm coordinate system is expressed by the transform:
 
 $$
 ~^\text{global}_\text{upper arm}T = \begin{bmatrix}
@@ -61,7 +61,7 @@ $$
 $$
 
 :::{important}
-Independently of the position and orientation of the studied body, a frame always has this form:
+Independently of the position and orientation of the studied body, a transform always has this form:
 
 $$
 \begin{bmatrix}

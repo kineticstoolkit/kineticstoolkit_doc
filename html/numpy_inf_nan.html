@@ -448,18 +448,18 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="geometry.html">9. 3D rigid body geometry</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_basics.html">9.1. Coordinates: points, vectors and frames</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_basics.html">9.1. Coordinates: points, vectors and transforms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="geometry_global_coordinates.html">9.1.1. Global coordinate system</a></li>
 <li class="toctree-l3"><a class="reference internal" href="geometry_points_vectors.html">9.1.2. Points and vectors</a></li>
 <li class="toctree-l3"><a class="reference internal" href="geometry_local_coordinates.html">9.1.3. Local coordinate system</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="geometry_frames.html">9.1.4. Frames</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="geometry_basics_exercise.html">9.1.4.1. Exercise: Frame</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="geometry_transforms.html">9.1.4. Transforms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="geometry_basics_exercise.html">9.1.4.1. Exercise: Transform</a></li>
 </ul>
 </details></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="geometry_dimension_conventions.html">9.1.5. Expressing series of points, vectors and frames in Kinetics Toolkit</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="geometry_dimension_conventions.html">9.1.5. Expressing series of numbers, points, vectors and transforms in Kinetics Toolkit</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="geometry_dimension_conventions_exercise1.html">9.1.5.7. Exercise: Expressing a series of points</a></li>
 <li class="toctree-l4"><a class="reference internal" href="geometry_dimension_conventions_exercise2.html">9.1.5.8. Exercise: Expressing a constant vector</a></li>
-<li class="toctree-l4"><a class="reference internal" href="geometry_dimension_conventions_exercise3.html">9.1.5.9. Exercise: Expressing a series of frames</a></li>
+<li class="toctree-l4"><a class="reference internal" href="geometry_dimension_conventions_exercise3.html">9.1.5.9. Exercise: Expressing a series of transforms</a></li>
 </ul>
 </details></li>
 </ul>
@@ -467,7 +467,7 @@
 <li class="toctree-l2 has-children"><a class="reference internal" href="geometry_transform_moving_coordinates.html">9.2. Rotating and translating coordinates</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="geometry_transform_moving_points.html">9.2.1. Moving points</a></li>
 <li class="toctree-l3"><a class="reference internal" href="geometry_transform_rotating_vectors.html">9.2.2. Rotating vectors</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="geometry_transform_moving_frames.html">9.2.3. Moving frames</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="geometry_transform_moving_frames.html">9.2.3. Moving frames (transforms)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="geometry_moving_coordinates_exercise1.html">9.2.3.3. Exercise: Moving a point</a></li>
 <li class="toctree-l4"><a class="reference internal" href="geometry_moving_coordinates_exercise2.html">9.2.3.4. Exercise: Moving a trajectory</a></li>
 <li class="toctree-l4"><a class="reference internal" href="geometry_moving_coordinates_exercise3.html">9.2.3.5. Exercise: A fixed point in a moving coordinate system</a></li>
@@ -494,7 +494,7 @@
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="player.html">10. Visualizing 3D points and frames</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="player_basics.html">10.1. Player basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="player_interconnections.html">10.2. Interconnecting the points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player_interconnections.html">10.2. Interconnecting points</a></li>
 <li class="toctree-l2"><a class="reference internal" href="player_frames.html">10.3. Visualizing frames</a></li>
 <li class="toctree-l2"><a class="reference internal" href="player_styling_exporting.html">10.4. Styling and exporting</a></li>
 </ul>
@@ -620,13 +620,18 @@
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.geometry.html">ktk.geometry</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_frames.html">ktk.geometry.create_frames</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_transforms.html">ktk.geometry.create_transforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_point_series.html">ktk.geometry.create_point_series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_transform_series.html">ktk.geometry.create_transform_series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_vector_series.html">ktk.geometry.create_vector_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_angles.html">ktk.geometry.get_angles</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_global_coordinates.html">ktk.geometry.get_global_coordinates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_local_coordinates.html">ktk.geometry.get_local_coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.is_point_series.html">ktk.geometry.is_point_series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.is_transform_series.html">ktk.geometry.is_transform_series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.is_vector_series.html">ktk.geometry.is_vector_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.isnan.html">ktk.geometry.isnan</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.matmul.html">ktk.geometry.matmul</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.mirror.html">ktk.geometry.mirror</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.register_points.html">ktk.geometry.register_points</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.rotate.html">ktk.geometry.rotate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.scale.html">ktk.geometry.scale</a></li>
@@ -828,9 +833,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/7v/g5_ntzfx35v4ck07wflynw640000gp/T/ipykernel_64460/2090094188.py:6: RuntimeWarning: divide by zero encountered in divide
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/var/folders/7v/g5_ntzfx35v4ck07wflynw640000gp/T/ipykernel_54221/2090094188.py:6: RuntimeWarning: divide by zero encountered in divide
   c = a / b
-/var/folders/7v/g5_ntzfx35v4ck07wflynw640000gp/T/ipykernel_64460/2090094188.py:6: RuntimeWarning: invalid value encountered in divide
+/var/folders/7v/g5_ntzfx35v4ck07wflynw640000gp/T/ipykernel_54221/2090094188.py:6: RuntimeWarning: invalid value encountered in divide
   c = a / b
 </pre></div>
 </div>

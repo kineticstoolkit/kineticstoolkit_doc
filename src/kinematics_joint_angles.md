@@ -146,10 +146,10 @@ We have now defined everything to create the series of humerus frame. We first c
 frames = ktk.TimeSeries(time=markers.time)
 ```
 
-Now, we will create the `ArmR` frame series.
+Now, we will create the `ArmR` transform series.
 
 ```{code-cell} ipython3
-frames.data["ArmR"] = ktk.geometry.create_frames(origin=origin, y=y, yz=yz)
+frames.data["ArmR"] = ktk.geometry.create_transform_series(positions=origin, y=y, yz=yz)
 ```
 
 Let's visualize it:
@@ -201,7 +201,7 @@ yz = markers.data["RadialStyloidR"] - markers.data["UlnarStyloidR"]
 We are now ready to create the `ForearmR` frame series.
 
 ```{code-cell} ipython3
-frames.data["ForearmR"] = ktk.geometry.create_frames(origin=origin, y=y, yz=yz)
+frames.data["ForearmR"] = ktk.geometry.create_transform_series(positions=origin, y=y, yz=yz)
 ```
 
 Let's visualize our markers with both new frames:

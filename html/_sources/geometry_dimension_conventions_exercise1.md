@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.5
+    jupytext_version: 1.16.4
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -34,6 +34,8 @@ $$
 
 import numpy as np
 
+import kineticstoolkit.lab as ktk
+
 p = np.array(
     [
         [3.0, 4.0, 5.0, 1.0],
@@ -42,6 +44,12 @@ p = np.array(
         [6.0, 7.0, 5.0, 1.0],
         [7.0, 8.0, 5.0, 1.0],
     ]
+)
+
+# or
+
+p = ktk.geometry.create_point_series(
+    [[3, 4, 5], [4, 5, 5], [5, 6, 5], [6, 7, 5], [7, 8, 5]]
 )
 
 p

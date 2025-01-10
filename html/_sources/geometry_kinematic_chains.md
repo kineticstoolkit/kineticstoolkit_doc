@@ -101,13 +101,19 @@ import kineticstoolkit.lab as ktk
 forearm_p_wrist = [[0, -0.34, 0, 1]]
 
 # forearm frame in the upper arm coordinate system
-upperarm_T_forearm = ktk.geometry.create_transforms(
-    seq="z", angles=[20], translations=[[0, -0.38, 0]], degrees=True
+upperarm_T_forearm = ktk.geometry.create_transform_series(
+     angles=[20],
+     degrees=True,
+     seq="z",
+     positions=[[0, -0.38, 0]], 
 )
 
 # upper arm frame in the global coordinate system
-global_T_upperarm = ktk.geometry.create_transforms(
-    seq="z", angles=[30], translations=[[0.15, 0.7, 0]], degrees=True
+global_T_upperarm = ktk.geometry.create_transform_series(
+    angles=[30],
+    degrees=True,
+    seq="z", 
+    positions=[[0.15, 0.7, 0]]
 )
 ```
 

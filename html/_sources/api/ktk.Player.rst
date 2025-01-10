@@ -39,7 +39,9 @@
       ~Player.contents
       ~Player.current_index
       ~Player.current_time
+      ~Player.default_interconnection_color
       ~Player.default_point_color
+      ~Player.default_vector_color
       ~Player.elevation
       ~Player.frame_size
       ~Player.frame_width
@@ -58,6 +60,8 @@
       ~Player.title_text
       ~Player.track
       ~Player.up
+      ~Player.vector_width
+      ~Player.vectors
       ~Player.zoom
    
    

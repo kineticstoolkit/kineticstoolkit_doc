@@ -11,7 +11,7 @@ T_z = \begin{bmatrix}
 \end{bmatrix}
 $$
 
-Following the definition of a frame in section [](geometry_basics.md), we can also generate the two other rotation matrices:
+Following the definition of a transform in section [](geometry_basics.md), we can also generate the two other rotation matrices:
 
 $$
 T_y = \begin{bmatrix}
