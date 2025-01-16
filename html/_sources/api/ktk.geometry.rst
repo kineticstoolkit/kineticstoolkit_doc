@@ -21,6 +21,7 @@
       get_angles
       get_global_coordinates
       get_local_coordinates
+      get_quaternions
       is_point_series
       is_transform_series
       is_vector_series

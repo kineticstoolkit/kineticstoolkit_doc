@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.5
+    jupytext_version: 1.16.6
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -12,19 +12,23 @@ kernelspec:
 ---
 
 ```{code-cell} ipython3
-:tags: [remove-cell]
-
+---
+editable: true
+slideshow:
+  slide_type: ''
+tags: [remove-cell]
+---
 %matplotlib inline
 ```
 
 # Reading C3D files
 
-Let's first download a sample C3D file. This file is provided by https://www.c3d.org as a test suite for C3D software development:
+Let's first download a sample C3D file:
 
 ```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
 
-filename = ktk.doc.download("c3d_test_suite_sample.c3d")
+filename = ktk.doc.download("c3d_sample.c3d")
 ```
 
 We read it using [ktk.read_c3d](api/ktk.read_c3d.rst):
@@ -50,6 +54,7 @@ You should not ignore this warning if you are reading a c3d file that has been p
 The content of the file is expressed as a dictionary with two keys:
 - `Points`: A TimeSeries that contains the point data (markers)
 - `Analogs` (only when applicable): A TimeSeries that contains the raw analog data from force platforms, EMG or other analog signals recorded into the c3d file.
+- `ForcePlateforms` (only when applicable): A TimeSeries that contains the forces, moments, centres of pressure and force platform positions.
 
 ## Points
 
@@ -62,7 +67,7 @@ c3d_contents["Points"].data
 We will learn how to visualize these markers using an interactive player in [](player). For now, let's plot some of them:
 
 ```{code-cell} ipython3
-c3d_contents["Points"].plot(["LFT1", "RFT1"])
+c3d_contents["Points"].plot(["c7", "r should"])
 ```
 
 ## Analogs
@@ -76,5 +81,51 @@ c3d_contents["Analogs"].data
 Let's plot some of them:
 
 ```{code-cell} ipython3
-c3d_contents["Analogs"].plot(["FZ1", "FZ2"])
+c3d_contents["Analogs"].plot(["Left Rectus femoris", "Left Semimembranosus"])
+```
+
+## Force platforms
+
+The `ForcePlatforms` TimeSeries contains information regarding all force platforms in the file. In this particular file, there are 6 force platforms, represented as FP0 to FP5:
+- The position of the force platforms is given by `FPx_Corner1` to `FPx_Corner4`.
+- Their local coordinate systems are given by the `FPx_LCS` transform series.
+- Ground reaction forces are given by `Forces`.
+- Moments are reported both around the force platform geometrical centre (`FPx_MomentAtCentre`) and at the point of pressure (`FPx_MomentAtCOP`).
+- The centre of pressure is reported in `FPx_COP`.
+
+```{code-cell} ipython3
+c3d_contents["ForcePlatforms"].data
+```
+
+Let's plot the COP on force plates 0:
+
+```{code-cell} ipython3
+c3d_contents["ForcePlatforms"].plot('FP0_COP')
+```
+
+## Quick visualization
+
+Although visualizing data using the interactive 3D [Player](api/ktk.Player.rst) is explained in section [](player.md), here is how we can quickly visualize the kinematic and kinetic data in this file:
+
+```{code-cell} ipython3
+:tags: [skip-execution]
+
+ktk.Player(
+    c3d_contents["Points"],
+    c3d_contents["ForcePlatforms"].resample(c3d_contents["Points"].time)
+)
+
+# Each TimeSeries must have the same sampling rate: here we downsample the
+# force platform sampling rate to the points sampling rate.
+```
+
+```{code-cell} ipython3
+:tags: [remove-input]
+%matplotlib qt5
+
+points = c3d_contents["Points"].get_ts_between_times(3, 5)
+ktk.Player(
+    points,
+    c3d_contents["ForcePlatforms"].resample(points.time)
+)._to_animation()
 ```

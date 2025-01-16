@@ -15,19 +15,21 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -36,10 +38,11 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=e3fcc901" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -64,6 +67,7 @@
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -79,19 +83,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -99,7 +92,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -107,8 +99,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -126,7 +118,8 @@
       
         
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -156,21 +149,17 @@
     
     
     <img src="../../_static/logo.png" class="logo__image only-light" alt="Biomechanical Analysis using Python and Kinetics Toolkit - Home"/>
-    <script>document.write(`<img src="../../_static/logo-dark.png" class="logo__image only-dark" alt="Biomechanical Analysis using Python and Kinetics Toolkit - Home"/>`);</script>
+    <img src="../../_static/logo-dark.png" class="logo__image only-dark pst-js-only" alt="Biomechanical Analysis using Python and Kinetics Toolkit - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Getting Started</span></p>
@@ -615,6 +604,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.get_angles.html">ktk.geometry.get_angles</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.get_global_coordinates.html">ktk.geometry.get_global_coordinates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.get_local_coordinates.html">ktk.geometry.get_local_coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.get_quaternions.html">ktk.geometry.get_quaternions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.is_point_series.html">ktk.geometry.is_point_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.is_transform_series.html">ktk.geometry.is_transform_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.is_vector_series.html">ktk.geometry.is_vector_series</a></li>
@@ -645,9 +635,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -696,24 +691,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 
 </div></div>
       
@@ -769,32 +756,32 @@ document.write(`
 <span class="n">__email__</span> <span class="o">=</span> <span class="s2">&quot;chenier.felix@uqam.ca&quot;</span>
 <span class="n">__license__</span> <span class="o">=</span> <span class="s2">&quot;Apache 2.0&quot;</span>
 
-<span class="kn">from</span> <span class="nn">kineticstoolkit.timeseries</span> <span class="kn">import</span> <span class="n">TimeSeries</span>
-<span class="kn">import</span> <span class="nn">kineticstoolkit.geometry</span> <span class="k">as</span> <span class="nn">geometry</span>
-<span class="kn">import</span> <span class="nn">kineticstoolkit.dev.kinetics</span> <span class="k">as</span> <span class="nn">kinetics</span>
-<span class="kn">import</span> <span class="nn">kineticstoolkit.config</span>
-<span class="kn">from</span> <span class="nn">kineticstoolkit.typing_</span> <span class="kn">import</span> <span class="n">check_param</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">kineticstoolkit.timeseries</span><span class="w"> </span><span class="kn">import</span> <span class="n">TimeSeries</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">kineticstoolkit.geometry</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">geometry</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">kineticstoolkit.dev.kinetics</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">kinetics</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">kineticstoolkit.config</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">kineticstoolkit.typing_</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_param</span>
 
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span>
-<span class="kn">import</span> <span class="nn">warnings</span>
-<span class="kn">import</span> <span class="nn">shutil</span>
-<span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
-<span class="kn">import</span> <span class="nn">time</span>
-<span class="kn">import</span> <span class="nn">getpass</span>
-<span class="kn">import</span> <span class="nn">zipfile</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">getpass</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">zipfile</span>
 
 
-<span class="k">def</span> <span class="fm">__dir__</span><span class="p">():</span>  <span class="c1"># pragma: no cover</span>
+<span class="k">def</span><span class="w"> </span><span class="fm">__dir__</span><span class="p">():</span>  <span class="c1"># pragma: no cover</span>
     <span class="k">return</span> <span class="p">[</span><span class="s2">&quot;save&quot;</span><span class="p">,</span> <span class="s2">&quot;load&quot;</span><span class="p">]</span>
 
 
 <div class="viewcode-block" id="save">
 <a class="viewcode-back" href="../../api/ktk.save.html#ktk.save">[docs]</a>
-<span class="k">def</span> <span class="nf">save</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">variable</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">variable</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Save a variable to a ktk.zip file.</span>
 
@@ -844,8 +831,8 @@ document.write(`
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">check_param</span><span class="p">(</span><span class="s2">&quot;filename&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
 
-    <span class="k">class</span> <span class="nc">CustomEncoder</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">JSONEncoder</span><span class="p">):</span>
-        <span class="k">def</span> <span class="nf">default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+    <span class="k">class</span><span class="w"> </span><span class="nc">CustomEncoder</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">JSONEncoder</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">default</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
                 <span class="k">return</span> <span class="p">{</span><span class="s2">&quot;class__&quot;</span><span class="p">:</span> <span class="s2">&quot;numpy.array&quot;</span><span class="p">,</span> <span class="s2">&quot;value&quot;</span><span class="p">:</span> <span class="n">obj</span><span class="o">.</span><span class="n">tolist</span><span class="p">()}</span>
 
@@ -937,7 +924,7 @@ document.write(`
 
 
 
-<span class="k">def</span> <span class="nf">_load_object_hook</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_load_object_hook</span><span class="p">(</span><span class="n">obj</span><span class="p">):</span>
     <span class="k">if</span> <span class="s2">&quot;class__&quot;</span> <span class="ow">in</span> <span class="n">obj</span><span class="p">:</span>
         <span class="n">to_class</span> <span class="o">=</span> <span class="n">obj</span><span class="p">[</span><span class="s2">&quot;class__&quot;</span><span class="p">]</span>
         <span class="k">if</span> <span class="n">to_class</span> <span class="o">==</span> <span class="s2">&quot;numpy.array&quot;</span><span class="p">:</span>
@@ -985,7 +972,7 @@ document.write(`
 
 <div class="viewcode-block" id="load">
 <a class="viewcode-back" href="../../api/ktk.load.html#ktk.load">[docs]</a>
-<span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">include_metadata</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">load</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">include_metadata</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Load a ktk.zip file.</span>
 
@@ -1037,7 +1024,7 @@ document.write(`
 
 <div class="viewcode-block" id="read_c3d">
 <a class="viewcode-back" href="../../api/ktk.read_c3d.html#ktk.read_c3d">[docs]</a>
-<span class="k">def</span> <span class="nf">read_c3d</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">read_c3d</span><span class="p">(</span>
     <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">include_event_context</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -1068,32 +1055,33 @@ document.write(`
 <span class="sd">    as a TimeSeries containing the following keys where FPi means Force</span>
 <span class="sd">    Platform i, i being the index of the platform (e.g., FP0, FP1, etc.):</span>
 
-<span class="sd">        - FPi_Force: Ground reaction force in global coordinates, as an Nx4</span>
-<span class="sd">          series (Fx, Fy, Fz, 0.0).</span>
-<span class="sd">        - FPi_Moment: Ground reaction moment in global coordinates, expressed</span>
-<span class="sd">          at the origin of the force platform, as an Nx4 series</span>
-<span class="sd">          (Mx, My, Mz, 0.0).</span>
-<span class="sd">        - FPi_MomentAtCOP: Ground reaction moment in global coordinates,</span>
-<span class="sd">          expressed at the center of pressure, as an Nx4 series</span>
-<span class="sd">          (Mx, My, Mz, 0.0).</span>
-<span class="sd">        - FPi_COP: Centre of pressure in global coordinates.</span>
+<span class="sd">        - FPi_Force: Ground reaction force components in global coordinates,</span>
+<span class="sd">          as an Nx4 vector series [[Fx, Fy, Fz, 0.0], ...].</span>
+<span class="sd">        - FPi_Moment: Ground reaction moment components in global</span>
+<span class="sd">          coordinates, expressed at the origin of the force platform, as an</span>
+<span class="sd">          Nx4 vector series [[Mx, My, Mz, 0.0], ...].</span>
+<span class="sd">        - FPi_MomentAtCOP: Ground reaction moment components in global</span>
+<span class="sd">          coordinates, expressed at the center of pressure, as an Nx4</span>
+<span class="sd">          vector series.</span>
+<span class="sd">        - FPi_COP: Centre of pressure in global coordinates as n Nx4 point</span>
+<span class="sd">          series.</span>
 <span class="sd">        - FPi_LCS: Local coordinate system of the force platform, expressed in</span>
-<span class="sd">          global coordinates as an Nx4x4 series. The orientation is calculated</span>
-<span class="sd">          using the force platform corners, and the origin is located at the</span>
-<span class="sd">          manufacturer&#39;s specified origin (generally a few millimeters below</span>
-<span class="sd">          the platform).</span>
+<span class="sd">          global coordinates as an Nx4x4 transform series. The orientation is</span>
+<span class="sd">          calculated using the force platform corners, and the origin is</span>
+<span class="sd">          located at the manufacturer&#39;s specified origin (generally a few</span>
+<span class="sd">          millimeters below the platform).</span>
 <span class="sd">        - FPi_Corner1: Coordinates of the first corner (+x, +y) in global</span>
-<span class="sd">          coordinates, as an Nx4 series (x, y, z, 1.0).</span>
+<span class="sd">          coordinates, as an Nx4 point series.</span>
 <span class="sd">        - FPi_Corner2: Coordinates of the second corner (-x, +y) in global</span>
-<span class="sd">          coordinates, as an Nx4 series (x, y, z, 1.0).</span>
+<span class="sd">          coordinates, as an Nx4 point series.</span>
 <span class="sd">        - FPi_Corner3: Coordinates of the third corner (-x, -y) in global</span>
-<span class="sd">          coordinates, as an Nx4 series (x, y, z, 1.0).</span>
+<span class="sd">          coordinates, as an Nx4 point series.</span>
 <span class="sd">        - FPi_Corner4: Coordinates of the fourth corner (+x, -y) in global</span>
-<span class="sd">          coordinates, as an Nx4 series (x, y, z, 1.0).</span>
+<span class="sd">          coordinates, as an Nx4 point series.</span>
 
-<span class="sd">    If available, homogeneous transforms are returned in `output[&quot;Rotations&quot;]`</span>
-<span class="sd">    as a TimeSeries, where each transform series is expressed as an Nx4x4</span>
-<span class="sd">    series.</span>
+<span class="sd">    If available, rigid body orientations are returned in `output[&quot;Rotations&quot;]`</span>
+<span class="sd">    as a TimeSeries, where each body orientation is expressed as an Nx4x4</span>
+<span class="sd">    transforms series.</span>
 
 <span class="sd">    Some software stores calculated values such as angles, forces, moments,</span>
 <span class="sd">    powers, etc. into the C3D file. Storing these data is software-specific</span>
@@ -1116,8 +1104,8 @@ document.write(`
 <span class="sd">    convert_point_unit</span>
 <span class="sd">        Optional. True to convert the point units to meters, if they are</span>
 <span class="sd">        expressed in other units such as mm in the C3D file. False to keep</span>
-<span class="sd">        points as is. When unset, if points are stored in a unit other than</span>
-<span class="sd">        meters, then a warning is issued. See caution note below.</span>
+<span class="sd">        points as is. When unset, a warning is issued if points are stored in</span>
+<span class="sd">        a different unit than meters. See caution note below.</span>
 
 <span class="sd">    convert_forceplate_moment_unit</span>
 <span class="sd">        Optional. True to convert forceplate moment unit to Nm. Default is</span>
@@ -1187,7 +1175,7 @@ document.write(`
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The file name must end with &#39;.c3d&#39;.&quot;</span><span class="p">)</span>
 
     <span class="k">try</span><span class="p">:</span>
-        <span class="kn">import</span> <span class="nn">ezc3d</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">ezc3d</span>
     <span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ModuleNotFoundError</span><span class="p">(</span>
             <span class="s2">&quot;The optional module ezc3d is not installed, but it is required &quot;</span>
@@ -1556,20 +1544,16 @@ document.write(`
                 <span class="p">)</span>
 
             <span class="c1"># Add origin and the whole local coordinate system</span>
-            <span class="n">lcs</span> <span class="o">=</span> <span class="n">kinetics</span><span class="o">.</span><span class="n">create_forceplatform_frames</span><span class="p">(</span>
+            <span class="n">lcs</span> <span class="o">=</span> <span class="n">kinetics</span><span class="o">.</span><span class="n">create_forceplatform_lcs</span><span class="p">(</span>
                 <span class="n">platforms</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;FP</span><span class="si">{</span><span class="n">i_platform</span><span class="si">}</span><span class="s2">_Corner1&quot;</span><span class="p">],</span>
                 <span class="n">platforms</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;FP</span><span class="si">{</span><span class="n">i_platform</span><span class="si">}</span><span class="s2">_Corner2&quot;</span><span class="p">],</span>
                 <span class="n">platforms</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;FP</span><span class="si">{</span><span class="n">i_platform</span><span class="si">}</span><span class="s2">_Corner3&quot;</span><span class="p">],</span>
                 <span class="n">platforms</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;FP</span><span class="si">{</span><span class="n">i_platform</span><span class="si">}</span><span class="s2">_Corner4&quot;</span><span class="p">],</span>
-                <span class="p">[</span>
-                    <span class="o">-</span><span class="n">forceplate_position_factor</span>
-                    <span class="o">*</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;platform&quot;</span><span class="p">][</span><span class="n">i_platform</span><span class="p">][</span><span class="s2">&quot;origin&quot;</span><span class="p">]</span>
-                <span class="p">],</span>
             <span class="p">)</span>
 
             <span class="n">platforms</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;FP</span><span class="si">{</span><span class="n">i_platform</span><span class="si">}</span><span class="s2">_LCS&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">lcs</span>
 
-            <span class="c1"># Add force</span>
+            <span class="c1"># Add ground reaction force</span>
             <span class="n">force_unit</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;platform&quot;</span><span class="p">][</span><span class="n">i_platform</span><span class="p">][</span><span class="s2">&quot;unit_force&quot;</span><span class="p">]</span>
             <span class="k">if</span> <span class="n">force_unit</span> <span class="o">!=</span> <span class="s2">&quot;N&quot;</span><span class="p">:</span>
                 <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
@@ -1577,35 +1561,35 @@ document.write(`
                 <span class="p">)</span>
 
             <span class="n">key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;FP</span><span class="si">{</span><span class="n">i_platform</span><span class="si">}</span><span class="s2">_Force&quot;</span>
-            <span class="n">platforms</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">platforms</span><span class="o">.</span><span class="n">time</span><span class="p">),</span> <span class="mi">4</span><span class="p">))</span>
-            <span class="n">platforms</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;platform&quot;</span><span class="p">][</span>
-                <span class="n">i_platform</span>
-            <span class="p">][</span><span class="s2">&quot;force&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
+            <span class="n">force</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">platforms</span><span class="o">.</span><span class="n">time</span><span class="p">),</span> <span class="mi">4</span><span class="p">))</span>
+            <span class="n">force</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;platform&quot;</span><span class="p">][</span><span class="n">i_platform</span><span class="p">][</span><span class="s2">&quot;force&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
+            <span class="n">platforms</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">force</span>
             <span class="n">platforms</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">,</span> <span class="n">force_unit</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
             <span class="c1"># Add moment around origin</span>
-            <span class="n">key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;FP</span><span class="si">{</span><span class="n">i_platform</span><span class="si">}</span><span class="s2">_Moment&quot;</span>
-            <span class="n">platforms</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">platforms</span><span class="o">.</span><span class="n">time</span><span class="p">),</span> <span class="mi">4</span><span class="p">))</span>
-            <span class="n">platforms</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;FP</span><span class="si">{</span><span class="n">i_platform</span><span class="si">}</span><span class="s2">_MomentAtCenter&quot;</span>
+            <span class="n">moment</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">platforms</span><span class="o">.</span><span class="n">time</span><span class="p">),</span> <span class="mi">4</span><span class="p">))</span>
+            <span class="n">moment</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
                 <span class="n">moment_factor</span>
                 <span class="o">*</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;platform&quot;</span><span class="p">][</span><span class="n">i_platform</span><span class="p">][</span><span class="s2">&quot;moment&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
             <span class="p">)</span>
-            <span class="n">platforms</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span>
-                <span class="n">key</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">,</span> <span class="n">forceplate_moment_unit</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span>
-            <span class="p">)</span>
-
-            <span class="c1"># Add moment at COP</span>
-            <span class="n">key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;FP</span><span class="si">{</span><span class="n">i_platform</span><span class="si">}</span><span class="s2">_MomentAtCOP&quot;</span>
-            <span class="n">platforms</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">platforms</span><span class="o">.</span><span class="n">time</span><span class="p">),</span> <span class="mi">4</span><span class="p">))</span>
-            <span class="n">platforms</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-                <span class="n">moment_factor</span> <span class="o">*</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;platform&quot;</span><span class="p">][</span><span class="n">i_platform</span><span class="p">][</span><span class="s2">&quot;Tz&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
-            <span class="p">)</span>
+            <span class="n">platforms</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">moment</span>
             <span class="n">platforms</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span>
                 <span class="n">key</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">,</span> <span class="n">forceplate_moment_unit</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span>
             <span class="p">)</span>
 
             <span class="c1"># Add COP</span>
             <span class="n">key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;FP</span><span class="si">{</span><span class="n">i_platform</span><span class="si">}</span><span class="s2">_COP&quot;</span>
+
+            <span class="c1"># # Calculated by KTK</span>
+            <span class="c1"># local_force = geometry.get_local_coordinates(force, lcs)</span>
+            <span class="c1"># local_moment = geometry.get_local_coordinates(moment, lcs)</span>
+            <span class="c1"># local_cop = kinetics.calculate_cop(local_force, local_moment)</span>
+            <span class="c1"># platforms.data[key] = geometry.get_global_coordinates(</span>
+            <span class="c1">#     local_cop, lcs</span>
+            <span class="c1"># )</span>
+
+            <span class="c1"># Already calculated by ezc3d</span>
             <span class="n">platforms</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">platforms</span><span class="o">.</span><span class="n">time</span><span class="p">),</span> <span class="mi">4</span><span class="p">))</span>
             <span class="n">platforms</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
                 <span class="n">forceplate_position_factor</span>
@@ -1615,6 +1599,16 @@ document.write(`
             <span class="p">)</span>
             <span class="n">platforms</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span>
                 <span class="n">key</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">,</span> <span class="n">forceplate_position_unit</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span>
+            <span class="p">)</span>
+
+            <span class="c1"># Add moments at COP</span>
+            <span class="n">key</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;FP</span><span class="si">{</span><span class="n">i_platform</span><span class="si">}</span><span class="s2">_MomentAtCOP&quot;</span>
+            <span class="n">platforms</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">platforms</span><span class="o">.</span><span class="n">time</span><span class="p">),</span> <span class="mi">4</span><span class="p">))</span>
+            <span class="n">platforms</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">][:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">moment_factor</span> <span class="o">*</span> <span class="n">reader</span><span class="p">[</span><span class="s2">&quot;data&quot;</span><span class="p">][</span><span class="s2">&quot;platform&quot;</span><span class="p">][</span><span class="n">i_platform</span><span class="p">][</span><span class="s2">&quot;Tz&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">T</span>
+            <span class="p">)</span>
+            <span class="n">platforms</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span>
+                <span class="n">key</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">,</span> <span class="n">forceplate_moment_unit</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span>
             <span class="p">)</span>
 
         <span class="c1"># Add events</span>
@@ -1628,7 +1622,7 @@ document.write(`
 
 <div class="viewcode-block" id="write_c3d">
 <a class="viewcode-back" href="../../api/ktk.write_c3d.html#ktk.write_c3d">[docs]</a>
-<span class="k">def</span> <span class="nf">write_c3d</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">write_c3d</span><span class="p">(</span>
     <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">points</span><span class="p">:</span> <span class="n">TimeSeries</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">analogs</span><span class="p">:</span> <span class="n">TimeSeries</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -1714,7 +1708,7 @@ document.write(`
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The file name must end with &#39;.c3d&#39;.&quot;</span><span class="p">)</span>
 
     <span class="k">try</span><span class="p">:</span>
-        <span class="kn">import</span> <span class="nn">ezc3d</span>
+        <span class="kn">import</span><span class="w"> </span><span class="nn">ezc3d</span>
     <span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ModuleNotFoundError</span><span class="p">(</span>
             <span class="s2">&quot;The optional module ezc3d is not installed, but it is required &quot;</span>
@@ -1900,7 +1894,7 @@ document.write(`
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
-    <span class="kn">import</span> <span class="nn">doctest</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">doctest</span>
 
     <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">(</span><span class="n">optionflags</span><span class="o">=</span><span class="n">doctest</span><span class="o">.</span><span class="n">NORMALIZE_WHITESPACE</span><span class="p">)</span>
 </pre></div>
@@ -1968,8 +1962,8 @@ By Félix Chénier
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

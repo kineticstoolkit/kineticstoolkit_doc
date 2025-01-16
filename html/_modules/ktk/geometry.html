@@ -15,19 +15,21 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -36,10 +38,11 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=e3fcc901" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -64,6 +67,7 @@
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -79,19 +83,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -99,7 +92,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -107,8 +99,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -126,7 +118,8 @@
       
         
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -156,21 +149,17 @@
     
     
     <img src="../../_static/logo.png" class="logo__image only-light" alt="Biomechanical Analysis using Python and Kinetics Toolkit - Home"/>
-    <script>document.write(`<img src="../../_static/logo-dark.png" class="logo__image only-dark" alt="Biomechanical Analysis using Python and Kinetics Toolkit - Home"/>`);</script>
+    <img src="../../_static/logo-dark.png" class="logo__image only-dark pst-js-only" alt="Biomechanical Analysis using Python and Kinetics Toolkit - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Getting Started</span></p>
@@ -615,6 +604,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.get_angles.html">ktk.geometry.get_angles</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.get_global_coordinates.html">ktk.geometry.get_global_coordinates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.get_local_coordinates.html">ktk.geometry.get_local_coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.get_quaternions.html">ktk.geometry.get_quaternions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.is_point_series.html">ktk.geometry.is_point_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.is_transform_series.html">ktk.geometry.is_transform_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.is_vector_series.html">ktk.geometry.is_vector_series</a></li>
@@ -645,9 +635,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -696,24 +691,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 
 </div></div>
       
@@ -771,15 +758,15 @@ document.write(`
 <span class="n">__email__</span> <span class="o">=</span> <span class="s2">&quot;chenier.felix@uqam.ca&quot;</span>
 <span class="n">__license__</span> <span class="o">=</span> <span class="s2">&quot;Apache 2.0&quot;</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">scipy.spatial.transform</span> <span class="k">as</span> <span class="nn">transform</span>
-<span class="kn">import</span> <span class="nn">kineticstoolkit.external.icp</span> <span class="k">as</span> <span class="nn">icp</span>
-<span class="kn">from</span> <span class="nn">kineticstoolkit.typing_</span> <span class="kn">import</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">check_param</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.spatial.transform</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">transform</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">kineticstoolkit.external.icp</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">icp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">kineticstoolkit.typing_</span><span class="w"> </span><span class="kn">import</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">check_param</span>
 
-<span class="kn">import</span> <span class="nn">kineticstoolkit</span> <span class="k">as</span> <span class="nn">ktk</span>  <span class="c1"># For doctests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">kineticstoolkit</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ktk</span>  <span class="c1"># For doctests</span>
 
 
-<span class="k">def</span> <span class="fm">__dir__</span><span class="p">():</span>
+<span class="k">def</span><span class="w"> </span><span class="fm">__dir__</span><span class="p">():</span>
     <span class="k">return</span> <span class="p">[</span>
         <span class="s2">&quot;create_transform_series&quot;</span><span class="p">,</span>
         <span class="s2">&quot;create_point_series&quot;</span><span class="p">,</span>
@@ -795,6 +782,7 @@ document.write(`
         <span class="s2">&quot;get_local_coordinates&quot;</span><span class="p">,</span>
         <span class="s2">&quot;get_global_coordinates&quot;</span><span class="p">,</span>
         <span class="s2">&quot;get_angles&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;get_quaternions&quot;</span><span class="p">,</span>
         <span class="s2">&quot;register_points&quot;</span><span class="p">,</span>
         <span class="s2">&quot;isnan&quot;</span><span class="p">,</span>
     <span class="p">]</span>
@@ -805,7 +793,7 @@ document.write(`
 
 <div class="viewcode-block" id="matmul">
 <a class="viewcode-back" href="../../api/ktk.geometry.matmul.html#ktk.geometry.matmul">[docs]</a>
-<span class="k">def</span> <span class="nf">matmul</span><span class="p">(</span><span class="n">op1</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">op2</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="o">/</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">matmul</span><span class="p">(</span><span class="n">op1</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">op2</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="o">/</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Matrix multiplication between series of matrices.</span>
 
@@ -842,7 +830,7 @@ document.write(`
     <span class="n">op1_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">op1</span><span class="p">)</span>
     <span class="n">op2_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">op2</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">perform_mul</span><span class="p">(</span><span class="n">op1</span><span class="p">,</span> <span class="n">op2</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">perform_mul</span><span class="p">(</span><span class="n">op1</span><span class="p">,</span> <span class="n">op2</span><span class="p">):</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">op1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">op2</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
             <span class="k">return</span> <span class="n">op1</span> <span class="o">@</span> <span class="n">op2</span>
         <span class="k">else</span><span class="p">:</span>
@@ -866,7 +854,7 @@ document.write(`
 
 
 
-<span class="k">def</span> <span class="nf">inv</span><span class="p">(</span><span class="n">matrix_series</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="o">/</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">inv</span><span class="p">(</span><span class="n">matrix_series</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="o">/</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculate series of inverse transform.</span>
 
@@ -920,7 +908,7 @@ document.write(`
 
 <div class="viewcode-block" id="rotate">
 <a class="viewcode-back" href="../../api/ktk.geometry.rotate.html#ktk.geometry.rotate">[docs]</a>
-<span class="k">def</span> <span class="nf">rotate</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">rotate</span><span class="p">(</span>
     <span class="n">coordinates</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span> <span class="n">seq</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">angles</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">degrees</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -986,7 +974,7 @@ document.write(`
 
 <div class="viewcode-block" id="translate">
 <a class="viewcode-back" href="../../api/ktk.geometry.translate.html#ktk.geometry.translate">[docs]</a>
-<span class="k">def</span> <span class="nf">translate</span><span class="p">(</span><span class="n">coordinates</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span> <span class="n">translations</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">translate</span><span class="p">(</span><span class="n">coordinates</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span> <span class="n">translations</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Translate a series of coordinates.</span>
 
@@ -1028,7 +1016,7 @@ document.write(`
 
 <div class="viewcode-block" id="scale">
 <a class="viewcode-back" href="../../api/ktk.geometry.scale.html#ktk.geometry.scale">[docs]</a>
-<span class="k">def</span> <span class="nf">scale</span><span class="p">(</span><span class="n">coordinates</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span> <span class="n">scales</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">scale</span><span class="p">(</span><span class="n">coordinates</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span> <span class="n">scales</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Scale a series of coordinates.</span>
 
@@ -1070,7 +1058,7 @@ document.write(`
 
 <div class="viewcode-block" id="mirror">
 <a class="viewcode-back" href="../../api/ktk.geometry.mirror.html#ktk.geometry.mirror">[docs]</a>
-<span class="k">def</span> <span class="nf">mirror</span><span class="p">(</span><span class="n">coordinates</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span> <span class="n">axis</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;z&quot;</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">mirror</span><span class="p">(</span><span class="n">coordinates</span><span class="p">,</span> <span class="o">/</span><span class="p">,</span> <span class="n">axis</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;z&quot;</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Mirror a series of coordinates.</span>
 
@@ -1131,7 +1119,7 @@ document.write(`
 
 <div class="viewcode-block" id="get_angles">
 <a class="viewcode-back" href="../../api/ktk.geometry.get_angles.html#ktk.geometry.get_angles">[docs]</a>
-<span class="k">def</span> <span class="nf">get_angles</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_angles</span><span class="p">(</span>
     <span class="n">T</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">seq</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">degrees</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">flip</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -1221,9 +1209,49 @@ document.write(`
 
 
 
+<div class="viewcode-block" id="get_quaternions">
+<a class="viewcode-back" href="../../api/ktk.geometry.get_quaternions.html#ktk.geometry.get_quaternions">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_quaternions</span><span class="p">(</span>
+    <span class="n">T</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">canonical</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">scalar_first</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Extract quaternions from a transform series.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    T</span>
+<span class="sd">        An Nx4x4 transform series.</span>
+
+<span class="sd">    canonical</span>
+<span class="sd">        Whether to map the redundant double cover of rotation space to a</span>
+<span class="sd">        unique &quot;canonical&quot; single cover. If True, then the quaternion is</span>
+<span class="sd">        chosen from {q, -q} such that the w term is positive. If the w term is</span>
+<span class="sd">        0, then the quaternion is chosen such that the first nonzero term of</span>
+<span class="sd">        the x, y, and z terms is positive. Default is False.</span>
+
+<span class="sd">    scalar_first</span>
+<span class="sd">        Optional. If True, the quaternion order is (w, x, y, z). If False,</span>
+<span class="sd">        the quaternion order is (x, y, z, w). Default is False.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.ndarray</span>
+<span class="sd">        An Nx4 series of quaternions.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">T</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">T</span><span class="p">)</span>
+    <span class="n">check_param</span><span class="p">(</span><span class="s2">&quot;scalar_first&quot;</span><span class="p">,</span> <span class="n">scalar_first</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+
+    <span class="n">_check_no_skewed_rotation</span><span class="p">(</span><span class="n">T</span><span class="p">,</span> <span class="s2">&quot;T&quot;</span><span class="p">)</span>
+
+    <span class="n">R</span> <span class="o">=</span> <span class="n">transform</span><span class="o">.</span><span class="n">Rotation</span><span class="o">.</span><span class="n">from_matrix</span><span class="p">(</span><span class="n">T</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">R</span><span class="o">.</span><span class="n">as_quat</span><span class="p">(</span><span class="n">canonical</span><span class="o">=</span><span class="n">canonical</span><span class="p">,</span> <span class="n">scalar_first</span><span class="o">=</span><span class="n">scalar_first</span><span class="p">)</span></div>
+
+
+
 <div class="viewcode-block" id="get_local_coordinates">
 <a class="viewcode-back" href="../../api/ktk.geometry.get_local_coordinates.html#ktk.geometry.get_local_coordinates">[docs]</a>
-<span class="k">def</span> <span class="nf">get_local_coordinates</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_local_coordinates</span><span class="p">(</span>
     <span class="n">global_coordinates</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">reference_frames</span><span class="p">:</span> <span class="n">ArrayLike</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -1282,7 +1310,7 @@ document.write(`
 
 <div class="viewcode-block" id="get_global_coordinates">
 <a class="viewcode-back" href="../../api/ktk.geometry.get_global_coordinates.html#ktk.geometry.get_global_coordinates">[docs]</a>
-<span class="k">def</span> <span class="nf">get_global_coordinates</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_global_coordinates</span><span class="p">(</span>
     <span class="n">local_coordinates</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">reference_frames</span><span class="p">:</span> <span class="n">ArrayLike</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -1334,7 +1362,7 @@ document.write(`
 
 <div class="viewcode-block" id="isnan">
 <a class="viewcode-back" href="../../api/ktk.geometry.isnan.html#ktk.geometry.isnan">[docs]</a>
-<span class="k">def</span> <span class="nf">isnan</span><span class="p">(</span><span class="n">array</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="o">/</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">isnan</span><span class="p">(</span><span class="n">array</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="o">/</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Check which samples contain at least one NaN.</span>
 
@@ -1359,7 +1387,7 @@ document.write(`
 
 <div class="viewcode-block" id="is_transform_series">
 <a class="viewcode-back" href="../../api/ktk.geometry.is_transform_series.html#ktk.geometry.is_transform_series">[docs]</a>
-<span class="k">def</span> <span class="nf">is_transform_series</span><span class="p">(</span><span class="n">array</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="o">/</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_transform_series</span><span class="p">(</span><span class="n">array</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="o">/</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Check that the input is an Nx4x4 series of homogeneous transforms.</span>
 
@@ -1402,7 +1430,7 @@ document.write(`
 
 
 
-<span class="k">def</span> <span class="nf">_is_point_vector_series</span><span class="p">(</span><span class="n">array</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">last_element</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_is_point_vector_series</span><span class="p">(</span><span class="n">array</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">last_element</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Check if the input is a `kind` series.&quot;&quot;&quot;</span>
     <span class="n">value</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
 
@@ -1426,7 +1454,7 @@ document.write(`
 
 <div class="viewcode-block" id="is_point_series">
 <a class="viewcode-back" href="../../api/ktk.geometry.is_point_series.html#ktk.geometry.is_point_series">[docs]</a>
-<span class="k">def</span> <span class="nf">is_point_series</span><span class="p">(</span><span class="n">array</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_point_series</span><span class="p">(</span><span class="n">array</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Check that the input is an Nx4 point series ([[x, y, z, 1.0], ...]).</span>
 
@@ -1448,7 +1476,7 @@ document.write(`
 
 <div class="viewcode-block" id="is_vector_series">
 <a class="viewcode-back" href="../../api/ktk.geometry.is_vector_series.html#ktk.geometry.is_vector_series">[docs]</a>
-<span class="k">def</span> <span class="nf">is_vector_series</span><span class="p">(</span><span class="n">array</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_vector_series</span><span class="p">(</span><span class="n">array</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Check that the input is an Nx4 vector series ([[x, y, z, 0.0], ...]).</span>
 
@@ -1471,7 +1499,7 @@ document.write(`
 <span class="c1"># %% create_point_series, create_vector_series</span>
 
 
-<span class="k">def</span> <span class="nf">_create_point_vector_series</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_create_point_vector_series</span><span class="p">(</span>
     <span class="n">array</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">last_element</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Implement of to_point_series and to_vector_series.&quot;&quot;&quot;</span>
@@ -1509,7 +1537,7 @@ document.write(`
 
 <div class="viewcode-block" id="create_point_series">
 <a class="viewcode-back" href="../../api/ktk.geometry.create_point_series.html#ktk.geometry.create_point_series">[docs]</a>
-<span class="k">def</span> <span class="nf">create_point_series</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_point_series</span><span class="p">(</span>
     <span class="n">array</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -1568,7 +1596,7 @@ document.write(`
 
 <div class="viewcode-block" id="create_vector_series">
 <a class="viewcode-back" href="../../api/ktk.geometry.create_vector_series.html#ktk.geometry.create_vector_series">[docs]</a>
-<span class="k">def</span> <span class="nf">create_vector_series</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_vector_series</span><span class="p">(</span>
     <span class="n">array</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -1634,7 +1662,7 @@ document.write(`
 <span class="c1"># -------------</span>
 
 
-<span class="k">def</span> <span class="nf">_matrices_to_frame_series</span><span class="p">(</span><span class="n">matrices</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_matrices_to_frame_series</span><span class="p">(</span><span class="n">matrices</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Implement matrix form of _to_frame_series (rotational part).&quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">is_transform_series</span><span class="p">(</span><span class="n">matrices</span><span class="p">):</span>
         <span class="c1"># Nothing to do</span>
@@ -1653,13 +1681,11 @@ document.write(`
         <span class="k">return</span> <span class="n">output</span>
 
 
-<span class="k">def</span> <span class="nf">_angles_to_frame_series</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_angles_to_frame_series</span><span class="p">(</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">angles</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span>
     <span class="n">seq</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">degrees</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-    <span class="n">origin</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Implement angles form of to_frame_series (rotational part).&quot;&quot;&quot;</span>
     <span class="c1"># Condition angles</span>
@@ -1679,7 +1705,32 @@ document.write(`
     <span class="k">return</span> <span class="n">output</span>
 
 
-<span class="k">def</span> <span class="nf">_vectors_to_frame_series</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_quaternions_to_frame_series</span><span class="p">(</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">quaternions</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span>
+    <span class="n">scalar_first</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Implement angles form of to_frame_series (rotational part).&quot;&quot;&quot;</span>
+    <span class="c1"># Condition angles</span>
+    <span class="n">quaternions_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">quaternions</span><span class="p">)</span>
+    <span class="n">n_samples</span> <span class="o">=</span> <span class="n">quaternions_array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="c1"># Create the rotation matrix</span>
+    <span class="n">rotation</span> <span class="o">=</span> <span class="n">transform</span><span class="o">.</span><span class="n">Rotation</span><span class="o">.</span><span class="n">from_quat</span><span class="p">(</span>
+        <span class="n">quaternions_array</span><span class="p">,</span> <span class="n">scalar_first</span><span class="o">=</span><span class="n">scalar_first</span>
+    <span class="p">)</span>
+    <span class="n">R</span> <span class="o">=</span> <span class="n">rotation</span><span class="o">.</span><span class="n">as_matrix</span><span class="p">()</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">R</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>  <span class="c1"># Single rotation: add the Time dimension.</span>
+        <span class="n">R</span> <span class="o">=</span> <span class="n">R</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
+
+    <span class="c1"># Construct and return the output</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_samples</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+    <span class="n">output</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">R</span>
+    <span class="n">output</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="k">return</span> <span class="n">output</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_vectors_to_frame_series</span><span class="p">(</span>
     <span class="n">x</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">y</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">z</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -1689,12 +1740,12 @@ document.write(`
 <span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a frame series from cross products, with a zero origin.&quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">normalize</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Normalize series of vectors.&quot;&quot;&quot;</span>
         <span class="n">norm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">v</span> <span class="o">/</span> <span class="n">norm</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
 
-    <span class="k">def</span> <span class="nf">cross</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">cross</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Cross on series of vectors.&quot;&quot;&quot;</span>
         <span class="n">c</span> <span class="o">=</span> <span class="n">v1</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="n">c</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">v1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">v2</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
@@ -1749,12 +1800,14 @@ document.write(`
 
 <div class="viewcode-block" id="create_transform_series">
 <a class="viewcode-back" href="../../api/ktk.geometry.create_transform_series.html#ktk.geometry.create_transform_series">[docs]</a>
-<span class="k">def</span> <span class="nf">create_transform_series</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_transform_series</span><span class="p">(</span>
     <span class="n">matrices</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="o">*</span><span class="p">,</span>
     <span class="n">angles</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">seq</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">degrees</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">quaternions</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">scalar_first</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="n">x</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">y</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">z</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -1788,6 +1841,18 @@ document.write(`
 <span class="sd">            angles: ArrayLike,</span>
 <span class="sd">            seq: str,</span>
 <span class="sd">            degrees: bool = False,</span>
+<span class="sd">            positions: ArrayLike | None = None,</span>
+<span class="sd">            length: int | None = None,</span>
+<span class="sd">            ) -&gt; np.ndarray</span>
+
+<span class="sd">    **Quaternion input form**</span>
+
+<span class="sd">    If the input is a series of quaternions, use this form::</span>
+
+<span class="sd">        ktk.geometry.to_transform_series(</span>
+<span class="sd">            *,</span>
+<span class="sd">            quaternions: ArrayLike,</span>
+<span class="sd">            scalar_first: bool = False,</span>
 <span class="sd">            positions: ArrayLike | None = None,</span>
 <span class="sd">            length: int | None = None,</span>
 <span class="sd">            ) -&gt; np.ndarray</span>
@@ -1839,6 +1904,14 @@ document.write(`
 <span class="sd">        Used in the angles input form.</span>
 <span class="sd">        Optional. If True, then the given angles are in degrees, otherwise</span>
 <span class="sd">        they are in radians. Default is False (radians).</span>
+
+<span class="sd">    quaternions</span>
+<span class="sd">        Used in the quaternions input form. Nx4 series of quaternions.</span>
+
+<span class="sd">    scalar_first</span>
+<span class="sd">        Used in the quaternions input form.</span>
+<span class="sd">        Optional. If True, the quaternion order is (w, x, y, z). If False,</span>
+<span class="sd">        the quaternion order is (x, y, z, w). Default is False.</span>
 
 <span class="sd">    x, y, z</span>
 <span class="sd">        Used in the vector input form.</span>
@@ -1926,8 +1999,8 @@ document.write(`
     <span class="c1"># Check params</span>
     <span class="k">if</span> <span class="n">seq</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">check_param</span><span class="p">(</span><span class="s2">&quot;seq&quot;</span><span class="p">,</span> <span class="n">seq</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">degrees</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">check_param</span><span class="p">(</span><span class="s2">&quot;degrees&quot;</span><span class="p">,</span> <span class="n">degrees</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+    <span class="n">check_param</span><span class="p">(</span><span class="s2">&quot;degrees&quot;</span><span class="p">,</span> <span class="n">degrees</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+    <span class="n">check_param</span><span class="p">(</span><span class="s2">&quot;scalar_first&quot;</span><span class="p">,</span> <span class="n">scalar_first</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">length</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">check_param</span><span class="p">(</span><span class="s2">&quot;length&quot;</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
 
@@ -1937,6 +2010,10 @@ document.write(`
     <span class="k">elif</span> <span class="n">angles</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">output</span> <span class="o">=</span> <span class="n">_angles_to_frame_series</span><span class="p">(</span>
             <span class="n">angles</span><span class="o">=</span><span class="n">angles</span><span class="p">,</span> <span class="n">seq</span><span class="o">=</span><span class="n">seq</span><span class="p">,</span> <span class="n">degrees</span><span class="o">=</span><span class="n">degrees</span>
+        <span class="p">)</span>
+    <span class="k">elif</span> <span class="n">quaternions</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">output</span> <span class="o">=</span> <span class="n">_quaternions_to_frame_series</span><span class="p">(</span>
+            <span class="n">quaternions</span><span class="o">=</span><span class="n">quaternions</span><span class="p">,</span> <span class="n">scalar_first</span><span class="o">=</span><span class="n">scalar_first</span>
         <span class="p">)</span>
     <span class="k">elif</span> <span class="n">x</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">y</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">z</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">output</span> <span class="o">=</span> <span class="n">_vectors_to_frame_series</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="n">z</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">xy</span><span class="p">,</span> <span class="n">xz</span><span class="o">=</span><span class="n">xz</span><span class="p">,</span> <span class="n">yz</span><span class="o">=</span><span class="n">yz</span><span class="p">)</span>
@@ -1984,7 +2061,7 @@ document.write(`
 <span class="c1"># %% Point registration</span>
 <div class="viewcode-block" id="register_points">
 <a class="viewcode-back" href="../../api/ktk.geometry.register_points.html#ktk.geometry.register_points">[docs]</a>
-<span class="k">def</span> <span class="nf">register_points</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">register_points</span><span class="p">(</span>
     <span class="n">global_points</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">local_points</span><span class="p">:</span> <span class="n">ArrayLike</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -2048,7 +2125,7 @@ document.write(`
 <span class="c1"># %% Private functions</span>
 
 
-<span class="k">def</span> <span class="nf">_match_size</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_match_size</span><span class="p">(</span>
     <span class="n">op1</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">op2</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -2077,7 +2154,7 @@ document.write(`
     <span class="k">return</span> <span class="n">op1</span><span class="p">,</span> <span class="n">op2</span>
 
 
-<span class="k">def</span> <span class="nf">_check_no_skewed_rotation</span><span class="p">(</span><span class="n">series</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">param_name</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_check_no_skewed_rotation</span><span class="p">(</span><span class="n">series</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">param_name</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Check if all rotation matrices are orthogonal.</span>
 
@@ -2120,7 +2197,7 @@ document.write(`
 <span class="c1"># %% To deprecate in version 1.0</span>
 
 
-<span class="k">def</span> <span class="nf">create_transforms</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_transforms</span><span class="p">(</span>
     <span class="n">seq</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">angles</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">translations</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -2267,7 +2344,7 @@ document.write(`
     <span class="k">return</span> <span class="n">T</span> <span class="o">@</span> <span class="n">scales_array</span>
 
 
-<span class="k">def</span> <span class="nf">create_frames</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">create_frames</span><span class="p">(</span>
     <span class="n">origin</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span>
     <span class="n">x</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">y</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -2315,12 +2392,12 @@ document.write(`
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="nf">normalize</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">normalize</span><span class="p">(</span><span class="n">v</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Normalize series of vectors.&quot;&quot;&quot;</span>
         <span class="n">norm</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">v</span> <span class="o">/</span> <span class="n">norm</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
 
-    <span class="k">def</span> <span class="nf">cross</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">cross</span><span class="p">(</span><span class="n">v1</span><span class="p">,</span> <span class="n">v2</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Cross on series of vectors of length 4.&quot;&quot;&quot;</span>
         <span class="n">c</span> <span class="o">=</span> <span class="n">v1</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
         <span class="n">c</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cross</span><span class="p">(</span><span class="n">v1</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">v2</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
@@ -2368,7 +2445,7 @@ document.write(`
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
-    <span class="kn">import</span> <span class="nn">doctest</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">doctest</span>
 
     <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">(</span><span class="n">optionflags</span><span class="o">=</span><span class="n">doctest</span><span class="o">.</span><span class="n">NORMALIZE_WHITESPACE</span><span class="p">)</span>
 </pre></div>
@@ -2436,8 +2513,8 @@ By Félix Chénier
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

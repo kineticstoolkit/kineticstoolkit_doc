@@ -65,15 +65,15 @@ Independently of the position and orientation of the studied body, a transform a
 
 $$
 \begin{bmatrix}
-R_{11} & R_{12} & R_{13} & P_x \\
-R_{21} & R_{22} & R_{23} & P_y \\
-R_{31} & R_{32} & R_{33} & P_z \\
+R_{11} & R_{12} & R_{13} & p_x \\
+R_{21} & R_{22} & R_{23} & p_y \\
+R_{31} & R_{32} & R_{33} & p_z \\
 0      & 0      & 0      & 1
 \end{bmatrix}
 $$
 
 where:
 
-- the $R$ sub-matrix is a function of three rotation angles and represents the orientation of the local coordinate system;
-- the $P$ vector is the position of the local coordinate system's origin.
+- $R$ is a function of three rotation angles and represents the orientation of the local coordinate system;
+- $p$ is the position of the local coordinate system's origin.
 :::
