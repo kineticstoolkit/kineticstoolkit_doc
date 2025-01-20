@@ -105,7 +105,7 @@ c3d_contents["ForcePlatforms"].plot('FP0_COP')
 
 ## Quick visualization
 
-Although visualizing data using the interactive 3D [Player](api/ktk.Player.rst) is explained in section [](player.md), here is how we can quickly visualize the kinematic and kinetic data in this file:
+Although visualizing data using the interactive 3D [Player](api/ktk.Player.rst) is explained in section [](player.md), here is how we can quickly visualize the kinematic and kinetic data in this file. Note that every TimeSeries provided to the Player must have the same sampling rate, which means we need to downsample the force platform data to the points sampling rate:
 
 ```{code-cell} ipython3
 :tags: [skip-execution]
@@ -114,13 +114,11 @@ ktk.Player(
     c3d_contents["Points"],
     c3d_contents["ForcePlatforms"].resample(c3d_contents["Points"].time)
 )
-
-# Each TimeSeries must have the same sampling rate: here we downsample the
-# force platform sampling rate to the points sampling rate.
 ```
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 %matplotlib qt5
 
 points = c3d_contents["Points"].get_ts_between_times(3, 5)

@@ -203,6 +203,7 @@ parts:
         - file: [](player_basics.md)
         - file: [](player_interconnections.md)
         - file: [](player_frames.md)
+        - file: [](player_vectors.md)
         - file: [](player_styling_exporting.md)
     - file: [](kinematics.md)
         - file: [](kinematics_joint_angles.md)

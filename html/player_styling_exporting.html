@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="10.4. Styling and exporting" />
+<meta property="og:title" content="10.5. Styling and exporting" />
 <meta property="og:type" content="image/png" />
 <meta property="og:url" content="https://kineticstoolkit.uqam.ca/doc/player_styling_exporting.html" />
 <meta property="og:site_name" content="Kinetics Toolkit" />
@@ -18,7 +18,7 @@
 <meta property='og:image:width' content=500 />
 <meta property='og:image:height' content=264 />
 
-    <title>10.4. Styling and exporting &#8212; Biomechanical Analysis using Python and Kinetics Toolkit</title>
+    <title>10.5. Styling and exporting &#8212; Biomechanical Analysis using Python and Kinetics Toolkit</title>
   
   
   
@@ -77,7 +77,7 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="11. Kinematic analysis" href="kinematics.html" />
-    <link rel="prev" title="10.3. Visualizing frames" href="player_frames.html" />
+    <link rel="prev" title="10.4. Visualizing forces and other vectors" href="player_vectors.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -481,11 +481,12 @@
 <li class="toctree-l2"><a class="reference internal" href="geometry_exercises.html">9.6. Exercices</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="player.html">10. Visualizing 3D points and frames</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="player.html">10. Visualizing 3D points, frames and forces</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="player_basics.html">10.1. Player basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="player_interconnections.html">10.2. Interconnecting points</a></li>
-<li class="toctree-l2"><a class="reference internal" href="player_frames.html">10.3. Visualizing frames</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">10.4. Styling and exporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player_frames.html">10.3. Visualizing frames (rigid bodies)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player_vectors.html">10.4. Visualizing forces and other vectors</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">10.5. Styling and exporting</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="kinematics.html">11. Kinematic analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -783,32 +784,32 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#styling-the-background">10.4.1. Styling the background</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#styling-the-grid">10.4.2. Styling the grid</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-size-and-subdivisions">10.4.2.1. Grid size and subdivisions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-origin">10.4.2.2. Grid origin</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-width">10.4.2.3. Grid width</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-color">10.4.2.4. Grid color</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#styling-the-background">10.5.1. Styling the background</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#styling-the-grid">10.5.2. Styling the grid</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-size-and-subdivisions">10.5.2.1. Grid size and subdivisions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-origin">10.5.2.2. Grid origin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-width">10.5.2.3. Grid width</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-color">10.5.2.4. Grid color</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#styling-points">10.4.3. Styling points</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#point-size">10.4.3.1. Point size</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#point-color">10.4.3.2. Point color</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#styling-points">10.5.3. Styling points</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#point-size">10.5.3.1. Point size</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#point-color">10.5.3.2. Point color</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#styling-interconnections">10.4.4. Styling interconnections</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interconnection-width">10.4.4.1. Interconnection width</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interconnection-color">10.4.4.2. Interconnection color</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#styling-interconnections">10.5.4. Styling interconnections</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interconnection-width">10.5.4.1. Interconnection width</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interconnection-color">10.5.4.2. Interconnection color</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#styling-frames">10.4.5. Styling frames</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frame-size">10.4.5.1. Frame size</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frame-width">10.4.5.2. Frame width</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#styling-frames">10.5.5. Styling frames</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frame-size">10.5.5.1. Frame size</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frame-width">10.5.5.2. Frame width</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting">10.4.6. Exporting</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-to-an-image">10.4.6.1. Exporting to an image</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-to-a-video">10.4.6.2. Exporting to a video</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting">10.5.6. Exporting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-to-an-image">10.5.6.1. Exporting to an image</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-to-a-video">10.5.6.2. Exporting to a video</a></li>
 </ul>
 </li>
 </ul>
@@ -823,7 +824,7 @@
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="styling-and-exporting">
-<h1><span class="section-number">10.4. </span>Styling and exporting<a class="headerlink" href="#styling-and-exporting" title="Link to this heading">#</a></h1>
+<h1><span class="section-number">10.5. </span>Styling and exporting<a class="headerlink" href="#styling-and-exporting" title="Link to this heading">#</a></h1>
 <p>Every element of the Player can be stylized. Let’s load again the tennis serve data, then we will use the properties of the Player to style its elements.</p>
 <div class="cell tag_remove-output tag_hide-cell docutils container">
 <details class="hide above-input">
@@ -912,7 +913,7 @@
 </div>
 </div>
 <section id="styling-the-background">
-<h2><span class="section-number">10.4.1. </span>Styling the background<a class="headerlink" href="#styling-the-background" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">10.5.1. </span>Styling the background<a class="headerlink" href="#styling-the-background" title="Link to this heading">#</a></h2>
 <p>To set a white background:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -930,9 +931,9 @@
 </div>
 </section>
 <section id="styling-the-grid">
-<h2><span class="section-number">10.4.2. </span>Styling the grid<a class="headerlink" href="#styling-the-grid" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">10.5.2. </span>Styling the grid<a class="headerlink" href="#styling-the-grid" title="Link to this heading">#</a></h2>
 <section id="grid-size-and-subdivisions">
-<h3><span class="section-number">10.4.2.1. </span>Grid size and subdivisions<a class="headerlink" href="#grid-size-and-subdivisions" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">10.5.2.1. </span>Grid size and subdivisions<a class="headerlink" href="#grid-size-and-subdivisions" title="Link to this heading">#</a></h3>
 <p>To have a smaller grid (4x4 meters) with a smaller subdivision size (50x50 cm):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -949,7 +950,7 @@
 </div>
 </section>
 <section id="grid-origin">
-<h3><span class="section-number">10.4.2.2. </span>Grid origin<a class="headerlink" href="#grid-origin" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">10.5.2.2. </span>Grid origin<a class="headerlink" href="#grid-origin" title="Link to this heading">#</a></h3>
 <p>The grid origin can be put anywhere in the scene, using the <code class="docutils literal notranslate"><span class="pre">grid_origin</span></code> property. For example:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -965,7 +966,7 @@
 </div>
 </section>
 <section id="grid-width">
-<h3><span class="section-number">10.4.2.3. </span>Grid width<a class="headerlink" href="#grid-width" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">10.5.2.3. </span>Grid width<a class="headerlink" href="#grid-width" title="Link to this heading">#</a></h3>
 <p>To get a thinner grid:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -981,7 +982,7 @@
 </div>
 </section>
 <section id="grid-color">
-<h3><span class="section-number">10.4.2.4. </span>Grid color<a class="headerlink" href="#grid-color" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">10.5.2.4. </span>Grid color<a class="headerlink" href="#grid-color" title="Link to this heading">#</a></h3>
 <p>To get a light grey grid:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -998,9 +999,9 @@
 </section>
 </section>
 <section id="styling-points">
-<h2><span class="section-number">10.4.3. </span>Styling points<a class="headerlink" href="#styling-points" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">10.5.3. </span>Styling points<a class="headerlink" href="#styling-points" title="Link to this heading">#</a></h2>
 <section id="point-size">
-<h3><span class="section-number">10.4.3.1. </span>Point size<a class="headerlink" href="#point-size" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">10.5.3.1. </span>Point size<a class="headerlink" href="#point-size" title="Link to this heading">#</a></h3>
 <p>To get bigger points:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1016,7 +1017,7 @@
 </div>
 </section>
 <section id="point-color">
-<h3><span class="section-number">10.4.3.2. </span>Point color<a class="headerlink" href="#point-color" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">10.5.3.2. </span>Point color<a class="headerlink" href="#point-color" title="Link to this heading">#</a></h3>
 <p>The default point color can be set by the <code class="docutils literal notranslate"><span class="pre">default_point_color</span></code> property:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1054,9 +1055,9 @@
 </section>
 </section>
 <section id="styling-interconnections">
-<h2><span class="section-number">10.4.4. </span>Styling interconnections<a class="headerlink" href="#styling-interconnections" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">10.5.4. </span>Styling interconnections<a class="headerlink" href="#styling-interconnections" title="Link to this heading">#</a></h2>
 <section id="interconnection-width">
-<h3><span class="section-number">10.4.4.1. </span>Interconnection width<a class="headerlink" href="#interconnection-width" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">10.5.4.1. </span>Interconnection width<a class="headerlink" href="#interconnection-width" title="Link to this heading">#</a></h3>
 <p>To get ticker interconnections:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1072,7 +1073,7 @@
 </div>
 </section>
 <section id="interconnection-color">
-<h3><span class="section-number">10.4.4.2. </span>Interconnection color<a class="headerlink" href="#interconnection-color" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">10.5.4.2. </span>Interconnection color<a class="headerlink" href="#interconnection-color" title="Link to this heading">#</a></h3>
 <p>Color is part of the <a class="reference internal" href="player_interconnections.html"><span class="std std-doc">interconnection dictionary</span></a>. Therefore, we change interconnection color using this dictionary. For instance, to set all interconnections to light grey:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1094,9 +1095,9 @@
 </section>
 </section>
 <section id="styling-frames">
-<h2><span class="section-number">10.4.5. </span>Styling frames<a class="headerlink" href="#styling-frames" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">10.5.5. </span>Styling frames<a class="headerlink" href="#styling-frames" title="Link to this heading">#</a></h2>
 <section id="frame-size">
-<h3><span class="section-number">10.4.5.1. </span>Frame size<a class="headerlink" href="#frame-size" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">10.5.5.1. </span>Frame size<a class="headerlink" href="#frame-size" title="Link to this heading">#</a></h3>
 <p>To get half-meter long frames:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1112,7 +1113,7 @@
 </div>
 </section>
 <section id="frame-width">
-<h3><span class="section-number">10.4.5.2. </span>Frame width<a class="headerlink" href="#frame-width" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">10.5.5.2. </span>Frame width<a class="headerlink" href="#frame-width" title="Link to this heading">#</a></h3>
 <p>To get thinner frames:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1129,16 +1130,16 @@
 </section>
 </section>
 <section id="exporting">
-<h2><span class="section-number">10.4.6. </span>Exporting<a class="headerlink" href="#exporting" title="Link to this heading">#</a></h2>
+<h2><span class="section-number">10.5.6. </span>Exporting<a class="headerlink" href="#exporting" title="Link to this heading">#</a></h2>
 <section id="exporting-to-an-image">
-<h3><span class="section-number">10.4.6.1. </span>Exporting to an image<a class="headerlink" href="#exporting-to-an-image" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">10.5.6.1. </span>Exporting to an image<a class="headerlink" href="#exporting-to-an-image" title="Link to this heading">#</a></h3>
 <p>The Player’s current view can be exported to any file format supported by Matplotlib such as PNG, JPEG, SVG or PDF, using <a class="reference internal" href="api/ktk.Player.to_image.html"><span class="std std-doc">ktk.Player.to_image</span></a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">to_image</span><span class="p">(</span><span class="s2">&quot;exported_image.png&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
 <section id="exporting-to-a-video">
-<h3><span class="section-number">10.4.6.2. </span>Exporting to a video<a class="headerlink" href="#exporting-to-a-video" title="Link to this heading">#</a></h3>
+<h3><span class="section-number">10.5.6.2. </span>Exporting to a video<a class="headerlink" href="#exporting-to-a-video" title="Link to this heading">#</a></h3>
 <p>The whole animation in the current view point can be exported to an MP4 file using <a class="reference internal" href="api/ktk.Player.to_video.html"><span class="std std-doc">ktk.Player.to_video</span></a>:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">p</span><span class="o">.</span><span class="n">to_video</span><span class="p">(</span><span class="s2">&quot;exported_video.mp4&quot;</span><span class="p">)</span>
 </pre></div>
@@ -1189,12 +1190,12 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="player_frames.html"
+       href="player_vectors.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">10.3. </span>Visualizing frames</p>
+        <p class="prev-next-title"><span class="section-number">10.4. </span>Visualizing forces and other vectors</p>
       </div>
     </a>
     <a class="right-next"
@@ -1223,32 +1224,32 @@
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#styling-the-background">10.4.1. Styling the background</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#styling-the-grid">10.4.2. Styling the grid</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-size-and-subdivisions">10.4.2.1. Grid size and subdivisions</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-origin">10.4.2.2. Grid origin</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-width">10.4.2.3. Grid width</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-color">10.4.2.4. Grid color</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#styling-the-background">10.5.1. Styling the background</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#styling-the-grid">10.5.2. Styling the grid</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-size-and-subdivisions">10.5.2.1. Grid size and subdivisions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-origin">10.5.2.2. Grid origin</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-width">10.5.2.3. Grid width</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#grid-color">10.5.2.4. Grid color</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#styling-points">10.4.3. Styling points</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#point-size">10.4.3.1. Point size</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#point-color">10.4.3.2. Point color</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#styling-points">10.5.3. Styling points</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#point-size">10.5.3.1. Point size</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#point-color">10.5.3.2. Point color</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#styling-interconnections">10.4.4. Styling interconnections</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interconnection-width">10.4.4.1. Interconnection width</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interconnection-color">10.4.4.2. Interconnection color</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#styling-interconnections">10.5.4. Styling interconnections</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interconnection-width">10.5.4.1. Interconnection width</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interconnection-color">10.5.4.2. Interconnection color</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#styling-frames">10.4.5. Styling frames</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frame-size">10.4.5.1. Frame size</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frame-width">10.4.5.2. Frame width</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#styling-frames">10.5.5. Styling frames</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frame-size">10.5.5.1. Frame size</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#frame-width">10.5.5.2. Frame width</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting">10.4.6. Exporting</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-to-an-image">10.4.6.1. Exporting to an image</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-to-a-video">10.4.6.2. Exporting to a video</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting">10.5.6. Exporting</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-to-an-image">10.5.6.1. Exporting to an image</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#exporting-to-a-video">10.5.6.2. Exporting to a video</a></li>
 </ul>
 </li>
 </ul>

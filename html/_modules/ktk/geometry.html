@@ -470,11 +470,12 @@
 <li class="toctree-l2"><a class="reference internal" href="../../geometry_exercises.html">9.6. Exercices</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../player.html">10. Visualizing 3D points and frames</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../player.html">10. Visualizing 3D points, frames and forces</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../player_basics.html">10.1. Player basics</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../player_interconnections.html">10.2. Interconnecting points</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../player_frames.html">10.3. Visualizing frames</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../player_styling_exporting.html">10.4. Styling and exporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../player_frames.html">10.3. Visualizing frames (rigid bodies)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../player_vectors.html">10.4. Visualizing forces and other vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../player_styling_exporting.html">10.5. Styling and exporting</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../kinematics.html">11. Kinematic analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -1499,55 +1500,157 @@
 <span class="c1"># %% create_point_series, create_vector_series</span>
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">_create_point_vector_series</span><span class="p">(</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_single_input_to_point_vector_series</span><span class="p">(</span>
     <span class="n">array</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">last_element</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
-<span class="p">):</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Implement of to_point_series and to_vector_series.&quot;&quot;&quot;</span>
-    <span class="n">np_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
-    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">np_array</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">np_array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Array must be of shape Nx2, Nx3 or Nx4.&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="p">(</span>
-        <span class="n">length</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-        <span class="ow">and</span> <span class="n">np_array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">1</span>
-        <span class="ow">and</span> <span class="n">np_array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">length</span>
-    <span class="p">):</span>
+    <span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">array</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">float</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;Array must have </span><span class="si">{</span><span class="n">length</span><span class="si">}</span><span class="s2"> samples, however it has &quot;</span>
-            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">np_array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2"> samples.&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;The input must be an array, however a value of </span><span class="si">{</span><span class="n">array</span><span class="si">}</span><span class="s2"> was &quot;</span>
+            <span class="s2">&quot;provided.&quot;</span>
+        <span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;The shape of the input must have a maximum of two dimensions, &quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;however it has </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span><span class="si">}</span><span class="s2"> dimensions.&quot;</span>
         <span class="p">)</span>
 
-    <span class="c1"># Do the conversion</span>
-    <span class="n">output</span> <span class="o">=</span> <span class="p">(</span>
-        <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">np_array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">4</span><span class="p">))</span>
-        <span class="k">if</span> <span class="n">last_element</span> <span class="o">==</span> <span class="mf">1.0</span>
-        <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">np_array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">4</span><span class="p">))</span>
-    <span class="p">)</span>
-    <span class="k">if</span> <span class="n">np_array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="n">output</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">np_array</span>
-        <span class="n">output</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+    <span class="c1"># Init output</span>
+    <span class="n">n_samples</span> <span class="o">=</span> <span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">output</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_samples</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">last_element</span> <span class="o">==</span> <span class="mf">1.0</span><span class="p">:</span>
+        <span class="n">output</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="c1"># Fill output</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># (N,)</span>
+        <span class="n">output</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">array</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="n">output</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">np_array</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])):</span>
+            <span class="n">output</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">array</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span>
 
     <span class="c1"># Repeat to the requested number of samples if applicable</span>
-    <span class="k">if</span> <span class="n">output</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">length</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">n_samples</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">length</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">output</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">length</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">output</span>
 
 
+<span class="k">def</span><span class="w"> </span><span class="nf">_multiple_inputs_to_point_vector_series</span><span class="p">(</span>
+    <span class="n">x</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">y</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">z</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">last_element</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+
+    <span class="c1"># Multiple array form</span>
+    <span class="k">if</span> <span class="n">length</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">length</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">x</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;x should have only one dimension.&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">x</span><span class="p">,</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">_match_size</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">temp</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;x has an incorrect length.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">temp</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span>
+
+    <span class="k">if</span> <span class="n">y</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;y should have only one dimension.&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">y</span><span class="p">,</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">_match_size</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">temp</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;y has an incorrect length.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">temp</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span>
+
+    <span class="k">if</span> <span class="n">z</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">z</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;z should have only one dimension.&quot;</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">z</span><span class="p">,</span> <span class="n">temp</span> <span class="o">=</span> <span class="n">_match_size</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">temp</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;z has an incorrect length.&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">temp</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">z</span>
+
+    <span class="k">if</span> <span class="n">last_element</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">temp</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1.0</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">temp</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+    <span class="k">return</span> <span class="n">temp</span>
+
+
 <div class="viewcode-block" id="create_point_series">
 <a class="viewcode-back" href="../../api/ktk.geometry.create_point_series.html#ktk.geometry.create_point_series">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">create_point_series</span><span class="p">(</span>
-    <span class="n">array</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">array</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">x</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">y</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">z</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Convert an input array to an Nx4 point series ([[x, y, z, 1.0], ...]).</span>
+<span class="sd">    Create an Nx4 point series ([[x, y, z, 1.0], ...]).</span>
+
+<span class="sd">    **Single array**</span>
+
+<span class="sd">    To create a point series based on a single array, use this form::</span>
+
+<span class="sd">        create_point_series(</span>
+<span class="sd">            array: ArrayLike | None = None,</span>
+<span class="sd">            *,</span>
+<span class="sd">            length: int | None = None,</span>
+<span class="sd">        ) -&gt; np.ndarray:</span>
+
+<span class="sd">    **Multiple arrays**</span>
+
+<span class="sd">    To create a point series based on multiple arrays (e.g., x, y, z), use</span>
+<span class="sd">    this form::</span>
+
+<span class="sd">        create_point_series(</span>
+<span class="sd">            *,</span>
+<span class="sd">            x: ArrayLike | None = None,</span>
+<span class="sd">            y: ArrayLike | None = None,</span>
+<span class="sd">            z: ArrayLike | None = None,</span>
+<span class="sd">            length: int | None = None,</span>
+<span class="sd">        ) -&gt; np.ndarray:</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    array</span>
-<span class="sd">        Nx2, Nx3 or Nx4 array where N corresponds to time, and the second</span>
-<span class="sd">        dimension corresponds to x, y and optionally z.</span>
+<span class="sd">        Used in single array input form.</span>
+<span class="sd">        Array of one of these shapes where N corresponds to time:</span>
+<span class="sd">        - (N,), (N, 1): forms a point series on the x axis, with y=0 and z=0.</span>
+<span class="sd">        - (N, 2): forms a point series on the x, y axes, with z=0.</span>
+<span class="sd">        - (N, 3), (N, 4): forms a point series on the x, y, z axes.</span>
+
+<span class="sd">    x</span>
+<span class="sd">        Used in multiple arrays input form.</span>
+<span class="sd">        Optional. Array of shape (N,) that contains the x values. If not</span>
+<span class="sd">        provided, x values are filled with zero.</span>
+
+<span class="sd">    y</span>
+<span class="sd">        Used in multiple arrays input form.</span>
+<span class="sd">        Optional. Array of shape (N,) that contains the y values. If not</span>
+<span class="sd">        provided, y values are filled with zero.</span>
+
+<span class="sd">    z</span>
+<span class="sd">        Used in multiple arrays input form.</span>
+<span class="sd">        Optional. Array of shape (N,) that contains the z values. If not</span>
+<span class="sd">        provided, z values are filled with zero.</span>
 
 <span class="sd">    length</span>
 <span class="sd">        The number of samples in the resulting point series. If there is only</span>
@@ -1558,58 +1661,123 @@
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    array</span>
-<span class="sd">        An Nx4 array with every sample being [x, y, z, 1.0]. For Nx2 inputs,</span>
-<span class="sd">        z is set to 0.</span>
+<span class="sd">        An Nx4 array with every sample being [x, y, z, 1.0].</span>
 
 <span class="sd">    Raises</span>
 <span class="sd">    ------</span>
 <span class="sd">    ValueError</span>
-<span class="sd">        If the input array has an incorrect dimension.</span>
+<span class="sd">        If the inputs have incorrect dimensions.</span>
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
-<span class="sd">    # A series of one sample with x=1, y=2</span>
-<span class="sd">    &gt;&gt;&gt; ktk.geometry.create_point_series([[1.0, 2.0]])</span>
-<span class="sd">    array([[1., 2., 0., 1.]])</span>
+<span class="sd">    # Single input form:</span>
 
-<span class="sd">    # A series of one sample with x=1, y=2, z=3</span>
-<span class="sd">    &gt;&gt;&gt; ktk.geometry.create_point_series([[1.0, 2.0, 3.0]])</span>
-<span class="sd">    array([[1., 2., 3., 1.]])</span>
+<span class="sd">    # A series of 2 samples with x, y defined</span>
+<span class="sd">    &gt;&gt;&gt; ktk.geometry.create_point_series([[1.0, 2.0], [4.0, 5.0]])</span>
+<span class="sd">    array([[1., 2., 0., 1.],</span>
+<span class="sd">           [4., 5., 0., 1.]])</span>
 
-<span class="sd">    # A series of one sample with x=1, y=2, z=3</span>
-<span class="sd">    &gt;&gt;&gt; ktk.geometry.create_point_series([[1.0, 2.0, 3.0, 1.0]])</span>
-<span class="sd">    array([[1., 2., 3., 1.]])</span>
+<span class="sd">    # A series of 2 samples with x, y, z defined</span>
+<span class="sd">    &gt;&gt;&gt; ktk.geometry.create_point_series([[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]])</span>
+<span class="sd">    array([[1., 2., 3., 1.],</span>
+<span class="sd">           [4., 5., 6., 1.]])</span>
+
+<span class="sd">    # Samething</span>
+<span class="sd">    &gt;&gt;&gt; ktk.geometry.create_point_series([[1.0, 2.0, 3.0, 1.0], [4.0, 5.0, 6.0, 1.0]])</span>
+<span class="sd">    array([[1., 2., 3., 1.],</span>
+<span class="sd">           [4., 5., 6., 1.]])</span>
+
+<span class="sd">    # Multiple inputs form:</span>
+
+<span class="sd">    # A series of 2 samples with x, z defined</span>
+<span class="sd">    &gt;&gt;&gt; ktk.geometry.create_point_series(x=[1.0, 2.0, 3.0], z=[4.0, 5.0, 6.0])</span>
+<span class="sd">    array([[1., 0., 4., 1.],</span>
+<span class="sd">           [2., 0., 5., 1.],</span>
+<span class="sd">           [3., 0., 6., 1.]])</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">is_point_series</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="n">length</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">length</span><span class="p">):</span>
-        <span class="c1"># Nothing to do, maybe just ensure that we return an array because</span>
-        <span class="c1"># is_point_series accept any ArrayLike.</span>
-        <span class="k">return</span> <span class="n">array</span>
+    <span class="k">if</span> <span class="n">array</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Single array form</span>
+        <span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">is_point_series</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span>
+            <span class="n">length</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">length</span>
+        <span class="p">):</span>
+            <span class="c1"># Nothing to do</span>
+            <span class="k">return</span> <span class="n">array</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">_single_input_to_point_vector_series</span><span class="p">(</span>
+                <span class="n">array</span><span class="p">,</span> <span class="n">last_element</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="n">length</span>
+            <span class="p">)</span>
 
-    <span class="c1"># Here we must have Nx3</span>
-    <span class="k">return</span> <span class="n">_create_point_vector_series</span><span class="p">(</span>
-        <span class="n">array</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">last_element</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="n">length</span>
-    <span class="p">)</span></div>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_multiple_inputs_to_point_vector_series</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="n">z</span><span class="p">,</span> <span class="n">last_element</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="n">length</span>
+        <span class="p">)</span></div>
 
 
 
 <div class="viewcode-block" id="create_vector_series">
 <a class="viewcode-back" href="../../api/ktk.geometry.create_vector_series.html#ktk.geometry.create_vector_series">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">create_vector_series</span><span class="p">(</span>
-    <span class="n">array</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="n">array</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">x</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">y</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">z</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Convert an input array to an Nx4 vector series ([[x, y, z, .0], ...]).</span>
+<span class="sd">    Create an Nx4 vector series ([[x, y, z, 0.0], ...]).</span>
+
+<span class="sd">    **Single array**</span>
+
+<span class="sd">    To create a vector series based on a single array, use this form::</span>
+
+<span class="sd">        create_vector_series(</span>
+<span class="sd">            array: ArrayLike | None = None,</span>
+<span class="sd">            *,</span>
+<span class="sd">            length: int | None = None,</span>
+<span class="sd">        ) -&gt; np.ndarray:</span>
+
+<span class="sd">    **Multiple arrays**</span>
+
+<span class="sd">    To create a vector series based on multiple arrays (e.g., x, y, z), use</span>
+<span class="sd">    this form::</span>
+
+<span class="sd">        create_vector_series(</span>
+<span class="sd">            *,</span>
+<span class="sd">            x: ArrayLike | None = None,</span>
+<span class="sd">            y: ArrayLike | None = None,</span>
+<span class="sd">            z: ArrayLike | None = None,</span>
+<span class="sd">            length: int | None = None,</span>
+<span class="sd">        ) -&gt; np.ndarray:</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    array</span>
-<span class="sd">        Nx2, Nx3 or Nx4 array where N corresponds to time, and the second</span>
-<span class="sd">        dimension corresponds to x, y and optionally z.</span>
+<span class="sd">        Used in single array input form.</span>
+<span class="sd">        Array of one of these shapes where N corresponds to time:</span>
+<span class="sd">        - (N,), (N, 1): forms a vector series on the x axis, with y=0 and z=0.</span>
+<span class="sd">        - (N, 2): forms a vector series on the x, y axes, with z=0.</span>
+<span class="sd">        - (N, 3), (N, 4): forms a vector series on the x, y, z axes.</span>
+
+<span class="sd">    x</span>
+<span class="sd">        Used in multiple arrays input form.</span>
+<span class="sd">        Optional. Array of shape (N,) that contains the x values. If not</span>
+<span class="sd">        provided, x values are filled with zero.</span>
+
+<span class="sd">    y</span>
+<span class="sd">        Used in multiple arrays input form.</span>
+<span class="sd">        Optional. Array of shape (N,) that contains the y values. If not</span>
+<span class="sd">        provided, y values are filled with zero.</span>
+
+<span class="sd">    z</span>
+<span class="sd">        Used in multiple arrays input form.</span>
+<span class="sd">        Optional. Array of shape (N,) that contains the z values. If not</span>
+<span class="sd">        provided, z values are filled with zero.</span>
 
 <span class="sd">    length</span>
-<span class="sd">        The number of samples in the resulting point series. If there is only</span>
+<span class="sd">        The number of samples in the resulting vector series. If there is only</span>
 <span class="sd">        one sample in the original array, this one sample will be duplicated</span>
 <span class="sd">        to match length. Otherwise, an error is raised if the input</span>
 <span class="sd">        array does not match length.</span>
@@ -1617,41 +1785,58 @@
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    array</span>
-<span class="sd">        An Nx4 array with every sample being [x, y, z, 0.0]. For Nx2 inputs,</span>
-<span class="sd">        z is set to 0.</span>
+<span class="sd">        An Nx4 array with every sample being [x, y, z, 0.0].</span>
 
 <span class="sd">    Raises</span>
 <span class="sd">    ------</span>
 <span class="sd">    ValueError</span>
-<span class="sd">        If the input array has an incorrect dimension.</span>
+<span class="sd">        If the inputs have incorrect dimensions.</span>
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
-<span class="sd">    # A series of one sample with x=1, y=2</span>
-<span class="sd">    &gt;&gt;&gt; ktk.geometry.create_vector_series([[1.0, 2.0]])</span>
-<span class="sd">    array([[1., 2., 0., 0.]])</span>
+<span class="sd">    # Single input form:</span>
 
-<span class="sd">    # A series of one sample with x=1, y=2, z=3</span>
-<span class="sd">    &gt;&gt;&gt; ktk.geometry.create_vector_series([[1.0, 2.0, 3.0]])</span>
-<span class="sd">    array([[1., 2., 3., 0.]])</span>
+<span class="sd">    # A series of 2 samples with x, y defined</span>
+<span class="sd">    &gt;&gt;&gt; ktk.geometry.create_vector_series([[1.0, 2.0], [4.0, 5.0]])</span>
+<span class="sd">    array([[1., 2., 0., 0.],</span>
+<span class="sd">           [4., 5., 0., 0.]])</span>
 
-<span class="sd">    # A series of one sample with x=1, y=2, z=3</span>
-<span class="sd">    &gt;&gt;&gt; ktk.geometry.create_vector_series([[1.0, 2.0, 3.0, 0.0]])</span>
-<span class="sd">    array([[1., 2., 3., 0.]])</span>
+<span class="sd">    # A series of 2 samples with x, y, z defined</span>
+<span class="sd">    &gt;&gt;&gt; ktk.geometry.create_vector_series([[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]])</span>
+<span class="sd">    array([[1., 2., 3., 0.],</span>
+<span class="sd">           [4., 5., 6., 0.]])</span>
+
+<span class="sd">    # Samething</span>
+<span class="sd">    &gt;&gt;&gt; ktk.geometry.create_vector_series([[1.0, 2.0, 3.0, 1.0], [4.0, 5.0, 6.0, 1.0]])</span>
+<span class="sd">    array([[1., 2., 3., 0.],</span>
+<span class="sd">           [4., 5., 6., 0.]])</span>
+
+<span class="sd">    # Multiple inputs form:</span>
+
+<span class="sd">    # A series of 2 samples with x, z defined</span>
+<span class="sd">    &gt;&gt;&gt; ktk.geometry.create_vector_series(x=[1.0, 2.0, 3.0], z=[4.0, 5.0, 6.0])</span>
+<span class="sd">    array([[1., 0., 4., 0.],</span>
+<span class="sd">           [2., 0., 5., 0.],</span>
+<span class="sd">           [3., 0., 6., 0.]])</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">is_vector_series</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span>
-        <span class="n">length</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">length</span>
-    <span class="p">):</span>
-        <span class="c1"># Nothing to do, maybe just ensure that we return an array because</span>
-        <span class="c1"># is_point_series accept any ArrayLike.</span>
-        <span class="k">return</span> <span class="n">array</span>
+    <span class="k">if</span> <span class="n">array</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="c1"># Single array form</span>
+        <span class="n">array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">is_vector_series</span><span class="p">(</span><span class="n">array</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span>
+            <span class="n">length</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">array</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">length</span>
+        <span class="p">):</span>
+            <span class="c1"># Nothing to do</span>
+            <span class="k">return</span> <span class="n">array</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">_single_input_to_point_vector_series</span><span class="p">(</span>
+                <span class="n">array</span><span class="p">,</span> <span class="n">last_element</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="n">length</span>
+            <span class="p">)</span>
 
-    <span class="c1"># Here we must have Nx3</span>
-    <span class="k">return</span> <span class="n">_create_point_vector_series</span><span class="p">(</span>
-        <span class="n">array</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">3</span><span class="p">],</span> <span class="n">last_element</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="n">length</span>
-    <span class="p">)</span></div>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_multiple_inputs_to_point_vector_series</span><span class="p">(</span>
+            <span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="n">z</span><span class="p">,</span> <span class="n">last_element</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">length</span><span class="o">=</span><span class="n">length</span>
+        <span class="p">)</span></div>
 
 
 
@@ -1818,7 +2003,7 @@
     <span class="n">length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Construct an Nx4x4 transform series from multiple input forms.</span>
+<span class="sd">    Create an Nx4x4 transform series from multiple input forms.</span>
 
 <span class="sd">    **Matrix input form**</span>
 

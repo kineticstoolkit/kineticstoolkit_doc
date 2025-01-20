@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.16.4
+    jupytext_version: 1.16.6
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -42,20 +42,14 @@ Since a point has four coordinates (x, y, z, 1), then a **series** of N points h
         [ ... ,  ... ,  ... , ...],
     ]
 
-The function [ktk.geometry.create_point_series](api/ktk.geometry.create_point_series.rst) converts 2D (Nx2) or 3D coordinates (Nx3, Nx4) to this convention:
+The function [ktk.geometry.create_point_series](api/ktk.geometry.create_point_series.rst) creates such points series:
 
 ```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
 
-# Create a point series for a 3D series of (x, y, z)
 ktk.geometry.create_point_series(
-    [[1.0, 2.0, 3.0], [1.0, 2.1, 3.0], [1.0, 2.2, 3.0]]
+    x=[1.0, 2.0, 3.0], y=[4.0, 5.0, 6.0], z=[7.0, 8.0, 9.0]
 )
-```
-
-```{code-cell} ipython3
-# Create a point series for a 2D series of (x, y)
-ktk.geometry.create_point_series([[1.0, 2.0], [1.0, 2.1], [1.0, 2.2]])
 ```
 
 ## Series of vectors
@@ -69,18 +63,12 @@ Since a vector has four coordinates (x, y, z, 0), then a **series** of N vectors
         [ ... ,  ... ,  ... , ...],
     ]
 
-The function [ktk.geometry.create_vector_series](api/ktk.geometry.create_vector_series.rst) converts 2D (Nx2) or 3D coordinates (Nx3, Nx4) to this convention:
+The function [ktk.geometry.create_vector_series](api/ktk.geometry.create_vector_series.rst) creates such vector series:
 
 ```{code-cell} ipython3
-# Create a vector series for a 3D series of (x, y, z)
 ktk.geometry.create_vector_series(
-    [[1.0, 2.0, 3.0], [1.0, 2.1, 3.0], [1.0, 2.2, 3.0]]
+    x=[1.0, 2.0, 3.0], y=[4.0, 5.0, 6.0], z=[7.0, 8.0, 9.0]
 )
-```
-
-```{code-cell} ipython3
-# Create a vector series for a 2D series of (x, y)
-ktk.geometry.create_vector_series([[1.0, 2.0], [1.0, 2.1], [1.0, 2.2]])
 ```
 
 ## Series of transforms
