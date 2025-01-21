@@ -42,7 +42,7 @@ if my_score > WORLD_RECORD:
 
 This code did nothing, because the condition evaluated to `False`.
 
-Using the `else` keyword, it is possible to executes one action if the condition if `True` and another action if the condition is `False`:
+Using the `else` keyword, it is possible to execute one action if the condition is `True` and another action if the condition is `False`:
 
 ```{code-cell}
 WORLD_RECORD = 240

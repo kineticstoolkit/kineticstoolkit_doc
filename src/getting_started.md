@@ -12,7 +12,7 @@ Simply start at the beginning: [](getting_started_installing.md).
 
 ::::{tab-item} I know Python, Numpy and Matplotlib, but I'm new to biomechanical analysis.
 :::{card}
-- You may be interested in a refresher, by attempting these different [programming exercises](python_exercises.md).
+- You may be interested in a refresher by attempting these different [programming exercises](python_exercises.md).
 - Then, jump to [](ktk_importing.md).
 :::
 ::::
@@ -35,3 +35,4 @@ You may also consult the API Reference.
 ::::
 
 :::::
+

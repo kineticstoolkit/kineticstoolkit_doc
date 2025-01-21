@@ -21,7 +21,7 @@ kernelspec:
 
 Normally, we want to avoid writing very long code lines. For instance, it is common to limit the width of a line to 80 characters.
 
-Following this limit may be difficult when creating long strings. To this effect, we can create split a long string on multiple lines, by enclosing multiple sub-strings between parentheses.
+Following this limit may be difficult when creating long strings. To achieve this, we can split a long string on multiple lines, by enclosing multiple sub-strings between parentheses.
 
 ```{code-cell} ipython3
 long_string = (

@@ -45,10 +45,10 @@ c
 ```
 
 :::{note}
-Contrarily to other programming languages such as C/C++, we do not need to declare a variable before assigning a value to it. The variable is created as we assign its value.
+Unlike other programming languages such as C/C++, we do not need to declare a variable before assigning a value to it. The variable is created as we assign its value.
 :::
 
-Keep in mind that in the last example, we did not instruct Python that `c` must always be equal to `a + b`. This is not how a sequential programming language such as Python works. Instead, we instructed Python, at this very instant, to calculate the result of `a + b` and to store it in a new variable named `c`. This sequential nature allows is illustrated in this example:
+Keep in mind that in the last example, we did not instruct Python that `c` must always be equal to `a + b`. This is not how a sequential programming language such as Python works. Instead, we instructed Python, at this very instant, to calculate the result of `a + b` and to store it in a new variable named `c`. This sequential nature is illustrated in this example:
 
 ```{code-cell} ipython3
 c = c + 1
@@ -59,7 +59,7 @@ c
 where we instructed Python to calculate the result of `c + 1` and to store it in the variable `c`.
 
 :::{tip}
-The exemple above can be written in a shorter form using the increment `+=` operator. This notation is very common and may help avoid typographic errors in more complex statements.
+The example above can be written in a shorter form using the increment `+=` operator. This notation is very common and may help avoid typographic errors in more complex statements.
 
 These shorthands exist for every arithmetical operation:
 

@@ -19,7 +19,7 @@ kernelspec:
 
 # Creating strings using triple-quotes
 
-Python provides another type string delimiter: the triple-quote. A string defined using triple-quotes can integrate both single and double quotes in a same string without using backslash. Line breaks are also saved in the string.
+Python provides another type of string delimiter: the triple-quote. A string defined using triple-quotes can integrate both single and double quotes in the same string without using backslash. Line breaks are also saved in the string.
 
 ```{code-cell}
 s1 = """I didn't write "E = mc2", that's Einstein's thing."""

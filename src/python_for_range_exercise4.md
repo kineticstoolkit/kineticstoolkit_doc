@@ -35,7 +35,7 @@ def calculate_speed(position, sampling_frequency):
     Parameters
     ----------
     position : list[float]
-        A list of positions in meters.
+        A list of positions in metres.
     sampling_frequency : float
         The frequency at which the positions were measured in Hz.
 
@@ -43,11 +43,10 @@ def calculate_speed(position, sampling_frequency):
     -------
     list[float]
         A list of speeds in m/s. This list is the same size as `position`.
-        Since speed cannot be calculated on first and last time, values
+        Since speed cannot be calculated for the first and last times, values
         of zero are returned for these times.
     
     """
-
 ```
 
 and test it with the following position values that were sampled at 100 Hz:
@@ -64,7 +63,7 @@ list_of_positions = [
 ```
 
 :::{tip}
-It will be impossible to calculate speed on the first sample, because it would need the position before the first sample. It will also be impossible to calculate speed on the last sample, because it would need the position after the last sample. Simply fill the first and last sample of the speed with zero as shown in {numref}`fig_padding_speed_with_zero`.
+It will be impossible to calculate speed for the first sample, because it would need the position before the first sample. It will also be impossible to calculate speed for the last sample, because it would need the position after the last sample. Simply fill the first and last sample of the speed with zero as shown in {numref}`fig_padding_speed_with_zero`.
 :::
 
 ```{figure-md} fig_padding_speed_with_zero

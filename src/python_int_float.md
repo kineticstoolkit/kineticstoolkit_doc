@@ -31,7 +31,7 @@ Usually, floats and integers fulfil different roles:
 - etc.
 :::
 :::{grid-item-card}
-**Integers** are used to represents ranks, indexes, counts, etc:
+**Integers** are used to represent ranks, indexes, counts, etc:
 - An index in a list (e.g, 5th value of a list)
 - A number of repetitions
 - A number of events
@@ -42,7 +42,7 @@ Usually, floats and integers fulfil different roles:
 
 When we create a new numeric variable, the variable is defined:
 - as a `float` if its literal value contains a decimal point
-- as an `int` if its literal value contain a decimal point
+- as an `int` if its literal value contains a decimal point
 
 ```{code-cell} ipython3
 an_int = 3

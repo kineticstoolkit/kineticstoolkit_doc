@@ -20,7 +20,7 @@ kernelspec:
 
 # Creating lists and tuples
 
-As implied by its name, a list is a list of values. A tuple is also a list of values, however it cannot be modified after being created while a list can. Choosing between a list or a tuple is often philosophical:
+As implied by its name, a list is an ordered collection of values. A tuple is also an ordered collection of values, but it cannot be modified after being created while a list can. Choosing between a list or a tuple is often philosophical:
 - We normally use a tuple to express a constant using a group of variables. The coordinates of a 2D point (x, y) is a good example. Once a 2D point is defined by its two coordinates (x, y), there is no use to append a third value to it.
 - We normally use a list to express an expandable list of values. A series of measurements \[x0, x1, x1, x2, x3\] is a good example. We may add or remove measurements from a list.
 

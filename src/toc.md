@@ -46,7 +46,7 @@ parts:
             - file: [](python_functions_type_annotations.md)
             - file: [](python_functions_positional_keywords.md)
             - file: [](python_functions_default_values.md)
-            - file: [](python_functions_default_values_exercise.md)
+                - file: [](python_functions_default_values_exercise.md)
         - file: [](python_conditions.md)
             - file: [](python_conditions_boolean.md)
             - file: [](python_conditions_if_elif_else.md)
