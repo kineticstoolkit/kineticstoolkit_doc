@@ -19,7 +19,7 @@ kernelspec:
 
 # Multiple plots side by side
 
-In some situations, it is useful to show multiple plots side by side in a same figure. This can be done using the {{plt_subplot}} function, which splits a figure into a grid and specifies the location of the next plot on this grid. Its arguments are:
+In some situations, it is useful to show multiple plots side by side in the same figure. This can be done using the {{plt_subplot}} function, which splits a figure into a grid and specifies the location of the next plot on this grid. Its arguments are:
 
 1. The number of lines (int);
 2. The number of columns (int);
@@ -69,7 +69,7 @@ plt.plot(y5)
 plt.title("Fifth plot");
 ```
 
-We can see that the titles of the second line overlaps with the horizontal axes of the first line. This is a common issue with Matplotlib: it does not know how to optimize the spacing while we progressively build the figure. Calling {{plt_tight_layout}} just after building the figure optimizes the spacing so that everything looks clean.
+We can see that the titles of the second line overlap with the horizontal axes of the first line. This is a common issue with Matplotlib: it does not know how to optimize the spacing while we progressively build the figure. Calling {{plt_tight_layout}} just after building the figure optimizes the spacing so that everything looks clean.
 
 ```{code-cell} ipython3
 plt.subplot(2, 3, 1)

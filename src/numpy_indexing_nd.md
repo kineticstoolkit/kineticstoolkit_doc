@@ -20,7 +20,7 @@ kernelspec:
 
 # Indexing multidimensional arrays
 
-As for [unidimensional arrays](numpy_indexing_slicing_1d.md), we index multidimensional arrays using integers in brackets. Using a single integer indexes the first dimension. For example:
+As for [one-dimensional arrays](numpy_indexing_slicing_1d.md), we index multidimensional arrays using integers in brackets. Using a single integer indexes the first dimension. For example:
 
 **Example 1: Read the marker position at first sample**
 
@@ -87,7 +87,7 @@ plt.show()
 position[1]
 ```
 
-Look how indexing an array reduces its dimension by one. In the example above, we indexed the second row of a 2d array, which returned a 1d array that corresponds to the four columns of this row. Therefore, to also select a column, we can index the result:
+Notice how indexing an array reduces its dimension by one. In the example above, we indexed the second row of a 2D array, which returned a 1D array that corresponds to the four columns of this row. Therefore, to also select a column, we can index the result:
 
 **Example 3: Read the marker's z coordinate at second sample**
 
@@ -112,7 +112,7 @@ This is perfectly valid. However, we normally use commas `,` to directly access 
 position[1, 2]
 ```
 
-Both notations are equivalent, but the second one is more powerful (as we will see later in section [](numpy_slicing_nd.md)). It makes it also clearer that we index one whole array, and not a list that is nested into another list.
+Both notations are equivalent, but the second one is more powerful (as we will see later in section [](numpy_slicing_nd.md)). It also makes it clearer that we index one whole array, and not a list that is nested into another list.
 
 **Example 4: Read the segment's orientation at second sample**
 

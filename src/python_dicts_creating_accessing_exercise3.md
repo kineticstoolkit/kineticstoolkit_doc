@@ -19,7 +19,7 @@ kernelspec:
 
 # Exercise: Creating and accessing dictionaries 3
 
-Someone pushes a carriage using a dynamometer as picture in {numref}`fig_carriage_dynamometer`. The push force and position are measured in newtons and metres every tenth of a second, during five seconds.
+Someone pushes a carriage using a dynamometer as pictured in {numref}`fig_carriage_dynamometer`. The push force and position are measured in newtons and metres every tenth of a second, during five seconds.
 
 ```{code-cell}
 push_force = [
@@ -42,7 +42,7 @@ carriage_position = [
  ]
 ```
 
-Write a function named `calculate_speed_and_power` that would have this docstring:
+Write a function named `calculate_speed_and_power` with the following docstring:
 
 ```
 def calculate_speed_and_power(force, position, sampling_frequency):
@@ -97,9 +97,9 @@ def calculate_speed(position, sampling_frequency):
     Returns
     -------
     list[float]
-        A list of speeds in m/s. This list is the same size as `position`.
-        Since speed cannot be calculated on first and last time, values
-        of zero are returned for these times.
+        A list of speeds in m/s. This list is the same length as `position`.
+        Since speed cannot be calculated for the first and last times, zero
+        values are returned for these times.
     
     """
     speed = [0]  # First element

@@ -46,9 +46,9 @@ plt.xlabel("# sample")
 plt.ylabel("Force (N)");
 ```
 
-We want to identify the weight support phase. We define this phase as any sample where the force is higher than 100 newton.
+We want to identify the weight support phase, defined as any sample where the force is higher than 100 newtons.
 
-- Write a one-line code that creates a NumPy array named `is_weight_support`, which has the same shape as `force`, and that contains `True` during the weight support phase, and `False` otherwise.
+- Write a one-line code that creates a NumPy array named `is_weight_support`, which has the same shape as `force` and that contains `True` during the weight support phase, and `False` otherwise.
 
 - Verify your code by plotting both `force` and `is_weight_support` on the same figure.
 

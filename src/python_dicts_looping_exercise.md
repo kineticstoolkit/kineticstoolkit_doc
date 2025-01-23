@@ -28,7 +28,7 @@ We affix an inclinometer on a person's arm. We ask the person to reach different
 Different shoulder flexion angles.
 ```
 
-The inclinometer's readings are stored in degrees into a dictionary as follows:
+The inclinometer's readings are stored in degrees in a dictionary as follows:
 
 ```{code-cell} ipython3
 incline = {
@@ -42,7 +42,7 @@ incline = {
 }
 ```
 
-Write a code that creates a new dictionary named `flexion`, that calculates the shoulder flexion angle for each repetition of TargetA, TargetB and TargetC. This new dictionary (`flexion`), will have this form:
+Write code that creates a new dictionary named `flexion`, that calculates the shoulder flexion angle for each repetition of TargetA, TargetB and TargetC. This new dictionary (`flexion`), will have the following form:
 
 ```
 {
@@ -55,7 +55,7 @@ Write a code that creates a new dictionary named `flexion`, that calculates the 
 }
 ```
 
-The flexion angle is calculated as the incline in the target position, minus the incline in the reference position. Your code must adapt to any number of target positions, and any number of repetitions.
+The flexion angle is calculated as the incline in the target position, minus the incline at the reference position. Your code must adapt to any number of target positions, and any number of repetitions.
 
 ```{code-cell} ipython3
 :tags: [hide-cell]

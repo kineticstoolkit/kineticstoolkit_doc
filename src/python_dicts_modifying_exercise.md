@@ -31,10 +31,10 @@ participants = [
 ]
 ```
 
-Write a code that adds a new key `BMI` to each of these dictionaries, where:
+Write code that adds a new key `BMI` to each of these dictionaries, where:
 
 ```{math}
-\text{BMI} = \text{weight}/\text{height}^2
+\text{BMI} = \text{Weight}/\text{Height}^2
 ```
 
 ```{code-cell} ipython3

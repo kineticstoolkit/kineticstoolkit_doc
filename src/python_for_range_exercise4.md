@@ -63,7 +63,7 @@ list_of_positions = [
 ```
 
 :::{tip}
-It will be impossible to calculate speed for the first sample, because it would need the position before the first sample. It will also be impossible to calculate speed for the last sample, because it would need the position after the last sample. Simply fill the first and last sample of the speed with zero as shown in {numref}`fig_padding_speed_with_zero`.
+It will be impossible to calculate speed for the first sample because it would require the position before the first sample. It will also be impossible to calculate speed for the last sample because it would require the position after the last sample. Simply fill the first and last samples of the speed with zero as shown in {numref}`fig_padding_speed_with_zero`.
 :::
 
 ```{figure-md} fig_padding_speed_with_zero

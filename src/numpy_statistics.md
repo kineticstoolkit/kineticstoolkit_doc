@@ -31,7 +31,7 @@ NumPy provides common statistical functions such as:
 - {{np_quantile}}
 
 
-which all take an array as an argument. For multidimensional arrays, these functions accept an additional `axis` argument to select which axis (lines, columns, etc.) to perform the operation on. For example, for a matrix, an operation on the first axis is performed on the **lines**:
+which all take an array as an argument. For multidimensional arrays, these functions accept an additional `axis` argument to select which axis (rows, columns, etc.) to perform the operation on. For example, for a matrix, an operation on the first axis is performed on the **rows**:
 
 ```{code-cell} ipython3
 import numpy as np
@@ -48,7 +48,7 @@ print(f"Sum on first axis = {np.sum(a, axis=0)}")
 print(f"Max on first axis = {np.max(a, axis=0)}")
 ```
 
-Whereas an operation on the second axis is performed on the **columns**:
+An operation on the second axis is performed on the **columns**:
 
 ```{code-cell} ipython3
 print(f"Sum on second axis = {np.sum(a, axis=1)}")
@@ -70,7 +70,7 @@ print(f"Sum on first axis = {np.sum(a, axis=0)}")
 print(f"Max on first axis = {np.max(a, axis=0)}")
 ```
 
-For these cases, NumPy provides alternate functions:
+In these cases, NumPy provides alternate functions:
 - {{np_nansum}}
 - {{np_nanmean}}
 - {{np_nanstd}}

@@ -17,10 +17,9 @@ kernelspec:
 %matplotlib inline
 ```
 
-
 # Exercise: Graphical input
 
-You recorded a force profile using a force sensor at a sampling frequency of 10 Hz. Here are the 44 first samples of this signal:
+You recorded a force profile using a force sensor at a sampling frequency of 10 Hz. Here are the first 44 samples of this signal:
 
 ```
 force = [
@@ -99,7 +98,6 @@ def get_spike_time(time: list[float], force: list[float]) -> float:
 
     """
 ```
-
 
 :::{toggle}
 ```

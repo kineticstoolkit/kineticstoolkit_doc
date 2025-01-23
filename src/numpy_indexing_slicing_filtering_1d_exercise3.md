@@ -18,9 +18,9 @@ kernelspec:
 ```
 
 
-# Exercise: Indexing/slicing/filtering unidimensional arrays 3
+# Exercise: Indexing/slicing/filtering one-dimensional arrays 3
 
-You recorded a noisy signal:
+You have recorded a noisy signal:
 
 ```
 signal = np.array(
@@ -75,7 +75,7 @@ signal = np.array(
 plt.plot(signal);
 ```
 
-You want to smooth this signal using a moving average with a window of three samples. This means that you want to create a new array where each value is the average of the three neighbour values of the raw signal, as illustrated in {numref}`fig_moving_average`.
+You want to smooth this signal using a moving average with a window of three samples. This means creating a new array where each value is the average of the three neighbour values of the raw signal, as illustrated in {numref}`fig_moving_average`.
 
 ```{figure-md} fig_moving_average
 :width: 6in
@@ -85,7 +85,7 @@ Filtering using a moving average.
 ```
 
 
-Using only one line, apply such a filter on the raw, noisy signal. Then, plot both the raw and filtered signal on the same figure to verify your result.
+Using only one line, apply this filter to the raw, noisy signal. Then, plot both the raw and filtered signals on the same figure to verify your result.
 
 ```{code-cell} ipython3
 :tags: [hide-cell]

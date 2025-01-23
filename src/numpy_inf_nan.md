@@ -20,7 +20,7 @@ kernelspec:
 
 # Infinity and Not-A-Number (nan)
 
-Some arithmetic operations such as division by zero lead to infinity of undertermined numbers, which normally result in an error:
+Some arithmetic operations, such as division by zero, lead to infinity or undertermined numbers, which normally result in an error:
 
 ```{code-cell} ipython3
 :tags: [raises-exception]
@@ -28,7 +28,7 @@ Some arithmetic operations such as division by zero lead to infinity of underter
 1 / 0
 ```
 
-Since operations on arrays perform many arithmetical operations at once, it would be inconvenient to get an error each time only a few calculations failed. For this matter, instead of generating errors, NumPy only warns and provides special constants to express infinity ({{np_inf}}) and undetermined numbers ({{np_nan}}, not-a-number):
+Since operations on arrays perform many arithmetic operations at once, it would be inconvenient to get an error each time only a few calculations fail. For this reason, instead of generating errors, NumPy only warns and provides special constants to express infinity ({{np_inf}}) and undetermined numbers ({{np_nan}}, not-a-number):
 
 ```{code-cell} ipython3
 import numpy as np
@@ -41,7 +41,7 @@ c = a / b
 c
 ```
 
-To know which operations resulted in `nan` or `inf`, we use {{np_isnan}} and {{np_isinf}}:
+To know which operations resulted in `nan` or `inf`, use {{np_isnan}} and {{np_isinf}}:
 
 ```{code-cell} ipython3
 np.isnan(c)

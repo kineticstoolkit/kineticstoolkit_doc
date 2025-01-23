@@ -19,7 +19,7 @@ kernelspec:
 
 # Adding and removing entries
 
-Accessing a dictionary using a key that is not part of the dictionary results in a key error:
+Accessing a dictionary using a key that is not part of the dictionary results in a KeyError:
 
 ```{code-cell} ipython3
 dict_of_integers = {1: 11, 2: 22, 5: 55}
@@ -30,7 +30,7 @@ dict_of_integers = {1: 11, 2: 22, 5: 55}
 dict_of_integers[3]
 ```
 
-However, assigning a value to a key that does not exist **creates** this key. This is in fact how we add entries to a dictionary:
+However, assigning a value to a key that does not exist **adds** this key. This is in fact how we add entries to a dictionary:
 
 ```{code-cell} ipython3
 dict_of_integers[3] = 33
@@ -38,7 +38,7 @@ dict_of_integers[3] = 33
 dict_of_integers
 ```
 
-To remove an entry from a dictionary, we use the `pop` method, which behaves [as the list's pop method](python_lists_modify.md). It returns the value being deleted, and removes this entry from the dictionary.
+To remove an entry from a dictionary, we use the `pop` method, which behaves [like the list's pop method](python_lists_modify.md). It returns the value being deleted, and removes this entry from the dictionary.
 
 ```{code-cell} ipython3
 print(dict_of_integers.pop(1))  # Remove the element with key 1
