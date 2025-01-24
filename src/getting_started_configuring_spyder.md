@@ -3,12 +3,12 @@
 Spyder is a general-purpose programming environment for scientific applications, and it suits biomechanical data processing very well. Therefore, this is the programming environment that we recommend in this guide. Here is how to install and configure it to enhance your experience with interactive data processing.
 
 
-```{figure-md} fig_spyder_ide
+:::{figure-md} fig_spyder_ide
 :width: 4in
 ![](_static/images/fig_spyder_ide.jpg)
 
 The Scientific Python Development Environment (spyder)
-```
+:::
 
 ## Installation
 
@@ -25,13 +25,12 @@ In section [](getting_started_installing.md), we created a `ktk` conda environme
 - Check "Use the following interpreter"
 - Click the "open" button, navigate to the folder "miniconda3/envs/ktk/bin", and select "python".
 
-```{figure-md} fig_spyder_python_interpreter
+:::{figure-md} fig_spyder_python_interpreter
 :width: 7in
 ![](_static/images/fig_spyder_python_interpreter.png)
 
-
 Selecting the correct Python installation in Spyder
-```
+:::
 
 
 ### Interactive Matplotlib figures
