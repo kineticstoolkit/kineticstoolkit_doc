@@ -31,7 +31,7 @@ participants = [
 ]
 ```
 
-Write a code that iterates through all elements of this list to create a new list that contains only the participants IDs: `[101, 125, 126, 132]`.
+Write code that iterates through all elements of this list to create a new list that contains only the participants' IDs: `[101, 125, 126, 132]`.
 
 ```{code-cell} ipython3
 :tags: [hide-cell]

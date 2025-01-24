@@ -20,7 +20,7 @@ kernelspec:
 
 # Exercise: Modifying lists 2
 
-Here is the progression of a person's maximal flexion angle of the shoulder during a 4-month stretching program, with the outer list corresponding to the month, and the inner lists being 10 consecutive measurements performed during the month.
+Here is the progression of a person's maximal flexion angle of the shoulder during a 4-month stretching program, with the outer list corresponding to the month, and the inner lists containing 10 consecutive measurements performed during each month.
 
 ```{code-cell} ipython3
 max_flexion = [
@@ -31,7 +31,7 @@ max_flexion = [
 ]
 ```
 
-Write a code that creates one single, un-nested list, that contains every 40 consecutive measurements.
+Write code that creates one single, un-nested list containing all 40 consecutive measurements.
 
 ```{code-cell} ipython3
 :tags: [hide-cell]

@@ -37,13 +37,13 @@ Every value is accessed exactly like a list:
 
 Every value is accessed using two coordinates. For a matrix, these coordinates are:
 
-1. the line
+1. the row
 2. the column
 
 For example: 
 
-- 1st line, 1st column: `the_array[0, 0]`
-- 2nd line, 3rd column: `the_array[1, 2]`
+- 1st row, 1st column: `the_array[0, 0]`
+- 2nd row, 3rd column: `the_array[1, 2]`
 - etc.
 :::
 ::::
@@ -60,14 +60,14 @@ For example:
 
 Every value is accessed using three coordinates. For a series of matrices, these coordinates are:
 
-1. the matrix
-1. the line
+1. the matrix in the series
+1. the row
 2. the column
 
 For example: 
 
-- 1st matrix, 1st line, 1st column: `the_array[0, 0, 0]`
-- 1st matrix, 2nd line, 3rd column: `the_array[0, 1, 2]`
+- 1st matrix, 1st row, 1st column: `the_array[0, 0, 0]`
+- 1st matrix, 2nd row, 3rd column: `the_array[0, 1, 2]`
 - etc.
 :::
 ::::

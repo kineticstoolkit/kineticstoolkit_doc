@@ -19,7 +19,7 @@ kernelspec:
 
 # Exercise: Filtering n-dimensional arrays
 
-We recorded this series of forces using a gait force platform, where the first axis corresponds to time and the second axis corresponds to the three force components $F_x$, $F_y$ and $F_z$.
+We recorded this series of forces using force platform during gait, where the first axis represents time and the second axis represents the three force components $F_x$, $F_y$ and $F_z$.
 
 ```{code-cell} ipython3
 import numpy as np
@@ -79,7 +79,7 @@ plt.ylabel("Force (N)")
 plt.legend(["Fx", "Fy", "Fz"]);
 ```
 
-Write a code that calculates the mean of $F_x$, but only during the weight support phase. We consider that the weight support phase consists in any sample where $F_z > 10$.
+Write a code that calculates the mean of $F_x$, but only during the weight support phase. We consider that the weight support phase occurs when $F_z > 10$.
 
 Follow these steps:
 

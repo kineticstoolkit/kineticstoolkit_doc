@@ -19,7 +19,7 @@ kernelspec:
 
 # Visualizing forces and other vectors
 
-In addition to points and frames (local coordinate systems), The [Player](api/ktk.Player.rst) can represent forces or other vectors using its `vectors` property.
+In addition to points and frames (local coordinate systems), the [Player](api/ktk.Player.rst) can represent forces or other vectors using its `vectors` property.
 
 We start by loading a gait c3d file.
 
@@ -49,8 +49,7 @@ p.pan = (-0.4663898987149148, -0.3352733755899471)
 p._to_animation()
 ```
 
-
-Let's add a vector at the right shoulder, that could for example represent the joint reaction force. For now, we will simply create a dummy sinusoidal vector:
+Let's add a vector at the right shoulder, which could, for example, represent the joint reaction force. For now, we will simply create a dummy sinusoidal vector:
 
 ```{code-cell} ipython3
 forces = ktk.TimeSeries(time=contents["Points"].time)
@@ -58,7 +57,6 @@ forces.data["ShoulderForce"] = 500 * ktk.geometry.create_vector_series(
     y=np.sin(3 * forces.time)
 )
 ```
-
 
 Now we create a new Player that shows both points and forces:
 
@@ -81,12 +79,12 @@ p.pan = (-0.4663898987149148, -0.3352733755899471)
 p._to_animation()
 ```
 
-The force is not shown yet, because the Player does not know how to represent the vector "ShoulderForce". This is configured by the Player's `vectors` property, which is a dict where:
+The force is not shown yet because the Player does not know how to represent the vector "ShoulderForce". This is configured by the Player's `vectors` property, which is a dict where:
 - The key is the name of the force. Here, "ShoulderForce".
 - The value is a dict with:
-    - "Origin": The name of the point the vector origins from. Here, "r should", as read from the C3D file.
-    - "Scale": Optional, the scale of the vector in meters per vector unit. It is 1 by default, but here we will set 0.001, which means in this case that the line will be one millimeter per newton.
-    - "Color": Optional, an RGB color tuple.
+    - "Origin": The name of the point the vector originates from. Here, "r should", as read from the C3D file.
+    - "Scale": Optional, the scale of the vector in meters per vector unit. It is 1 by default, but here we will set 0.001, which means in this case that the line will be one millimetre per newton.
+    - "Color": Optional, an RGB colour tuple.
 
 To show the shoulder force:
 
@@ -100,7 +98,6 @@ p.vectors["ShoulderForce"] = {"Origin": "r should", "Scale": 0.001}
 p._to_animation()
 ```
 
-
 ## Force platforms
 
 The previous section was a dummy example to show how to represent vectors in the Player. In this same file, we also have force platform contents. For visualization, we need to downsample it so that everything is on the same sampling rate:
@@ -109,7 +106,6 @@ The previous section was a dummy example to show how to represent vectors in the
 points = contents["Points"]
 force_platforms = contents["ForcePlatforms"].resample(points.time)
 ```
-
 
 We can now visualize the points and force platform data in the Player:
 
@@ -145,7 +141,6 @@ p.interconnections
 ```{code-cell} ipython3
 p.vectors
 ```
-
 
 In these values, wildcards `*` are used to mean:
 - Any point ending with `_Corner1` is connected to a matching point ending with `_Corner2`;

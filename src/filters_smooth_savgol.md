@@ -16,7 +16,7 @@ kernelspec:
 %matplotlib inline
 ```
 
-# Moving average, Savitsky-Golay and deriving filters
+# Moving average, Savitzky-Golay and deriving filters
 
 This section presents the following functions:
 - [ktk.filters.smooth](api/ktk.filters.smooth.rst)
@@ -25,7 +25,7 @@ This section presents the following functions:
 
 ## Smoothing using a moving average
 
-The moving average is an excellent filter to remove noise that is related to a specific time pattern. A classic example is the day-to-day evaluation of a process that is sensible to week-ends (for example, the number of workers who enter a building). A moving average with a window length of 7 days is ideal to evaluate the generic trend of this signal without considering intra-week fluctuations. Let's first load some noisy data:
+The moving average is an excellent filter to remove noise that is related to a specific time pattern. A classic example is the day-to-day evaluation of a process that is sensitive to weekends (for example, the number of workers who enter a building). A moving average with a window length of 7 days is ideal to evaluate the general trend of this signal without considering intra-week fluctuations. Let's first load some noisy data:
 
 ```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
@@ -50,14 +50,14 @@ filtered.rename_data("periodic_noise", "filtered", in_place=True)
 ts.merge(filtered).plot(["clean", "periodic_noise", "filtered"], '.-')
 ```
 
-As expected, the 5-sample period noise was completely removed. The signal was however also averaged and we therefore lost some dynamics in the signal.
+As expected, the 5-sample period noise was completely removed. The signal was, however, also averaged and we therefore lost some dynamics in the signal.
 
 
 ## Smoothing using a Savitzky-Golay filter
 
-The Savitzky-Golay filter is a generalization of the moving average. Instead of taking the mean of the n points of a moving window, the Savitzky-Golay filter fits a polynomial of a given order over each window. A moving average is therefore a particular case of Savitzky-Golay filter with a polynomial of order 0.
+The Savitzky-Golay filter is a generalization of the moving average. Instead of taking the mean of the n points of a moving window, the Savitzky-Golay filter fits a polynomial of a given order over each window. A moving average is therefore a particular case of the Savitzky-Golay filter with a polynomial of order 0.
 
-It is a powerful filter for data that is heavily quantized, particularly if we want to derivate these data. Let's plot some heavily quantized data:
+It is a powerful filter for data that is heavily quantized, particularly if we want to derive these data. Let's plot some heavily quantized data:
 
 ```{code-cell} ipython3
 ts.plot(["clean", "quantized"], ".-")
@@ -79,7 +79,7 @@ ts.merge(filtered).plot(["clean", "quantized", "filtered"], '.-')
 
 ## Deriving TimeSeries
 
-Heavily quantized signals are often difficult to derivate because they contain lors of plateaus that, once derived, are transformed to series of spikes. For instance, let's see how deriving a quantized signal works withouth filtering, using [ktk.filters.deriv](api/ktk.filters.deriv.rst):
+Heavily quantized signals are often difficult to derive because they contain lots of plateaus that, once derived, are transformed into series of spikes. For instance, let's see how deriving a quantized signal works without filtering, using [ktk.filters.deriv](api/ktk.filters.deriv.rst):
 
 ```{code-cell} ipython3
 derived = ktk.filters.deriv(ts)
@@ -87,7 +87,7 @@ derived = ktk.filters.deriv(ts)
 derived.plot(["clean", "quantized"], ".-")
 ```
 
-We can derive a signal using a Savitzky-Golay filter, which consists in deriving the polynomial that is fitted over the moving window. Using a 2nd-order Savitzky-Golay filter with a window length of 7:
+We can derive a signal using a Savitzky-Golay filter, which consists of deriving the polynomial that is fitted over the moving window. Using a 2nd-order Savitzky-Golay filter with a window length of 7:
 
 ```{code-cell} ipython3
 derived_savgol = ktk.filters.savgol(

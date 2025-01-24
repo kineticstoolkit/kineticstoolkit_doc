@@ -81,9 +81,9 @@ plt.legend(["Fx", "Fy", "Fz"])
 plt.show()
 ```
 
-1. Write one code line that calculates the three mean forces $\overline{F_x}$, $\overline{F_y}$ and $\overline{F_z}$ as a unidimensional array of length 3.
-2. Write one code line that calculates the series of resulting force ($F_\text{tot} = \sqrt{F_x^2 + F_y^2 + F_z^2}$).
-3. Write one code line that calculates the mean resulting force $\overline{F_\text{tot}}$ as a float.
+1. Write one line of code that calculates the three mean forces $\overline{F_x}$, $\overline{F_y}$ and $\overline{F_z}$ as a unidimensional array of length 3.
+2. Write one line of code that calculates the series of resulting force ($F_\text{tot} = \sqrt{F_x^2 + F_y^2 + F_z^2}$).
+3. Write one line of code that calculates the mean resulting force $\overline{F_\text{tot}}$ as a float.
 
 ```{code-cell} ipython3
 :tags: [hide-cell]

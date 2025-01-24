@@ -19,7 +19,7 @@ kernelspec:
 
 # Exercise: Expressing a constant vector
 
-Using [Kinetics Toolkit's conventions](geometry_dimension_conventions.md), create a NumPy array that corresponds to the following time-invarying vector:
+Using [Kinetics Toolkit's conventions](geometry_dimension_conventions.md), create a NumPy array that corresponds to the following time-invariant vector:
 
 $$
 \vec{v} = (1, 2, 0)

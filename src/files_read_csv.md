@@ -20,9 +20,9 @@ kernelspec:
 
 # Reading CSV files
 
-To ensure a great compatibility between Kinetics Toolkit and other frameworks, TimeSeries can be converted from and to Pandas {{pd_dataframe}} using the [ktk.TimeSeries.from_dataframe](api/ktk.TimeSeries.from_dataframe.rst) and [ktk.TimeSeries.to_dataframe](api/ktk.TimeSeries.to_dataframe.rst) methods. Therefore, as long as a data file can be opened in Pandas, it can then be converted to a TimeSeries, as shown in {numref}`fig_ktk_dataflow`.
+To ensure great compatibility between Kinetics Toolkit and other frameworks, TimeSeries can be converted from and to Pandas {{pd_dataframe}} using the [ktk.TimeSeries.from_dataframe](api/ktk.TimeSeries.from_dataframe.rst) and [ktk.TimeSeries.to_dataframe](api/ktk.TimeSeries.to_dataframe.rst) methods. Therefore, as long as a data file can be opened in Pandas, it can then be converted to a TimeSeries, as shown in {numref}`fig_ktk_dataflow`.
 
-Comma Separated Values (CSV) files are ubiquitous in research. They are text files were values are separated usually by commas, but sometimes by other delimiters such as `;` or tabs. The first line often contains labels to indicate the nature of each column. Here is the contents of a typical CSV file:
+Comma Separated Values (CSV) files are ubiquitous in research. They are text files where values are separated usually by commas, but sometimes by other delimiters such as `;` or tabs. The first line often contains labels to indicate the nature of each column. Here is the content of a typical CSV file:
 
 ```
     Time,Force,Position
@@ -85,7 +85,7 @@ In the first example, the force sensor was unidimensional; however, for a tridim
     1,0,-9.81,0,0.1
 ```
 
-We first read the csv file as a DataFrame:
+We first read the CSV file as a DataFrame:
 
 ```{code-cell} ipython3
 df = pd.read_csv(
@@ -114,7 +114,7 @@ df.columns = ["Forces[0]", "Forces[1]", "Forces[2]", "Position"]
 df
 ```
 
-We can now import this new DataFrame as a TimeSeries, with the three forces signals combined in one Nx3 array:
+We can now import this new DataFrame as a TimeSeries, with the three force signals combined in one Nx3 array:
 
 ```{code-cell} ipython3
 ts = ktk.TimeSeries.from_dataframe(df)

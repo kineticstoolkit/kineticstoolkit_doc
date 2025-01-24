@@ -14,19 +14,19 @@ The first step to answer these questions is to create a **local coordinate syste
 - Its y axis is aligned with the arm, pointing upward;
 - Its z axis points to the right.
 
-```{figure-md} fig_geometry_local_coordinates
+:::{figure-md} fig_geometry_local_coordinates
 :width: 2in
 ![](_static/images/fig_geometry_local_coordinates.png)
 
 Local coordinate system of the upper arm.
-```
+:::
 
 
 Now that we defined this local coordinate system, we can come back to the position of interest of {numref}`fig_geometry_intro`. Look in {numref}`fig_geometry_local_coordinates_rotated` how the upper arm coordinate system is attached to the upper arm and thus moves with it.
 
-```{figure-md} fig_geometry_local_coordinates_rotated
+:::{figure-md} fig_geometry_local_coordinates_rotated
 :width: 3in
 ![](_static/images/fig_geometry_local_coordinates_rotated.png)
 
 Expressing the position and orientation of the upper arm.
-```
+:::

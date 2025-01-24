@@ -28,7 +28,7 @@ y = [0.13, 0.72, 1.29, 1.93, 2.55, 3.12, 3.71, 4.34, 4.95, 5.56]
 
 If we know that the first element of `y` always corresponds to the y-coordinate of the right foot, write a 2-line code that separates `y` into two lists:
 - `y_right`, which contains the y-coordinates of all heel strikes for the right foot
-- `y_left`, which contains the y-coordinates all heel strikes for the left foot
+- `y_left`, which contains the y-coordinates of all heel strikes for the left foot
 
 ```{code-cell} ipython3
 :tags: [hide-cell]

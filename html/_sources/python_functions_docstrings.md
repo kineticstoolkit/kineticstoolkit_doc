@@ -19,9 +19,9 @@ kernelspec:
 
 # Docstrings
 
-Although our solutions to the previous exercises do work, they could be much more documented. Keep in mind that code is wrote once, often by only one programmer, but it is read many times after, often by other people. An undocumented function is usually clear to the programmer while it is being written, but will it be months later?
+Although our solutions to the previous exercises do work, they could be much more documented. Keep in mind that code is written once, often by only one programmer, but it is read many times after, often by other people. An undocumented function is usually clear to the programmer while it is being written, but will it be months later?
 
-Docstrings are the most important way to document functions. A docstring is  a **string** that **doc**uments a function. While being optional, it is helpful in any code other than very simple scripts. A standard docstrings is a [triple-quote string](python_strings_triple_quotes.md) placed just below the function signature. Minimally, a docstring clearly indicates:
+Docstrings are the most important way to document functions. A docstring is  a **string** that **doc**uments a function. While being optional, it is helpful in any code other than very simple scripts. A standard docstring is a [triple-quote string](python_strings_triple_quotes.md) placed just below the function signature. Minimally, a docstring clearly indicates:
 
 1. What the function does;
 2. What are the types and contents of every expected parameter;
@@ -68,7 +68,7 @@ def format_info(i_participant, first_name, last_name, age, height, weight):
 ```
 
 :::{note}
-The style used for this docstring is [numpydoc](https://numpydoc.readthedocs.io/en/latest/format.html). There is no requirement to follow this specific style over another one, but since it is used by most major Python packages in numerical analysis (NumPy, Pandas, Matplotlib, SciPy), then we also follows this style.
+The style used for this docstring is [numpydoc](https://numpydoc.readthedocs.io/en/latest/format.html). There is no requirement to follow this specific style over another one, but since it is used by most major Python packages in numerical analysis (NumPy, Pandas, Matplotlib, SciPy), then we also follow this style.
 :::
 
 As you notice in the example above, there are more lines of documentation than lines of code. This is not unusual, and this is not a bad practice. After all, a well-documented, simple code is much better than an undocumented, complex code!

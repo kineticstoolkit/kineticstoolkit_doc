@@ -20,7 +20,7 @@ kernelspec:
 
 # Exercise: Creating arrays using zeros and ones 2
 
-Using one line of code, create a 15x3 matrix that contains only ones.
+Using a single line of code, create a 15x3 matrix that contains only ones.
 
 ```{code-cell} ipython3
 :tags: [hide-cell]

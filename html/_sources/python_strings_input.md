@@ -31,7 +31,7 @@ This allows the user to type some text right in the console. It is usually a goo
 the_string = input("Please enter your name: ")
 ```
 
-Note that the input function always create a string. If you want the user to input a float, then you need to convert the string to a float:
+Note that the input function always creates a string. If you want the user to input a float, then you need to convert the string to a float:
 
 ```
 height = float(input("What is the participant's height in meters? "))

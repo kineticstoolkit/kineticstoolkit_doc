@@ -30,7 +30,7 @@ $$
 \end{bmatrix}
 $$
 
-Using [Kinetics Toolkit's conventions](geometry_dimension_conventions.md), create a NumPy array that expresses the series of frames for a movement consisting of three inclines: 0°, 15° and 25°.
+Using [Kinetics Toolkit's conventions](geometry_dimension_conventions.md), create a NumPy array that expresses the series of frames for a movement consisting of three inclines: 0°, 15°, and 25°.
 
 ```{code-cell} ipython3
 :tags: [hide-cell]

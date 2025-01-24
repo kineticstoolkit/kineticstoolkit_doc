@@ -19,7 +19,7 @@ kernelspec:
 
 # Matrix multiplication
 
-NumPy provides an operator `@` to calculate the dot product. For instance, to calculate the dot product between two vectors:
+NumPy provides the operator `@` to calculate the dot product. For instance, to calculate the dot product of two vectors:
 
 $$
 \begin{bmatrix}
@@ -33,7 +33,7 @@ $$
 = 28
 $$
 
-we would write:
+you would write:
 
 ```{code-cell}
 import numpy as np
@@ -44,7 +44,7 @@ b = np.array([2.0, 4.0, 6.0])
 a @ b
 ```
 
-Similarly, to calculate the dot product between two matrices:
+Similarly, to calculate the dot product of two matrices:
 
 $$
 \begin{bmatrix}
@@ -71,7 +71,7 @@ $$
 \end{bmatrix}
 $$
 
-we write:
+you write:
 
 ```{code-cell} ipython3
 a = np.array(

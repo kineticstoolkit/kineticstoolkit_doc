@@ -18,9 +18,9 @@ kernelspec:
 ```
 
 
-# Exercise: Indexing/slicing/filtering unidimensional arrays 2
+# Exercise: Indexing/slicing/filtering one-dimensional arrays 2
 
-The position of an object has been recorded in meters during one second at a sampling frequency of 100 Hz:
+The position of an object was recorded in meters over one second at a sampling frequency of 100 Hz:
 
 ```
 import numpy as np
@@ -50,10 +50,10 @@ $$
 v(i) = \dfrac{p(i+1) - p(i-1)}{t(i+1) - t(i-1)}
 $$
 
-Write a program of only 1 to 2 lines that calculates the speed of the object. Then, plot the velocity and position on a same figure to check your result.
+Write a program of only 1 to 2 lines that calculates the speed of the object. Then, plot the velocity and position on the same figure to check your result.
 
 :::{tip}
-Due to the calculation of speed that requires position values before and after the current sample, the velocity array will be 2 values shorter than the position array, as illustrated in {numref}`fig_speed_calculation`.
+Due to the calculation of speed requiring position values before and after the current sample, the velocity array will be 2 values shorter than the position array, as illustrated in {numref}`fig_speed_calculation`.
 :::
 
 ```{figure-md} fig_speed_calculation

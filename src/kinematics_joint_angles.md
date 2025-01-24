@@ -22,7 +22,7 @@ kernelspec:
 In this section, we will calculate the elbow joint angles during the propulsion of a racing wheelchair. At the end of this tutorial, we will plot curves of elbow flexion and pronation angles during the complete acquisition.
 
 :::{caution}
-Please be sure to understand the concepts of frame, homogeneous transform and Euler angles before continuing. If you don't, start with section [](geometry.md).
+Please be sure to understand the concepts of frame, homogeneous transform, and Euler angles before continuing. If you don't, start with section [](geometry.md).
 :::
 
 Calculating joint angles requires the following steps:
@@ -35,7 +35,7 @@ Calculating joint angles requires the following steps:
 
 **Step 4.** Extract the series of Euler angles from these homogeneous transforms (what series of three angles allow such relative orientation);
 
-**Step 5.** Interpret these Euler angle as rotations around anatomical axes.
+**Step 5.** Interpret these Euler angles as rotations around anatomical axes.
 
 ## Read and visualize marker trajectories
 
@@ -114,7 +114,7 @@ Following the ISB recommendations, the local coordinate system for the humerus i
 
 **1. The origin is GH (glenohumeral joint)**
 
-We don't have a marker for the glenohumeral join, but we have one for the acromion. We will approximate GH by the acromion.
+We don't have a marker for the glenohumeral joint, but we have one for the acromion. We will approximate GH by the acromion.
 
 ```{code-cell} ipython3
 origin = markers.data["AcromionR"]
@@ -138,7 +138,7 @@ yz = markers.data["LateralEpicondyleR"] - markers.data["MedialEpicondyleR"]
 
 Note that the direction of the yz vector is important. For the plane normal to be forward, the cross product of y and yz must also point forward. In this case, following the [right-hand/screw rule](https://en.wikipedia.org/wiki/Right-hand_rule), y (upward) cross yz (right) effectively yields a forward vector.
 
-As an easier rule of thumb, look at the definition 4: the z vector will point to right. Then just make the yz vector also point to (grossly) right since in anatomical position, the right lateral epicondyle is at the right of the right medial epicondyle.
+As an easier rule of thumb, look at definition 4: the z vector will point to the right. Then just make the yz vector also point to (grossly) the right since in anatomical position, the right lateral epicondyle is to the right of the right medial epicondyle.
 
 We have now defined everything to create the series of humerus frame. We first create an empty TimeSeries for our frames:
 
@@ -170,7 +170,7 @@ p._to_animation()
 
 ### Forearm frame
 
-We will now proceed with the exact same steps to create the forearm coordinate system. From the ISB [^1] :
+We will now proceed with the exact same steps to create the forearm coordinate system. From the ISB [^1]:
 
 **1. The origin is US (ulnar styloid process).**
 
@@ -192,7 +192,7 @@ y = (
 
 **4. The z axis is perpendicular to x and y, pointing to the right.**
 
-This means that US, RS and the elbow center make an yz plane. Since z will point to the right in anatomical position, we will create a yz vector that points grossly to the right in anatomical position.
+This means that US, RS, and the elbow center make a yz plane. Since z will point to the right in anatomical position, we will create a yz vector that points grossly to the right in anatomical position.
 
 ```{code-cell} ipython3
 yz = markers.data["RadialStyloidR"] - markers.data["UlnarStyloidR"]
@@ -235,7 +235,7 @@ arm_to_forearm
 
 ## Extract the series of Euler angles
 
-We now have a series of homogeneous matrices, from which we will now extract Euler angles corresponding to flexion and pronation. We will use the [ktk.geometry.get_angles](api/ktk.geometry.get_angles.rst) function to extract these Euler angles. We however fist need to define the sequence of rotation for these angles. Still following the recommendations of the International Society of Biomechanics [^1], we define the series of rotations from the arm to forearm as:
+We now have a series of homogeneous matrices, from which we will extract Euler angles corresponding to flexion and pronation. We will use the [ktk.geometry.get_angles](api/ktk.geometry.get_angles.rst) function to extract these Euler angles. We, however, first need to define the sequence of rotation for these angles. Still following the recommendations of the International Society of Biomechanics [^1], we define the series of rotations from the arm to forearm as:
 
 **First rotation:** Around the humerus' z axis. Corresponds to a flexion (positive) or hyperextension (negative).
 
@@ -253,7 +253,7 @@ euler_angles
 
 ## Plot the Euler angles
 
-Now that we calculated the angles, we create a last TimeSeries that represents the meaning of these angles.
+Now that we have calculated the angles, we create a last TimeSeries that represents the meaning of these angles.
 
 ```{code-cell} ipython3
 :tags: [remove-input]

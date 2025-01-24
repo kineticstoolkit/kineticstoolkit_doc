@@ -29,7 +29,7 @@ $$
 \vec{p}(t_4) = (7, 8, 5) \\
 $$
 
-Using Kinetics Toolkit's geometry module, rotate this whole trajectory anti-clockwise on the z axis by 20° then translate it by one unit to the left.
+Using Kinetics Toolkit's geometry module, rotate this whole trajectory counterclockwise on the z-axis by 20° then translate it by one unit to the left.
 
 a) Do this exercise by creating the corresponding homogeneous transform using [ktk.geometry.create_transform_series](api/ktk.geometry.create_transform_series.rst), then by multiplying this transform by the point coordinates using [ktk.geometry.matmul](api/ktk.geometry.matmul.rst).
 
@@ -57,7 +57,7 @@ T = ktk.geometry.create_transform_series(
 ktk.geometry.matmul(T, p)
 ```
 
-b) Do this exercise using the [ktk.geometry.rotate](api/ktk.geometry.rotate.rst) and [ktk.geometry.translate](api/ktk.geometry.translate.rst) function.
+b) Do this exercise using the [ktk.geometry.rotate](api/ktk.geometry.rotate.rst) and [ktk.geometry.translate](api/ktk.geometry.translate.rst) functions.
 
 ```{code-cell} ipython3
 :tags: [hide-cell]

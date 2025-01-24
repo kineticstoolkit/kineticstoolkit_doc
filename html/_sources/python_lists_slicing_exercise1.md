@@ -32,7 +32,7 @@ What would be the code to transform `list_of_strings` into:
 ```
 
 :::{tip}
-You may want to read on [negative indexing](python_lists_indexing.md) again.
+You may want to review [negative indexing](python_lists_indexing.md) again.
 :::
 
 ```{code-cell} ipython3
@@ -45,7 +45,7 @@ You may want to read on [negative indexing](python_lists_indexing.md) again.
 # We will go backward through the list.
 # Therefore, the third number of the slice (increment) is -1.
 
-# We go through all the list. There is no ending point.
+# We go through the entire list. There is no ending point.
 # Therefore, there is no second number in the slice.
 
 list_of_strings[-1::-1]

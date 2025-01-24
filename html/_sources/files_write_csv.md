@@ -17,8 +17,6 @@ kernelspec:
 %matplotlib inline
 ```
 
-
-
 # Writing CSV files
 
 To export a TimeSeries to a CSV file, we do the opposite sequence. We first convert the TimeSeries to a DataFrame, then we use the DataFrame's {{dataframe_to_csv}} method to create a CSV file.
@@ -28,7 +26,6 @@ In this example, we read some 3D marker positions from a sample C3D file and exp
 ```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
 import pandas as pd
-
 
 filename = ktk.doc.download("c3d_test_suite_sample.c3d")
 c3d_contents = ktk.read_c3d(filename, convert_point_unit=True)

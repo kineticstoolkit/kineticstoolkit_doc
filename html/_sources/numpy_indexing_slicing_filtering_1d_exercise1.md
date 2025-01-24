@@ -18,7 +18,7 @@ kernelspec:
 ```
 
 
-# Exercise: Indexing/slicing/filtering unidimensional arrays 1
+# Exercise: Indexing/slicing/filtering one-dimensional arrays 1
 
 We measured the step length of a person during 10 steps. Here are these measurements:
 
@@ -30,13 +30,13 @@ step_length = np.array(
 )  # in meters
 ```
 
-For each of these questions, write a single line of code that prints the requested step lengths:
+For each of these questions, write a single line of code that prints the requested step lengths.
 
 1. From the third step up to the end;
-2. The two last steps;
-3. All steps, but without the two firsts and the two lasts;
+2. The last two steps;
+3. All steps, but without the first two and the last two;
 4. Every other step starting from the third;
-5. Steps 2, 5, 6, 7, with step 0 being the first.
+5. Steps 2, 5, 6, and 7, with step 0 being the first.
 6. The first and the last.
 
 ```{code-cell} ipython3

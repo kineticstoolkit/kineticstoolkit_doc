@@ -13,21 +13,15 @@ kernelspec:
 
 +++ {"editable": true, "slideshow": {"slide_type": ""}}
 
-# Expressing series of numbers, points, vectors and transforms in Kinetics Toolkit
+# Expressing series of numbers, points, vectors, and transforms in Kinetics Toolkit
 
-In Kinetics Toolkit, numbers, points, vectors and transforms are expressed as series, where the first dimension of any series corresponds to time. This is emphasized in the following examples:
+In Kinetics Toolkit, numbers, points, vectors, and transforms are expressed as series, where the first dimension of any series corresponds to time. This is emphasized in the following examples:
 
 ## Series of numbers (float, int)
 
-Since a float or an integer has a no dimension, then a **series** of N floats of integers has one dimension of length N:
+Since a float or an integer has no dimension, a **series** of N floats or integers has one dimension of length N:
 
     [x(t0), x(t1), x(t2), ...]
-
-For example:
-
-```{code-cell} ipython3
-series_of_floats = [1.0, 1.1, 1.2, 1.3]
-```
 
 +++ {"editable": true, "slideshow": {"slide_type": ""}}
 
@@ -42,8 +36,6 @@ Since a point has four coordinates (x, y, z, 1), then a **series** of N points h
         [ ... ,  ... ,  ... , ...],
     ]
 
-The function [ktk.geometry.create_point_series](api/ktk.geometry.create_point_series.rst) creates such points series:
-
 ```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
 
@@ -54,7 +46,7 @@ ktk.geometry.create_point_series(
 
 ## Series of vectors
 
-Since a vector has four coordinates (x, y, z, 0), then a **series** of N vectors has a shape of (N, 4):
+Since a vector has four coordinates (x, y, z, 0), a **series** of N vectors has a shape of (N, 4):
 
     [
         [x(t0), y(t0), z(t0), 0.0],
@@ -91,16 +83,7 @@ Since a transform has a shape of (4, 4), then a **series** of N frames has a sha
         ...
     ]
 
-The function [ktk.geometry.create_transform_series](api/ktk.geometry.create_transform_series.rst) can create transforms using multiple input forms. Although we will explore this function in more details later, here is how to express a series of transforms based on rotation angles:
-
-```{code-cell} ipython3
-# Create a series of 2 transforms that represent a rotation
-# of 0°, then 1°, around z, and a position of (2, 3, 4), then
-# (2, 3.1, 4).
-ktk.geometry.create_transform_series(
-    angles=[0, 1], seq="z", degrees=True, positions=[[2, 3, 4], [2, 3.1, 4]]
-)
-```
++++
 
 ## Series of point clouds
 
@@ -108,9 +91,9 @@ We can express M points together as an array of shape (4, M):
 
 $$
 \begin{bmatrix}
-x_0 & x_1 & x_2 & ... \\
-y_0 & y_1 & y_2 & ... \\
-z_0 & z_1 & z_2 & ... \\
+x_0 & x_1 & x_2 & ... \\
+y_0 & y_1 & y_2 & ... \\
+z_0 & z_1 & z_2 & ... \\
 1 & 1 & 1 & ...
 \end{bmatrix}
 $$
@@ -131,9 +114,9 @@ Therefore, a **series** of N point clouds has a shape of (N, 4, M):
             [   1.0,    1.0,    1.0, ...],
         ],
         ...
-    }
+    ]
 
-The same applies for series of vector clouds.
+The same applies to series of vector clouds.
 
 ## Time-invariant coordinates
 

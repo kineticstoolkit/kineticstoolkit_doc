@@ -48,7 +48,7 @@ To interconnect points, we use the `interconnections` property of the Player, wh
 Interconnection dictionary.
 :::
 
-For example, to interconnect Derricks' right lower limb, we would do:
+For example, to interconnect Derrick's right lower limb, we would do:
 
 ```{code-cell} ipython3
 # Name "RLowerLimb" is arbitrary, anything would do.
@@ -65,7 +65,7 @@ p.interconnections["RLowerLimb"] = {"Links": [
 p._to_animation()
 ```
 
-Let's assign a red color to this side, and do the same in blue for the left side.
+Let's assign a red colour to this side, and do the same in blue for the left side.
 
 ```{code-cell} ipython3
 p.interconnections["RLowerLimb"]["Color"] = "r"
@@ -84,7 +84,7 @@ p._to_animation()
 
 ## Wildcards
 
-To draw links for both Viktor and Derrick, we could repeat the same code by replacing every occurrence of "Derrick:" by "Viktor:". However, we can also use wildcards (`*`), which is way more convenient. A wildcard mean "assign any name in place of `*`". We may choose to use wildcards as a prefix or as a suffix. Here, we use it as a prefix, for every body segment:
+To draw links for both Viktor and Derrick, we could repeat the same code by replacing every occurrence of "Derrick:" with "Viktor:". However, we can also use wildcards (`*`), which is much more convenient. A wildcard means "assign any name in place of `*`". We may choose to use wildcards as a prefix or as a suffix. Here, we use it as a prefix, for every body segment:
 
 ```{code-cell} ipython3
 p.interconnections["LLowerLimb"] = {

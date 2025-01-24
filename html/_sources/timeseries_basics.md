@@ -17,10 +17,9 @@ kernelspec:
 %matplotlib inline
 ```
 
-
 # The TimeSeries type
 
-The [ktk.TimeSeries](api/ktk.TimeSeries.rst) type is largely inspired by Matlab's `timeseries` and `tscollection`. Every TimeSeries contains time, data, events and metadata.
+The [ktk.TimeSeries](api/ktk.TimeSeries.rst) type is largely inspired by Matlab's `timeseries` and `tscollection`. Every TimeSeries contains time, data, events, and metadata.
 
 ## Time and data
 
@@ -108,7 +107,7 @@ ts.plot()
 
 ## Events
 
-In the figure above, we see that the TimeSeries contains cyclic data. These cycles could be delimited using events. There are several ways to edit the events of a TimeSeries, that will be presented later in section [](timeseries_event_management.md). For now, we will add the events manually using [ktk.TimeSeries.add_event](api/ktk.TimeSeries.add_event.rst):
+In the figure above, we see that the TimeSeries contains cyclic data. These cycles could be delimited using events. There are several ways to edit the events of a TimeSeries, which will be presented later in section [](timeseries_event_management.md). For now, we will add the events manually using [ktk.TimeSeries.add_event](api/ktk.TimeSeries.add_event.rst):
 
 ```{code-cell} ipython3
 ts = ts.add_event(8.56, "push")
@@ -129,7 +128,7 @@ These 10 events are now added to the TimeSeries' list of events:
 ts.events
 ```
 
-If we plot again the TimeSeries, we can see the added events.
+If we plot the TimeSeries again, we can see the added events.
 
 ```{code-cell} ipython3
 ts.plot()
@@ -152,7 +151,7 @@ ts = ts.add_data_info("Moments", "Unit", "Nm")
 ts.data_info
 ```
 
-Unless explicitly mentioned, metadata is not used for calculation and is strictly optional. Some functions however read metadata: for example, the [ktk.TimeSeries.plot](api/ktk.TimeSeries.plot.rst) method looks for possible "Unit" metadata and prints it on the y axis; and the [ktk.Player](api/ktk.Player.rst) class looks for possible "Color" metadata to set the colour of 3D points.
+Unless explicitly mentioned, metadata is not used for calculation and is strictly optional. Some functions, however, read metadata: for example, the [ktk.TimeSeries.plot](api/ktk.TimeSeries.plot.rst) method looks for possible "Unit" metadata and prints it on the y-axis; and the [ktk.Player](api/ktk.Player.rst) class looks for possible "Colour" metadata to set the colour of 3D points.
 
 ```{code-cell} ipython3
 ts.plot()

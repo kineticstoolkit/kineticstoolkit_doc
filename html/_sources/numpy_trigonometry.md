@@ -20,16 +20,16 @@ kernelspec:
 
 # Trigonometry
 
-In addition to arithmetical operators, NumPy provides lots of essential functions and constants to perform trigonometrical operations:
+In addition to arithmetic operators, NumPy provides lots of essential functions and constants to perform trigonometrical operations:
 
 - {{np_pi}}: π
-- {{np_sin}}: Sinus
-- {{np_cos}}: Cosinus
+- {{np_sin}}: Sine
+- {{np_cos}}: Cosine
 - {{np_tan}}: Tangent
-- {{np_arcsin}}: Arc-sinus
-- {{np_arccos}}: Arc-cosinus
-- {{np_arctan}}: Arc-tangent
-- {{np_arctan2}}: Arc-tangent in the full plane, contrarily to {{np_arctan}} that only returns values from -π/2 (-90°) to +π (+90°)
+- {{np_arcsin}}: Arcsine
+- {{np_arccos}}: Arccosine
+- {{np_arctan}}: Arctangent
+- {{np_arctan2}}: Arctangent in the full plane, unlike {{np_arctan}} that only returns values from -π/2 (-90°) to +π (+90°)
 - {{np_deg2rad}}: Convert degrees to radians
 - {{np_rad2deg}}: Convert radians to degrees
 - {{np_abs}}: Absolute value

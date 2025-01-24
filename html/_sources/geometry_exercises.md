@@ -1,4 +1,4 @@
-# Exercices
+# Exercises
 
 This is a list of every exercise in this chapter.
 

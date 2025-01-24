@@ -13,13 +13,13 @@ kernelspec:
 
 +++ {"editable": true, "slideshow": {"slide_type": ""}}
 
-# Expressing series of numbers, points, vectors and transforms in Kinetics Toolkit
+# Expressing series of numbers, points, vectors, and transforms in Kinetics Toolkit
 
-In Kinetics Toolkit, numbers, points, vectors and transforms are expressed as series, where the first dimension of any series corresponds to time. This is emphasized in the following examples:
+In Kinetics Toolkit, numbers, points, vectors, and transforms are expressed as series, where the first dimension of any series corresponds to time. This is emphasized in the following examples:
 
 ## Series of numbers (float, int)
 
-Since a float or an integer has a no dimension, then a **series** of N floats of integers has one dimension of length N:
+Since a float or an integer has no dimension, a **series** of N floats or integers has one dimension of length N:
 
     [x(t0), x(t1), x(t2), ...]
 
@@ -46,7 +46,7 @@ ktk.geometry.create_point_series(
 
 ## Series of vectors
 
-Since a vector has four coordinates (x, y, z, 0), then a **series** of N vectors has a shape of (N, 4):
+Since a vector has four coordinates (x, y, z, 0), a **series** of N vectors has a shape of (N, 4):
 
     [
         [x(t0), y(t0), z(t0), 0.0],
@@ -91,9 +91,9 @@ We can express M points together as an array of shape (4, M):
 
 $$
 \begin{bmatrix}
-x_0 & x_1 & x_2 & ... \\
-y_0 & y_1 & y_2 & ... \\
-z_0 & z_1 & z_2 & ... \\
+x_0 & x_1 & x_2 & ... \\
+y_0 & y_1 & y_2 & ... \\
+z_0 & z_1 & z_2 & ... \\
 1 & 1 & 1 & ...
 \end{bmatrix}
 $$
@@ -114,9 +114,9 @@ Therefore, a **series** of N point clouds has a shape of (N, 4, M):
             [   1.0,    1.0,    1.0, ...],
         ],
         ...
-    }
+    ]
 
-The same applies for series of vector clouds.
+The same applies to series of vector clouds.
 
 ## Time-invariant coordinates
 

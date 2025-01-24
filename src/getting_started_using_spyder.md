@@ -19,7 +19,7 @@ kernelspec:
 
 # Using Spyder
 
-For those who are familiar to Matlab, Spyder's interface should immediately look familiar. Spyder's standard look is shown in {numref}`fig_spyder_interface`.
+For those who are familiar with Matlab, Spyder's interface should immediately look familiar. Spyder's standard look is shown in {numref}`fig_spyder_interface`.
 
 ```{figure-md} fig_spyder_interface
 ![](_static/images/fig_spyder_interface.png)

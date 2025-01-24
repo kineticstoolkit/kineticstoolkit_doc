@@ -40,7 +40,7 @@ c3d_contents
 ```
 
 :::{caution}
-As indicated in the warning above, the points in this file are expressed in millimeters; however Kinetics Toolkit uses SI units and therefore meters by default. The point positions have been converted to meters by default, and therefore you can ignore this warning, or suppress it all the way using:
+As indicated in the warning above, the points in this file are expressed in millimetres; however, Kinetics Toolkit uses SI units and therefore metres by default. The point positions have been converted to metres by default, and therefore you can ignore this warning, or suppress it altogether using:
 
 ```
 c3d_contents = ktk.read_c3d(filename, convert_point_unit=True)
@@ -48,13 +48,13 @@ c3d_contents = ktk.read_c3d(filename, convert_point_unit=True)
 
 You can generally ignore this warning if you read unprocessed marker positions and analog signals.
 
-You should not ignore this warning if you are reading a c3d file that has been processed by some software or pipeline to calculate joint kinetics, powers, etc., and if these values are expressed as "points" in the c3d. Consult the help of [ktk.read_c3d](api/ktk.read_c3d.rst) for more details.
+You should not ignore this warning if you are reading a C3D file that has been processed by some software or pipeline to calculate joint kinetics, powers, etc., and if these values are expressed as "points" in the C3D. Consult the help of [ktk.read_c3d](api/ktk.read_c3d.rst) for more details.
 :::
 
 The content of the file is expressed as a dictionary with two keys:
 - `Points`: A TimeSeries that contains the point data (markers)
-- `Analogs` (only when applicable): A TimeSeries that contains the raw analog data from force platforms, EMG or other analog signals recorded into the c3d file.
-- `ForcePlateforms` (only when applicable): A TimeSeries that contains the forces, moments, centres of pressure and force platform positions.
+- `Analogs` (only when applicable): A TimeSeries that contains the raw analog data from force platforms, EMG, or other analog signals recorded into the C3D file.
+- `ForcePlatforms` (only when applicable): A TimeSeries that contains the forces, moments, centres of pressure, and force platform positions.
 
 ## Points
 

@@ -23,7 +23,7 @@ kernelspec:
 The Player is an interactive class that needs an interactive Matplotlib backend. See section [](getting_started_installing.md) for more information.
 :::
 
-In this section, we will use kinematic data of [tennis serves](dataset_kinematics_tennis_serve.md) as a [TimeSeries](timeseries.md) or marker positions.
+In this section, we will use kinematic data of [tennis serves](dataset_kinematics_tennis_serve.md) as a [TimeSeries](timeseries.md) of marker positions.
 
 ```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
@@ -75,7 +75,7 @@ Note the coloured global reference frame on the bottom. This reference frame and
 - y = Green
 - z = Blue
 
-Once a player has been instantiated, lots of properties can be modified to control or customize it:
+Once a player has been instantiated, many properties can be modified to control or customize it:
 
 ```{code-cell} ipython3
 p

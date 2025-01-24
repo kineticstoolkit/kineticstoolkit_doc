@@ -38,7 +38,7 @@ Let's take a look at the forces:
 analogs.plot(["FZ1", "FZ2"])
 ```
 
-There are some offsets in these signals, that could be corrected by subtracting the median of the signal:
+There are some offsets in these signals that could be corrected by subtracting the median of the signal:
 
 ```{code-cell} ipython3
 analogs.data["FZ1"] -= np.median(analogs.data["FZ1"])

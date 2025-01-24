@@ -1,6 +1,6 @@
 # Exercises
 
-This is a list of every exercise in this chapter.
+This is a list of all exercise in this chapter.
 
 - [](numpy_ndarray_creating_zeros_ones_exercise1.md)
 - [](numpy_ndarray_creating_zeros_ones_exercise2.md)

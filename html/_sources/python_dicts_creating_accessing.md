@@ -73,7 +73,7 @@ We can list the available keys in a dictionary using its `keys` method:
 dict_of_anything.keys()
 ```
 
-or we can test if the dict contains a certain key using the `in` keyword:
+or we can test if the dictionary contains a certain key using the `in` keyword:
 
 ```{code-cell} ipython3
 print(1 in dict_of_anything)
