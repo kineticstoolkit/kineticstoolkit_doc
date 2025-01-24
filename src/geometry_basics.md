@@ -1,4 +1,4 @@
-# Coordinates: points, vectors and transforms
+# Geometry basics: coordinate systems, points, vectors, and transforms
 
 The following sections are an introduction or reminder of the basic elements of rigid body geometry. They covers the definitions of bodies, coordinate systems, and coordinates such as points, vectors and transforms. We follow the nomenclature conventions of Craig, J., 1987. Introduction to robotics: Mechanics and control, in the context of rigid body biomechanics. 
 

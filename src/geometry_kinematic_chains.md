@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.0
+    jupytext_version: 1.16.6
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -52,9 +52,9 @@ and by using this equation.
 
 $$
 ^\text{global}p_\text{elbow}
-~~~=
-~~~^\text{global}_\text{upper arm}T
-~~~^\text{upper arm}p_\text{elbow}
+=
+(^\text{global}_\text{upper arm}T)
+(^\text{upper arm}p_\text{elbow})
 $$
 
 
@@ -79,10 +79,10 @@ This leads to this equation:
 
 $$
 ^\text{global}p_\text{wrist}
-~~~=
-~~~^\text{global}_\text{upper arm}T
-~~~^\text{upper arm}_\text{forearm}T
-~~~^\text{forearm}p_\text{wrist}
+=
+(^\text{global}_\text{upper arm}T)
+(^\text{upper arm}_\text{forearm}T)
+(^\text{forearm}p_\text{wrist})
 $$
 
 :::{tip}

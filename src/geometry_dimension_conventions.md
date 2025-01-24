@@ -23,12 +23,6 @@ Since a float or an integer has a no dimension, then a **series** of N floats of
 
     [x(t0), x(t1), x(t2), ...]
 
-For example:
-
-```{code-cell} ipython3
-series_of_floats = [1.0, 1.1, 1.2, 1.3]
-```
-
 +++ {"editable": true, "slideshow": {"slide_type": ""}}
 
 ## Series of points
@@ -41,8 +35,6 @@ Since a point has four coordinates (x, y, z, 1), then a **series** of N points h
         [x(t2), y(t2), z(t2), 1.0],
         [ ... ,  ... ,  ... , ...],
     ]
-
-The function [ktk.geometry.create_point_series](api/ktk.geometry.create_point_series.rst) creates such points series:
 
 ```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
@@ -91,16 +83,7 @@ Since a transform has a shape of (4, 4), then a **series** of N frames has a sha
         ...
     ]
 
-The function [ktk.geometry.create_transform_series](api/ktk.geometry.create_transform_series.rst) can create transforms using multiple input forms. Although we will explore this function in more details later, here is how to express a series of transforms based on rotation angles:
-
-```{code-cell} ipython3
-# Create a series of 2 transforms that represent a rotation
-# of 0°, then 1°, around z, and a position of (2, 3, 4), then
-# (2, 3.1, 4).
-ktk.geometry.create_transform_series(
-    angles=[0, 1], seq="z", degrees=True, positions=[[2, 3, 4], [2, 3.1, 4]]
-)
-```
++++
 
 ## Series of point clouds
 
