@@ -804,14 +804,14 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="ktk.cycles.most_repeatable_cycles">
 <span class="sig-name descname"><span class="pre">most_repeatable_cycles</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">/</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/ktk/cycles.html#most_repeatable_cycles"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ktk.cycles.most_repeatable_cycles" title="Link to this definition">#</a></dt>
-<dd><p>Get the indexes of the most repeatable cycles in array.</p>
+<dd><p>Get the indexes of the most repeatable cycles in an array.</p>
 <p>This function returns an ordered list of the most repeatable to the least
 repeatable cycles.</p>
-<p>It works by recursively discarding the cycle than maximizes the
+<p>It works by recursively discarding the cycle that maximizes the
 root-mean-square error between the cycle and the average of every
 remaining cycle, until there are only two cycles remaining. The function
 returns a list that is the reverse order of cycle removal: first the two
-last cycles, then the last-removed cycle, and so on. If two cycles are as
+last cycles, then the last-removed cycle, and so on. If two cycles are
 equivalently repeatable, they are returned in order of appearance.</p>
 <p>Cycles that include at least one NaN are excluded.</p>
 <dl class="field-list simple">
@@ -820,7 +820,7 @@ equivalently repeatable, they are returned in order of appearance.</p>
 (n_cycles, n_points).</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>list of indexes corresponding to the cycles in most to least
+<dd class="field-even"><p>List of indexes corresponding to the cycles in most to least
 repeatable order.</p>
 </dd>
 <dt class="field-odd">Return type<span class="colon">:</span></dt>

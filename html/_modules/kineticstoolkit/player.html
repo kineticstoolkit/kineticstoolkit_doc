@@ -736,7 +736,7 @@
 <span></span><span class="ch">#!/usr/bin/env python3</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="c1">#</span>
-<span class="c1"># Copyright 2020-2024 Félix Chénier</span>
+<span class="c1"># Copyright 2020-2025 Félix Chénier</span>
 
 <span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
 <span class="c1"># you may not use this file except in compliance with the License.</span>
@@ -758,7 +758,7 @@
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;Félix Chénier&quot;</span>
-<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">&quot;Copyright (C) 2020-2024 Félix Chénier&quot;</span>
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">&quot;Copyright (C) 2020-2025 Félix Chénier&quot;</span>
 <span class="n">__email__</span> <span class="o">=</span> <span class="s2">&quot;chenier.felix@uqam.ca&quot;</span>
 <span class="n">__license__</span> <span class="o">=</span> <span class="s2">&quot;Apache 2.0&quot;</span>
 
@@ -881,7 +881,7 @@
 
 <span class="sd">    interconnections</span>
 <span class="sd">        Optional. Each key corresponds to a group of interconnections, which</span>
-<span class="sd">        is a dict with the following keys:</span>
+<span class="sd">        is a dictionary with the following keys:</span>
 
 <span class="sd">        - &quot;Links&quot;: list of connections where each string is a point</span>
 <span class="sd">          name. For example, to create a link that connects Point1 to Point2,</span>
@@ -902,7 +902,7 @@
 
 <span class="sd">          Point names can include wildcards (*) either as a prefix or as a</span>
 <span class="sd">          suffix. This is useful to apply a single set of interconnections to</span>
-<span class="sd">          multiple bodies. For instance, if the Player&#39;s contents includes</span>
+<span class="sd">          multiple bodies. For instance, if the Player&#39;s contents include</span>
 <span class="sd">          these points: [Body1_HipR, Body1_HipL, Body1_L5S1, Body2_HipR,</span>
 <span class="sd">          Body2_HipL, Body2_L5S1], we could link L5S1 and both hips at once</span>
 <span class="sd">          using::</span>
@@ -931,8 +931,8 @@
 <span class="sd">            }</span>
 
 <span class="sd">    vectors</span>
-<span class="sd">        Optional. A dict where each key is the name of a vector and each value</span>
-<span class="sd">        contain its origin, scale and color. For example::</span>
+<span class="sd">        Optional. A dictionary where each key is the name of a vector and each value</span>
+<span class="sd">        contains its origin, scale, and color. For example::</span>
 
 <span class="sd">            vectors = {</span>
 <span class="sd">                &quot;WristForce&quot;: {</span>
@@ -949,7 +949,7 @@
 
 <span class="sd">        will draw lines for the forces WristForce and ElbowForce, with their</span>
 <span class="sd">        origin being at WristCenter and ElbowCenter, and with a scale of 0.001</span>
-<span class="sd">        meter per newton. Force and point names can include wildcards (*)</span>
+<span class="sd">        metre per newton. Force and point names can include wildcards (*)</span>
 <span class="sd">        either as a prefix or as a suffix. For instance, to draw forces</span>
 <span class="sd">        recorded by multiple force plates, we could use::</span>
 
@@ -983,7 +983,7 @@
 <span class="sd">        {&quot;x&quot;, &quot;y&quot;, &quot;z&quot;, &quot;-x&quot;, &quot;-y&quot;, &quot;-z&quot;}. Default is &quot;x&quot;.</span>
 
 <span class="sd">    zoom</span>
-<span class="sd">        Optional. Camera zoom multipler.</span>
+<span class="sd">        Optional. Camera zoom multiplier.</span>
 
 <span class="sd">    azimuth</span>
 <span class="sd">        Optional. Camera azimuth in radians. If `anterior` is set, then an</span>
@@ -1003,7 +1003,7 @@
 <span class="sd">        Optional. Camera translation (panning). Default is (0.0, 0.0).</span>
 
 <span class="sd">    target</span>
-<span class="sd">        Optional. Camera target in meters. Default is (0.0, 0.0, 0.0).</span>
+<span class="sd">        Optional. Camera target in metres. Default is (0.0, 0.0, 0.0).</span>
 
 <span class="sd">    track</span>
 <span class="sd">        Optional. False to keep the camera static, True to follow the last</span>
@@ -1037,17 +1037,17 @@
 <span class="sd">        width. Default is 2.0.</span>
 
 <span class="sd">    frame_size</span>
-<span class="sd">        Optional. Length of the frame axes in meters. Default is 0.1.</span>
+<span class="sd">        Optional. Length of the frame axes in metres. Default is 0.1.</span>
 
 <span class="sd">    frame_width</span>
 <span class="sd">        Optional. Width of the frame axes as defined by Matplotlib line width.</span>
 <span class="sd">        Default is 3.0.</span>
 
 <span class="sd">    grid_size</span>
-<span class="sd">        Optional. Length of one side of the grid in meters. Default is 10.0.</span>
+<span class="sd">        Optional. Length of one side of the grid in metres. Default is 10.0.</span>
 
 <span class="sd">    grid_subdivision_size</span>
-<span class="sd">        Optional. Length of one subdivision of the grid in meters. Default is</span>
+<span class="sd">        Optional. Length of one subdivision of the grid in metres. Default is</span>
 <span class="sd">        1.0.</span>
 
 <span class="sd">    grid_width</span>
@@ -1055,7 +1055,7 @@
 <span class="sd">        Default is 1.0.</span>
 
 <span class="sd">    grid_origin</span>
-<span class="sd">        Optional. Origin of the grid in meters. Default is (0.0, 0.0, 0.0).</span>
+<span class="sd">        Optional. Origin of the grid in metres. Default is (0.0, 0.0, 0.0).</span>
 
 <span class="sd">    grid_color</span>
 <span class="sd">        Optional. Color of the grid. Can be a character or tuple (RGB) where</span>
@@ -1894,7 +1894,7 @@
                 <span class="sa">f</span><span class="s2">&quot;Impossible to parse interconnection group </span><span class="si">{</span><span class="n">group</span><span class="si">}</span><span class="s2">.&quot;</span>
             <span class="p">)</span>
 
-        <span class="c1"># Add parsed color, create it if not existant</span>
+        <span class="c1"># Add parsed color, create it if not existent</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">color</span> <span class="o">=</span> <span class="n">group</span><span class="p">[</span><span class="s2">&quot;Color&quot;</span><span class="p">]</span>
         <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
@@ -1905,13 +1905,13 @@
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_process_interconnections</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Process interconnections after setting or modifying it.</span>
+<span class="sd">        Process interconnections after setting or modifying them.</span>
 
 <span class="sd">        Update _processed_interconnections. Does not refresh.</span>
 
-<span class="sd">        We don&#39;t throw errors if interconnections is malformed, simply</span>
-<span class="sd">        because maybe it is being built. We try our best to parse what</span>
-<span class="sd">        is there.</span>
+<span class="sd">        We don&#39;t throw errors if interconnections are malformed, simply</span>
+<span class="sd">        because maybe they are being built. We try our best to parse</span>
+<span class="sd">        what is there.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># Convert _interconnections to monitored dicts and lists</span>
@@ -2008,7 +2008,7 @@
         <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;No origin&quot;</span><span class="p">)</span>
 
-        <span class="c1"># Add parsed color, create it if not existant</span>
+        <span class="c1"># Add parsed color, create it if not existent</span>
         <span class="k">try</span><span class="p">:</span>
             <span class="n">color</span> <span class="o">=</span> <span class="n">value</span><span class="p">[</span><span class="s2">&quot;Color&quot;</span><span class="p">]</span>
         <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
@@ -2026,12 +2026,13 @@
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_process_vectors</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Process vectors after setting or modifying it.</span>
+<span class="sd">        Process vectors after setting or modifying them.</span>
 
 <span class="sd">        Update _processed_vectors. Does not refresh.</span>
 
-<span class="sd">        We don&#39;t throw errors if vectors is malformed, simply because</span>
-<span class="sd">        maybe it is being built. We try our best to parse what is there.</span>
+<span class="sd">        We don&#39;t throw errors if vectors are malformed, simply because</span>
+<span class="sd">        maybe they are being built. We try our best to parse what is</span>
+<span class="sd">        there.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># Convert _vectors to monitored dicts and lists</span>
@@ -2151,7 +2152,7 @@
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_process_contents</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Update, self._processed_points, _processed_frames and _oriented_target.</span>
+<span class="sd">        Update self._processed_points, _processed_frames, and _oriented_target.</span>
 
 <span class="sd">        Rotate everything according to the up input, so that the end result</span>
 <span class="sd">        is y up:</span>

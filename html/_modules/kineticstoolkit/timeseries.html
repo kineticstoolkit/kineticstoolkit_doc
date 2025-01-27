@@ -736,7 +736,7 @@
 <span></span><span class="ch">#!/usr/bin/env python3</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="c1">#</span>
-<span class="c1"># Copyright 2020-2024 Félix Chénier</span>
+<span class="c1"># Copyright 2020-2025 Félix Chénier</span>
 
 <span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
 <span class="c1"># you may not use this file except in compliance with the License.</span>
@@ -752,8 +752,8 @@
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Provide the TimeSeries and TimeSeriesEvent classes.</span>
 
-<span class="sd">The classes defined in this module are accessible directly from the</span>
-<span class="sd">toplevel Kinetics Toolkit&#39;s namespace (i.e. ktk.TimeSeries,</span>
+<span class="sd">The classes defined in this module are accessible directly from the top-</span>
+<span class="sd">level Kinetics Toolkit&#39;s namespace (i.e. ktk.TimeSeries,</span>
 <span class="sd">ktk.TimeSeriesEvent)</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
@@ -761,7 +761,7 @@
 
 
 <span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;Félix Chénier&quot;</span>
-<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">&quot;Copyright (C) 2020-2024 Félix Chénier&quot;</span>
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">&quot;Copyright (C) 2020-2025 Félix Chénier&quot;</span>
 <span class="n">__email__</span> <span class="o">=</span> <span class="s2">&quot;chenier.felix@uqam.ca&quot;</span>
 <span class="n">__license__</span> <span class="o">=</span> <span class="s2">&quot;Apache 2.0&quot;</span>
 
@@ -860,7 +860,7 @@
 <span class="nd">@dataclass</span>
 <span class="k">class</span><span class="w"> </span><span class="nc">TimeSeriesEvent</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Define an event in a timeseries.</span>
+<span class="sd">    Define an event in a TimeSeries.</span>
 
 <span class="sd">    This class is rarely used by itself, it is easier to use `TimeSeries`&#39;</span>
 <span class="sd">    methods to manage events.</span>
@@ -960,7 +960,7 @@
 <span class="sd">        Contains metadata relative to time. The default is {&quot;Unit&quot;: &quot;s&quot;}</span>
 
 <span class="sd">    data_info : dict[str, dict[str, Any]]</span>
-<span class="sd">        Contains facultative metadata relative to data. For example, the</span>
+<span class="sd">        Contains optional metadata relative to data. For example, the</span>
 <span class="sd">        data_info attribute could indicate the unit of data[&quot;Forces&quot;]::</span>
 
 <span class="sd">            data[&quot;Forces&quot;] = {&quot;Unit&quot;: &quot;N&quot;}</span>
@@ -969,7 +969,7 @@
 <span class="sd">        `ktk.TimeSeries.add_data_info` and `ktk.TimeSeries.remove_data_info`.</span>
 
 <span class="sd">    events : list[TimeSeriesEvent]</span>
-<span class="sd">        list of events.</span>
+<span class="sd">        List of events.</span>
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
@@ -1127,7 +1127,7 @@
 <span class="sd">        data_info: {}</span>
 <span class="sd">           events: []</span>
 
-<span class="sd">    See Also: TimeSerise.from_array</span>
+<span class="sd">    See Also: TimeSeries.from_array</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -1225,7 +1225,7 @@
 
     <span class="nd">@property</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">events</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Data Property.&quot;&quot;&quot;</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Events Property.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_events</span>
 
     <span class="nd">@events</span><span class="o">.</span><span class="n">setter</span>
@@ -1318,7 +1318,7 @@
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ts</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Compare two timeseries for equality.</span>
+<span class="sd">        Compare two TimeSeries for equality.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -1347,7 +1347,7 @@
 <span class="sd">            The TimeSeries to compare to.</span>
 <span class="sd">        equal</span>
 <span class="sd">            Optional. True to test for complete equality, False to compare</span>
-<span class="sd">            withint a given tolerance.</span>
+<span class="sd">            within a given tolerance.</span>
 <span class="sd">        atol</span>
 <span class="sd">            Optional. Absolute tolerance if using equal=False.</span>
 <span class="sd">        rtol</span>
@@ -1442,13 +1442,13 @@
 <span class="sd">        test overhead), the check functions are run in case of error only,</span>
 <span class="sd">        to help the users in fixing their code.</span>
 
-<span class="sd">        *except _check_increasing_time, which is run in proprocessing and not</span>
+<span class="sd">        *except _check_increasing_time, which is run in preprocessing and not</span>
 <span class="sd">        only in failures.</span>
 
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
 <span class="sd">        AttributeError</span>
-<span class="sd">            If the TimeSeries&#39; miss some attributes.</span>
+<span class="sd">            If the TimeSeries are missing some attributes.</span>
 
 <span class="sd">        TypeError</span>
 <span class="sd">            If the TimeSeries&#39; attributes are of wrong type.</span>
@@ -1614,7 +1614,7 @@
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
 <span class="sd">        ValueError</span>
-<span class="sd">            If the TimeSeries time is empty</span>
+<span class="sd">            If the TimeSeries&#39; time is empty</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -1667,7 +1667,7 @@
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
 <span class="sd">        ValueError:</span>
-<span class="sd">            If the TimeSeries as no time</span>
+<span class="sd">            If the TimeSeries has no time.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -1717,7 +1717,7 @@
 <span class="sd">            Optional. True to copy time_info to the new TimeSeries,</span>
 <span class="sd">            False to keep the time_info attribute empty. Default is True.</span>
 <span class="sd">        copy_data_info</span>
-<span class="sd">            Optional. True to copy data_into to the new TimeSeries,</span>
+<span class="sd">            Optional. True to copy data_info to the new TimeSeries,</span>
 <span class="sd">            False to keep the data_info attribute empty. Default is True.</span>
 <span class="sd">        copy_events</span>
 <span class="sd">            Optional. True to copy events to the new TimeSeries,</span>
@@ -1917,11 +1917,11 @@
 
 <span class="sd">        Although we can directly assign values to the `data` property::</span>
 
-<span class="sd">            timeseries.data[&quot;name&quot;] = value</span>
+<span class="sd">            ts.data[&quot;name&quot;] = value</span>
 
 <span class="sd">        this method provides an alternative way to add data to the TimeSeries::</span>
 
-<span class="sd">            timeseries = timeseries.add_data(name, value, ...)</span>
+<span class="sd">            ts = ts.add_data(name, value, ...)</span>
 
 <span class="sd">        with the following advantages:</span>
 
@@ -1961,11 +1961,11 @@
 <span class="sd">        ------</span>
 <span class="sd">        ValueError</span>
 <span class="sd">            In any of these conditions:</span>
-<span class="sd">            1. If data with this key already exists and overwrite is False.</span>
-<span class="sd">            2. If the size of the data (first dimension) does not match the size</span>
-<span class="sd">               of existing data or the existing time.</span>
-<span class="sd">            3. If data is a pandas DataFrame and its index does not match the</span>
-<span class="sd">               existing time.</span>
+<span class="sd">            If data with this key already exists and overwrite is False.</span>
+<span class="sd">            If the size of the data (first dimension) does not match the size</span>
+<span class="sd">            of existing data or the existing time.</span>
+<span class="sd">            If data is a pandas DataFrame and its index does not match the</span>
+<span class="sd">            existing time.</span>
 
 <span class="sd">        See Also</span>
 <span class="sd">        --------</span>
@@ -2540,7 +2540,7 @@
 
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
-<span class="sd">        &gt;&gt;&gt; # Instanciate a timeseries with some events</span>
+<span class="sd">        &gt;&gt;&gt; # Instanciate a TimeSeries with some events</span>
 <span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries()</span>
 <span class="sd">        &gt;&gt;&gt; ts = ts.add_event(5.5, &quot;event1&quot;)</span>
 <span class="sd">        &gt;&gt;&gt; ts = ts.add_event(10.8, &quot;event2&quot;)</span>
@@ -2607,7 +2607,7 @@
 
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
-<span class="sd">        &gt;&gt;&gt; # Instanciate a timeseries with some events</span>
+<span class="sd">        &gt;&gt;&gt; # Instanciate a TimeSeries with some events</span>
 <span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries()</span>
 <span class="sd">        &gt;&gt;&gt; ts = ts.add_event(5.5, &quot;event1&quot;)</span>
 <span class="sd">        &gt;&gt;&gt; ts = ts.add_event(10.8, &quot;event2&quot;)</span>
@@ -4110,7 +4110,7 @@
                 <span class="k">continue</span>
 
             <span class="c1"># Express nans as a range of times to</span>
-            <span class="c1"># remove from the final, interpolated timeseries</span>
+            <span class="c1"># remove from the final, interpolated TimeSeries</span>
             <span class="n">nan_indexes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="o">~</span><span class="n">index</span><span class="p">)</span>
 
             <span class="c1"># initialize with times outside of the original time range</span>
@@ -4171,7 +4171,7 @@
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        data_keys</span>
-<span class="sd">            The data keys to extract from the timeseries.</span>
+<span class="sd">            The data keys to extract from the TimeSeries.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -4276,11 +4276,10 @@
 <span class="sd">            Optional. Select what the warning level when a key from the source</span>
 <span class="sd">            TimeSeries already exists in the destination TimeSeries. May take</span>
 <span class="sd">            the following values:</span>
-<span class="sd">                - &quot;mute&quot;: No warning;</span>
-<span class="sd">                - &quot;warning&quot;: Warns that duplicate keys were found and how the</span>
-<span class="sd">                  conflict has been resolved following the `overwrite``</span>
-<span class="sd">                  parameter.</span>
-<span class="sd">                - &quot;error&quot;: Raises a TimeSeriesMergeConflictError.</span>
+<span class="sd">            &quot;mute&quot;: No warning;</span>
+<span class="sd">            &quot;warning&quot;: Warns that duplicate keys were found and how the</span>
+<span class="sd">            conflict has been resolved following the `overwrite` parameter.</span>
+<span class="sd">            &quot;error&quot;: Raises a TimeSeriesMergeConflictError.</span>
 <span class="sd">            Default is &quot;warning&quot;.</span>
 <span class="sd">        in_place</span>
 <span class="sd">            Optional. True to modify and return the original TimeSeries. False</span>

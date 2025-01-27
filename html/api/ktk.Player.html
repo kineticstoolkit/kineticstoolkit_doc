@@ -820,7 +820,7 @@ and <cite>set_interconnections</cite>.</p>
 key is either a point position expressed as Nx4 array, or a frame
 expressed as a Nx4x4 array. Multiple TimeSeries can be provided.</p></li>
 <li><p><strong>interconnections</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – <p>Optional. Each key corresponds to a group of interconnections, which
-is a dict with the following keys:</p>
+is a dictionary with the following keys:</p>
 <ul>
 <li><p>”Links”: list of connections where each string is a point
 name. For example, to create a link that connects Point1 to Point2,
@@ -841,7 +841,7 @@ and another link that spans Point3, Point4 and Point5:</p>
 </div>
 <p>Point names can include wildcards (*) either as a prefix or as a
 suffix. This is useful to apply a single set of interconnections to
-multiple bodies. For instance, if the Player’s contents includes
+multiple bodies. For instance, if the Player’s contents include
 these points: [Body1_HipR, Body1_HipL, Body1_L5S1, Body2_HipR,
 Body2_HipL, Body2_L5S1], we could link L5S1 and both hips at once
 using:</p>
@@ -873,8 +873,8 @@ purple:</p>
 </pre></div>
 </div>
 </p></li>
-<li><p><strong>vectors</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – <p>Optional. A dict where each key is the name of a vector and each value
-contain its origin, scale and color. For example:</p>
+<li><p><strong>vectors</strong> (<em>dict</em><em>[</em><em>str</em><em>, </em><em>dict</em><em>[</em><em>str</em><em>, </em><em>Any</em><em>]</em><em>]</em>) – <p>Optional. A dictionary where each key is the name of a vector and each value
+contains its origin, scale, and color. For example:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vectors</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">&quot;WristForce&quot;</span><span class="p">:</span> <span class="p">{</span>
         <span class="s2">&quot;Origin&quot;</span><span class="p">:</span> <span class="s2">&quot;WristCenter&quot;</span><span class="p">,</span>
@@ -891,7 +891,7 @@ contain its origin, scale and color. For example:</p>
 </div>
 <p>will draw lines for the forces WristForce and ElbowForce, with their
 origin being at WristCenter and ElbowCenter, and with a scale of 0.001
-meter per newton. Force and point names can include wildcards (*)
+metre per newton. Force and point names can include wildcards (*)
 either as a prefix or as a suffix. For instance, to draw forces
 recorded by multiple force plates, we could use:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">vectors</span> <span class="o">=</span> <span class="p">{</span>
@@ -915,7 +915,7 @@ increase playback speed by 50%, etc.</p></li>
 {“x”, “y”, “z”, “-x”, “-y”, “-z”}. Default is “y”.</p></li>
 <li><p><strong>anterior</strong> (<em>str</em>) – Optional. Defines the anterior direction. May be
 {“x”, “y”, “z”, “-x”, “-y”, “-z”}. Default is “x”.</p></li>
-<li><p><strong>zoom</strong> (<em>float</em>) – Optional. Camera zoom multipler.</p></li>
+<li><p><strong>zoom</strong> (<em>float</em>) – Optional. Camera zoom multiplier.</p></li>
 <li><p><strong>azimuth</strong> (<em>float</em>) – Optional. Camera azimuth in radians. If <cite>anterior</cite> is set, then an
 azimuth of 0 corresponds to the right sagittal plane, pi/2 to the
 front frontal plane, -pi/2 to the back frontal plane, etc.</p></li>
@@ -925,7 +925,7 @@ top transverse plane, -pi/2 to the bottom transverse plane, etc.</p></li>
 <li><p><strong>perspective</strong> (<em>bool</em>) – Optional. True to draw the scene using perspective, False to draw the
 scene orthogonally.</p></li>
 <li><p><strong>pan</strong> (<em>tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>]</em>) – Optional. Camera translation (panning). Default is (0.0, 0.0).</p></li>
-<li><p><strong>target</strong> (<em>tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em>) – Optional. Camera target in meters. Default is (0.0, 0.0, 0.0).</p></li>
+<li><p><strong>target</strong> (<em>tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em>) – Optional. Camera target in metres. Default is (0.0, 0.0, 0.0).</p></li>
 <li><p><strong>track</strong> (<em>bool</em>) – Optional. False to keep the camera static, True to follow the last
 selected point when changing index. Default is False.</p></li>
 <li><p><strong>default_point_color</strong> (<em>str</em><em> | </em><em>tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em>) – Optional. Default color for points that do not have a “Color”
@@ -943,15 +943,15 @@ where each RGB color is between 0.0 and 1.0. Default is
 width. Default is 1.5.</p></li>
 <li><p><strong>vector_width</strong> (<em>float</em>) – Optional. Width of the vectors as defined by Matplotlib line
 width. Default is 2.0.</p></li>
-<li><p><strong>frame_size</strong> (<em>float</em>) – Optional. Length of the frame axes in meters. Default is 0.1.</p></li>
+<li><p><strong>frame_size</strong> (<em>float</em>) – Optional. Length of the frame axes in metres. Default is 0.1.</p></li>
 <li><p><strong>frame_width</strong> (<em>float</em>) – Optional. Width of the frame axes as defined by Matplotlib line width.
 Default is 3.0.</p></li>
-<li><p><strong>grid_size</strong> (<em>float</em>) – Optional. Length of one side of the grid in meters. Default is 10.0.</p></li>
-<li><p><strong>grid_subdivision_size</strong> (<em>float</em>) – Optional. Length of one subdivision of the grid in meters. Default is
+<li><p><strong>grid_size</strong> (<em>float</em>) – Optional. Length of one side of the grid in metres. Default is 10.0.</p></li>
+<li><p><strong>grid_subdivision_size</strong> (<em>float</em>) – Optional. Length of one subdivision of the grid in metres. Default is
 1.0.</p></li>
 <li><p><strong>grid_width</strong> (<em>float</em>) – Optional. Width of the grid lines as defined by Matplotlib line width.
 Default is 1.0.</p></li>
-<li><p><strong>grid_origin</strong> (<em>tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em>) – Optional. Origin of the grid in meters. Default is (0.0, 0.0, 0.0).</p></li>
+<li><p><strong>grid_origin</strong> (<em>tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em>) – Optional. Origin of the grid in metres. Default is (0.0, 0.0, 0.0).</p></li>
 <li><p><strong>grid_color</strong> (<em>str</em><em> | </em><em>tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em>) – Optional. Color of the grid. Can be a character or tuple (RGB) where
 each RGB color is between 0.0 and 1.0. Default is (0.3, 0.3, 0.3).</p></li>
 <li><p><strong>background_color</strong> (<em>str</em><em> | </em><em>tuple</em><em>[</em><em>float</em><em>, </em><em>float</em><em>, </em><em>float</em><em>]</em>) – Optional. Background color. Can be a character or tuple (RGB) where

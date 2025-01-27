@@ -1,6 +1,6 @@
 # Analyzing time-varying data
 
-In biomechanics, we often process data that is function of time, e.g., electromyography, marker trajectories, force series, etc. When we analyze only a few data and that the sampling frequency is constant, using NumPy is usually sufficient. This is what we did in last section in the different [NumPy exercises](numpy_exercises.md).
+In biomechanics, we often process data that is a function of time, e.g., electromyography, marker trajectories, force series, etc. When we analyze only a few data points and the sampling frequency is constant, using NumPy is usually sufficient. This is what we did in the last section in the different [NumPy exercises](numpy_exercises.md).
 
 However, things can get more complicated when:
 - data are of different natures, such as marker trajectories, EMG, measured forces, calculated forces, etc.;

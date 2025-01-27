@@ -736,7 +736,7 @@
 <span></span><span class="ch">#!/usr/bin/env python3</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="c1">#</span>
-<span class="c1"># Copyright 2020-2024 Félix Chénier</span>
+<span class="c1"># Copyright 2020-2025 Félix Chénier</span>
 
 <span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
 <span class="c1"># you may not use this file except in compliance with the License.</span>
@@ -749,10 +749,10 @@
 <span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
 <span class="c1"># See the License for the specific language governing permissions and</span>
 <span class="c1"># limitations under the License.</span>
-<span class="sd">&quot;&quot;&quot;Provide miscelleanous helper functions.&quot;&quot;&quot;</span>
+<span class="sd">&quot;&quot;&quot;Provide miscellaneous helper functions.&quot;&quot;&quot;</span>
 
 <span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;Félix Chénier&quot;</span>
-<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">&quot;Copyright (C) 2020-2024 Félix Chénier&quot;</span>
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">&quot;Copyright (C) 2020-2025 Félix Chénier&quot;</span>
 <span class="n">__email__</span> <span class="o">=</span> <span class="s2">&quot;chenier.felix@uqam.ca&quot;</span>
 <span class="n">__license__</span> <span class="o">=</span> <span class="s2">&quot;Apache 2.0&quot;</span>
 
@@ -767,11 +767,11 @@
 
 <span class="k">def</span><span class="w"> </span><span class="nf">check_interactive_backend</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Warns if Matplotlib is not using an interactive backend.</span>
+<span class="sd">    Warn if Matplotlib is not using an interactive backend.</span>
 
 <span class="sd">    To disable these warnings, for instance if we are generating</span>
 <span class="sd">    documentation and we need the Player to show a figure, set</span>
-<span class="sd">    ktk.config.interactive_backend_warning to False</span>
+<span class="sd">    ktk.config.interactive_backend_warning to False.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">kineticstoolkit</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">interactive_backend_warning</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
@@ -811,17 +811,17 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Enable Kinetics Toolkit&#39;s lab goodies.</span>
 
-<span class="sd">    This function does not affect Kinetics Toolkit&#39;s inner working. It exists</span>
+<span class="sd">    This function does not affect Kinetics Toolkit&#39;s inner workings. It exists</span>
 <span class="sd">    mostly for cosmetic reasons, so that working with ktk in an IPython console</span>
-<span class="sd">    (e.g., Spyder, Jupyter) is more enjoyable. It changes IPython, Matplotlib</span>
+<span class="sd">    (e.g., Spyder, Jupyter) is more enjoyable. It changes IPython, Matplotlib,</span>
 <span class="sd">    and numpy&#39;s defaults for the current session only. The usual way to call</span>
 <span class="sd">    it is right after importing Kinetics Toolkit.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    change_ipython_dict_repr</span>
-<span class="sd">        Optional. True to summarize defaults dict printouts in IPython. When</span>
-<span class="sd">        False, dict printouts look like::</span>
+<span class="sd">        Optional. True to summarize default dictionary printouts in IPython. When</span>
+<span class="sd">        False, dictionary printouts look like::</span>
 
 <span class="sd">            {&#39;data1&#39;: array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16,</span>
 <span class="sd">                             17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29]),</span>
@@ -829,7 +829,7 @@
 <span class="sd">                             169, 196, 225, 256, 289, 324, 361, 400, 441, 484, 529, 576, 625,</span>
 <span class="sd">                              676, 729, 784, 841])}</span>
 
-<span class="sd">        When True, dict printouts look like::</span>
+<span class="sd">        When True, dictionary printouts look like::</span>
 
 <span class="sd">            {</span>
 <span class="sd">                &#39;data1&#39;: &lt;array of shape (30,)&gt;</span>
@@ -838,18 +838,18 @@
 
 <span class="sd">    change_matplotlib_defaults</span>
 <span class="sd">        Optional. True to change default figure size, autolayout, dpi, line</span>
-<span class="sd">        width and color order in Matplotlib. The dpi and figure size are</span>
-<span class="sd">        optimized for interactive work in default matplotlib figures.</span>
-<span class="sd">        Additionally, the default color order is changed to (rgbcmyko).</span>
-<span class="sd">        The first colors, (rgb) are consistent with the colours assigned to</span>
-<span class="sd">        x, y and z in most 3D visualization softwares.</span>
+<span class="sd">        width, and colour order in Matplotlib. The dpi and figure size are</span>
+<span class="sd">        optimized for interactive work in default Matplotlib figures.</span>
+<span class="sd">        Additionally, the default colour order is changed to (rgbcmyko).</span>
+<span class="sd">        The first colours, (rgb), are consistent with the colours assigned to</span>
+<span class="sd">        x, y, and z in most 3D visualization software.</span>
 
 <span class="sd">    change_numpy_print_options</span>
 <span class="sd">        Optional. True to change default print options in numpy to use fixed</span>
 <span class="sd">        point notation in printouts.</span>
 
 <span class="sd">    change_warnings_format</span>
-<span class="sd">        Optional. True to change warnings module&#39;s default to a more extended</span>
+<span class="sd">        Optional. True to change the warnings module&#39;s default to a more extended</span>
 <span class="sd">        format with file and line number.</span>
 
 <span class="sd">    Returns</span>

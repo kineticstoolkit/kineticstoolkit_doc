@@ -736,7 +736,7 @@
 <span></span><span class="ch">#!/usr/bin/env python3</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="c1">#</span>
-<span class="c1"># Copyright 2020-2024 Félix Chénier</span>
+<span class="c1"># Copyright 2020-2025 Félix Chénier</span>
 
 <span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
 <span class="c1"># you may not use this file except in compliance with the License.</span>
@@ -758,12 +758,11 @@
 <span class="sd">&quot;&quot;&quot;</span>
 
 <span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;Félix Chénier&quot;</span>
-<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">&quot;Copyright (C) 2020-2024 Félix Chénier&quot;</span>
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">&quot;Copyright (C) 2020-2025 Félix Chénier&quot;</span>
 <span class="n">__email__</span> <span class="o">=</span> <span class="s2">&quot;chenier.felix@uqam.ca&quot;</span>
 <span class="n">__license__</span> <span class="o">=</span> <span class="s2">&quot;Apache 2.0&quot;</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">kineticstoolkit.timeseries</span><span class="w"> </span><span class="kn">import</span> <span class="n">TimeSeries</span>
-<span class="kn">import</span><span class="w"> </span><span class="nn">kineticstoolkit.geometry</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">geometry</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">kineticstoolkit.dev.kinetics</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">kinetics</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">kineticstoolkit.config</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">kineticstoolkit.typing_</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_param</span>
@@ -1072,10 +1071,8 @@
 <span class="sd">        - FPi_COP: Centre of pressure in global coordinates as n Nx4 point</span>
 <span class="sd">          series.</span>
 <span class="sd">        - FPi_LCS: Local coordinate system of the force platform, expressed in</span>
-<span class="sd">          global coordinates as an Nx4x4 transform series. The orientation is</span>
-<span class="sd">          calculated using the force platform corners, and the origin is</span>
-<span class="sd">          located at the manufacturer&#39;s specified origin (generally a few</span>
-<span class="sd">          millimeters below the platform).</span>
+<span class="sd">          global coordinates as an Nx4x4 transform series. The origin is at</span>
+<span class="sd">          the middle point of the four corners, with z pointing down.</span>
 <span class="sd">        - FPi_Corner1: Coordinates of the first corner (+x, +y) in global</span>
 <span class="sd">          coordinates, as an Nx4 point series.</span>
 <span class="sd">        - FPi_Corner2: Coordinates of the second corner (-x, +y) in global</span>
@@ -1148,7 +1145,7 @@
 <span class="sd">    Warning</span>
 <span class="sd">    -------</span>
 <span class="sd">    This function, which has been introduced in version 0.9, is still</span>
-<span class="sd">    experimental and its behaviour or API may change slightly in the future.</span>
+<span class="sd">    experimental and its behavior or API may change slightly in the future.</span>
 
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>

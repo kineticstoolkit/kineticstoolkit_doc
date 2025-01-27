@@ -736,7 +736,7 @@
 <span></span><span class="ch">#!/usr/bin/env python3</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="c1">#</span>
-<span class="c1"># Copyright 2020-2024 Félix Chénier</span>
+<span class="c1"># Copyright 2020-2025 Félix Chénier</span>
 
 <span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
 <span class="c1"># you may not use this file except in compliance with the License.</span>
@@ -751,7 +751,7 @@
 <span class="c1"># limitations under the License.</span>
 <span class="sd">&quot;&quot;&quot;Identify cycles and time-normalize data.&quot;&quot;&quot;</span>
 <span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;Félix Chénier&quot;</span>
-<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">&quot;Copyright (C) 2020-2024 Félix Chénier&quot;</span>
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">&quot;Copyright (C) 2020-2025 Félix Chénier&quot;</span>
 <span class="n">__email__</span> <span class="o">=</span> <span class="s2">&quot;chenier.felix@uqam.ca&quot;</span>
 <span class="n">__license__</span> <span class="o">=</span> <span class="s2">&quot;Apache 2.0&quot;</span>
 
@@ -1003,9 +1003,9 @@
 <span class="sd">    ts</span>
 <span class="sd">        The TimeSeries to analyze.</span>
 <span class="sd">    event_name1</span>
-<span class="sd">        The event name that correspond to the begin of a cycle.</span>
+<span class="sd">        The event name that corresponds to the beginning of a cycle.</span>
 <span class="sd">    event_name2</span>
-<span class="sd">        The event name that correspond to the end of a cycle.</span>
+<span class="sd">        The event name that corresponds to the end of a cycle.</span>
 <span class="sd">    n_points</span>
 <span class="sd">        Optional. The number of points of the output TimeSeries.</span>
 <span class="sd">    span</span>
@@ -1019,8 +1019,8 @@
 
 <span class="sd">    Warning</span>
 <span class="sd">    -------</span>
-<span class="sd">    The span argument is experimental and has been introduced in version 0.4.</span>
-<span class="sd">    **The following behaviour may change in the future**. Don&#39;t rely on it in</span>
+<span class="sd">    The span argument is experimental and was introduced in version 0.4.</span>
+<span class="sd">    **The following behavior may change in the future**. Don&#39;t rely on it in</span>
 <span class="sd">    long-term scripts for now. You can use it to define which normalized</span>
 <span class="sd">    points to include in the output TimeSeries. For example, to normalize in</span>
 <span class="sd">    percents and to include only data from 10 to 90% of each cycle, assign</span>
@@ -1197,12 +1197,12 @@
 <a class="viewcode-back" href="../../api/ktk.cycles.stack.html#ktk.cycles.stack">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">stack</span><span class="p">(</span><span class="n">ts</span><span class="p">:</span> <span class="n">TimeSeries</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">n_points</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Stack time-normalized TimeSeries&#39; data into a dict of arrays.</span>
+<span class="sd">    Stack time-normalized TimeSeries data into a dict of arrays.</span>
 
-<span class="sd">    This methods returns the data of a time-normalized TimeSeries as a dict</span>
-<span class="sd">    where each key corresponds to a TimeSeries&#39; data key, and contains a numpy</span>
+<span class="sd">    This method returns the data of a time-normalized TimeSeries as a dict</span>
+<span class="sd">    where each key corresponds to a TimeSeries data key, and contains a numpy</span>
 <span class="sd">    array where the first dimension is the cycle, the second dimension is the</span>
-<span class="sd">    percentage of cycle, and the other dimensions are the data itself.</span>
+<span class="sd">    percentage of the cycle, and the other dimensions are the data itself.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -1246,14 +1246,14 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Unstack time-normalized data from a dict of arrays to a TimeSeries.</span>
 
-<span class="sd">    This methods creates a time-normalized TimeSeries by putting each cycle</span>
+<span class="sd">    This method creates a time-normalized TimeSeries by putting each cycle</span>
 <span class="sd">    from the provided data dictionary end to end.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    data</span>
 <span class="sd">        A dict where each key contains a numpy array where the first dimension</span>
-<span class="sd">        is the cycle, the second dimension is the percentage of cycle, and</span>
+<span class="sd">        is the cycle, the second dimension is the percentage of the cycle, and</span>
 <span class="sd">        the other dimensions are the data itself.</span>
 
 <span class="sd">    Returns</span>
@@ -1351,16 +1351,16 @@
 <a class="viewcode-back" href="../../api/ktk.cycles.most_repeatable_cycles.html#ktk.cycles.most_repeatable_cycles">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">most_repeatable_cycles</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="o">/</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Get the indexes of the most repeatable cycles in array.</span>
+<span class="sd">    Get the indexes of the most repeatable cycles in an array.</span>
 
 <span class="sd">    This function returns an ordered list of the most repeatable to the least</span>
 <span class="sd">    repeatable cycles.</span>
 
-<span class="sd">    It works by recursively discarding the cycle than maximizes the</span>
+<span class="sd">    It works by recursively discarding the cycle that maximizes the</span>
 <span class="sd">    root-mean-square error between the cycle and the average of every</span>
 <span class="sd">    remaining cycle, until there are only two cycles remaining. The function</span>
 <span class="sd">    returns a list that is the reverse order of cycle removal: first the two</span>
-<span class="sd">    last cycles, then the last-removed cycle, and so on. If two cycles are as</span>
+<span class="sd">    last cycles, then the last-removed cycle, and so on. If two cycles are</span>
 <span class="sd">    equivalently repeatable, they are returned in order of appearance.</span>
 
 <span class="sd">    Cycles that include at least one NaN are excluded.</span>
@@ -1374,7 +1374,7 @@
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    list[int]</span>
-<span class="sd">        list of indexes corresponding to the cycles in most to least</span>
+<span class="sd">        List of indexes corresponding to the cycles in most to least</span>
 <span class="sd">        repeatable order.</span>
 
 <span class="sd">    Example</span>

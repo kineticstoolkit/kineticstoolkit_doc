@@ -736,7 +736,7 @@
 <span></span><span class="ch">#!/usr/bin/env python3</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="c1">#</span>
-<span class="c1"># Copyright 2020-2024 Félix Chénier</span>
+<span class="c1"># Copyright 2020-2025 Félix Chénier</span>
 
 <span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
 <span class="c1"># you may not use this file except in compliance with the License.</span>
@@ -751,7 +751,7 @@
 <span class="c1"># limitations under the License.</span>
 <span class="sd">&quot;&quot;&quot;Provide functions related to kinematics analysis.&quot;&quot;&quot;</span>
 <span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;Félix Chénier&quot;</span>
-<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">&quot;Copyright (C) 2020-2024 Félix Chénier&quot;</span>
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">&quot;Copyright (C) 2020-2025 Félix Chénier&quot;</span>
 <span class="n">__email__</span> <span class="o">=</span> <span class="s2">&quot;chenier.felix@uqam.ca&quot;</span>
 <span class="n">__license__</span> <span class="o">=</span> <span class="s2">&quot;Apache 2.0&quot;</span>
 
@@ -783,19 +783,19 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    markers</span>
-<span class="sd">        Markers trajectories during a static acquisition.</span>
+<span class="sd">        Marker trajectories during a static acquisition.</span>
 <span class="sd">    names</span>
 <span class="sd">        The markers that define the cluster.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    dict</span>
-<span class="sd">        dictionary where each entry represents the local position of a marker</span>
+<span class="sd">        Dictionary where each entry represents the local position of a marker</span>
 <span class="sd">        in an arbitrary coordinate system.</span>
 
 <span class="sd">    Note</span>
 <span class="sd">    -----</span>
-<span class="sd">    0.10.0: Parameters `marker_names` was changed to `names`</span>
+<span class="sd">    0.10.0: Parameter `marker_names` was changed to `names`</span>
 
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
@@ -885,7 +885,7 @@
 
     <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">geometry</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">local_coordinates</span><span class="p">)):</span>
         <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-            <span class="sa">f</span><span class="s2">&quot;The point </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> was invisible during the whole TimeSeries.&quot;</span>
+            <span class="sa">f</span><span class="s2">&quot;The point </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> was invisible during the entire TimeSeries.&quot;</span>
         <span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">cluster</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nanmean</span><span class="p">(</span><span class="n">local_coordinates</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)[</span><span class="n">np</span><span class="o">.</span><span class="n">newaxis</span><span class="p">]</span>
@@ -1019,15 +1019,15 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    markers</span>
-<span class="sd">        Markers trajectories.</span>
+<span class="sd">        Marker trajectories.</span>
 
 <span class="sd">    filename</span>
-<span class="sd">        Name of the trc file to create.</span>
+<span class="sd">        Name of the TRC file to create.</span>
 
 <span class="sd">    Warning</span>
 <span class="sd">    -------</span>
 <span class="sd">    This function may eventually move either to the base namespace like</span>
-<span class="sd">    write_c3d_file, or to an opensim extension that is currently being</span>
+<span class="sd">    write_c3d_file, or to an OpenSim extension that is currently being</span>
 <span class="sd">    developed.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>

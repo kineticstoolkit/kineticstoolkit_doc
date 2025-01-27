@@ -812,7 +812,8 @@ rotation.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>T</strong> (<em>ArrayLike</em>) – An Nx4x4 transform series.</p></li>
-<li><p><strong>seq</strong> (<em>str</em>) – 3 characters belonging to the set {“X”, “Y”, “Z”} for intrinsic
+<li><p><strong>seq</strong> (<em>str</em>) – Specifies the sequence of axes for successive rotations. Up to 3
+characters belonging to the set {“X”, “Y”, “Z”} for intrinsic
 rotations (moving axes), or {“x”, “y”, “z”} for extrinsic rotations
 (fixed axes). Adjacent axes cannot be the same. Extrinsic and
 intrinsic rotations cannot be mixed in one function call.</p></li>
@@ -832,7 +833,7 @@ the first, second and third angles, respectively.</p>
 </dl>
 <div class="admonition-notes admonition">
 <p class="admonition-title">Notes</p>
-<p>The range of the returned angles is dependant on the <cite>flip</cite> parameter. If
+<p>The range of the returned angles is dependent on the <cite>flip</cite> parameter. If
 <cite>flip</cite> is False:</p>
 <ul>
 <li><p>First angle belongs to [-180, 180] degrees (both inclusive)</p></li>

@@ -806,11 +806,11 @@
 <span class="sig-prename descclassname"><span class="pre">TimeSeries.</span></span><span class="sig-name descname"><span class="pre">add_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_key</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_value</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_place</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/kineticstoolkit/timeseries.html#TimeSeries.add_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#ktk.TimeSeries.add_data" title="Link to this definition">#</a></dt>
 <dd><p>Add new data to the TimeSeries.</p>
 <p>Although we can directly assign values to the <cite>data</cite> property:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">timeseries</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
 </pre></div>
 </div>
 <p>this method provides an alternative way to add data to the TimeSeries:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">timeseries</span> <span class="o">=</span> <span class="n">timeseries</span><span class="o">.</span><span class="n">add_data</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ts</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">add_data</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="o">...</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>with the following advantages:</p>
@@ -844,11 +844,11 @@ original TimeSeries intact. Default is False.</p></li>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>ValueError</strong> – In any of these conditions:
-    1. If data with this key already exists and overwrite is False.
-    2. If the size of the data (first dimension) does not match the size
-       of existing data or the existing time.
-    3. If data is a pandas DataFrame and its index does not match the
-       existing time.</p>
+    If data with this key already exists and overwrite is False.
+    If the size of the data (first dimension) does not match the size
+    of existing data or the existing time.
+    If data is a pandas DataFrame and its index does not match the
+    existing time.</p>
 </dd>
 </dl>
 <div class="admonition seealso">

@@ -831,9 +831,9 @@ this form:</p>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>array</strong> (<em>ArrayLike</em><em> | </em><em>None</em>) – Used in single array input form.
 Array of one of these shapes where N corresponds to time:
-- (N,), (N, 1): forms a point series on the x axis, with y=0 and z=0.
-- (N, 2): forms a point series on the x, y axes, with z=0.
-- (N, 3), (N, 4): forms a point series on the x, y, z axes.</p></li>
+(N,), (N, 1): forms a point series on the x axis, with y=0 and z=0.
+(N, 2): forms a point series on the x, y axes, with z=0.
+(N, 3), (N, 4): forms a point series on the x, y, z axes.</p></li>
 <li><p><strong>x</strong> (<em>ArrayLike</em><em> | </em><em>None</em>) – Used in multiple arrays input form.
 Optional. Array of shape (N,) that contains the x values. If not
 provided, x values are filled with zero.</p></li>
@@ -860,33 +860,31 @@ array does not match length.</p></li>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<p># Single input form:</p>
-<p># A series of 2 samples with x, y defined
-&gt;&gt;&gt; ktk.geometry.create_point_series([[1.0, 2.0], [4.0, 5.0]])
-array([[1., 2., 0., 1.],</p>
-<blockquote>
-<div><p>[4., 5., 0., 1.]])</p>
-</div></blockquote>
-<p># A series of 2 samples with x, y, z defined
-&gt;&gt;&gt; ktk.geometry.create_point_series([[1.0, 2.0, 3.0], [4.0, 5.0, 6.0]])
-array([[1., 2., 3., 1.],</p>
-<blockquote>
-<div><p>[4., 5., 6., 1.]])</p>
-</div></blockquote>
-<p># Samething
-&gt;&gt;&gt; ktk.geometry.create_point_series([[1.0, 2.0, 3.0, 1.0], [4.0, 5.0, 6.0, 1.0]])
-array([[1., 2., 3., 1.],</p>
-<blockquote>
-<div><p>[4., 5., 6., 1.]])</p>
-</div></blockquote>
-<p># Multiple inputs form:</p>
-<p># A series of 2 samples with x, z defined
-&gt;&gt;&gt; ktk.geometry.create_point_series(x=[1.0, 2.0, 3.0], z=[4.0, 5.0, 6.0])
-array([[1., 0., 4., 1.],</p>
-<blockquote>
-<div><p>[2., 0., 5., 1.],
-[3., 0., 6., 1.]])</p>
-</div></blockquote>
+<p>Single input form:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># A series of 2 samples with x, y defined</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">create_point_series</span><span class="p">([[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">]])</span>
+<span class="n">array</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">4.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">]])</span>
+
+<span class="c1"># A series of 2 samples with x, y, z defined</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">create_point_series</span><span class="p">([[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">]])</span>
+<span class="n">array</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">4.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">]])</span>
+
+<span class="c1"># Samething</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">create_point_series</span><span class="p">([[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]])</span>
+<span class="n">array</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">4.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">]])</span>
+</pre></div>
+</div>
+<p>Multiple inputs form:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># A series of 2 samples with x, z defined</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">ktk</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">create_point_series</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">],</span> <span class="n">z</span><span class="o">=</span><span class="p">[</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">])</span>
+<span class="n">array</span><span class="p">([[</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">4.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">],</span>
+       <span class="p">[</span><span class="mf">3.</span><span class="p">,</span> <span class="mf">0.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">,</span> <span class="mf">1.</span><span class="p">]])</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </section>
