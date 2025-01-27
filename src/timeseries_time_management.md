@@ -81,7 +81,7 @@ ts.get_sample_rate()
 
 ## Resampling
 
-To resample the TimeSeries to a different sample rate, we use [ktk.TimeSeries.resample](api/ktk.TimeSeries.resample.rst), which takes either a new frequency or a new time array as argument. To downsample our TimeSeries to 20Hz, we would do:
+To resample the TimeSeries to a different sample rate, we use [ktk.TimeSeries.resample](api/ktk.TimeSeries.resample.rst), which takes either a new frequency or a new time array as an argument. To downsample our TimeSeries to 20Hz, we would do:
 
 ```{code-cell} ipython3
 ts_20Hz = ts.resample(20.0)
@@ -143,7 +143,7 @@ plt.title("pchip")
 plt.tight_layout()
 ```
 
-Instead of specifying a new frequency, we can resample directly to a new time array. This is practical to combine data from individual instruments thay may have their own sampling frequency.
+Instead of specifying a new frequency, we can resample directly to a new time array. This is practical to combine data from individual instruments that may have their own sampling frequency.
 
 ```{code-cell} ipython3
 instrument1 = ktk.TimeSeries()

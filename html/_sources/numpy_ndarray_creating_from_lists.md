@@ -19,13 +19,13 @@ kernelspec:
 
 # Creating arrays from lists
 
-A simple way to create an array from a list is to use the {{np_array}} function. To create the unidimensional array of {numref}`fig_array_1d_float`, we would write:
+A simple way to create an array from a list is to use the {{np_array}} function. To create the one-dimensional array of {numref}`fig_array_1d_float`, we would write:
 
 ```{figure-md} fig_array_1d_float
 :width: 2in
 ![](_static/images/fig_array_1d_float.png)
 
-A unidimensional array.
+A one-dimensional array.
 ```
 
 ```{code-cell} ipython3
@@ -42,14 +42,14 @@ It is also possible to convert back an array to a list, using its {{ndarray_toli
 array_1d.tolist()
 ```
 
-To create the bidimensional array of {numref}`fig_array_2d_float`, we would use nested lists:
+To create the two-dimensional array of {numref}`fig_array_2d_float`, we would use nested lists:
 
 ```{figure-md} fig_array_2d_float
 :width: 3in
 
 ![](_static/images/fig_array_2d_float.png)
 
-A bidimensional array.
+A two-dimensional array.
 ```
 
 ```{code-cell} ipython3
@@ -65,14 +65,14 @@ array_2d
 ```
 
 
-To create the tridimensional array of {numref}`fig_array_3d_float`, we would use multiple levels of nested lists:
+To create the three-dimensional array of {numref}`fig_array_3d_float`, we would use multiple levels of nested lists:
 
 ```{figure-md} fig_array_3d_float
 :width: 4in
 
 ![](_static/images/fig_array_3d_float.png)
 
-A tridimensional array.
+A three-dimensional array.
 ```
 
 ```{code-cell} ipython3

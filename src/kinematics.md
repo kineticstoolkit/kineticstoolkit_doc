@@ -16,7 +16,7 @@ jupyter:
 
 # Kinematic analysis
 
-In this chapter, we will use the [ktk.kinematics](api/ktk.kinematics.rst) module to process real acquisitions of 3D markers, to calculate a series of joint angles, and to reconstruct virtual markers using different methods such as calibration markers or probing.
+In this chapter, we will use the [ktk.kinematics](api/ktk.kinematics.rst) module to process real acquisitions of 3D markers, calculate a series of joint angles, and reconstruct virtual markers using different methods such as calibration markers or probing.
 
 ```{tableofcontents}
 ```

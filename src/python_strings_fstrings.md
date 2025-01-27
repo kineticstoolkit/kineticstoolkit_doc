@@ -32,7 +32,7 @@ A single string that includes both the definition and the result would be more r
 
 > "The calculated ankle moment is 100.1 Nm."
 
-Including variables into strings is easily done using f-strings. F-strings' name comes from their `f` prefix. With f-strings, Python evaluates the result of any instruction placed between curly braces `{}`:
+Including variables into strings is easily done using f-strings. The name "f-strings" comes from their `f` prefix. With f-strings, Python evaluates the result of any instruction placed between curly braces `{}`:
 
 ```{code-cell} ipython3
 # Here, we create the sentence above.

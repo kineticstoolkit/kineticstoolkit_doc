@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.5
+    jupytext_version: 1.16.4
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -17,14 +17,13 @@ kernelspec:
 %matplotlib qt5
 ```
 
-
 # Player basics
 
 :::{note}
 The Player is an interactive class that needs an interactive Matplotlib backend. See section [](getting_started_installing.md) for more information.
 :::
 
-In this section, we will use kinematic data of [tennis serves](dataset_kinematics_tennis_serve.md) as a [TimeSeries](timeseries.md) or marker positions.
+In this section, we will use kinematic data of [tennis serves](dataset_kinematics_tennis_serve.md) as a [TimeSeries](timeseries.md) of marker positions.
 
 ```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
@@ -56,6 +55,7 @@ p.play()
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 p = ktk.Player()
 p.set_contents(markers.get_ts_between_times(6, 8))
 p._to_animation()
@@ -65,6 +65,7 @@ Press `h` to print a help overlay on how to control the Player using the keyboar
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 print(ktk.player.HELP_TEXT)
 ```
 
@@ -74,7 +75,7 @@ Note the coloured global reference frame on the bottom. This reference frame and
 - y = Green
 - z = Blue
 
-Once a player has been instantiated, lots of properties can be modified to control or customize it:
+Once a player has been instantiated, many properties can be modified to control or customize it:
 
 ```{code-cell} ipython3
 p
@@ -101,6 +102,7 @@ p.anterior = "-y"
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 p._to_animation()
 ```
 
@@ -116,6 +118,7 @@ p.set_view("front")
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 p._to_animation()
 ```
 
@@ -125,6 +128,7 @@ p.set_view("top")
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 p._to_animation()
 ```
 
@@ -136,6 +140,7 @@ p.set_view("initial")
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 p._to_animation()
 ```
 
@@ -164,6 +169,6 @@ p.zoom = 0.75
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 p._to_animation()
 ```
-

@@ -11,10 +11,10 @@
 <meta property="og:type" content="image/png" />
 <meta property="og:url" content="https://kineticstoolkit.uqam.ca/doc/files_read_c3d.html" />
 <meta property="og:site_name" content="Kinetics Toolkit" />
-<meta property="og:description" content="Let’s first download a sample C3D file. This file is provided by https://www.c3d.org as a test suite for C3D software development: We read it using ktk.read_c3d: The content of the file is expresse..." />
+<meta property="og:description" content="Let’s first download a sample C3D file: We read it using ktk.read_c3d: The content of the file is expressed as a dictionary with two keys: Points: A TimeSeries that contains the point data (markers..." />
 <meta property="og:image" content="https://kineticstoolkit.uqam.ca/doc/_static/logo-social.png" />
 <meta property="og:image:alt" content="Kinetics Toolkit Logo" />
-<meta name="description" content="Let’s first download a sample C3D file. This file is provided by https://www.c3d.org as a test suite for C3D software development: We read it using ktk.read_c3d: The content of the file is expresse..." />
+<meta name="description" content="Let’s first download a sample C3D file: We read it using ktk.read_c3d: The content of the file is expressed as a dictionary with two keys: Points: A TimeSeries that contains the point data (markers..." />
 <meta property='og:image:width' content=500 />
 <meta property='og:image:height' content=264 />
 
@@ -26,19 +26,21 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -47,10 +49,11 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=e3fcc901" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -77,6 +80,7 @@
     <link rel="prev" title="8. Reading and writing data files" href="files.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -92,19 +96,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -112,7 +105,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -120,8 +112,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -137,7 +129,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -167,29 +160,25 @@
     
     
     <img src="_static/logo.png" class="logo__image only-light" alt="Biomechanical Analysis using Python and Kinetics Toolkit - Home"/>
-    <script>document.write(`<img src="_static/logo-dark.png" class="logo__image only-dark" alt="Biomechanical Analysis using Python and Kinetics Toolkit - Home"/>`);</script>
+    <img src="_static/logo-dark.png" class="logo__image only-dark pst-js-only" alt="Biomechanical Analysis using Python and Kinetics Toolkit - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Getting Started</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="getting_started_intro.html">1. Introduction</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="getting_started.html">2. Where to start</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="getting_started_installing.html">2.1. Installing Python, Spyder and Kinetics Toolkit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting_started_configuring_spyder.html">2.2. Configuring Spyder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started_installing.html">2.1. Installing Python and Kinetics Toolkit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started_configuring_spyder.html">2.2. Installing and configuring Spyder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="getting_started_using_spyder.html">2.3. Using Spyder</a></li>
 </ul>
 </details></li>
@@ -242,8 +231,10 @@
 <li class="toctree-l3"><a class="reference internal" href="python_functions_docstrings.html">3.4.4. Docstrings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python_functions_type_annotations.html">3.4.5. Type annotations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python_functions_positional_keywords.html">3.4.6. Positional and keyword arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="python_functions_default_values.html">3.4.7. Default values</a></li>
-<li class="toctree-l3"><a class="reference internal" href="python_functions_default_values_exercise.html">3.4.8. Exercise: Function argument’s default values</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_functions_default_values.html">3.4.7. Default values</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_functions_default_values_exercise.html">3.4.7.1. Exercise: Function argument’s default values</a></li>
+</ul>
+</details></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="python_conditions.html">3.5. Conditions and booleans</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -379,14 +370,14 @@
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="numpy_logical_operators.html">5.9. Logical operators</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="numpy_indexing_slicing_1d.html">5.10. Indexing and slicing unidimensional arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="numpy_indexing_slicing_1d.html">5.10. Indexing and slicing one-dimensional arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_1d_exercise.html">5.10.1. Exercise: Indexing and slicing unidimensional arrays</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="numpy_filtering_1d.html">5.11. Filtering unidimensional arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_filtering_1d_exercise1.html">5.11.1. Exercise: Indexing/slicing/filtering unidimensional arrays 1</a></li>
-<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_filtering_1d_exercise2.html">5.11.2. Exercise: Indexing/slicing/filtering unidimensional arrays 2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_filtering_1d_exercise3.html">5.11.3. Exercise: Indexing/slicing/filtering unidimensional arrays 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_filtering_1d_exercise1.html">5.11.1. Exercise: Indexing/slicing/filtering one-dimensional arrays 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_filtering_1d_exercise2.html">5.11.2. Exercise: Indexing/slicing/filtering one-dimensional arrays 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_filtering_1d_exercise3.html">5.11.3. Exercise: Indexing/slicing/filtering one-dimensional arrays 3</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="numpy_nd.html">5.12. Multidimensional arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -431,7 +422,7 @@
 <li class="toctree-l4"><a class="reference internal" href="filters_butter_exercise.html">7.3.1.4. Exercise: Filtering EMG data</a></li>
 </ul>
 </details></li>
-<li class="toctree-l3"><a class="reference internal" href="filters_smooth_savgol.html">7.3.2. Moving average, Savitsky-Golay and deriving filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="filters_smooth_savgol.html">7.3.2. Moving average, Savitzky-Golay and deriving filters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="filters_median.html">7.3.3. Removing artefacts using a median filter</a></li>
 </ul>
 </details></li>
@@ -448,55 +439,59 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="geometry.html">9. 3D rigid body geometry</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_basics.html">9.1. Coordinates: points, vectors and frames</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_basics.html">9.1. Geometry basics: coordinate systems, points, vectors, and transforms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="geometry_global_coordinates.html">9.1.1. Global coordinate system</a></li>
 <li class="toctree-l3"><a class="reference internal" href="geometry_points_vectors.html">9.1.2. Points and vectors</a></li>
 <li class="toctree-l3"><a class="reference internal" href="geometry_local_coordinates.html">9.1.3. Local coordinate system</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="geometry_frames.html">9.1.4. Frames</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="geometry_basics_exercise.html">9.1.4.1. Exercise: Frame</a></li>
-</ul>
-</details></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="geometry_dimension_conventions.html">9.1.5. Expressing series of points, vectors and frames in Kinetics Toolkit</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="geometry_dimension_conventions_exercise1.html">9.1.5.7. Exercise: Expressing a series of points</a></li>
-<li class="toctree-l4"><a class="reference internal" href="geometry_dimension_conventions_exercise2.html">9.1.5.8. Exercise: Expressing a constant vector</a></li>
-<li class="toctree-l4"><a class="reference internal" href="geometry_dimension_conventions_exercise3.html">9.1.5.9. Exercise: Expressing a series of frames</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="geometry_transforms.html">9.1.4. Transforms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="geometry_basics_exercise.html">9.1.4.1. Exercise: Transform</a></li>
 </ul>
 </details></li>
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_transform_moving_coordinates.html">9.2. Rotating and translating coordinates</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometry_transform_moving_points.html">9.2.1. Moving points</a></li>
-<li class="toctree-l3"><a class="reference internal" href="geometry_transform_rotating_vectors.html">9.2.2. Rotating vectors</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="geometry_transform_moving_frames.html">9.2.3. Moving frames</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="geometry_moving_coordinates_exercise1.html">9.2.3.3. Exercise: Moving a point</a></li>
-<li class="toctree-l4"><a class="reference internal" href="geometry_moving_coordinates_exercise2.html">9.2.3.4. Exercise: Moving a trajectory</a></li>
-<li class="toctree-l4"><a class="reference internal" href="geometry_moving_coordinates_exercise3.html">9.2.3.5. Exercise: A fixed point in a moving coordinate system</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_dimension_conventions.html">9.2. Expressing series of numbers, points, vectors, and transforms in Kinetics Toolkit</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="geometry_creating_point_series.html">9.2.7. Creating point series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_creating_vector_series.html">9.2.8. Creating vector series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_creating_transform_series.html">9.2.9. Creating transform series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_dimension_conventions_exercise1.html">9.2.10. Exercise: Expressing a series of points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_dimension_conventions_exercise2.html">9.2.11. Exercise: Expressing a constant vector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_dimension_conventions_exercise3.html">9.2.12. Exercise: Expressing a series of transforms</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_transform_moving_coordinates.html">9.3. Rotating and translating coordinates</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="geometry_transform_moving_points.html">9.3.1. Moving points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_transform_rotating_vectors.html">9.3.2. Rotating vectors</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="geometry_transform_moving_frames.html">9.3.3. Moving frames (transforms)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="geometry_moving_coordinates_exercise1.html">9.3.3.3. Exercise: Moving a point</a></li>
+<li class="toctree-l4"><a class="reference internal" href="geometry_moving_coordinates_exercise2.html">9.3.3.4. Exercise: Moving a trajectory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="geometry_moving_coordinates_exercise3.html">9.3.3.5. Exercise: A fixed point in a moving coordinate system</a></li>
 </ul>
 </details></li>
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_transform_changing_coordinate_system.html">9.3. The homogeneous transform: mapping coordinates to other coordinate systems</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometry_transform_local_to_global_coordinates.html">9.3.1. Mapping local coordinates to global coordinates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="geometry_transform_global_to_local_coordinates.html">9.3.2. Mapping global coordinates to local coordinates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="geometry_transform_changing_coordinate_system_example.html">9.3.3. Local to global coordinates example</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_transform_changing_coordinate_system.html">9.4. The homogeneous transform: mapping coordinates to other coordinate systems</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="geometry_transform_local_to_global_coordinates.html">9.4.1. Mapping local coordinates to global coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_transform_global_to_local_coordinates.html">9.4.2. Mapping global coordinates to local coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_transform_changing_coordinate_system_example.html">9.4.3. Local to global coordinates example</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="geometry_kinematic_chains.html">9.4. Kinematic chains</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_angles.html">9.5. Extracting angles</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometry_2d_angles.html">9.5.1. 2D angles</a></li>
-<li class="toctree-l3"><a class="reference internal" href="geometry_3d_angles.html">9.5.2. 3D angles</a></li>
-<li class="toctree-l3"><a class="reference internal" href="geometry_3d_angles_ktk.html">9.5.3. Extracting 3D angles using Kinetics Toolkit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="geometry_3d_angles_choosing_seq.html">9.5.4. Choosing a rotation sequence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometry_kinematic_chains.html">9.5. Kinematic chains</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_angles.html">9.6. Extracting angles</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="geometry_2d_angles.html">9.6.1. 2D angles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_3d_angles.html">9.6.2. 3D angles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_3d_angles_ktk.html">9.6.3. Extracting 3D angles using Kinetics Toolkit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_3d_angles_choosing_seq.html">9.6.4. Choosing a rotation sequence</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="geometry_exercises.html">9.6. Exercices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometry_exercises.html">9.7. Exercises</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="player.html">10. Visualizing 3D points and frames</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="player.html">10. Visualizing 3D points, frames, and forces</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="player_basics.html">10.1. Player basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="player_interconnections.html">10.2. Interconnecting the points</a></li>
-<li class="toctree-l2"><a class="reference internal" href="player_frames.html">10.3. Visualizing frames</a></li>
-<li class="toctree-l2"><a class="reference internal" href="player_styling_exporting.html">10.4. Styling and exporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player_interconnections.html">10.2. Interconnecting points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player_frames.html">10.3. Visualizing frames (rigid bodies)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player_vectors.html">10.4. Visualizing forces and other vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player_styling_exporting.html">10.5. Styling and exporting</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="kinematics.html">11. Kinematic analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -620,13 +615,19 @@
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.geometry.html">ktk.geometry</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_frames.html">ktk.geometry.create_frames</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_transforms.html">ktk.geometry.create_transforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_point_series.html">ktk.geometry.create_point_series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_transform_series.html">ktk.geometry.create_transform_series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_vector_series.html">ktk.geometry.create_vector_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_angles.html">ktk.geometry.get_angles</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_global_coordinates.html">ktk.geometry.get_global_coordinates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_local_coordinates.html">ktk.geometry.get_local_coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_quaternions.html">ktk.geometry.get_quaternions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.is_point_series.html">ktk.geometry.is_point_series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.is_transform_series.html">ktk.geometry.is_transform_series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.is_vector_series.html">ktk.geometry.is_vector_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.isnan.html">ktk.geometry.isnan</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.matmul.html">ktk.geometry.matmul</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.mirror.html">ktk.geometry.mirror</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.register_points.html">ktk.geometry.register_points</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.rotate.html">ktk.geometry.rotate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.scale.html">ktk.geometry.scale</a></li>
@@ -651,9 +652,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -750,24 +756,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -793,6 +791,8 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#points">8.1.1. Points</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analogs">8.1.2. Analogs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#force-platforms">8.1.3. Force platforms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-visualization">8.1.4. Quick visualization</a></li>
 </ul>
             </nav>
         </div>
@@ -806,12 +806,12 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="reading-c3d-files">
 <h1><span class="section-number">8.1. </span>Reading C3D files<a class="headerlink" href="#reading-c3d-files" title="Link to this heading">#</a></h1>
-<p>Let’s first download a sample C3D file. This file is provided by <a class="reference external" href="https://www.c3d.org">https://www.c3d.org</a> as a test suite for C3D software development:</p>
+<p>Let’s first download a sample C3D file:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">kineticstoolkit.lab</span> <span class="k">as</span> <span class="nn">ktk</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">kineticstoolkit.lab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ktk</span>
 
-<span class="n">filename</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">doc</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;c3d_test_suite_sample.c3d&quot;</span><span class="p">)</span>
+<span class="n">filename</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">doc</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;c3d_sample.c3d&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -826,12 +826,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>UserWarning [/Users/felix/Documents/git/kineticstoolkit_doc/src/kineticstoolkit/files.py:519] In the specified file, points are expressed in mm. They were automatically converted to meters by scaling them by 0.001. Please note that if this file also contains calculated values such as angles, powers, etc., they were also (wrongly) scaled by 0.001. Consult https://kineticstoolkit.uqam.ca/doc/api/ktk.read_c3d.html for more information. You can mute this warning by explicitely setting `convert_point_unit` to either True or False.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>UserWarning [/Users/felix/Documents/git/kineticstoolkit_doc/src/kineticstoolkit/files.py:541] In the specified file, points are expressed in mm. They have been automatically converted to meters (scaled by 0.001). Please note that if this file also contains calculated values such as angles, powers, etc., they have been also (wrongly) scaled by 0.001. Consult https://kineticstoolkit.uqam.ca/doc/api/ktk.read_c3d.html for more information. You can mute this warning by explicitely setting `convert_point_unit` to either True or False.
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-     &#39;Points&#39;: TimeSeries with attributes: time: &lt;array of shape (450,)&gt; dat...
-    &#39;Analogs&#39;: TimeSeries with attributes: time: array([0. , 0.005, 0.01 , ....
+            &#39;Points&#39;: TimeSeries with attributes: time: &lt;array of shape (675...
+           &#39;Analogs&#39;: TimeSeries with attributes: time: array([0. , 0.001, 0...
+    &#39;ForcePlatforms&#39;: TimeSeries with attributes: time: array([0. , 0.001, 0...
 }
 </pre></div>
 </div>
@@ -839,17 +840,18 @@ document.write(`
 </div>
 <div class="admonition caution">
 <p class="admonition-title">Caution</p>
-<p>As indicated in the warning above, the points in this file are expressed in millimeters; however Kinetics Toolkit uses SI units and therefore meters by default. The point positions have been converted to meters by default, and therefore you can ignore this warning, or suppress it all the way using:</p>
+<p>As indicated in the warning above, the points in this file are expressed in millimetres; however, Kinetics Toolkit uses SI units and therefore metres by default. The point positions have been converted to metres by default, and therefore you can ignore this warning, or suppress it altogether using:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">c3d_contents</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">read_c3d</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">convert_point_unit</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>You can generally ignore this warning if you read unprocessed marker positions and analog signals.</p>
-<p>You should not ignore this warning if you are reading a c3d file that has been processed by some software or pipeline to calculate joint kinetics, powers, etc., and if these values are expressed as “points” in the c3d. Consult the help of <a class="reference internal" href="api/ktk.read_c3d.html"><span class="std std-doc">ktk.read_c3d</span></a> for more details.</p>
+<p>You should not ignore this warning if you are reading a C3D file that has been processed by some software or pipeline to calculate joint kinetics, powers, etc., and if these values are expressed as “points” in the C3D. Consult the help of <a class="reference internal" href="api/ktk.read_c3d.html"><span class="std std-doc">ktk.read_c3d</span></a> for more details.</p>
 </div>
 <p>The content of the file is expressed as a dictionary with two keys:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">Points</span></code>: A TimeSeries that contains the point data (markers)</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">Analogs</span></code> (only when applicable): A TimeSeries that contains the raw analog data from force platforms, EMG or other analog signals recorded into the c3d file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Analogs</span></code> (only when applicable): A TimeSeries that contains the raw analog data from force platforms, EMG, or other analog signals recorded into the C3D file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">ForcePlatforms</span></code> (only when applicable): A TimeSeries that contains the forces, moments, centres of pressure, and force platform positions.</p></li>
 </ul>
 <section id="points">
 <h2><span class="section-number">8.1.1. </span>Points<a class="headerlink" href="#points" title="Link to this heading">#</a></h2>
@@ -862,46 +864,42 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-    &#39;RFT1&#39;: &lt;array of shape (450, 4)&gt;
-    &#39;RFT2&#39;: &lt;array of shape (450, 4)&gt;
-    &#39;RFT3&#39;: &lt;array of shape (450, 4)&gt;
-    &#39;LFT1&#39;: &lt;array of shape (450, 4)&gt;
-    &#39;LFT2&#39;: &lt;array of shape (450, 4)&gt;
-    &#39;LFT3&#39;: &lt;array of shape (450, 4)&gt;
-    &#39;RSK1&#39;: &lt;array of shape (450, 4)&gt;
-    &#39;RSK2&#39;: &lt;array of shape (450, 4)&gt;
-    &#39;RSK3&#39;: &lt;array of shape (450, 4)&gt;
-    &#39;RSK4&#39;: &lt;array of shape (450, 4)&gt;
-    &#39;LSK1&#39;: &lt;array of shape (450, 4)&gt;
-    &#39;LSK2&#39;: &lt;array of shape (450, 4)&gt;
-    &#39;LSK3&#39;: &lt;array of shape (450, 4)&gt;
-    &#39;LSK4&#39;: &lt;array of shape (450, 4)&gt;
-    &#39;RTH1&#39;: &lt;array of shape (450, 4)&gt;
-    &#39;RTH2&#39;: &lt;array of shape (450, 4)&gt;
-    &#39;RTH3&#39;: &lt;array of shape (450, 4)&gt;
-    &#39;RTH4&#39;: &lt;array of shape (450, 4)&gt;
-    &#39;LTH1&#39;: &lt;array of shape (450, 4)&gt;
-    &#39;LTH2&#39;: &lt;array of shape (450, 4)&gt;
-    &#39;LTH3&#39;: &lt;array of shape (450, 4)&gt;
-    &#39;LTH4&#39;: &lt;array of shape (450, 4)&gt;
-     &#39;PV1&#39;: &lt;array of shape (450, 4)&gt;
-     &#39;PV2&#39;: &lt;array of shape (450, 4)&gt;
-     &#39;PV3&#39;: &lt;array of shape (450, 4)&gt;
-     &#39;pv4&#39;: &lt;array of shape (450, 4)&gt;
+          &#39;c7&#39;: &lt;array of shape (675, 4)&gt;
+    &#39;r should&#39;: &lt;array of shape (675, 4)&gt;
+    &#39;l should&#39;: &lt;array of shape (675, 4)&gt;
+      &#39;sacrum&#39;: &lt;array of shape (675, 4)&gt;
+      &#39;r asis&#39;: &lt;array of shape (675, 4)&gt;
+     &#39;r bar 1&#39;: &lt;array of shape (675, 4)&gt;
+    &#39;r knee 1&#39;: &lt;array of shape (675, 4)&gt;
+        &#39;RATT&#39;: &lt;array of shape (675, 4)&gt;
+        &#39;SCR1&#39;: &lt;array of shape (675, 4)&gt;
+        &#39;SCR2&#39;: &lt;array of shape (675, 4)&gt;
+     &#39;r bar 2&#39;: &lt;array of shape (675, 4)&gt;
+      &#39;r heel&#39;: &lt;array of shape (675, 4)&gt;
+       &#39;r met&#39;: &lt;array of shape (675, 4)&gt;
+      &#39;l asis&#39;: &lt;array of shape (675, 4)&gt;
+     &#39;l bar 1&#39;: &lt;array of shape (675, 4)&gt;
+    &#39;l knee 1&#39;: &lt;array of shape (675, 4)&gt;
+        &#39;LATT&#39;: &lt;array of shape (675, 4)&gt;
+        &#39;SCL1&#39;: &lt;array of shape (675, 4)&gt;
+        &#39;SCL2&#39;: &lt;array of shape (675, 4)&gt;
+     &#39;l bar 2&#39;: &lt;array of shape (675, 4)&gt;
+      &#39;l heel&#39;: &lt;array of shape (675, 4)&gt;
+       &#39;l met&#39;: &lt;array of shape (675, 4)&gt;
 }
 </pre></div>
 </div>
 </div>
 </div>
-<p>We will learn how to visualize these markers using an interactive player in <a class="reference internal" href="player.html"><span class="doc std std-doc">Visualizing 3D points and frames</span></a>. For now, let’s plot some of them:</p>
+<p>We will learn how to visualize these markers using an interactive player in <a class="reference internal" href="player.html"><span class="doc std std-doc">Visualizing 3D points, frames, and forces</span></a>. For now, let’s plot some of them:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c3d_contents</span><span class="p">[</span><span class="s2">&quot;Points&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="s2">&quot;LFT1&quot;</span><span class="p">,</span> <span class="s2">&quot;RFT1&quot;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c3d_contents</span><span class="p">[</span><span class="s2">&quot;Points&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="s2">&quot;c7&quot;</span><span class="p">,</span> <span class="s2">&quot;r should&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/46911b14a350c35fcf79a24ff618c276350323cdf7649a274e1be0872bad0bbe.png" src="_images/46911b14a350c35fcf79a24ff618c276350323cdf7649a274e1be0872bad0bbe.png" />
+<img alt="_images/abe7571b0a4a44f4b0174471e81c93335e5a9741b06137aac5eac7beb2fb8566.png" src="_images/abe7571b0a4a44f4b0174471e81c93335e5a9741b06137aac5eac7beb2fb8566.png" />
 </div>
 </div>
 </section>
@@ -916,22 +914,50 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
-     &#39;FX1&#39;: &lt;array of shape (1800,)&gt;
-     &#39;FY1&#39;: array([-0., -0., -0., ..., -0., -0., -0.])
-     &#39;FZ1&#39;: &lt;array of shape (1800,)&gt;
-     &#39;MX1&#39;: &lt;array of shape (1800,)&gt;
-     &#39;MY1&#39;: &lt;array of shape (1800,)&gt;
-     &#39;MZ1&#39;: &lt;array of shape (1800,)&gt;
-     &#39;CH7&#39;: array([-12. , -7. , -6. , ..., -7. , -10. , -8.5])
-     &#39;CH8&#39;: array([ -3. , -2. , -6.5, ..., -29. , -31. , -31. ])
-     &#39;FX2&#39;: &lt;array of shape (1800,)&gt;
-     &#39;FY2&#39;: array([-0. , -0. , -0. , ..., -0. , -0. , -0.442])
-     &#39;FZ2&#39;: &lt;array of shape (1800,)&gt;
-     &#39;MX2&#39;: &lt;array of shape (1800,)&gt;
-     &#39;MY2&#39;: &lt;array of shape (1800,)&gt;
-     &#39;MZ2&#39;: &lt;array of shape (1800,)&gt;
-    &#39;CH15&#39;: array([-69.5, -31.5, -15. , ..., 0. , -2.5, -1. ])
-    &#39;CH16&#39;: array([-110.5, -73. , -53.5, ..., -21. , -24. , -24. ])
+                             &#39;Fx1&#39;: array([0., 0., 0., ..., 0., 0., 0.])
+                             &#39;Fy1&#39;: array([0., 0., 0., ..., 0., 0., 0.])
+                             &#39;Fz1&#39;: array([0., 0., 0., ..., 0., 0., 0.])
+                             &#39;Mx1&#39;: array([0., 0., 0., ..., 0., 0., 0.])
+                             &#39;My1&#39;: array([0., 0., 0., ..., 0., 0., 0.])
+                             &#39;Mz1&#39;: array([0., 0., 0., ..., 0., 0., 0.])
+                             &#39;Fx2&#39;: array([0., 0., 0., ..., 0., 0., 0.])
+                             &#39;Fy2&#39;: array([0., 0., 0., ..., 0., 0., 0.])
+                             &#39;Fz2&#39;: array([0., 0., 0., ..., 0., 0., 0.])
+                             &#39;Mx2&#39;: array([0., 0., 0., ..., 0., 0., 0.])
+                             &#39;My2&#39;: array([0., 0., 0., ..., 0., 0., 0.])
+                             &#39;Mz2&#39;: array([0., 0., 0., ..., 0., 0., 0.])
+                             &#39;Fx3&#39;: array([0., 0., 0., ..., 0., 0., 0.])
+                             &#39;Fy3&#39;: array([0., 0., 0., ..., 0., 0., 0.])
+                             &#39;Fz3&#39;: array([0., 0., 0., ..., 0., 0., 0.])
+                             &#39;Mx3&#39;: array([0., 0., 0., ..., 0., 0., 0.])
+                             &#39;My3&#39;: array([0., 0., 0., ..., 0., 0., 0.])
+                             &#39;Mz3&#39;: array([0., 0., 0., ..., 0., 0., 0.])
+                             &#39;Fx4&#39;: array([0., 0., 0., ..., 0., 0., 0.])
+                             &#39;Fy4&#39;: array([0., 0., 0., ..., 0., 0., 0.])
+                             &#39;Fz4&#39;: array([0., 0., 0., ..., 0., 0., 0.])
+                             &#39;Mx4&#39;: array([0., 0., 0., ..., 0., 0., 0.])
+                             &#39;My4&#39;: array([0., 0., 0., ..., 0., 0., 0.])
+                             &#39;Mz4&#39;: array([0., 0., 0., ..., 0., 0., 0.])
+                             &#39;Fx5&#39;: array([0., 0., 0., ..., 0., 0., 0.])
+                             &#39;Fy5&#39;: array([0., 0., 0., ..., 0., 0., 0.])
+                             &#39;Fz5&#39;: array([0., 0., 0., ..., 0., 0., 0.])
+                             &#39;Mx5&#39;: array([0., 0., 0., ..., 0., 0., 0.])
+                             &#39;My5&#39;: array([0., 0., 0., ..., 0., 0., 0.])
+                             &#39;Mz5&#39;: array([0., 0., 0., ..., 0., 0., 0.])
+                             &#39;Fx6&#39;: array([0., 0., 0., ..., 0., 0., 0.])
+                             &#39;Fy6&#39;: array([0., 0., 0., ..., 0., 0., 0.])
+                             &#39;Fz6&#39;: array([0., 0., 0., ..., 0., 0., 0.])
+                             &#39;Mx6&#39;: array([0., 0., 0., ..., 0., 0., 0.])
+                             &#39;My6&#39;: array([0., 0., 0., ..., 0., 0., 0.])
+                             &#39;Mz6&#39;: array([0., 0., 0., ..., 0., 0., 0.])
+             &#39;Left Rectus femoris&#39;: &lt;array of shape (6750,)&gt;
+            &#39;Right Rectus femoris&#39;: &lt;array of shape (6750,)&gt;
+            &#39;Left Semimembranosus&#39;: &lt;array of shape (6750,)&gt;
+           &#39;Right Semimembranosus&#39;: &lt;array of shape (6750,)&gt;
+          &#39;Left Tibialis anterior&#39;: &lt;array of shape (6750,)&gt;
+         &#39;Right Tibialis anterior&#39;: &lt;array of shape (6750,)&gt;
+     &#39;Left Gastrocnemius medialis&#39;: &lt;array of shape (6750,)&gt;
+    &#39;Right Gastrocnemius medialis&#39;: &lt;array of shape (6750,)&gt;
 }
 </pre></div>
 </div>
@@ -940,13 +966,123 @@ document.write(`
 <p>Let’s plot some of them:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c3d_contents</span><span class="p">[</span><span class="s2">&quot;Analogs&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="s2">&quot;FZ1&quot;</span><span class="p">,</span> <span class="s2">&quot;FZ2&quot;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c3d_contents</span><span class="p">[</span><span class="s2">&quot;Analogs&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="s2">&quot;Left Rectus femoris&quot;</span><span class="p">,</span> <span class="s2">&quot;Left Semimembranosus&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/b3d1e10fd4431f5282672afc149550fed27de53d7e88229104b33e1ef73f7bc1.png" src="_images/b3d1e10fd4431f5282672afc149550fed27de53d7e88229104b33e1ef73f7bc1.png" />
+<img alt="_images/5528603874efa6472c92219f8158a90aa9447068e5a67f852d33515118eb1ab4.png" src="_images/5528603874efa6472c92219f8158a90aa9447068e5a67f852d33515118eb1ab4.png" />
 </div>
+</div>
+</section>
+<section id="force-platforms">
+<h2><span class="section-number">8.1.3. </span>Force platforms<a class="headerlink" href="#force-platforms" title="Link to this heading">#</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">ForcePlatforms</span></code> TimeSeries contains information regarding all force platforms in the file. In this particular file, there are 6 force platforms, represented as FP0 to FP5:</p>
+<ul class="simple">
+<li><p>The position of the force platforms is given by <code class="docutils literal notranslate"><span class="pre">FPx_Corner1</span></code> to <code class="docutils literal notranslate"><span class="pre">FPx_Corner4</span></code>.</p></li>
+<li><p>Their local coordinate systems are given by the <code class="docutils literal notranslate"><span class="pre">FPx_LCS</span></code> transform series.</p></li>
+<li><p>Ground reaction forces are given by <code class="docutils literal notranslate"><span class="pre">Forces</span></code>.</p></li>
+<li><p>Moments are reported both around the force platform geometrical centre (<code class="docutils literal notranslate"><span class="pre">FPx_MomentAtCentre</span></code>) and at the point of pressure (<code class="docutils literal notranslate"><span class="pre">FPx_MomentAtCOP</span></code>).</p></li>
+<li><p>The centre of pressure is reported in <code class="docutils literal notranslate"><span class="pre">FPx_COP</span></code>.</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c3d_contents</span><span class="p">[</span><span class="s2">&quot;ForcePlatforms&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+           &#39;FP0_Corner1&#39;: &lt;array of shape (6750, 4)&gt;
+           &#39;FP0_Corner2&#39;: &lt;array of shape (6750, 4)&gt;
+           &#39;FP0_Corner3&#39;: &lt;array of shape (6750, 4)&gt;
+           &#39;FP0_Corner4&#39;: &lt;array of shape (6750, 4)&gt;
+               &#39;FP0_LCS&#39;: &lt;array of shape (6750, 4, 4)&gt;
+             &#39;FP0_Force&#39;: &lt;array of shape (6750, 4)&gt;
+    &#39;FP0_MomentAtCenter&#39;: &lt;array of shape (6750, 4)&gt;
+               &#39;FP0_COP&#39;: &lt;array of shape (6750, 4)&gt;
+       &#39;FP0_MomentAtCOP&#39;: &lt;array of shape (6750, 4)&gt;
+           &#39;FP1_Corner1&#39;: &lt;array of shape (6750, 4)&gt;
+           &#39;FP1_Corner2&#39;: &lt;array of shape (6750, 4)&gt;
+           &#39;FP1_Corner3&#39;: &lt;array of shape (6750, 4)&gt;
+           &#39;FP1_Corner4&#39;: &lt;array of shape (6750, 4)&gt;
+               &#39;FP1_LCS&#39;: &lt;array of shape (6750, 4, 4)&gt;
+             &#39;FP1_Force&#39;: &lt;array of shape (6750, 4)&gt;
+    &#39;FP1_MomentAtCenter&#39;: &lt;array of shape (6750, 4)&gt;
+               &#39;FP1_COP&#39;: &lt;array of shape (6750, 4)&gt;
+       &#39;FP1_MomentAtCOP&#39;: &lt;array of shape (6750, 4)&gt;
+           &#39;FP2_Corner1&#39;: &lt;array of shape (6750, 4)&gt;
+           &#39;FP2_Corner2&#39;: &lt;array of shape (6750, 4)&gt;
+           &#39;FP2_Corner3&#39;: &lt;array of shape (6750, 4)&gt;
+           &#39;FP2_Corner4&#39;: &lt;array of shape (6750, 4)&gt;
+               &#39;FP2_LCS&#39;: &lt;array of shape (6750, 4, 4)&gt;
+             &#39;FP2_Force&#39;: &lt;array of shape (6750, 4)&gt;
+    &#39;FP2_MomentAtCenter&#39;: &lt;array of shape (6750, 4)&gt;
+               &#39;FP2_COP&#39;: &lt;array of shape (6750, 4)&gt;
+       &#39;FP2_MomentAtCOP&#39;: &lt;array of shape (6750, 4)&gt;
+           &#39;FP3_Corner1&#39;: &lt;array of shape (6750, 4)&gt;
+           &#39;FP3_Corner2&#39;: &lt;array of shape (6750, 4)&gt;
+           &#39;FP3_Corner3&#39;: &lt;array of shape (6750, 4)&gt;
+           &#39;FP3_Corner4&#39;: &lt;array of shape (6750, 4)&gt;
+               &#39;FP3_LCS&#39;: &lt;array of shape (6750, 4, 4)&gt;
+             &#39;FP3_Force&#39;: &lt;array of shape (6750, 4)&gt;
+    &#39;FP3_MomentAtCenter&#39;: &lt;array of shape (6750, 4)&gt;
+               &#39;FP3_COP&#39;: &lt;array of shape (6750, 4)&gt;
+       &#39;FP3_MomentAtCOP&#39;: &lt;array of shape (6750, 4)&gt;
+           &#39;FP4_Corner1&#39;: &lt;array of shape (6750, 4)&gt;
+           &#39;FP4_Corner2&#39;: &lt;array of shape (6750, 4)&gt;
+           &#39;FP4_Corner3&#39;: &lt;array of shape (6750, 4)&gt;
+           &#39;FP4_Corner4&#39;: &lt;array of shape (6750, 4)&gt;
+               &#39;FP4_LCS&#39;: &lt;array of shape (6750, 4, 4)&gt;
+             &#39;FP4_Force&#39;: &lt;array of shape (6750, 4)&gt;
+    &#39;FP4_MomentAtCenter&#39;: &lt;array of shape (6750, 4)&gt;
+               &#39;FP4_COP&#39;: &lt;array of shape (6750, 4)&gt;
+       &#39;FP4_MomentAtCOP&#39;: &lt;array of shape (6750, 4)&gt;
+           &#39;FP5_Corner1&#39;: &lt;array of shape (6750, 4)&gt;
+           &#39;FP5_Corner2&#39;: &lt;array of shape (6750, 4)&gt;
+           &#39;FP5_Corner3&#39;: &lt;array of shape (6750, 4)&gt;
+           &#39;FP5_Corner4&#39;: &lt;array of shape (6750, 4)&gt;
+               &#39;FP5_LCS&#39;: &lt;array of shape (6750, 4, 4)&gt;
+             &#39;FP5_Force&#39;: &lt;array of shape (6750, 4)&gt;
+    &#39;FP5_MomentAtCenter&#39;: &lt;array of shape (6750, 4)&gt;
+               &#39;FP5_COP&#39;: &lt;array of shape (6750, 4)&gt;
+       &#39;FP5_MomentAtCOP&#39;: &lt;array of shape (6750, 4)&gt;
+}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s plot the COP on force plates 0:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c3d_contents</span><span class="p">[</span><span class="s2">&quot;ForcePlatforms&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s1">&#39;FP0_COP&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/80ccf5b1f93ae413d818ab18f586742b0a878229e62ac8f9effe63793daf8e64.png" src="_images/80ccf5b1f93ae413d818ab18f586742b0a878229e62ac8f9effe63793daf8e64.png" />
+</div>
+</div>
+</section>
+<section id="quick-visualization">
+<h2><span class="section-number">8.1.4. </span>Quick visualization<a class="headerlink" href="#quick-visualization" title="Link to this heading">#</a></h2>
+<p>Although visualizing data using the interactive 3D <a class="reference internal" href="api/ktk.Player.html"><span class="std std-doc">Player</span></a> is explained in section <a class="reference internal" href="player.html"><span class="std std-doc">Visualizing 3D points, frames, and forces</span></a>, here is how we can quickly visualize the kinematic and kinetic data in this file. Note that every TimeSeries provided to the Player must have the same sampling rate, which means we need to downsample the force platform data to the points sampling rate:</p>
+<div class="cell tag_skip-execution docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ktk</span><span class="o">.</span><span class="n">Player</span><span class="p">(</span>
+    <span class="n">c3d_contents</span><span class="p">[</span><span class="s2">&quot;Points&quot;</span><span class="p">],</span>
+    <span class="n">c3d_contents</span><span class="p">[</span><span class="s2">&quot;ForcePlatforms&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">c3d_contents</span><span class="p">[</span><span class="s2">&quot;Points&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">time</span><span class="p">)</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell tag_remove-input docutils container">
+<div class="cell_output docutils container">
+<div class="output text_html"><video controls loop autoplay  >
+ <source src="data:video/mp4;base64,AAAAIGZ0eXBpc29tAAACAGlzb21pc28yYXZjMW1wNDEAAAAIZnJlZQAAqiFtZGF0AAACrwYF//+r3EXpvebZSLeWLNgg2SPu73gyNjQgLSBjb3JlIDE2NCByMzA5NSBiYWVlNDAwIC0gSC4yNjQvTVBFRy00IEFWQyBjb2RlYyAtIENvcHlsZWZ0IDIwMDMtMjAyMiAtIGh0dHA6Ly93d3cudmlkZW9sYW4ub3JnL3gyNjQuaHRtbCAtIG9wdGlvbnM6IGNhYmFjPTEgcmVmPTMgZGVibG9jaz0xOjA6MCBhbmFseXNlPTB4MzoweDExMyBtZT1oZXggc3VibWU9NyBwc3k9MSBwc3lfcmQ9MS4wMDowLjAwIG1peGVkX3JlZj0xIG1lX3JhbmdlPTE2IGNocm9tYV9tZT0xIHRyZWxsaXM9MSA4eDhkY3Q9MSBjcW09MCBkZWFkem9uZT0yMSwxMSBmYXN0X3Bza2lwPTEgY2hyb21hX3FwX29mZnNldD0tMiB0aHJlYWRzPTEyIGxvb2thaGVhZF90aHJlYWRzPTIgc2xpY2VkX3RocmVhZHM9MCBucj0wIGRlY2ltYXRlPTEgaW50ZXJsYWNlZD0wIGJsdXJheV9jb21wYXQ9MCBjb25zdHJhaW5lZF9pbnRyYT0wIGJmcmFtZXM9MyBiX3B5cmFtaWQ9MiBiX2FkYXB0PTEgYl9iaWFzPTAgZGlyZWN0PTEgd2VpZ2h0Yj0xIG9wZW5fZ29wPTAgd2VpZ2h0cD0yIGtleWludD0yNTAga2V5aW50X21pbj0yNSBzY2VuZWN1dD00MCBpbnRyYV9yZWZyZXNoPTAgcmNfbG9va2FoZWFkPTQwIHJjPWNyZiBtYnRyZWU9MSBjcmY9MjMuMCBxY29tcD0wLjYwIHFwbWluPTAgcXBtYXg9NjkgcXBzdGVwPTQgaXBfcmF0aW89MS40MCBhcT0xOjEuMDAAgAAADu1liIQAJ//+9bF8Cmrp6ooM6DIu4Zckya6345YZJvQkAF0f5Ya94bPx+nwqUp3UmCrRVIlBmULYSRCzFRiNzPA+NmGuu5CwaCm+b+8pqI9vSfF89wI0ccrJZvGNbIQa60i3zq40Ci+7hnMA5MT12xMpJi/ppGlxIpiSb/PQyZFY24Z7NPtf9fCdkEyT1DDQzotYL+JnKtma2F+FpErwdc7GK8cJNdn+4MgsLi4IjwnHG5LEQfWNj2RRzIXTOHBFfTRt8PVnHLZSFRr0rIsRsjvunfpXFwdP3qnCsMktrX//Ze2rZcqRzR2XOW1Cd4Dyia2yK8E0tfMD4L6SujMdy6Pmt7tbAkh6HturM4vkq/WHK3CVIf0Fzma2cTLiHTDH06wUQsgdauQgqY3nUUR0aPdzToqANwWTM99rOYL8lSVCbJSH9foMtQpR9iLE6ns+OhP1uLlG8fTgbWwDvDen0utf+Bn3KKt8xZdP9cbVCcLQgEWiswM3UD6tzUMMTLg2IHuNkCzRNB6tTyyQzV4H57Tf5SXzsrSyD5JVIywZfhqcN3UznuGoFE5k/CCbjZT4apuZHgEORYWmYj4hIllaSWx0Zp/jMjdtRQdtwpG7HDkNzqrnALOhprRQWYRXYjFqesB1a7/Ih067Hk6NJYnlYtlngHOg+HNUv16Z9EJb7u6CklT0o77R8e+l+wW3E9cnyYc5vLcsKAgAXj+WEfAnyCAlM676oa03bTARqX9qkkdolL+EClwkF5xhX9qDqi4aD1S5CcC0zU8GBsrpUFvTm3qPw8mXPQYhOcvqbezEsE9boMD4E1ZoJGl2gMRY2s2s9+PCFLx5SxmkDZpYp7KlA6C4KHLFiYAC3QJ9vD9cGB1aQOw9k2gAANkB5CBDhl14dq3Bco39a8vCbX05MrbEDI3oXCkAmkccgH/Os2Q5QEP/CROs5mg33PZFWAfja6eqUdzWn7afsrNU+dpdgcKQ4aaq8ImwnAJZmhhawucCLidYG6YGRNcs0QYe8NQa5Awi8fwY2k6g+OiayUU8J+HIPk2J/ACc5CehnhdobwD42NyqYnweNH2kI9Neq0EExha0LSXdxoS/693oYBpSup7vPrldDh1oFdaCQN+niYqo7IBKCKeBTQQYLJewH6MPlVg4VfkvoHVNy8lGBs4QDNA2uy36ch4QJdl9qUHx+k/Z4VKVqy01dVGAIqhk4nUjE8IDOndlV/Vorgs/t++pEMY7e/rH/N8bxjIm/fjcAraSgPdM+suDcAkno5UPgKxxpznAalHZMAQFD5JAGJsd8549wQvoGbiE7qmv5xf7aXrY6SH8vcxLOpqlti5yQUYBPW51odnxI3drzZILd1qG17NG2WsBZMM8o3WkElYPau8iBoVxHwDN4ZbABu4mWb61JgbVmObiRdcGZ+EVp0qRTIW7uou7vhKBi/2GeISjQkL8Gj0M7dx6ABO4i1m4OdUHeD3pUNj2XejYWioJcdYt6qNi3BNXXUgXydHxBYjuWbT5dW6aNEnQDjVPILu5tLUB47SgIVX+e/+t1qbr6ILBny/Vp//6vHaA6Xc3zL6XsF2Fp+3ePOs7ew706aGqggsJ5ohC18NJDsOClgzuMCW2I/zGqRf9aKD1qGHAw7U+QaJEHhh1tkKVl9SAiaQ9+GYa62IPNmdNYWHnLAjj2qDM2Y0uYwMU2oJP1YixXyZg2uyW5JEopsx10XIpj6IwUJUUbWR5aoQxnDeDEnNgI5uOm446U+fWg1LUQABfPLRimZVAEbu5B3Oy1JQtgf1xncLKZmD0zEOq7+8htLuDvAnW40V06Ja0ggBGGCjaIaGRKXP8rjyTi5qhGVoD2B1xAx4QQx2i1uV5gxuiXI9Xbn58+JwC0tNyJr/OoZB7AlLQ0DGKRZiaypGsLZb4c3RM0jAVWlwl0UjYN8JO+A4Y5CJJcEKAqS/1uRNskiE6EOdzIIdYDvs10i7jD/c6Ui/PjOOQ9wW3eORAOuxdkcxJtF2OO97YjywEX3H8Ca1KS04yA603OZXOKP3DcMgRsvA7OO+XwkFiA+lGKFQXPu3iZxwnAXEDXu1cF9sjoUEbDsoNZ/8LKOuQMhKtMHpfzNL+vATZamyhPDMQIi5Pf4OVvjzuVroi16luOtvBQBm4cKp2+jY2WOySUGIEpZ0Q47xV++SQaHliLFNyc8XGL8UDTJz8ITGp0R3c25cUoePxX3Qarn+ZPnPx28eH3lGhMW59yz4mKLWR/63ge4iLWoBSJKf1sJkauMt3HggF0IqhodNdTXDa4SSQNXViw/KZlpDXbNidoe1p+jAgct2CzonCaxB9BEUFyZLGAoJzp0X+rnVyqP/7tcHNnPC+Lt/1ui9trO+xTkrIkzSzV1GeqdSZTaUFsAn+gtQyjz4dSDdpx/kxwf3wgybzbDTVcQsavulapK6AZ7LJFiF4vo92OCD8sfr9rAqgMrJNzqbUy3B+H9WiEj8gPjSe5CptHJCViEPLa1cAUEs59K+tihJl+tZVJhNv97FaCJ2HNLhs0M2Tg8isxCjx4xddDabBaNothwKQ6Nd+BiorsKCkkdZuwtq8BfO7nRurrfToud1R/q8CA9r6yl+/oQKvqMKSZFia1D68k9I9Rf60wAo6pFMNnlmmH/oGYXlsLQT1zC//u7JmIJNEldy82VBL8jB+IlE8Y1OfeGn/UnUl6DYx2o48LdagDaoGFj+d8jQprq2ZrVZIE2237Rh/I6zSszXEpEdr2fduipkh8N3v4nst0wdMRCNKsv8Dnp66mIpdbcWNyqUcAqVKrpMlE0ztIuPHxu1P4k+eF7HzDhwavlEczvoEXvRpRL0vDPbf3yg1VY1pwfl3kp12HBpxKeQFfQgOKG897KIDWONjnEeiDQenP2BlISSqe0k+Zz9Qz98T77rh0b7zn/26VLmi+peAWapZ/LuwjQs3TmZI7ZeuGr+DWHhwk0klfrIYQ/dX3fj+ABuwoReNcfEoV7S7QnghEiYfFe4+PplBH8JoAwRYFlzkcDj2EwR+Xcu6IZFCKKkdFOOrRtUxzR9sWRfXlN7moKD1krV4HU8n+KP5HiZIjQCLNC5xxc+IKnlkv80+QuYdhv90dSjn5O2I6RD6GI8Tt/1nBgR4yVdchEC00m7Qzw6qq+D3WI2ZRHBbCsC+fqsTH6W8GFBkfMB6I/LvkqhOxXj1SD/hbI+PELy5UuqGcAqeEPXjZjx9hK0cekff2qkQKo2h2XSNQeR3vTdEqyLxB0+AKkI8V4omj2FTcSpD1q/phw02d1qSh3AQ5Gnn3iCzRu6kdyOAUfy29fVTK+G19hjDf+f6vTcYYHcv2j6laqtbrTMdkaUy4EZ9XRk+77U6o+pdwOLFD/tyZ2uu7aGrM3Ke1+NYvYgMna9feAxA6rVcgAaOHXMuPuKGl+E+TKteOlKuVo57zRZruAgyMosa6+Y5NMWqLstaATjxI339g8Isfr1cYhI7iw2uZE1KccwhfiWh+MWBKPlG/hoIN7SSbZSG3kHweNP4h7eS8pihDu43eeX7Ssy//HoTxNE4Pht9JuoVpPg96RC2xWAVUMxyGesJzJ7JklJ/yU6B6iAeqDBzDeOWlYXHuLHZPzC1/dEqFND1EMiOv21fZzkQ7djec1GCclA3J46FTcJZug6hiSyFfimGIkFSq0zxDgKyNx8FEX38U3Uvarr/3FmkyV5jhrWAVUXx+d/c09Uw1M+H1A0QAgHXNMr1Us7sPOR83H2i5QPbKgoj9UhRPzbACO8FzUmqS73ciXDfG5OXo4AEFK32OE79iaaWyeLKHJdPb8F5fIFcy2pGGbnFTmMcb+RaqYIsygoLpWX/nNDK8TrNLUIuFRex/japk4rhr0Rh+99BP+p77sAG07LlLobBUse5kfMLKoQLaeVBA3AAcftdXBDHPRBGc5mGVc4dgkMzC7IdCZXZ6HU8IXF3xF2aT2L/WUrFJE7ks8Kfl8c6Ig68C6LGOVA45JUwwJG+0QhTocYXtFft+xe+9AMVe/S1aWorn2C7H1YyxTlb5/VfZm22NBj5vnY1IfbSsXT0fgWxa/l8a52LKJX4ZhY3qPeUqVxRV3YO0KlNr8TBBpPLiffuyFTQUQUns9QRFJF+uDraCePcYDcy94WA+1qMnWVrA/ZILkdVOylcZ5VgTuEACbBXITGU7LSoV+mLBOGkM500ciZi4iy4pywl58928FHQJWga2GAIdzBcjxPXrzdXYBc71xeRnV/Mj/b+yS566DH7GuMS42jZHoynTwXlGmOFqzbtrW9PkxEZyHhv+R7H34o1FzaWpwC2WugPbD7Croqq/8rof+JtZSsdT5BXuq55OkqP+UBzhGEcZLyeJt4DcwDXZ/d3XOKFFVCpAhuarTb+d/vWlnfFUkx2BT9+oKwVI4k8OZJtOqMCfYzdF2F00zrRwEAOwXPWcYzX/ozF9zO/ne/zX7Ly03/sp0BFK+aMkuQqt7WCkc1bF+6RoHyAy8BNo7Fvj/cxMhG1/9E3vV+SnOWLLlzdJMW4s9hQhu1qzcpALLCauEtUuSZhyqyLgIr77gKBctr0KKVNQj4tcDnJsGWzM1Otu50nf7f05NutiIzF9xQB9rfo62r/Lpc9W5QZRReXxggZ2Jj6th/93iKa0yvaB2HC1f8jpEbP3ofJiM90dKzNw6xWqaFVGSn6c27BVAtMpWGuMYm6yQPO2Jd509pBo9vhX0o2NmLBChV2n94NGpTItVclw4ZmU+x//19P+f5q3RjFHI2SrFJozFlSlwXb9xHuCr4gYKLe/yYt8s7ZNXUw1Xr8AsNqPUwbbLZmB9p4ahYtCTDzVaDfXcxXlwLEX9nZUYj9VxQMIG5i+i1BkcMg3JTds/g6nxrKcD7SJged6/wpNEMaIQvuLtXPj9ko3EcqNlWEm5x7RCTl58J3WX8cmGgs9JFF2INvQH0ax0mA1SJQVd1blD2zQbwA9iIGfRYGiOeEMjuufP4LwMSJeqnfyFSum8NhuuLwBBkrJ2d67qAUF21kl7dYIvoXw1p5b52/FoX8V0nxfBfvrUh8jPYiwTqgMx+7sciRLRs+1eYgDLAA3DXcwoHd+c/Im0vgAAADAAADAAADAAAP2QAAAT1BmiRsQj/976hzoPwAWkVNQqXQ/w2PTV1kM3HBK6MEjv4PJsGn9IlW7/ukJReNFKNZVDfKMwfZPdKGpGj1gYuDWGOwpztAmQ934xwyRMdfDIMHDvEdMzsWgX0R29Zd7nhkdZOARbaGDoY57KcJ2JMu/M7y14tWHVizKv5//HeYVogOsjrxteQ9+CGlTz8hNkwRavKYUuqOIK4VLeaWTFk44u8wn80cLwcpEdKlKwVGMHjDAWZsu+YPbZfbKOkEPQj7cGlcA6Pljc6TqJvLTnQgO/EY1c9jPP7UqZRBS+cYqVdhiNYdTfvzzb9EdTIDu7Njh0CtykkLyoGibdJFyjXjfQC9TOhstKPmIOrG9rzvRWelm4wc/xj2hvG98dt78Ame09atlPHdKbwhCScqJgmKs9+GjrVNyPu3l9gz4AAAAJVBnkJ4jf8tDw+LJ8AAK9u1IgD5q+knLuv1DgSNZ7j9fCUVtPtPHMfFjxgmjat8wHApT+CYBj66byRGwNvu7xBclINJANSfYI5TmfwG8SPv0iSU+Wmts8m3KxCpjbO2YPZmbhXtEkOJErMu5yQVIaLWWvGgFj38kVT5ayJiYn62KI2PJvE93AhILhJFqUqOtVCiKBA3oQAAAHUBnmF0Rf80FyKtfTQALhwXWn5HMKOJFou8XyHQQlRt2EHBkZDCLBwRXKG7ngvNCaqvvL/jaBDdky3h7E+vg5wAplOru5dF/SqOP3NcJGmxT+FVWbxDjbNWNYFXH3E04W13AMSkqOob7Qp3idXd6CBz3IbkDegAAABfAZ5jakX/Mzy0Q360ALdwloJcS+7VLBgPLHXjREKy7q50KfggI4snw6SV/YfGRBT/UuG5XajpyL0R0yTo4oSmCDZ4Nh4W2XWVBIcjI/QCnpa9oLnIF6D+Yz8Qzq7nAtsAAAC9QZplSahBaJlMCEf//e9ffwUGAEspSLgh4QPmg2o5oVYHfX+PG2+Mqkj34HECLUa/cYhjFQjmxX8dR67hA3gk/pB165YJho2YmQQIqh0c2E2oqTvrBWBfDqW7erlddqxSo8/VHEeMHrN6fMOudn6Assf/cBZiWHWPzPlH+h06CD+Rtb0+vbEyBes5zdokBm+WRo8CFcKtmg6xT3SsZlrSHGHcl0HuttccH1h/HrBX6pbOBfH4f0p0/qCAAEXBAAAAo0GahknhClJlMCE//fysc3QALVYebki+HCHBmMyQ6rQPj5TM5Yb500W3kfPf9L/dmMIQawe/pv0nYMgjti90uEOZP46RTF1ukVR3OOV1+tgcti3LcV1DzLuXf+h7cemgkrnonjzXlnlB9Xj7YBLe3dL/gLDovTrkOqQD38ou7ENQ2rkKHEYvy37mWtgUMNZKxHWVi1vKLCf0tKQWEl5VpGT4EXEAAAHGQZqqSeEOiZTAhP/9/MByuRkgAcGmKKHUPcsduQh4KYcWoI+x4FCyXSFaPYunVaAuaTBYh3FmOjAk0KLHoeLzf5jC3pNWLOvQ/7/u0qL/nGVbmulGNe7a+XWrDPElhnJGwB8zNIpTgsdBn8VMXKt2pkHzhbNBwwsZ9gNXAMJAczc+Dnd7YisIVb2SpQAFCS+uKTL9r223ey8E5EhPntLcuxcAGLQ/DvNRrUW+7kVvHuVVcsvKzP9Y89q56p20ip2VCjywEbNPrxC2E3ifVx7XAjdQW0BqxeKhxd7ib9nipj6TiyeQWNjjKH9MP4qE2LfPKQ1X9HSfgIzxphyCoTk8EbZ8dmyrqt52JnHUgK+Bp4DSov8kl7gEAZiX/2NBrMVegT3/g57JeQJ7mjWdx46OlSYd8Y779zpCsdXbD8YKf1GhEYyQ6R6RNQutXfjNWjuU2BQU8eww6GfdYXcZaDEJTjTbse/L8vDOjmQd7BcZqZutJB7kYg7AvZXx/V0GmWNKbTa2cjQEP3m2uW3z9cInH7YzaLn+ocp9yjbDfL4Iy/LyN0+XvjaE1SOIajLmZkOtLl0zy5E/tDDBjpaJy4BkG9WpBwAPyQAAAIZBnshFETxvLl0iK1AAuUpNYtcrg68uFSgP6AVO9T4ODIDNfNn/oIqCCOhPPQr2NZjOA+KqmUSAdBpLc6ZWNq1kAMx+b5CQ2r//755TQAlABDXe6QgCCpSYkLQpE6LA0enhxzjc8YnvRAFxxMZ3weTaDs/cXm3nFssCzUXtg5D+J5r/TVYEjAAAAGMBnud0Rf8z9qcUb9wARg5IcT6fzhYE+91xDpFMyj9wZqq2Xcuak2DzFXoHTutQobZBxlUMkZ+Dxu/NWIYNvLC+Qa203cyVJbMCnp0adES024O2G1tWPkM/7jOHSFoyagj/AW0AAABpAZ7pakX/NHHjRjQALcN5++Y+HZlGRasamTV0FN2OqQfzuZ7BzC6EYgGRR+eiX6LQvd0WYKd1josmhOSWLheYLyuyWJph1TwVou0l8vfgVgbiOD1WA+FIP/hJ8wrCHhQPiJbw0yuWOAppAAABG0Ga7kmoQWiZTAhP//38qHtYAFxX7sTjTJsdgyieT1YluaBIY2nUus0da0oZVvlfA5zUenAqwMXf9/AsZ7lb/fSA9KhQ5YzNuvudNk7Y4U9OKx05MUbDJaryipUnqr1niFF5l6D3g0AJ1ShhGoep2gSdaCyyeq3mKr3vHQ96U8C7CxlhFxaNbo2WxTGroZ1P9MAGs6V7We2J0nYqyS7gCl5bw6mZeaMgnPEeuGt6Zzc/rMxkH9Tex+xqWiBkWRFwgkOngATWgkfPY/12UpwmUK/UeL6MP7zuw+g4m6hjyZz6CAPIyxPwucRApO/Eo2HSHO3iuCNxsfIeWch0lDmZjTD+nmv7QSeaAoo5heTGrYOhs4sEuDxTfnGAg4AAAACKQZ8MRREsby0DjioAG/9gtheVQESHpC1ZFrOF19XDY+wTcmxyzdU5iKdNxkukXCejD8sQf8FzuXELz/0bAzxWuKm9rLMD3P6f6FDM8/9XcPtxuLdch8t9O5/pqEzFrT0332/V2e81rxWMbrQmi9xD0KKUcY/s/Eejo8nkIqisfSSQrRFBd4SC2BSQAAAAZwGfK3RF/zY4jgAlHJE3gVE1IgDDYWVyhhKTRynSJEauhncIuqsUqMyyq+7m5LdYvAPgDzYmWB2KMSrm2JSxqEaMbuKnFifiqO+5nO4z4e59PwYkhzuissE80yTKsmtCpI951/IAPSEAAABVAZ8takX/MduMgAW4p+bIpFCJy2CqoKm6XIvEXCyg+LjX8cfxLkkHO8Q+kD2H6d2dhefkp9eZMAFlYGfFl2bdcQL85YOWwhqI5peVZYQt6FZRutwK2QAAAJxBmzBJqEFsmUwUTCf//fwhYMgALb8qcHW9yMDi/4JPJCOLgQEC2p2nBRvURMXCiLBAkkjOXyW/YyV27L7fa18HWFbEsh5V7/Fimu2VF0chph4EoNjS6d4C9lRmwb6VLzdqJuvN97XBTcCduhPVL2mbMn5clOAXWVwFHzCwtLFYA5h3nW5elUyJCH11DNAmzIQ/VCw3Wtfq5FvATcEAAABIAZ9PakX/M02xvcAEptiqbTz+l4OM2AmYsTeVBeycO8kl6kM7rkZ2VFE4j7UA7JUc8tu7cyROA2aJPOXQzfgwqbFmfVtJwLOAAAAA6kGbVEnhClJlMCEf/e0KNw6HyNaQAODFILMJ7qSUu9MIuPmsO7T3m7yeipGW6CiZC4UDXjxprp5ZQwKXUaGETtS16vhfYlVv/TBPiUxwBIzW0ERsSdHoQmPPubCYLkqIdxJX8E/w48075pHcQxQvDAgrW51Om0S+sXxZvEesWN8jrkYAPEZuTeRrqSQj9qZOWJaQJQm5/7z5ABtKi8s/wA/JVh5WEC9XHFYuh/y+Z6uhbmJ9i2MCUuqZZbEGVb/hi4wK4jPBx4/L6iIudda0xXoiWjpcWupRPHEsSh7neO03NvA5SY4SJ2B3QAAAAG5Bn3JFNExvL3pPACS/MnnbmPh6kVwextlvd1VWTJBkf6kAIo5kN6dnA0b4l5dTbkylkS1YJcA62GBA3qH3eLO8f3BpQ3X7yRxoun1rJxREXz4iMckAJ1K3IN/nYYraO0euTK8ZkNkfgOJrmFAdUQAAAFkBn5F0Rf81trjABcQZhIMP9Wau1nyNLUF9Cfmj180VDiL3yJL91GoEEbTSzJi5R3pZPgyerymFNWlX5wSHSyUZBFsAbX1+DpoU60o+1fkY0d18BD9r+uwDwgAAAGEBn5NqRf8xbo46MOABbW5Ij3CKw1PHU5459r6R/iX6NAVpSRbdortk0AfVIwVN9BWrNj2tEUwV7Pm21CR6IdMzM2IZ+zTZEoBn99Ea7S6ANlL9XRYFrj4uhKjiOsXGwDKgAAAAy0GbmEmoQWiZTAj//J++qgA4LyXJW4OStFpljeRX7gPi60p9+SMARiHO/W4vTFRO9UJNOIj46VMcxEzvH442zlD0UX8rXYchol1i+kt6ElinJng/bMwZzsjgVNBsEg8B3yCgeFgRskhogj9G2catnsPXH8kNmxk+Y/DGtX35BcewKLmjJ5AsiegAYrU/TTgNgSuPGRJAHEnUWhiGqAlStG1am4jNBg7kO8m27OfTvYpSjVdbKF0q0KYN33NEqfMycJ4xmJwF9Ahd8AMDAAAAfkGftkURLG8tA44qABwB6lLkXkez9Eus/ijlnARq1eJR0n63bR2h66LEpozyTzuTaYQQW/pmRZlFBpoKnFDHj6EYEsU4189602dH5TDvmMXmYPWtRvbEH5Ie2Xnh2DpHWRVTQGnQjkiw5lbqoil3tzcZ/lQM4IF4CzXW0QCbgAAAAFQBn9V0Rf82OeMAFvypuUMsbiXEwFlcoYcbTHnJHozj+PAmFIkbhOEBU3t7iLq6bhDsbU7PIh6NS81FO+y0rjEe9vLUpy9EzIchY+1W3VY4vyZPAb0AAABmAZ/XakX/NYmxAC0E3S8MptbwLtRGKARyyOF5igEERQzFbrcnK6DwYr3KSwz0Mk3Ei0WH7ufKy3cyZ74aTHWKnFqfl64VY1C3EHmpyYTBt0U+QUSgJ/JM0cVyPRJEO8C6j3qyZgIvAAAAnEGb2UmoQWyZTAj//KQeqzcAHBnntJ4c4kQas+HaZPYbEEalFwWQTxLCg/JLwZGbOfcxqz8WzhRbStnuzbLe385lhp2lC8w4wAYO8ZuUCYeUgPU89BL8rqmz/qM4GYdScQqAKwA676aEPBaj0tbvbZ4xpSeqYaCTPbd/rx1Yo9xK5DSJYSMqsJbdB+Xhe2zPgBe725p3Kp2tyjphOwAAAIRBm/pJ4QpSZTAj//yfuiwA2O7v6x7YHoTk1lCWWWq0ryFdmpHV+liSP6pwytZgdsYyK2rTpIAl7sNGxNtdqCq9sSXUGA/ouqDLDJwXHvqM2MKNjicevKGfFGHtRC3SFSSB8U57Gl3LFDoG8GanKputeNsMyTEfljnUgwWvy5U2F2gkCTkAAACyQZobSeEOiZTAhH/97RBM8nUAFxdGUzK5Zls81OheKFB29tXCRrbwvVIKTSzJWUzWnhUPhwUP2NHMQ+IbafeeSw5ahKBUiOLbrdsPR+NyiB+lh8CatRPCC5EQTQ2MoGgglVqgnA518fXu2MZu6q7STKQJT4jEwi2YYstw8zDqcT6pVbmdfWSee3gk+0/q39QLb9l4xfMqlmRdsCWd+9vYk7jQu/h23JK6ULsa5dSNXLBSQAAAAHFBmjxJ4Q8mUwIR//3tvnQACVEpaD0xaFWnZE8YjEOaxo95M5D5h56LHYjGYQeqY6zr9NV0AajEBy7enp4cLcA7gPEZuXR4QTI9aQ98rBrMLIo9awB41h+Si5jMvU/pTAVqUOCBRfkKQc3doX0H07B/gQAAAM9Bml1J4Q8mUwIR//3ti1AAH0sA56b9OG8jGshQzYQ3C1p+Ea4Ga1Ru7QvpK1QJY0KKATBnDvTiDkHT3kEqgmofnLqUstIG/s0HSRwTBCehHITJjvjBpAMpjqorv7FugTQ2MagQ+9gqnKyPqrUWJQvHfXTPv+OPKMoRwm0scDn3Ryg2g9XN8xP/DIHIdKJkUJj7BeFKfqWABcz7dD1MA1buMIQ/mj2BphGCQRDss8pc5aDPhllCsfxp+LX49C5IDNBfBuYXpUDxKlIvRGm1A7sAAADgQZp/SeEPJlMFETwn//37CrWeh7ai0EAG8csQLanCu752AKbiiKXr4sWDoOgDm04tYS6eZU9IXQbofjowEzfw4W6WbLjEI7ROX44mgkLZkX8W/i0oZcPv8z+QBDQ81aGPMiJVswfzZyN3UfLa3BAgS7wo0myCCRCNZehSgWB2VABdYJobEMjfaF2hex30BlgboOOtNyxue3D4SfuBK67HFq14QnXjNVCzIuttlCxjokY0HUT1/w+pyVtt8plRVxLtIzYbtB0SkJDpl35LA49STst/5faObKiDLv758g02wj4AAABdAZ6eakX/NR+YwAtOEtQ9nqa2Yu4PiJ7UQq0YeIBOV2byyPwP6QP6c4JP6HAStuKWoDyr3YWU+2NvNMZY+tR/PwrKz42BBnjGC9bomhEbdqVAWEGbQhguR2Cc2A7oAAAAoUGagUnhDyZTBTwn//38phHQASmP4QKEo/st8MBtHKdBW5do8svF+6AkG9DObeY+O3lVP151yhVCjjG62y9/w6giMsC9pcosa2EFhzOw45uIuA8RuNyfaPz1IgyY7x0JJU8NMMG10IMTLoc4QOPv2Omwy6ROqwUbn7nlrjOZ9b4lrXQIiU1pP8chCU+YYiapEqkaTFgEV3JHKRvhYYfWmBqRAAAATwGeoGpF/zUdYgBZxv1GHYQrv3nhmHW7C7npYKA5C8SzaBkvaewq2Hcp6WK3xac26oj6/GakaPwipqKgdwf116hXNttc9a/SZvzI8+V4DegAAADEQZqlSeEPJlMCEf/97lW4EAE2nx7MU7i2Dk1zc4e2+B1yQbn1kbDUrDEOwx/nC4+T6B4aI6pnzJpHTavAoQFshM1OluTAdttsS28/nYdbchbYI+8sxhAEH7N8ZNJThTqkn9ezNychl7JgtlfUdxe9oCNz+ZC70zSLcAZTB94y541DPbvbGur6f9Wzhm1tQMIYpP/1XPAk+hy+yxHNaaompj0eQK5dNlePUJ+DeaTiPBmhEnb0noiN/TOcKaz90CvQqdeE7QAAAIdBnsNFETxvL3rzwAXD0qHt1RqHSJNKXdiewWGjt3dbX7KbC30K+Umgquo/f8AIDBNIONazr+LYtqTf+0SRHrOBVvVRCLj8d0zYGwVnPrvzX1RftP/K7ze+/8M+RGfgvFB3eMx7uOfaR50y0LOcQobeXc2uFbBM0rnqEjUsCG3cAyPaScAaAVsAAABdAZ7idEX/NbNPAAuBKGnfq18ep7vuhSNzJ3hiDQjd+MxBJSoQ4cBhNviju4XtUJyKo6zDasVVtt1RfJXZ08aj6ShXpn0bQSnLcXXlNEdMGgExesipolkiGSizoFTBAAAAXgGe5GpF/zY54wAXABCDJ8xeee/O9RaLTCDKAv230oy8uoa9oSpxhFlLiQ41hvy8LKhpqG/ydy65ucMnPKTJ6WMxydRuqt1cEGIaL2/OjOgihwpNppoS8+CjK2WwGpEAAAEKQZroSahBaJlMCEf//e0Pv24pNsCgAW25VF1s/CFAdC9pyoYBA6Jsu5MieE5InF8+3bgUtSCKFpek4QB6aP9UmBtSFXgJgJajRz3jM7KOFRmQjcQcIWInsr2ffOhCGTrvmQTOo4AinR65OIMbj7l24vNyqikGzoJCFLC6Fub2kDmop5QmxmEea+cEKnvKZ2dOkgU3OiQuItNBnDmD1/mvlbjOOyktg0XR5o2X26WMPt6C4b1nP+DCHkDi6+H3Da27QmrQbWbhcI06MsZxUg1nxw8cMjFctuli4wqESEy9/HFk3R9jCpnO+SdnJpIBrx5SMn5bIp9t/1kZ6suwsJgZnvqy/D84/CzIl4EAAABUQZ8GRREsbysLYlxlKgAt7p1jEpEjGA0JBuAFz9L2QQplaT1Se5plwfVr2ccdFxPov1isO9BDN812e7teV5/jA3NeUdQz0i0rU6I+6VVVO6OEgPuBAAAAWQGfJ2pF/zWJsQAs8cS/QYjC7o12Slz+6U8lLKlbW073B3cr7ECtYJwjSsAvtB86qSjM6s5sIh488LuCOhzkXZqD36Hfw6gsO4eGowufpkzM4hPlvR1ZYBiwAAAAxEGbKkmoQWyZTBRMI//97wi0KACZaMa2pjeWc5vAS37EVUg7QmdyJVZHogV4kXGWJrkdvH8eY1Z80lXTwNo+OUdJEiViQNe9Qw7+Cxbhqau7rAHvKB4jNeUhIKGZ0J2xj+Eaq4dj7QJIpSUiDJWGn2mSfD4zxKdWsvY//4pNf7lhGAzePQ2RcWp+6rMxj/8oyRNXEn19pTgf2JCSm4sykCAJUyoo66EUu62UW85jy5AWHiKyt38CPzjkhC3UaoD/OdPeiLgAAABaAZ9JakX/NR+YwAt3LT80m40Rppv6U6RPc0avK+zV+rYnGXSU1m2kc/SE6QwE063tfmFyI/XR1QGq7WbwoTn2SLW0Mk7hRAM6oFTCKvUUsY/ng02qKl33mQHHAAAAzUGbTEnhClJlMFLCP/3uOsYQATcGboClZatxMIngP8smOQ7DPCGDQneQ7wYZ10FOUWIqFwI42PaZH+K3PHMp/6R5gMyXFnonkTZbf000tsQD/euC3gmhsQ7MFz6FGwe2QRbuJN63DKOrKVkYiOdWCPwwNGeaiUmavaUWkY49UUqZtd0NFQtaRYUn8WURH7zbWwD0MaMAl/p6512Xkd3K4e2M+x9Y+tBdIO6vzgeXOHjiqSIvG0i3wsHxTo3f4UClwIK2naJksilqakZAgYAAAABMAZ9rakX/NYmxAC1haaHLGaRAFrSZlXlzl8m6OCdehhYRt0w8RZollHwmVxezb4iN1ibnVsL9wt8wArcJEMlTGJridB0iiplcE9Ac0AAAANtBm29J4Q6JlMCEf/3vS9wQAB88jbPSwYKO5gCBh6/EzlxSb2P/H2V25GFD/nMQpXOpbbATqt+92zTp/DP/7IREcrR7qazyjlSeB4jNezhaEQW6lxejVxMfOfTnbf5M/UrPEy3+2aJGo6ciT+noMsELW/RcXJ6vqqY/WFX7polo9AVBY6xn7tPUnryiDOGqIEifzDKDQunqUAM4bXn9RkhsmJ8b/TRloLw5ibJxZjleDaAHoOoQM5tQOO9pSRAyejhbVbsEkUToI/h54EQFFP024haMCthQ/ytGF3EAAAB2QZ+NRRU8by/EGcAB+BKbwx4a+W/zPd3m+Z+0ZeoBfpyPLaMaTLD1zWlXz58osgMh/iBAActEt4G9aPVv4WjjhZP3mHKsxsWj7eId0tdTo3TSd73cFWKS82Xpk6JmK61b2rs/dSMZux5Q3xiZ49pCjxWGxbQJeQAAAG8Bn65qRf82NJAAuACEGT5kLT+T8N7g6n2RVZtTkrOPm5mMaf22h2366bogRTndsguoaKimDsXf4iW7uUH3PLS3Go5M8ouN4w4wQGMPTkdVbn8G0O+osyvSzbFP4GElJ4omQniRUO3ieJ7DkQBGBlUAAACWQZuwSahBaJlMCEf//e2+vYgBMtVnr81p8VOMCwl9KhNAiK3RjoL+BntLLJNueJuTb+OO95Od14WVuubDu8H+SAlBsQ8rX47sG0omeowDUwmvpnN9xrGXEA/4A3sNDJFFoHsxzMMBZCXuGN+363WJ/ibKyRqjCWsAsCza9kiO51SMuKcyU3WM/+tz/pApO/ToTNkWQG/AAAAA0kGb0UnhClJlMCEf/e2LUAAa4ow/LrgJBa69KRa7nNutQKr6QsJxP+7Q2tcsYMzVkRLlcIcE8Kqrq3ie3jN7nvCDFl//xdkB0HP4EM1dMqTd9APclJYG0G6mjndfVruoN54mCsMFzVm3YdKU4nDpJzQhBKM8fnMO467lTp74fPiys+eZeCVG/B6mTHHlKNZBqJVRGvzkB9NfjncVt01MsQJjmDNh87le3rARyBMLAqNC/YjAMYNhoPqHsk6+liwm8Ar16Zt67kYSoKUcKEbQ2lsMCAAAAadBm/VJ4Q6JlMCEf/3tBVUpuypghYAWi/p8c7CVYX6qhjzyXXCAASPbgxJy3oR/ywCTSebDOCjbHcRMT69bakih8A3ZXDGlGDg7TsXaZdcXjGFEeFaA85DabScgy5HbJoDi3Z5ZgRGAzlMxs7pTjDrqFBc0cry4yFLqyxrXQVjjOVxCxbforqeZRbj8u3QgArOhop24Bvikfjb2Qz7W4bxY8xD22nPoH9KYhxLWvr/LL4r/f1vJ2AWCPFS7W8uZCwU19NAAyLcmbyy18oovS0tyNpzV/A/DpU6CFucfceQN6uYfBJBeHLh7VJFWjToV+RKx+3MfAmu+WjizKVqmoQKJBYGYHJhflVXGwD8q9pS1Kv3kNPQi9hMTJaLAw8X9fBa3aZy8XvRuCtsfR3EIWXscJXbtR3VJIGzhsyoC+6SdmzLErA6Gn1FbGOVBGRryF1sqAdBWQQDKKM9ZxNOtJU80CnyLEZSNPNyc72nKfaIMhgJH+N+7erdBfC4ICnY+Pk/L76OzPyyOiTYe2a3l1IYmsg4ro7hXQoIKAFanKuKwaAH7dNjmGfEAAAD0QZ4TRRE8by8AiABcCyxVqtw7nAg11f+p58uos3HCvLPXiBQZ0hZhDEgVfsPgFM+r4TQhrvVufSDBPZQzoqUYm0ltQzv3fwolgzyAen17tk0TYHH54z+Nh2Ah/r04NudL6NJgDqUmmNZWfg15etaIWdQqh7cdPVRc0mQOrzjeSvU1xNjFSQBB3rwXaMiWA5bBQ4pkTnwQUsR9uqEp14mAayQRWB8mFK0sm0o6sCKh0+BX0RmgnbUPmk0Iaz4xD8ZFqJYs9AovSod99sJlfMyO3lMAa5hb/lltN44OlFfYxyb9wj34LObzvNcWe0ef/Zw5j2BbQAAAAHkBnjJ0Rf8065DABcBDP5fAUllTP0Eeut5W+IAv2VroEIBUYZdaqDTMI4z/+J7amltpD7BMR9cE1ZuTEv825Gd/AFfRdK1tbhmVAJJcHrKrihtc2/BTvYs++35TDQWiOW2zrhfNA01FTMJ2v1rTM7MGktHhWxu0fAZ8AAAAoQGeNGpF/zY0kAC6cqL793spHlLzUnmMHG0Tf2ywgJyhaawWen+XCU4sCpQkNEFVL462QitLmuOuKRBiduS48KSd8z+t0No4bGvV6SgygD4FFpMmviC73sWYbvHlZVtTf9aqRDoEIiqRS1O2dsgq+8ug2SFGsNB9qrCJKMZqRbnJcb9j8Prth2PFiE3I9QtfX3tV7u1UJh+9mMBYU00O0QNnAAABG0GaNkmoQWiZTAhH//3uOOigAtUhX6yB0rxPe2T4Vd7EE9U35NF9ukB18hTTHclsquztkjBeDtzcZMzobpHK3/v5pAZVzip+m2BPZmImGq44dHgnr2fCQ6s2JiyozIWdsu7dWCgLvK6ApHsc82/RWZ+mdktxGHqwrJrKBjpM5iOymPIM/2vWECGMGGw5T1R8UMFDByUMS9+iP75CO/Zgu1jLxsrZlNTmNQo3F5eBnU/XU6I0xkRsylAlvF6i2Zx/OHb7Daqmwm1pnftA3LRWvX2kpA4gtAy1lkrO80XdVFI6/eJdaEtnWU2sJpafqWtKae2Xgj66TCN9Z8KlXeN8H9SxmGTzda9UroAsiIrlj3l52gY36upioMIfwyoAAAD9QZpXSeEKUmUwIR/97Q8qoK6gA4NKTe4/tZWc40hetKP+MAauBu8YHaJDApHKlmqnSDboZoCW1bh9bcd4JobCnnsrKILwBoCH61m8zWeFjCTusK566x001qvo3RKDAFtSHxYiuTBrQcDKjwKvBk2jkDqP+IODDyu6fDYW7t/HTsfqDwqIUIjv1FNcSd2bS0ZJxzYH7+nvN3vgdmofY6q2v7VA4Qe9B+7DUCKNdlkuHNOec+7dXJW2b0S+ek58LB5EcPA9itAmf0AW+5GeNygEIjIpiaGAMr5uRS7t3Bp/egJEMTA8yM/IAl5hVur+wZu5yQgHFRqZGvF9g5FTgQAAAQJBmnhJ4Q6JlMCE//37X5MAEqQS7ICM/MO1oVPe8lGV5p5QjUsFBrqdYZlq33PG/9zXmDlJ258K1ikWOwESGo0y1pGs83QkihVgIDxGaViyQ9RxBgUIBXSFcdcZaEZVt657k98VNNDOcIhb7j6sFX4tLkd/7TnbN+nW4wzadwCJeqJHuHXWThxxaamMxobKHmXL9NTc7r5XhyJ/jXgI8wi1yoyzEroJZvxgpejkyuX7y5j7cSyzfkvsyJcza/47cRnBJsbVvkyANLnx7WFPkSQciOrvkSRNiTbLIhVCcOfqv7AsASCashLhQGNG+LSBcwXj0LYPsobIe/NvTn8O57UDBn0AAAG0QZqcSeEPJlMCE//9/JIfgwALdtdXbXbJBXPBecC0gNcOsXnHEF2FE/ElTTrbovCvuqV40p6cyXplabeF7Fu/H2fiAitLsc9hm0v7XQxlk2Lhd6TgwTFG8CcOQlG/rfcuvAii+QsdTcMlfjhXbQ27Ghwou80XRXWeAlBsItyrg4e8DacJTM9NHC5AqBYZQib1ACqgBs1H6hsHWuGsuL+gGlXLGACWH6rEvuqw1/klUgIZu/vQU/Q+3rgRNAG1KSKYdB2k+C+KJpPhIuWMa1X1+1wEN9t5fIbmRYcbJx3c9RD0HMUcP7QHGZIraU4qnDOyRFYes37AtJwdaEE1nXMtg4XB3tMZdLyoGZRjS6/UfaLg5Dw+9cfNUI6jI/PPBZzmIWb5FuHQXWIkC8JJ25Def6J3q7zjTFiLxmZ5J0HgQmIrbRpTTZDc068TqLKHI2ok/3ZQ/v6RU0hp0evr5u41v0ddIJwoJ1seo8+WA+GhpO4f9krKQ7tXDAJNICcSen4VgPdOfG5myX6V1jMONF93eanBTmv4njs9036vh6KbJ+lWWn5gO4mh3zB5i9OCJdxYHtyBvQAAAMNBnrpFETxvL3pPACUf0ZsqsTR8KXF9dPS332N2e1qPk96nlKAWiMBxqpZzFqIqe05U3FhX2cL8oXcJDu5I9x3EH/CC+wALe5RW/Ou3DkaFA0lgj6SXxhxqXfESM/i+e64no8dl7Rdc5KFyZEm4NESVnVZpmjSjqeFvrzcDrAxX0iU630+2lYSs5t68zqAsRl3vxMdqhNkl7uetSgLhWPe6Hx45Hv94hWh9uUu5aS2eNqS2fjAn+qLvYU0cpLCbWEywGZEAAACKAZ7ZdEX/NOs7gAlPb/DdlubddDjqTEY542AbUAxsW+RwNiPOmUxwyOeH63BHq4kYLxlNa7YFHxHoEBpawTEnMUYIL8qaLCVqi7SmQnFI5job0sz3JfeNqJ8+skVPVkH0SfBPDL8gwwanZOUBAmry9crkNWMV1PrK1B5LVpHLwvtqNIdr5Jn8EBLwAAAAgAGe22pF/zWJsQAs7zC/dgDOGiG0bEfKewaf9rH0zXxASl39Lll6PR6glt6h0g6l8Lo5WPa6kS2Dgwt8ATVnqGaG6q0pnyjomgMbT37Q1xnzzeYvDl+pRGu9lEIMTRbzcvGXw2gTTd6RRVfyBq60gEg2S19LmFztIX9uBk9HrALvAAABS0GawEmoQWiZTAhH//3vAfgiABOBoZ3fbPJPFDVo/mnYvoTOlITLueQfjYMLvSCeEk0+6n0fcLGv16/fyiBkpe8pFWeg56S1/hFp+dmBned6rfqvShY6wnCkd6sphUAPEZpOcyMOaWMrd79jqvIlWiRn/2S/FsL497WDbMO+2KFeSftaP3MDjqnzKTROngCQhAI5038ZJ3DMtwsm/LC65KL8UMGDHpjXiRdb8/7LAh0KhoQyumNEDuvJkC1HfPvDvINFuCTKOdiC9QGK4SQlOL6jlGbZxBwQ+BgLINOlwhdc8fHSyIKEVu1lVoiVnWrq0OYnlSZoYKgeeVyPSLNKkNNLRDYXzLzTRUVaa+PIaqpLx+sWEkojZvp2UvSV6iKVqKIPjZvFTqFESfUFK4Ehjed3Kp+Q4H538G6KdHiWJ7zC1FnPFiQZ4cKfhd0AAAC2QZ7+RREsbzAyXgA32+lLkgUk30RHL0MzX5+CNIpah48RUg29XEK3XnwHNWDt5votjvDPnuPcc5xsadhZCW3zplTZi7uX79oU2wnid07Vg6iC6NNsbuDkMi6Sd3Di/IMdDQhyqUm4xHqvuECzhJOuk6Rf2GHo4nkjQPPRMS8wfF8aGqo5Tt8zCdVZL0572wgLpfWlptpOQWP3TCUYZsYbX9fjjUW6SNC5XJNaYj8F8xBF8F+AZUAAAABuAZ8ddEX/M3kVGgAXThnD1Wa1oLr/v6VbwIqFlaSIlALjLxtDCa5okoHq/KWIGlAZil+if5wboq5C2vxXWO1QgzdPsZHag72pYRRmVTEE+KRrBiabiO/vRn0Q8hxpNeTLK0+GCHesFIEpOd8AtoAAAAChAZ8fakX/NYqGgAW0Kw5jwFNsjQnC6w/gJSKe0XYL6YriMo+QZyqnRE9eLmA//N30YVu8lfkThK91iblfgIjBIZwtkPtmMXRfQuNYlfxnpE0RxLONoe5QZfb9ZpzGiSmeEdjKHwPQ6lgp2Lpikl45+8EANpD8W1m1G0o6dGgC1flKPPz6Pmz0VffHgNmOpl0TFm9l9JWtsA7X7W+3MVscBvUAAAEDQZsBSahBbJlMCE///fwatz4ATLnfsL5w6yrS5K8fnfOcCpjnj9IANEf/ots82do7Dc/igohRP6x3hpe6ZgMxw/gE1FBPdEh4BPdkyMCUGwAFffBrrNXxaqXub4cmPXokLRJj0H/oGHVuYnRXBtX942wNfPoZYjftt3HpozQAAwglhABjgZi0DnWyIEXvHaNiqmNGcd0mwnyff0vXt0M68oDrzCFBrFSESpBuMiqAcMTjoh8XWzIiCJ18WJ4+mIfA72EDaCBTpuSp61W95owTUuzP7zxRDUM3VVq881IT7uscSkjrgGeZ/5nH7YI+dc+qT0LP/6w84Up8C3sQYvhnBfMImAAAAT1BmyVJ4QpSZTAhH/3ti1AAF6ovy8YT1kiLi0KPSMsiB59g7tTait10LqM1dTZfkRWJes5edgMwgGmB6jeXgZFtRRBmfpLGXsLQBP/b5mZzlq2pzV7ChIcz+lRQKupIbE8FzVl3WNM5IXcnr0wn+vKGb3Uyeh82EEU9BzVngU8JdBblwx3PVe5abQ1VdDhJ+qlGukQVdJVt9ZaOUAk2EIGvhMMOjSwAz+a87BSVOvjvFH3g9HHHozHhUHGL7tufiznW5kxAUmg3UQFMaW/7tYP/Pzfx9wDOcMdHmI8KIxd1SmUZ1wQzFAMtSZRyBJoRldZidkemCTOZwCtgkGUfQIaTfpEM7ibRY4TdEMuItGLXgRuAE6XYscnpukX7duUxtSZA+OL/zUiDgi90hhm2URvtkR4rQC2CorHvCGBswQAAAJ9Bn0NFNExvL52OUAFmB2x15yUknOoRpEtXzIvW5gHN1oDzo40VK0THyMFqITmgwp3FZioTD6kp3OLKNDN6AKx8z0GbpfiVCu2phEX8lMTG9WYD6dbu7zLf0f/RQi1m2ybavZGbWvbCOa2s/8+Ksl2Erq+q3+d1+GYsDEutSDczbLzxRLj+eYndPoAGw76TIwibiRNosGaaf9Cm3a3agakAAAB4AZ9idEX/MxOgcQAl7oZcDridHXzezJD+nOepS8s4gPQrN3BTaSm8ZKktaV6QySsqZhdmHZfe5A11Jcr5q5eovxTjQp6EAjWqFSoSVfvWIyKzLE8meXDY2sIPGsTz3ko9ADByEg9Bis0ZrJ4eOor59QUQ6D3AsB1RAAAAiAGfZGpF/zY0kAC4gKACkK1xkg16fVL9ICG0mNll2es6bqaBVyWKj3/KwgVh4HMmWWdxgauAEdk8+nyqB3MB2UL2VzkeGuYFYlhs/Zwl+Nym24yiErwi1iikNELz2hmo1dxDTh0csWiLXOfqwCJOMqgOoYK3FrWqoGRFtnA3uuKVO7E5TUQwH+EAAAEYQZtmSahBaJlMCE///f01c1C7/vSoABLGO/x7gFq+e8TkDgccXBEzHfIpDI4NINoHvy6tIYf22PlXoujpRYcQExK8GLJoPcXVidsPv/R7SwWv8jFPUN1rnvaf99lCjDjFXR6/shNtsEMH5GIPu5K1onuEqwDesQTglVzeyNVxaZufWavguasmX7NCe5JdFQTrgak8ZZiUxmblEGu1jKcN6VmklkuMiiWsgiizyPNX44SOBAAS3p4Fnp+NkZ19sDjtF3ifctNGSjOJESu7dpBsCN6wbNEMNwbCTU5FYdZ7wDoftG0gc3ahHq1NQ+efXaKasaC/8eURbb25x9bLC1qHetTzwBkUAu5jlyPybTgyzd07CAQn3XxEXQAAAThBm4hJ4QpSZTBREsJ//fyykaQATjfvNFc2slWrZ3LCxgl2daGrp1jeif4W7a4BIU/NU3VY4Jrzrr/wAsotvtl4bsrH/pVhPc48l/FvP7xpYz10hxabBkac0CCGbAi/PLMW3NTv4/N+YAf32iKtEVxneyhBn+67gt6dnhk5TPrRCCBiQ/syNlZQ6oIHD3xqWmkDcLc2zlvvtGJCXxFik20dPxjASOCXJ0jsKazIM60GpbjKgvyX9Ajs5q4VnohrF2uXM9w1LnKZ/hrVfWyQLvXj3rY1xkw2hFB6WGsbTQCPb0kdB9jIsRofwAZD69f1UtA11L6uNSTId20EJ+ilyEgAAwHLFZJLEqOtzzgE1kMeWdrTs7tBYQu3GmRQ3ix+OZjHQZbKvPT1y4KIfFVL6dR1USMkAXMIxYEAAAB9AZ+nakX/NR9DAAWtTvK/UF2PHpQIreRtTG1ZyK+aBOtH/nYZsauSS0g8h12Wktm2NFnIcSa8LLyCAaqUr+6li3wtAVKysuOSWr7uDsDPNOmNptWnQpJ3ee48C8iaS5L6Ma+JqTTsDvEhehcaYSKZPfT23VGBP3Iu5dBAAtoAAAE1QZusSeEOiZTAhP/+BzlSk8762SAFninkw0AU4dHYQH64iL3z+dc89glD7Cbyz/o5Ft4QEoLZavQzxe7u9yzUJ8fUYVwtGPJ5KXcaCyBEV6duELvXAAV4TY8wZNSIfyahkuQTQOlnoIQycILVsB7dGvrJg7juK7KTPDASydo+wDL9CpQw8l0dbNBXOieq19k81jhD8tEhDuuBz2uylRzNDcfNeTDQPQqAT2EW8wZC46el0pwTglsjKMfRkSadcN8PEPBIptAwMYNRRZVk39gZEw8F2/enKuw7ER/RsIV5R6SVNBJhtHVEO3P9FEepRaYQfeSvVPhRO/mKkhVybtq4Xcpa/Pro7qWwxfC3UxEatGI9I1zGAkUkrK5JU1Pr4PhKX3L2b8Q1WdYkQtYR5F/FYKV30oXcAAAAvUGfykUVPG8tObW+AA+2mqPVnvRZI+VTuLiTIWxwMNA5O/xVa07m2S6UNT+Ip0dCcuKrsRb9QurAsn4HdYTCL8giJ80HxYuN/qebCsBz3PHW/R7822G4qMTFRgie3dwCevibIZInKfkVionrm2vCpEDNVN59Wf8wWywMs2XxGJI0eInoat0V54Y1nDhqqDZkpTipFmUpBa1wAR7b+spfwSxaTAx0G7rvxOsCDYpYZaMSWC2jEOaxZ2FNCYwGLQAAAIgBn+l0Rf80lkyIgBI1z/vh20oH+o9CQAZk9vUyyqOBWuu+bGtervovmJ7C/q4fRcnVJbN01Xm+ZJSOOxBk7jDaC9ITzLZjUXwtIk/uP56qJus1UnFi8/fJlXn5O+BdkPOgOa8i8/DvxvbfhvZSY0wHPGNtCyiu4pxdaL41KZzVOQxH2KV+zAd0AAAAdgGf62pF/zGK3SJ8AC4YrO9HRMAiArK4HIrXZIwFuddECBSwS0KYtoRUg32xepL7tJsQgHahduW5jl6W4/guPFrgwKIEksU9XyVS6GBdyJ420R8I1PZrJvHXzIjwJ28h/TaXIUL8c0RCMDayl7HLs+OCu2JoDFgAAAFZQZvwSahBaJlMCE///fr0joAZ1+NCIQALiZHgoEB/6smmwHhnRhTLirI1gtIN11cZliNXI2dTEKBDiLB+flKv0NYLiMnMXn2jZo08RlorGnQsw4+WOj+4drW/M0u0tLYTYlBcMvxTMTqRA5fOfKzR6VzGiQxF4PlDnuKc1xgO7vWFGGprqQwo8PI9mUV28IEa5qpnEaDWQ2cLkqG+rpDBNDYB0SH4/P+LcKpl2x/YCpA6oun9JyWy9fN2UuIode06WQEXHdGBHsJRljGsB5QQzoGmGm6cT9AW1Rwp9jTpW1YDDDItXkEjeAjW8xKiycWFRZnznYkMbV3I33Gy4R6stI85sYHpgsLKYvxPo2vY76SZ9n4VBAgRKcLjBjRtzTz1qdCOmkSUc5N3KUPYG3iVkuPF9hRjTgWp4mLlB9Y1KyY0Hic1xcAL/XwNvbgNaL5t76Sqg7sihAz5AAAAtEGeDkURLG8vek8AJMN5xyrZcIOQXAme8afanT8jfDSYq+DQiXZ8XTdsUVZsIxn7szWvNCUXXBUhEeJRLKQMxW9Lqd7e4UfCjfay2MGyMNQE6YVm5Apv9Eg6D4aGhDj2stOmDL5/iyMin1NPqSw70YsnTD/KmS4WQXecWwEJ6cCUoaa1875dunIjtZzxPMksITclFf+JfZnQwilNEPT2yjlYYJXibxMbO600SBKthZWgQ/AdMQAAAIcBni10Rf88cso8AAXEHt6jQxLdLV7FZi/BakeA+sSj+P2dkxbTIa1HvPdpE3iAA3YL0cGh6kjKhxFr64lPXqynGzqkl3ZIy7IUL2O3sJ3TTn8klAEqyRdDt8SQ2TnkD5TUXsLjQjQ9BP0hzxYvzjzi5hf8JtDniYUd4I/RN+Nb6NDc5UIYDekAAABlAZ4vakX/NYmxAC3XPn4o6xX+JWZ3tlkxgL+OUuZ6IahDX2gHW5jJbMuQZKUO/1RGLaL70b7frUbNzh30xJbcUd+SNhaU70ATxa0JU5J/1rCLM9d3XOxx4j+AGUKdwRU/I1MAbUAAAAFBQZo0SahBbJlMCEf//e2JhQAWpT/FpNz8bBGVaobVnom2xrGpKSoEbL5qsprNKPpnyw6931m7+oaIdRocwu/fb6LOfVhH5tRGLWPbWffx2BNYFpSvWI4lZ31x6yqgiUVj7dLwW9YU9ECAAPEZmrA4F/4Oez8zZR2OXZj3O4MEmPrGCmwNcA0ZmpY9ziDL9dLm67woBk1kkHrpEgscixvwlab31vdtm83vA0CG8z58cZ8v2YnZ4tIs8XR3zKuLI65os33gg2t3akIUevcjKL06wbYRKBiEoNGNFaiYknrOZgaYxplliDa1Ji9xYVquwlnXjt3MPotMH9v7CQAQeUs5xdnO22DsGRFPCcPWWhlOIZ5mBrYvJv9tj9KHePrC6tFHRfv3JXEcjkT657YtZv+zh/RSGmON/1wg90Zz/yZw1YM+AAAAsEGeUkUVLG81xl3onABvs4/KmoIlKru8xeB0az3PFK1eqwivkYgbTANovSJT5sHcNdR6mWglsJj0RkwJG1w5C+Z30XmyvA1VmUpBhNusNKYOxzwtGHeCTLPFc9kaRa8wcok91UKQjCpkpTOArLjJpfBZWyRrLmm79S3cXrn74aijY8kdQjuBDHGGWo2pDmXv6Reh/uFDdSjb4yJQT6BiA3pq7sP9ZkWILcm61CAj4D5hAAAATwGecXRF/zTrkMAF05UZU+XmL69OZXIJ3R0iWD8ngtmUmxLs8i+JbLvApDK03XrgxeHYiWTjIz9wYNaLNTASnRKM5TUn+Lk0sjovDVsmAfMAAAB4AZ5zakX/NYmxAC0vHeBVIB92FBSE6dKr8uH+CdehaaQ6x7eBTd1TzTDfDiSQqMoR1hDvydYm41bIMkApEg9KnEinivSlDjYycoc8LRu5Wawcd01Xo6eo0xexb//ppOBc6MIOWI10urD87ba3Bz24kwRbC5sJlAJOAAAA/0GadUmoQWyZTAhP//36+7c/nsAC4mTqGDnhYq4B6Sagcjgvo0xlE4pQgrGD8jnwhuAcwuAteFA2TW2NfnGPGm0u+7ylZZH3tKUekfZn/OgY4T25RoTse52+33ASg2Bdpzo3d/aA8AOjsah3xcdWYf1NU9WvGYcP5LNAYEqj4OCGwoQJDwe/ZUXMncScbiVQZrLjeo+uXLFzEmucdVgSi/BbmDdgX28hWEQqAMJGUA3n+4wyabOjYyvUpc9qUH+ip4jmona5jIVhXOGi8+SFqgYCelXmZXHia4jCO/E7Q/+1A3FBxYudfTSSVYKtYYormxTEYjepurTzG9Z7NKw1IQAAASpBmphJ4QpSZTAhH/3tiYUAG2PVa+/Bop81Wfttmp5KFFKRWou2e8G8WYU/87D4DVCMmk8woq0aK6xya61Wu2uilYvJ0t7jCFeNjXcca4LmrHVdDG64C9f8cI0hSX9VYFvQEoBNuB1CD4l1jQDCehfCivOw7jOdtBBVpMAptp35xwFXjN0IzlloySOp4wL99tlpbIuJEoighhvLZzf3IrykI/ipDrYM3IvZM1X2dxApXFXuTCbGiln8i/10GtMwv8OsOhJXEaa79Zvk2mX1KJc0TPBGCawvVeiI/MlH7YKhWZRUFgc9gVHl5UTjNZYppijqGee5nvm7SnQmtAoJWbKf3UHPpFVbNhN+VKFarjyrPkptHuCYkbboac4va+mEMSNCWJP+x9D0VkZUAAAAb0GetkU0TG8vBdwAWnRz0+PTGf5Wmh+jFU1V5nM5B5SUfT5F1ha+Sc4zjCc5RUXJcFELs6W6Eg16B+L0/HiNIlnAKEOP3WcrpogehUgYsIVoa9q0S5j7wrV501qeKjuVgAlnFxGRIZeFcZan+xoGfQAAAGsBntdqRf80MAJjABcPZW2aqYoKsKECMZZnzXl2VIVIouulnEr8HtnHO1MhD9JULNcAYUPzV+MsTmGVonCbXIEMBSw+vdahgI2KjEIhvarq6d5MZ0cBVsltl/UDxUryZICBKc6FUop9NtoF3QAAAVNBmtpJqEFomUwU8J/9/BJDdRgAbmpM6cnkp1PgSlC9NvktlF1LaZGEhH/Gb6ELornQrb+evHDHzRKE9lXVNp7vu/x9/LbtRDf4MMmyYP5OWDrbHeBRRTm4qzPPZ8BfpXPnXriwsSrQNSAojsx3HRSGgn977+87b5bi24CeR/GB+0mIHiMxgJulBlXeZrzYSKtGEPzzwgpquxyrZ7xbdqMz5Jk1B2b4u9UN9cr5ovRoxz4L+Dxvn7di/Z0zZ7mus4IX3vY5LCG4q4Fgof+zg9ELM2M2dC771wxzmZZVOh9AaFnKNVGlemA+m3d4pYClq/gESkFwskejMRwgOVXregFee3CxrwHnV1D3d1Z8hyFZZNBpLGzoWdQSg2pQSF598WsAemvY4MjP195Bf1YHBD5GaJ1gc/VjdiglJpFH/3MtOeGy77bVoMkUAvySOgQ2ACREEZ8AAABoAZ75akX/NYmxACzxTApvMWrZP2B82t4CzFAm6ghobJBUaNfcks3YKHqrHKyHXevx+l8aThegnTTRdgGDgBdraPMp/di8oBGhRJ032NHx01VeyX3T19L1AGNIj1eOZ9UPUGFI1Su8m4EAAAEuQZr8SeEKUmUwUsJ//fry1/PD4AWtzpBqMt30Ok2yPVzKwfIkan3nTvOwkOUBRWQ4UD86EWbrCJf7HkmYqr2qW78nRe+ffKWqNPNrt2qUISZYUhoMaO1HOt8/78ZglBr6q39VMEj+Amujn9ZgdQ9S7bHzCEYMdZmN1JfVw6euGloyeYmafIgJ7h/ERN7CRUxmdoy+mIJxloZ0hFSPKSwJ+lg+IHFBAovYd4fdwovoprz5Ef0uf1yuALD2f8wDeb2jBSNHiX+6gM9Ms0nW/w8qOZGMMifJ8zpVpgPsmXWTMvkoOJ3WDld1gR+AatDqAdE2LUBLCnQH00Vtyx5L9lR61sHOIfO0h8NbHaTtHB+wp6695MVVV+qIfoUV8mWYuhoohosuiBLGk7+dtn3YlYAAAABvAZ8bakX/NR1iAFu5VnH6/8t1WQ0hvvA9kS/ou7Fe3ENd6fnHdZdSUc3055vAb2mRLW9ul+AffuK3PeNBhrwaFpUwmgTQOahpx4BqgL4A2DmLd4hrqRPFJlDds/WnL2IdItZ2Z//Sw3sA8wHbYGfBAAABIEGbAEnhDomUwIR//e2/b2rqACopTlejZia/pbnQ8QrPjtHiuzRLgoxz/7Zi/BIT68sFLy2CgnHzKSE6lKNzXDN6th8JBNDX1YavI9n3CqOY8zPo8GtVbObuDfPRkCRnoL5QmnuiwgJKg0ip5ulsXdwZaxPgxZrlS3eDbzewT/j+XwRLpUjFxfhJoQjsO4790wL3A5hz/57ofnf6HovZ1UfKRxA3YD748MFdOCQp6rfs3UUpj5z8LQwWUnibW7wMPvP2D75j0Q5OjMQUkDZJjRpZI2fDN4HHTPXH54heeZoiR6JJYi3c3C4OGJm6Sdx1gd+iklael8T3jOyOZKnNWXF+PGRzbtU5C5bLnX8pqnyLc1i5divTCC3CfjVsWtYqYQAAAIVBnz5FFTxvLwNCgAm6glI2IfqvFuDHmnwFz/CmmbFGk147ik82On+pY8J4aPL1i1pJ6UAyiCYG4MgK/9aCCoiouCyrb5Pbnr+smef/wARFxDbUHn0gSxjZrn5hkEQ74q1qNB37Hb3vNtVszX3vpUBkYGDEqtluQhgXs5CT7PS6akHrLi2gAAAAcgGfXXRF/zW1ZAAtxVPqV/gzrkiRvFONdVodObyoKkh4hnK/wJpuR5Y+HLdKPgGpaUy/m/eZm9034vxPMWaEw4ax+/16zK15eKbnCYrXp++vOx790UTiLryoWDCUtTeryaf8AjLTkVcVEckQgT88LI9QQAAAAGABn19qRf8zTbE+ABcL/5fyN9qAf2S60bAPHuY1T+rVNU8NMjWsnsKG/Z2COTNITpKX8LBEjowUxLoMHe5umhNKrdkGNaWn8eXocvptr47ObSV48TR1iYi15mT3SYYAb0EAAAEFQZtCSahBaJlMFPCP/e32WwAJrXrgQeoBSK4/EJi2DMx2YQ7Zzgm5ZH6Inz9ZsmVJu2fuV0QZ2a8/MP9mHjcya2V/B9EH1Baw42QfhIZ7a4dIpcKTVcDRHrnE1tw0ye/K/zyEZYr0wer5In4Qdk9MR19gOeQ1JAR8wQajoBt7WtOdvxz3OElbJShoNPNAzrbcTBNMglBwUU27Lyz9S1+lYVY3u0P8p/QQIVeBOkBQUvvmvUPiSsauPZ2mH4OoSSEoKuJr9a1w0pST8+nqwL6f9t1cl9xJ5BSWLhl5FNIbs8ntGQd5hOi9u0bE06UpBh+E0NNYQHYNzdU28oxjSxzuTMK4ZGfAAAAAeQGfYWpF/zUfmMALWD3ZAeeynQ0dg1dx9Axq9QnB1A0+Tp3rW0S8DGe2cc05fHvsL8wkF1P8pQVvexMQw+ZI0ALp6Caa9Ky7tYfYOfSkVfdItRh87/mTOcyzc3NIaZ6rMmxGvOrQOPYBHIV/FibXjjmLC0vT5YF4EPEAAAKDQZtlSeEKUmUwIR/97R700t9nTq5P+LgBLkVHSG58+zWTzV0XyGxKfix2vuTofGp4PrWEP2voLGHmcKf6Hv2nV+CmqVC90aYQmESzfJeA87fm3bS6nNO5E8YQ0Z2k9k3oyJFfqywf91tvXFj8BEoPPL93038cBh0NomLxatjEWGpc/4XR5x2unHQiJT7Qp55MhQvQNPg9YeKyg+qbY61dFa9GOx/MdbbPj21VHgM4aoFM5KSNSGxtdIh2vbVTKpwi0HAwJrWaPsBySNqFGuBFFhZXCtA3oUFg5FjlSJj65/mV4s2Ncq+/T0bRys/I6/suvdTEGVxXacTowYMVsK7Dj1EXJY2Enwib2ibYVvVE8g3UmwMh0mGr/m2sTxNvFhJybIFjR+RbQZwylFWPE1qZ/35zvT++Jz8sa25mJjOUYpcmi4AhuFfDgrdcvkrrAylH+3ln2ywpppOOctBX0mpVtRTmk1XGzsfgZLvUJh5PMxucvvlzYe/VmXM5jJNfENmGKSEYv/XJXv9yX1G6hULhxMu3sZjstvzVmpBd65B+Elt7818fun/zEAFBU6JLzwlyK0r822aolMRpjJ45ulEnlTF4aKbDkhAAJRQbjeTf2dsQ4br6rmBwcaTktlzHkkwSKt0PQlBsrzCqQorvmrPAK0G2HL7t57aYrG7WsfsxRUsl8dGw2qcad5rojPcy0ZhDvQ36IIot7JnsvcxLyLEXH3yMbUpnKcP8XlE1YMd8iiUyurUHLtCGWOy/mzKGChpyKTf3qLcOl7w9j6GLYaM11R5hFjvwz+PO/3FcjB8khlVMF+qrelSt5hOVDYhMA3V3Azmw/Hwtsvj4QP5jkYFjVQBswAAAAMNBn4NFNExvL8PaQAmn88vaz15quzAh2O98qoxRiFEFr3Q2rVCwGpqYTKICl8NV/ISTcANQPcAQFJCpN+D/0myfYsJM+U9aSg8Ln5Ba7GIKMhinOq9Wwg7nktOwcWlvXVX7ArEwi5xYj5p+ISZw+Qa2eXBfr3VZXiCw7qy1/PYpwPsxZWyx08ZNYFPsblMndjkADTNjwmnV3O7324pKlsQfrLvS1i0776LPEcg3yIwXZOFoiUsnzAbq0XchPQu1xhzoCHkAAACVAZ+kakX/NSPnN/3tAArNN87sDJjq5XdpdW00j4RcHYlmd9dK7VstjA3NlvfERgoP/q7PtoojNg8CsvC/UWpk0kSJqfAWE1Om2qfnFLTb3OUJAdXkIZL30L7rlA/S9k0+CMBui3U3ldy1vr1qFo86AeXmMkxRlQg+aI8bL1fbCoFg7w6V6o/KlqZYFIxJa9mLcstAIeEAAAFwQZunSahBaJlMFPH//JM76kOt59sAFpj2IJYoF0bCyAcZErcqnmOOqMbXGARxR3oa2SpjAEX/vIvAP9kya/32LOS+7qq/nU3gA1+Kfe3nPJ8DgvdI3eKkcVDN6os3cma+BYdzwQ2A1zi5fzJM/wZofitbjiGIYPy1MynMuqzNtz1w3pQ+5+ulUUySgVK4EGcudq4EK4eQezG3ybHYp1F4ZjgcIj1WjCsBtsej7mltBaRDvk39aaT8LdqaDJFsEc1iUDeJaCJi5IQtbkyfkwkkXmMcrPD9VeElTm5MfJ4NSwdYMelBRH3hv5H9Cpd+u+xU0+Nxb68Da2B1njwcuiFvqsTk+G+5jcHE4lnDW8Ix+AAg02UEB4f6NfuhRcSKEXTSnGPCu8fdJiZQy5OibGtlYr47SFtW5d+nCv41glwj/fCfOiaGnb/bZpSrEc+XvC/080RWt2AcSlDL/QSu8k+PywFP9pTORy8b0l2/Uu9ZYbMAAACMAZ/GakX/MH7EgBKzb92alK+eo65gRIEvoUpIDceFh3Y4zBwNNPE+bDLNuK1psicbtSifX80oH21HlsNlHoiJH1rN0Ciu7VZuKsdiRaZo7jPH/iIUdurdqJ/kxi6uJI/JagUNu+u2iKU0KJX/cfMS/+V2A8Q0PR1mNcw6vOyGAR1yndbo8ezcls3QFJEAAADwQZvISeEKUmUwI//8lUW50Kmi1QASz56ksPBJC8wz8qfSz95wWorBPVDithremBQPYjBGzoSGwnFf3Ki3ii7phIttwRTVSLjNHfZM/FBwzIH14TaQv++OdPXGGZavFp2AK7ZLjWytPorpcpMXuRTlitRtuQDDcsEFhWSFSNPZ8BpLqJkBDVa5eMObWXPCBoBu35s1/0YLkKP++1ECYn4MiW4ar6GpHRMLBUpPuPpficBqzCi55G5e8Ei1XBH8wQ1LpbbDWykrFurpNM0qGDs8Tp3uBIPdzNS0+KfSeeLDpcC60zrsaAZr31cwFAt7QGzAAAAA9kGb6UnhDomUwI///JVAL3IgAs//OibZUGB+QL81lTv1wROo5nGTxceYE6mPHWcTWqe/PqqzvCRF9uoQDMN4TJnqFl5n8DMOA46Z+fmbX2qRsoIA5qXAs1d0u3D9FN/d2gujN0IbILA5TTgYKM/0dnJIRunnlFF1dUIri6k0ZdGQfY2TUlVerQ7dvN8ZGekXwav3V0oeSanGD7ziutwCTDx/aziX+u7Upb0tYck13x91s5POoFE6kpuzgBLstFIhzft1UUWcrNg6F9vcTIk3NXPHouSU4ZcdnY3898SdK/Ik14XgKindc34ptdeEAoRJj41GhltiVgAAAPNBmgpJ4Q8mUwI///yUxO61QASb6nlg7Z8qK+4g31Q2FDL6QXBzulSw2XEW4CXwoRHW9fRXnXw3UdOCAwk5q+UXq0qSXAF2hmQPPsnL/Dm/5LVXlSLXbe6rcaPp6qE7T5y6Brq1g+SN79ras+49cH/Nn9oERk7pwBBxz81NIi/FIDmyFU/d3eAlKq9du9jSZ9RRCEFIxaYEsOWgkcZQXHVr1QCHCgY/2Mj9Ko9U/pfSZ4Fmex1CyLOse5OTQd3xcsnNhN+G9WrLW9OfAURazjFY1kCv4i6FLHgkMcY3iBC8rAiQRqi5gK0Tw66qXkHmunPI2YEAAAEQQZorSeEPJlMCP//8lVK4IAG4EeAC4nTuP+FLtfuhSiPkGxqMWfuzBW8qjXOIIs+3jYg3thmyXtBco5fW/hglS0v2V4K0faUBKmFWWKBpBdZRJLg8nwSEXQnt2Acn/R1Cx5TvPqhCj87oMZDngzzd+OyqcvFjpN7+9RLvsZM46sLAOCvxrTovnaT177tiPwWjTvf2AnE+o1o1KOcjltDT9yMRkckw6TZWJIIegSr+PyZ9NTo0GT7iZtPZMETvrgjNvGK4u+sbjoPvKehLlkRyPMCRd32eJsPzz102Zd8vDHgr7IsYZ48nP+8ZBn1QXrqPBQCZY7GBd21REkKatcg2aN+5+vbeePTJlMQxQQIqxdwAAADkQZpMSeEPJlMCEf/9+3dDvzc/logBWIIeu8B2cEDZiYKNzuIDq2UImU1SsCLUJR6v/touwcIvGvFNfvJvHe4zpauEarDvwjALkJ2ZBEOCUwbTYvXg3oCxCIEk67XrWP3f2wnvAQy4eS2mJ9e9KxO1bq4mwsr50LmfJ0K0JMgw+GH1EAO6tSW35fRXkZFM+Kv6DjZwHUuqIaXu5wiVnr9EHU+eKlk3J25+ci652727McP10vlCtOX7Hyv37EM4WKjXUkfBTL2AYvXb08brCRmHKXSBxjZ2RUitqHpm00nGiTz2OjZgAAABCEGabUnhDyZTAhH//efyFQwArZHrCyUHm4EnE/RpFfsypOCmO14khwjMh4O5tsnfVqO9CRr288UjNW8wWPQ/aR8oor2bqECR5IPZyGvhcUkRiHIjiM86yfh2YzNMTxor+BL5IAjGXKYL8nZPlPwokEqB05UA72NLUxXdZClu91SV7qZyGwGD8DC2ySy2LAEsS6ibG9lewZNdEvL+irbXE/XQstJj4I9uFpXe7ccPKlbxMEeIkJcIycLr1SQzE4Us9SR/M2x4VzUV7vqjyawjjkbpyC/P4IViTzQB0zFcNhE/F5ZO1ffyOyP9+SDvvhOKNp6jR1Gu4qU3HfnV6syJWEbYTZK9niKxZQAAASRBmo5J4Q8mUwIR//3tFmSI0zbAJM5IzGK9v1NGPC/7IhNbqhIQxTEQO3dmGy22NBKmKvxAPaupBAY3d7q8NWbh+n4ICd3NtzziR/y6akDy3Qgi9hUL4ZNXzcDT+pZbSvae2ZajABWIojg78YBp9207MzoroyMfzq3xmX9kVp2/GaZrNewmKVhRqMTbDB8d0LVtjIFVwWbKAWLImqz28r1U5jccPEsPzDsD7Gdg6u20UzEdKP1nC+2+uWAop59zv77H03Ex6HpamZ2prTDm5vhCh4JmZEa9V8GCHVo7VIqfNpsBmID50VhMkqSURFVy/z5Wq9ycA3iD+L0IeUrJ0sTTw0KCmnAPz5ulgsbBklHNGJMxFHS7gwlN8fq3YhfGwxb4ncNnAAABBkGar0nhDyZTAhP//fah/zrTHetnhABaTDMfTXKOjvCd+GHqBGcLSL3WyqUQjwt9rY/7kHWThV22r8WnX9oDZvuLQ7jhf/lQjP0UZMkdOdPrbw6PrAqkDipvjHgESMZEYwgQjyxxPbbtVDDuLEBamBfa8pni0kA0KHpSt1TUtJB0GkY/gdWGYkbppCnSXfmS4bfaWtZ2JusmCQkm3KngW+PZnszXpzFIt7Hid2+LeYIgBle5HYByRZ0i/zEXioUZw83v6R1r0xQHY+XBKtZoW7YEiehlT/S1QgRsqm5aT4hyOiq4apcv1TKXDwCat2FPsPGPzZ5HCv3pT0kyEL+AMPJyxNWEZ8EAAAEgQZrTSeEPJlMCEf/9567dJ0PDEgAWg+x+zJpMYvsAvW+9a9eJipWWZ7Of27SzzdKNvEPUS7JPyMfvNgNPBZH45ew41z/TeuhC4cAxBzaxW+DzTwNL9azrbv8hbXiMyVjIg54c+Otx2GL8fWN6xUlKfxYK3/iW9qZj5Pvdyd3nmqAcdY9M6gDiazZbCcT3YRkwgEVEZQqcklNHMIEvjTbmN8QXTPu0WEuKYiaxzAAnQe0Esorn4gLHqJz7yU89njRzS/7OzE61cjz+m17Y+vHVMBdbFMmE886yv8YS3AGY5sjOsVLXYbrIklELeJah0ffhHwJ/KD6unpHScL/eoYZWy+iYG2UC4y3ebKja7jSmy6Aj/JoyaNbfBBw3Zdr2tYz4AAAAwEGe8UURPG8pPMyAAtIMfAc/t3NcXGFr+sjOy4FhkabDG2WJjyF3Ng2Bg21NPUSpsNlvq7CgehItW+6ZmEHOs7sTDnPwhSX0SNGEQebebz2Z8Tl65NVMSfu+XmHWKU4LZOMhoVhoDDyUafMP4PNOI1nm7BsYLuT3hcG+0R3VegDOoKetKujhv1A4QGXGkEOkChx7UI2Xe7YpNUm2wNBKBYxzLBuBw9MkzBjfU/0ebYxdL5EL66yNTYK2wEJrdatCTgAAAIEBnxB0Rf8wfsSAEr2Fw8bIJLp/KpKUHzvVp9EO9OUf1hU9RWxTyfH1dLTbbVyC60eG+dxoCk48Pb2oOAFbAyE93OnHbpmCVx61mqkDdKPc0KW/Mn4CYRGwEaZAhCewnConsNCrGpU4Jk02w/AmXGf79ErpHKwJ4440f8ZySZfAHVEAAABtAZ8SakX/LoapCub9ABIwH0BMo9NWyUsp6qnhFPN1kn77CQUEi6RXd3qT2ulxXUdvt42lZzxbP7eqzBEQVy8mZjuFbgX/uMuFCiBqKEBoPtltLWHDKGJtCKeETxBwT74bcp1AwH+84ny320BmQAAAARVBmxZJqEFomUwI//yTRgxbJ5UxABom7Oeee0W8XxR9z9D40BB+KvwCOrx+uZ7OXC+5xcdDpdh73yhNqkI5RiHL24b/LrYTR0kPQE2PtVlWMeQLdcZzudwzz725zv4nHFRkWYx5yz0elFcu1znSG8RNlriH5ObRvqHkAMulDC71piRtibcghdUpGycVBceyiMvMXoxe+m0NqqKkxrxDhk0enfzWiVEG6C6P8C6JA+PNN8Nt1LbIVGzaCU8LRyPa0MayEvIWW3/REAB91qUU1kv7R/LFa2x6pWzMaOveVblOzlISDEy4BiW2lrh8lKDtRr4VP+viD2kI4/H+oeEEAg/HG/GwNFR52VpifWaG9TFvKWy4yZGfAAAAlkGfNEURLG8qLboAHffVm/dX+6/TsbQsg5BqBV1/JX12OO/OcZ0SG2Flfh4rWOP/Ht9yalS7gxyRfCa03CFiWawEDNJJ5FgZUbQE1jvquBiMY8bBkV/NyfopZAbPFwh/mhtl7Cbk7UfHdIXDvZRFj7BLL0BtgZFDmxEbYXA8iMnYmw+pKftPu6Hbo+EjQ/91ELMfGBgXsQAAAHsBn1VqRf8wfJXABIPvDt5EyKREQuNbwkfU7tLdQhZDikexW++PCFZ5i8g5f/LDvkomEH4sUGGA2FiultuyL9MKptDAOuNooHmwTQpH+mxNzYxNnkpksWVnsaokaqjMFHj7Mz3yvHp/iwxD+Gsl2uymNOZRfkQv5qvmAh4AAAC+QZtXSahBbJlMCP/8lL0imIAKoabTCbHfg2uBzb4ZkN4WapPB7VUOp21+JHbGK34RP4YzXoCtXxH2cjoVf29VN0MDumLukwFEs8fF+hBQDnGnyBzZBuD6kpBfxH1O9YD6ozRI/l8TtVmW2l9rlZ8E7xUjbSXPwavx1PT7yOzVeAt57Xv9kHicV9PD9BdHo8THLDtD/TAEzOrFQka/vEeYISKd9+oOzYvr/Tq6q8aUwHNWN8zmaM6i7o3XmGQXcQAAAQNBm3hJ4QpSZTAj//yd7G9uqoAy8aarySK4ecwTU55eGBukL8qaIF966Z09XhBvM2ndUDdjrOToN++kPvpj/x4StSHFxUt57wAPRC/nF1BQXlu9Kp88aRr/Zj8+B+lgTEPLM9KB4mS152wGzl4DTTBtO+SfQPD0PQKJdyZraUXSXIfdiBlRhTX0WwkkK17x7duxKl/ioXszXDRiLyl3hUfwYTAzuUxNRFt7eRBbtK+q+v1Od4lozS2qQUlF6REVzsHLu4S5IX06AgY1yGLGr56ydtf4P2hOPYvLJCfIrqwkfi4l5ke4vF8EflTuFbBrTP3b8kLgDpXJlvv9Vyk2dynbhC7hAAAA0kGbmUnhDomUwIR//ee5o3N6UqqYgBY5eDv4/m+/CDQscK3iAeljQxVKURupV9St03mwGwqnu8k1yFkLY+sqPs4YF+eYs2uOFe/6YLI/HMU9brfc4rax6dlsDUWSFG7cGG+TYWzjWpiEQ1LBtfEzENWfoee/X+Lc4KsoeFBDdz9wRnG6I3dxHZb60pLtRawtk8l8PW79ov/LZGREBtAG5irDQTm4vXEJrOnGXFCxhGe7hbdauIBRZtHkgPHqgdtuCmIrE3xdcsUr0+DzDzdllNeDpgAAANBBm7pJ4Q8mUwIR//3oH8qhgBLZM58GgltRcuYClXqHGLQXgvCYhGrwrJU1lW4RqLwSSGtqyLLgHXepJgL8Lc1BRFcoHMUDUNcNFgCWBG/n0tT5UaIw2bInGVlelfVlmSfJqt9kVDGHGqwUW4TXybaPHPKv/0FFAPztya0nPCXi5QRbZEp5/T2TtWwMMuF2D7DxzroOIUzTox3X1Qa8OuqtDcMdsWq+yExFMczSfOz/a13S6n94lPvMHAbCUID/iGuX2J6cN3IfxiGKEMWDm4bNAAABIUGb3EnhDyZTBRE8I//96FeoZs4vkoAJZBKgl/EFek9gZKXJVjMR+KPY7cVxwPCAA1TCLwcg3rgd1nmHRfZI4Pfa7KDe0+pIBRAc2DJ8y0gvY/5kFfrycDW9A1eG6u1DefXt9sIQDBJyFBlT0Mgk9htD71AiPQhEUQn5tQ5SgjJ2bO9Ae0t8KCstAjP1kQkojN9VksL4cE8BS0CyJhFPExUxS2xuL2R/JTSawn+/b0g5buXH7DZfDwJlhliPLP8dfz+OHG/vsKDVmI5HMSucTFkClzVY+zLmnpj34VksEw/2NuiEHo2w14WrwwbSz9KtnaYsp8Ws9zzabJwFex93zRxciPrtHes95RXjzJFE6HQXckjfOB2zrd4Rpxdci0Rg6YAAAACFAZ/7akX/LAofcJ+nPgBYwqEr/g5BKqRTSqwLJxX8bKCHUzIzJHY5iI2DMowcHKddf4OTLHaeOBMuGlEzKB9+YgbCnLe3tzFLpLvnHjFA/SEA42PZ29Xyv5i47wxgSIS28NpfkWWCdBjUwh0hwrGg1pYLkS0qc9+xM0k7Bg26sUe9ooBmQQAAAMJBm/1J4Q8mUwIR//3pD3q5KADbkySvRUpdml4MVduDWv/yVBhoLKwjzTMurUB+2Qq28zw5uWiyjDEOquLx3/lJZ903j+f+gCgfw5YlpQBwhKIqFnK2o29OYKqC/n7MNuRrxbk8Kd/81W7RNiWIoV2wsY1K0+cNSZ+nl6HftJCBKl+X7+oQH8YlUyilyvqsoK1P6y4l2uo4VGLKgGAahyRD2VGWTpd08/Fo4d/muWtuT2QKKGYBP2AscdyBrisg3KhKwQAAAP1Bmh5J4Q8mUwIT//32x0eEAGz19FizT1zy8NxGlrie8LuHiTs9JDUkekI+Ws1m5/1fhK2Hg6zQht9gNTE4M/9MTv2ccH9OS5flIJmywkS0VrWz8/eHHx/TMng5fCChLNfCYNPBh4LXob/qpblbUjU3Ap7/iz8BltcZX3HNRgGRH9LbuXzsNKaRVMswaeJbDFSj0O8LAIsTZIatYOtTX1rFzsfbQOkgjrSsDDUfDED4nuWRYaucXqZfPKuVobrzHuV4XGsGsxgcMlTHOs0y3CXM72bjqBbBSekAQb7NgaMKk2XDfpx0uciYZyd+dcWtblcGF1LvLjaKabgxrDegAAABnUGaIknhDyZTAhP//fr+EZHSWADen4trKJbSu5lGguWuJgjeMYtVOhvLbquoygWmfiGH0SEAtx4vyK/K1cFlu+9YA56yNhxXez9Y2lNl/NNzjI1PnIHtve4h5vZOh8NYI4eTzfKuZ++XKkg8suSzBHvT0weCIzYuxGkarjIFD22fo2ML318MR9xZabiioDrrRrAgCv4FenXQXyzMWVTgTEgykxgC1GqL5q1N/hrSs8+8QsBTWp08GbaIQUDBV/FZmRCs0mNVWHlG6qj4SzBcci02P9M/zPoncB1VHvIuevcbvbAbw9x9zR1wBx7x7yc7ecruE4D6NUfO8XJc5586ZVsQXGMv84bvpjG6TkNoC0MhJxrn1CqPKEit0grfDFjSg9ullnTIfmVDXlnHskE+VBJwj/Vr2GDzD3Pe+s6UWft20U69gHyUYr38yYFOhVeam25FM0A5APGFohxw87jHWcbplu9ukPgs1aLp8CDIDYg7YxYjWEexdso8vctafk7io2bVPUatlo55JCFk6yQxYOODJGlElniU61fslgH+AAAAq0GeQEURPG8vfZHSgAV6qy0GZK8y1lA+qKz608REZcPipx13hDdele3OBd+8vvFf+/3vaXfGPqQO+mK8dtEgxc249WcK7Vy+AmNInSf9FbPdCAG7giDwl7hlCXK+yR3eQjQsuWqFXOZFzOR8quWjDNY2dqvs6Y6Pp+Rygvvo2WtFIWeQDPUcGY9Qj5mXXvJ/j8fAKaPv1PB+56Dw+ps84vWlHDi9EnxBeYA24QAAAHcBnn90Rf8tlbLVd6E+0AC02Zi1XTq6GmYD+pD8EBULE21bNdSgrB/WiisIQrN+POYTsiKiwmneTYevaqHrUiqj0De6OtaylRkhfc309T87wu+XULqeKIVzqvbmtspDEgud1BuaUAbKakDYHu1nq5UkSTNpXEDugAAAAIUBnmFqRf81jVTR0AFh/tswQavHBff+cCCtlJgr/lj73rojR8l8V86mxbwcpGQ/qrGrCC01NdfyT+d3b0+65keiVLUcjraxRFhPV7+llpmjRiFBW7hzzuWeSPrQcAQPZHwxVa4/TZ8Z3LFvpSIQMmsrQmUvZzBSISwCUsR8YebWyuXNgJuBAAABQkGaZUmoQWiZTAhP//33jHaN2ABas3XdB8N/5SwaJzjM/T6M0+XOMc8gytBvCaOP5CW+lqeF2M0RHJVqbAf5DsufSG5Cn5sINIG2f5Bi4LOZZdwFaFMR1HbADOGIFHancgiRjDmXE527D/EbHJcUqzPuAjMQLRhqh9UTxcEoqzNRJOwQKLhoQvWfL/Q4q/SKgX+ck304/6EZ3MNOUasCdit5kNbrE83VnVVVCB/6a7vTv9aYCNjs7blXEjEATQ/kbq0E4nlKnBw6usCzokBqtAMENH3MIM6n7UrPE4Iv/nMnuFebNX3g1h8Q5Ldt1PcqS4sQQ/C+oq4Ii8fRdF3oby+e3sT8zXk0K9H6nHSSlwiehd9oscrid1g48HV1WtoSpatdL60RcUtAm/YcdO4HXLlSrth7RdojjZmmFfWRe2AeLaAAAACQQZ6DRREsbyYw5m94cg4AEjLzzIvCf1PoEO92wq1Rh1BpnakpeBIkKbefXyJHcLv+UADLWd5n4mFzjnrYjhwZi3x2Z1YFg9F0hP3/CQ3g1q+f47gTrIQfI4VQ1EcnHNeFdUqaSnJVhvrz8cZ/KX4H/gjax2n6+letAwCwiLuMafa0O5tYoFvMkKbzJFEcYCDhAAAAcwGepGpF/zB+LQAscEY5deKHQntrhqUjlVNqQzMrtbzqOMkYTaDSQCT0vwMkpcPa4ZCVwOaA5IzzWcwFyIHYfE3hr+6iPyvWvlMNgdUdA9cmeTBY5WNao9pHXfOMRtvKWIHv5d1uTE5d/flQmYLWQxowG9EAAAGBQZqpSahBbJlMCE///feMUUR8AC1VCmG0fDPQrdQLCSuWS+tg5nKC1z6ODum+QthRevu0wBeu4AkLz2oCcjt8QDlCOmPl/bYZn5ou3RiuE/0KYSO/5qgvX+BQ8f49lVtUsM1tHi+uWzqJO7bpKfi1OOiIlG5Mqte/6i2VLJqBm41HAjeg0K4r7BKogWm1arXfMN0UENyax+oxvo0sfUACaddiPQcpGi4dJ7FZKiRORzDZVe0v3rB322PMYOVGkxrF7P+jMf6QcQaZba7HNLmr0EKOfiPGhOLPOeqlYmLaNCq/Ts6wOE4uqnSLmZUN6kXT6OHKxGtVMq++Z1L2dwA9HE2mTY9ge8iC8StSjCAzi6+h9no4H1xUT95Soy1W5deWAHxTFyUbQK4FxiW8N4x1/L1/+Ce6N24Jf44AZJg5MV/4KmVw8mpoH7PkSVRiF9xDXdonZdfzPWlE4NRejOHqKMTKFRhiEgEEzTf/zv6JZZFEEceimcd+y++FbyyGwSCNSQAAAKlBnsdFFSxvKFZKqQAWFiIzkSl93BmZbi6vvRr3JxUkNhtwg3JTFVJp90ati1PVDYVKHlrTGpS6JoKRp7R4PqpRikRKf2FDf4Hal6SOiT8LUAf8iVM9A1IGQ7iVBn0aC03XSLdzsI3+zFsesO3rvAeBTuEdguSAvVY4Qx6i46GimhFU2H0xsK4QHJF30mA3/gS25SFcSs0Qmihi8i8JNDE3S7IwQm8ati2hAAAAbgGe5nRF/y6FcQoC0ACxQHBWQBFSh9mWxITdWlRK3dTAIK6l3ifw0ePxmey5fVam/KoB0mcVCjv7hbIkWlFrGSQIiWXkP0iuMshIzvGH8+mQH3xrmJdAIlyQ7bB9igKbM1r3W0Xa2AoDsZBO3gNSAAAAbAGe6GpF/y51/iYAAsUhEgjimEW1zuZfG5UnW7mVrx/fgv+EyJeaQK8cQ8WKkxRY24SYVXLpLRKTPfoj4OcY/ErlRo6DkTMclM3KG0JeVdb15CKSroFqWfVqCoJ8rK4fPEayXWw3NtC3NXOKggAAAbRBmu1JqEFsmUwIT//9/Bmoh26ACkGfpKQXz0f1w6Rtuoh0kFoijWzg9kiYde7kB2zL/9lP0myDidvbXJow/o1hATZBZQsvhHPBoqCjyOkHMcCxoP3gL7b/XUfqwQffWBnsaLacRyyYVmKVOj4AjQjKqs49FMXpcWn63PvZ/tBLPxje8DKSn/K4mlzIkiKCr92TEkbX1INV0vUw7VFZg2YxoUGXhcGg8B7bOCv4LIPxpgkNjdaaJrsbDdvLWgMRTtG/QaIxQr3SjrsWCpAG91ll5e4UC3BaBxRaYtS/7vpgPesrgN2JOT1PqedLstSmsdt5H3YVyX5qwWAguGGOIlxCv7JxxUZ7+8k1mkccQf2NLSfRlV+bE5+ExGmUBgaksAK9KNCaegkce8rP7+mGk/CBOM68If5djK9Y4R8KGD9L/QZCVovjHKrQ9iTvXH52NS1jUnUbL73poBdvA22cIY69a9G0OWu0nObmDgrmnozKrvKoC1Fud1XjjiMimZShj6kRp5YRZAUd5GaQtvDcWvQndsZU1A9cYzkYoRJX03wiFiSn1l19DAlG1u/569VJZEj1MsOPAAAAokGfC0UVLG8vfdc1TAAtOwObbjNRz9iaObRnpDsZTawdHGmXWmRVRAkBNLmUx4c90ectYX4y4ewLp7RNB2y3LAtLT5JXGdWA9rs74lv/9+FLk/TV1hoDoxBTG83MlYknMHhnH8u0qyRtUPWEmlp2FixryhsEvYyCoCfOPJIHmscb/MOR6dZ6WkQcJUjdETQh6K9tE0J/VaXnkzH8JndlxYkBqQAAAHABnyp0Rf8sFuW+oVnwArPu7+9D2jS0iGQtdaVVLTi1ebZrHJ4Q7usQqwEhYxTGBykykSRfmzOAGHSIgo8r1jgibavtYDxPr86M4UEjQkHHNG0QJoYamtRfL4vIvKt6aJVQyuDDp/Ruk5cummH8Dkt3AAAAcgGfLGpF/zUlKBmEAI3/dMP7DFGYKID9+wah8ZkXdcqpj5VHKYtcXLDNcDN87seWHU235Z025ZlklgAXlQqsLY0zVX1u/Y9uJtFaLRIVSh16LE2blUB6pH2iZ+j+57gHl95u35CU4rDr6rBsSWk5i+8BQQAAATpBmzFJqEFsmUwIT//993ME0IAHwTjxChuWSWsA8wUENKx/hrd8YJneHvv/s2/iFSpwtmdu8dye5If5z9dVNsjX4lxMvyjhZRlsCaD+jE2CKGMTxzU30eSQcLqEplgZm8/555Cl+aYTvmT0E1Gv1xsj3CBJ/KglKTT6VUN8AWypW8+3DuHlAZ+ZhOEwfqrFTJDpQmQNdzjKQMC3rG86d1BK3YTfd7foBVV+onNxupcZwdbhKtQWRu4mRXAQe8n38BjD/d4PCc8u/PzfunAd8coU1osMRynKwPKkHasM8whsxqP+5oEBW+UVahlyMsnpJI4gkAKXh3EbeOMDkoBVzBOvwlqlgrrr8FulkpUyG7g6MiJOtjcCkKc3rR1cfrokcVoIO/DupjwR00PX5PZZBUb3gCivlNzcyXkxnwAAAJdBn09FFSxvKNL1E8AEjdU9FBXm8bxYvdCHQGZff/ie4DdWUUB+aLHidixMk6302QNbOUquAj+PESPzE+8YIc9q+bx2atgtk2xgMj0ZXJOKh0Uec3DLykh2GsdooQEhRKq9k+D/X0nAGbCImACjnb7VLadqU5h3Q+fNkgZRHSAu/mJm7mzNlRF8te5d2iuczUYOqJLVms6DAAAATgGfbnRF/zB+LQAseYtH+Tn9YFpUVzF2Hu6SmD4MVOgcmnds4KloANJNA4wtTEpEEvE+kL6yUvTPzHwTgVYaxsUZVLs+nqRPffa29zgNqAAAAFoBn3BqRf8uhqkhQFoAFpP8lJ3wNWTepznh/aV2N4nYZkG0fbNME97kKRQbTgNHZQyqUfPEh7XGLPgUM0pptw7e/k8J/k8GxF4/LF+Wj9IzkUlB18M8KkWR3QQAAAE1QZtzSahBbJlMFEwn//33kOSiPgAWqojZTed55+RQxt1eLSufchyHmUY/et3xQTGLdorFFh3bzXov+/bjeW7BwbhLHK/Y5utSpkkF47KDF09UvWgaDTwYnk+qCkf+AqQOPSiNy7DnnJzscZ+3ZP6K3VERK4Gogn7hn5dRy20DxyjuOIdYHB1HXIAlve1QtpllHGlgQNXZ29423Rue3uIIwXji4u+j1LF+kTTSl6Xt9yepUyA6F7gKo1qoQnkAn/dhq6Vl46VwDP3B2auieb1+JN6l5Tm78K3E4UC7/xZDsfdGrjInmDOc9+5YtzSUp1skqEvS4fOY6cs/IWNuTrUKp/vO/BRAVW3gpdUAcLVIY7yLSuRhYaCmefWkg3/tvyPW0GPH8WW8jt+YlIeQDP+3p0eSjhOxAAAAfQGfkmpF/y51/fPgBYv3+JeYjKR9XJk+5YdG27gmFiWnENkiH6tYe2PPNYmdBRhTKiaxzOQJXwKMNHYlSwXG8XIWvhLVwqa6n8SrIi/hQGG5LufMgU15hSkNPQ+UHomQXAqIFhn+asRMYzqOG+CLxDKBeDGjnaA0NQQxoBoQAAAB10Gbl0nhClJlMCE//frzN5CUR9IAbr2u4YCweKG4stz8w4URTXYpyQQ3QgqrYcjp4asnx+6w4dTCvuzcOcYvCWxD8CeVn/E1+2f8Y/5+R/SGvQ3Mfc+uS7/4RyUQSVZthLujIN2fl/Eg858qdASFMF5BCAnsz4EeZZ/TBDOt25kjhxjEeAZV6TjN6R8oz6PZMwKiqCtDbbiTqN1zr3KuLMsUuzjtBe2UzYQpFYfeYwXEO/5Rki1CvfZry9OgrPU2GXeoG2DMv10KLjXDiwgX5taCrm4nHxstPCWmvWsT0Edfs0VDJcgM3nIm78PY99rWPtMmvxdxo6NrnjjH1Z3TOY33MZzwnU6qYqjwRUQJX0pWuZmAYC6e2thdYkbAb/ruX+s3khJOK/o4/cBR6W35JzKi6KHrOuFkp+trIXhRjAAvhYncPs5qTQd+i6uwFNHARSOu46jNX7eGNkxWUYESAsHf0eKi12wSuAvydCS6MX6p+kn+ZDld31zratNih16BfRIeh+frprQC49M+SzliZ2CNSbMuKYIIswli98eBcyNWQmpYwR5Vhi9ki6i8dyTEsIE2XlE5fC66O2iSvVLjrXP74lAl8wAKOkT6a/l1UOdpRZCPd9YKqAAAAMlBn7VFNExvL33KevtACvyWc+moZmLjQOkkcXaKRTebFZD6iA92zze7BpggdfrYIfL1tjtBq7269rDY0LQTY7hXyrKu0ADx25R2z+8VM0RlTBewY4iYc83C+lqGPWn8F+A/fS1YhWulqz95Vn5T8wh64TaMQZp/4BxCbrc5U35FANb39H9vnCCfDG7wUkzEQ/XmZqCxwMZp4DML5+IW+QaJKlAsTs1fUuq0vAOcose52sUfRsUsaiH7HdbybtY0epR9FaJQT6YyA+8AAABmAZ/UdEX/LBblvqFZ8AK3mZfMCewpWy/f7NGiDB17KlpxanshonOkmEZkllK6Yww0dRi/+yABYKI6tZ4c7rQeED7RjlPMnu0b6KQs60P6liV324Wfmz25x8dkuAPiW+D/CnMz4EHAAAAAjwGf1mpF/zUiL9MdS6RIARshX2cEjrciZfwyaPSP484NIQ0/pYDQf/Q5zVgZidcpb/u8bzBAsb5eBVjUX/eI463pAhVrcBHsrsPGamZ+Uo/pjd06X936u1oovNB5wESCfsVYeaDS2kSa0ghdlDFf94m9RCHNOeyZjZ2fENzizFLb3kEpK706IEkQBhhNRiE3AAABXkGb2kmoQWiZTAhP//33G2b7h0C7AAmaeyzaazgoOStt9Uc/nKf/DaTQ46OyPA01dReyLK1fZnHJja96KIbWDKC7elPLRqSV64tJj1piP1ADqXdlPODYlJegcRPFj+cPJ8nVWDGSHWhmR0+cwO0Qt6Dh7mMaPkDyVjvzgw68HXGJf3VJCbNn3dHWdV3zCsIFbHQFtaAx3ntPdWzDYDfHvKu2nce5scBk0H9QBxEGziiurRhx67Zh53W2TMcXtQabWugZsBfjBOHkRH1F+PfH7+sr35K1Gy0z2ENZmUiMOPKJjaN4qrS1p90VP0OXkj3ipZB1fItRWQ65FnW2nlaQ9a0d0f00Ouz+V1NbEYOnz6TYPXn7gEZJIvNfs75sObQZyGpbLrVLy7pZqLYi55bg2AIzFPqw8QTC77s05rBmTAvIQMUPMi9mYWsVkTTKLYsSh332Ru088I+iiNxxbBxxAAAAt0Gf+EURLG8ovodPQAPt570AsY99OPHBQk9IceqUh0tVlzzAjYsajiMqWdWBhiUE4jrbk2V4kqx1LiPm3epD89MLttD9EplUCj6sdiE2rwmLNvKTgRJQydMcnaEkOYBkFp0bZoBSymiAmTLAvKnWqBHG2WC89eNlpvJgwxuaMRq/bRuo6UVq34eeAT0ov7ZimuCTyJmpPtcw3QmcmmaKsxRT6wE8u7iAJz55IlqQBl5NG8hLgvce0AAAAJMBnhlqRf8udINIkAJGs/ztT3iF9OSiRNMoRQ1ZH7QNft1lYywa3UdGvDteVROzBHb+SsrvFv90SDPQZZH1SfcsIDAqgcgf0RjgI7H3hv59dScdJi+1OGyl8fQVn49ZKc0AGTv0z3suHSlzJbI7toaadlQcwb46wDJeaRxSwqxCGSSCoQETuGLfEe/1QwSHORWwA/0AAAGFQZoeSahBbJlMCE///fc58hluAFic7fJQkLv+mofl7dTcQRNKInhpjpfz9P3Rcnq+rRBjPyDjr/LCpDVg2OeH7JftVk7Bq/jhTxrup9l7NewOBd2FZDaKT0acEcMX0bo2gSiajeYDxEjZSWGh6A2KCyM/zT5EG07qaVCEmLdBXSJRv8x0ssonuP/lBZH6noRcqVnNhPzmM7whtZ4dplQDJyllPawv5/9KfqgVxFnaEfmRXga7oF6LcCrP3Y9C7xXkQcocOdarlm4kJWUvfW000PVxRWq1St6svOhznM1gadfIJSFl771NWbIOzC6UYZgGNfLfw1WJ53RxUDuW+6JZ5Kd/4S3peTS0KSolbP6Dp2qf79zvspr90hg7KDiLLo4emdRnWqsOQs9uNVo2eDUtRdazsTvmCZbS5yjO9MbBJdkD/cpxpkQ8sUF3ZwGUhmjf2h8ANrUrqI4zBDpd0hwgJS3dLpJC+bTLhK5r0Vm53GsKv1HYR2WxB/32waF9gyHkm3kQfMAAAADQQZ48RRUsbyZ6Pc4AE5+rPhrOc6zsaknzHjYh+HuB21FAsUkp8U6g2gtRvwFcOQ/1FHQwvj/aUyuVLV1I5mNMW+6QvK5d17KWsD8V3KYy6wIkKl65YS8b3TzbDN9icTpuQnaXQymizo03ABC6jXk1i49wBmxQ8AmKHr1fU7pTwNgGVNHfjGaapFdw7MP6ihc26tl2Qayv4Z6GEvNlIZDm6FGLDbgUoI//CP65T51+EU8wjYAD10eRn3B9Vx9m47batsC5a3oEt0rh2H8H0MBvQQAAAH0Bnlt0Rf8sFudly2QAI2yg9lA4GA8efMAQHmF3fHNV6j0xrzLKa55KmXdVpWzEAXI2Zxydv/T+qeP2VkhASw9MUT5+b8MyJf2f2UdEP1TSbl05nMmvQ6OCXyEIRPgOtMgeLmZ8ifN+MnNAdMBEMVhJfu6eu/IT8ijzNXUCXwAAAJYBnl1qRf8uhe4aJhYAFuBvaAxTO39/0EdFggMSBXASLj786+mv0i77TSMKBMYpL14iqGMpVJK7qioKqwIyMpt7wIXPayZjqMRMZtQQtLa4DC8ilHWe7F86cR1+rZgxuMGPAe/nDyM5qI558SSpPGQp0xgXKBDil7pfuFHQ8GAS0SCPhCwFJquVCYgR6/PanNoMboZgAqYAAAFuQZpCSahBbJlMCEf//e0DgXJbAG3Ba3yumyoYan+LBYuLgHrzDpoNzZU8zWxzS/noBOhwngvYStYfBRvmghXm88TKcunPIDx3m+ocrTeB6Q86HIpZmWdR0E6ggvS4c8nkMUn/8b9AdgF4O5AdeZkTfqErKdQPYNsFXwWG2zApSju9DIFFkdzMKlu2MdJ9/UBtwH1X3lIYLS9oSHXF4cghbGxPjOh1dLK2O8gXxrTwlBqSGIp1L/FpVCgglM0GNPbN1BBF63W0l0FA3R+QIOspnQKhku0Vp7B0oqRQWv9Z4HbCgckt6OP5eourEBRsxz3mHaPJCwO4grZJ0WDjw0/MqO8eKa/eITFS7TzMDJdz4I80fN6fka5fhVRL5+oFOfNvN0VRSfPzNgf/atplqo+/6HOQiJWgUXAF75fkCk4vGb6SUXry48JqpWpyrxnfXsAYf4t1Wyr4LEqlc7rG5k8zLWg9BeLtxNPsJ22JaLuAAAAAukGeYEUVLG8vDlZpQALfC3nbjC0optFxyDBNIkbsg33O1cnkFaW6sf9FT1Cb6sq9eWYLTl3RFivMV3IWN7x9Ct9g58bHFINOu9U6Yd9e3DtT/aXYFiYa/ga9PN/Cq0J7MOlbEhInizKJEhdVlBVGY2sG6yRdHLhEbZBKEeoL8w1XBu6O2HnhPa5JpcYYNt7vxGG4rOWtavmJVIAlqKtv9XCevxAqItmHsraHHLbPMxGZ61zK2dhndj4GLQAAAHQBnp90Rf81uEw47hk4cABZg5BCKXoomMkAd9Wqecq7DhhIJuWecOWxwkMIBtD2FJc5j0VWY0j0kgj5QRu88fmMQbYDODXQBELuOD8I862MKzfWK3jcmrkTVe+0cE2knsMehdkDtrb1dow4AxapvOqq1QCRgAAAAIoBnoFqRf8ruvDSqAaOgBXPDw6dyL5+z2edAEu5+9EZTGjhVZO3JgaOch+wTMKdHyAZYNj81z5wXfyuQW7tkZJ9RMVva5mZMAaP5HOODcdrIsby9KXVdBRlIJ1q6LVKKtbVrISZN7LDe3X+aldbEQOEQk6QFnuzstPO/sJ5qSxxVyCPtZT66nPuAvcAAAFBQZqGSahBbJlMCEf//egUsiQAIZuCpiWWwqhWq6MCpz/JPPRdKY7IX1C4VlOEYz1lEnwifnu8+6TeEwICN/OoM41Jx4/GcXUGdcWGKm/+PiU/1sXLvFx4u01Nj4LC/kP86aeESDwyv8n7WVCtLM03lykuyYfej2zpNz58CGIPgtV3JbvXdOeAneStw2DJpWrcfbDs13KvTX7eymp/WYe+1pcgBHwlIHFAI1BDTZLLSILjolE7Dtgl5SQuuNL+/I/hxJBc+aB+pOZ0wkd4XFV5rDaqm8FKIyh43AhDvCdbP4Q3lLUT4mmlJE3jpLs6ZcbCqzcWxKQGbPAjhsLr8iCG5WZIbduMX6hHu6FBvXCjiA3mldtUpq0kuRa+hD2MCAqbcSk6+h+gAdjIrBLX4Dk4pyeXA5FfGgkM0mrraoDRWi7gAAAAk0GepEUVLG8l2UClgTJTIqCAAs/cCuKd+aKK3QVTl38BI7yxCCQWXnWqD1F/tKg+WxEANXtdeOYP/IkVHkL9RltqhNs5ItULD0NeTPO5/Kkt3Bb1wnYdfKIDCHW/eULHIgfb1DSN1XOQFQC/B27qzZoLJ0cDDKLYfpzepsqXvH9CpK+wvMvGzUVCWisJx0dcdACzgQAAAIABnsN0Rf8ruWHVFzaFkwAWj8wNoAmX/USy5NFi1sqxhYplmmizAym32rCx1H2IHw5UoZ6hBjCwyRszlV0xCvOdt68fnoCv0NppXUbYFmc/04OzMsbsAFkWq2BfiPCN55WnmFDN0t/ifukjzRjqGNStJtpLDlsndLGSqoTghaAJeQAAAHwBnsVqRf8sFuIHVZgAWFn8DsJ/R5B/gqQMM9gQy2AAECUPpra94fDUPLeKLQaK/m8d7UsSAKLtmzFZEipkJ3WlfO24H/NXmFwYx6MZUEJ2aDnd1PJv3EATf1GeeSf/08flVjOBwWeffMxdITBgOZBnvDAwNZ0FbL9UAKSBAAAAtEGax0moQWyZTAhH//3pEyry4ACVOh+nRgoiintJQ5+EwHEc6RSxnMv2ECCtithauAWwdBfzJc/+UyysHWBpWa4ARv51gp353tWVD7xDWR/N6U87y4Dw5ZrSiKhY6rW8EwNOs1AVDfmaUIe7pom9VPlmtK4FaOz9yyXKrhqXsVktXm78q5A7HBFEPx0/pYZ5ifBkVQ4A5tWRa0r0cQeqg9+bSN2uW0nG6pnW9bkqq9GGEJzDjwAAANtBmuhJ4QpSZTAhH/3oFLLogBa12Gcg97bh3htdwDi8fEeErjRiiuTvzZam0YxE6jPdpDacttFXz16RsWIBG/nSyfJ9Y7SQgVnRcG9c+1f/wVPvKBF56hT6MU2TXHEUoONJvPqGu8hZgTxZZBV9iSSQBziZuyTw8P93KVYbv3Jce+Chu7U11TprHwg1tmN3DUw0k3MnnRT2Efa02DVikhbCX9zzaiwyjSuDWKrw5TETMpWCO1WiPE283StD+gSoC2EpHazkVd9bscp2EBDSvc4tm0GjpamE9vnQSsAAAAEDQZsJSeEOiZTAhP/99pnz3f54kAEsq0oTMtyfG36Z0tx86Khh+yUXuSB6OKkzAogC7B8/1qXuYR/RAJZIJNzpDiW0UIBU4uKnBSY9zV5hgiQOncGSWd+b1585uAdWhpR3sDG2hAwpblkQjBf8ywvjDvSQ1UBajvelgFxJv70Yd7k32hVv0GGCuUeyRuPXpqOMg0xcKN5ZG6X7YDfyeHxXl0zeFXFZPUQBfkJBoVV+ymAaU2ZxnicC+mrpEB9s2bNnWicvw7IAbkyKhSvgQZLOu3V16kXO/4fLH9WAZNxKdFJGF/ePQanTfCq92RwXlwkGX4Y1dfW6NbJrkXBx8TxzyGTB6QAAAS1BmyxJ4Q8mUwIT//37+hXB2YAQ9ex1LoR5mif5otw0g9ydPDDHGh8nepv7jvq6XeAnO2BOBObzuzPnfBLJT9liKwRmSaCxXVM6KKTl3R+VcGBk9ARPNYkUpdyrURaKxs5dhKRU0T5ODDK3arUv93pu44l9IcELjsNBVcFfW/IWIMGA/Ei3OGvIp8gYs1UInCNc/Vnyh0cvnzVzYXDUY1nqmiueCK63oNzei+mBYfE0b1nKOAPNGPHqhd3TnEFjNxiqHZ0+8y4/sMm6xhVV3SFotTDUHbMX6qQisMmPbAkKR08gSqgTXJDYdFNyp6miAcUmwEkpRJhtAXPSKtVarIBKkKdh584IWHbVPr4uGOac0UwmjAh0bOlHoUOuRZkzJmJuWUeefOD2PXWTyD5hAAAAl0GfSkURPG8vCrNGWZX0AJfCaO/MaJWGUtsgzDxhpC3W41Qq3a/I/d+pw16HEMEDvtDz5STYTpIqCWRTu779zX5q/DleO4g3FC+log8jQ/2l+/2ROb3Ik4P/sjUtqSFEWgvLocpYXYEa1xp6Bw+BgODg35asOFJznmIm0ctS6Q0zAPL0heTQSYi0JPVA6cy7IEwvhBfkAu4AAAB5AZ9rakX/K7nLNj5ZXEAJAi7/JLgL0lCEx50AS7n70RnFMHOJtbrGFCMJdKaqU+ENPYmKUKOi+3J7Yoi+Ht/WgQkoo+QHE7KpQLy9+Oj/DDrRVMrAgwJGMWXTysPzsOE6n0dgqTFrRDT3hS37mdUjIkz2mbWWPzwG9AAAATNBm3BJqEFomUwIR//96BSwIgA8d9FDJz3DKXZAGGOyXYwhHEfThLbtIsDlYyCYgczKE1MkEQAeHO5He0RoesP5OArAjfzp5Mpw0yT3KCnagkggdKwNm8Kbku5w9qYWqzWkGS1pBtHGZF6SWyXFhIeqXDEowDZLw1WJd5jNTOpjx2HNe2AhQzHDwfYwe9h6fq4Y0cQZvUpDgRqiWXfeyej39FtkX7S8nsenetuCqNW3lFH50wtfEsEH6kTgCoZ5doC/kLIpJJ81png+yakCQTfVOBpjCPp1/8Zb9jmAHv5pLe6hv0u5LHdHe1g2plPhTIrlcq+7yLObmBH1+1k8ma83o8TWDadQ+eNh7wcgjQwn/QA8hgxGwpSWdBQukdXxXOdOBcZ2GI0TtbUWyrnzNtWfXB8xAAAAykGfjkURLG8qLIOABI3V/F18iffpezScAw0hGjMNFHY3TWgJ1dd8QYTbVRibAYv/ebeiMB0DVf7w5bqoXQX9E+FD8Vodj2vdn/2oxZVFAijPYP4fmfD65aMq6x+T0I6OfJ5D6LcJrgmoleji2mT6wz6sV9zomrAtfox5D3u9ZbBRHH8o8m7w775Ikofmui8op6fZVtPnhSd77hwIunLIqzGzY9ph2rIJFYVErBCpfbxHCnK83NoY8BiucnRDxfoSqy0RE9RFtdfAd0EAAACQAZ+tdEX/Lvbxx0ALZ7DrZ33RrXxSrf/Gtsgw8LXpfedtmelSivF3i9iq940K8BjqrK2N8LDDO78vhJfyeBU+JfNDTKUlje+kJe0+gO4Pj8m6To73pHRfXPV0qw/Lgi3VPa9Ef5iKvzl7eitIfE+a5aTYq1WZ9FfwVihEFg/AV/XmfZfXBk+MVJEFT1BhAJWBAAAAbwGfr2pF/yyINeQAI3snQWzCRhzT5nnhr+qZiZESiUmHXADOf8BtpIaaDRVAS9gURJnz++UAB3/THhGlvIgrngVaIccne37cELC0fHUixbMG1+w7w+OtH2fm7UMDgSJd46ctJQUXCEygSe5ipGgMWAAAAOFBm7FJqEFsmUwIR//957u9W2bYHQAVY9LNR6hFINkxL3WXBIQZwvN6plowZgJ52Di+PeSwx9/yZwmhLHMNmFu/fQZ1oJP86fFIVPGeazvB71TGSeb7++ffqJICUGvQbNwgigxsXcnbzBi/NLuQ66U7+nzmqDBKRd9bfeIEq43B/oOCf/URP17AWPyOSmGGhYt5Jg7FlRH7pyCIhadTrcdR5XKXJ8NwpT6g+R6KlWcTk7kfeuHOKYIKijGfQhrdmTT5AVrt4bp3s0bt3EC7EBGPW9cGvuv8+6HDWBGx58DuA+YAAAEZQZvTSeEKUmUwUVLCP/3nuWv+/vxoALUinuwbnfG0oAvaSwnExtZjKJQBT8H2Jewh9IO1vS20aP9ku1x3X0JJTE6dsl5skTxzny7wCfS3/DbCJse8lxXGwv6xVk7JoIXSRhb/I+gAIWALCI3LeVN8nTxFvcKoBG/nThKkYzd4hY3gsA48Gsr60kj1kJy0QlNoaqltpPHDnOqr2dkJl7gLjDgN5ABg83DeFZBDRiaAkX9BW7D2bumezh2vMTjAmrE7J4oBfpEtBJ/BzHfyZXiU0mYNpemwp5WSEzh/sIJR7H8QwI0g9c9jFfD1WYivC+YrQlPxHjW6/q3wsYywe+Yv7k3/pQFcaVITSOTXRJXqwm5TM2nUYPyFikkAAABzAZ/yakX/LveklaAFtLtIiakLI7ZEKfKxHF0ldh7PcaMRDh+PJCr2Y1IxmRZHU3lgk9EWUhe80wwdi0JBFVQzLa/UY2xl9arNfx6TzlSqDKO1eTx8AYzdWSFeiudiMJoxYUFM5/BLpCejSITvy/LtDzRNwAAAAQ9Bm/RJ4Q6JlMCE//369X0nhfQAbeoQat8XEDghww0xYrebGZvHphdl1OL8X1v9aV/DYR38C2VymG6B+mg1v+aQzSN/zZ7Qs3y7koDZLGnpGVGgfGbX1LZkCLLaMBJ+WZXX1cIV2GwJTW9+kWwE58Dd4IDmAGXvt1XC8Wsr0UzJJeI+fGfSvqS/6o9YJVCsolcNpBVcFfPt81q5+3VD9MBfbPGRIlotbFB4pHXUJ6GaBE0A/bILSkRebr2GuVsTm4M8iQsHz645kvb3BE5YTIk0jjNXJAbdPQfYZciebHA+k2HC9GsQ9NRz7mh2JojRcJX5M4McM0iaearcTDKxZWA0fbk5Bg0gJ6nGztE/iFVAAAABfEGaGEnhDyZTAhP//fabvK01NfLSbIACU1ToXdr36WTcRIdocrnlAkjIN9b+LyWXQhCX8zn52SMEFnyurX6//iHHbiL5oWkVN16EmRnoLeWyWhqf035JRy/9iliIOCKGLr0TVH2hbS0f0jh2sKVLbuyJIKx283Z10zDuoYFuF+27141mO9YdjCBomrTiBgLL/Um9txnM40m/8rsiZcAYTAUIAkD5xUIaNRLOaPRTbdKjftMG13xRd79OM2LlG3IH7Wc/7iURuQ1UYFQVlzvZCMq4dXje79YYVMFLbNfXkh047cxKzwPhUpO6HMTejoMaoNWwwkLYJz7fs1TDCDcOwIwgAcGdyttDhb9db/Aa/K3VQKRSkYKRG+ndI7BZ3ogVQIlhVLiV7SmnRiOu+QW97btBITSTLEpPS6RgZRUKH787zEttUjLwrh5CHZuUuOuCaFg/aiMCkXuUDe8vLVbfg/Vfw4jrJH34UlA2VHWT9CDAi45KHALBb/C0Cw9JAAAAt0GeNkURPG8ovpNw9AAsr6upA6RKULBIhXG1UUCihKCkmZgaeTvkQWt8X+3EWSxelu1jhS/49LoJiQ84k7RlsIC3RMQldgoLpIVcfpXMfZ7LjrnVhy5iJRiEFkDsR96xDqRqEAGIE02spV6rFebjucY4+688cK9JyzQpnIUGZZsHPCOlcka0w6Y3MfgPpWt3otfEUJsm+suUz61HExodHnxtDSJjMecOLnsrg1HN1pVOmWTUlIDegAAAAIgBnlV0Rf8sF3srBvjoAWS25vNA3C1kIX/rVzzhtQKXXo7TXL5Ene9x44m1uJ8iUMbD2Pf1A+jWTUosNs4kJbqO8T0bgZBfKvlWB8XROruWWLvwqKGsaomBkEX6eHwqlH1/pqRnRKDxCFQtxOImKgs2ezmOI34TcGT7xzEcNDMs54YmLMsK4R7RAAAAhgGeV2pF/yu5bGOyOxIASNUVrww9DQPMaI+pUCSouHnpqXwNaJpvkDRpox9zMoxIFUxNNamOrrPtH4JWwlC4OaNFoKcHU9rPVeSPnhkJ1TH/sb5Oxsg/UrfJKzJbXqtwhgfAhRfKzfmL7j7FFM5oCTHdXGg0D8Y9nqb9CshqH6WCvsI+0CbhAAABWUGaXEmoQWiZTAhH//3nu48yekdgBrg+kkEMaU1b6AbUYYhDUBpRlftuux3qtr9vMBBZc+59mw+lnM3aVBN/flHBSaYouIkTI0UeYpECyPv7ABOyhWnIWf/puB3DvXYgfdzqcM6I4rcP21vn5BJnEvukZ7U/17P78/C1Kgn95PjpykrtifXx7pc0hUegPJKcthuOOppLKJQd2y2WYkPp4eA5hC97FctVNzZsDETCIRwq/YPVJ7Bh/HOgXDI1XqtAXZwga0g+D1gYCP+4kJMFL+vcZjcYqU9gYz/ETTPlGUXd1gOmexv0LjurGDVoFia6A8yQlfZsJq9qNqTrDCif9tPJUZeweuOSRsyFiUppaiUVmipK+K4z1A33uP9YVp3p/ag8J2o9iHqwnuH8YE9eieSSPIzO1UldC7tXNOe6+Jej7SugPVAp7dXtbEu16Yt+DpeI1C8ZIysjjgAAAKhBnnpFESxvKcEN0AD7jwsTS+6uVLeNKYVdvHnX9nJkjweDetmNf0V8IvC+KMl2D77iratvdqP3msGZD+F5E07pSYZcQDT2vz461H3LXq//Nrk/Bp8+ji7dq3cgh1NECWUAIhDNIiiJYn13+W+w1Ckfx3eekiOEV43LMXmuMguKaHp8oxx0Sjfq835MqU0KQTCMY2/Jc9jkO/trib8SpMICPcneWWrVAg8AAABsAZ6ZdEX/LFSOz4AWMDYIQkfqxdqbKVWhH9RpwtfaBGVPF2rFchnMbmoGxfzw+cBJQxsvi8uCJdEXK9RD1dPiyCyAwjmdwfgYQx7A1nQljimMXAmMDQAAX57igmdNo2QrDmucCVLLq1EbYDjgAAAAcQGem2pF/y6F7homFgAW4bFGY8i2yLrMOfKOlEM0We+02k9XSMGmtwpR4TWN8k5vlTURXN5MfCJEgcogmZnlMPng5INbpDnrYplS8pW6j7vGoLkkRb8V//RhRepLnrbLedvuVtNIWelKqp163o862AO7AAABlkGagEmoQWyZTAj//J/GxQAojgpIWOkNxuY6jwzUYVB8D87qjvkYIHKJdq9Ha/SBQwGmBinzHOHVQOOj0LNJqCJCNQCQnbJtPjT0w1vxyqrM3LVgU4d9hqBN6seMS16KgDf8QN8R84cvMBNUQtyicMejW1ROyMiA1L+3/Ay2YC8xY0wbTvgo0/AzisKVQUHypu8im0obs8D4R4HlUBU/2OyHoGGbhlDi1Rmr+YWxOGxwP2nu8z5WcBpfo5ZrfyrXdLQdQHSGwe7Uhw0Rg2gOAdowT57+karRPYRP2mMtmRBLc8qCA6wYgR1Cvi1mbAFNz5wErc2lkwBuDOGxPKMyouMR7C62eagFdt8Ti/UKxo+11KAFdo0APNtArojRWzoriAjzlNtNKs8vbXe6Xu4zoHz9TSaa7khwb9Lo4Ss1BnHxa/rkCBgXNrfyOfusdG8cA6XvyE0SjT0CBcaxtWxPfqWy2C4bHQuQ4nnYNVAzlvgDpb/NTwDrmEgUS1bzCTFFl6CywZxiL32nAVxAl7xANT4n/8cKCdkAAAC5QZ6+RRUsby8OVmlAAuBnvFc7iVXIveoa/Bz+4dxMS54pZ1RfDm7o1sYkYuKp2UDwQQm2ZyaLWntqN4zMQR+c6Gd+GtPTzsUIXMinHgstgQ4Zsa9FN7DwayyiJZyIFyGyS/NKNwJvnDsv3FkIGZEoOJo2ookgNlDaAD6EAXPdQvK6dXWeVSvkrvpbUotHEhvXT6Sm+fc5ednpyuTLatdDecOTkWnor0NftgbiPrqR62C3FMUiUhomHtAAAABvAZ7ddEX/NbpMVoAFiMKmL8jJBka7PSwFQRBqjt8NDehRvV4peKHb8k8xkaAsQM+QylPzLrBe8z9aq3N8vBND0ALSriqfTD1mdse6Tq2FmMTr98XdHXSbVr+JGBBGIoPYJeUPLPK87juQE/F/cUJuAAAAXQGe32pF/yu5yxYqBx7EgBH0CG5KSYbU37PZ1olgs70Z4l2rGwzU+WuLoZYXHueYGwxc2janU3+Di9EuSfQwQw095npBgpeI0q44vlgZCergRYL6NBp0JvhgAPImfQAAAM5BmsFJqEFsmUwIR//96RNLHUMALJJl12gKODYnWRtu2I073zdeF509rjKZ1WxvfKmG9v6/4Dh3qdT4SwShkpWeI9gDE/CjPZOlTOrPGUiCIGqleZZTb0IgObBbBtCGRryQoJULD89Q1TtJ9FzxGgl04u9RnRLk3gz7O8q5S50jM+QxI/h2Y6mX6n1hqXMtV3zhBVLv28YyjVBORXwEpo3vy06skXHjlZ9Ay2LW/WcGuQbXjQiRWYy3ClboIQBZK1IeSz82QEmLMwgCAIcGjAAAAPpBmuNJ4QpSZTBRUsf//JMwasz7YALT/hVI/hmr2E2OO8ZihfXAJWEecR2vLrKpiI5g+4UxFgg836Jh5UEfFa7AUSonNACdIIioH0a5jNsPKDBuCvt1m33yyBh1LKDdL9D4zKFslqp9ZabFqgKeL2/7//zvdHNUYVOxjqdOtxnlQZU8L7A+Ht9GuDKHneht+J4IxXjiHTnXWOFY2Ji9SazHuRNCQ3tuizMZqXg2Lr6X/NS3EhHU+Zgv5FrWq7uQWRBb4l1uKDcBogyMhHG/GmKAjtn/5DyQXUa/1dN1Er0ImM5U2u8HFjRcFKDV0QumTsRdYASprGDXAwOnAAAAXgGfAmpF/y/4n44AJCWbjXIrTsJwg7FdK3OuY4YMP6bZZCKfd8JbYKfwzAaG981rORwyByA8BLbY5+X0JUQbTaBi7raptqXkwsfCHW+3K2llZQkcIPTWQUfDaUWAVMAAAAC0QZsGSeEOiZTAi//6dAjVsmACxRu4RJVDIiaK4eY3lFS8JiBI3TAe/r+B20g3iEJIY3wgt0UkEPyapgHEBHf4M9Zd6XF8SO4lHtq+zgMF5LoiciyUoGCP4OJDarQurlTJl2Lqgx2xnAgXdmLIIbIdVGEhBjxh76qCUo+Ub4ypMc1GFKCi6L/t1pHgaghGDHTsSEAFfslJTxHrIzoyiv3Qyv5IatGWSTmXpxYtd5pALIs9WKGBAAAAlUGfJEUVPG8nlCqBFAAA8M/PELJnrPy9VMSStUP98b4TMZMtlIAySLne2WWQzzvF3ugrzMuUT4PzrOobeQVOzmSknaviyPGJBLEOY9aEI4rzO6Va4nxNQlVIxSej0SGcOMTEtvgtT7J7xb2MXw6aMEpylTYXFBvthC1g1g/WLCciGPM6m2WScAYuZXFkAR2vaaFj6k3BAAAAgAGfRWpF/zAyAVwASA7LzwImYQ4Rx0cCuPRwwPQ0dKdFcb+M9w+pLvQVqlEVNMqlkFxr8sVyGtG8vQg6/aEx/6kISquSYYcYxBC3XVzE2DxFddGCfl+NnT8XFBWhX2OV4d7pgKpmG7YnWqSUOz1l4H6Uf5v2o7vsjeu6mcxzLJJvAAALjm1vb3YAAABsbXZoZAAAAAAAAAAAAAAAAAAAA+gAAAfbAAEAAAEAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAq5dHJhawAAAFx0a2hkAAAAAwAAAAAAAAAAAAAAAQAAAAAAAAfbAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAQAAAAAHCAAABfAAAAAAAJGVkdHMAAAAcZWxzdAAAAAAAAAABAAAH2wAAAQAAAQAAAAAKMW1kaWEAAAAgbWRoZAAAAAAAAAAAAAAAAAAAMYAAAGOAVcQAAAAAAC1oZGxyAAAAAAAAAAB2aWRlAAAAAAAAAAAAAAAAVmlkZW9IYW5kbGVyAAAACdxtaW5mAAAAFHZtaGQAAAABAAAAAAAAAAAAAAAkZGluZgAAABxkcmVmAAAAAAAAAAEAAAAMdXJsIAAAAAEAAAmcc3RibAAAALBzdHNkAAAAAAAAAAEAAACgYXZjMQAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAHCAXwASAAAAEgAAAAAAAAAARVMYXZjNjEuMTkuMTAwIGxpYngyNjQAAAAAAAAAAAAAABj//wAAADZhdmNDAWQAH//hABlnZAAfrNlB0MeIuEAAAAMAQAAAMYPGDGWAAQAGaOvjyyLA/fj4AAAAABRidHJ0AAAAAAACpPgAAqT4AAAAGHN0dHMAAAAAAAAAAQAAAMcAAACAAAAAFHN0c3MAAAAAAAAAAQAAAAEAAAVYY3R0cwAAAAAAAACpAAAAAQAAAQAAAAABAAACgAAAAAEAAAEAAAAAAQAAAAAAAAABAAAAgAAAAAIAAAEAAAAAAQAAAoAAAAABAAABAAAAAAEAAAAAAAAAAQAAAIAAAAABAAACgAAAAAEAAAEAAAAAAQAAAAAAAAABAAAAgAAAAAEAAAGAAAAAAQAAAIAAAAABAAACgAAAAAEAAAEAAAAAAQAAAAAAAAABAAAAgAAAAAEAAAKAAAAAAQAAAQAAAAABAAAAAAAAAAEAAACAAAAABQAAAQAAAAABAAABgAAAAAEAAACAAAAAAQAAAYAAAAABAAAAgAAAAAEAAAKAAAAAAQAAAQAAAAABAAAAAAAAAAEAAACAAAAAAQAAAgAAAAACAAAAgAAAAAEAAAGAAAAAAQAAAIAAAAABAAABgAAAAAEAAACAAAAAAQAAAgAAAAACAAAAgAAAAAIAAAEAAAAAAQAAAoAAAAABAAABAAAAAAEAAAAAAAAAAQAAAIAAAAADAAABAAAAAAEAAAKAAAAAAQAAAQAAAAABAAAAAAAAAAEAAACAAAAAAQAAAoAAAAABAAABAAAAAAEAAAAAAAAAAQAAAIAAAAABAAABAAAAAAEAAAKAAAAAAQAAAQAAAAABAAAAAAAAAAEAAACAAAAAAQAAAQAAAAABAAABgAAAAAEAAACAAAAAAQAAAoAAAAABAAABAAAAAAEAAAAAAAAAAQAAAIAAAAABAAACgAAAAAEAAAEAAAAAAQAAAAAAAAABAAAAgAAAAAEAAAKAAAAAAQAAAQAAAAABAAAAAAAAAAEAAACAAAAAAQAAAQAAAAABAAACAAAAAAIAAACAAAAAAQAAAYAAAAABAAAAgAAAAAEAAAGAAAAAAQAAAIAAAAABAAACgAAAAAEAAAEAAAAAAQAAAAAAAAABAAAAgAAAAAEAAAGAAAAAAQAAAIAAAAABAAACAAAAAAIAAACAAAAAAQAAAYAAAAABAAAAgAAAAAgAAAEAAAAAAQAAAoAAAAABAAABAAAAAAEAAAAAAAAAAQAAAIAAAAABAAACAAAAAAIAAACAAAAABAAAAQAAAAABAAABgAAAAAEAAACAAAAAAgAAAQAAAAABAAACgAAAAAEAAAEAAAAAAQAAAAAAAAABAAAAgAAAAAEAAAIAAAAAAgAAAIAAAAABAAACgAAAAAEAAAEAAAAAAQAAAAAAAAABAAAAgAAAAAEAAAKAAAAAAQAAAQAAAAABAAAAAAAAAAEAAACAAAAAAQAAAoAAAAABAAABAAAAAAEAAAAAAAAAAQAAAIAAAAABAAABgAAAAAEAAACAAAAAAQAAAoAAAAABAAABAAAAAAEAAAAAAAAAAQAAAIAAAAABAAACAAAAAAIAAACAAAAAAQAAAoAAAAABAAABAAAAAAEAAAAAAAAAAQAAAIAAAAABAAACgAAAAAEAAAEAAAAAAQAAAAAAAAABAAAAgAAAAAEAAAKAAAAAAQAAAQAAAAABAAAAAAAAAAEAAACAAAAAAwAAAQAAAAABAAACAAAAAAIAAACAAAAAAQAAAoAAAAABAAABAAAAAAEAAAAAAAAAAQAAAIAAAAABAAABAAAAAAEAAAGAAAAAAQAAAIAAAAABAAABAAAAAAEAAAKAAAAAAQAAAQAAAAABAAAAAAAAAAEAAACAAAAAAQAAAoAAAAABAAABAAAAAAEAAAAAAAAAAQAAAIAAAAABAAACgAAAAAEAAAEAAAAAAQAAAAAAAAABAAAAgAAAAAEAAAEAAAAAAQAAAYAAAAABAAAAgAAAAAEAAAIAAAAAAgAAAIAAAAAcc3RzYwAAAAAAAAABAAAAAQAAAMcAAAABAAADMHN0c3oAAAAAAAAAAAAAAMcAABGkAAABQQAAAJkAAAB5AAAAYwAAAMEAAACnAAABygAAAIoAAABnAAAAbQAAAR8AAACOAAAAawAAAFkAAACgAAAATAAAAO4AAAByAAAAXQAAAGUAAADPAAAAggAAAFgAAABqAAAAoAAAAIgAAAC2AAAAdQAAANMAAADkAAAAYQAAAKUAAABTAAAAyAAAAIsAAABhAAAAYgAAAQ4AAABYAAAAXQAAAMgAAABeAAAA0QAAAFAAAADfAAAAegAAAHMAAACaAAAA1gAAAasAAAD4AAAAfQAAAKUAAAEfAAABAQAAAQYAAAG4AAAAxwAAAI4AAACEAAABTwAAALoAAAByAAAApQAAAQcAAAFBAAAAowAAAHwAAACMAAABHAAAATwAAACBAAABOQAAAMEAAACMAAAAegAAAV0AAAC4AAAAiwAAAGkAAAFFAAAAtAAAAFMAAAB8AAABAwAAAS4AAABzAAAAbwAAAVcAAABsAAABMgAAAHMAAAEkAAAAiQAAAHYAAABkAAABCQAAAH0AAAKHAAAAxwAAAJkAAAF0AAAAkAAAAPQAAAD6AAAA9wAAARQAAADoAAABDAAAASgAAAEKAAABJAAAAMQAAACFAAAAcQAAARkAAACaAAAAfwAAAMIAAAEHAAAA1gAAANQAAAElAAAAiQAAAMYAAAEBAAABoQAAAK8AAAB7AAAAiQAAAUYAAACUAAAAdwAAAYUAAACtAAAAcgAAAHAAAAG4AAAApgAAAHQAAAB2AAABPgAAAJsAAABSAAAAXgAAATkAAACBAAAB2wAAAM0AAABqAAAAkwAAAWIAAAC7AAAAlwAAAYkAAADUAAAAgQAAAJoAAAFyAAAAvgAAAHgAAACOAAABRQAAAJcAAACEAAAAgAAAALgAAADfAAABBwAAATEAAACbAAAAfQAAATcAAADOAAAAlAAAAHMAAADlAAABHQAAAHcAAAETAAABgAAAALsAAACMAAAAigAAAV0AAACsAAAAcAAAAHUAAAGaAAAAvQAAAHMAAABhAAAA0gAAAP4AAABiAAAAuAAAAJkAAACEAAAAFHN0Y28AAAAAAAAAAQAAADAAAABhdWR0YQAAAFltZXRhAAAAAAAAACFoZGxyAAAAAAAAAABtZGlyYXBwbAAAAAAAAAAAAAAAACxpbHN0AAAAJKl0b28AAAAcZGF0YQAAAAEAAAAATGF2ZjYxLjcuMTAw" type="video/mp4">
+ Your browser does not support the video tag.
+ </video></div></div>
 </div>
 </section>
 </section>
@@ -1006,7 +1142,8 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1017,6 +1154,8 @@ document.write(`
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#points">8.1.1. Points</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analogs">8.1.2. Analogs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#force-platforms">8.1.3. Force platforms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#quick-visualization">8.1.4. Quick visualization</a></li>
 </ul>
   </nav></div>
 
@@ -1068,8 +1207,8 @@ By Félix Chénier
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

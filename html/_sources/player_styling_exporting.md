@@ -19,7 +19,7 @@ kernelspec:
 
 # Styling and exporting
 
-Every element of the Player can be stylized. Let's load again the tennis serve data, then we will use the properties of the Player to style its elements.
+Every element of the Player can be stylized. Let's load the tennis serve data again, then we will use the properties of the Player to style its elements.
 
 ```{code-cell} ipython3
 :tags: [remove-output, hide-cell]
@@ -121,7 +121,7 @@ p._mpl_objects["Figure"]
 
 ### Grid size and subdivisions
 
-To have a smaller grid (4x4 meters) with a smaller subdivision size (50x50 cm):
+To have a smaller grid (4x4 metres) with a smaller subdivision size (50x50 cm):
 
 ```{code-cell} ipython3
 p.grid_size = 4
@@ -135,7 +135,7 @@ p._mpl_objects["Figure"]
 
 ### Grid origin
 
-The grid origin can be put anywhere in the scene, using the `grid_origin` property. For example:
+The grid origin can be placed anywhere in the scene, using the `grid_origin` property. For example:
 
 ```{code-cell} ipython3
 p.grid_origin = (0.0, 0.5, 0.0)
@@ -159,7 +159,7 @@ p.grid_width = 0.5
 p._mpl_objects["Figure"]
 ```
 
-### Grid color
+### Grid colour
 
 To get a light grey grid:
 
@@ -188,9 +188,9 @@ p.point_size = 10
 p._mpl_objects["Figure"]
 ```
 
-### Point color
+### Point colour
 
-The default point color can be set by the `default_point_color` property:
+The default point colour can be set by the `default_point_color` property:
 
 ```{code-cell} ipython3
 p.default_point_color = 'r'
@@ -203,7 +203,7 @@ p.default_point_color = 'r'
 p._mpl_objects["Figure"]
 ```
 
-To assign individual colors, we add a `Color` info to the TimeSeries' data. For instance, to show Viktor's markers in dark green:
+To assign individual colours, we add a `Color` info to the TimeSeries' data. For instance, to show Viktor's markers in dark green:
 
 ```{code-cell} ipython3
 markers = p.get_contents()
@@ -225,7 +225,7 @@ p._mpl_objects["Figure"]
 
 ### Interconnection width
 
-To get ticker interconnections:
+To get thicker interconnections:
 
 ```{code-cell} ipython3
 p.interconnection_width = 4.0
@@ -236,9 +236,9 @@ p.interconnection_width = 4.0
 p._mpl_objects["Figure"]
 ```
 
-### Interconnection color
+### Interconnection colour
 
-Color is part of the [interconnection dictionary](player_interconnections.md). Therefore, we change interconnection color using this dictionary. For instance, to set all interconnections to light grey:
+Colour is part of the [interconnection dictionary](player_interconnections.md). Therefore, we change interconnection colour using this dictionary. For instance, to set all interconnections to light grey:
 
 ```{code-cell} ipython3
 interconnections = p.get_interconnections()
@@ -258,7 +258,7 @@ p._mpl_objects["Figure"]
 
 ### Frame size
 
-To get half-meter long frames:
+To get half-metre long frames:
 
 ```{code-cell} ipython3
 p.frame_size = 0.5
@@ -287,7 +287,7 @@ p._mpl_objects["Figure"]
 
 ### Exporting to an image
 
-The Player's current view can be exported to any file format supported by Matplotlib such as PNG, JPEG, SVG or PDF, using [ktk.Player.to_image](api/ktk.Player.to_image.rst):
+The Player's current view can be exported to any file format supported by Matplotlib such as PNG, JPEG, SVG, or PDF, using [ktk.Player.to_image](api/ktk.Player.to_image.rst):
 
 ```
 p.to_image("exported_image.png")
@@ -295,7 +295,7 @@ p.to_image("exported_image.png")
 
 ### Exporting to a video
 
-The whole animation in the current view point can be exported to an MP4 file using [ktk.Player.to_video](api/ktk.Player.to_video.rst):
+The whole animation in the current viewpoint can be exported to an MP4 file using [ktk.Player.to_video](api/ktk.Player.to_video.rst):
 
 
 ```

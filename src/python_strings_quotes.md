@@ -26,10 +26,10 @@ s1 = "Hello world!"
 s2 = 'Hello world!'
 ```
 
-Normally, we use double-quotes if the string contains apostrophes `'`; inversely, we use single-quotes if the string contains double-quotes `"`. For instance, both these strings are correctly defined:
+Normally, we use double-quotes if the string contains apostrophes `'`; conversely, we use single-quotes if the string contains double-quotes `"`. For instance, both these strings are correctly defined:
 
 ```{code-cell}
-s3 = "It's time to lunch."
+s3 = "It's time for lunch."
 s4 = 'I would not call it "results"...'
 ```
 
@@ -37,6 +37,6 @@ but the following ones generate syntax errors, because the apostrophe or double-
 
 ```{code-cell}
 :tags: [raises-exception]
-s5 = 'It's time to lunch'
+s5 = 'It's time for lunch'
 s6 = "I would not call it "results"..."
 ```

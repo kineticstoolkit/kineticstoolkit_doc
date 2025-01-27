@@ -30,8 +30,8 @@ emg = ktk.load(filename)
 emg.plot()
 ```
 
-Write a code that generates a new data named "Envelope" in the TimeSeries, that corresponds to the envelope of this signal. Follow these three steps:
-1. Filter the TimeSeries with a band-pass butterworth filter from 20 Hz to 500 Hz to reject high frequency noise and body movement artifacts.
+Write code that generates new data named "Envelope" in the TimeSeries, which corresponds to the envelope of this signal. Follow these three steps:
+1. Filter the TimeSeries with a band-pass Butterworth filter from 20 Hz to 500 Hz to reject high-frequency noise and body movement artifacts.
 
 ```{code-cell} ipython3
 :tags: [hide-cell]
@@ -40,7 +40,7 @@ filtered_emg = ktk.filters.butter(emg, btype="bandpass", fc=[20, 500])
 filtered_emg.plot()
 ```
 
-2. Rectify the filtered TimeSeries, by replacing every data by its absolute value. You may use {{np_abs}}.
+2. Rectify the filtered TimeSeries by replacing every data point with its absolute value. You may use {{np_abs}}.
 
 ```{code-cell} ipython3
 :tags: [hide-cell]
@@ -49,7 +49,7 @@ filtered_emg.data["BicepsBrachiiR"] = np.abs(filtered_emg.data["BicepsBrachiiR"]
 filtered_emg.plot()
 ```
 
-3. Filter the rectified TimeSeries with a low-pass butterworth filter with a cut-off frequency of 10 Hz.
+3. Filter the rectified TimeSeries with a low-pass Butterworth filter with a cut-off frequency of 10 Hz.
 
 ```{code-cell} ipython3
 :tags: [hide-cell]

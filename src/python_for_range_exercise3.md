@@ -19,7 +19,7 @@ kernelspec:
 
 # Exercise: Looping using **for** and **range** 3
 
-Someone pushes a carriage using a dynamometer as shown in {numref}`fig_carriage_dynamometer`. The push force is measured in newtons every tenth of a second, during five seconds.
+Someone pushes a carriage using a dynamometer as shown in {numref}`fig_carriage_dynamometer`. The push force is measured in newtons every tenth of a second, over five seconds.
 
 ```{figure-md} fig_carriage_dynamometer
 :width: 5in
@@ -52,12 +52,12 @@ carriage_speed = [
 ]
 ```
 
-Write this function, knowing that power = force × speed:
+Write a function `calculate_power` that calculates power using the formula *power = force × speed*:
 
 ```
 def calculate_power(force, speed):
     """
-    Calculate the power according to force and speed.
+    Calculate the power based on force and speed.
 
     Parameters
     ----------

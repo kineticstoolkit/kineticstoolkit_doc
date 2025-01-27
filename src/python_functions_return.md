@@ -31,7 +31,7 @@ def calculate_sum(arg1, arg2):
 print(calculate_sum(2, 6))
 ```
 
-The function `calculate_sum()` is called with arguments 2 and 6. It executes, and then returns 8. Therefore, the `print()` function prints 8.
+The function `calculate_sum()` is called with arguments 2 and 6. It executes, and then returns 8. As a result, the `print()` function prints 8.
 
 As a second example:
 
@@ -39,4 +39,4 @@ As a second example:
 print(calculate_sum(calculate_sum(2, 6), 5))
 ```
 
-The inner function calls `calculate_sum()` with arguments 2 and 6. The function executes and returns 8. Then, the outer function calls `calculate_sum()` with arguments 8 and 5. The function executes again and this time returns 13. Therefore, the `print()` function prints 13.
+The inner function calls `calculate_sum()` with arguments 2 and 6. The function executes and returns 8. Then, the outer function calls `calculate_sum()` with arguments 8 and 5. The function executes again and this time returns 13. As a result, the `print()` function prints 13.

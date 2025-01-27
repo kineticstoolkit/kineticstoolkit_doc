@@ -19,9 +19,9 @@ kernelspec:
 
 # 2D angles
 
-At the end of the example of section [](geometry_kinematic_chains.md), we had calculated the frames that express the orientation of both the upper arm ($^\text{global}_\text{upper arm} T$) and forearm ($^\text{global}_\text{forearm} T$) in global coordinates.
+At the end of the example in section [](geometry_kinematic_chains.md), we calculated the frames that express the orientation of both the upper arm ($^\text{global}_\text{upper arm} T$) and forearm ($^\text{global}_\text{forearm} T$) in global coordinates.
 
-Let's see how we could extract the elbow flexion angle from those two frames.
+Let's see how we can extract the elbow flexion angle from those two frames.
 
 The first step is to calculate the homogeneous transform from the upper arm to the forearm. This is the same as expressing the forearm frame in reference to the upper arm frame.
 
@@ -30,7 +30,7 @@ import kineticstoolkit.lab as ktk
 import numpy as np
 
 # Upper arm and forearm frames, expressed in global coordinates
-# (calculated in last example):
+# (calculated in the last example):
 global_T_upperarm = np.array(
     [
         [
@@ -61,7 +61,7 @@ upperarm_T_forearm = ktk.geometry.get_local_coordinates(
 upperarm_T_forearm
 ```
 
-In section [](geometry_basics.md), we expressed the generic form of a 2d frame in the xy plane:
+In section [](geometry_basics.md), we expressed the generic form of a 2D frame in the xy plane:
 
 $$
 ~^\text{upper arm}_\text{forearm}T = \begin{bmatrix}
@@ -82,7 +82,7 @@ $$
 \theta = \text{atan2}(y=0.93970, x=0.36396) \\= 20^\circ
 $$
 
-We could also use Kinetics Toolkit's function [ktk.geometry.get_angles](api/ktk.geometry.get_angles.rst) to extract this angle automatically:
+We can also use Kinetics Toolkit's function [ktk.geometry.get_angles](api/ktk.geometry.get_angles.rst) to extract this angle automatically:
 
 ```{code-cell} ipython3
 elbow_angles = ktk.geometry.get_angles(

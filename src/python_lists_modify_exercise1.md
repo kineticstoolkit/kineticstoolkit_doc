@@ -19,7 +19,7 @@ kernelspec:
 
 # Exercise: Modifying lists 1
 
-Here is the progression of a person's maximal flexion angle of the shoulder during a 4-month stretching program, with the outer list corresponding to the month, and the inner lists being 10 consecutive measurements performed during the month.
+Here is the progression of a person's maximal flexion angle of the shoulder during a 4-month stretching program, with the outer list corresponding to the month, and the inner lists containing 10 consecutive measurements performed during each month.
 
 ```{code-cell} ipython3
 max_flexion = [
@@ -30,7 +30,7 @@ max_flexion = [
 ]
 ```
 
-After verification, you realize that for the very first measurement, the instrument was not calibrated correctly and added 5 degrees to the real angle values. Write a one-line code that corrects this measurement.
+After verification, you realize that for the very first measurement, the instrument was not calibrated correctly and added 5 degrees to the actual angle values. Write a one-line code that corrects this measurement.
 
 ```{code-cell} ipython3
 :tags: [hide-cell]

@@ -31,7 +31,7 @@ participants = [
 ]
 ```
 
-Write a code that calculates the average height among all participants. The number of participants may vary; therefore, your function should work for a list of any length.
+Write code that calculates the average height among all participants. The number of participants may vary; therefore, your function should work for lists of any length.
 
 ```{code-cell} ipython3
 :tags: [hide-cell]

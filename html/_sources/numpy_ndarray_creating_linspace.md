@@ -19,7 +19,7 @@ kernelspec:
 
 # Creating linearly spaced arrays
 
-It is very common to generate unidimensional arrays of equally spaced values, such as `[0, 1, 2, 3, 4]` or `[0, 0.1, 0.2, 0.3]`. We could do it using:
+It is very common to generate one-dimensional arrays of equally spaced values, such as `[0, 1, 2, 3, 4]` or `[0, 0.1, 0.2, 0.3]`. We can do it using:
 
 ```{code-cell} ipython3
 import numpy as np
@@ -27,16 +27,16 @@ import numpy as np
 np.array(range(5))
 ```
 
-which creates a range from 0 (incl.) to 5 (excl.), then converts this range to an array. NumPy provides a shortcut for it: {{np_arange}}
+which creates a range from 0 (inclusive) to 5 (exclusive), then converts this range to an array. NumPy provides a shortcut for this: {{np_arange}}
 
 ```{code-cell} ipython3
 np.arange(5)
 ```
 
-This function takes the same arguments as the Python's [range](python_for.md) function.
+This function takes the same arguments as Python's [range](python_for.md) function.
 
 :::{good-practice} np.arange
-While `range` only takes integers as arguments, `np.arange` also accepts floats. For example:
+While `range` only accepts integers as arguments, `np.arange` also accepts floats. For example:
 
 ```
 np.arange(0, 0.5, 0.1)
@@ -48,7 +48,7 @@ generates:
 array([0. , 0.1, 0.2, 0.3, 0.4])
 ```
 
-However, this practice is not always recommended due to potential floating point issues that cannot guaranty the length of the resulting array. Without going further into these issues, just remind that in most cases, `np.arange` should be used only with integers. For the example above,
+However, this practice is not always recommended due to potential floating-point issues that cannot guarantee the length of the resulting array. Without delving further into these issues, just remind that in most cases, `np.arange` should be used only with integers. For the example above:
 
 ```
 np.arange(5) / 10
@@ -61,13 +61,13 @@ array([0. , 0.1, 0.2, 0.3, 0.4])
 ```
 :::
 
-Another function to create equally spaced series of float is {{np_linspace}}, which takes as arguments the initial value, the final value, and the number of points in the new array. By default, `np.linspace` includes both the initial and final values. For example, to create an array that goes from 5.0 (included) to 10.0 (included) and that contains 11 elements:
+Another function to create equally spaced series of floats is {{np_linspace}}, which takes as arguments the initial value, the final value, and the number of points in the new array. By default, `np.linspace` includes both the initial and final values as arguments. For example, to create an array that goes from 5.0 (inclusive) to 10.0 (inclusive) and that contains 11 elements:
 
 ```{code-cell} ipython3
 np.linspace(5.0, 10.0, 11)
 ```
 
-To exclude the final value, we set the `endpoint` argument to False.
+To exclude the final value, set the `endpoint` argument to False.
 
 ```{code-cell} ipython3
 np.linspace(5.0, 10.0, 10, endpoint=False)

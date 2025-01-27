@@ -18,7 +18,7 @@ kernelspec:
 
 # Exercise: Creating a TimeSeries
 
-The position of an object has been recorded in meters during one second at a sampling frequency of 100 Hz:
+The position of an object has been recorded in metres during one second at a sampling frequency of 100 Hz:
 
 ```{code-cell} ipython3
 import numpy as np

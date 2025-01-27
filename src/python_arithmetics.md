@@ -19,7 +19,7 @@ kernelspec:
 
 # Arithmetic operations
 
-Any arithmetical operation is performed simply by writing its equation. For example, the most usual arithmetic operators are `+`, `-`, `*`, `/` and `**`. We use parentheses `()` for operation priority.
+Any arithmetic operation is performed simply by writing its equation. For example, the most common arithmetic operators are `+`, `-`, `*`, `/` and `**`. We use parentheses `()` to indicate operation priority.
 
 :::::{grid}
 :gutter: 2

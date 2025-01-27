@@ -20,7 +20,7 @@ kernelspec:
 
 # Exercise: Looping using **for** and **range** 1
 
-A therapist measures a patient's maximal shoulder flexion angle three times. Write a program that creates a list of these three measurements based on user input, following this example:
+A therapist measures a patient's maximal shoulder flexion angle three times. Write a program that creates a list of these three measurements based on user input, as shown in the following example:
 
 :::{admonition} Example of program output
 ```none
@@ -39,7 +39,7 @@ measurements = []
 # Ask the values
 for i in range(3):
     str_value = input(
-        f"Enter max shoulder flexion (deg) [measurement {i}]: "
+        f"Enter max shoulder flexion (deg) [measurement {i + 1}]: "
     )
     measurements.append(float(str_value))
 

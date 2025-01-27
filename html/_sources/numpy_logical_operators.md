@@ -19,7 +19,7 @@ kernelspec:
 
 # Logical operators
 
-[We already learned](python_conditions_logical_operators.md) Python's logical operators `not`, `or` and `and`. Unfortunately, these operators work only on bool, not on arrays of bool. However, NumPy provides equivalents:
+[We already learned](python_conditions_logical_operators.md) Python's logical operators `not`, `or`, and `and`. Unfortunately, these operators work only on booleans, not on arrays of booleans. However, NumPy provides equivalent operators:
 
 | Python's operator on `bool` | NumPy's equivalent operator for arrays of `bool` |
 |:---------------------------:|:------------------------------------------------:|

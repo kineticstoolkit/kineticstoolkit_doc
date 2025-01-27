@@ -10,7 +10,7 @@ def print_sum(arg1, arg2):
     print(f"The sum of both variables is {arg1 + arg2}.")
 ```
 
-Virtually any other name would work equally. For instance, we could use `first` and `second`, as long as we also use these names in the implementation:
+Virtually any other name would work as well. For instance, we could use `first` and `second`, as long as we also use these names in the implementation:
 
 ```
 def print_sum(first, second):

@@ -25,7 +25,7 @@ $$
 F = m g \sin \theta
 $$
 
-where $m$ is the person's mass, $g$ is 9.81 m/s² and $\theta$ is the treadmill angle. Write a function names `plot_force` that takes the mass as an argument, and that plots $F$ for $\theta \in [-20, 20]$ degrees. Then, test your function for $m = 65$ kg.
+where $m$ is the person's mass, $g$ is 9.81 m/s² and $\theta$ is the treadmill angle. Write a function named `plot_force` that takes the mass as an argument and that plots $F$ for $\theta \in [-20, 20]$ degrees. Then, test your function for $m = 65$ kg.
 
 ```{figure-md} fig_gait_inclined
 :width: 3.5in
@@ -42,19 +42,19 @@ import matplotlib.pyplot as plt
 
 def plot_force(m: float) -> None:
     """
-    Plot the force a persons need to overcome on an inclined treadmill.
+    Plot the force a person needs to overcome on an inclined treadmill.
 
     Parameters
     ----------
     m :
-        Mass of the person in kilograms
+        Mass of the person in kilograms.
 
     Returns
     -------
     None
 
     """
-    # First, let's define an angle array
+    # First, define an angle array
     theta = np.linspace(-30, 30, 100, endpoint=False)
 
     # Calculate the force

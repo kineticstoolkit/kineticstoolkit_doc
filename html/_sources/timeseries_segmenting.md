@@ -31,7 +31,7 @@ This section shows how to use these methods to segment TimeSeries:
 - [ktk.TimeSeries.get_ts_after_event](api/ktk.TimeSeries.get_ts_after_event.rst)
 - [ktk.TimeSeries.get_ts_between_indexes](api/ktk.TimeSeries.get_ts_between_indexes.rst)
 
-All these methods do the same: they extract a new TimeSeries using a criteria based on index, time or event. We will once again use [kinetic data of wheelchair propulsion](dataset_kinetics_wheelchair_propulsion.md):
+All these methods do the same: they extract a new TimeSeries using a criterion based on index, time, or event. We will once again use [kinetic data of wheelchair propulsion](dataset_kinetics_wheelchair_propulsion.md):
 
 ```{code-cell} ipython3
 import matplotlib.pyplot as plt
@@ -67,7 +67,7 @@ Or, we could simply use the event itself:
 new_ts = ts.get_ts_after_event("sync")
 ```
 
-These methods are very helpful to analyze only specific sections of a TimeSeries. For instance, to analyze only the four first pushes and get rid of any other data, we would do:
+These methods are very helpful to analyze only specific sections of a TimeSeries. For instance, to analyze only the first four pushes and get rid of any other data, we would do:
 
 ```{code-cell} ipython3
 # Extract the four pushes
@@ -80,7 +80,7 @@ first_four_pushes = first_four_pushes.trim_events()
 first_four_pushes.plot()
 ```
 
-Note the use of `inclusive=True` in this example. This optional parameter indicates wether the "before", "after" or "between" term in the method name is inclusive (<=, >=) or strict (<, >). Different combinations lead to different results:
+Note the use of `inclusive=True` in this example. This optional parameter indicates whether the "before", "after", or "between" term in the method name is inclusive (<=, >=) or strict (<, >). Different combinations lead to different results:
 
 ```{code-cell} ipython3
 plt.subplot(2, 2, 1)

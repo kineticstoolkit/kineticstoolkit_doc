@@ -20,7 +20,7 @@ kernelspec:
 
 # Looping through a dictionary's entries
 
-Similarly to lists, we can loop through every element of a dictionary using the `for` instruction. The variable returned by `for` is the key. For example, to loop over every keys of this dictionary:
+Similar to lists, we can loop through every element of a dictionary using the `for` instruction. The variable returned by `for` is the key. For example, to loop over every key of this dictionary:
 
 ```{code-cell} ipython3
 dict_of_anything = {

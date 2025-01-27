@@ -19,7 +19,7 @@ kernelspec:
 
 # Numbers
 
-Up to now, we referred to numbers simply as "numbers". In reality, numbers belong to different sets, each fulfilling a different role. Python provides three sets of numbers:
+Until now, we referred to numbers simply as "numbers". In reality, numbers belong to different sets, each fulfilling a different role. Python provides three sets of numbers:
 
 - Integer numbers: `int`
 - Real numbers: `float`
@@ -32,4 +32,4 @@ Up to now, we referred to numbers simply as "numbers". In reality, numbers belon
 The three sets of numbers in Python.
 ```
 
-We will however focus only on integers (`int`) and real numbers (`float`).
+However, we will focus only on integers (`int`) and real numbers (`float`).

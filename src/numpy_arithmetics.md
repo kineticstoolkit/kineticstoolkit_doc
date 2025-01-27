@@ -19,7 +19,7 @@ kernelspec:
 
 # Arithmetics
 
-All Python arithmetic operators (`+`, `-`, `*`, `/`, `**`) work directly on NumPy arrays, assuming both arrays have the same shape. Operations are performed between each element of a same position. For example, using `a + b`, the 1st element of `a` is summed with the 1st element of `b`, the 2nd of `a` with the 2nd of `b`, etc.:
+All Python arithmetic operators (`+`, `-`, `*`, `/`, `**`) work directly on NumPy arrays, assuming both arrays have the same shape. Operations are performed between corresponding elements of the same position. For example, using `a + b`, the 1st element of `a` is summed with the 1st element of `b`, the 2nd element of `a` with the 2nd of `b`, and so on:
 
 ```{code-cell} ipython3
 import numpy as np
@@ -83,4 +83,4 @@ a + 1
 a - 1
 ```
 
-etc.
+and so on.

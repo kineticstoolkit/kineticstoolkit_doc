@@ -19,7 +19,7 @@ kernelspec:
 
 # Exercise: Trigonometry 1
 
-A ball is thrown horizontally with a constant horizontal velocity of 10 m/s, and with no initial vertical velocity at release time. Once released, its horizontal velocity stays constant while its vertical velocity increases negatively at a rate of 9.81 m/s². Plot a curve of its total speed during one second from release time. The total speed is the norm of the vector created by the horizontal velocity and the vertical velocity, as shown in {numref}`fig_falling_ball_horizontal`.
+A ball is thrown horizontally with a constant horizontal velocity of 10 m/s and with no initial vertical velocity at release. Once released, its horizontal velocity remains constant while its vertical velocity increases negatively at a rate of 9.81 m/s². Plot a curve of its total speed for one second after release. The total speed is the magnitude (norm) of the vector created by the horizontal velocity and the vertical velocity, as shown in {numref}`fig_falling_ball_horizontal`.
 
 ```{figure-md} fig_falling_ball_horizontal
 :width: 3.5in
@@ -31,7 +31,7 @@ A falling ball with both horizontal and vertical velocity components.
 
 ::::{tip}
 :::{toggle}
-You already calculated the vertical velocity in [](numpy_arithmetics_exercise.md). Now use the Pythagorean theorem using arithmetic operations on arrays to calculate the total speed `v_total` based on `v_x` and `v_y`.
+You already calculated the vertical velocity in [](numpy_arithmetics_exercise.md). Now use the Pythagorean theorem with arithmetic operations on arrays to calculate the total speed `v_total` based on `v_x` and `v_y`.
 :::
 ::::
 

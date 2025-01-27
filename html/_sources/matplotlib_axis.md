@@ -44,7 +44,7 @@ random_data = [
 plt.plot(random_data, "o-");
 ```
 
-To zoom on a specific portion of the plot, we call {{plt_axis}}, which takes for argument a list containing `[xmin, xmax, ymin, ymax]`. For example, to better see the portion between $x \geq 20$ and $x \leq 30$:
+To zoom on a specific portion of the plot, we call {{plt_axis}}, which takes as an argument a list containing `[xmin, xmax, ymin, ymax]`. For example, to better see the portion between $x \geq 20$ and $x \leq 30$:
 
 ```{code-cell}
 plt.plot(random_data, "o-")
@@ -53,7 +53,7 @@ plt.axis([20, 30, 0, 1]);
 
 ## Square zoom
 
-By defaults, plots are rectangular and will adapt their shape to optimize the scale on both x and y axes. However, in some circumstances, we need both x and y axes to have the same scale, e.g., to plot the (x, y) trajectory of a point in space. To set the same scale to both axes, we use `plt.axis("square")`.
+By default, plots are rectangular and will adapt their shape to optimize the scale on both x and y axes. However, in some circumstances, we need both x and y axes to have the same scale, e.g., to plot the (x, y) trajectory of a point in space. To set the same scale to both axes, we use `plt.axis("square")`.
 
 For example, plotting the (x, y) coordinates of a true circle looks like an ellipse by default:
 

@@ -3,7 +3,7 @@
 In addition to [docstrings](python_functions_docstrings.md), type annotations (also called type hints) are increasingly popular to document the types of a function's parameters and return value.
 
 :::{good-practice} Docstring vs type annotations
-Always write a good docstring in the first place. Type annotation are much more optional, and at this point, knowing about type annotations is important mainly to read Python packages documentation.
+Always write a good docstring in the first place. Type annotations are much more optional, and at this point, knowing about type annotations is important mainly to read Python packages documentation.
 :::
 
 Type annotation allows documenting the types directly in the function signature instead of the docstring. They use `:` to document parameter types, and `->` to document return value types (see the `->` as a right-arrow):

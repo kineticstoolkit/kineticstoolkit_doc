@@ -37,15 +37,15 @@ while i < 5:
 print("done")
 ```
 
-We see that as long as `i` was strictly lower than 5, the `while` instruction executed the code block. When `i` equalled 5, the `(i < 5)` condition evaluated to False, and therefore the `while` instruction stopped executing the code block.
+We see that as long as `i` was strictly lower than 5, the `while` instruction executed the code block. When `i` equaled 5, the `(i < 5)` condition evaluated to False, and therefore the `while` instruction stopped executing the code block.
 
-Here is a practical example where we made some measurements in metres that we stored into a list. We want to convert this list to another list where the measurements are in millimetres instead:
+Here is a practical example where we took some measurements in metres and stored them in a list. We want to convert this list to another list where the measurements are in millimetres instead:
 
 ```{code-cell}
 # Measurements in meters:
 meters = [0.329, 0.009, 0.210, 0.726, 0.686, 0.912, 0.285, 0.833, 0.334, 0.165]
 
-# Create an empty list of the same measurements in millimeters, that we will
+# Create an empty list of the same measurements in millimeters, which we will
 # fill up using a while loop.
 millimeters = []
 

@@ -23,7 +23,7 @@ Inserting a backslash `\` in a string tells Python that the following character 
 
 ## Single-quote `\'` and double-quote `\"`
 
-If a same string needs to include both apostrophes and double-quotes, then it is impossible to select a correct delimiter. Backslashing a quote character (`\'`, `\"`) tells python that this really is a character, and not a delimiter. For instance:
+If a single string needs to include both apostrophes and double-quotes, then it is impossible to select a correct delimiter. Backslashing a quote character (`\'`, `\"`) tells Python that this really is a character, and not a delimiter. For instance:
 
 ```{code-cell} ipython3
 example1 = "I didn't write \"E = mc2\", Einstein did."

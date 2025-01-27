@@ -9,7 +9,7 @@ Let's start with this example, where we want to express the yellow point of {num
 Expressing a local point in global coordinates.
 ```
 
-The unknown is the yellow point's coordinates in respect to the global frame:
+The unknown is the yellow point's coordinates with respect to the global frame:
 
 $$
 ^\text{global} p = \text{?}
@@ -68,7 +68,7 @@ $$
 \end{bmatrix}
 $$
 
-We also know how to express the local frame:
+We also know how to express the local frame as a homogeneous transform:
 
 $$
 ~^\text{global}_\text{local}T = \begin{bmatrix}
@@ -109,4 +109,4 @@ $$
 \end{bmatrix}
 $$
 
-The position of the yellow points, in global coordinates, is (8.232, 6.866, 0).
+The position of the yellow point, in global coordinates, is (8.232, 6.866, 0).

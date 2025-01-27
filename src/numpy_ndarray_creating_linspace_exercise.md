@@ -19,9 +19,9 @@ kernelspec:
 
 # Exercise: Creating linearly spaced arrays
 
-We recorded the force measured by a dynamometer at a sampling frequency of 100 Hz, during 2.5 seconds.
+We recorded the force measured by a dynamometer at a sampling frequency of 100 Hz for 2.5 seconds.
 
-Using one line of code (excluding the `import` line), create a NumPy array named `time`, that represents the time corresponding to each sample. The first element of this array will be 0, the second will be 0.01, etc.
+Using one line of code (excluding the `import` line), create a NumPy array named `time` that represents the time corresponding to each sample. The first element of this array will be 0, the second will be 0.01, and so on.
 
 ```{code-cell} ipython3
 :tags: [hide-cell]
@@ -33,8 +33,8 @@ import numpy as np
 
 time = np.linspace(0, 2.5, 250, endpoint=False)
 
-# Note that if we understand the question as if the final time should be included,
-# then we need to increase the number of points by 1 to include this new points:
+# Note that if we interpret the question to include the final time, then we
+# need to increase the number of points by 1 to include this new point:
 # >> time = np.linspace(0, 2.5, 251)
 
 time

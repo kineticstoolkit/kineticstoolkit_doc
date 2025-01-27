@@ -17,9 +17,9 @@ kernelspec:
 %matplotlib inline
 ```
 
-# Indexing and slicing unidimensional arrays
+# Indexing and slicing one-dimensional arrays
 
-Indexing and slicing a unidimensional array is identical to [indexing](python_lists_indexing.md) and [slicing](python_lists_slicing.md) a Python list.
+Indexing and slicing a one-dimensional array is identical to [indexing](python_lists_indexing.md) and [slicing](python_lists_slicing.md) a Python list.
 
 :::{tip}
 As a reminder:
@@ -28,7 +28,7 @@ As a reminder:
 - Slicing means accessing several elements using a slice: `the_array[0:3]`
 :::
 
-Through this section, we will work with two example arrays:
+Throughout this section, we will work with two example arrays:
 - `data`: some random data;
 - `time`: the corresponding time.
 
@@ -43,7 +43,7 @@ plt.plot(time, data, "s-")
 plt.grid(True);
 ```
 
-As mentioned above, **indexing** a unidimensional array is identical to [indexing a list](python_lists_indexing.md). To read one element of a list/array:
+As mentioned above, **indexing** a one-dimensional array is identical to [indexing a list](python_lists_indexing.md). To read one element of a list/array:
 
 ```{code-cell} ipython3
 data[2]  # Read the 3rd element
@@ -69,7 +69,7 @@ data[-1]
 ```
 
 
-**Slicing** a unidimentional array is identical to [slicing a list](python_lists_slicing.md). To read several elements of a list/array:
+**Slicing** a one-dimensional array is identical to [slicing a list](python_lists_slicing.md). To read several elements of a list/array:
 
 ```{code-cell} ipython3
 # Keep only the values at indexes 2, 4, 6 and 8 of the original array
@@ -102,11 +102,11 @@ plt.legend();
 
 
 :::{tip}
-Note the line
+Note the line:
 
 ```
 modified_data = data.copy()
 ```
 
-Using the {{ndarray_copy}} method is required here, because otherwise we are just telling Python to assign an additional name (`modified_data`) to the same variable (`data`). In this case, modifiying `modified_data` would also modify `data` since they are both the same array. Using the `copy` method creates a new, unique array so that modifying one won't modify the other.
+Using the {{ndarray_copy}} method is required here, because otherwise we are just telling Python to assign an additional name (`modified_data`) to the same variable (`data`). In this case, modifying `modified_data` would also modify `data` since they are both the same array. Using the `copy` method creates a new, unique array so that modifying one won't modify the other.
 :::

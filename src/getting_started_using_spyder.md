@@ -19,7 +19,7 @@ kernelspec:
 
 # Using Spyder
 
-For those who are used to Matlab, Spyder's interface should immediately look familiar. Spyder's standard look is shown in {numref}`fig_spyder_interface`.
+For those who are familiar with Matlab, Spyder's interface should immediately look familiar. Spyder's standard look is shown in {numref}`fig_spyder_interface`.
 
 ```{figure-md} fig_spyder_interface
 ![](_static/images/fig_spyder_interface.png)
@@ -59,7 +59,7 @@ print("This is my first program")
 
 ## Writing code in a script
 
-Section B of {numref}`fig_spyder_interface` is the script editor. It is simply a text editor that allows saving  code as a .py text file, to execute it all together later. You can execute a script by clicking on the "Run File" button ({numref}`fig_spyder_toolbar`).
+Section B of {numref}`fig_spyder_interface` is the script editor. It is simply a text editor that allows you to save code as a .py text file, to execute it all together later. You can execute a script by clicking on the "Run File" button ({numref}`fig_spyder_toolbar`).
 
 As an exercise, create a file that prints "Hello World", save it as `hello_world.py`, and run it using the "Run File" button. You should see the text "Hello World" appear in the console.
 
@@ -72,7 +72,7 @@ As an exercise, create a file that prints "Hello World", save it as `hello_world
 
 ## Code cell
 
-When a script grows in length, it can be practical to run only one section at a time. A script can be split into cells using this sequence of characters that acts as a separator:
+When a script grows in length, it can be useful to run only one section at a time. A script can be split into cells using this sequence of characters that acts as a separator:
 
 ```
 # %%
@@ -97,7 +97,7 @@ As an exercise, create a file named `exercise.py` that contains two cells. A fir
 
 ## Getting help
 
-Section C of {numref}`fig_spyder_interface` is a collection of various panes. The help pane is particularly helpful to navigate the documentation of a given module or package. For example, to better understand how to use the Python `max` function, write `max` in the help pane.
+Section C of {numref}`fig_spyder_interface` contains various panes. The help pane is particularly helpful to navigate the documentation of a given module or package. For example, to better understand how to use the Python `max` function, write `max` in the help pane.
 
 ```{figure-md} fig_spyder_help_pane
 :width: 5in

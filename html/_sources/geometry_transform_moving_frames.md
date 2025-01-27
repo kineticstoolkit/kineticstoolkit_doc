@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.5
+    jupytext_version: 1.16.4
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -17,9 +17,9 @@ kernelspec:
 %matplotlib inline
 ```
 
-# Moving frames
+# Moving frames (transforms)
 
-If we get back to the [definition of a frame](geometry_frames.md), we remind that the first three columns are three vectors (the direction of three axes), and the fourth column is a point (the position of the origin). Therefore, since an homogeneous transform can move both points and vectors, then it can also move complete frames.
+The orientation and position of a frame (defined as a coordinate system attached to a segment) are expressed by a [homogeneous transform](geometry_transforms.md). We remind that the first three columns are three vectors (the direction of three axes), and the fourth column is a point (the position of the origin). Therefore, since a homogeneous transform can move both points and vectors, it can also move complete frames.
 
 ```{figure-md} fig_geometry_moving_frames
 :width: 5in
@@ -27,7 +27,6 @@ If we get back to the [definition of a frame](geometry_frames.md), we remind tha
 
 Rotating and translating a local frame in respect to the global reference frame.
 ```
-
 
 Let's use the same homogeneous transform to rotate and translate the frame  $^\text{global} _\text{local-initial} F$ (which reads as *Frame 'local' in its initial pose, expressed in global coordinates*) as shown in {numref}`fig_geometry_moving_frames`.
 
@@ -90,11 +89,11 @@ The transform $T$ is created using:
 import kineticstoolkit.lab as ktk
 import numpy as np
 
-T = ktk.geometry.create_transforms(
-    seq="z",  # Which means a rotation around the z axis
+T = ktk.geometry.create_transform_series(
     angles=[30],
     degrees=True,
-    translations=[[2.0, 0.0, 0.0]],
+    seq="z",  # Which means a rotation around the z axis
+    positions=[[2.0, 0.0, 0.0, 1.0]],
 )
 
 T

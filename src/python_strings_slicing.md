@@ -31,10 +31,10 @@ print(string[0])
 # Get the last character
 print(string[-1])
 
-# Get the 10 first characters
+# Get the first 10 characters
 print(string[:10])
 
-# Get the 10 last characters
+# Get the last 10 characters
 print(string[-10:])
 
 # Get every other character

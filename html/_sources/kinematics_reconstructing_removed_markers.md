@@ -18,7 +18,7 @@ kernelspec:
 
 # Reconstructing removed markers
 
-Rigid bodies affixed to segments are generally used to reconstruct points where it is difficult or impossible to affix a real marker. For example, if a marker would be at risk of falling during the action, it can be installed during a short calibration acquisition, and then removed during the action.
+Rigid bodies affixed to segments are generally used to reconstruct points where it is difficult or impossible to affix a real marker. For example, if a marker would be at risk of falling during the action, it can be installed during a short calibration acquisition and then removed during the action.
 
 The following example represents such a situation:
 - With a rigid body of three markers affixed to the left arm, and a single marker affixed to the left lateral elbow epicondyle, an acquisition of a few seconds was recorded with the participant barely moving.
@@ -76,7 +76,7 @@ plt.tight_layout()
 
 ## Creating a cluster of markers
 
-The idea is very similar to section [](kinematics_reconstructing_occluded_markers.md), where we reconstructed missing markers that belonged to the same rigid body. In this new example, since the lateral elbow epicondyle belongs to the same segment as the rigid body, then we can include it in the definition of the marker cluster.
+The idea is very similar to section [](kinematics_reconstructing_occluded_markers.md), where we reconstructed missing markers that belonged to the same rigid body. In this new example, since the lateral elbow epicondyle belongs to the same segment as the rigid body, we can include it in the definition of the marker cluster.
 
 ```{code-cell} ipython3
 cluster = ktk.kinematics.create_cluster(

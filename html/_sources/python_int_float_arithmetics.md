@@ -19,7 +19,7 @@ kernelspec:
 
 # Arithmetic operations between integers and floats
 
-When we perform operation between different types, Python may automatically convert integers to floats to ensure that the result holds the correct value. For example, adding an integer to another integer results in an integer:
+When we perform operations between different types, Python may automatically convert integers to floats to ensure that the result holds the correct value. For example, adding an integer to another integer results in an integer:
 
 ```{code-cell} ipython3
 a = 2 + 4

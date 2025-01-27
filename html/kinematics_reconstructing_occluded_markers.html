@@ -11,10 +11,10 @@
 <meta property="og:type" content="image/png" />
 <meta property="og:url" content="https://kineticstoolkit.uqam.ca/doc/kinematics_reconstructing_occluded_markers.html" />
 <meta property="og:site_name" content="Kinetics Toolkit" />
-<meta property="og:description" content="Often in kinematic acquisitions, we affix rigid bodies containing several markers on the person’s segments. These bodies have a minimum of three markers and allows reconstructing a complete local c..." />
+<meta property="og:description" content="Often in kinematic acquisitions, we affix rigid bodies containing several markers on the person’s segments. These bodies have a minimum of three markers and allow reconstructing a complete local co..." />
 <meta property="og:image" content="https://kineticstoolkit.uqam.ca/doc/_static/logo-social.png" />
 <meta property="og:image:alt" content="Kinetics Toolkit Logo" />
-<meta name="description" content="Often in kinematic acquisitions, we affix rigid bodies containing several markers on the person’s segments. These bodies have a minimum of three markers and allows reconstructing a complete local c..." />
+<meta name="description" content="Often in kinematic acquisitions, we affix rigid bodies containing several markers on the person’s segments. These bodies have a minimum of three markers and allow reconstructing a complete local co..." />
 <meta property='og:image:width' content=500 />
 <meta property='og:image:height' content=264 />
 
@@ -26,19 +26,21 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -47,10 +49,11 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=e3fcc901" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -77,6 +80,7 @@
     <link rel="prev" title="11.1. Calculating joint angles from a kinematic acquisition" href="kinematics_joint_angles.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -92,19 +96,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -112,7 +105,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -120,8 +112,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -137,7 +129,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -167,29 +160,25 @@
     
     
     <img src="_static/logo.png" class="logo__image only-light" alt="Biomechanical Analysis using Python and Kinetics Toolkit - Home"/>
-    <script>document.write(`<img src="_static/logo-dark.png" class="logo__image only-dark" alt="Biomechanical Analysis using Python and Kinetics Toolkit - Home"/>`);</script>
+    <img src="_static/logo-dark.png" class="logo__image only-dark pst-js-only" alt="Biomechanical Analysis using Python and Kinetics Toolkit - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Getting Started</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="getting_started_intro.html">1. Introduction</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="getting_started.html">2. Where to start</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="getting_started_installing.html">2.1. Installing Python, Spyder and Kinetics Toolkit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting_started_configuring_spyder.html">2.2. Configuring Spyder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started_installing.html">2.1. Installing Python and Kinetics Toolkit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started_configuring_spyder.html">2.2. Installing and configuring Spyder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="getting_started_using_spyder.html">2.3. Using Spyder</a></li>
 </ul>
 </details></li>
@@ -242,8 +231,10 @@
 <li class="toctree-l3"><a class="reference internal" href="python_functions_docstrings.html">3.4.4. Docstrings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python_functions_type_annotations.html">3.4.5. Type annotations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python_functions_positional_keywords.html">3.4.6. Positional and keyword arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="python_functions_default_values.html">3.4.7. Default values</a></li>
-<li class="toctree-l3"><a class="reference internal" href="python_functions_default_values_exercise.html">3.4.8. Exercise: Function argument’s default values</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_functions_default_values.html">3.4.7. Default values</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_functions_default_values_exercise.html">3.4.7.1. Exercise: Function argument’s default values</a></li>
+</ul>
+</details></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="python_conditions.html">3.5. Conditions and booleans</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -379,14 +370,14 @@
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="numpy_logical_operators.html">5.9. Logical operators</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="numpy_indexing_slicing_1d.html">5.10. Indexing and slicing unidimensional arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="numpy_indexing_slicing_1d.html">5.10. Indexing and slicing one-dimensional arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_1d_exercise.html">5.10.1. Exercise: Indexing and slicing unidimensional arrays</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="numpy_filtering_1d.html">5.11. Filtering unidimensional arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_filtering_1d_exercise1.html">5.11.1. Exercise: Indexing/slicing/filtering unidimensional arrays 1</a></li>
-<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_filtering_1d_exercise2.html">5.11.2. Exercise: Indexing/slicing/filtering unidimensional arrays 2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_filtering_1d_exercise3.html">5.11.3. Exercise: Indexing/slicing/filtering unidimensional arrays 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_filtering_1d_exercise1.html">5.11.1. Exercise: Indexing/slicing/filtering one-dimensional arrays 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_filtering_1d_exercise2.html">5.11.2. Exercise: Indexing/slicing/filtering one-dimensional arrays 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_filtering_1d_exercise3.html">5.11.3. Exercise: Indexing/slicing/filtering one-dimensional arrays 3</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="numpy_nd.html">5.12. Multidimensional arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -431,7 +422,7 @@
 <li class="toctree-l4"><a class="reference internal" href="filters_butter_exercise.html">7.3.1.4. Exercise: Filtering EMG data</a></li>
 </ul>
 </details></li>
-<li class="toctree-l3"><a class="reference internal" href="filters_smooth_savgol.html">7.3.2. Moving average, Savitsky-Golay and deriving filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="filters_smooth_savgol.html">7.3.2. Moving average, Savitzky-Golay and deriving filters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="filters_median.html">7.3.3. Removing artefacts using a median filter</a></li>
 </ul>
 </details></li>
@@ -448,55 +439,59 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="geometry.html">9. 3D rigid body geometry</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_basics.html">9.1. Coordinates: points, vectors and frames</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_basics.html">9.1. Geometry basics: coordinate systems, points, vectors, and transforms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="geometry_global_coordinates.html">9.1.1. Global coordinate system</a></li>
 <li class="toctree-l3"><a class="reference internal" href="geometry_points_vectors.html">9.1.2. Points and vectors</a></li>
 <li class="toctree-l3"><a class="reference internal" href="geometry_local_coordinates.html">9.1.3. Local coordinate system</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="geometry_frames.html">9.1.4. Frames</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="geometry_basics_exercise.html">9.1.4.1. Exercise: Frame</a></li>
-</ul>
-</details></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="geometry_dimension_conventions.html">9.1.5. Expressing series of points, vectors and frames in Kinetics Toolkit</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="geometry_dimension_conventions_exercise1.html">9.1.5.7. Exercise: Expressing a series of points</a></li>
-<li class="toctree-l4"><a class="reference internal" href="geometry_dimension_conventions_exercise2.html">9.1.5.8. Exercise: Expressing a constant vector</a></li>
-<li class="toctree-l4"><a class="reference internal" href="geometry_dimension_conventions_exercise3.html">9.1.5.9. Exercise: Expressing a series of frames</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="geometry_transforms.html">9.1.4. Transforms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="geometry_basics_exercise.html">9.1.4.1. Exercise: Transform</a></li>
 </ul>
 </details></li>
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_transform_moving_coordinates.html">9.2. Rotating and translating coordinates</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometry_transform_moving_points.html">9.2.1. Moving points</a></li>
-<li class="toctree-l3"><a class="reference internal" href="geometry_transform_rotating_vectors.html">9.2.2. Rotating vectors</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="geometry_transform_moving_frames.html">9.2.3. Moving frames</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="geometry_moving_coordinates_exercise1.html">9.2.3.3. Exercise: Moving a point</a></li>
-<li class="toctree-l4"><a class="reference internal" href="geometry_moving_coordinates_exercise2.html">9.2.3.4. Exercise: Moving a trajectory</a></li>
-<li class="toctree-l4"><a class="reference internal" href="geometry_moving_coordinates_exercise3.html">9.2.3.5. Exercise: A fixed point in a moving coordinate system</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_dimension_conventions.html">9.2. Expressing series of numbers, points, vectors, and transforms in Kinetics Toolkit</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="geometry_creating_point_series.html">9.2.7. Creating point series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_creating_vector_series.html">9.2.8. Creating vector series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_creating_transform_series.html">9.2.9. Creating transform series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_dimension_conventions_exercise1.html">9.2.10. Exercise: Expressing a series of points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_dimension_conventions_exercise2.html">9.2.11. Exercise: Expressing a constant vector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_dimension_conventions_exercise3.html">9.2.12. Exercise: Expressing a series of transforms</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_transform_moving_coordinates.html">9.3. Rotating and translating coordinates</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="geometry_transform_moving_points.html">9.3.1. Moving points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_transform_rotating_vectors.html">9.3.2. Rotating vectors</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="geometry_transform_moving_frames.html">9.3.3. Moving frames (transforms)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="geometry_moving_coordinates_exercise1.html">9.3.3.3. Exercise: Moving a point</a></li>
+<li class="toctree-l4"><a class="reference internal" href="geometry_moving_coordinates_exercise2.html">9.3.3.4. Exercise: Moving a trajectory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="geometry_moving_coordinates_exercise3.html">9.3.3.5. Exercise: A fixed point in a moving coordinate system</a></li>
 </ul>
 </details></li>
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_transform_changing_coordinate_system.html">9.3. The homogeneous transform: mapping coordinates to other coordinate systems</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometry_transform_local_to_global_coordinates.html">9.3.1. Mapping local coordinates to global coordinates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="geometry_transform_global_to_local_coordinates.html">9.3.2. Mapping global coordinates to local coordinates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="geometry_transform_changing_coordinate_system_example.html">9.3.3. Local to global coordinates example</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_transform_changing_coordinate_system.html">9.4. The homogeneous transform: mapping coordinates to other coordinate systems</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="geometry_transform_local_to_global_coordinates.html">9.4.1. Mapping local coordinates to global coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_transform_global_to_local_coordinates.html">9.4.2. Mapping global coordinates to local coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_transform_changing_coordinate_system_example.html">9.4.3. Local to global coordinates example</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="geometry_kinematic_chains.html">9.4. Kinematic chains</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_angles.html">9.5. Extracting angles</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometry_2d_angles.html">9.5.1. 2D angles</a></li>
-<li class="toctree-l3"><a class="reference internal" href="geometry_3d_angles.html">9.5.2. 3D angles</a></li>
-<li class="toctree-l3"><a class="reference internal" href="geometry_3d_angles_ktk.html">9.5.3. Extracting 3D angles using Kinetics Toolkit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="geometry_3d_angles_choosing_seq.html">9.5.4. Choosing a rotation sequence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometry_kinematic_chains.html">9.5. Kinematic chains</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_angles.html">9.6. Extracting angles</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="geometry_2d_angles.html">9.6.1. 2D angles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_3d_angles.html">9.6.2. 3D angles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_3d_angles_ktk.html">9.6.3. Extracting 3D angles using Kinetics Toolkit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_3d_angles_choosing_seq.html">9.6.4. Choosing a rotation sequence</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="geometry_exercises.html">9.6. Exercices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometry_exercises.html">9.7. Exercises</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="player.html">10. Visualizing 3D points and frames</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="player.html">10. Visualizing 3D points, frames, and forces</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="player_basics.html">10.1. Player basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="player_interconnections.html">10.2. Interconnecting the points</a></li>
-<li class="toctree-l2"><a class="reference internal" href="player_frames.html">10.3. Visualizing frames</a></li>
-<li class="toctree-l2"><a class="reference internal" href="player_styling_exporting.html">10.4. Styling and exporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player_interconnections.html">10.2. Interconnecting points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player_frames.html">10.3. Visualizing frames (rigid bodies)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player_vectors.html">10.4. Visualizing forces and other vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player_styling_exporting.html">10.5. Styling and exporting</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="kinematics.html">11. Kinematic analysis</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
@@ -620,13 +615,19 @@
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.geometry.html">ktk.geometry</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_frames.html">ktk.geometry.create_frames</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_transforms.html">ktk.geometry.create_transforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_point_series.html">ktk.geometry.create_point_series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_transform_series.html">ktk.geometry.create_transform_series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_vector_series.html">ktk.geometry.create_vector_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_angles.html">ktk.geometry.get_angles</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_global_coordinates.html">ktk.geometry.get_global_coordinates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_local_coordinates.html">ktk.geometry.get_local_coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_quaternions.html">ktk.geometry.get_quaternions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.is_point_series.html">ktk.geometry.is_point_series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.is_transform_series.html">ktk.geometry.is_transform_series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.is_vector_series.html">ktk.geometry.is_vector_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.isnan.html">ktk.geometry.isnan</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.matmul.html">ktk.geometry.matmul</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.mirror.html">ktk.geometry.mirror</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.register_points.html">ktk.geometry.register_points</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.rotate.html">ktk.geometry.rotate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.scale.html">ktk.geometry.scale</a></li>
@@ -651,9 +652,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -750,24 +756,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -808,17 +806,17 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="reconstructing-occluded-markers">
 <h1><span class="section-number">11.2. </span>Reconstructing occluded markers<a class="headerlink" href="#reconstructing-occluded-markers" title="Link to this heading">#</a></h1>
-<p>Often in kinematic acquisitions, we affix rigid bodies containing several markers on the person’s segments. These bodies have a minimum of three markers and allows reconstructing a complete local coordinate system for a given body segment. The importance of these rigid bodies will become clearer in the next sections.</p>
+<p>Often in kinematic acquisitions, we affix rigid bodies containing several markers on the person’s segments. These bodies have a minimum of three markers and allow reconstructing a complete local coordinate system for a given body segment. The importance of these rigid bodies will become clearer in the next sections.</p>
 <p>It is often useful to have more than three markers on each rigid body, so that in case of occlusion (one marker is hidden and not recorded by the cameras) we can reconstruct its position using the position of every other marker.</p>
-<p>Kinetics Toolkit provides an easy way to reconstruct missing markers based on the position of the remaining ones. This is the contents of this section.</p>
+<p>Kinetics Toolkit provides an easy way to reconstruct missing markers based on the position of the remaining ones. This is the content of this section.</p>
 <section id="loading-sample-data">
 <h2><span class="section-number">11.2.1. </span>Loading sample data<a class="headerlink" href="#loading-sample-data" title="Link to this heading">#</a></h2>
 <p>For this example, we will use a sample of wheelchair propulsion in a moving wheelchair. We will only use the markers of the rigid body called ‘ArmL’.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">kineticstoolkit.lab</span> <span class="k">as</span> <span class="nn">ktk</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">kineticstoolkit.lab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ktk</span>
 
 <span class="n">markers</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">read_c3d</span><span class="p">(</span>
     <span class="n">ktk</span><span class="o">.</span><span class="n">doc</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s2">&quot;kinematics_basket_sprint.c3d&quot;</span><span class="p">)</span>
@@ -830,7 +828,7 @@ document.write(`
 
 <span class="n">markers</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">get_ts_between_times</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">17</span><span class="p">)</span>
 
-<span class="c1"># Plot the markers trajectories</span>
+<span class="c1"># Plot the markers&#39; trajectories</span>
 
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">markers</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s2">&quot;ArmL:Marker1&quot;</span><span class="p">)</span>
@@ -845,13 +843,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/6be0f5af422386b14319dc777c5add90f0c13ed4f764e8c9efad9db724175cdb.png" src="_images/6be0f5af422386b14319dc777c5add90f0c13ed4f764e8c9efad9db724175cdb.png" />
+<img alt="_images/5f89068e1d959114e9f5f5b03f898bff71cb87b3d6740461b76b926e222d8fac.png" src="_images/5f89068e1d959114e9f5f5b03f898bff71cb87b3d6740461b76b926e222d8fac.png" />
 </div>
 </div>
 </section>
 <section id="marker-occlusion">
 <h2><span class="section-number">11.2.2. </span>Marker occlusion<a class="headerlink" href="#marker-occlusion" title="Link to this heading">#</a></h2>
-<p>These data do not have occlusion, and therefore we will fake some. Let simulate that we lost Marker2 from 14.0 to 15.0 seconds, and Marker4 from 14.8 to 15.8 seconds.</p>
+<p>These data do not have occlusion, and therefore we will fake some. Let’s simulate that we lost Marker2 from 14.0 to 15.0 seconds, and Marker4 from 14.8 to 15.8 seconds.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;ArmL:Marker2&quot;</span><span class="p">][</span>
@@ -861,7 +859,7 @@ document.write(`
     <span class="p">(</span><span class="n">markers</span><span class="o">.</span><span class="n">time</span> <span class="o">&gt;=</span> <span class="mf">14.8</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">markers</span><span class="o">.</span><span class="n">time</span> <span class="o">&lt;=</span> <span class="mf">15.8</span><span class="p">)</span>
 <span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
 
-<span class="c1"># Plot the markers trajectories</span>
+<span class="c1"># Plot the markers&#39; trajectories</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">markers</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s2">&quot;ArmL:Marker1&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
@@ -875,13 +873,13 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d696b080cd5e3716dcd73175009abe1a0e89381a1509da494cab26e1470792e6.png" src="_images/d696b080cd5e3716dcd73175009abe1a0e89381a1509da494cab26e1470792e6.png" />
+<img alt="_images/da02a732a9316ea5c65c77f8a4384addad5112cce43ed84e31eadaacbb57192b.png" src="_images/da02a732a9316ea5c65c77f8a4384addad5112cce43ed84e31eadaacbb57192b.png" />
 </div>
 </div>
 </section>
 <section id="create-a-cluster-of-markers">
 <h2><span class="section-number">11.2.3. </span>Create a cluster of markers<a class="headerlink" href="#create-a-cluster-of-markers" title="Link to this heading">#</a></h2>
-<p>To reconstruct the most that we can from these data, we begin by creating a cluster of markers. A cluster is the fixed, local position of every provided markers expressed in an abritrary, local coordinate system. The <a class="reference internal" href="api/ktk.kinematics.create_cluster.html"><span class="std std-doc">ktk.kinematics.create_cluster</span></a> function is used to create such a cluster. Note that for this function to work, all markers must be visible at the same time at least once.</p>
+<p>To reconstruct the most that we can from these data, we begin by creating a cluster of markers. A cluster is the fixed, local position of every provided marker expressed in an arbitrary, local coordinate system. The <a class="reference internal" href="api/ktk.kinematics.create_cluster.html"><span class="std std-doc">ktk.kinematics.create_cluster</span></a> function is used to create such a cluster. Note that for this function to work, all markers must be visible at the same time at least once.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cluster</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">kinematics</span><span class="o">.</span><span class="n">create_cluster</span><span class="p">(</span>
@@ -914,7 +912,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">reconstructed_markers</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">kinematics</span><span class="o">.</span><span class="n">track_cluster</span><span class="p">(</span><span class="n">markers</span><span class="p">,</span> <span class="n">cluster</span><span class="p">)</span>
 
-<span class="c1"># Plot the markers trajectories</span>
+<span class="c1"># Plot the markers&#39; trajectories</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">reconstructed_markers</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="s2">&quot;ArmL:Marker1&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
@@ -928,10 +926,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/9aa9b3a2a71be2ae989b0af4ec2b5bc20202636059040837b52a3159d8582e67.png" src="_images/9aa9b3a2a71be2ae989b0af4ec2b5bc20202636059040837b52a3159d8582e67.png" />
+<img alt="_images/f3bd806d4abb5c40f98ebd01ef4298d531e8c4d8bce494db1fedcea1c6bc2ec4.png" src="_images/f3bd806d4abb5c40f98ebd01ef4298d531e8c4d8bce494db1fedcea1c6bc2ec4.png" />
 </div>
 </div>
-<p>As we see, most of the missing data from Marker2 and Marker4 were reconstructed. Only the zone between 14.8 and 15.0 seconds could not, because only two markers were visible at that time. We also note that missing data appeared in the reconstructed markers 1 and 3, whereas no data was missing before. It is important to understand that the reconstructed marker positions are not the original marker positions, plus the reconstructed data. They are all new data, generated by the process of fitting a rigid cluster on available marker positions. Since only two markers were available between 14.8 and 15.0 seconds, then the cluster could not be fitted and therefore, no reconstructed marker can be obtained.</p>
+<p>As we see, most of the missing data from Marker2 and Marker4 were reconstructed. Only the zone between 14.8 and 15.0 seconds could not, because only two markers were visible at that time. We also note that missing data appeared in the reconstructed markers 1 and 3, whereas no data was missing before. It is important to understand that the reconstructed marker positions are not the original marker positions, plus the reconstructed data. They are all new data, generated by the process of fitting a rigid cluster on available marker positions. Since only two markers were available between 14.8 and 15.0 seconds, the cluster could not be fitted and therefore, no reconstructed marker can be obtained.</p>
 </section>
 </section>
 
@@ -990,7 +988,8 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -1054,8 +1053,8 @@ By Félix Chénier
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

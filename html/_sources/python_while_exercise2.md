@@ -20,7 +20,7 @@ kernelspec:
 
 # Exercise: Looping using **while** 2
 
-A therapist measures a patient's maximal shoulder flexion angle several times. Write a program that creates a list of all these measurements based on [user input](python_strings_input.md), following this example:
+A therapist measures a patient's maximal shoulder flexion angle several times. Write a program that creates a list of all these measurements based on [user input](python_strings_input.md), as shown in the following example:
 
 :::{admonition} Example of program output
 ```none
@@ -33,7 +33,7 @@ Max shoulder flexion: [119.0, 124.0, 123.0]
 :::
 
 :::{tip}
-The [input](python_strings_input.md) function returns an empty string `""` when the user simply presses Enter without entering a value.
+The [input](python_strings_input.md) function returns an empty string `""` when the user presses Enter without entering a value.
 :::
 
 :::{toggle}

@@ -38,7 +38,7 @@ plt.xlabel('Time (s)')
 _ = plt.ylabel('Force (N)')
 ```
 
-We consider that the step begins when the force exceeds a given threshold, and that it ends when the force stops exceeding this threshold. Write the function `calculate_step_time` that calculates the duration of the step, then test it with a threshold of 50 N.
+We consider the step to begin when the force exceeds a given threshold and to end when the falls below this threshold. Write a function `calculate_step_time` that calculates the duration of the step, and then test it with a threshold of 50 N.
 
 ```
 def calculate_step_time(grf, threshold, sampling_frequency):
@@ -53,7 +53,7 @@ def calculate_step_time(grf, threshold, sampling_frequency):
     threshold : float
         A value above which we consider the step begins, and below which
         the step ends.
-    sampling_frequency :
+    sampling_frequency : float
         The sampling frequency in Hz.
 
     Returns
@@ -84,7 +84,7 @@ def calculate_step_time(grf, threshold, sampling_frequency):
         current_index += 1
     i_end = current_index
 
-    # Calculate and return the time step
+    # Calculate and return the step time
     return (i_end - i_begin) / sampling_frequency
 
 # Test it

@@ -16,12 +16,12 @@ kernelspec:
 This section shows how to modify one or many elements of a list (using indexing and slicing), how to `extend` lists or `append` data to lists, and how to remove an element from a list using `pop`.
 
 :::{important}
-Since tuples are immutable, then this page does not apply to tuples.
+Since tuples are immutable, this page does not apply to tuples.
 :::
 
 ## Modifying an element
 
-We already know how to read one element of a list using [indexing](python_lists_indexing.md), and how to read many elements of a list using [slicing](python_lists_slicing.md):
+We already know how to read one element of a list using [indexing](python_lists_indexing.md) and multiple elements using [slicing](python_lists_slicing.md):
 
 ```{code-cell} ipython3
 a = [1, 2, 3]
@@ -35,7 +35,7 @@ print(a[0:2])
 
 We can also use indexing and slicing to write elements of a list.
 
-To write one element using indexing:
+To modify a single element using indexing:
 
 ```{code-cell} ipython3
 a = [1, 2, 3]
@@ -44,7 +44,7 @@ a[0] = 10
 a
 ```
 
-To write multiple elements at once using slicing:
+To modify multiple elements using slicing:
 
 ```{code-cell} ipython3
 a = [1, 2, 3]
@@ -57,7 +57,7 @@ a
 
 ## Appending an element to a list
 
-To append a new element to a list, we use the list's `append` method, which takes the new value as an argument.
+To append a new element to a list, we use the list's `append` method, which takes the new element as an argument.
 
 :::{admonition} Function vs method
 A [function](python_functions.md) is a subprogram that can process arguments and return a result.
@@ -72,7 +72,7 @@ A **method** is a special type of function that is only available for a given va
 output = variable.method()
 ```
 
-Methods sometimes modify the variable itself, which is the case with `append` and ` extend`.
+Methods sometimes modify the variable itself, which is the case with `append` and `extend`.
 
 :::
 
@@ -87,7 +87,7 @@ print("a after =", a)
 
 ## Extending a list
 
-To append multiple elements at once, we instead use the lists' `extend` method, which takes a list of new values as an argument.
+To append multiple elements at once, we instead use the lists' `extend` method, which takes a list of new elements as an argument.
 
 ```{code-cell} ipython3
 a = [1, 2, 3]
@@ -100,7 +100,7 @@ print("a after =", a)
 
 ## Deleting an element from a list
 
-To remove an element at a given index, we use the list's `pop` method, which both returns the element being deleted and deletes it from the list.
+To remove an element at a given index, we use the list's `pop` method, which returns the element being deleted and removes it from the list.
 
 ```{code-cell} ipython3
 a = [1, 2, 3]

@@ -7,18 +7,18 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="2.2. Configuring Spyder" />
+<meta property="og:title" content="2.2. Installing and configuring Spyder" />
 <meta property="og:type" content="image/png" />
 <meta property="og:url" content="https://kineticstoolkit.uqam.ca/doc/getting_started_configuring_spyder.html" />
 <meta property="og:site_name" content="Kinetics Toolkit" />
-<meta property="og:description" content="Spyder is a general purpose programming environment for scientific applications, and it suits very well biomechanical data processing. We however recommend doing these steps to enhance your experie..." />
+<meta property="og:description" content="Spyder is a general-purpose programming environment for scientific applications, and it suits biomechanical data processing very well. Therefore, this is the programming environment that we recomme..." />
 <meta property="og:image" content="https://kineticstoolkit.uqam.ca/doc/_static/logo-social.png" />
 <meta property="og:image:alt" content="Kinetics Toolkit Logo" />
-<meta name="description" content="Spyder is a general purpose programming environment for scientific applications, and it suits very well biomechanical data processing. We however recommend doing these steps to enhance your experie..." />
+<meta name="description" content="Spyder is a general-purpose programming environment for scientific applications, and it suits biomechanical data processing very well. Therefore, this is the programming environment that we recomme..." />
 <meta property='og:image:width' content=500 />
 <meta property='og:image:height' content=264 />
 
-    <title>2.2. Configuring Spyder &#8212; Biomechanical Analysis using Python and Kinetics Toolkit</title>
+    <title>2.2. Installing and configuring Spyder &#8212; Biomechanical Analysis using Python and Kinetics Toolkit</title>
   
   
   
@@ -26,19 +26,21 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -47,10 +49,11 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=e3fcc901" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -74,9 +77,10 @@
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="2.3. Using Spyder" href="getting_started_using_spyder.html" />
-    <link rel="prev" title="2.1. Installing Python, Spyder and Kinetics Toolkit" href="getting_started_installing.html" />
+    <link rel="prev" title="2.1. Installing Python and Kinetics Toolkit" href="getting_started_installing.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -92,19 +96,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -112,7 +105,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -120,8 +112,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -137,7 +129,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -167,29 +160,25 @@
     
     
     <img src="_static/logo.png" class="logo__image only-light" alt="Biomechanical Analysis using Python and Kinetics Toolkit - Home"/>
-    <script>document.write(`<img src="_static/logo-dark.png" class="logo__image only-dark" alt="Biomechanical Analysis using Python and Kinetics Toolkit - Home"/>`);</script>
+    <img src="_static/logo-dark.png" class="logo__image only-dark pst-js-only" alt="Biomechanical Analysis using Python and Kinetics Toolkit - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Getting Started</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="getting_started_intro.html">1. Introduction</a></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="getting_started.html">2. Where to start</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="getting_started_installing.html">2.1. Installing Python, Spyder and Kinetics Toolkit</a></li>
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.2. Configuring Spyder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started_installing.html">2.1. Installing Python and Kinetics Toolkit</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">2.2. Installing and configuring Spyder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="getting_started_using_spyder.html">2.3. Using Spyder</a></li>
 </ul>
 </details></li>
@@ -242,8 +231,10 @@
 <li class="toctree-l3"><a class="reference internal" href="python_functions_docstrings.html">3.4.4. Docstrings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python_functions_type_annotations.html">3.4.5. Type annotations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python_functions_positional_keywords.html">3.4.6. Positional and keyword arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="python_functions_default_values.html">3.4.7. Default values</a></li>
-<li class="toctree-l3"><a class="reference internal" href="python_functions_default_values_exercise.html">3.4.8. Exercise: Function argument’s default values</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_functions_default_values.html">3.4.7. Default values</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_functions_default_values_exercise.html">3.4.7.1. Exercise: Function argument’s default values</a></li>
+</ul>
+</details></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="python_conditions.html">3.5. Conditions and booleans</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -379,14 +370,14 @@
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="numpy_logical_operators.html">5.9. Logical operators</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="numpy_indexing_slicing_1d.html">5.10. Indexing and slicing unidimensional arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="numpy_indexing_slicing_1d.html">5.10. Indexing and slicing one-dimensional arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_1d_exercise.html">5.10.1. Exercise: Indexing and slicing unidimensional arrays</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="numpy_filtering_1d.html">5.11. Filtering unidimensional arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_filtering_1d_exercise1.html">5.11.1. Exercise: Indexing/slicing/filtering unidimensional arrays 1</a></li>
-<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_filtering_1d_exercise2.html">5.11.2. Exercise: Indexing/slicing/filtering unidimensional arrays 2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_filtering_1d_exercise3.html">5.11.3. Exercise: Indexing/slicing/filtering unidimensional arrays 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_filtering_1d_exercise1.html">5.11.1. Exercise: Indexing/slicing/filtering one-dimensional arrays 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_filtering_1d_exercise2.html">5.11.2. Exercise: Indexing/slicing/filtering one-dimensional arrays 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_filtering_1d_exercise3.html">5.11.3. Exercise: Indexing/slicing/filtering one-dimensional arrays 3</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="numpy_nd.html">5.12. Multidimensional arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -431,7 +422,7 @@
 <li class="toctree-l4"><a class="reference internal" href="filters_butter_exercise.html">7.3.1.4. Exercise: Filtering EMG data</a></li>
 </ul>
 </details></li>
-<li class="toctree-l3"><a class="reference internal" href="filters_smooth_savgol.html">7.3.2. Moving average, Savitsky-Golay and deriving filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="filters_smooth_savgol.html">7.3.2. Moving average, Savitzky-Golay and deriving filters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="filters_median.html">7.3.3. Removing artefacts using a median filter</a></li>
 </ul>
 </details></li>
@@ -448,55 +439,59 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="geometry.html">9. 3D rigid body geometry</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_basics.html">9.1. Coordinates: points, vectors and frames</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_basics.html">9.1. Geometry basics: coordinate systems, points, vectors, and transforms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="geometry_global_coordinates.html">9.1.1. Global coordinate system</a></li>
 <li class="toctree-l3"><a class="reference internal" href="geometry_points_vectors.html">9.1.2. Points and vectors</a></li>
 <li class="toctree-l3"><a class="reference internal" href="geometry_local_coordinates.html">9.1.3. Local coordinate system</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="geometry_frames.html">9.1.4. Frames</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="geometry_basics_exercise.html">9.1.4.1. Exercise: Frame</a></li>
-</ul>
-</details></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="geometry_dimension_conventions.html">9.1.5. Expressing series of points, vectors and frames in Kinetics Toolkit</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="geometry_dimension_conventions_exercise1.html">9.1.5.7. Exercise: Expressing a series of points</a></li>
-<li class="toctree-l4"><a class="reference internal" href="geometry_dimension_conventions_exercise2.html">9.1.5.8. Exercise: Expressing a constant vector</a></li>
-<li class="toctree-l4"><a class="reference internal" href="geometry_dimension_conventions_exercise3.html">9.1.5.9. Exercise: Expressing a series of frames</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="geometry_transforms.html">9.1.4. Transforms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="geometry_basics_exercise.html">9.1.4.1. Exercise: Transform</a></li>
 </ul>
 </details></li>
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_transform_moving_coordinates.html">9.2. Rotating and translating coordinates</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometry_transform_moving_points.html">9.2.1. Moving points</a></li>
-<li class="toctree-l3"><a class="reference internal" href="geometry_transform_rotating_vectors.html">9.2.2. Rotating vectors</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="geometry_transform_moving_frames.html">9.2.3. Moving frames</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="geometry_moving_coordinates_exercise1.html">9.2.3.3. Exercise: Moving a point</a></li>
-<li class="toctree-l4"><a class="reference internal" href="geometry_moving_coordinates_exercise2.html">9.2.3.4. Exercise: Moving a trajectory</a></li>
-<li class="toctree-l4"><a class="reference internal" href="geometry_moving_coordinates_exercise3.html">9.2.3.5. Exercise: A fixed point in a moving coordinate system</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_dimension_conventions.html">9.2. Expressing series of numbers, points, vectors, and transforms in Kinetics Toolkit</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="geometry_creating_point_series.html">9.2.7. Creating point series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_creating_vector_series.html">9.2.8. Creating vector series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_creating_transform_series.html">9.2.9. Creating transform series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_dimension_conventions_exercise1.html">9.2.10. Exercise: Expressing a series of points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_dimension_conventions_exercise2.html">9.2.11. Exercise: Expressing a constant vector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_dimension_conventions_exercise3.html">9.2.12. Exercise: Expressing a series of transforms</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_transform_moving_coordinates.html">9.3. Rotating and translating coordinates</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="geometry_transform_moving_points.html">9.3.1. Moving points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_transform_rotating_vectors.html">9.3.2. Rotating vectors</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="geometry_transform_moving_frames.html">9.3.3. Moving frames (transforms)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="geometry_moving_coordinates_exercise1.html">9.3.3.3. Exercise: Moving a point</a></li>
+<li class="toctree-l4"><a class="reference internal" href="geometry_moving_coordinates_exercise2.html">9.3.3.4. Exercise: Moving a trajectory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="geometry_moving_coordinates_exercise3.html">9.3.3.5. Exercise: A fixed point in a moving coordinate system</a></li>
 </ul>
 </details></li>
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_transform_changing_coordinate_system.html">9.3. The homogeneous transform: mapping coordinates to other coordinate systems</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometry_transform_local_to_global_coordinates.html">9.3.1. Mapping local coordinates to global coordinates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="geometry_transform_global_to_local_coordinates.html">9.3.2. Mapping global coordinates to local coordinates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="geometry_transform_changing_coordinate_system_example.html">9.3.3. Local to global coordinates example</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_transform_changing_coordinate_system.html">9.4. The homogeneous transform: mapping coordinates to other coordinate systems</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="geometry_transform_local_to_global_coordinates.html">9.4.1. Mapping local coordinates to global coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_transform_global_to_local_coordinates.html">9.4.2. Mapping global coordinates to local coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_transform_changing_coordinate_system_example.html">9.4.3. Local to global coordinates example</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="geometry_kinematic_chains.html">9.4. Kinematic chains</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_angles.html">9.5. Extracting angles</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometry_2d_angles.html">9.5.1. 2D angles</a></li>
-<li class="toctree-l3"><a class="reference internal" href="geometry_3d_angles.html">9.5.2. 3D angles</a></li>
-<li class="toctree-l3"><a class="reference internal" href="geometry_3d_angles_ktk.html">9.5.3. Extracting 3D angles using Kinetics Toolkit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="geometry_3d_angles_choosing_seq.html">9.5.4. Choosing a rotation sequence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometry_kinematic_chains.html">9.5. Kinematic chains</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_angles.html">9.6. Extracting angles</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="geometry_2d_angles.html">9.6.1. 2D angles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_3d_angles.html">9.6.2. 3D angles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_3d_angles_ktk.html">9.6.3. Extracting 3D angles using Kinetics Toolkit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_3d_angles_choosing_seq.html">9.6.4. Choosing a rotation sequence</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="geometry_exercises.html">9.6. Exercices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometry_exercises.html">9.7. Exercises</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="player.html">10. Visualizing 3D points and frames</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="player.html">10. Visualizing 3D points, frames, and forces</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="player_basics.html">10.1. Player basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="player_interconnections.html">10.2. Interconnecting the points</a></li>
-<li class="toctree-l2"><a class="reference internal" href="player_frames.html">10.3. Visualizing frames</a></li>
-<li class="toctree-l2"><a class="reference internal" href="player_styling_exporting.html">10.4. Styling and exporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player_interconnections.html">10.2. Interconnecting points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player_frames.html">10.3. Visualizing frames (rigid bodies)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player_vectors.html">10.4. Visualizing forces and other vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player_styling_exporting.html">10.5. Styling and exporting</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="kinematics.html">11. Kinematic analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -620,13 +615,19 @@
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.geometry.html">ktk.geometry</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_frames.html">ktk.geometry.create_frames</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_transforms.html">ktk.geometry.create_transforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_point_series.html">ktk.geometry.create_point_series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_transform_series.html">ktk.geometry.create_transform_series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_vector_series.html">ktk.geometry.create_vector_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_angles.html">ktk.geometry.get_angles</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_global_coordinates.html">ktk.geometry.get_global_coordinates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_local_coordinates.html">ktk.geometry.get_local_coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_quaternions.html">ktk.geometry.get_quaternions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.is_point_series.html">ktk.geometry.is_point_series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.is_transform_series.html">ktk.geometry.is_transform_series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.is_vector_series.html">ktk.geometry.is_vector_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.isnan.html">ktk.geometry.isnan</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.matmul.html">ktk.geometry.matmul</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.mirror.html">ktk.geometry.mirror</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.register_points.html">ktk.geometry.register_points</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.rotate.html">ktk.geometry.rotate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.scale.html">ktk.geometry.scale</a></li>
@@ -651,9 +652,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -750,24 +756,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -781,7 +779,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Configuring Spyder</h1>
+    <h1>Installing and configuring Spyder</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -791,9 +789,12 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mandatory-interactive-matplotlib-figures">2.2.1. Mandatory: Interactive Matplotlib figures</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-automatic-code-style">2.2.2. Optional: Automatic code style</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-docstring-linting">2.2.3. Optional: Docstring linting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">2.2.1. Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">2.2.2. Configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-your-python-installation">2.2.2.1. Selecting your Python installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-matplotlib-figures">2.2.2.2. Interactive Matplotlib figures</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -805,70 +806,64 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="configuring-spyder">
-<h1><span class="section-number">2.2. </span>Configuring Spyder<a class="headerlink" href="#configuring-spyder" title="Link to this heading">#</a></h1>
-<p>Spyder is a general purpose programming environment for scientific applications, and it suits very well biomechanical data processing. We however recommend doing these steps to enhance your experience with interactive data processing.</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="installing-and-configuring-spyder">
+<h1><span class="section-number">2.2. </span>Installing and configuring Spyder<a class="headerlink" href="#installing-and-configuring-spyder" title="Link to this heading">#</a></h1>
+<p>Spyder is a general-purpose programming environment for scientific applications, and it suits biomechanical data processing very well. Therefore, this is the programming environment that we recommend in this guide. Here is how to install and configure it to enhance your experience with interactive data processing.</p>
 <figure class="align-default" id="fig-spyder-ide" style="width: 4in">
 <img alt="" src="_images/fig_spyder_ide.jpg" />
 <figcaption>
-<p><span class="caption-number">Fig. 2.1 </span><span class="caption-text">The Scientific Python Development Environment (spyder)</span><a class="headerlink" href="#fig-spyder-ide" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.1 </span><span class="caption-text">The Scientific Python Development Environment (Spyder)</span><a class="headerlink" href="#fig-spyder-ide" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
-<section id="mandatory-interactive-matplotlib-figures">
-<h2><span class="section-number">2.2.1. </span>Mandatory: Interactive Matplotlib figures<a class="headerlink" href="#mandatory-interactive-matplotlib-figures" title="Link to this heading">#</a></h2>
-<p>To pan and zoom plots, or to use Kinetics Toolkit’s interactive functions (e.g., editing events, visualizing 3D points), you must use an interactive frontend for Matplotlib. Follow these steps to configure Spyder for interactive graphics, as shown in <a class="reference internal" href="#fig-spyder-qt5"><span class="std std-numref">Fig. 2.2</span></a>.</p>
+<section id="installation">
+<h2><span class="section-number">2.2.1. </span>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
+<p>Download and install Spyder from its website: <a class="reference external" href="https://www.spyder-ide.org">https://www.spyder-ide.org</a></p>
+</section>
+<section id="configuration">
+<h2><span class="section-number">2.2.2. </span>Configuration<a class="headerlink" href="#configuration" title="Link to this heading">#</a></h2>
+<section id="selecting-your-python-installation">
+<h3><span class="section-number">2.2.2.1. </span>Selecting your Python installation<a class="headerlink" href="#selecting-your-python-installation" title="Link to this heading">#</a></h3>
+<p>In section <a class="reference internal" href="getting_started_installing.html"><span class="std std-doc">Installing Python and Kinetics Toolkit</span></a>, we created a <code class="docutils literal notranslate"><span class="pre">ktk</span></code> conda environment. We now need to configure Spyder to use this environment, as shown in <a class="reference internal" href="#fig-spyder-python-interpreter"><span class="std std-numref">Fig. 2.2</span></a>.</p>
 <ul class="simple">
-<li><p>Go to the Spyder’s preferences</p></li>
-<li><p>to the <strong>IPython console</strong> item</p></li>
-<li><p>then to the <strong>Graphics</strong> pane.</p></li>
-<li><p>In the <strong>Graphics backend</strong> box, select <strong>Qt5</strong>, then restart Spyder.</p></li>
+<li><p>Go to Spyder’s preferences</p></li>
+<li><p>Navigate to the <strong>Python interpreter</strong> item</p></li>
+<li><p>Check “Use the following interpreter”</p></li>
+<li><p>Click the “open” button, navigate to the folder “miniconda3/envs/ktk/bin”, and select “python”.</p></li>
+</ul>
+<figure class="align-default" id="fig-spyder-python-interpreter" style="width: 7in">
+<img alt="" src="_images/fig_spyder_python_interpreter.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 2.2 </span><span class="caption-text">Selecting the correct Python installation in Spyder</span><a class="headerlink" href="#fig-spyder-python-interpreter" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="interactive-matplotlib-figures">
+<h3><span class="section-number">2.2.2.2. </span>Interactive Matplotlib figures<a class="headerlink" href="#interactive-matplotlib-figures" title="Link to this heading">#</a></h3>
+<p>To pan and zoom plots, or to use Kinetics Toolkit’s interactive functions (e.g., editing events, visualizing 3D points), you must use an interactive frontend for Matplotlib. Follow these steps to configure Spyder for interactive graphics, as shown in <a class="reference internal" href="#fig-spyder-qt5"><span class="std std-numref">Fig. 2.3</span></a>.</p>
+<ul class="simple">
+<li><p>Go to Spyder’s preferences</p></li>
+<li><p>Navigate to the <strong>IPython console</strong> item</p></li>
+<li><p>Navigate to the <strong>Graphics</strong> pane.</p></li>
+<li><p>In the <strong>Graphics backend</strong> box, select <strong>Qt5</strong>.</p></li>
 </ul>
 <figure class="align-default" id="fig-spyder-qt5" style="width: 7in">
 <img alt="" src="_images/fig_spyder_qt5.png" />
 <figcaption>
-<p><span class="caption-number">Fig. 2.2 </span><span class="caption-text">Enabling interactive graphics in Spyder</span><a class="headerlink" href="#fig-spyder-qt5" title="Link to this image">#</a></p>
+<p><span class="caption-number">Fig. 2.3 </span><span class="caption-text">Enabling interactive graphics in Spyder</span><a class="headerlink" href="#fig-spyder-qt5" title="Link to this image">#</a></p>
 </figcaption>
 </figure>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>If you are not using Spyder (but you do use an IPython console), or you do not want to change your Spyder configuration, you can enable interactive graphics temporarily by typing:</p>
+<p>If you use an IPython-based console other than Spyder’s, or you do not want to change this Spyder configuration, you can enable interactive graphics temporarily by typing:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="n">matplotlib</span> <span class="n">qt5</span>
 </pre></div>
 </div>
 </div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>It is recommended to restart Spyder after changing all these settings.</p>
+</div>
 </section>
-<section id="optional-automatic-code-style">
-<h2><span class="section-number">2.2.2. </span>Optional: Automatic code style<a class="headerlink" href="#optional-automatic-code-style" title="Link to this heading">#</a></h2>
-<p>While most Python code is generally readable, there are still many official and unofficial rules that define how code “should” look. For example, we usually put spaces between operators, no more than two blank lines between statements, etc. To focus on learning <strong>what</strong> to code rather than how code should <strong>look</strong>, we recommend to use the <a class="reference external" href="https://black.readthedocs.io">Black</a> formatter. Follow these steps, as shown in <a class="reference internal" href="#fig-spyder-black"><span class="std std-numref">Fig. 2.3</span></a>:</p>
-<ul class="simple">
-<li><p>Go to the Spyder’s preferences</p></li>
-<li><p>to the <strong>Completion and linting</strong> item</p></li>
-<li><p>then to the <strong>Code style and formatting</strong> pane.</p></li>
-<li><p>In the <strong>Code formatting</strong> box, select <strong>black</strong> and check <strong>Autoformat files on save</strong>.</p></li>
-</ul>
-<p>Now, your code will always respect most common style rules.</p>
-<figure class="align-default" id="fig-spyder-black" style="width: 7in">
-<img alt="" src="_images/fig_spyder_black.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 2.3 </span><span class="caption-text">Enabling Black formatter in Spyder</span><a class="headerlink" href="#fig-spyder-black" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
-</section>
-<section id="optional-docstring-linting">
-<h2><span class="section-number">2.2.3. </span>Optional: Docstring linting<a class="headerlink" href="#optional-docstring-linting" title="Link to this heading">#</a></h2>
-<p>If you start writing lots of functions, you will want your functions to be <a class="reference internal" href="python_functions_docstrings.html"><span class="std std-doc">well documented</span></a>. To help you in this objective, activate Docstring linting, which will provide hints in the editor to help you formatting your docstrings. Follow these steps, as shown in <a class="reference internal" href="#fig-spyder-docstring-linting"><span class="std std-numref">Fig. 2.4</span></a>:</p>
-<ul class="simple">
-<li><p>Go to the Spyder’s preferences</p></li>
-<li><p>to the <strong>Completion and linting</strong> item</p></li>
-<li><p>then to the <strong>Docstring style</strong> pane.</p></li>
-<li><p>Check <strong>Enable docstring type linting</strong> and choose <strong>Numpy</strong> in the selection box.</p></li>
-</ul>
-<figure class="align-default" id="fig-spyder-docstring-linting" style="width: 7in">
-<img alt="" src="_images/fig_spyder_docstring_linting.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 2.4 </span><span class="caption-text">Enabling docstring linting in Spyder</span><a class="headerlink" href="#fig-spyder-docstring-linting" title="Link to this image">#</a></p>
-</figcaption>
-</figure>
 </section>
 </section>
 
@@ -908,7 +903,7 @@ document.write(`
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">2.1. </span>Installing Python, Spyder and Kinetics Toolkit</p>
+        <p class="prev-next-title"><span class="section-number">2.1. </span>Installing Python and Kinetics Toolkit</p>
       </div>
     </a>
     <a class="right-next"
@@ -927,7 +922,8 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -936,9 +932,12 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mandatory-interactive-matplotlib-figures">2.2.1. Mandatory: Interactive Matplotlib figures</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-automatic-code-style">2.2.2. Optional: Automatic code style</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optional-docstring-linting">2.2.3. Optional: Docstring linting</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">2.2.1. Installation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#configuration">2.2.2. Configuration</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selecting-your-python-installation">2.2.2.1. Selecting your Python installation</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#interactive-matplotlib-figures">2.2.2.2. Interactive Matplotlib figures</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
@@ -990,8 +989,8 @@ By Félix Chénier
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

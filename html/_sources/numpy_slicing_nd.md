@@ -20,7 +20,7 @@ kernelspec:
 
 # Slicing multidimensional arrays
 
-We just learned how to index multidimensional matrices using indexes separated by commas. Slicing works the same way: for a given dimension, all we need is to use a slice instead of an index.
+We just learned how to index multidimensional matrices using indices separated by commas. Slicing works the same way: for a given dimension, all we need is to use a slice instead of an index.
 
 **Example 1: Read the marker's y coordinate at samples 0 and 1**
 
@@ -82,7 +82,7 @@ position[0:2, 1:3]
 ```
 
 :::{tip}
-A slice can be as simple as a column operator `:`. This is a slice with no bound, which literally means from the beginning up to the end. In other words, "all data on this axis".
+A slice can be as simple as a colon operator `:`. This is a slice with no bounds, which literally means from the beginning up to the end. In other words, "all data on this axis".
 :::
 
 **Example 3: Read the marker's z coordinate at all samples**

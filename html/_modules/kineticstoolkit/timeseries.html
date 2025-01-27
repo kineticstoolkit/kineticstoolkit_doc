@@ -15,19 +15,21 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="../../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="../../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
@@ -36,10 +38,11 @@
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css?v=e3fcc901" />
   
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
@@ -64,6 +67,7 @@
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -79,19 +83,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="../../search.html"
       method="get">
@@ -99,7 +92,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -107,8 +99,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -126,7 +118,8 @@
       
         
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -156,29 +149,25 @@
     
     
     <img src="../../_static/logo.png" class="logo__image only-light" alt="Biomechanical Analysis using Python and Kinetics Toolkit - Home"/>
-    <script>document.write(`<img src="../../_static/logo-dark.png" class="logo__image only-dark" alt="Biomechanical Analysis using Python and Kinetics Toolkit - Home"/>`);</script>
+    <img src="../../_static/logo-dark.png" class="logo__image only-dark pst-js-only" alt="Biomechanical Analysis using Python and Kinetics Toolkit - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Getting Started</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../../getting_started_intro.html">1. Introduction</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../getting_started.html">2. Where to start</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../getting_started_installing.html">2.1. Installing Python, Spyder and Kinetics Toolkit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../getting_started_configuring_spyder.html">2.2. Configuring Spyder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting_started_installing.html">2.1. Installing Python and Kinetics Toolkit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../getting_started_configuring_spyder.html">2.2. Installing and configuring Spyder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../getting_started_using_spyder.html">2.3. Using Spyder</a></li>
 </ul>
 </details></li>
@@ -231,8 +220,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../../python_functions_docstrings.html">3.4.4. Docstrings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../python_functions_type_annotations.html">3.4.5. Type annotations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../python_functions_positional_keywords.html">3.4.6. Positional and keyword arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../python_functions_default_values.html">3.4.7. Default values</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../python_functions_default_values_exercise.html">3.4.8. Exercise: Function argument’s default values</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../python_functions_default_values.html">3.4.7. Default values</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../python_functions_default_values_exercise.html">3.4.7.1. Exercise: Function argument’s default values</a></li>
+</ul>
+</details></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../python_conditions.html">3.5. Conditions and booleans</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -368,14 +359,14 @@
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../../numpy_logical_operators.html">5.9. Logical operators</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../numpy_indexing_slicing_1d.html">5.10. Indexing and slicing unidimensional arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../numpy_indexing_slicing_1d.html">5.10. Indexing and slicing one-dimensional arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../numpy_indexing_slicing_1d_exercise.html">5.10.1. Exercise: Indexing and slicing unidimensional arrays</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../numpy_filtering_1d.html">5.11. Filtering unidimensional arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../numpy_indexing_slicing_filtering_1d_exercise1.html">5.11.1. Exercise: Indexing/slicing/filtering unidimensional arrays 1</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../numpy_indexing_slicing_filtering_1d_exercise2.html">5.11.2. Exercise: Indexing/slicing/filtering unidimensional arrays 2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../numpy_indexing_slicing_filtering_1d_exercise3.html">5.11.3. Exercise: Indexing/slicing/filtering unidimensional arrays 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../numpy_indexing_slicing_filtering_1d_exercise1.html">5.11.1. Exercise: Indexing/slicing/filtering one-dimensional arrays 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../numpy_indexing_slicing_filtering_1d_exercise2.html">5.11.2. Exercise: Indexing/slicing/filtering one-dimensional arrays 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../numpy_indexing_slicing_filtering_1d_exercise3.html">5.11.3. Exercise: Indexing/slicing/filtering one-dimensional arrays 3</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../numpy_nd.html">5.12. Multidimensional arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -420,7 +411,7 @@
 <li class="toctree-l4"><a class="reference internal" href="../../filters_butter_exercise.html">7.3.1.4. Exercise: Filtering EMG data</a></li>
 </ul>
 </details></li>
-<li class="toctree-l3"><a class="reference internal" href="../../filters_smooth_savgol.html">7.3.2. Moving average, Savitsky-Golay and deriving filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../filters_smooth_savgol.html">7.3.2. Moving average, Savitzky-Golay and deriving filters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../filters_median.html">7.3.3. Removing artefacts using a median filter</a></li>
 </ul>
 </details></li>
@@ -437,55 +428,59 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../geometry.html">9. 3D rigid body geometry</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../geometry_basics.html">9.1. Coordinates: points, vectors and frames</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../geometry_basics.html">9.1. Geometry basics: coordinate systems, points, vectors, and transforms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="../../geometry_global_coordinates.html">9.1.1. Global coordinate system</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../geometry_points_vectors.html">9.1.2. Points and vectors</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../geometry_local_coordinates.html">9.1.3. Local coordinate system</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../geometry_frames.html">9.1.4. Frames</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../geometry_basics_exercise.html">9.1.4.1. Exercise: Frame</a></li>
-</ul>
-</details></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../geometry_dimension_conventions.html">9.1.5. Expressing series of points, vectors and frames in Kinetics Toolkit</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../geometry_dimension_conventions_exercise1.html">9.1.5.7. Exercise: Expressing a series of points</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../geometry_dimension_conventions_exercise2.html">9.1.5.8. Exercise: Expressing a constant vector</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../geometry_dimension_conventions_exercise3.html">9.1.5.9. Exercise: Expressing a series of frames</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../geometry_transforms.html">9.1.4. Transforms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../geometry_basics_exercise.html">9.1.4.1. Exercise: Transform</a></li>
 </ul>
 </details></li>
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../geometry_transform_moving_coordinates.html">9.2. Rotating and translating coordinates</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../geometry_transform_moving_points.html">9.2.1. Moving points</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../geometry_transform_rotating_vectors.html">9.2.2. Rotating vectors</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="../../geometry_transform_moving_frames.html">9.2.3. Moving frames</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="../../geometry_moving_coordinates_exercise1.html">9.2.3.3. Exercise: Moving a point</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../geometry_moving_coordinates_exercise2.html">9.2.3.4. Exercise: Moving a trajectory</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../../geometry_moving_coordinates_exercise3.html">9.2.3.5. Exercise: A fixed point in a moving coordinate system</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../geometry_dimension_conventions.html">9.2. Expressing series of numbers, points, vectors, and transforms in Kinetics Toolkit</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../geometry_creating_point_series.html">9.2.7. Creating point series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../geometry_creating_vector_series.html">9.2.8. Creating vector series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../geometry_creating_transform_series.html">9.2.9. Creating transform series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../geometry_dimension_conventions_exercise1.html">9.2.10. Exercise: Expressing a series of points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../geometry_dimension_conventions_exercise2.html">9.2.11. Exercise: Expressing a constant vector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../geometry_dimension_conventions_exercise3.html">9.2.12. Exercise: Expressing a series of transforms</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../geometry_transform_moving_coordinates.html">9.3. Rotating and translating coordinates</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../geometry_transform_moving_points.html">9.3.1. Moving points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../geometry_transform_rotating_vectors.html">9.3.2. Rotating vectors</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="../../geometry_transform_moving_frames.html">9.3.3. Moving frames (transforms)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../geometry_moving_coordinates_exercise1.html">9.3.3.3. Exercise: Moving a point</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../geometry_moving_coordinates_exercise2.html">9.3.3.4. Exercise: Moving a trajectory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../geometry_moving_coordinates_exercise3.html">9.3.3.5. Exercise: A fixed point in a moving coordinate system</a></li>
 </ul>
 </details></li>
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../geometry_transform_changing_coordinate_system.html">9.3. The homogeneous transform: mapping coordinates to other coordinate systems</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../geometry_transform_local_to_global_coordinates.html">9.3.1. Mapping local coordinates to global coordinates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../geometry_transform_global_to_local_coordinates.html">9.3.2. Mapping global coordinates to local coordinates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../geometry_transform_changing_coordinate_system_example.html">9.3.3. Local to global coordinates example</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../geometry_transform_changing_coordinate_system.html">9.4. The homogeneous transform: mapping coordinates to other coordinate systems</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../geometry_transform_local_to_global_coordinates.html">9.4.1. Mapping local coordinates to global coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../geometry_transform_global_to_local_coordinates.html">9.4.2. Mapping global coordinates to local coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../geometry_transform_changing_coordinate_system_example.html">9.4.3. Local to global coordinates example</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="../../geometry_kinematic_chains.html">9.4. Kinematic chains</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="../../geometry_angles.html">9.5. Extracting angles</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../geometry_2d_angles.html">9.5.1. 2D angles</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../geometry_3d_angles.html">9.5.2. 3D angles</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../geometry_3d_angles_ktk.html">9.5.3. Extracting 3D angles using Kinetics Toolkit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../geometry_3d_angles_choosing_seq.html">9.5.4. Choosing a rotation sequence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../geometry_kinematic_chains.html">9.5. Kinematic chains</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../../geometry_angles.html">9.6. Extracting angles</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../geometry_2d_angles.html">9.6.1. 2D angles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../geometry_3d_angles.html">9.6.2. 3D angles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../geometry_3d_angles_ktk.html">9.6.3. Extracting 3D angles using Kinetics Toolkit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../geometry_3d_angles_choosing_seq.html">9.6.4. Choosing a rotation sequence</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="../../geometry_exercises.html">9.6. Exercices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../geometry_exercises.html">9.7. Exercises</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="../../player.html">10. Visualizing 3D points and frames</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../player.html">10. Visualizing 3D points, frames, and forces</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../player_basics.html">10.1. Player basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../player_interconnections.html">10.2. Interconnecting the points</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../player_frames.html">10.3. Visualizing frames</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../player_styling_exporting.html">10.4. Styling and exporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../player_interconnections.html">10.2. Interconnecting points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../player_frames.html">10.3. Visualizing frames (rigid bodies)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../player_vectors.html">10.4. Visualizing forces and other vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../player_styling_exporting.html">10.5. Styling and exporting</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="../../kinematics.html">11. Kinematic analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -609,13 +604,19 @@
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="../../api/ktk.geometry.html">ktk.geometry</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.create_frames.html">ktk.geometry.create_frames</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.create_transforms.html">ktk.geometry.create_transforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.create_point_series.html">ktk.geometry.create_point_series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.create_transform_series.html">ktk.geometry.create_transform_series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.create_vector_series.html">ktk.geometry.create_vector_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.get_angles.html">ktk.geometry.get_angles</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.get_global_coordinates.html">ktk.geometry.get_global_coordinates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.get_local_coordinates.html">ktk.geometry.get_local_coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.get_quaternions.html">ktk.geometry.get_quaternions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.is_point_series.html">ktk.geometry.is_point_series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.is_transform_series.html">ktk.geometry.is_transform_series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.is_vector_series.html">ktk.geometry.is_vector_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.isnan.html">ktk.geometry.isnan</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.matmul.html">ktk.geometry.matmul</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.mirror.html">ktk.geometry.mirror</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.register_points.html">ktk.geometry.register_points</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.rotate.html">ktk.geometry.rotate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.scale.html">ktk.geometry.scale</a></li>
@@ -640,9 +641,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -691,24 +697,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 
 </div></div>
       
@@ -738,7 +736,7 @@ document.write(`
 <span></span><span class="ch">#!/usr/bin/env python3</span>
 <span class="c1"># -*- coding: utf-8 -*-</span>
 <span class="c1">#</span>
-<span class="c1"># Copyright 2020-2024 Félix Chénier</span>
+<span class="c1"># Copyright 2020-2025 Félix Chénier</span>
 
 <span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
 <span class="c1"># you may not use this file except in compliance with the License.</span>
@@ -751,63 +749,63 @@ document.write(`
 <span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
 <span class="c1"># See the License for the specific language governing permissions and</span>
 <span class="c1"># limitations under the License.</span>
-
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Provide the TimeSeries and TimeSeriesEvent classes.</span>
 
-<span class="sd">The classes defined in this module are accessible directly from the toplevel</span>
-<span class="sd">Kinetics Toolkit&#39;s namespace (i.e. ktk.TimeSeries, ktk.TimeSeriesEvent)</span>
+<span class="sd">The classes defined in this module are accessible directly from the top-</span>
+<span class="sd">level Kinetics Toolkit&#39;s namespace (i.e. ktk.TimeSeries,</span>
+<span class="sd">ktk.TimeSeriesEvent)</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">annotations</span>  <span class="c1"># For forward refs to self</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>  <span class="c1"># For forward refs to self</span>
 
 
 <span class="n">__author__</span> <span class="o">=</span> <span class="s2">&quot;Félix Chénier&quot;</span>
-<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">&quot;Copyright (C) 2020-2024 Félix Chénier&quot;</span>
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="s2">&quot;Copyright (C) 2020-2025 Félix Chénier&quot;</span>
 <span class="n">__email__</span> <span class="o">=</span> <span class="s2">&quot;chenier.felix@uqam.ca&quot;</span>
 <span class="n">__license__</span> <span class="o">=</span> <span class="s2">&quot;Apache 2.0&quot;</span>
 
 
-<span class="kn">import</span> <span class="nn">kineticstoolkit._repr</span>
-<span class="kn">from</span> <span class="nn">kineticstoolkit.decorators</span> <span class="kn">import</span> <span class="n">deprecated</span>
-<span class="kn">from</span> <span class="nn">kineticstoolkit.exceptions</span> <span class="kn">import</span> <span class="p">(</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">kineticstoolkit._repr</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">kineticstoolkit.decorators</span><span class="w"> </span><span class="kn">import</span> <span class="n">deprecated</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">kineticstoolkit.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">TimeSeriesRangeError</span><span class="p">,</span>
     <span class="n">TimeSeriesEventNotFoundError</span><span class="p">,</span>
     <span class="n">TimeSeriesMergeConflictError</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="kn">from</span> <span class="nn">kineticstoolkit.tools</span> <span class="kn">import</span> <span class="n">check_interactive_backend</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">kineticstoolkit.tools</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_interactive_backend</span>
 
-<span class="kn">import</span> <span class="nn">matplotlib</span> <span class="k">as</span> <span class="nn">mpl</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">scipy</span> <span class="k">as</span> <span class="nn">sp</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">limitedinteraction</span> <span class="k">as</span> <span class="nn">li</span>
-<span class="kn">from</span> <span class="nn">dataclasses</span> <span class="kn">import</span> <span class="n">dataclass</span>
-<span class="kn">from</span> <span class="nn">kineticstoolkit.typing_</span> <span class="kn">import</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">check_param</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">cast</span>
-<span class="kn">from</span> <span class="nn">numbers</span> <span class="kn">import</span> <span class="n">Real</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mpl</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sp</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">limitedinteraction</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">li</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">kineticstoolkit.typing_</span><span class="w"> </span><span class="kn">import</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">check_param</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">cast</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">numbers</span><span class="w"> </span><span class="kn">import</span> <span class="n">Real</span>
 
-<span class="kn">import</span> <span class="nn">warnings</span>
-<span class="kn">from</span> <span class="nn">ast</span> <span class="kn">import</span> <span class="n">literal_eval</span>
-<span class="kn">from</span> <span class="nn">copy</span> <span class="kn">import</span> <span class="n">deepcopy</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">ast</span><span class="w"> </span><span class="kn">import</span> <span class="n">literal_eval</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">copy</span><span class="w"> </span><span class="kn">import</span> <span class="n">deepcopy</span>
 
-<span class="kn">import</span> <span class="nn">kineticstoolkit</span> <span class="k">as</span> <span class="nn">ktk</span>  <span class="c1"># For doctests</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">kineticstoolkit</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ktk</span>  <span class="c1"># For doctests</span>
 
 
 <span class="n">WINDOW_PLACEMENT</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;top&quot;</span><span class="p">:</span> <span class="mi">50</span><span class="p">,</span> <span class="s2">&quot;right&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>
 
 
-<span class="k">class</span> <span class="nc">TimeSeriesEventList</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TimeSeriesEventList</span><span class="p">(</span><span class="nb">list</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Event list that ensures every element is a TimeSeriesEvent.&quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[]):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[]):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize the class instance using a source list.&quot;&quot;&quot;</span>
         <span class="n">check_param</span><span class="p">(</span><span class="s2">&quot;source&quot;</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">element</span> <span class="ow">in</span> <span class="n">source</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">element</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Cast the value to a TimeSeriesEvent.&quot;&quot;&quot;</span>
         <span class="n">check_param</span><span class="p">(</span><span class="s2">&quot;index&quot;</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
         <span class="k">try</span><span class="p">:</span>
@@ -822,28 +820,28 @@ document.write(`
         <span class="c1"># Sort the events</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">append</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">append</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Ensure the appended value is a TimeSeriesEvent.&quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">TimeSeriesEventList</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
         <span class="bp">self</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>  <span class="c1"># Calls __setitem__ which does the check</span>
 
-    <span class="k">def</span> <span class="nf">extend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">extend</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">values</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Ensure the extended values are TimeSeriesEvent.&quot;&quot;&quot;</span>
         <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>  <span class="c1"># Calls append that calls __setitem__ that</span>
             <span class="c1"># does the check.</span>
 
 
-<span class="k">class</span> <span class="nc">TimeSeriesDataDict</span><span class="p">(</span><span class="nb">dict</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TimeSeriesDataDict</span><span class="p">(</span><span class="nb">dict</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Data dictionary that checks sizes and converts to NumPy arrays.&quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{}):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{}):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize the class instance using a source dictionary.&quot;&quot;&quot;</span>
         <span class="n">check_param</span><span class="p">(</span><span class="s2">&quot;source&quot;</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">key_type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">source</span><span class="p">:</span>
             <span class="bp">self</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">source</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
 
-    <span class="k">def</span> <span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Cast the added data as a NumPy array.&quot;&quot;&quot;</span>
         <span class="n">check_param</span><span class="p">(</span><span class="s2">&quot;key&quot;</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
         <span class="n">to_set</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -860,9 +858,9 @@ document.write(`
 <div class="viewcode-block" id="TimeSeriesEvent">
 <a class="viewcode-back" href="../../api/ktk.TimeSeriesEvent.html#ktk.TimeSeriesEvent">[docs]</a>
 <span class="nd">@dataclass</span>
-<span class="k">class</span> <span class="nc">TimeSeriesEvent</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TimeSeriesEvent</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Define an event in a timeseries.</span>
+<span class="sd">    Define an event in a TimeSeries.</span>
 
 <span class="sd">    This class is rarely used by itself, it is easier to use `TimeSeries`&#39;</span>
 <span class="sd">    methods to manage events.</span>
@@ -886,23 +884,23 @@ document.write(`
     <span class="n">time</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span>
     <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;event&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__lt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Define &lt; operator.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">&lt;</span> <span class="n">other</span><span class="o">.</span><span class="n">time</span>
 
-    <span class="k">def</span> <span class="fm">__le__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__le__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Define &lt;= operator.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">&lt;=</span> <span class="n">other</span><span class="o">.</span><span class="n">time</span>
 
-    <span class="k">def</span> <span class="fm">__gt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__gt__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Define &gt; operator.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">&gt;</span> <span class="n">other</span><span class="o">.</span><span class="n">time</span>
 
-    <span class="k">def</span> <span class="fm">__ge__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__ge__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">other</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Define &gt;= operator.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">&gt;=</span> <span class="n">other</span><span class="o">.</span><span class="n">time</span>
 
-    <span class="k">def</span> <span class="nf">_to_tuple</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_to_tuple</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Convert a TimeSeriesEvent to a tuple.</span>
 
@@ -915,7 +913,7 @@ document.write(`
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span> <span class="o">|</span> <span class="nb">str</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_to_list</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span> <span class="o">|</span> <span class="nb">str</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Convert a TimeSeriesEvent to a list.</span>
 
@@ -928,7 +926,7 @@ document.write(`
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
 
-    <span class="k">def</span> <span class="nf">_to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span> <span class="o">|</span> <span class="nb">str</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_to_dict</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span> <span class="o">|</span> <span class="nb">str</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Convert a TimeSeriesEvent to a dict.</span>
 
@@ -945,7 +943,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.html#ktk.TimeSeries">[docs]</a>
-<span class="k">class</span> <span class="nc">TimeSeries</span><span class="p">:</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TimeSeries</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    A class that holds time, data series, events and metadata.</span>
 
@@ -962,16 +960,16 @@ document.write(`
 <span class="sd">        Contains metadata relative to time. The default is {&quot;Unit&quot;: &quot;s&quot;}</span>
 
 <span class="sd">    data_info : dict[str, dict[str, Any]]</span>
-<span class="sd">        Contains facultative metadata relative to data. For example, the</span>
+<span class="sd">        Contains optional metadata relative to data. For example, the</span>
 <span class="sd">        data_info attribute could indicate the unit of data[&quot;Forces&quot;]::</span>
 
 <span class="sd">            data[&quot;Forces&quot;] = {&quot;Unit&quot;: &quot;N&quot;}</span>
 
 <span class="sd">        To facilitate the management of data_info, please use</span>
-<span class="sd">        `ktk.TimeSeries.add_data_info`.</span>
+<span class="sd">        `ktk.TimeSeries.add_data_info` and `ktk.TimeSeries.remove_data_info`.</span>
 
 <span class="sd">    events : list[TimeSeriesEvent]</span>
-<span class="sd">        list of events.</span>
+<span class="sd">        List of events.</span>
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
@@ -1129,13 +1127,13 @@ document.write(`
 <span class="sd">        data_info: {}</span>
 <span class="sd">           events: []</span>
 
-<span class="sd">    See Also: TimeSerise.from_array</span>
+<span class="sd">    See Also: TimeSeries.from_array</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="c1"># %% Initialization and properties</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">src</span><span class="p">:</span> <span class="kc">None</span> <span class="o">|</span> <span class="n">TimeSeries</span> <span class="o">|</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span> <span class="o">|</span> <span class="n">ArrayLike</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="o">*</span><span class="p">,</span>
@@ -1155,7 +1153,7 @@ document.write(`
             <span class="k">return</span>
 
         <span class="c1"># Else, construct based on a source:</span>
-        <span class="k">def</span> <span class="nf">_assign_self</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">_assign_self</span><span class="p">(</span><span class="n">src</span><span class="p">):</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">time</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">time</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">data</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">time_info</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">time_info</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -1194,12 +1192,12 @@ document.write(`
 
     <span class="c1"># Properties</span>
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Time Property.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_time</span>
 
     <span class="nd">@time</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="n">to_set</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">to_set</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span>
@@ -1209,39 +1207,39 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">_time</span> <span class="o">=</span> <span class="n">to_set</span>
 
     <span class="nd">@time</span><span class="o">.</span><span class="n">deleter</span>
-    <span class="k">def</span> <span class="nf">time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;time property cannot be deleted.&quot;</span><span class="p">)</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Data Property.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_data</span>
 
     <span class="nd">@data</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">data</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_data</span> <span class="o">=</span> <span class="n">TimeSeriesDataDict</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 
     <span class="nd">@data</span><span class="o">.</span><span class="n">deleter</span>
-    <span class="k">def</span> <span class="nf">data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;data property cannot be deleted.&quot;</span><span class="p">)</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">events</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Data Property.&quot;&quot;&quot;</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">events</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Events Property.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_events</span>
 
     <span class="nd">@events</span><span class="o">.</span><span class="n">setter</span>
-    <span class="k">def</span> <span class="nf">events</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">events</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_events</span> <span class="o">=</span> <span class="n">TimeSeriesEventList</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
 
     <span class="nd">@events</span><span class="o">.</span><span class="n">deleter</span>
-    <span class="k">def</span> <span class="nf">events</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">events</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="s2">&quot;events property cannot be deleted.&quot;</span><span class="p">)</span>
 
     <span class="c1"># %% Dunders</span>
 
     <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="fm">__dir__</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__dir__</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Return the directory for the TimeSeries.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="p">[</span>
             <span class="s2">&quot;copy&quot;</span><span class="p">,</span>
@@ -1298,7 +1296,7 @@ document.write(`
             <span class="s2">&quot;from_array&quot;</span><span class="p">,</span>
         <span class="p">]</span>
 
-    <span class="k">def</span> <span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Print a textual descriptive of the TimeSeries contents.</span>
 
@@ -1314,13 +1312,13 @@ document.write(`
             <span class="n">overrides</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;_time&quot;</span><span class="p">:</span> <span class="s2">&quot;time&quot;</span><span class="p">,</span> <span class="s2">&quot;_data&quot;</span><span class="p">:</span> <span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="s2">&quot;_events&quot;</span><span class="p">:</span> <span class="s2">&quot;events&quot;</span><span class="p">},</span>
         <span class="p">)</span>
 
-    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate the class representation.&quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ts</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__eq__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ts</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Compare two timeseries for equality.</span>
+<span class="sd">        Compare two TimeSeries for equality.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -1331,8 +1329,14 @@ document.write(`
 
     <span class="c1"># %% Private check functions</span>
 
-    <span class="k">def</span> <span class="nf">_is_equivalent</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">ts</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">equal</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">atol</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="n">rtol</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-5</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_is_equivalent</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">ts</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">equal</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="n">atol</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">,</span>
+        <span class="n">rtol</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-5</span><span class="p">,</span>
+        <span class="n">debug</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Test is two TimeSeries are equal or equivalent.</span>
@@ -1343,11 +1347,13 @@ document.write(`
 <span class="sd">            The TimeSeries to compare to.</span>
 <span class="sd">        equal</span>
 <span class="sd">            Optional. True to test for complete equality, False to compare</span>
-<span class="sd">            withint a given tolerance.</span>
+<span class="sd">            within a given tolerance.</span>
 <span class="sd">        atol</span>
 <span class="sd">            Optional. Absolute tolerance if using equal=False.</span>
 <span class="sd">        rtol</span>
 <span class="sd">            Optional. Relative tolerance if using equal=False.</span>
+<span class="sd">        debug</span>
+<span class="sd">            Optional. Prints what parameter is not equal. Default is False.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -1359,7 +1365,7 @@ document.write(`
             <span class="n">atol</span> <span class="o">=</span> <span class="mi">0</span>
             <span class="n">rtol</span> <span class="o">=</span> <span class="mi">0</span>
 
-        <span class="k">def</span> <span class="nf">compare</span><span class="p">(</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">,</span> <span class="n">atol</span><span class="p">,</span> <span class="n">rtol</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">compare</span><span class="p">(</span><span class="n">var1</span><span class="p">,</span> <span class="n">var2</span><span class="p">,</span> <span class="n">atol</span><span class="p">,</span> <span class="n">rtol</span><span class="p">):</span>
             <span class="k">if</span> <span class="n">var1</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">var2</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">equal</span><span class="p">(</span><span class="n">var1</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">var2</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
             <span class="k">elif</span> <span class="n">var1</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">var2</span><span class="o">.</span><span class="n">size</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
@@ -1374,10 +1380,12 @@ document.write(`
         <span class="k">try</span><span class="p">:</span>
             <span class="n">ts</span><span class="o">.</span><span class="n">_check_well_typed</span><span class="p">()</span>
         <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The variable begin compared is not a TimeSeries.&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;The variable begin compared is not a TimeSeries.&quot;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="ow">not</span> <span class="n">compare</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">ts</span><span class="o">.</span><span class="n">time</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="n">atol</span><span class="p">,</span> <span class="n">rtol</span><span class="o">=</span><span class="n">rtol</span><span class="p">):</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time is not equal&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Time is not equal&quot;</span><span class="p">)</span>
             <span class="k">return</span> <span class="kc">False</span>
 
         <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">]:</span>
@@ -1389,33 +1397,41 @@ document.write(`
                         <span class="n">atol</span><span class="o">=</span><span class="n">atol</span><span class="p">,</span>
                         <span class="n">rtol</span><span class="o">=</span><span class="n">rtol</span><span class="p">,</span>
                     <span class="p">):</span>
-                        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">one_data</span><span class="si">}</span><span class="s2"> is not equal&quot;</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
+                            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">one_data</span><span class="si">}</span><span class="s2"> is not equal&quot;</span><span class="p">)</span>
                         <span class="k">return</span> <span class="kc">False</span>
                 <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">one_data</span><span class="si">}</span><span class="s2"> is missing in one of the TimeSeries&quot;</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
+                        <span class="nb">print</span><span class="p">(</span>
+                            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">one_data</span><span class="si">}</span><span class="s2"> is missing in one of the TimeSeries&quot;</span>
+                        <span class="p">)</span>
                     <span class="k">return</span> <span class="kc">False</span>
                 <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-                    <span class="nb">print</span><span class="p">(</span>
-                        <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">one_data</span><span class="si">}</span><span class="s2"> does not have the same size in both &quot;</span>
-                        <span class="s2">&quot;TimeSeries&quot;</span>
-                    <span class="p">)</span>
+                    <span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
+                        <span class="nb">print</span><span class="p">(</span>
+                            <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">one_data</span><span class="si">}</span><span class="s2"> does not have the same size in both &quot;</span>
+                            <span class="s2">&quot;TimeSeries&quot;</span>
+                        <span class="p">)</span>
                     <span class="k">return</span> <span class="kc">False</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">time_info</span> <span class="o">!=</span> <span class="n">ts</span><span class="o">.</span><span class="n">time_info</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;time_info is not equal&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;time_info is not equal&quot;</span><span class="p">)</span>
             <span class="k">return</span> <span class="kc">False</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data_info</span> <span class="o">!=</span> <span class="n">ts</span><span class="o">.</span><span class="n">data_info</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;data_info is not equal&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;data_info is not equal&quot;</span><span class="p">)</span>
             <span class="k">return</span> <span class="kc">False</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">events</span> <span class="o">!=</span> <span class="n">ts</span><span class="o">.</span><span class="n">events</span><span class="p">:</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;events is not equal&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">debug</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;events is not equal&quot;</span><span class="p">)</span>
             <span class="k">return</span> <span class="kc">False</span>
 
         <span class="k">return</span> <span class="kc">True</span>
 
-    <span class="k">def</span> <span class="nf">_check_well_typed</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_check_well_typed</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Check that every element of every attribute has correct type.</span>
 
@@ -1426,13 +1442,13 @@ document.write(`
 <span class="sd">        test overhead), the check functions are run in case of error only,</span>
 <span class="sd">        to help the users in fixing their code.</span>
 
-<span class="sd">        *except _check_increasing_time, which is run in proprocessing and not</span>
+<span class="sd">        *except _check_increasing_time, which is run in preprocessing and not</span>
 <span class="sd">        only in failures.</span>
 
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
 <span class="sd">        AttributeError</span>
-<span class="sd">            If the TimeSeries&#39; miss some attributes.</span>
+<span class="sd">            If the TimeSeries are missing some attributes.</span>
 
 <span class="sd">        TypeError</span>
 <span class="sd">            If the TimeSeries&#39; attributes are of wrong type.</span>
@@ -1560,7 +1576,7 @@ document.write(`
                     <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">key</span><span class="p">])</span><span class="si">}</span><span class="s2">.&quot;</span>
                 <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_check_well_shaped</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_check_well_shaped</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Check that the TimeSeries&#39; time and data shapes concord.</span>
 
@@ -1591,14 +1607,14 @@ document.write(`
                     <span class="sa">f</span><span class="s2">&quot;time&#39;s shape is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">.&quot;</span>
                 <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_check_not_empty_time</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_check_not_empty_time</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Check that the TimeSeries&#39; time attribute is not empty.</span>
 
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
 <span class="sd">        ValueError</span>
-<span class="sd">            If the TimeSeries time is empty</span>
+<span class="sd">            If the TimeSeries&#39; time is empty</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -1607,7 +1623,7 @@ document.write(`
                 <span class="s2">&quot;attribute is 0.&quot;</span>
             <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_check_increasing_time</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_check_increasing_time</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Check that the TimeSeries&#39; time attribute is always increasing.</span>
 
@@ -1625,7 +1641,7 @@ document.write(`
                 <span class="s2">&quot;using ts = ts.resample(np.sort(ts.time)).&quot;</span>
             <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_check_constant_sample_rate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_check_constant_sample_rate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Check that the TimeSeries&#39;s sampling rate is constant.</span>
 
@@ -1644,14 +1660,14 @@ document.write(`
                 <span class="s2">&quot;np.min(ts.time), np.max(ts.time), len(ts.time))).&quot;</span>
             <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_check_not_empty_data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_check_not_empty_data</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Check that the TimeSeries&#39;s data dict is not empty.</span>
 
 <span class="sd">        Raises</span>
 <span class="sd">        ------</span>
 <span class="sd">        ValueError:</span>
-<span class="sd">            If the TimeSeries as no time</span>
+<span class="sd">            If the TimeSeries has no time.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -1659,14 +1675,14 @@ document.write(`
                 <span class="s2">&quot;The TimeSeries is empty: it does not contain any data.&quot;</span>
             <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_raise_data_key_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_key</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_raise_data_key_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_key</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span>
             <span class="sa">f</span><span class="s2">&quot;The key &#39;</span><span class="si">{</span><span class="n">data_key</span><span class="si">}</span><span class="s2">&#39; was not found among the &quot;</span>
             <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2"> key(s) of the TimeSeries&#39; &quot;</span>
             <span class="s2">&quot;data_info attribute.&quot;</span>
         <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_raise_data_info_key_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_key</span><span class="p">,</span> <span class="n">info_key</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_raise_data_info_key_error</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_key</span><span class="p">,</span> <span class="n">info_key</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span>
             <span class="sa">f</span><span class="s2">&quot;The key &#39;</span><span class="si">{</span><span class="n">info_key</span><span class="si">}</span><span class="s2">&#39; was not found among the &quot;</span>
             <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">data_key</span><span class="p">])</span><span class="si">}</span><span class="s2"> key(s) of the TimeSeries&#39; &quot;</span>
@@ -1677,7 +1693,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.copy">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.copy.html#ktk.TimeSeries.copy">[docs]</a>
-    <span class="k">def</span> <span class="nf">copy</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">copy</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="o">*</span><span class="p">,</span>
         <span class="n">copy_time</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
@@ -1701,7 +1717,7 @@ document.write(`
 <span class="sd">            Optional. True to copy time_info to the new TimeSeries,</span>
 <span class="sd">            False to keep the time_info attribute empty. Default is True.</span>
 <span class="sd">        copy_data_info</span>
-<span class="sd">            Optional. True to copy data_into to the new TimeSeries,</span>
+<span class="sd">            Optional. True to copy data_info to the new TimeSeries,</span>
 <span class="sd">            False to keep the data_info attribute empty. Default is True.</span>
 <span class="sd">        copy_events</span>
 <span class="sd">            Optional. True to copy events to the new TimeSeries,</span>
@@ -1743,7 +1759,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.add_data_info">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.add_data_info.html#ktk.TimeSeries.add_data_info">[docs]</a>
-    <span class="k">def</span> <span class="nf">add_data_info</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_data_info</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">data_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">info_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -1824,7 +1840,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.remove_data_info">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.remove_data_info.html#ktk.TimeSeries.remove_data_info">[docs]</a>
-    <span class="k">def</span> <span class="nf">remove_data_info</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">remove_data_info</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">data_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">info_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">in_place</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -1888,7 +1904,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.add_data">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.add_data.html#ktk.TimeSeries.add_data">[docs]</a>
-    <span class="k">def</span> <span class="nf">add_data</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_data</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">data_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">data_value</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span>
@@ -1899,14 +1915,28 @@ document.write(`
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Add new data to the TimeSeries.</span>
 
-<span class="sd">        Conceptually, these two lines are equivalent::</span>
+<span class="sd">        Although we can directly assign values to the `data` property::</span>
 
-<span class="sd">            timeseries.data[&quot;name&quot;] = value</span>
-<span class="sd">            timeseries = timeseries.add_data(name, value)</span>
+<span class="sd">            ts.data[&quot;name&quot;] = value</span>
 
-<span class="sd">        However, using add_data performs additional checks to ensure that no</span>
-<span class="sd">        existing data is overwritten, and that time is matching for all data.</span>
-<span class="sd">        See Raises section for more information on these checks.</span>
+<span class="sd">        this method provides an alternative way to add data to the TimeSeries::</span>
+
+<span class="sd">            ts = ts.add_data(name, value, ...)</span>
+
+<span class="sd">        with the following advantages:</span>
+
+<span class="sd">        **Overwrite prevention**: Setting the overwrite argument determines</span>
+<span class="sd">        explicitly if you want existing data with the same name to be</span>
+<span class="sd">        overwritten or not.</span>
+
+<span class="sd">        **Size check**: Additional data is compared to the contents of the</span>
+<span class="sd">        TimeSeries to ensure that it has the correct dimensions. See Raises</span>
+<span class="sd">        section for more information.</span>
+
+<span class="sd">        **Size matching**: Constant &quot;series&quot; such as [3.0], which is a</span>
+<span class="sd">        one-sample series of 3.0, are automatically expanded to match the size</span>
+<span class="sd">        of the TimeSeries. For example, if the TimeSeries has 4 samples, then</span>
+<span class="sd">        the input data is expanded to [3.0, 3.0, 3.0, 3.0].</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -1931,19 +1961,19 @@ document.write(`
 <span class="sd">        ------</span>
 <span class="sd">        ValueError</span>
 <span class="sd">            In any of these conditions:</span>
-<span class="sd">            1. If data with this key already exists and overwrite is False.</span>
-<span class="sd">            2. If the size of the data (first dimension) does not match the size</span>
-<span class="sd">               of existing data or the existing time.</span>
-<span class="sd">            3. If data is a pandas DataFrame and its index does not match the</span>
-<span class="sd">               existing time.</span>
+<span class="sd">            If data with this key already exists and overwrite is False.</span>
+<span class="sd">            If the size of the data (first dimension) does not match the size</span>
+<span class="sd">            of existing data or the existing time.</span>
+<span class="sd">            If data is a pandas DataFrame and its index does not match the</span>
+<span class="sd">            existing time.</span>
 
 <span class="sd">        See Also</span>
 <span class="sd">        --------</span>
 <span class="sd">        ktk.TimeSeries.rename_data</span>
 <span class="sd">        ktk.TimeSeries.remove_data</span>
 
-<span class="sd">        Example</span>
-<span class="sd">        -------</span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
 <span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries()</span>
 <span class="sd">        &gt;&gt;&gt; ts = ts.add_data(&quot;data1&quot;, [1.0, 2.0, 3.0])</span>
 <span class="sd">        &gt;&gt;&gt; ts = ts.add_data(&quot;data2&quot;, [4.0, 5.0, 6.0])</span>
@@ -1951,6 +1981,17 @@ document.write(`
 <span class="sd">        TimeSeries with attributes:</span>
 <span class="sd">                 time: array([], dtype=float64)</span>
 <span class="sd">                 data: {&#39;data1&#39;: array([1., 2., 3.]), &#39;data2&#39;: array([4., 5., 6.])}</span>
+<span class="sd">            time_info: {&#39;Unit&#39;: &#39;s&#39;}</span>
+<span class="sd">            data_info: {}</span>
+<span class="sd">               events: []</span>
+
+<span class="sd">        # Size matching example</span>
+<span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries(time = [0.0, 0.1, 0.2, 0.3])</span>
+<span class="sd">        &gt;&gt;&gt; ts = ts.add_data(&quot;data1&quot;, [9.9])</span>
+<span class="sd">        &gt;&gt;&gt; ts</span>
+<span class="sd">        TimeSeries with attributes:</span>
+<span class="sd">                 time: array([0. , 0.1, 0.2, 0.3])</span>
+<span class="sd">                 data: {&#39;data1&#39;: array([9.9, 9.9, 9.9, 9.9])}</span>
 <span class="sd">            time_info: {&#39;Unit&#39;: &#39;s&#39;}</span>
 <span class="sd">            data_info: {}</span>
 <span class="sd">               events: []</span>
@@ -1963,6 +2004,18 @@ document.write(`
 
         <span class="c1"># Cast data</span>
         <span class="n">data_to_add</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_value</span><span class="p">)</span>  <span class="c1"># Will be set at the very end</span>
+
+        <span class="c1"># Check the size of the TimeSeries</span>
+        <span class="k">if</span> <span class="n">ts</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">n_samples</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">n_samples</span> <span class="o">=</span> <span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">ts</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">())[</span><span class="mi">0</span><span class="p">]]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">n_samples</span> <span class="o">=</span> <span class="mi">0</span>
+
+        <span class="c1"># Expand the input to n_sample if it&#39;s a constant series</span>
+        <span class="k">if</span> <span class="n">data_to_add</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">n_samples</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">data_to_add</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">data_to_add</span><span class="p">,</span> <span class="n">n_samples</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 
         <span class="c1"># Check that the data fits with the TimeSeries&#39; time (if it exists)</span>
         <span class="k">if</span> <span class="n">ts</span><span class="o">.</span><span class="n">time</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
@@ -2013,7 +2066,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.rename_data">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.rename_data.html#ktk.TimeSeries.rename_data">[docs]</a>
-    <span class="k">def</span> <span class="nf">rename_data</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">rename_data</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">old_data_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">new_data_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">in_place</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -2088,7 +2141,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.remove_data">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.remove_data.html#ktk.TimeSeries.remove_data">[docs]</a>
-    <span class="k">def</span> <span class="nf">remove_data</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">remove_data</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">data_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">in_place</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -2161,7 +2214,7 @@ document.write(`
 
     <span class="c1"># %% Event management</span>
 
-    <span class="k">def</span> <span class="nf">_get_event_indexes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_event_indexes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get a list of index of all occurrences of an event.</span>
 
@@ -2191,7 +2244,7 @@ document.write(`
         <span class="n">event_indexes</span> <span class="o">=</span> <span class="p">[</span><span class="n">event_indexes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">sorted_indexes</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">event_indexes</span>
 
-    <span class="k">def</span> <span class="nf">_get_event_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">occurrence</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_event_index</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">occurrence</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the events index of a given occurrence of an event name.</span>
 
@@ -2235,7 +2288,7 @@ document.write(`
                 <span class="s2">&quot;this event name were found.&quot;</span>
             <span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">_get_duplicate_event_indexes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_duplicate_event_indexes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Find events with same name and same time.</span>
 
@@ -2293,7 +2346,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.add_event">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.add_event.html#ktk.TimeSeries.add_event">[docs]</a>
-    <span class="k">def</span> <span class="nf">add_event</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">add_event</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">time</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
         <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;event&quot;</span><span class="p">,</span>
@@ -2364,7 +2417,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.rename_event">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.rename_event.html#ktk.TimeSeries.rename_event">[docs]</a>
-    <span class="k">def</span> <span class="nf">rename_event</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">rename_event</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">old_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">new_name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -2450,7 +2503,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.remove_event">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.remove_event.html#ktk.TimeSeries.remove_event">[docs]</a>
-    <span class="k">def</span> <span class="nf">remove_event</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">remove_event</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">occurrence</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -2487,7 +2540,7 @@ document.write(`
 
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
-<span class="sd">        &gt;&gt;&gt; # Instanciate a timeseries with some events</span>
+<span class="sd">        &gt;&gt;&gt; # Instanciate a TimeSeries with some events</span>
 <span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries()</span>
 <span class="sd">        &gt;&gt;&gt; ts = ts.add_event(5.5, &quot;event1&quot;)</span>
 <span class="sd">        &gt;&gt;&gt; ts = ts.add_event(10.8, &quot;event2&quot;)</span>
@@ -2538,7 +2591,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.count_events">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.count_events.html#ktk.TimeSeries.count_events">[docs]</a>
-    <span class="k">def</span> <span class="nf">count_events</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">count_events</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Count the number of occurrence of a given event name.</span>
 
@@ -2554,7 +2607,7 @@ document.write(`
 
 <span class="sd">        Example</span>
 <span class="sd">        -------</span>
-<span class="sd">        &gt;&gt;&gt; # Instanciate a timeseries with some events</span>
+<span class="sd">        &gt;&gt;&gt; # Instanciate a TimeSeries with some events</span>
 <span class="sd">        &gt;&gt;&gt; ts = ktk.TimeSeries()</span>
 <span class="sd">        &gt;&gt;&gt; ts = ts.add_event(5.5, &quot;event1&quot;)</span>
 <span class="sd">        &gt;&gt;&gt; ts = ts.add_event(10.8, &quot;event2&quot;)</span>
@@ -2573,7 +2626,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.remove_duplicate_events">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.remove_duplicate_events.html#ktk.TimeSeries.remove_duplicate_events">[docs]</a>
-    <span class="k">def</span> <span class="nf">remove_duplicate_events</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">in_place</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">remove_duplicate_events</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">in_place</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Remove events with same name and time so that each event gets unique.</span>
 
@@ -2635,7 +2688,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.trim_events">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.trim_events.html#ktk.TimeSeries.trim_events">[docs]</a>
-    <span class="k">def</span> <span class="nf">trim_events</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">in_place</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">trim_events</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">in_place</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Delete the events that are outside the TimeSeries&#39; time attribute.</span>
 
@@ -2700,7 +2753,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.get_index_at_time">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.get_index_at_time.html#ktk.TimeSeries.get_index_at_time">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_index_at_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_index_at_time</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the time index that is closest to the specified time.</span>
 
@@ -2749,7 +2802,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.get_index_before_time">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.get_index_before_time.html#ktk.TimeSeries.get_index_before_time">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_index_before_time</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_index_before_time</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">inclusive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -2801,7 +2854,7 @@ document.write(`
         <span class="n">check_param</span><span class="p">(</span><span class="s2">&quot;inclusive&quot;</span><span class="p">,</span> <span class="n">inclusive</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_check_well_shaped</span><span class="p">()</span>
 
-        <span class="k">def</span> <span class="nf">_raise</span><span class="p">():</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">_raise</span><span class="p">():</span>
             <span class="k">raise</span> <span class="n">TimeSeriesRangeError</span><span class="p">(</span>
                 <span class="sa">f</span><span class="s2">&quot;There is no data before the requested time of </span><span class="si">{</span><span class="n">time</span><span class="si">}</span><span class="s2"> &quot;</span>
                 <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">time_info</span><span class="p">[</span><span class="s1">&#39;Unit&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">.&quot;</span>
@@ -2822,7 +2875,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.get_index_after_time">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.get_index_after_time.html#ktk.TimeSeries.get_index_after_time">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_index_after_time</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_index_after_time</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">inclusive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -2874,7 +2927,7 @@ document.write(`
         <span class="n">check_param</span><span class="p">(</span><span class="s2">&quot;inclusive&quot;</span><span class="p">,</span> <span class="n">inclusive</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_check_well_shaped</span><span class="p">()</span>
 
-        <span class="k">def</span> <span class="nf">_raise</span><span class="p">():</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">_raise</span><span class="p">():</span>
             <span class="k">raise</span> <span class="n">TimeSeriesRangeError</span><span class="p">(</span>
                 <span class="sa">f</span><span class="s2">&quot;There is no data before the requested time of </span><span class="si">{</span><span class="n">time</span><span class="si">}</span><span class="s2"> &quot;</span>
                 <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">time_info</span><span class="p">[</span><span class="s1">&#39;Unit&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">.&quot;</span>
@@ -2895,7 +2948,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.get_index_at_event">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.get_index_at_event.html#ktk.TimeSeries.get_index_at_event">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_index_at_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">occurrence</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_index_at_event</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">occurrence</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the time index that is closest to the specified event occurrence.</span>
 
@@ -2945,7 +2998,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.get_index_before_event">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.get_index_before_event.html#ktk.TimeSeries.get_index_before_event">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_index_before_event</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_index_before_event</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">occurrence</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">inclusive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -3018,7 +3071,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.get_index_after_event">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.get_index_after_event.html#ktk.TimeSeries.get_index_after_event">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_index_after_event</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_index_after_event</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">occurrence</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">inclusive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -3093,7 +3146,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.get_ts_before_index">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.get_ts_before_index.html#ktk.TimeSeries.get_ts_before_index">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_ts_before_index</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_ts_before_index</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">inclusive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -3153,7 +3206,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.get_ts_after_index">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.get_ts_after_index.html#ktk.TimeSeries.get_ts_after_index">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_ts_after_index</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_ts_after_index</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">inclusive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -3217,7 +3270,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.get_ts_between_indexes">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.get_ts_between_indexes.html#ktk.TimeSeries.get_ts_between_indexes">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_ts_between_indexes</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_ts_between_indexes</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">index1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
         <span class="n">index2</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
@@ -3272,6 +3325,7 @@ document.write(`
 
 <span class="sd">        &gt;&gt;&gt; ts.get_ts_between_indexes(2, 5, inclusive=[True, False]).time</span>
 <span class="sd">        array([0.2, 0.3, 0.4])</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">check_param</span><span class="p">(</span><span class="s2">&quot;index1&quot;</span><span class="p">,</span> <span class="n">index1</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
         <span class="n">check_param</span><span class="p">(</span><span class="s2">&quot;index2&quot;</span><span class="p">,</span> <span class="n">index2</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
@@ -3325,7 +3379,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.get_ts_before_time">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.get_ts_before_time.html#ktk.TimeSeries.get_ts_before_time">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_ts_before_time</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_ts_before_time</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">inclusive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -3389,7 +3443,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.get_ts_after_time">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.get_ts_after_time.html#ktk.TimeSeries.get_ts_after_time">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_ts_after_time</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_ts_after_time</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">inclusive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -3453,7 +3507,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.get_ts_between_times">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.get_ts_between_times.html#ktk.TimeSeries.get_ts_between_times">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_ts_between_times</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_ts_between_times</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">time1</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
         <span class="n">time2</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
@@ -3507,6 +3561,7 @@ document.write(`
 
 <span class="sd">        &gt;&gt;&gt; ts.get_ts_between_times(0.2, 0.5, inclusive=[True, False]).time</span>
 <span class="sd">        array([0.2, 0.3, 0.4])</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">check_param</span><span class="p">(</span><span class="s2">&quot;time1&quot;</span><span class="p">,</span> <span class="n">time1</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
         <span class="n">check_param</span><span class="p">(</span><span class="s2">&quot;teim2&quot;</span><span class="p">,</span> <span class="n">time2</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
@@ -3539,7 +3594,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.get_ts_before_event">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.get_ts_before_event.html#ktk.TimeSeries.get_ts_before_event">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_ts_before_event</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_ts_before_event</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">occurrence</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">inclusive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -3618,7 +3673,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.get_ts_after_event">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.get_ts_after_event.html#ktk.TimeSeries.get_ts_after_event">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_ts_after_event</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_ts_after_event</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">occurrence</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">inclusive</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -3697,7 +3752,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.get_ts_between_events">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.get_ts_between_events.html#ktk.TimeSeries.get_ts_between_events">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_ts_between_events</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_ts_between_events</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">name1</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">name2</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -3719,7 +3774,7 @@ document.write(`
 <span class="sd">        inclusive</span>
 <span class="sd">            Optional. Either a bool or a tuple of two bools. Used to</span>
 <span class="sd">            specify which times are returned:</span>
-<span class="sd">                </span>
+
 <span class="sd">            - False or (False, False) (default): event1.time &lt; time &lt; event2.time</span>
 <span class="sd">            - True or (True, True): event1.time &lt;= time &lt;= event2.time</span>
 <span class="sd">            - (True, False): event1.time &lt;= time &lt; event2.time</span>
@@ -3805,7 +3860,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.shift">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.shift.html#ktk.TimeSeries.shift">[docs]</a>
-    <span class="k">def</span> <span class="nf">shift</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">in_place</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">shift</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">time</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">in_place</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Shift time and events.time.</span>
 
@@ -3858,7 +3913,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.get_sample_rate">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.get_sample_rate.html#ktk.TimeSeries.get_sample_rate">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_sample_rate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_sample_rate</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Get the sample rate in samples/s.</span>
 
@@ -3902,7 +3957,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.resample">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.resample.html#ktk.TimeSeries.resample">[docs]</a>
-    <span class="k">def</span> <span class="nf">resample</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">resample</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">target</span><span class="p">:</span> <span class="n">ArrayLike</span> <span class="o">|</span> <span class="nb">float</span><span class="p">,</span>
         <span class="n">kind</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;linear&quot;</span><span class="p">,</span>
@@ -4055,7 +4110,7 @@ document.write(`
                 <span class="k">continue</span>
 
             <span class="c1"># Express nans as a range of times to</span>
-            <span class="c1"># remove from the final, interpolated timeseries</span>
+            <span class="c1"># remove from the final, interpolated TimeSeries</span>
             <span class="n">nan_indexes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argwhere</span><span class="p">(</span><span class="o">~</span><span class="n">index</span><span class="p">)</span>
 
             <span class="c1"># initialize with times outside of the original time range</span>
@@ -4105,7 +4160,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.get_subset">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.get_subset.html#ktk.TimeSeries.get_subset">[docs]</a>
-    <span class="k">def</span> <span class="nf">get_subset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_keys</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_subset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_keys</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return a subset of the TimeSeries.</span>
 
@@ -4116,7 +4171,7 @@ document.write(`
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        data_keys</span>
-<span class="sd">            The data keys to extract from the timeseries.</span>
+<span class="sd">            The data keys to extract from the TimeSeries.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -4185,7 +4240,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.merge">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.merge.html#ktk.TimeSeries.merge">[docs]</a>
-    <span class="k">def</span> <span class="nf">merge</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">merge</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">ts</span><span class="p">:</span> <span class="n">TimeSeries</span><span class="p">,</span>
         <span class="n">data_keys</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span>
@@ -4221,11 +4276,10 @@ document.write(`
 <span class="sd">            Optional. Select what the warning level when a key from the source</span>
 <span class="sd">            TimeSeries already exists in the destination TimeSeries. May take</span>
 <span class="sd">            the following values:</span>
-<span class="sd">                - &quot;mute&quot;: No warning;</span>
-<span class="sd">                - &quot;warning&quot;: Warns that duplicate keys were found and how the</span>
-<span class="sd">                  conflict has been resolved following the `overwrite``</span>
-<span class="sd">                  parameter.</span>
-<span class="sd">                - &quot;error&quot;: Raises a TimeSeriesMergeConflictError.</span>
+<span class="sd">            &quot;mute&quot;: No warning;</span>
+<span class="sd">            &quot;warning&quot;: Warns that duplicate keys were found and how the</span>
+<span class="sd">            conflict has been resolved following the `overwrite` parameter.</span>
+<span class="sd">            &quot;error&quot;: Raises a TimeSeriesMergeConflictError.</span>
 <span class="sd">            Default is &quot;warning&quot;.</span>
 <span class="sd">        in_place</span>
 <span class="sd">            Optional. True to modify and return the original TimeSeries. False</span>
@@ -4359,7 +4413,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.isnan">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.isnan.html#ktk.TimeSeries.isnan">[docs]</a>
-    <span class="k">def</span> <span class="nf">isnan</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">isnan</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data_key</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Return a boolean array of missing samples.</span>
 
@@ -4403,7 +4457,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.fill_missing_samples">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.fill_missing_samples.html#ktk.TimeSeries.fill_missing_samples">[docs]</a>
-    <span class="k">def</span> <span class="nf">fill_missing_samples</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fill_missing_samples</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">max_missing_samples</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
         <span class="o">*</span><span class="p">,</span>
@@ -4487,7 +4541,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.ui_edit_events">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.ui_edit_events.html#ktk.TimeSeries.ui_edit_events">[docs]</a>
-    <span class="k">def</span> <span class="nf">ui_edit_events</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ui_edit_events</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span>
         <span class="n">data_keys</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span>
@@ -4550,7 +4604,7 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">_check_not_empty_time</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_check_not_empty_data</span><span class="p">()</span>
 
-        <span class="k">def</span> <span class="nf">add_this_event</span><span class="p">(</span><span class="n">ts</span><span class="p">:</span> <span class="n">TimeSeries</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">add_this_event</span><span class="p">(</span><span class="n">ts</span><span class="p">:</span> <span class="n">TimeSeries</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
             <span class="n">kineticstoolkit</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">message</span><span class="p">(</span>
                 <span class="s2">&quot;Place the event on the figure.&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">WINDOW_PLACEMENT</span>
             <span class="p">)</span>
@@ -4559,7 +4613,7 @@ document.write(`
             <span class="n">kineticstoolkit</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">message</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
             <span class="k">return</span> <span class="n">ts</span>
 
-        <span class="k">def</span> <span class="nf">get_event_index</span><span class="p">(</span><span class="n">ts</span><span class="p">:</span> <span class="n">TimeSeries</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+        <span class="k">def</span><span class="w"> </span><span class="nf">get_event_index</span><span class="p">(</span><span class="n">ts</span><span class="p">:</span> <span class="n">TimeSeries</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
             <span class="n">kineticstoolkit</span><span class="o">.</span><span class="n">gui</span><span class="o">.</span><span class="n">message</span><span class="p">(</span>
                 <span class="s2">&quot;Select an event on the figure.&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">WINDOW_PLACEMENT</span>
             <span class="p">)</span>
@@ -4705,7 +4759,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.ui_sync">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.ui_sync.html#ktk.TimeSeries.ui_sync">[docs]</a>
-    <span class="k">def</span> <span class="nf">ui_sync</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ui_sync</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">data_keys</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span>
         <span class="n">ts2</span><span class="p">:</span> <span class="n">TimeSeries</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -4902,7 +4956,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.plot">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.plot.html#ktk.TimeSeries.plot">[docs]</a>
-    <span class="k">def</span> <span class="nf">plot</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">data_keys</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[],</span>
         <span class="o">*</span><span class="n">args</span><span class="p">,</span>
@@ -5079,7 +5133,7 @@ document.write(`
 
     <span class="c1"># %% Input/Output</span>
 
-    <span class="k">def</span> <span class="nf">_to_dataframe_and_info</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_to_dataframe_and_info</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -5089,6 +5143,7 @@ document.write(`
 <span class="sd">        corresponds to a column of the DataFrame, and each element is a copy</span>
 <span class="sd">        of the inner data_info dictionary for this data. For instance,</span>
 <span class="sd">        an element of the list could be: {&quot;Unit&quot;: &quot;N&quot;}.</span>
+
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># Init</span>
         <span class="n">df_out</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
@@ -5173,7 +5228,7 @@ document.write(`
 
 <div class="viewcode-block" id="TimeSeries.to_dataframe">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.to_dataframe.html#ktk.TimeSeries.to_dataframe">[docs]</a>
-    <span class="k">def</span> <span class="nf">to_dataframe</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_dataframe</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Create a DataFrame by reshaping all data to one bidimensional table.</span>
 
@@ -5231,7 +5286,7 @@ document.write(`
 <div class="viewcode-block" id="TimeSeries.from_dataframe">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.from_dataframe.html#ktk.TimeSeries.from_dataframe">[docs]</a>
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">from_dataframe</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_dataframe</span><span class="p">(</span>
         <span class="n">dataframe</span><span class="p">:</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">,</span>
         <span class="o">/</span><span class="p">,</span>
         <span class="o">*</span><span class="p">,</span>
@@ -5428,7 +5483,7 @@ document.write(`
 <div class="viewcode-block" id="TimeSeries.from_array">
 <a class="viewcode-back" href="../../api/ktk.TimeSeries.from_array.html#ktk.TimeSeries.from_array">[docs]</a>
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">from_array</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">from_array</span><span class="p">(</span>
         <span class="n">array</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span>
         <span class="o">/</span><span class="p">,</span>
         <span class="o">*</span><span class="p">,</span>
@@ -5528,11 +5583,12 @@ document.write(`
             <span class="s2">&quot;There is no need to run the sort_events method anymore.&quot;</span>
         <span class="p">),</span>
     <span class="p">)</span>
-    <span class="k">def</span> <span class="nf">sort_events</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sort_events</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="p">,</span> <span class="n">unique</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">in_place</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Deprecated. Sorts the TimeSeries&#39; events from the earliest to the latest.</span>
+<span class="sd">        Deprecated. Sorts the TimeSeries&#39; events from the earliest to the</span>
+<span class="sd">        latest.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -5566,7 +5622,7 @@ document.write(`
 <span class="c1"># %% Main</span>
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
-    <span class="kn">import</span> <span class="nn">doctest</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">doctest</span>
 
     <span class="n">doctest</span><span class="o">.</span><span class="n">testmod</span><span class="p">(</span><span class="n">optionflags</span><span class="o">=</span><span class="n">doctest</span><span class="o">.</span><span class="n">NORMALIZE_WHITESPACE</span><span class="p">)</span>
 </pre></div>
@@ -5634,8 +5690,8 @@ By Félix Chénier
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

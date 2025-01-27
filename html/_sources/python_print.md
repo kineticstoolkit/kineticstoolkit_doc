@@ -26,7 +26,7 @@ print(1 + 2)
 print(3 + 4)
 ```
 
-The `print` function works with any contents, be it numbers or words:
+The `print` function works with any content, be it numbers or words:
 
 ```{code-cell} ipython3
 print("Hello world")
@@ -34,7 +34,7 @@ print("Hello world")
 
 
 :::{important}
-Python is case-sensitive. This means that `a` is not the same thing as `A`. Consequently,
+Python is case-sensitive. This means that `a` is not the same as `A`. Consequently,
 
 ```
 Print("Hello world")

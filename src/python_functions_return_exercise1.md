@@ -19,7 +19,7 @@ kernelspec:
 
 # Exercise: Function return values 1
 
-Write a function called `calculate_bmi` that takes a person's height and weight as arguments, and that returns the body-mass index, knowing that $\text{BMI} = \text{weight}/\text{height}^2$.
+Write a function called `calculate_bmi` that takes a person's height and weight as arguments, and that returns the body mass index, knowing that $\text{BMI} = \text{weight}/\text{height}^2$.
 
 ```{code-cell}
 :tags: [hide-cell]

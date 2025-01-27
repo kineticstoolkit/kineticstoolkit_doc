@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.5
+    jupytext_version: 1.16.4
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -19,7 +19,7 @@ kernelspec:
 
 # Exercise: Expressing a constant vector
 
-Using [Kinetics Toolkit's conventions](geometry_dimension_conventions.md), create a NumPy array that corresponds to the following time-invarying vector:
+Using [Kinetics Toolkit's conventions](geometry_dimension_conventions.md), create a NumPy array that corresponds to the following time-invariant vector:
 
 $$
 \vec{v} = (1, 2, 0)
@@ -30,7 +30,13 @@ $$
 
 import numpy as np
 
-v = np.array([[1.,2.,0.,0.]])
+import kineticstoolkit.lab as ktk
+
+v = np.array([[1.0, 2.0, 0.0, 0.0]])
+
+# or
+
+v = ktk.geometry.create_vector_series([[1, 2, 0]])
 
 v
 ```

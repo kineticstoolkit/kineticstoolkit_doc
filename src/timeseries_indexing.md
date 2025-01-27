@@ -44,7 +44,7 @@ print("Time is", ts.time[99])
 print("Force is", ts.data["Forces"][99])
 ```
 
-We may however want to know search which index corresponds to a given time. To this effect, we can use [ktk.TimeSeries.get_index_at_time](api/ktk.TimeSeries.get_index_at_time.rst), [ktk.TimeSeries.get_index_before_time](api/ktk.TimeSeries.get_index_before_time.rst) and [ktk.TimeSeries.get_index_after_time](api/ktk.TimeSeries.get_index_after_time.rst):
+We may however want to know which index corresponds to a given time. To this effect, we can use [ktk.TimeSeries.get_index_at_time](api/ktk.TimeSeries.get_index_at_time.rst), [ktk.TimeSeries.get_index_before_time](api/ktk.TimeSeries.get_index_before_time.rst) and [ktk.TimeSeries.get_index_after_time](api/ktk.TimeSeries.get_index_after_time.rst):
 
 ```{code-cell}
 print("The index that is nearest to 15 seconds is:")
@@ -81,4 +81,4 @@ The `get_index_before_...` and `get_index_after_...` methods have a parameter `i
 | get_index_before_event(name, occurrence, inclusive=False) | index for nearest time $<$ event time  |
 | get_index_before_event(name, occurrence, inclusive=True)  | index for nearest time $<=$ event time |
 | get_index_after_event(name, occurrence, inclusive=False)  | index for nearest time $>$ event time  |
-| get_index_after_event(name, occurrence, inclusive=True)   | index for nearest time $>=$ event time | 
+| get_index_after_event(name, occurrence, inclusive=True)   | index for nearest time $>=$ event time |

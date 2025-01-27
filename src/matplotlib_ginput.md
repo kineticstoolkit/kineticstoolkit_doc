@@ -31,7 +31,6 @@ generate {numref}`fig_matplotlib_ginput` and let the user click a maximum of 10 
 Clicking and retrieving coordinates using plt.ginput.
 ```
 
-
 - Left-click adds a point (red cross);
 - Right-click removes the last added point;
 - Middle-click stops and returns the current points.

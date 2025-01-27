@@ -24,9 +24,9 @@ In [](matplotlib_plot_titles_labels_exercise2.md), using these data:
 ```{code-cell} ipython3
 # Video camera data
 t = [0.0, 2.0, 4.0, 6.0, 8.0, 10.0, 12.0, 14.0, 16.0, 18.0, 20.0]  # seconds
-p = [0.0, 8.9, 28.0, 45.2, 60.4, 67.4, 75.5, 86.2, 93.0, 95.3, 100.0]  # meters
+p = [0.0, 8.9, 28.0, 45.2, 60.4, 67.4, 75.5, 86.2, 93.0, 95.3, 100.0]  # metres
 
-# Timing gates data (placed at positions 0m, 25m, 50m, 75m and 100m)
+# Timing gates data (placed at positions 0m, 25m, 50m, 75m, and 100m)
 timing_gates_time = [0.0, 2.65, 5.70, 10.25, 20.0]  # seconds
 ```
 
@@ -49,8 +49,8 @@ You now need to print it in black and white for publication in a journal. To max
 
 Generate the figure again, but this time with these specifications:
 
-- The video camera curve must be a full, black line with square markers;
-- The timing gates curve must be a dashed, black line with round markers.
+- The video camera curve must be a solid black line with square markers.
+- The timing gates curve must be a dashed black line with round markers.
 
 ```{code-cell} ipython3
 :tags: [hide-cell]

@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.5
+    jupytext_version: 1.16.4
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -19,7 +19,7 @@ kernelspec:
 
 # Rotating vectors
 
-For this second example, let's apply this same transform to a vector of 10 units toward de x axis (10, 0, 0) as shown in {numref}`fig_geometry_moving_vectors`.
+For this second example, let's apply this same transform to a vector of 10 units toward the x-axis (10, 0, 0) as shown in {numref}`fig_geometry_moving_vectors`.
 
 ```{figure-md} fig_geometry_moving_vectors
 :width: 4in
@@ -35,7 +35,7 @@ $$
 ^\text{global} \vec{v}_{\text{tranformed}} ~~~ = ~~~ T ~~~ ^\text{global} \vec{v}_\text{initial}
 $$
 
-Although vector $\vec{v}_\text{initial}$ shares the same coordinates as $p_\text{initial}$ in the previous example, its written differently (with a 0 instead of a 1 on the fourth coordinate). This is because the fourth element is responsible for translations, and contrarily to a point, a vector cannot be translated.
+Although vector $\vec{v}_\text{initial}$ shares the same coordinates as $p_\text{initial}$ in the previous example, it is written differently (with a 0 instead of a 1 in the fourth coordinate). This is because the fourth element is responsible for translations, and contrary to a point, a vector cannot be translated.
 
 $$
 ^\text{global} \vec{v}_\text{initial} =
@@ -69,10 +69,10 @@ The transform $T$ can be created using:
 ```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
 
-T = ktk.geometry.create_transforms(
-    seq="z",  # Which means a rotation around the z axis
+T = ktk.geometry.create_transform_series(
     angles=[30],
     degrees=True,
+    seq="z",  # Which means a rotation around the z axis
 )
 
 T
@@ -83,7 +83,6 @@ The rotated vector is:
 ```{code-cell} ipython3
 ktk.geometry.matmul(T, [[10, 0, 0, 1]])
 ```
-
 
 ## Direct transformation in Kinetics Toolkit
 

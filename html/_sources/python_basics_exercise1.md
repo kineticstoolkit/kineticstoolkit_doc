@@ -19,7 +19,7 @@ kernelspec:
 
 # Exercise: Python basics 1
 
-A sprinter runs through two timing gates spaced by 50 m as shown in {numref}`fig_exercise_timing_gates`. Each timing gate records the time (in seconds) at which the sprinter passes through it.
+A sprinter runs through two timing gates spaced by 50 m as shown in {numref}`fig_exercise_timing_gates`. Each timing gate records the time (in seconds) when the sprinter passes through it.
 
 ```{figure-md} fig_exercise_timing_gates
 :width: 4in
@@ -36,7 +36,7 @@ time_gate2 = 6.7  # in seconds
 distance_gates12 = 50.0  # in meters
 ```
 
-Continue this program so that it prints the mean velocity of the sprinter between gates 1 and 2.
+Continue this program so that it calculates and prints the mean velocity of the sprinter between gates 1 and 2.
 
 ```{code-cell} ipython3
 :tags: [hide-cell]

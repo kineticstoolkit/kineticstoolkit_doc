@@ -38,7 +38,7 @@ prints this:
 Then try your function. Use clear names for your function's arguments.
 
 :::{note}
-The body-mass index (BMI) is calculated using $\text{weight}/\text{height}^2$.
+The body mass index (BMI) is calculated using $\text{weight}/\text{height}^2$.
 :::
 
 ```{code-cell}

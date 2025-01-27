@@ -7,18 +7,18 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta property="og:title" content="9.5.2. 3D angles" />
+<meta property="og:title" content="9.6.2. 3D angles" />
 <meta property="og:type" content="image/png" />
 <meta property="og:url" content="https://kineticstoolkit.uqam.ca/doc/geometry_3d_angles.html" />
 <meta property="og:site_name" content="Kinetics Toolkit" />
-<meta property="og:description" content="Single rotations such as the previous example are generally easy to understand. However, in 3d space, there are 3 rotation angles. It is helpful to consider rotations around orthogonal axes (e.g., ..." />
+<meta property="og:description" content="Single rotations, such as the previous example, are generally easy to understand. However, in 3D space, there are 3 rotation angles. It is helpful to consider rotations around orthogonal axes (e.g...." />
 <meta property="og:image" content="https://kineticstoolkit.uqam.ca/doc/_static/logo-social.png" />
 <meta property="og:image:alt" content="Kinetics Toolkit Logo" />
-<meta name="description" content="Single rotations such as the previous example are generally easy to understand. However, in 3d space, there are 3 rotation angles. It is helpful to consider rotations around orthogonal axes (e.g., ..." />
+<meta name="description" content="Single rotations, such as the previous example, are generally easy to understand. However, in 3D space, there are 3 rotation angles. It is helpful to consider rotations around orthogonal axes (e.g...." />
 <meta property='og:image:width' content=500 />
 <meta property='og:image:height' content=264 />
 
-    <title>9.5.2. 3D angles &#8212; Biomechanical Analysis using Python and Kinetics Toolkit</title>
+    <title>9.6.2. 3D angles &#8212; Biomechanical Analysis using Python and Kinetics Toolkit</title>
   
   
   
@@ -26,19 +26,21 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-  
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
-
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
@@ -47,10 +49,11 @@
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=e3fcc901" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
@@ -75,10 +78,11 @@
     <link rel="icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="9.5.3. Extracting 3D angles using Kinetics Toolkit" href="geometry_3d_angles_ktk.html" />
-    <link rel="prev" title="9.5.1. 2D angles" href="geometry_2d_angles.html" />
+    <link rel="next" title="9.6.3. Extracting 3D angles using Kinetics Toolkit" href="geometry_3d_angles_ktk.html" />
+    <link rel="prev" title="9.6.1. 2D angles" href="geometry_2d_angles.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -94,19 +98,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -114,7 +107,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -122,8 +114,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -139,7 +131,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -169,29 +162,25 @@
     
     
     <img src="_static/logo.png" class="logo__image only-light" alt="Biomechanical Analysis using Python and Kinetics Toolkit - Home"/>
-    <script>document.write(`<img src="_static/logo-dark.png" class="logo__image only-dark" alt="Biomechanical Analysis using Python and Kinetics Toolkit - Home"/>`);</script>
+    <img src="_static/logo-dark.png" class="logo__image only-dark pst-js-only" alt="Biomechanical Analysis using Python and Kinetics Toolkit - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Getting Started</span></p>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="getting_started_intro.html">1. Introduction</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="getting_started.html">2. Where to start</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="getting_started_installing.html">2.1. Installing Python, Spyder and Kinetics Toolkit</a></li>
-<li class="toctree-l2"><a class="reference internal" href="getting_started_configuring_spyder.html">2.2. Configuring Spyder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started_installing.html">2.1. Installing Python and Kinetics Toolkit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="getting_started_configuring_spyder.html">2.2. Installing and configuring Spyder</a></li>
 <li class="toctree-l2"><a class="reference internal" href="getting_started_using_spyder.html">2.3. Using Spyder</a></li>
 </ul>
 </details></li>
@@ -244,8 +233,10 @@
 <li class="toctree-l3"><a class="reference internal" href="python_functions_docstrings.html">3.4.4. Docstrings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python_functions_type_annotations.html">3.4.5. Type annotations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python_functions_positional_keywords.html">3.4.6. Positional and keyword arguments</a></li>
-<li class="toctree-l3"><a class="reference internal" href="python_functions_default_values.html">3.4.7. Default values</a></li>
-<li class="toctree-l3"><a class="reference internal" href="python_functions_default_values_exercise.html">3.4.8. Exercise: Function argument’s default values</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="python_functions_default_values.html">3.4.7. Default values</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="python_functions_default_values_exercise.html">3.4.7.1. Exercise: Function argument’s default values</a></li>
+</ul>
+</details></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="python_conditions.html">3.5. Conditions and booleans</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -381,14 +372,14 @@
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="numpy_logical_operators.html">5.9. Logical operators</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="numpy_indexing_slicing_1d.html">5.10. Indexing and slicing unidimensional arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="numpy_indexing_slicing_1d.html">5.10. Indexing and slicing one-dimensional arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_1d_exercise.html">5.10.1. Exercise: Indexing and slicing unidimensional arrays</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="numpy_filtering_1d.html">5.11. Filtering unidimensional arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_filtering_1d_exercise1.html">5.11.1. Exercise: Indexing/slicing/filtering unidimensional arrays 1</a></li>
-<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_filtering_1d_exercise2.html">5.11.2. Exercise: Indexing/slicing/filtering unidimensional arrays 2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_filtering_1d_exercise3.html">5.11.3. Exercise: Indexing/slicing/filtering unidimensional arrays 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_filtering_1d_exercise1.html">5.11.1. Exercise: Indexing/slicing/filtering one-dimensional arrays 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_filtering_1d_exercise2.html">5.11.2. Exercise: Indexing/slicing/filtering one-dimensional arrays 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_filtering_1d_exercise3.html">5.11.3. Exercise: Indexing/slicing/filtering one-dimensional arrays 3</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="numpy_nd.html">5.12. Multidimensional arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -433,7 +424,7 @@
 <li class="toctree-l4"><a class="reference internal" href="filters_butter_exercise.html">7.3.1.4. Exercise: Filtering EMG data</a></li>
 </ul>
 </details></li>
-<li class="toctree-l3"><a class="reference internal" href="filters_smooth_savgol.html">7.3.2. Moving average, Savitsky-Golay and deriving filters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="filters_smooth_savgol.html">7.3.2. Moving average, Savitzky-Golay and deriving filters</a></li>
 <li class="toctree-l3"><a class="reference internal" href="filters_median.html">7.3.3. Removing artefacts using a median filter</a></li>
 </ul>
 </details></li>
@@ -450,55 +441,59 @@
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="geometry.html">9. 3D rigid body geometry</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_basics.html">9.1. Coordinates: points, vectors and frames</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_basics.html">9.1. Geometry basics: coordinate systems, points, vectors, and transforms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="geometry_global_coordinates.html">9.1.1. Global coordinate system</a></li>
 <li class="toctree-l3"><a class="reference internal" href="geometry_points_vectors.html">9.1.2. Points and vectors</a></li>
 <li class="toctree-l3"><a class="reference internal" href="geometry_local_coordinates.html">9.1.3. Local coordinate system</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="geometry_frames.html">9.1.4. Frames</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="geometry_basics_exercise.html">9.1.4.1. Exercise: Frame</a></li>
-</ul>
-</details></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="geometry_dimension_conventions.html">9.1.5. Expressing series of points, vectors and frames in Kinetics Toolkit</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="geometry_dimension_conventions_exercise1.html">9.1.5.7. Exercise: Expressing a series of points</a></li>
-<li class="toctree-l4"><a class="reference internal" href="geometry_dimension_conventions_exercise2.html">9.1.5.8. Exercise: Expressing a constant vector</a></li>
-<li class="toctree-l4"><a class="reference internal" href="geometry_dimension_conventions_exercise3.html">9.1.5.9. Exercise: Expressing a series of frames</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="geometry_transforms.html">9.1.4. Transforms</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="geometry_basics_exercise.html">9.1.4.1. Exercise: Transform</a></li>
 </ul>
 </details></li>
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_transform_moving_coordinates.html">9.2. Rotating and translating coordinates</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometry_transform_moving_points.html">9.2.1. Moving points</a></li>
-<li class="toctree-l3"><a class="reference internal" href="geometry_transform_rotating_vectors.html">9.2.2. Rotating vectors</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="geometry_transform_moving_frames.html">9.2.3. Moving frames</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="geometry_moving_coordinates_exercise1.html">9.2.3.3. Exercise: Moving a point</a></li>
-<li class="toctree-l4"><a class="reference internal" href="geometry_moving_coordinates_exercise2.html">9.2.3.4. Exercise: Moving a trajectory</a></li>
-<li class="toctree-l4"><a class="reference internal" href="geometry_moving_coordinates_exercise3.html">9.2.3.5. Exercise: A fixed point in a moving coordinate system</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_dimension_conventions.html">9.2. Expressing series of numbers, points, vectors, and transforms in Kinetics Toolkit</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="geometry_creating_point_series.html">9.2.7. Creating point series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_creating_vector_series.html">9.2.8. Creating vector series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_creating_transform_series.html">9.2.9. Creating transform series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_dimension_conventions_exercise1.html">9.2.10. Exercise: Expressing a series of points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_dimension_conventions_exercise2.html">9.2.11. Exercise: Expressing a constant vector</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_dimension_conventions_exercise3.html">9.2.12. Exercise: Expressing a series of transforms</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_transform_moving_coordinates.html">9.3. Rotating and translating coordinates</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="geometry_transform_moving_points.html">9.3.1. Moving points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_transform_rotating_vectors.html">9.3.2. Rotating vectors</a></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="geometry_transform_moving_frames.html">9.3.3. Moving frames (transforms)</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="geometry_moving_coordinates_exercise1.html">9.3.3.3. Exercise: Moving a point</a></li>
+<li class="toctree-l4"><a class="reference internal" href="geometry_moving_coordinates_exercise2.html">9.3.3.4. Exercise: Moving a trajectory</a></li>
+<li class="toctree-l4"><a class="reference internal" href="geometry_moving_coordinates_exercise3.html">9.3.3.5. Exercise: A fixed point in a moving coordinate system</a></li>
 </ul>
 </details></li>
 </ul>
 </details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_transform_changing_coordinate_system.html">9.3. The homogeneous transform: mapping coordinates to other coordinate systems</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="geometry_transform_local_to_global_coordinates.html">9.3.1. Mapping local coordinates to global coordinates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="geometry_transform_global_to_local_coordinates.html">9.3.2. Mapping global coordinates to local coordinates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="geometry_transform_changing_coordinate_system_example.html">9.3.3. Local to global coordinates example</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="geometry_transform_changing_coordinate_system.html">9.4. The homogeneous transform: mapping coordinates to other coordinate systems</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="geometry_transform_local_to_global_coordinates.html">9.4.1. Mapping local coordinates to global coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_transform_global_to_local_coordinates.html">9.4.2. Mapping global coordinates to local coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_transform_changing_coordinate_system_example.html">9.4.3. Local to global coordinates example</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="geometry_kinematic_chains.html">9.4. Kinematic chains</a></li>
-<li class="toctree-l2 current active has-children"><a class="reference internal" href="geometry_angles.html">9.5. Extracting angles</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="geometry_2d_angles.html">9.5.1. 2D angles</a></li>
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">9.5.2. 3D angles</a></li>
-<li class="toctree-l3"><a class="reference internal" href="geometry_3d_angles_ktk.html">9.5.3. Extracting 3D angles using Kinetics Toolkit</a></li>
-<li class="toctree-l3"><a class="reference internal" href="geometry_3d_angles_choosing_seq.html">9.5.4. Choosing a rotation sequence</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometry_kinematic_chains.html">9.5. Kinematic chains</a></li>
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="geometry_angles.html">9.6. Extracting angles</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="geometry_2d_angles.html">9.6.1. 2D angles</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">9.6.2. 3D angles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_3d_angles_ktk.html">9.6.3. Extracting 3D angles using Kinetics Toolkit</a></li>
+<li class="toctree-l3"><a class="reference internal" href="geometry_3d_angles_choosing_seq.html">9.6.4. Choosing a rotation sequence</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="geometry_exercises.html">9.6. Exercices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="geometry_exercises.html">9.7. Exercises</a></li>
 </ul>
 </details></li>
-<li class="toctree-l1 has-children"><a class="reference internal" href="player.html">10. Visualizing 3D points and frames</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 has-children"><a class="reference internal" href="player.html">10. Visualizing 3D points, frames, and forces</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l2"><a class="reference internal" href="player_basics.html">10.1. Player basics</a></li>
-<li class="toctree-l2"><a class="reference internal" href="player_interconnections.html">10.2. Interconnecting the points</a></li>
-<li class="toctree-l2"><a class="reference internal" href="player_frames.html">10.3. Visualizing frames</a></li>
-<li class="toctree-l2"><a class="reference internal" href="player_styling_exporting.html">10.4. Styling and exporting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player_interconnections.html">10.2. Interconnecting points</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player_frames.html">10.3. Visualizing frames (rigid bodies)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player_vectors.html">10.4. Visualizing forces and other vectors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="player_styling_exporting.html">10.5. Styling and exporting</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="kinematics.html">11. Kinematic analysis</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -622,13 +617,19 @@
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.geometry.html">ktk.geometry</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_frames.html">ktk.geometry.create_frames</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_transforms.html">ktk.geometry.create_transforms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_point_series.html">ktk.geometry.create_point_series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_transform_series.html">ktk.geometry.create_transform_series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_vector_series.html">ktk.geometry.create_vector_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_angles.html">ktk.geometry.get_angles</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_global_coordinates.html">ktk.geometry.get_global_coordinates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_local_coordinates.html">ktk.geometry.get_local_coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_quaternions.html">ktk.geometry.get_quaternions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.is_point_series.html">ktk.geometry.is_point_series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.is_transform_series.html">ktk.geometry.is_transform_series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.is_vector_series.html">ktk.geometry.is_vector_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.isnan.html">ktk.geometry.isnan</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.matmul.html">ktk.geometry.matmul</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.mirror.html">ktk.geometry.mirror</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.register_points.html">ktk.geometry.register_points</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.rotate.html">ktk.geometry.rotate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.scale.html">ktk.geometry.scale</a></li>
@@ -653,9 +654,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -752,24 +758,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 <button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
@@ -793,8 +791,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cardan-angles">9.5.2.1. Cardan angles</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-angles">9.5.2.2. Euler angles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cardan-angles">9.6.2.1. Cardan angles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-angles">9.6.2.2. Euler angles</a></li>
 </ul>
             </nav>
         </div>
@@ -807,8 +805,8 @@ document.write(`
                 <article class="bd-article">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="d-angles">
-<h1><span class="section-number">9.5.2. </span>3D angles<a class="headerlink" href="#d-angles" title="Link to this heading">#</a></h1>
-<p>Single rotations such as the previous example are generally easy to understand. However, in 3d space, there are 3 rotation angles. It is helpful to consider rotations around orthogonal axes (e.g., x, y, z). We already know how to express a pure rotation of <span class="math notranslate nohighlight">\(\theta_z\)</span> degrees around the z axis:</p>
+<h1><span class="section-number">9.6.2. </span>3D angles<a class="headerlink" href="#d-angles" title="Link to this heading">#</a></h1>
+<p>Single rotations, such as the previous example, are generally easy to understand. However, in 3D space, there are 3 rotation angles. It is helpful to consider rotations around orthogonal axes (e.g., x, y, z). We already know how to express a pure rotation of <span class="math notranslate nohighlight">\(\theta_z\)</span> degrees around the z axis:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 T_z = \begin{bmatrix}
@@ -818,7 +816,7 @@ T_z = \begin{bmatrix}
 0 &amp; 0 &amp; 0 &amp; 1
 \end{bmatrix}
 \end{split}\]</div>
-<p>Following the definition of a frame in section <a class="reference internal" href="geometry_basics.html"><span class="std std-doc">Coordinates: points, vectors and frames</span></a>, we can also generate the two other rotation matrices:</p>
+<p>Following the definition of a transform in section <a class="reference internal" href="geometry_basics.html"><span class="std std-doc">Geometry basics: coordinate systems, points, vectors, and transforms</span></a>, we can also generate the two other rotation matrices:</p>
 <div class="math notranslate nohighlight">
 \[\begin{split}
 T_y = \begin{bmatrix}
@@ -837,7 +835,7 @@ T_x = \begin{bmatrix}
 0 &amp; 0 &amp; 0 &amp; 1
 \end{bmatrix}
 \end{split}\]</div>
-<p>Now, let’s say we want to rotate a point <span class="math notranslate nohighlight">\(p_\text{initial}\)</span> by <span class="math notranslate nohighlight">\(\theta_x\)</span> around the x axis, and by <span class="math notranslate nohighlight">\(\theta_y\)</span> around the y axis. We may start by rotating the point around the x axis, then around the y axis. In this case, its final, rotated position, would be:</p>
+<p>Now, let’s say we want to rotate a point <span class="math notranslate nohighlight">\(p_\text{initial}\)</span> by <span class="math notranslate nohighlight">\(\theta_x\)</span> around the x axis, and by <span class="math notranslate nohighlight">\(\theta_y\)</span> around the y axis. We may start by rotating the point around the x axis, then around the y axis. In this case, its final, rotated position would be:</p>
 <div class="math notranslate nohighlight">
 \[
 p_\text{rotated} = T_y (T_x p_\text{initial}) = T_y T_x p_\text{initial}
@@ -848,42 +846,42 @@ p_\text{rotated} = T_y (T_x p_\text{initial}) = T_y T_x p_\text{initial}
 p_\text{rotated} = T_x (T_y p_\text{initial}) = T_x T_y p_\text{initial}
 \]</div>
 <p>Matrix multiplication is not commutative, which means <span class="math notranslate nohighlight">\(T_y T_x\)</span> is not equal to <span class="math notranslate nohighlight">\(T_x T_y\)</span>. Therefore, <strong>both rotation sequences do not perform the same total rotation.</strong></p>
-<p>There are 24 different ways to express 3d rotations using series of 3 angles, with 12 being independent:</p>
+<p>There are 24 different ways to express 3D rotations using series of 3 angles, with 12 being independent:</p>
 <ul class="simple">
-<li><p>6 combinations of cardan angle sequences of intrinsic rotations</p></li>
-<li><p>6 combinations of cardan angle sequences of extrinsic rotations</p></li>
+<li><p>6 combinations of Cardan angle sequences of intrinsic rotations</p></li>
+<li><p>6 combinations of Cardan angle sequences of extrinsic rotations</p></li>
 <li><p>6 combinations of Euler angle sequences of intrinsic rotations</p></li>
 <li><p>6 combinations of Euler angle sequences of extrinsic rotations</p></li>
 </ul>
 <section id="cardan-angles">
-<h2><span class="section-number">9.5.2.1. </span>Cardan angles<a class="headerlink" href="#cardan-angles" title="Link to this heading">#</a></h2>
-<p>Also called Tait-Bryan angles, nautical angles, Heading/elevation/bank, or Yaw/pitch/roll, cardan angles express series of rotations around successive orthogonal axes: XYZ, XZY, YZX, YXZ, ZXY, and ZYX. Rotations can be either intrinsic or extrinsic.</p>
-<p><strong>Intrinsic rotations</strong> means that the coordinate system moves with the object being rotated. For instance, for a sequence of XYZ intrinsic rotations, the object is:</p>
+<h2><span class="section-number">9.6.2.1. </span>Cardan angles<a class="headerlink" href="#cardan-angles" title="Link to this heading">#</a></h2>
+<p>Also called Tait-Bryan angles, nautical angles, Heading/elevation/bank, or Yaw/pitch/roll, Cardan angles express series of rotations around successive orthogonal axes: XYZ, XZY, YZX, YXZ, ZXY, and ZYX. Rotations can be either intrinsic or extrinsic.</p>
+<p><strong>Intrinsic rotations</strong> mean that the coordinate system moves with the object being rotated. For instance, for a sequence of XYZ intrinsic rotations, the object is:</p>
 <ol class="arabic simple">
 <li><p>rotated around its x axis;</p></li>
 <li><p>then around its new y axis that rotated with it during rotation 1;</p></li>
 <li><p>then around its new z axis that rotated with it during rotations 1 and 2.</p></li>
 </ol>
-<p>The animated figure below shows the six possible rotations using intrinsic cardan angles. In every case, the cube is rotated by 30 degrees around all axes: <span class="math notranslate nohighlight">\(\theta_x = \theta_y = \theta_z = 30^\circ\)</span>. The different final poses are only due to the different sequences of rotations.</p>
+<p>The animated figure below shows the six possible rotations using intrinsic Cardan angles. In every case, the cube is rotated by 30 degrees around all axes: <span class="math notranslate nohighlight">\(\theta_x = \theta_y = \theta_z = 30^\circ\)</span>. The different final poses are only due to the different sequences of rotations.</p>
 <video autoplay controls muted loop>
 <source src="_static/images/rotation_sequence_cardan_intrinsic.mp4" type="video/mp4">
 </video>
-<p><em>The six sequences of intrinsic cardan rotations (intrinsic = moving coordinate system)</em></p>
-<p><strong>Extrinsic rotations</strong> means that the rotations are all performed around the initial coordinate system. For a sequence of XYZ intrinsic rotations, the object is:</p>
+<p><em>The six sequences of intrinsic Cardan rotations (intrinsic = moving coordinate system)</em></p>
+<p><strong>Extrinsic rotations</strong> mean that the rotations are all performed around the initial coordinate system. For a sequence of XYZ extrinsic rotations, the object is:</p>
 <ol class="arabic simple">
 <li><p>rotated around its x axis;</p></li>
 <li><p>then around the initial, unrotated y axis;</p></li>
 <li><p>then around the initial, unrotated z axis.</p></li>
 </ol>
-<p>The animated figure below shows the six possible rotations using extrinsic cardan angles. Again, the cube is rotated by 30 degrees around all axes.</p>
+<p>The animated figure below shows the six possible rotations using extrinsic Cardan angles. Again, the cube is rotated by 30 degrees around all axes.</p>
 <video autoplay controls muted loop>
 <source src="_static/images/rotation_sequence_cardan_extrinsic.mp4" type="video/mp4">
 </video>
 <p><em>The six sequences of extrinsic Cardan rotations (extrinsic = fixed coordinate system)</em></p>
 </section>
 <section id="euler-angles">
-<h2><span class="section-number">9.5.2.2. </span>Euler angles<a class="headerlink" href="#euler-angles" title="Link to this heading">#</a></h2>
-<p>Also called proper Euler angles, of classic Euler angles, Euler angles are different than cardan angles in that the first and third axes are the same. Again, rotations can be either intrinsic or extrinsic, as shown in the two figures below. As for both previous figures, every rotation is a rotation of 30 degrees around a given axis.</p>
+<h2><span class="section-number">9.6.2.2. </span>Euler angles<a class="headerlink" href="#euler-angles" title="Link to this heading">#</a></h2>
+<p>Also called proper Euler angles or classic Euler angles, Euler angles are different from Cardan angles in that the first and third axes are the same. Again, rotations can be either intrinsic or extrinsic, as shown in the two figures below. As for both previous figures, every rotation is a rotation of 30 degrees around a given axis.</p>
 <video autoplay controls muted loop>
 <source src="_static/images/rotation_sequence_euler_intrinsic.mp4" type="video/mp4">
 </video>
@@ -894,7 +892,7 @@ p_\text{rotated} = T_x (T_y p_\text{initial}) = T_x T_y p_\text{initial}
 <p><em>The six sequences of extrinsic Euler rotations (extrinsic = fixed coordinate system)</em></p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Whereas we viewed 24 possibilities of rotation sequences, each intrinsic rotation as an equivalent extrinsic rotation: <span class="math notranslate nohighlight">\(\text{intrinsic}(\theta_1, \theta_2, \theta_3)\)</span> = <span class="math notranslate nohighlight">\(\text{extrinsic}(\theta_3, \theta_2, \theta_1)\)</span>, which means that there is a total of 6 independent cardan angle sequences, and 6 independent Euler angle sequences.</p>
+<p>Whereas we viewed 24 possibilities of rotation sequences, each intrinsic rotation has an equivalent extrinsic rotation: <span class="math notranslate nohighlight">\(\text{intrinsic}(\theta_1, \theta_2, \theta_3)\)</span> = <span class="math notranslate nohighlight">\(\text{extrinsic}(\theta_3, \theta_2, \theta_1)\)</span>, which means that there is a total of 6 independent Cardan angle sequences, and 6 independent Euler angle sequences.</p>
 </div>
 </section>
 </section>
@@ -935,7 +933,7 @@ p_\text{rotated} = T_x (T_y p_\text{initial}) = T_x T_y p_\text{initial}
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title"><span class="section-number">9.5.1. </span>2D angles</p>
+        <p class="prev-next-title"><span class="section-number">9.6.1. </span>2D angles</p>
       </div>
     </a>
     <a class="right-next"
@@ -943,7 +941,7 @@ p_\text{rotated} = T_x (T_y p_\text{initial}) = T_x T_y p_\text{initial}
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">9.5.3. </span>Extracting 3D angles using Kinetics Toolkit</p>
+        <p class="prev-next-title"><span class="section-number">9.6.3. </span>Extracting 3D angles using Kinetics Toolkit</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -954,7 +952,8 @@ p_\text{rotated} = T_x (T_y p_\text{initial}) = T_x T_y p_\text{initial}
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
   <div class="sidebar-secondary-item">
@@ -963,8 +962,8 @@ p_\text{rotated} = T_x (T_y p_\text{initial}) = T_x T_y p_\text{initial}
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cardan-angles">9.5.2.1. Cardan angles</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-angles">9.5.2.2. Euler angles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cardan-angles">9.6.2.1. Cardan angles</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#euler-angles">9.6.2.2. Euler angles</a></li>
 </ul>
   </nav></div>
 
@@ -1016,8 +1015,8 @@ By Félix Chénier
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

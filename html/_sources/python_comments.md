@@ -21,7 +21,7 @@ kernelspec:
 
 Programs with only a few lines of code are generally easy to understand. As they grow in complexity, we need to document them, usually with comments.
 
-Any text that follows `#` corresponds to a comment, and it is not executed by Python. Usually, we use comments to explain what is the objective of a section of code.
+Any text that follows `#` corresponds to a comment, and it is not executed by Python. Usually, we use comments to explain the objective of a section of code.
 
 These codes are completely equivalent:
 

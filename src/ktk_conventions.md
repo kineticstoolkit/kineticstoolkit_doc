@@ -2,7 +2,7 @@
 
 ## SI Units
 
-Unless specified, every quantities are expressed in International System units (SI):
+Unless specified, every quantity is expressed in International System units (SI):
 
 - Time: second (s)
 - Length: meter (m)

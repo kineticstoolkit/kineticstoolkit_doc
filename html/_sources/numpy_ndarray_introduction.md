@@ -9,5 +9,5 @@ While a NumPy array could be seen as an extension of the [Python lists](python_l
 | Have a dynamic size that can be modified using `append`, `expand` and `pop`.                                                                 | Cannot "grow" as we do with lists.                                                          |
 | Only hold data, they don't provide methods to compute data.                                                                                  | Can be used directly for calculations such as linear algebra, filtering, etc.               |
 
-List and arrays can be converted one to the other, as we will see in [](numpy_ndarray_creating_from_lists.md).
+Lists and arrays can be converted one to the other, as we will see in [](numpy_ndarray_creating_from_lists.md).
 
