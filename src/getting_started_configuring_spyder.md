@@ -22,7 +22,7 @@ In section [](getting_started_installing.md), we created a `ktk` conda environme
 - Go to Spyder's preferences
 - Navigate to the **Python interpreter** item
 - Check "Use the following interpreter"
-- Click the "open" button, navigate to the folder "miniconda3/envs/ktk/bin", and select "python".
+- In the dropdown box, select the entry that includes "/envs/ktk/". If it is not in the list, then click the "open" button, navigate to the folder "miniforge3/envs/ktk" or "miniconda3/envs/ktk" (on Windows), or "miniforge3/envs/ktk/bin" or "miniconda3/envs/ktk/bin" (on macOS), then select "python".
 
 :::{figure-md} fig_spyder_python_interpreter
 :width: 7in
