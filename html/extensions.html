@@ -11,10 +11,10 @@
 <meta property="og:type" content="image/png" />
 <meta property="og:url" content="https://kineticstoolkit.uqam.ca/doc/extensions.html" />
 <meta property="og:site_name" content="Kinetics Toolkit" />
-<meta property="og:description" content="Kinetics Toolkit provides very generic functions that should apply to a wide variety of use cases. For more specific use cases, or to quickly develop and share new features, we provide a simple ext..." />
+<meta property="og:description" content="Kinetics Toolkit provides very generic functions that should apply to a wide variety of use cases. For more specific use cases and for future feature development, we use extensions, via the kinetic..." />
 <meta property="og:image" content="https://kineticstoolkit.uqam.ca/doc/_static/logo-social.png" />
 <meta property="og:image:alt" content="Kinetics Toolkit Logo" />
-<meta name="description" content="Kinetics Toolkit provides very generic functions that should apply to a wide variety of use cases. For more specific use cases, or to quickly develop and share new features, we provide a simple ext..." />
+<meta name="description" content="Kinetics Toolkit provides very generic functions that should apply to a wide variety of use cases. For more specific use cases and for future feature development, we use extensions, via the kinetic..." />
 <meta property='og:image:width' content=500 />
 <meta property='og:image:height' content=264 />
 
@@ -818,19 +818,30 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="extensions">
 <h1>Extensions<a class="headerlink" href="#extensions" title="Link to this heading">#</a></h1>
-<p>Kinetics Toolkit provides very generic functions that should apply to a wide variety of use cases. For more specific use cases, or to quickly develop and share new features, we provide a simple extension mechanism.</p>
+<p>Kinetics Toolkit provides very generic functions that should apply to a wide variety of use cases. For more specific use cases and for future feature development, we use extensions, via the <a class="reference external" href="https://github.com/kineticstoolkit/kineticstoolkit_extensions">kineticstoolkit_extensions</a> package.</p>
 <section id="installing-extensions">
 <h2>Installing extensions<a class="headerlink" href="#installing-extensions" title="Link to this heading">#</a></h2>
-<p>Here are links to known extensions, where you can find a detailed description, tutorials, and installation procedure. Please <a class="reference external" href="https://github.com/felixchenier/kineticstoolkit/discussions">contact us</a> to add your own extension to this list.</p>
-<ul class="simple">
-<li><p><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit_n3d">n3d</a>: Provide the <code class="docutils literal notranslate"><span class="pre">read_n3d</span></code> function to read Optotrak n3d acquisition files.</p></li>
-<li><p><a class="reference external" href="https://github.com/felixchenier/kineticstoolkit_pushrimkinetics">pushrimkinetics</a>: Provide functions to process kinetic data from instrumented wheelchair wheels. Replaces the former <code class="docutils literal notranslate"><span class="pre">ktk.pushrimkinetics</span></code> module that is being moved out from the core library.</p></li>
-</ul>
+<p>All extensions are included in the single <code class="docutils literal notranslate"><span class="pre">kineticstoolkit_extensions</span></code> package, which is installed like you installed <code class="docutils literal notranslate"><span class="pre">kineticstoolkit</span></code>, e.g., using pip, conda or mamba:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">kineticstoolkit_extensions</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mamba</span> <span class="n">install</span> <span class="n">kineticstoolkit_extensions</span>
+</pre></div>
+</div>
+<p>or</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">kineticstoolkit_extensions</span>
+</pre></div>
+</div>
 </section>
 <section id="using-extensions">
 <h2>Using extensions<a class="headerlink" href="#using-extensions" title="Link to this heading">#</a></h2>
-<p>Use <a class="reference internal" href="api/ktk.import_extensions.html"><span class="std std-doc">ktk.import_extensions</span></a> to import all installed extensions into the <code class="docutils literal notranslate"><span class="pre">ktk.ext</span></code> namespace. For example, if you installed the pushrimkinetics extension above, then its functions will be available as <code class="docutils literal notranslate"><span class="pre">ktk.ext.pushrimkinetics.read_smartwheel()</span></code>, <code class="docutils literal notranslate"><span class="pre">ktk.ext.pushrimkinetics.calculate_power()</span></code>, etc.</p>
-<p>If you imported Kinetics Toolkit in <a class="reference internal" href="getting_started_installing.html"><span class="std std-doc">lab mode</span></a>, the extensions are already imported. There is no need to use <a class="reference internal" href="api/ktk.import_extensions.html"><span class="std std-doc">ktk.import_extensions</span></a>.</p>
+<p>When <code class="docutils literal notranslate"><span class="pre">kineticstoolkit_extensions</span></code> is installed, all its contents becomes available in the <code class="docutils literal notranslate"><span class="pre">kineticstoolkit.ext</span></code> namespace. For example, to calculate the velocity of a wheelchair wheel using the <code class="docutils literal notranslate"><span class="pre">pushrimkinetics</span></code> extension:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">kineticstoolkit.lab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ktk</span>
+
+<span class="n">ktk</span><span class="o">.</span><span class="n">ext</span><span class="o">.</span><span class="n">pushrimkinetics</span><span class="o">.</span><span class="n">calculate_velocity</span><span class="p">()</span>
+</pre></div>
+</div>
 </section>
 <section id="developing-extensions">
 <h2>Developing extensions<a class="headerlink" href="#developing-extensions" title="Link to this heading">#</a></h2>

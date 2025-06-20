@@ -1,19 +1,39 @@
 # Extensions
 
-Kinetics Toolkit provides very generic functions that should apply to a wide variety of use cases. For more specific use cases, or to quickly develop and share new features, we provide a simple extension mechanism.
+Kinetics Toolkit provides very generic functions that should apply to a wide variety of use cases. For more specific use cases and for future feature development, we use extensions, via the [kineticstoolkit_extensions](https://github.com/kineticstoolkit/kineticstoolkit_extensions) package.
+
 
 ## Installing extensions
 
-Here are links to known extensions, where you can find a detailed description, tutorials, and installation procedure. Please [contact us](https://github.com/felixchenier/kineticstoolkit/discussions) to add your own extension to this list.
+All extensions are included in the single `kineticstoolkit_extensions` package, which is installed like you installed `kineticstoolkit`, e.g., using pip, conda or mamba:
 
-- [n3d](https://github.com/felixchenier/kineticstoolkit_n3d): Provide the `read_n3d` function to read Optotrak n3d acquisition files.
-- [pushrimkinetics](https://github.com/felixchenier/kineticstoolkit_pushrimkinetics): Provide functions to process kinetic data from instrumented wheelchair wheels. Replaces the former `ktk.pushrimkinetics` module that is being moved out from the core library.
+```
+pip install kineticstoolkit_extensions
+```
+
+or
+
+```
+mamba install kineticstoolkit_extensions
+```
+
+or
+
+```
+conda install -c conda-forge kineticstoolkit_extensions
+```
+
 
 ## Using extensions
 
-Use [ktk.import_extensions](api/ktk.import_extensions.rst) to import all installed extensions into the `ktk.ext` namespace. For example, if you installed the pushrimkinetics extension above, then its functions will be available as `ktk.ext.pushrimkinetics.read_smartwheel()`, `ktk.ext.pushrimkinetics.calculate_power()`, etc.
+When `kineticstoolkit_extensions` is installed, all its contents becomes available in the `kineticstoolkit.ext` namespace. For example, to calculate the velocity of a wheelchair wheel using the `pushrimkinetics` extension:
 
-If you imported Kinetics Toolkit in [lab mode](getting_started_installing.md), the extensions are already imported. There is no need to use [ktk.import_extensions](api/ktk.import_extensions.rst).
+```
+import kineticstoolkit.lab as ktk
+
+ktk.ext.pushrimkinetics.calculate_velocity()
+```
+
 
 ## Developing extensions
 

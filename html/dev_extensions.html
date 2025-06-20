@@ -11,10 +11,10 @@
 <meta property="og:type" content="image/png" />
 <meta property="og:url" content="https://kineticstoolkit.uqam.ca/doc/dev_extensions.html" />
 <meta property="og:site_name" content="Kinetics Toolkit" />
-<meta property="og:description" content="Long story short, any installed package which name begins with kineticstoolkit_ is considered as an extension to Kinetics Toolkit. The ktk.import_extensions() function will find it and import it in..." />
+<meta property="og:description" content="If you wrote code that extends Kinetics Toolkit and you want to share it globally, consider sharing it as a Kinetics Toolkit extension. This is the best way to ensure that your code keeps functioni..." />
 <meta property="og:image" content="https://kineticstoolkit.uqam.ca/doc/_static/logo-social.png" />
 <meta property="og:image:alt" content="Kinetics Toolkit Logo" />
-<meta name="description" content="Long story short, any installed package which name begins with kineticstoolkit_ is considered as an extension to Kinetics Toolkit. The ktk.import_extensions() function will find it and import it in..." />
+<meta name="description" content="If you wrote code that extends Kinetics Toolkit and you want to share it globally, consider sharing it as a Kinetics Toolkit extension. This is the best way to ensure that your code keeps functioni..." />
 <meta property='og:image:width' content=500 />
 <meta property='og:image:height' content=264 />
 
@@ -807,53 +807,42 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="developing-extensions">
 <h1>Developing extensions<a class="headerlink" href="#developing-extensions" title="Link to this heading">#</a></h1>
-<p>Long story short, any installed package which name begins with <code class="docutils literal notranslate"><span class="pre">kineticstoolkit_</span></code> is considered as an extension to Kinetics Toolkit. The <a class="reference internal" href="api/ktk.import_extensions.html"><span class="std std-doc">ktk.import_extensions()</span></a> function will find it and import it into the <code class="docutils literal notranslate"><span class="pre">ktk.ext</span></code> namespace.</p>
-<p>If you want to develop and share your own extensions, but do not know how to share python modules or packages, we provide a template and guidelines to get you on road, using the <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">git+https</span></code> installation method.</p>
-<p><strong>Step 1.</strong> Install the <code class="docutils literal notranslate"><span class="pre">pytest</span></code> module. This will allow you to write and run unit tests for your extension.</p>
-<p><strong>Step 2.</strong> Find a name for your extension.</p>
-<p><strong>Step 3.</strong> Go to this repository: <a class="github reference external" href="https://github.com/felixchenier/kineticstoolkit_extension">felixchenier/kineticstoolkit_extension</a>, and use it as a template for your own, new repository. In the following example, we will use <code class="docutils literal notranslate"><span class="pre">pushrimkinetics</span></code> as the extension name.</p>
-<p><img alt="" src="_images/extension_github_template.png" /></p>
-<p>Name your new repository <code class="docutils literal notranslate"><span class="pre">kineticstoolkit_EXTENSIONNAME</span></code>, replacing EXTENSIONNAME by the name of your extension.</p>
-<p><img alt="" src="_images/extensions_github_new_repository.png" /></p>
-<p><strong>Step 4.</strong> Clone your new repository on your computer using the git tool of your choice.</p>
-<p><strong>Step 5:</strong> Edit the header of <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> to match your extension and personal information.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="sd">&quot;&quot;&quot;Setup tool for building a pip-accessible package.&quot;&quot;&quot;</span>
-
-<span class="kn">import</span><span class="w"> </span><span class="nn">setuptools</span>
-
-<span class="c1">#--------------------------------------------------------------------------------</span>
-<span class="c1"># Please modify to fit your extension (particularly the text in CAPITALS)</span>
-<span class="c1">#--------------------------------------------------------------------------------</span>
-<span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;kineticstoolkit_pushrimkinetics&quot;</span>
-<span class="n">description</span> <span class="o">=</span> <span class="s2">&quot;Provide functions to process kinetic data from instrumented wheelchair wheels.&quot;</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://github.com/felixchenier/kineticstoolkit_pushrimkinetics&quot;</span>
-<span class="n">author</span> <span class="o">=</span> <span class="s2">&quot;Félix Chénier&quot;</span>
-<span class="n">author_email</span> <span class="o">=</span> <span class="s2">&quot;chenier.felix@uqam.ca&quot;</span>
-<span class="c1">#--------------------------------------------------------------------------------</span>
+<p>If you wrote code that extends Kinetics Toolkit and you want to share it globally, consider sharing it as a Kinetics Toolkit extension. This is the best way to ensure that your code keeps functioning in the future, since extensions are tested automatically and continuously with each Kinetics Toolkit release.</p>
+<p><strong>Step 1. Fork <code class="docutils literal notranslate"><span class="pre">kineticstoolkit_extensions</span></code></strong></p>
+<p>On GitHub, fork the <a class="reference external" href="https://github.com/kineticstoolkit/kineticstoolkit_extensions">kineticstoolkit_extensions</a> repository.</p>
+<p><strong>Step 2. Add your code</strong></p>
+<p>On your fork, add your new extension as <code class="docutils literal notranslate"><span class="pre">YOUR_EXTENSION_NAME.py</span></code> in the <code class="docutils literal notranslate"><span class="pre">kineticstoolkit_extensions</span></code> folder. Take <a class="reference external" href="https://github.com/kineticstoolkit/kineticstoolkit_extensions/blob/main/kineticstoolkit_extensions/n3d.py">n3d.py</a> as an example. This file provides one function: <code class="docutils literal notranslate"><span class="pre">read_n3d</span></code>, which is available to the user as <code class="docutils literal notranslate"><span class="pre">kineticstoolkit.ext.n3d.read_n3d()</span></code>.</p>
+<p><strong>Step 3. Add a tutorial</strong></p>
+<p>On your fork, add a tutorial as a markdown (.md), python (.py) or jupyter notebook (.ipynb) named <code class="docutils literal notranslate"><span class="pre">YOUR_EXTENSION_NAME.md</span></code>, <code class="docutils literal notranslate"><span class="pre">YOUR_EXTENSION_NAME.py</span></code> or <code class="docutils literal notranslate"><span class="pre">YOUR_EXTENSION_NAME.ipynb</span></code> in the <code class="docutils literal notranslate"><span class="pre">tutorials</span></code> folder. This tutorial should teach the user what is the aim of your extension and how to use it.</p>
+<p>If your tutorial requires data files, you can include these data in the <code class="docutils literal notranslate"><span class="pre">data</span></code> folder, and prefix your data by your extension name. For example: <a class="reference external" href="https://github.com/kineticstoolkit/kineticstoolkit_extensions/tree/main/data">data/n3d_sample_optotrak.n3d</a>. You can then refer to this data in your tutorial using:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">ext</span><span class="o">.</span><span class="n">root_folder</span> <span class="o">+</span> <span class="s2">&quot;/data/YOUR_DATAFILE_NAME&quot;</span>
 </pre></div>
 </div>
-<p><strong>Step 6:</strong> Change <code class="docutils literal notranslate"><span class="pre">EXTENSIONAME</span></code>, <code class="docutils literal notranslate"><span class="pre">AUTHORNAME</span></code>, <code class="docutils literal notranslate"><span class="pre">AUTHOREMAIL</span></code>, <code class="docutils literal notranslate"><span class="pre">YEAR</span></code> and <code class="docutils literal notranslate"><span class="pre">GITHUBUSER</span></code> in every file for their real values.</p>
-<p><strong>Step 7:</strong> Put your actual code in <code class="docutils literal notranslate"><span class="pre">kineticstoolkit_EXTENSIONNAME/__init__.py</span></code>.</p>
-<p><strong>Step 8:</strong> Write some test functions in <code class="docutils literal notranslate"><span class="pre">test_extension.py</span></code>. Such test functions usually perform a simple operation and ends with:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="n">some_variable</span> <span class="o">==</span> <span class="n">some_contents</span>
+<p>such as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">ext</span><span class="o">.</span><span class="n">root_folder</span> <span class="o">+</span> <span class="s2">&quot;/data/n3d_sample_optotrak.n3d&quot;</span>
 </pre></div>
 </div>
-<p><strong>Step 9:</strong> Check that your extension works. Simply running the <code class="docutils literal notranslate"><span class="pre">test_extension.py</span></code> file should start <code class="docutils literal notranslate"><span class="pre">pytest</span></code> and run your test functions.</p>
-<p><strong>Step 10:</strong> Edit <code class="docutils literal notranslate"><span class="pre">README.md</span></code> to include installation and usage instructions. You can also upload a Jupyter tutorial that shows your extension in action.</p>
-<p><strong>Step 11:</strong> Commit and push your changes.</p>
-<p>Your extension can now be installed using:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">USERNAME</span><span class="o">/</span><span class="n">kineticstoolkit_EXTENSIONNAME</span>
-</pre></div>
-</div>
-<p>It would be a good idea to test it a last time in a fresh testing environment. If you are using conda:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span>
-<span class="n">conda</span> <span class="n">create</span> <span class="o">-</span><span class="n">n</span> <span class="n">test</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">kineticstoolkit</span>
-<span class="n">conda</span> <span class="n">activate</span> <span class="n">test</span>
-<span class="n">pip</span> <span class="n">install</span> <span class="n">git</span><span class="o">+</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">USERNAME</span><span class="o">/</span><span class="n">kineticstoolkit_EXTENSIONNAME</span>
-</pre></div>
-</div>
-<p>Now launch python, import kineticstoolkit and try your extension.</p>
-<p><strong>Step 12.</strong> Publicize your extension on the <a class="reference external" href="https://github.com/felixchenier/kineticstoolkit/discussions">Kinetics Toolkit’s discussions forum</a>. We’ll add it to this page. If things are not as smooth as you’d want, don’t hesitate to <a class="reference external" href="https://github.com/felixchenier/kineticstoolkit/discussions">ask for help</a>.</p>
+<p><strong>Step 4. Add unit tests</strong></p>
+<p>A unit test is a function that is run automatically each time there is a new commit to either the <code class="docutils literal notranslate"><span class="pre">kineticstoolkit</span></code> repository, or the <code class="docutils literal notranslate"><span class="pre">kineticstoolkit_extensions</span></code> repository. Writing unit tests is a great way to ensure that your extension will keep running in the long term on all three main platforms (Windows, MacOS, Linux) and on every new version of Python, because we get a notification the minute it fails.</p>
+<p>A unit test can be as simple as using a function on a given input and check that its output matches what we expect, using the <code class="docutils literal notranslate"><span class="pre">assert</span></code> command.</p>
+<p>On your fork, add a nest file named <code class="docutils literal notranslate"><span class="pre">test_YOUR_EXTENSION_NAME.py</span></code> in the <code class="docutils literal notranslate"><span class="pre">tests</span></code> folder. Take <a class="reference external" href="https://github.com/kineticstoolkit/kineticstoolkit_extensions/blob/main/tests/test_n3d.py">test_n3d.py</a> as an example. Each test function must begin with “test_”.</p>
+<p>If your unit test requires data files, you can include and access these data like above in the “Add a tutorial” section.</p>
+<p><strong>Step 5. Run the unit tests</strong></p>
+<p>Commit all your files and push it to GitHub, then wait for the unit tests to be executed. If your unit tests do not pass, inspect the output on GitHub using “Details” and search for the error message.</p>
+<p><img alt="" src="_images/extension_tests_inspect1.png" /></p>
+<p>Use this error message to correct your unit test (and maybe also your tutorial), then commit and push again.</p>
+<p><strong>Running unit tests locally (optional)</strong></p>
+<p>If your tests fail on GitHub and you have difficulty resolving them, you may want to run the unit tests locally, which allow you to debug with more tools. This is however a bit trickier because you need to install a local testing environment:</p>
+<ol class="arabic simple">
+<li><p>Checkout your fork of <code class="docutils literal notranslate"><span class="pre">kineticstoolkit_extensions</span></code> locally.</p></li>
+<li><p>Uninstall <code class="docutils literal notranslate"><span class="pre">kineticstoolkit_extensions</span></code> that you may have previously installed using <code class="docutils literal notranslate"><span class="pre">pip</span></code>, <code class="docutils literal notranslate"><span class="pre">conda</span></code> or <code class="docutils literal notranslate"><span class="pre">mamba</span></code>.</p></li>
+<li><p>Add the inner <code class="docutils literal notranslate"><span class="pre">kineticstoolkit_extensions</span></code> folder of your local checkout to your <code class="docutils literal notranslate"><span class="pre">PYTHONPATH</span></code> (in Spyder, you can use the PYTHONPATH manager to do that) - Now importing kineticstoolkit will import <strong>your</strong> extension in addition to the other extensions.</p></li>
+<li><p>Install <code class="docutils literal notranslate"><span class="pre">pytest</span></code> using either <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pytest</span></code>, <code class="docutils literal notranslate"><span class="pre">mamba</span> <span class="pre">install</span> <span class="pre">pytest</span></code> or <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">pytest</span></code>.</p></li>
+<li><p>Run your unit test file.</p></li>
+</ol>
+<p><strong>Step 6. Create a Pull Request</strong></p>
+<p>If all tests run successfully in your fork, create a Pull Request explaining what you added, and confirming that you have added a well-functioning tutorial and unit test. You will eventually get notified if changes are needed or if your pull request (PR) has been merged to the official <code class="docutils literal notranslate"><span class="pre">kineticstoolkit_extensions</span></code> repository.</p>
+<p>In any step, do not hesitate to <a class="reference external" href="https://github.com/felixchenier/kineticstoolkit/discussions">ask for help</a>, it will be a pleasure to guide you.</p>
 </section>
 
     <script type="text/x-thebe-config">
