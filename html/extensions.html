@@ -522,7 +522,6 @@
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="ktk_citing.html">Citing</a></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="dev_contributors.html">Contributors</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="dev_extensions.html">Developing extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dev_rules.html">Development rules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dev_code_of_conduct.html">Code of conduct</a></li>
 <li class="toctree-l2"><a class="reference internal" href="dev_installing_from_github.html">Installing from GitHub</a></li>
@@ -779,9 +778,7 @@ document.write(`
   </button>
 `);
 </script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <span class="fa-solid fa-list"></span>
-</button>
+
 </div></div>
       
     </div>
@@ -797,16 +794,6 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
-            <div>
-                <h2> Contents </h2>
-            </div>
-            <nav aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-extensions">Installing extensions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-extensions">Using extensions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#developing-extensions">Developing extensions</a></li>
-</ul>
-            </nav>
         </div>
     </div>
 </div>
@@ -819,34 +806,6 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="extensions">
 <h1>Extensions<a class="headerlink" href="#extensions" title="Link to this heading">#</a></h1>
 <p>Kinetics Toolkit provides very generic functions that should apply to a wide variety of use cases. For more specific use cases and for future feature development, we use extensions, via the <a class="reference external" href="https://github.com/kineticstoolkit/kineticstoolkit_extensions">kineticstoolkit_extensions</a> package.</p>
-<section id="installing-extensions">
-<h2>Installing extensions<a class="headerlink" href="#installing-extensions" title="Link to this heading">#</a></h2>
-<p>All extensions are included in the single <code class="docutils literal notranslate"><span class="pre">kineticstoolkit_extensions</span></code> package, which is installed like you installed <code class="docutils literal notranslate"><span class="pre">kineticstoolkit</span></code>, e.g., using pip, conda or mamba:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">kineticstoolkit_extensions</span>
-</pre></div>
-</div>
-<p>or</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mamba</span> <span class="n">install</span> <span class="n">kineticstoolkit_extensions</span>
-</pre></div>
-</div>
-<p>or</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">conda</span> <span class="n">install</span> <span class="o">-</span><span class="n">c</span> <span class="n">conda</span><span class="o">-</span><span class="n">forge</span> <span class="n">kineticstoolkit_extensions</span>
-</pre></div>
-</div>
-</section>
-<section id="using-extensions">
-<h2>Using extensions<a class="headerlink" href="#using-extensions" title="Link to this heading">#</a></h2>
-<p>When <code class="docutils literal notranslate"><span class="pre">kineticstoolkit_extensions</span></code> is installed, all its contents becomes available in the <code class="docutils literal notranslate"><span class="pre">kineticstoolkit.ext</span></code> namespace. For example, to calculate the velocity of a wheelchair wheel using the <code class="docutils literal notranslate"><span class="pre">pushrimkinetics</span></code> extension:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">kineticstoolkit.lab</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">ktk</span>
-
-<span class="n">ktk</span><span class="o">.</span><span class="n">ext</span><span class="o">.</span><span class="n">pushrimkinetics</span><span class="o">.</span><span class="n">calculate_velocity</span><span class="p">()</span>
-</pre></div>
-</div>
-</section>
-<section id="developing-extensions">
-<h2>Developing extensions<a class="headerlink" href="#developing-extensions" title="Link to this heading">#</a></h2>
-<p>Please consult <a class="reference internal" href="dev_extensions.html"><span class="doc std std-doc">Developing extensions</span></a> to learn how to develop and share your own extensions.</p>
-</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -894,23 +853,6 @@ document.write(`
             </div>
             
             
-              
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
-
-
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
-    <i class="fa-solid fa-list"></i> Contents
-  </div>
-  <nav class="bd-toc-nav page-toc">
-    <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installing-extensions">Installing extensions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-extensions">Using extensions</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#developing-extensions">Developing extensions</a></li>
-</ul>
-  </nav></div>
-
-</div></div>
               
             
           </div>
