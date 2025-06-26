@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.13.8
+    jupytext_version: 1.17.2
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -13,6 +13,7 @@ kernelspec:
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
+
 %matplotlib inline
 ```
 
@@ -52,6 +53,7 @@ gives this:
 
 ```{code-cell} ipython3
 :tags: [remove-input]
+
 import kineticstoolkit.lab as ktk
 
 # Create the TimeSeries
@@ -64,13 +66,14 @@ ts.time = np.arange(100)/100
 ts = ts.add_data("Position", p)
 
 # Add the position unit
-ts = ts.add_data_info("Position", "Unit", "m")
+ts = ts.add_info("Position", "Unit", "m")
 
 ts.plot()
 ```
 
 ```{code-cell} ipython3
 :tags: [hide-cell]
+
 import kineticstoolkit.lab as ktk
 
 # Create the TimeSeries
@@ -83,7 +86,7 @@ ts.time = np.arange(100)/100
 ts = ts.add_data("Position", p)
 
 # Add the position unit
-ts = ts.add_data_info("Position", "Unit", "m")
+ts = ts.add_info("Position", "Unit", "m")
 
 ts.plot()
 ```

@@ -9,7 +9,6 @@
    :recursive:
    :toctree: api
 
-   import_extensions
    load
    save
    read_c3d
