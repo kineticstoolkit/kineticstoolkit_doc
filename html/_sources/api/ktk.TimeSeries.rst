@@ -17,6 +17,7 @@
       ~TimeSeries.add_data
       ~TimeSeries.add_data_info
       ~TimeSeries.add_event
+      ~TimeSeries.add_info
       ~TimeSeries.copy
       ~TimeSeries.count_events
       ~TimeSeries.fill_missing_samples
@@ -46,8 +47,10 @@
       ~TimeSeries.remove_data_info
       ~TimeSeries.remove_duplicate_events
       ~TimeSeries.remove_event
+      ~TimeSeries.remove_info
       ~TimeSeries.rename_data
       ~TimeSeries.rename_event
+      ~TimeSeries.rename_info
       ~TimeSeries.resample
       ~TimeSeries.shift
       ~TimeSeries.sort_events
@@ -65,7 +68,10 @@
    .. autosummary::
    
       ~TimeSeries.data
+      ~TimeSeries.data_info
       ~TimeSeries.events
+      ~TimeSeries.info
       ~TimeSeries.time
+      ~TimeSeries.time_info
    
    

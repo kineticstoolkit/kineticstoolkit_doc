@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.14.5
+    jupytext_version: 1.17.2
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -19,11 +19,11 @@ kernelspec:
 
 # The TimeSeries type
 
-The [ktk.TimeSeries](api/ktk.TimeSeries.rst) type is largely inspired by Matlab's `timeseries` and `tscollection`. Every TimeSeries contains time, data, events, and metadata.
+A TimeSeries is a single container that hold time, data, events and general info.
 
 ## Time and data
 
-A TimeSeries in its simplest form contains a time attribute and at least one data series. For example:
+A TimeSeries in its simplest form contains a time attribute and some data. For example:
 
 ```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
@@ -134,60 +134,28 @@ If we plot the TimeSeries again, we can see the added events.
 ts.plot()
 ```
 
-## Metadata
+## Info
 
-The TimeSeries' `time_info` and `data_info` attributes are dictionaries that associate information to time and data. By default, `time_info` includes the "Unit" key, which corresponds to "s". Any other time information can be added by adding new keys to `time_info`.
+The TimeSeries' `info` attribute contains metadata such as units and other information. This dictionary is addressed using two nested keys: the first (outer) one is generally what the information refers to (e.g., "Time", "Forces", "LateralFemoralEpicondyleR", "Speed"), and the second (inner) one defines the nature of the information (e.g., "Unit", "Date", "Name").
 
-```{code-cell} ipython3
-ts.time_info
-```
-
-Similarly, the `data_info` attribute is a dictionary that associates information to data. You may use the [ktk.TimeSeries.add_data_info](api/ktk.TimeSeries.add_data_info.rst) and [ktk.TimeSeries.remove_data_info](api/ktk.TimeSeries.remove_data_info.rst) methods to ease the management of `data_info`:
+By default, `info` includes the time unit:
 
 ```{code-cell} ipython3
-ts = ts.add_data_info("Forces", "Unit", "N")
-ts = ts.add_data_info("Moments", "Unit", "Nm")
-
-ts.data_info
+ts.info
 ```
 
-Unless explicitly mentioned, metadata is not used for calculation and is strictly optional. Some functions, however, read metadata: for example, the [ktk.TimeSeries.plot](api/ktk.TimeSeries.plot.rst) method looks for possible "Unit" metadata and prints it on the y-axis; and the [ktk.Player](api/ktk.Player.rst) class looks for possible "Colour" metadata to set the colour of 3D points.
+You may use the [ktk.TimeSeries.add_info](api/ktk.TimeSeries.add_info.rst), [ktk.TimeSeries.rename_info](api/ktk.TimeSeries.rename_info.rst) and [ktk.TimeSeries.remove_info](api/ktk.TimeSeries.remove_info.rst) to manage `info`:
+
+```{code-cell} ipython3
+ts = ts.add_info("Forces", "Unit", "N")
+ts = ts.add_info("Moments", "Unit", "Nm")
+
+ts.info
+```
+
+Unless explicitly mentioned, metadata is not used for calculation and is strictly optional. "Unit" info is however used by [ktk.TimeSeries.plot](api/ktk.TimeSeries.plot.rst) to plot the units:
 
 ```{code-cell} ipython3
 ts.plot()
 ```
 
-## Converting variables to TimeSeries
-
-We can convert a [list](python_lists.md), a [NumPy array](numpy_ndarray.md), a Pandas {{pd_series}} or a Pandas {{pd_dataframe}} to a TimeSeries, using this form:
-
-```{code-cell} ipython3
-example_list = [1, 2, 3, 4, 5]
-example_array = np.array([1, 2, 3, 4, 5])
-example_series = pd.Series([1, 2, 3, 4, 5])
-example_dataframe = pd.DataFrame([[1, 2], [3, 4], [5, 6], [7, 8]], columns=["x", "y"])
-```
-
-### List to TimeSeries
-
-```{code-cell} ipython3
-ktk.TimeSeries(example_list)
-```
-
-### Array to TimeSeries
-
-```{code-cell} ipython3
-ktk.TimeSeries(example_array)
-```
-
-### Series to TimeSeries
-
-```{code-cell} ipython3
-ktk.TimeSeries(example_series)
-```
-
-### DataFrame to TimeSeries
-
-```{code-cell} ipython3
-ktk.TimeSeries(example_dataframe)
-```

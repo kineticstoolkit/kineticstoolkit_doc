@@ -114,7 +114,7 @@ Due to this more efficient representation of the same operation, measurement sys
 Creating transforms using quaternions.
 :::
 
-In this case, which is pictured in {numref}`fig_geometry_create_transform_series`(c), the orientation of the arm's coordinate system is given by quaternion [0.0, 0.0, 0.259, 0.966]. To convert this quaternion and the position of the shoulder to its transform equivalent:
+In this case, which is pictured in {numref}`fig_geometry_create_transform_series_quaternions`, the orientation of the arm's coordinate system is given by quaternion [0.0, 0.0, 0.259, 0.966]. To convert this quaternion and the position of the shoulder to its transform equivalent:
 
 ```{code-cell} ipython3
 ktk.geometry.create_transform_series(

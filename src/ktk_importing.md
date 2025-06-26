@@ -22,7 +22,7 @@ You can import the `kineticstoolkit` module using two methods:
 The first import can take several seconds; subsequent imports are much faster.
 :::
 
-Lab mode is a convenience tool that sets some defaults for a more enjoyable data processing session in IPython-based environments such as Spyder. It automatically imports all installed [Kinetics Toolkit extensions](extensions.md), makes cosmetic changes to the representations (repr) of dictionaries, arrays, and warnings, and improves Matplotlib default colours and sizes for interactive biomechanics work. See [ktk.import_extensions](api/ktk.import_extensions.rst) and [ktk.change_defaults](api/ktk.change_defaults.rst) for more information. All tutorials in this book use this mode.
+Lab mode is a convenience tool that sets some defaults for a more enjoyable data processing session in IPython-based environments such as Spyder. It makes cosmetic changes to the representations (repr) of dictionaries, arrays, and warnings, and improves Matplotlib default colours and sizes for interactive biomechanics work. See [ktk.change_defaults](api/ktk.change_defaults.rst) for more information. All tutorials in this book use this mode.
 
 ```
 import kineticstoolkit.lab as ktk
@@ -31,6 +31,5 @@ import kineticstoolkit.lab as ktk
 is equivalent to:
 ```
 import kineticstoolkit as ktk
-ktk.import_extensions()
 ktk.change_defaults()
 ```

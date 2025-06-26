@@ -267,8 +267,8 @@ angles = ktk.TimeSeries(time=markers.time)
 angles.data["Elbow flexion"] = euler_angles[:, 0]
 angles.data["Forearm pronation"] = euler_angles[:, 2]
 
-angles = angles.add_data_info("Elbow flexion", "Unit", "deg")
-angles = angles.add_data_info("Forearm pronation", "Unit", "deg")
+angles = angles.add_info("Elbow flexion", "Unit", "deg")
+angles = angles.add_info("Forearm pronation", "Unit", "deg")
 
 angles.plot()
 ```
