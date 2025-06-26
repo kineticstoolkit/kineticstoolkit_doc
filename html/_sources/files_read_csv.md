@@ -106,10 +106,10 @@ ts.data
 
 The CSV file was correctly read as a TimeSeries. However, force components are scattered into three separate arrays. Would it be possible to read it as one Nx3 array instead?
 
-To this effect, simply rename the columns of the DataFrame, either in the original CSV file or after reading it, using index brackets:
+To this effect, simply rename the columns of the DataFrame, either in the original CSV file or after reading it, using index brackets as it would be accessed in the resulting array:
 
 ```{code-cell} ipython3
-df.columns = ["Forces[0]", "Forces[1]", "Forces[2]", "Position"]
+df.columns = ["Forces[:,0]", "Forces[:,1]", "Forces[:,2]", "Position"]
 
 df
 ```

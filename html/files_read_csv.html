@@ -1118,10 +1118,10 @@ document.write(`
 </div>
 </div>
 <p>The CSV file was correctly read as a TimeSeries. However, force components are scattered into three separate arrays. Would it be possible to read it as one Nx3 array instead?</p>
-<p>To this effect, simply rename the columns of the DataFrame, either in the original CSV file or after reading it, using index brackets:</p>
+<p>To this effect, simply rename the columns of the DataFrame, either in the original CSV file or after reading it, using index brackets as it would be accessed in the resulting array:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Forces[0]&quot;</span><span class="p">,</span> <span class="s2">&quot;Forces[1]&quot;</span><span class="p">,</span> <span class="s2">&quot;Forces[2]&quot;</span><span class="p">,</span> <span class="s2">&quot;Position&quot;</span><span class="p">]</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Forces[:,0]&quot;</span><span class="p">,</span> <span class="s2">&quot;Forces[:,1]&quot;</span><span class="p">,</span> <span class="s2">&quot;Forces[:,2]&quot;</span><span class="p">,</span> <span class="s2">&quot;Position&quot;</span><span class="p">]</span>
 
 <span class="n">df</span>
 </pre></div>
@@ -1146,9 +1146,9 @@ document.write(`
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Forces[0]</th>
-      <th>Forces[1]</th>
-      <th>Forces[2]</th>
+      <th>Forces[:,0]</th>
+      <th>Forces[:,1]</th>
+      <th>Forces[:,2]</th>
       <th>Position</th>
     </tr>
     <tr>
