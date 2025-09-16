@@ -2,7 +2,7 @@
 
 We are now ready to introduce the **homogeneous transform**, a 4x4 matrix that expresses both the position and the orientation of a coordinate system, in reference to another coordinate system.
 
-The fourth (easiest) column of a transform is the position of the local coordinate system's origin expressed in the reference coordinate system. In the example of Figure 4, this is:
+The fourth (easiest) column of a transform is the position of the local coordinate system's origin expressed in the reference coordinate system. In the example of {numref}`fig_geometry_local_coordinates_rotated`, this is:
 
 $$
 ~^\text{global}p_\text{upper arm} = \begin{bmatrix}
