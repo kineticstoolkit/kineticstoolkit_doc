@@ -4,7 +4,7 @@ jupytext:
     extension: .md
     format_name: myst
     format_version: 0.13
-    jupytext_version: 1.16.4
+    jupytext_version: 1.17.2
 kernelspec:
   display_name: Python 3 (ipykernel)
   language: python
@@ -31,28 +31,58 @@ We will use this sample [kinematic acquisition](dataset_kinematics_tennis_serve.
 
 ```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
+import matplotlib.pyplot as plt
 
 markers = ktk.read_c3d(ktk.doc.download("kinematics_tennis_serve.c3d"))[
     "Points"
 ]
 ```
 
-## Removing data
+## Adding data
 
 The TimeSeries loaded above has many markers, which makes lots of data to visualize and process:
 
 ```{code-cell} ipython3
-markers.plot(legend=False)
+markers.plot()
 ```
 
-We can remove superfluous data from this TimeSeries using two methods:
++++ {"jp-MarkdownHeadingCollapsed": true}
 
-**1. Subsetting a TimeSeries**
-
-We can use [ktk.TimeSeries.get_subset](api/ktk.TimeSeries.get_subset.rst) to select which data to **keep** from a TimeSeries. For instance, to process only the markers of the thorax:
+To keep only the data we need, it is often practical to make a [copy](api/ktk.TimeSeries.copy.rst) of the TimeSeries with no data, and selectively add the data we need using [ktk.TimeSeries.add_data](api/ktk.TimeSeries.add_data.rst):
 
 ```{code-cell} ipython3
-markers_thorax = markers.get_subset(
+# Copy the TimeSeries without its data
+selected_markers = markers.copy(copy_data=False)
+
+# Add the markers to this new TimeSeries
+for key in ["Derrick:C7", "Derrick:T10", "Derrick:STRN", "Derrick:CLAV"]:
+    selected_markers = selected_markers.add_data(key, markers.data[key])
+
+selected_markers.plot()
+```
+
+## Removing data
+
+We could do the same by removing the superfluous data from the TimeSeries, using [ktk.TimeSeries.remove_data](api/ktk.TimeSeries.remove_data.rst):
+
+```{code-cell} ipython3
+# Copy the whole TimeSeries, with all data
+selected_markers = markers.copy()
+
+# Delete the unwanted markers from this new TimeSeries
+for key in markers.data:
+    if key not in ["Derrick:C7", "Derrick:T10", "Derrick:STRN", "Derrick:CLAV"]:
+        selected_markers = selected_markers.remove_data(key)
+
+selected_markers.plot()
+```
+
+## Subsetting
+
+As a shortcut method, we can also use [ktk.TimeSeries.get_subset](api/ktk.TimeSeries.get_subset.rst), which returns a TimeSeries with only a selection of data keys:
+
+```{code-cell} ipython3
+selected_markers = markers.get_subset(
     [
         "Derrick:C7",
         "Derrick:T10",
@@ -61,75 +91,68 @@ markers_thorax = markers.get_subset(
     ],
 )
 
-markers_thorax.plot()
+selected_markers.plot()
 ```
-
-**2. Removing data one at a time**
-
-We can also use [ktk.TimeSeries.remove_data](api/ktk.TimeSeries.remove_data.rst), to select which data to **remove** from a TimeSeries:
-
-```{code-cell} ipython3
-markers_thorax = markers_thorax.remove_data("Derrick:C7")
-markers_thorax = markers_thorax.remove_data("Derrick:T10")
-
-markers_thorax.plot()
-```
-
-## Adding data
-
-There are three ways to add new data to a TimeSeries. In the last step, we removed the marker "Derrick:C7" from `markers_thorax`. To put it back, we could use any of these methods:
-
-**1. Setting the data attribute directly**
-
-```{code-cell} ipython3
-data_to_add = markers.data["Derrick:C7"]
-
-markers_thorax.data["Derrick:C7"] = data_to_add
-```
-
-This method does not perform any check.
-
-**2. Using `add_data`**
-
-Usually, we would rather use the [ktk.TimeSeries.add_data](api/ktk.TimeSeries.add_data.rst) method, which performs two additional tests:
-
-1. It ensures that we don't inadvertently overwrite data that was already present in the TimeSeries, using an optional `overwrite` paramater.
-2. It ensures that the shape of the data is coherent with other data already in the TimeSeries. This way, combining data with different lengths or sampling rates would likely produce an error, which is a good thing to prevent further mistakes in data analysis.
-
-```{code-cell} ipython3
-markers_thorax = markers_thorax.add_data("Derrick:C7", data_to_add, overwrite=True)
-```
-
-```{tip}
-[ktk.TimeSeries.add_data](api/ktk.TimeSeries.add_data.rst) matches 1-sample inputs to the contents of the TimeSeries. For example, adding the 1-sample series `[3]` to a TimeSeries of 10 samples effectively adds a series of 10 samples: `[3, 3, 3, 3, 3, 3, 3, 3, 3, 3]`
-```
-
-+++
-
-**3. Using `merge`**
-
-In this third method, we first subset the source TimeSeries to keep only the markers to add in the destination TimeSeries. Then, we merge both TimeSeries.
-
-```{code-cell} ipython3
-ts_subset = markers.get_subset("Derrick:C7")
-
-markers_thorax = markers_thorax.merge(ts_subset, overwrite=True)
-```
-
-This method performs three tests:
-
-1. Same as [ktk.TimeSeries.add_data](api/ktk.TimeSeries.add_data.rst): it ensures that we don't inadvertently overwrite data.
-2. Same as [ktk.TimeSeries.add_data](api/ktk.TimeSeries.add_data.rst): it ensures that the shape of the data is coherent with other data already in the TimeSeries.
-3. It ensures that both TimeSeries have the same time attribute. This is the safest method to ensure that all data have both the same length and same sample rate.
 
 ## Renaming data
 
-Finally, [ktk.TimeSeries.rename_data](api/ktk.TimeSeries.rename_data.rst) renames data and its associated metadata (in data_info):
+Use the [ktk.TimeSeries.rename_data](api/ktk.TimeSeries.rename_data.rst) to change the name of a data key:
 
 ```{code-cell} ipython3
-markers_thorax = markers_thorax.rename_data('Derrick:STRN', "Sternum")
-markers_thorax = markers_thorax.rename_data('Derrick:CLAV', "Interclavicular")
-markers_thorax = markers_thorax.rename_data('Derrick:C7', "C7")
+selected_markers = selected_markers.rename_data("Derrick:C7", "C7")
+selected_markers = selected_markers.rename_data("Derrick:T10", "T10")
+selected_markers = selected_markers.rename_data("Derrick:STRN", "Sternum")
+selected_markers = selected_markers.rename_data("Derrick:CLAV", "Clavicular")
 
-markers_thorax.data
+selected_markers.plot()
 ```
+
+## Merging data
+
+Let say we have two different TimeSeries, one for the left lower limb and one for the right one:
+
+```{code-cell} ipython3
+left_lower_limb = markers.get_subset(
+    [
+        "Derrick:LANK",
+        "Derrick:LHEE",
+        "Derrick:LKNE",
+        "Derrick:LTOE",
+    ]
+)
+
+right_lower_limb = markers.get_subset(
+    [
+        "Derrick:RANK",
+        "Derrick:RHEE",
+        "Derrick:RKNE",
+        "Derrick:RTOE",
+    ]
+)
+
+plt.subplot(1,2,1)
+left_lower_limb.plot(legend=False)
+plt.subplot(1,2,2)
+right_lower_limb.plot(legend=False)
+```
+
+To merge these TimeSeries, we could simply use the [ktk.TimeSeries.add_data](api/ktk.TimeSeries.add_data.rst) method as we did above:
+
+```{code-cell} ipython3
+merged = left_lower_limb.copy()
+
+for key in right_lower_limb.data:
+    merged = merged.add_data(key, right_lower_limb.data[key])
+
+merged.plot(legend=False)
+```
+
+As a shortcut method, we can also use [ktk.TimeSeries.merge](api/ktk.TimeSeries.merge.rst):
+
+```{code-cell} ipython3
+merged = left_lower_limb.merge(right_lower_limb)
+
+merged.plot(legend=False)
+```
+
+Using [ktk.TimeSeries.merge](api/ktk.TimeSeries.merge.rst) has several other benefits, such as merging events, information, and even resample TimeSeries that may have been recorded at different sampling rates.

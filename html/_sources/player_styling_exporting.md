@@ -210,7 +210,7 @@ markers = p.get_contents()
 
 for key in markers.data:
     if key.startswith("Viktor:"):
-        markers = markers.add_data_info(key, "Color", (0.0, 0.75, 0.0))
+        markers = markers.add_info(key, "Color", (0.0, 0.75, 0.0))
 
 p.set_contents(markers)
 ```

@@ -15,7 +15,7 @@ We remind that Kinetics Toolkit aims to provide tools for the user to achieve th
 
 ## Rule 3: For new features, consider writing an extension
 
-Kinetics Toolkit supports extensions. This means you can program and distribute your own functions withing ktk, while keeping in full control and property of your code. Extensions are a good way to test new features and evaluate if they should or shouldn't become part of the core library.
+Extensions are a good way to write and share features that may be too specific to be included in the code distribution os Kinetics Toolkit, or to develop and test new features.
 
 ## Rule 4: Contributing code to the core library
 
