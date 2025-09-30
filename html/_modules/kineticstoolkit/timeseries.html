@@ -620,9 +620,11 @@
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.create_transform_series.html">ktk.geometry.create_transform_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.create_vector_series.html">ktk.geometry.create_vector_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.get_angles.html">ktk.geometry.get_angles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.get_distances.html">ktk.geometry.get_distances</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.get_global_coordinates.html">ktk.geometry.get_global_coordinates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.get_local_coordinates.html">ktk.geometry.get_local_coordinates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.get_quaternions.html">ktk.geometry.get_quaternions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.invert.html">ktk.geometry.invert</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.is_point_series.html">ktk.geometry.is_point_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.is_transform_series.html">ktk.geometry.is_transform_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.is_vector_series.html">ktk.geometry.is_vector_series</a></li>
@@ -1674,15 +1676,12 @@ document.write(`
 <span class="sd">        copy_data</span>
 <span class="sd">            Optional. True to copy data to the new TimeSeries,</span>
 <span class="sd">            False to keep the data attribute empty. Default is True.</span>
-<span class="sd">        copy_time_info</span>
-<span class="sd">            Optional. True to copy time_info to the new TimeSeries,</span>
-<span class="sd">            False to keep the time_info attribute empty. Default is True.</span>
-<span class="sd">        copy_data_info</span>
-<span class="sd">            Optional. True to copy data_info to the new TimeSeries,</span>
-<span class="sd">            False to keep the data_info attribute empty. Default is True.</span>
 <span class="sd">        copy_events</span>
 <span class="sd">            Optional. True to copy events to the new TimeSeries,</span>
 <span class="sd">            False to keep the events attribute empty. Default is True.</span>
+<span class="sd">        copy_info</span>
+<span class="sd">            Optional. True to copy info to the new TimeSeries,</span>
+<span class="sd">            False to keep the info attribute empty. Default is True.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -1691,15 +1690,15 @@ document.write(`
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># Pre-0.17 compatibility</span>
-        <span class="k">if</span> <span class="p">(</span><span class="s2">&quot;copy_time_info&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="ow">or</span> <span class="s2">&quot;copy_data_info&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">):</span>
-            <span class="k">if</span> <span class="p">(</span><span class="s2">&quot;copy_time_info&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="s2">&quot;copy_time_info&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="ow">or</span> <span class="s2">&quot;copy_data_info&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s2">&quot;copy_time_info&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
                 <span class="n">copy_time_info</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;copy_time_info&quot;</span><span class="p">]</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">copy_time_info</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># Original default value</span>
-            <span class="k">if</span> <span class="p">(</span><span class="s2">&quot;copy_data_info&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">):</span>
+                <span class="n">copy_time_info</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># Original default value</span>
+            <span class="k">if</span> <span class="s2">&quot;copy_data_info&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
                 <span class="n">copy_data_info</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;copy_data_info&quot;</span><span class="p">]</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="n">copy_data_info</span> <span class="o">=</span> <span class="kc">True</span> <span class="c1"># Original default value</span>
+                <span class="n">copy_data_info</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># Original default value</span>
 
         <span class="k">if</span> <span class="p">(</span>
             <span class="s2">&quot;copy_time_info&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;copy_time_info&quot;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">False</span>
@@ -1731,7 +1730,7 @@ document.write(`
                 <span class="n">ts</span><span class="o">.</span><span class="n">info</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">info</span><span class="p">)</span>
 
             <span class="c1"># Pre-0.17 compatibility</span>
-            <span class="k">if</span> <span class="p">(</span><span class="s2">&quot;copy_time_info&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="ow">or</span> <span class="s2">&quot;copy_data_info&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">):</span>
+            <span class="k">if</span> <span class="s2">&quot;copy_time_info&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="ow">or</span> <span class="s2">&quot;copy_data_info&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
                 <span class="k">if</span> <span class="n">copy_time_info</span><span class="p">:</span>
                     <span class="n">ts</span><span class="o">.</span><span class="n">time_info</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">time_info</span><span class="p">)</span>
                 <span class="k">if</span> <span class="n">copy_data_info</span><span class="p">:</span>
@@ -2958,7 +2957,7 @@ document.write(`
         <span class="k">def</span><span class="w"> </span><span class="nf">_raise</span><span class="p">():</span>
             <span class="k">raise</span> <span class="n">TimeSeriesRangeError</span><span class="p">(</span>
                 <span class="sa">f</span><span class="s2">&quot;There is no data before the requested time of </span><span class="si">{</span><span class="n">time</span><span class="si">}</span><span class="s2"> &quot;</span>
-                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">time_info</span><span class="p">[</span><span class="s1">&#39;Unit&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">.&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_time_unit</span><span class="p">()</span><span class="si">}</span><span class="s2">.&quot;</span>
             <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_check_increasing_time</span><span class="p">()</span>
@@ -3031,7 +3030,7 @@ document.write(`
         <span class="k">def</span><span class="w"> </span><span class="nf">_raise</span><span class="p">():</span>
             <span class="k">raise</span> <span class="n">TimeSeriesRangeError</span><span class="p">(</span>
                 <span class="sa">f</span><span class="s2">&quot;There is no data before the requested time of </span><span class="si">{</span><span class="n">time</span><span class="si">}</span><span class="s2"> &quot;</span>
-                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">time_info</span><span class="p">[</span><span class="s1">&#39;Unit&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">.&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_time_unit</span><span class="p">()</span><span class="si">}</span><span class="s2">.&quot;</span>
             <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">_check_increasing_time</span><span class="p">()</span>
@@ -3766,7 +3765,7 @@ document.write(`
             <span class="k">raise</span> <span class="n">TimeSeriesRangeError</span><span class="p">(</span>
                 <span class="sa">f</span><span class="s2">&quot;There is no data before the occurrence </span><span class="si">{</span><span class="n">occurrence</span><span class="si">}</span><span class="s2"> of &quot;</span>
                 <span class="sa">f</span><span class="s2">&quot;event &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;, which happens at </span><span class="si">{</span><span class="n">time</span><span class="si">}</span><span class="s2"> &quot;</span>
-                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">time_info</span><span class="p">[</span><span class="s1">&#39;Unit&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">.&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_time_unit</span><span class="p">()</span><span class="si">}</span><span class="s2">.&quot;</span>
             <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">retval</span></div>
@@ -3845,7 +3844,7 @@ document.write(`
             <span class="k">raise</span> <span class="n">TimeSeriesRangeError</span><span class="p">(</span>
                 <span class="sa">f</span><span class="s2">&quot;There is no data after the occurrence </span><span class="si">{</span><span class="n">occurrence</span><span class="si">}</span><span class="s2"> of &quot;</span>
                 <span class="sa">f</span><span class="s2">&quot;event &#39;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">&#39;, which happens at </span><span class="si">{</span><span class="n">time</span><span class="si">}</span><span class="s2"> &quot;</span>
-                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">time_info</span><span class="p">[</span><span class="s1">&#39;Unit&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">.&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_time_unit</span><span class="p">()</span><span class="si">}</span><span class="s2">.&quot;</span>
             <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">retval</span></div>
@@ -3942,10 +3941,10 @@ document.write(`
         <span class="k">if</span> <span class="n">time2</span> <span class="o">&lt;</span> <span class="n">time1</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
                 <span class="sa">f</span><span class="s2">&quot;The end event (occurrence </span><span class="si">{</span><span class="n">occurrence2</span><span class="si">}</span><span class="s2"> of &quot;</span>
-                <span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">name2</span><span class="si">}</span><span class="s2">&#39;) happens at </span><span class="si">{</span><span class="n">time2</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">time_info</span><span class="p">[</span><span class="s1">&#39;Unit&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">, &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;&#39;</span><span class="si">{</span><span class="n">name2</span><span class="si">}</span><span class="s2">&#39;) happens at </span><span class="si">{</span><span class="n">time2</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_time_unit</span><span class="p">()</span><span class="si">}</span><span class="s2">, &quot;</span>
                 <span class="sa">f</span><span class="s2">&quot;which is before the begin event (occurrence </span><span class="si">{</span><span class="n">occurrence1</span><span class="si">}</span><span class="s2"> &quot;</span>
                 <span class="sa">f</span><span class="s2">&quot;of &#39;</span><span class="si">{</span><span class="n">name1</span><span class="si">}</span><span class="s2">&#39;) that happens at </span><span class="si">{</span><span class="n">time1</span><span class="si">}</span><span class="s2"> &quot;</span>
-                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">time_info</span><span class="p">[</span><span class="s1">&#39;Unit&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">.&quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_time_unit</span><span class="p">()</span><span class="si">}</span><span class="s2">.&quot;</span>
             <span class="p">)</span>
 
         <span class="n">index1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_index_after_event</span><span class="p">(</span>
@@ -5815,6 +5814,11 @@ document.write(`
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Add metadata to TimeSeries&#39; data.</span>
 
+<span class="sd">        Warning</span>
+<span class="sd">        -------</span>
+<span class="sd">        This function will be deprecated when Kinetics Toolkit will reach version 1.0.</span>
+<span class="sd">        Please use add_info instead.</span>
+
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        data_key</span>
@@ -5864,6 +5868,11 @@ document.write(`
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TimeSeries</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Remove metadata from a TimeSeries&#39; data.</span>
+
+<span class="sd">        Warning</span>
+<span class="sd">        -------</span>
+<span class="sd">        This function will be deprecated when Kinetics Toolkit will reach version 1.0.</span>
+<span class="sd">        Please use add_info instead.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>

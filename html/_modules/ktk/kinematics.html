@@ -620,9 +620,11 @@
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.create_transform_series.html">ktk.geometry.create_transform_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.create_vector_series.html">ktk.geometry.create_vector_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.get_angles.html">ktk.geometry.get_angles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.get_distances.html">ktk.geometry.get_distances</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.get_global_coordinates.html">ktk.geometry.get_global_coordinates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.get_local_coordinates.html">ktk.geometry.get_local_coordinates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.get_quaternions.html">ktk.geometry.get_quaternions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.invert.html">ktk.geometry.invert</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.is_point_series.html">ktk.geometry.is_point_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.is_transform_series.html">ktk.geometry.is_transform_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.is_vector_series.html">ktk.geometry.is_vector_series</a></li>
@@ -957,7 +959,7 @@ document.write(`
     <span class="n">check_param</span><span class="p">(</span><span class="s2">&quot;include_lcs&quot;</span><span class="p">,</span> <span class="n">include_lcs</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
     <span class="n">check_param</span><span class="p">(</span><span class="s2">&quot;lcs_name&quot;</span><span class="p">,</span> <span class="n">lcs_name</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
 
-    <span class="n">out</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">copy_data</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">copy_data_info</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">copy_data</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
     <span class="n">unit</span> <span class="o">=</span> <span class="n">_get_marker_unit</span><span class="p">(</span><span class="n">markers</span><span class="p">)</span>
 
     <span class="c1"># Track the cluster</span>
@@ -968,7 +970,7 @@ document.write(`
             <span class="n">cluster</span><span class="p">[</span><span class="n">marker</span><span class="p">],</span> <span class="n">frames</span>
         <span class="p">)</span>
         <span class="k">if</span> <span class="n">unit</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">out</span><span class="o">.</span><span class="n">add_data_info</span><span class="p">(</span><span class="n">marker</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">,</span> <span class="n">unit</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">out</span><span class="o">.</span><span class="n">add_info</span><span class="p">(</span><span class="n">marker</span><span class="p">,</span> <span class="s2">&quot;Unit&quot;</span><span class="p">,</span> <span class="n">unit</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">in_place</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">include_lcs</span><span class="p">:</span>
         <span class="n">out</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">lcs_name</span><span class="p">]</span> <span class="o">=</span> <span class="n">frames</span>
@@ -1011,7 +1013,7 @@ document.write(`
     <span class="n">unit</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="k">for</span> <span class="n">marker</span> <span class="ow">in</span> <span class="n">markers</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
         <span class="k">try</span><span class="p">:</span>
-            <span class="n">this_unit</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">marker</span><span class="p">][</span><span class="s2">&quot;Unit&quot;</span><span class="p">]</span>
+            <span class="n">this_unit</span> <span class="o">=</span> <span class="n">markers</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="n">marker</span><span class="p">][</span><span class="s2">&quot;Unit&quot;</span><span class="p">]</span>
         <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
             <span class="n">this_unit</span> <span class="o">=</span> <span class="kc">None</span>
 

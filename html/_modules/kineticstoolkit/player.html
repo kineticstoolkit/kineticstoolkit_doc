@@ -620,9 +620,11 @@
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.create_transform_series.html">ktk.geometry.create_transform_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.create_vector_series.html">ktk.geometry.create_vector_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.get_angles.html">ktk.geometry.get_angles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.get_distances.html">ktk.geometry.get_distances</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.get_global_coordinates.html">ktk.geometry.get_global_coordinates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.get_local_coordinates.html">ktk.geometry.get_local_coordinates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.get_quaternions.html">ktk.geometry.get_quaternions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.invert.html">ktk.geometry.invert</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.is_point_series.html">ktk.geometry.is_point_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.is_transform_series.html">ktk.geometry.is_transform_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.is_vector_series.html">ktk.geometry.is_vector_series</a></li>
@@ -1026,7 +1028,7 @@ document.write(`
 
 <span class="sd">    default_point_color</span>
 <span class="sd">        Optional. Default color for points that do not have a &quot;Color&quot;</span>
-<span class="sd">        data_info. Can be a character or tuple (RGB) where each RGB color is</span>
+<span class="sd">        info. Can be a character or tuple (RGB) where each RGB color is</span>
 <span class="sd">        between 0.0 and 1.0. Default is (0.8, 0.8, 0.8).</span>
 
 <span class="sd">    default_interconnection_color</span>
@@ -2163,7 +2165,7 @@ document.write(`
         <span class="n">inverse_transform</span> <span class="o">=</span> <span class="n">geometry</span><span class="o">.</span><span class="n">create_frames</span><span class="p">(</span>
             <span class="n">origin</span><span class="o">=</span><span class="p">[[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span> <span class="n">x</span><span class="o">=</span><span class="n">anterior</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="n">up</span>
         <span class="p">)</span>
-        <span class="k">return</span> <span class="n">geometry</span><span class="o">.</span><span class="n">inv</span><span class="p">(</span><span class="n">inverse_transform</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">geometry</span><span class="o">.</span><span class="n">invert</span><span class="p">(</span><span class="n">inverse_transform</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">_process_contents</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
@@ -2449,11 +2451,8 @@ document.write(`
 
         <span class="k">for</span> <span class="n">i_point</span><span class="p">,</span> <span class="n">point</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">points</span><span class="o">.</span><span class="n">data</span><span class="p">):</span>
             <span class="c1"># Get this point&#39;s color</span>
-            <span class="k">if</span> <span class="p">(</span>
-                <span class="n">point</span> <span class="ow">in</span> <span class="n">points</span><span class="o">.</span><span class="n">data_info</span>
-                <span class="ow">and</span> <span class="s2">&quot;Color&quot;</span> <span class="ow">in</span> <span class="n">points</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">point</span><span class="p">]</span>
-            <span class="p">):</span>
-                <span class="n">color</span> <span class="o">=</span> <span class="n">_parse_color</span><span class="p">(</span><span class="n">points</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">point</span><span class="p">][</span><span class="s2">&quot;Color&quot;</span><span class="p">])</span>
+            <span class="k">if</span> <span class="n">point</span> <span class="ow">in</span> <span class="n">points</span><span class="o">.</span><span class="n">info</span> <span class="ow">and</span> <span class="s2">&quot;Color&quot;</span> <span class="ow">in</span> <span class="n">points</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="n">point</span><span class="p">]:</span>
+                <span class="n">color</span> <span class="o">=</span> <span class="n">_parse_color</span><span class="p">(</span><span class="n">points</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="n">point</span><span class="p">][</span><span class="s2">&quot;Color&quot;</span><span class="p">])</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">color</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_point_color</span>
 
@@ -2607,7 +2606,7 @@ document.write(`
         <span class="c1"># In contents (points and vectors)</span>
         <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_contents</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>
             <span class="k">try</span><span class="p">:</span>
-                <span class="n">color</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_contents</span><span class="o">.</span><span class="n">data_info</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s2">&quot;Color&quot;</span><span class="p">]</span>
+                <span class="n">color</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_contents</span><span class="o">.</span><span class="n">info</span><span class="p">[</span><span class="n">key</span><span class="p">][</span><span class="s2">&quot;Color&quot;</span><span class="p">]</span>
             <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>  <span class="c1"># Default color</span>
                 <span class="n">color</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_default_point_color</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">_colors</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">_parse_color</span><span class="p">(</span><span class="n">color</span><span class="p">))</span>

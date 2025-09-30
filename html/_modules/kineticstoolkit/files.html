@@ -620,9 +620,11 @@
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.create_transform_series.html">ktk.geometry.create_transform_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.create_vector_series.html">ktk.geometry.create_vector_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.get_angles.html">ktk.geometry.get_angles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.get_distances.html">ktk.geometry.get_distances</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.get_global_coordinates.html">ktk.geometry.get_global_coordinates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.get_local_coordinates.html">ktk.geometry.get_local_coordinates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.get_quaternions.html">ktk.geometry.get_quaternions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.invert.html">ktk.geometry.invert</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.is_point_series.html">ktk.geometry.is_point_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.is_transform_series.html">ktk.geometry.is_transform_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.is_vector_series.html">ktk.geometry.is_vector_series</a></li>
@@ -785,6 +787,7 @@ document.write(`
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">ezc3d</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
@@ -797,6 +800,26 @@ document.write(`
 
 <span class="k">def</span><span class="w"> </span><span class="fm">__dir__</span><span class="p">():</span>  <span class="c1"># pragma: no cover</span>
     <span class="k">return</span> <span class="p">[</span><span class="s2">&quot;save&quot;</span><span class="p">,</span> <span class="s2">&quot;load&quot;</span><span class="p">]</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_ezc3d_to_dict</span><span class="p">(</span><span class="n">c3d</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Create a TimeSeries info dict based on an ezc3d class.&quot;&quot;&quot;</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>  <span class="c1"># type: dict[str, Any]</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">param_key</span> <span class="ow">in</span> <span class="n">c3d</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">]:</span>
+            <span class="n">out</span><span class="p">[</span><span class="n">param_key</span><span class="p">]</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">prop_key</span> <span class="ow">in</span> <span class="n">c3d</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">][</span><span class="n">param_key</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="n">prop_key</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;_&quot;</span><span class="p">):</span>
+                    <span class="k">continue</span>
+                <span class="n">out</span><span class="p">[</span><span class="n">param_key</span><span class="p">][</span><span class="n">prop_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">c3d</span><span class="p">[</span><span class="s2">&quot;parameters&quot;</span><span class="p">][</span><span class="n">param_key</span><span class="p">][</span>
+                    <span class="n">prop_key</span>
+                <span class="p">][</span><span class="s2">&quot;value&quot;</span><span class="p">]</span>
+
+    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+        <span class="k">pass</span>
+
+    <span class="k">return</span> <span class="n">out</span>
 
 
 <div class="viewcode-block" id="save">
@@ -1108,6 +1131,10 @@ document.write(`
 <span class="sd">    as a TimeSeries, where each body orientation is expressed as an Nx4x4</span>
 <span class="sd">    transforms series.</span>
 
+<span class="sd">    The C3D parameters are returned in `output[&quot;C3DParameters&quot;]`. Note that</span>
+<span class="sd">    this content is dependent on each recording environment and software. It</span>
+<span class="sd">    could also change between versions of the C3D parser (ezc3d).</span>
+
 <span class="sd">    Some software stores calculated values such as angles, forces, moments,</span>
 <span class="sd">    powers, etc. into the C3D file. Storing these data is software-specific</span>
 <span class="sd">    and is not standardized in the C3D file format (https://www.c3d.org).</span>
@@ -1164,24 +1191,15 @@ document.write(`
 <span class="sd">    For these special cases, we recommend to set `convert_point_unit` to</span>
 <span class="sd">    False, and then scale the points manually.</span>
 
-<span class="sd">    Warning</span>
-<span class="sd">    -------</span>
-<span class="sd">    This function, which has been introduced in version 0.9, is still</span>
-<span class="sd">    experimental and its behavior or API may change slightly in the future.</span>
-
 <span class="sd">    See Also</span>
 <span class="sd">    --------</span>
 <span class="sd">    ktk.write_c3d, ktk.geometry.scale</span>
 
-<span class="sd">    Notes</span>
-<span class="sd">    -----</span>
-<span class="sd">    - This function relies on `ezc3d`, which is installed by default using</span>
-<span class="sd">      conda, but not using pip. If you installed kineticstoolkit using pip,</span>
-<span class="sd">      then please install ezc3d manually: `pip install ezc3d`.</span>
-
-<span class="sd">    - As for any instrument, please check that your data loads correctly on</span>
-<span class="sd">      your first use (e.g., sampling frequency, position unit, location and</span>
-<span class="sd">      orientation of the force platforms, etc.).</span>
+<span class="sd">    Note</span>
+<span class="sd">    ----</span>
+<span class="sd">    As for any instrument, please check that your data loads correctly on</span>
+<span class="sd">    your first use (e.g., sampling frequency, position unit, location and</span>
+<span class="sd">    orientation of the force platforms, etc.).</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">check_param</span><span class="p">(</span><span class="s2">&quot;filename&quot;</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
@@ -1198,15 +1216,6 @@ document.write(`
     <span class="n">check_param</span><span class="p">(</span><span class="s2">&quot;include_event_context&quot;</span><span class="p">,</span> <span class="n">include_event_context</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">filename</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">&quot;.c3d&quot;</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The file name must end with &#39;.c3d&#39;.&quot;</span><span class="p">)</span>
-
-    <span class="k">try</span><span class="p">:</span>
-        <span class="kn">import</span><span class="w"> </span><span class="nn">ezc3d</span>
-    <span class="k">except</span> <span class="ne">ModuleNotFoundError</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ModuleNotFoundError</span><span class="p">(</span>
-            <span class="s2">&quot;The optional module ezc3d is not installed, but it is required &quot;</span>
-            <span class="s2">&quot;to use this function. Please install it using: &quot;</span>
-            <span class="s2">&quot;conda install -c conda-forge ezc3d&quot;</span>
-        <span class="p">)</span>
 
     <span class="k">if</span> <span class="s2">&quot;return_ezc3d&quot;</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="p">:</span>
         <span class="n">return_ezc3d</span> <span class="o">=</span> <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;return_ezc3d&quot;</span><span class="p">]</span>
@@ -1640,6 +1649,10 @@ document.write(`
         <span class="n">platforms</span><span class="o">.</span><span class="n">events</span> <span class="o">=</span> <span class="n">events</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 
         <span class="n">output</span><span class="p">[</span><span class="s2">&quot;ForcePlatforms&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">platforms</span>
+
+    <span class="c1"># ---------------------------------</span>
+    <span class="c1"># List the metadata (info)</span>
+    <span class="n">output</span><span class="p">[</span><span class="s2">&quot;C3DParameters&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">_ezc3d_to_dict</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">output</span></div>
 

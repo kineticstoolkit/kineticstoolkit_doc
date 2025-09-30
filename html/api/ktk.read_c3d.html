@@ -629,9 +629,11 @@
 <li class="toctree-l3"><a class="reference internal" href="ktk.geometry.create_transform_series.html">ktk.geometry.create_transform_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.geometry.create_vector_series.html">ktk.geometry.create_vector_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.geometry.get_angles.html">ktk.geometry.get_angles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ktk.geometry.get_distances.html">ktk.geometry.get_distances</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.geometry.get_global_coordinates.html">ktk.geometry.get_global_coordinates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.geometry.get_local_coordinates.html">ktk.geometry.get_local_coordinates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.geometry.get_quaternions.html">ktk.geometry.get_quaternions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ktk.geometry.invert.html">ktk.geometry.invert</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.geometry.is_point_series.html">ktk.geometry.is_point_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.geometry.is_transform_series.html">ktk.geometry.is_transform_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ktk.geometry.is_vector_series.html">ktk.geometry.is_vector_series</a></li>
@@ -865,6 +867,9 @@ coordinates, as an Nx4 point series.</p></li>
 <p>If available, rigid body orientations are returned in <cite>output[“Rotations”]</cite>
 as a TimeSeries, where each body orientation is expressed as an Nx4x4
 transforms series.</p>
+<p>The C3D parameters are returned in <cite>output[“C3DParameters”]</cite>. Note that
+this content is dependent on each recording environment and software. It
+could also change between versions of the C3D parser (ezc3d).</p>
 <p>Some software stores calculated values such as angles, forces, moments,
 powers, etc. into the C3D file. Storing these data is software-specific
 and is not standardized in the C3D file format (<a class="reference external" href="https://www.c3d.org">https://www.c3d.org</a>).
@@ -914,25 +919,15 @@ as any other point.</p></li>
 <p>For these special cases, we recommend to set <cite>convert_point_unit</cite> to
 False, and then scale the points manually.</p>
 </div>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>This function, which has been introduced in version 0.9, is still
-experimental and its behavior or API may change slightly in the future.</p>
-</div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="ktk.write_c3d.html#ktk.write_c3d" title="ktk.write_c3d"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.write_c3d</span></code></a>, <a class="reference internal" href="ktk.geometry.scale.html#ktk.geometry.scale" title="ktk.geometry.scale"><code class="xref py py-obj docutils literal notranslate"><span class="pre">ktk.geometry.scale</span></code></a></p>
 </div>
-<div class="admonition-notes admonition">
-<p class="admonition-title">Notes</p>
-<ul class="simple">
-<li><p>This function relies on <cite>ezc3d</cite>, which is installed by default using
-conda, but not using pip. If you installed kineticstoolkit using pip,
-then please install ezc3d manually: <cite>pip install ezc3d</cite>.</p></li>
-<li><p>As for any instrument, please check that your data loads correctly on
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>As for any instrument, please check that your data loads correctly on
 your first use (e.g., sampling frequency, position unit, location and
-orientation of the force platforms, etc.).</p></li>
-</ul>
+orientation of the force platforms, etc.).</p>
 </div>
 </dd></dl>
 

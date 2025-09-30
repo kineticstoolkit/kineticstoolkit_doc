@@ -620,9 +620,11 @@
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.create_transform_series.html">ktk.geometry.create_transform_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.create_vector_series.html">ktk.geometry.create_vector_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.get_angles.html">ktk.geometry.get_angles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.get_distances.html">ktk.geometry.get_distances</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.get_global_coordinates.html">ktk.geometry.get_global_coordinates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.get_local_coordinates.html">ktk.geometry.get_local_coordinates</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.get_quaternions.html">ktk.geometry.get_quaternions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.invert.html">ktk.geometry.invert</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.is_point_series.html">ktk.geometry.is_point_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.is_transform_series.html">ktk.geometry.is_transform_series</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../../api/ktk.geometry.is_vector_series.html">ktk.geometry.is_vector_series</a></li>
@@ -796,6 +798,7 @@ document.write(`
         <span class="s2">&quot;is_point_series&quot;</span><span class="p">,</span>
         <span class="s2">&quot;is_vector_series&quot;</span><span class="p">,</span>
         <span class="s2">&quot;matmul&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;invert&quot;</span><span class="p">,</span>
         <span class="s2">&quot;rotate&quot;</span><span class="p">,</span>
         <span class="s2">&quot;translate&quot;</span><span class="p">,</span>
         <span class="s2">&quot;scale&quot;</span><span class="p">,</span>
@@ -804,6 +807,7 @@ document.write(`
         <span class="s2">&quot;get_global_coordinates&quot;</span><span class="p">,</span>
         <span class="s2">&quot;get_angles&quot;</span><span class="p">,</span>
         <span class="s2">&quot;get_quaternions&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;get_distances&quot;</span><span class="p">,</span>
         <span class="s2">&quot;register_points&quot;</span><span class="p">,</span>
         <span class="s2">&quot;isnan&quot;</span><span class="p">,</span>
     <span class="p">]</span>
@@ -875,7 +879,9 @@ document.write(`
 
 
 
-<span class="k">def</span><span class="w"> </span><span class="nf">inv</span><span class="p">(</span><span class="n">matrix_series</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="o">/</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<div class="viewcode-block" id="invert">
+<a class="viewcode-back" href="../../api/ktk.geometry.invert.html#ktk.geometry.invert">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">invert</span><span class="p">(</span><span class="n">matrix_series</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="o">/</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calculate series of inverse transform.</span>
 
@@ -894,14 +900,18 @@ document.write(`
 
 <span class="sd">    Note</span>
 <span class="sd">    ----</span>
-<span class="sd">    This function requires (and checks) that each matrix really is an</span>
-<span class="sd">    homogeneous transform by evaluating the determinant of its rotation</span>
-<span class="sd">    component. It then calculates the inverse matrix quickly using the</span>
-<span class="sd">    transpose of the rotation component.</span>
+<span class="sd">    This function requires (and checks) that the input is a transform series.</span>
+<span class="sd">    It then calculates the inverse matrix quickly using the transpose of the</span>
+<span class="sd">    rotation component.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">matrix_series</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">matrix_series</span><span class="p">)</span>
     <span class="n">index_is_nan</span> <span class="o">=</span> <span class="n">isnan</span><span class="p">(</span><span class="n">matrix_series</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">is_transform_series</span><span class="p">(</span><span class="n">matrix_series</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="s2">&quot;The input must be a series of homogeneous transform series.&quot;</span>
+        <span class="p">)</span>
 
     <span class="n">_check_no_skewed_rotation</span><span class="p">(</span><span class="n">matrix_series</span><span class="p">,</span> <span class="s2">&quot;matrix_series&quot;</span><span class="p">)</span>
 
@@ -921,7 +931,8 @@ document.write(`
     <span class="n">out</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="n">out</span><span class="p">[</span><span class="n">index_is_nan</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
 
-    <span class="k">return</span> <span class="n">out</span>
+    <span class="k">return</span> <span class="n">out</span></div>
+
 
 
 <span class="c1"># %% Rotate, translate, scale, mirror</span>
@@ -1318,7 +1329,7 @@ document.write(`
     <span class="n">global_coordinates_array</span><span class="p">[</span><span class="n">nan_index</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
 
     <span class="c1"># Invert the reference frame to obtain the inverse transformation</span>
-    <span class="n">inv_ref_T</span> <span class="o">=</span> <span class="n">inv</span><span class="p">(</span><span class="n">reference_frames_array</span><span class="p">)</span>
+    <span class="n">inv_ref_T</span> <span class="o">=</span> <span class="n">invert</span><span class="p">(</span><span class="n">reference_frames_array</span><span class="p">)</span>
 
     <span class="n">local_coordinates</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">global_coordinates_array</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>  <span class="c1"># init</span>
     <span class="n">local_coordinates</span> <span class="o">=</span> <span class="n">matmul</span><span class="p">(</span><span class="n">inv_ref_T</span><span class="p">,</span> <span class="n">global_coordinates_array</span><span class="p">)</span>
@@ -1376,6 +1387,39 @@ document.write(`
         <span class="n">reference_frames_array</span><span class="p">,</span> <span class="n">local_coordinates_array</span>
     <span class="p">)</span>
     <span class="k">return</span> <span class="n">global_coordinates</span></div>
+
+
+
+<div class="viewcode-block" id="get_distances">
+<a class="viewcode-back" href="../../api/ktk.geometry.get_distances.html#ktk.geometry.get_distances">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_distances</span><span class="p">(</span>
+    <span class="n">point_series1</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="n">point_series2</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">,</span> <span class="o">/</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Calculate the euclidian distance between two point series.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    point_series1, point_series2</span>
+<span class="sd">        Series of N points, as an Nx4 array-like of the form</span>
+<span class="sd">        [[x, y, z, 1.0], ...]</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    np.ndarray</span>
+<span class="sd">        Series of euclidian distance, as an Nx4 array of the form</span>
+<span class="sd">        [[x, y, z, 0.0], ...]</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">point_series1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">point_series1</span><span class="p">)</span>
+    <span class="n">point_series2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">point_series2</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span>
+        <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">point_series1</span> <span class="o">-</span> <span class="n">point_series2</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">)</span></div>
 
 
 
