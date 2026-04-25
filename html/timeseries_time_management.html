@@ -26,38 +26,41 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=e3fcc901" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -77,6 +80,7 @@
     <link rel="prev" title="7.2.2. Data management" href="timeseries_data_management.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -92,19 +96,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -112,7 +105,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -120,8 +112,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -137,7 +129,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -167,21 +160,17 @@
     
     
     <img src="_static/logo.png" class="logo__image only-light" alt="Biomechanical Analysis using Python and Kinetics Toolkit - Home"/>
-    <script>document.write(`<img src="_static/logo-dark.png" class="logo__image only-dark" alt="Biomechanical Analysis using Python and Kinetics Toolkit - Home"/>`);</script>
+    <img src="_static/logo-dark.png" class="logo__image only-dark pst-js-only" alt="Biomechanical Analysis using Python and Kinetics Toolkit - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Getting Started</span></p>
@@ -606,54 +595,11 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="api_modules.html">Modules</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.cycles.html">ktk.cycles</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.cycles.detect_cycles.html">ktk.cycles.detect_cycles</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.cycles.most_repeatable_cycles.html">ktk.cycles.most_repeatable_cycles</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.cycles.stack.html">ktk.cycles.stack</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.cycles.time_normalize.html">ktk.cycles.time_normalize</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.cycles.unstack.html">ktk.cycles.unstack</a></li>
-</ul>
-</details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.doc.html">ktk.doc</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.doc.download.html">ktk.doc.download</a></li>
-</ul>
-</details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.filters.html">ktk.filters</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.filters.butter.html">ktk.filters.butter</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.filters.deriv.html">ktk.filters.deriv</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.filters.median.html">ktk.filters.median</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.filters.savgol.html">ktk.filters.savgol</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.filters.smooth.html">ktk.filters.smooth</a></li>
-</ul>
-</details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.geometry.html">ktk.geometry</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_point_series.html">ktk.geometry.create_point_series</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_transform_series.html">ktk.geometry.create_transform_series</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_vector_series.html">ktk.geometry.create_vector_series</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_angles.html">ktk.geometry.get_angles</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_distances.html">ktk.geometry.get_distances</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_global_coordinates.html">ktk.geometry.get_global_coordinates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_local_coordinates.html">ktk.geometry.get_local_coordinates</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_quaternions.html">ktk.geometry.get_quaternions</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.invert.html">ktk.geometry.invert</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.is_point_series.html">ktk.geometry.is_point_series</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.is_transform_series.html">ktk.geometry.is_transform_series</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.is_vector_series.html">ktk.geometry.is_vector_series</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.isnan.html">ktk.geometry.isnan</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.matmul.html">ktk.geometry.matmul</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.mirror.html">ktk.geometry.mirror</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.register_points.html">ktk.geometry.register_points</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.rotate.html">ktk.geometry.rotate</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.scale.html">ktk.geometry.scale</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.translate.html">ktk.geometry.translate</a></li>
-</ul>
-</details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.kinematics.html">ktk.kinematics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.kinematics.create_cluster.html">ktk.kinematics.create_cluster</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.kinematics.extend_cluster.html">ktk.kinematics.extend_cluster</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api/ktk.kinematics.track_cluster.html">ktk.kinematics.track_cluster</a></li>
-</ul>
-</details></li>
+<li class="toctree-l2"><a class="reference internal" href="api/ktk.cycles.html">ktk.cycles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/ktk.doc.html">ktk.doc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/ktk.filters.html">ktk.filters</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/ktk.geometry.html">ktk.geometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api/ktk.kinematics.html">ktk.kinematics</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="extensions.html">Extensions</a></li>
@@ -666,9 +612,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -751,7 +702,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -765,25 +716,17 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
-<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -876,7 +819,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/f3fa6b4102b197f2343262b9e0b40fe84301b6532b3774785d37859881d7c9d7.png" src="_images/f3fa6b4102b197f2343262b9e0b40fe84301b6532b3774785d37859881d7c9d7.png" />
+<img alt="_images/4be1c0584bb38cff979a16ececea5219a459f083f934be620c70c8a7bfd397f3.png" src="_images/4be1c0584bb38cff979a16ececea5219a459f083f934be620c70c8a7bfd397f3.png" />
 </div>
 </div>
 <section id="sample-rate">
@@ -889,7 +832,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>50.00000000000001
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>np.float64(50.00000000000001)
 </pre></div>
 </div>
 </div>
@@ -908,7 +851,7 @@ document.write(`
 <p>which gives:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="_images/fc0a0af67f8b09636f65943a00bd5896df6ba1bc24a1b168b6e28048f00044fd.png" src="_images/fc0a0af67f8b09636f65943a00bd5896df6ba1bc24a1b168b6e28048f00044fd.png" />
+<img alt="_images/da31fb16205d0993a3832d3e26bb6d1a67bc1165b97c88da6fb88f5e5c11b4c8.png" src="_images/da31fb16205d0993a3832d3e26bb6d1a67bc1165b97c88da6fb88f5e5c11b4c8.png" />
 </div>
 </div>
 <div class="admonition-good-practice admonition">
@@ -936,7 +879,7 @@ document.write(`
 <p>we get:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="_images/e25de3f45e6835364754d923b9df79e62e3d4a934ace6451ebf8eba674499161.png" src="_images/e25de3f45e6835364754d923b9df79e62e3d4a934ace6451ebf8eba674499161.png" />
+<img alt="_images/797008073ef93254f3d21f8d35b061ffdd454ad8e73b5cdd3e4c790f3a3bc14e.png" src="_images/797008073ef93254f3d21f8d35b061ffdd454ad8e73b5cdd3e4c790f3a3bc14e.png" />
 </div>
 </div>
 <p>Instead of specifying a new frequency, we can resample directly to a new time array. This is practical to combine data from individual instruments that may have their own sampling frequency.</p>
@@ -957,7 +900,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ae29cab5bc9e9775cb84e280672c5085b06561d1f6f92ee02ece74aa7542967b.png" src="_images/ae29cab5bc9e9775cb84e280672c5085b06561d1f6f92ee02ece74aa7542967b.png" />
+<img alt="_images/7f871d39f19a06500fbe749f392ac815fd7de3907ddc84da53db38b422e79d85.png" src="_images/7f871d39f19a06500fbe749f392ac815fd7de3907ddc84da53db38b422e79d85.png" />
 </div>
 </div>
 <p>Using <a class="reference internal" href="api/ktk.TimeSeries.resample.html"><span class="std std-doc">ktk.TimeSeries.resample</span></a>, we can either resample <code class="docutils literal notranslate"><span class="pre">instrument2</span></code> over <code class="docutils literal notranslate"><span class="pre">instrument1</span></code>’s time:</p>
@@ -971,7 +914,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/67d9e98f8219d77abbbb67a6ccf8cff5f4022b88d1cd3cd288dc4bdc1d99bc6a.png" src="_images/67d9e98f8219d77abbbb67a6ccf8cff5f4022b88d1cd3cd288dc4bdc1d99bc6a.png" />
+<img alt="_images/693240765fefc834aee835e0f545351d56fb6adea577beb8a8c36b8a53f912d1.png" src="_images/693240765fefc834aee835e0f545351d56fb6adea577beb8a8c36b8a53f912d1.png" />
 </div>
 </div>
 <p>or resample <code class="docutils literal notranslate"><span class="pre">instrument1</span></code> over <code class="docutils literal notranslate"><span class="pre">instrument2</span></code>’s time:</p>
@@ -985,7 +928,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/8fa9e05927300afda7f1111af357a5904323c304b2148d7ac36a8615dfcfca90.png" src="_images/8fa9e05927300afda7f1111af357a5904323c304b2148d7ac36a8615dfcfca90.png" />
+<img alt="_images/de00dec42079d018a52320afff192820cde70597a8787915ea85ad56ba974eda.png" src="_images/de00dec42079d018a52320afff192820cde70597a8787915ea85ad56ba974eda.png" />
 </div>
 </div>
 <div class="admonition tip">
@@ -1014,7 +957,7 @@ document.write(`
 <p>which gives:</p>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<img alt="_images/7ebca7824e5599819d6687bd91e76ef66e1c14e5b81798f097c40fc075fdaedc.png" src="_images/7ebca7824e5599819d6687bd91e76ef66e1c14e5b81798f097c40fc075fdaedc.png" />
+<img alt="_images/b12ccc2bdf7bdb6cb09efa08a4021e7869c6ebc9f1fee301ceaaf470b0fcb0c6.png" src="_images/b12ccc2bdf7bdb6cb09efa08a4021e7869c6ebc9f1fee301ceaaf470b0fcb0c6.png" />
 </div>
 </div>
 </section>
@@ -1075,14 +1018,16 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item">
-  <div class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav class="bd-toc-nav page-toc">
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sample-rate">7.2.3.1. Sample rate</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#resampling">7.2.3.2. Resampling</a></li>
@@ -1111,7 +1056,7 @@ By Félix Chénier
 
   <p class="copyright">
     
-      © Copyright 2020-2025.
+      © Copyright 2020-2026.
       <br/>
     
   </p>
@@ -1138,8 +1083,8 @@ By Félix Chénier
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>

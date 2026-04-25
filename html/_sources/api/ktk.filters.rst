@@ -1,27 +1,10 @@
 ﻿ktk.filters
 ===========
 
-.. automodule:: ktk.filters
+.. currentmodule:: ktk
 
-   
-   
-   
-
-   
-   
-   .. rubric:: Functions
-
-   .. autosummary::
-      :toctree:
-      :nosignatures:
-   
-      butter
-      deriv
-      median
-      savgol
-      smooth
-   
-   
+.. autoclass:: filters
+   :show-inheritance:
 
    
    
@@ -30,6 +13,3 @@
    
    
    
-
-
-
