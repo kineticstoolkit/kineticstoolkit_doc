@@ -1,10 +1,7 @@
 ﻿ktk.kinematics
 ==============
 
-.. currentmodule:: ktk
-
-.. autoclass:: kinematics
-   :show-inheritance:
+.. automodule:: ktk.kinematics
 
    
    
@@ -12,4 +9,25 @@
 
    
    
+   .. rubric:: Functions
+
+   .. autosummary::
+      :toctree:
+      :nosignatures:
    
+      create_cluster
+      extend_cluster
+      track_cluster
+   
+   
+
+   
+   
+   
+
+   
+   
+   
+
+
+

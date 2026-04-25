@@ -26,41 +26,38 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
-  <!--
-    this give us a css class that will be invisible only if js is disabled
-  -->
-  <noscript>
-    <style>
-      .pst-js-only { display: none !important; }
-
-    </style>
-  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=e3fcc901" />
   
-  <!-- So that users can add custom icons -->
-  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -82,7 +79,6 @@
     <link rel="prev" title="7.3.3. Removing artefacts using a median filter" href="filters_median.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -98,8 +94,19 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <dialog id="pst-search-dialog">
-    
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -107,6 +114,7 @@
   <input type="search"
          class="form-control"
          name="q"
+         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -114,8 +122,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form>
-  </dialog>
+</form></div>
+  </div>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -131,8 +139,7 @@
       
       
       
-      <dialog id="pst-primary-sidebar-modal"></dialog>
-      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+      <div class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -162,17 +169,21 @@
     
     
     <img src="_static/logo.png" class="logo__image only-light" alt="Biomechanical Analysis using Python and Kinetics Toolkit - Home"/>
-    <img src="_static/logo-dark.png" class="logo__image only-dark pst-js-only" alt="Biomechanical Analysis using Python and Kinetics Toolkit - Home"/>
+    <script>document.write(`<img src="_static/logo-dark.png" class="logo__image only-dark" alt="Biomechanical Analysis using Python and Kinetics Toolkit - Home"/>`);</script>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
-<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
- <i class="fa-solid fa-magnifying-glass"></i>
- <span class="search-button__default-text">Search</span>
- <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-</button></div>
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Getting Started</span></p>
@@ -597,11 +608,54 @@
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="api_modules.html">Modules</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="api/ktk.cycles.html">ktk.cycles</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/ktk.doc.html">ktk.doc</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/ktk.filters.html">ktk.filters</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/ktk.geometry.html">ktk.geometry</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api/ktk.kinematics.html">ktk.kinematics</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.cycles.html">ktk.cycles</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.cycles.detect_cycles.html">ktk.cycles.detect_cycles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.cycles.most_repeatable_cycles.html">ktk.cycles.most_repeatable_cycles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.cycles.stack.html">ktk.cycles.stack</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.cycles.time_normalize.html">ktk.cycles.time_normalize</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.cycles.unstack.html">ktk.cycles.unstack</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.doc.html">ktk.doc</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.doc.download.html">ktk.doc.download</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.filters.html">ktk.filters</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.filters.butter.html">ktk.filters.butter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.filters.deriv.html">ktk.filters.deriv</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.filters.median.html">ktk.filters.median</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.filters.savgol.html">ktk.filters.savgol</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.filters.smooth.html">ktk.filters.smooth</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.geometry.html">ktk.geometry</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_point_series.html">ktk.geometry.create_point_series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_transform_series.html">ktk.geometry.create_transform_series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.create_vector_series.html">ktk.geometry.create_vector_series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_angles.html">ktk.geometry.get_angles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_distances.html">ktk.geometry.get_distances</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_global_coordinates.html">ktk.geometry.get_global_coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_local_coordinates.html">ktk.geometry.get_local_coordinates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.get_quaternions.html">ktk.geometry.get_quaternions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.invert.html">ktk.geometry.invert</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.is_point_series.html">ktk.geometry.is_point_series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.is_transform_series.html">ktk.geometry.is_transform_series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.is_vector_series.html">ktk.geometry.is_vector_series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.isnan.html">ktk.geometry.isnan</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.matmul.html">ktk.geometry.matmul</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.mirror.html">ktk.geometry.mirror</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.register_points.html">ktk.geometry.register_points</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.rotate.html">ktk.geometry.rotate</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.scale.html">ktk.geometry.scale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.geometry.translate.html">ktk.geometry.translate</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="api/ktk.kinematics.html">ktk.kinematics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.kinematics.create_cluster.html">ktk.kinematics.create_cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.kinematics.extend_cluster.html">ktk.kinematics.extend_cluster</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api/ktk.kinematics.track_cluster.html">ktk.kinematics.track_cluster</a></li>
+</ul>
+</details></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="extensions.html">Extensions</a></li>
@@ -614,14 +668,9 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
-      <div class="sidebar-primary-item">
-<div id="ethical-ad-placement"
-      class="flat"
-      data-ea-publisher="readthedocs"
-      data-ea-type="readthedocs-sidebar"
-      data-ea-manual="true">
-</div></div>
   </div>
+  
+  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -704,7 +753,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  class="btn btn-sm btn-fullscreen-button"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -718,17 +767,25 @@
 
 
 
-<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
-  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
-  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
-  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
-</button>
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
 
 
-<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-</button>
-<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
 </button>
 </div></div>
@@ -770,11 +827,11 @@
 <h1><span class="section-number">7.4. </span>Working with cycles<a class="headerlink" href="#working-with-cycles" title="Link to this heading">#</a></h1>
 <p>This section introduces the <a class="reference internal" href="api/ktk.cycles.html"><span class="std std-doc">ktk.cycles</span></a> module and its functions:</p>
 <ul class="simple">
-<li><p><a class="reference internal" href="#api/ktk.cycles.detect_cycles.rst"><span class="xref myst">ktk.cycles.detect_cycles</span></a></p></li>
-<li><p><a class="reference internal" href="#api/ktk.cycles.time_normalize.rst"><span class="xref myst">ktk.cycles.time_normalize</span></a></p></li>
-<li><p><a class="reference internal" href="#api/ktk.cycles.stack.rst"><span class="xref myst">ktk.cycles.stack</span></a></p></li>
-<li><p><a class="reference internal" href="#api/ktk.cycles.unstack.rst"><span class="xref myst">ktk.cycles.unstack</span></a></p></li>
-<li><p><a class="reference internal" href="#api/ktk.cycles.most_repeatable_cycles.rst"><span class="xref myst">ktk.cycles.most_repeatable_cycles</span></a></p></li>
+<li><p><a class="reference internal" href="api/ktk.cycles.detect_cycles.html"><span class="std std-doc">ktk.cycles.detect_cycles</span></a></p></li>
+<li><p><a class="reference internal" href="api/ktk.cycles.time_normalize.html"><span class="std std-doc">ktk.cycles.time_normalize</span></a></p></li>
+<li><p><a class="reference internal" href="api/ktk.cycles.stack.html"><span class="std std-doc">ktk.cycles.stack</span></a></p></li>
+<li><p><a class="reference internal" href="api/ktk.cycles.unstack.html"><span class="std std-doc">ktk.cycles.unstack</span></a></p></li>
+<li><p><a class="reference internal" href="api/ktk.cycles.most_repeatable_cycles.html"><span class="std std-doc">ktk.cycles.most_repeatable_cycles</span></a></p></li>
 </ul>
 <p>For this section, we will use <a class="reference internal" href="dataset_kinetics_wheelchair_propulsion.html"><span class="std std-doc">a dataset of wheelchair propulsion kinetics</span></a>.</p>
 <div class="cell docutils container">
@@ -792,16 +849,16 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d441177abae363e4e623092e7611ce627b210ec46c562081de569fae0233be7c.png" src="_images/d441177abae363e4e623092e7611ce627b210ec46c562081de569fae0233be7c.png" />
+<img alt="_images/b8791addd545ab59f3d1de620d8df8311a9bbc784e976e78eb3a0783add0bfe8.png" src="_images/b8791addd545ab59f3d1de620d8df8311a9bbc784e976e78eb3a0783add0bfe8.png" />
 </div>
 </div>
 <section id="detecting-cycles">
 <h2><span class="section-number">7.4.1. </span>Detecting cycles<a class="headerlink" href="#detecting-cycles" title="Link to this heading">#</a></h2>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>This section may change by the time Kinetics Toolkit reaches version 1.0. The current function <a class="reference internal" href="#api/ktk.cycles.detect_cycles.rst"><span class="xref myst">ktk.cycles.detect_cycles</span></a> attempts to do too much and therefore it is not generic enough. In the future, it will likely be replaced by several, more specific and more optimized functions. It will however likely stay available for several years, as it is not deprecated yet, and deprecated functions live for 2 years before removal.</p>
+<p>This section may change by the time Kinetics Toolkit reaches version 1.0. The current function <a class="reference internal" href="api/ktk.cycles.detect_cycles.html"><span class="std std-doc">ktk.cycles.detect_cycles</span></a> attempts to do too much and therefore it is not generic enough. In the future, it will likely be replaced by several, more specific and more optimized functions. It will however likely stay available for several years, as it is not deprecated yet, and deprecated functions live for 2 years before removal.</p>
 </div>
-<p>The <a class="reference internal" href="#api/ktk.cycles.detect_cycles.rst"><span class="xref myst">ktk.cycles.detect_cycles</span></a> function detects biphasic cycles in a TimeSeries, and adds transitions as events. Each cycle has three events:</p>
+<p>The <a class="reference internal" href="api/ktk.cycles.detect_cycles.html"><span class="std std-doc">ktk.cycles.detect_cycles</span></a> function detects biphasic cycles in a TimeSeries, and adds transitions as events. Each cycle has three events:</p>
 <ul class="simple">
 <li><p>The start of the first phase, named using the <code class="docutils literal notranslate"><span class="pre">event_names</span></code> parameters;</p></li>
 <li><p>The start of the second phase, also named using the <code class="docutils literal notranslate"><span class="pre">event_names</span></code> parameters;</p></li>
@@ -820,7 +877,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/112136911f8a3ef24105fb60781e39536e69a05686a14d2912fb62b63531e4cf.png" src="_images/112136911f8a3ef24105fb60781e39536e69a05686a14d2912fb62b63531e4cf.png" />
+<img alt="_images/53652906030d988e300a10d66bfdebaffe9489778fdb6dd22503dfb83d6eca69.png" src="_images/53652906030d988e300a10d66bfdebaffe9489778fdb6dd22503dfb83d6eca69.png" />
 </div>
 </div>
 <p>We then define some threshold values for <span class="math notranslate nohighlight">\(F_\text{tot}\)</span>:</p>
@@ -838,7 +895,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/a0c34647531a379c5f45392d513c8dad01301312af1b06b269ad8a4a028dbd69.png" src="_images/a0c34647531a379c5f45392d513c8dad01301312af1b06b269ad8a4a028dbd69.png" />
+<img alt="_images/aa387177edde674bbf6acc940719eb3cb493da55035306978b3a116d0ddff043.png" src="_images/aa387177edde674bbf6acc940719eb3cb493da55035306978b3a116d0ddff043.png" />
 </div>
 </div>
 <p>We observe that most cycles are well identified, but more cycles have been identified. We can reject “false” cycles based on a minimal duration:</p>
@@ -856,10 +913,10 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/48107cd9251de14bc0b07f1eeaca8e357b0e441e9c8f1d57f9d193fb4485fd34.png" src="_images/48107cd9251de14bc0b07f1eeaca8e357b0e441e9c8f1d57f9d193fb4485fd34.png" />
+<img alt="_images/5f04881a21edc9efcaf2054eedd0d7ed129fcb3237e3af9f85007997d7498267.png" src="_images/5f04881a21edc9efcaf2054eedd0d7ed129fcb3237e3af9f85007997d7498267.png" />
 </div>
 </div>
-<p>There are other arguments available to filter out more cycles, such as max durations, and minimal/maximal peak height. These arguments are documented in the <a class="reference internal" href="#api/ktk.cycles.detect_cycles.rst"><span class="xref myst">ktk.cycles.detect_cycles</span></a> function. Here, we may reject pushes that do not reach a minimal peak height of 45 N.</p>
+<p>There are other arguments available to filter out more cycles, such as max durations, and minimal/maximal peak height. These arguments are documented in the <a class="reference internal" href="api/ktk.cycles.detect_cycles.html"><span class="std std-doc">ktk.cycles.detect_cycles</span></a> function. Here, we may reject pushes that do not reach a minimal peak height of 45 N.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts_with_events</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">cycles</span><span class="o">.</span><span class="n">detect_cycles</span><span class="p">(</span>
@@ -876,37 +933,7 @@
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">AttributeError</span><span class="g g-Whitespace">                            </span>Traceback (most recent call last)
-<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">line</span> <span class="mi">7</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="n">ts_with_events</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">cycles</span><span class="o">.</span><span class="n">detect_cycles</span><span class="p">(</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span>     <span class="n">ts</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>     <span class="s2">&quot;Ftot&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="n">event_names</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;push&quot;</span><span class="p">,</span> <span class="s2">&quot;recovery&quot;</span><span class="p">],</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">thresholds</span><span class="o">=</span><span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span>
-<span class="g g-Whitespace">      </span><span class="mi">6</span>     <span class="n">min_durations</span><span class="o">=</span><span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">],</span>
-<span class="ne">----&gt; </span><span class="mi">7</span>     <span class="n">min_peak_heights</span><span class="o">=</span><span class="p">[</span><span class="mi">45</span><span class="p">,</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">Inf</span><span class="p">],</span>
-<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="n">ts_with_events</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="s2">&quot;Forces&quot;</span><span class="p">,</span> <span class="s2">&quot;Ftot&quot;</span><span class="p">])</span>
-<span class="g g-Whitespace">     </span><span class="mi">10</span> <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-
-<span class="nn">File /opt/miniconda3/envs/mosa/lib/python3.12/site-packages/numpy/__init__.py:778,</span> in <span class="ni">__getattr__</span><span class="nt">(attr)</span>
-<span class="g g-Whitespace">    </span><span class="mi">775</span>     <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="n">__former_attrs__</span><span class="p">[</span><span class="n">attr</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">777</span> <span class="k">if</span> <span class="n">attr</span> <span class="ow">in</span> <span class="n">__expired_attributes__</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">778</span>     <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">779</span>         <span class="sa">f</span><span class="s2">&quot;`np.</span><span class="si">{</span><span class="n">attr</span><span class="si">}</span><span class="s2">` was removed in the NumPy 2.0 release. &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">780</span>         <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">__expired_attributes__</span><span class="p">[</span><span class="n">attr</span><span class="p">]</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">781</span>         <span class="n">name</span><span class="o">=</span><span class="kc">None</span>
-<span class="g g-Whitespace">    </span><span class="mi">782</span>     <span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">784</span> <span class="k">if</span> <span class="n">attr</span> <span class="o">==</span> <span class="s2">&quot;chararray&quot;</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">785</span>     <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">786</span>         <span class="s2">&quot;`np.chararray` is deprecated and will be removed from &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">787</span>         <span class="s2">&quot;the main namespace in the future. Use an array with a string &quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">788</span>         <span class="s2">&quot;or bytes dtype instead.&quot;</span><span class="p">,</span> <span class="ne">DeprecationWarning</span><span class="p">,</span> <span class="n">stacklevel</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="ne">AttributeError</span>: `np.Inf` was removed in the NumPy 2.0 release. Use `np.inf` instead.
-</pre></div>
-</div>
+<img alt="_images/6d2dc852ecb4ea25ba93e41355ea17bd437b21da82a6b75811898a72959511ab.png" src="_images/6d2dc852ecb4ea25ba93e41355ea17bd437b21da82a6b75811898a72959511ab.png" />
 </div>
 </div>
 <div class="admonition tip">
@@ -920,7 +947,7 @@
 </section>
 <section id="time-normalizing-cycles">
 <h2><span class="section-number">7.4.2. </span>Time-normalizing cycles<a class="headerlink" href="#time-normalizing-cycles" title="Link to this heading">#</a></h2>
-<p>Once the cycles have been detected, we can time-normalize them using <a class="reference internal" href="#api/ktk.cycles.time_normalize.rst"><span class="xref myst">ktk.cycles.time_normalize</span></a>. Here, every complete cycle will be time-normalized from 0 to 100%.</p>
+<p>Once the cycles have been detected, we can time-normalize them using <a class="reference internal" href="api/ktk.cycles.time_normalize.html"><span class="std std-doc">ktk.cycles.time_normalize</span></a>. Here, every complete cycle will be time-normalized from 0 to 100%.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ts_normalized_on_cycle</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">cycles</span><span class="o">.</span><span class="n">time_normalize</span><span class="p">(</span>
@@ -930,6 +957,9 @@
 <span class="n">ts_normalized_on_cycle</span><span class="o">.</span><span class="n">plot</span><span class="p">([</span><span class="s2">&quot;Forces&quot;</span><span class="p">,</span> <span class="s2">&quot;Ftot&quot;</span><span class="p">])</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/fcb556bb0858a0ed8ae96315d87be5bbae2493af6cab7400198bddc493995743.png" src="_images/fcb556bb0858a0ed8ae96315d87be5bbae2493af6cab7400198bddc493995743.png" />
 </div>
 </div>
 <p>To time-normalize only during the push phase, we would define <code class="docutils literal notranslate"><span class="pre">event_name2</span></code> as “recovery” instead of “ _ “:</p>
@@ -943,6 +973,9 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/bb9b5dbe9af4b53d9ea888bdd2affc8c706af7fbda65aa8d8f68543fceebf308.png" src="_images/bb9b5dbe9af4b53d9ea888bdd2affc8c706af7fbda65aa8d8f68543fceebf308.png" />
+</div>
 </div>
 <p>It is also possible to include data before 0% and after 100% using the <code class="docutils literal notranslate"><span class="pre">span</span></code> parameter. For example, to include pre-push (-25% to 0%) and post-recovery (100% to 125%):</p>
 <div class="cell docutils container">
@@ -955,17 +988,29 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/424bc96998ce600c79cb87a5adb4fb84c6ac808413379bf7551a6832cb60e2c1.png" src="_images/424bc96998ce600c79cb87a5adb4fb84c6ac808413379bf7551a6832cb60e2c1.png" />
+</div>
 </div>
 <p>In this case, each time point still represents 1% of a cycle, but the TimeSeries wrap every 145 points (0 to 19 is the pre-push for the first cycle, 20 to 119 is the first push, 120 to 144 is the post-release for the first cycle, etc.).</p>
 </section>
 <section id="combining-the-cycles">
 <h2><span class="section-number">7.4.3. </span>Combining the cycles<a class="headerlink" href="#combining-the-cycles" title="Link to this heading">#</a></h2>
-<p>Cycles are often analyzed together. The <a class="reference internal" href="#api/ktk.cycles.stack.rst"><span class="xref myst">ktk.cycles.stack</span></a> generates a dictionary of numpy arrays with the first dimension being the cycle and the second being the percentage of cycle.</p>
+<p>Cycles are often analyzed together. The <a class="reference internal" href="api/ktk.cycles.stack.html"><span class="std std-doc">ktk.cycles.stack</span></a> generates a dictionary of numpy arrays with the first dimension being the cycle and the second being the percentage of cycle.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">cycles</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">ts_normalized_on_push</span><span class="p">)</span>
 
 <span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{
+     &#39;Forces&#39;: &lt;array of shape (5, 100, 4)&gt;
+    &#39;Moments&#39;: &lt;array of shape (5, 100, 4)&gt;
+       &#39;Ftot&#39;: &lt;array of shape (5, 100)&gt;
+}
 </pre></div>
 </div>
 </div>
@@ -981,17 +1026,25 @@
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/bcd4a897ea3447f4b02c7fa869061bb397c30a59a908b23b7e4ceca52b7184fd.png" src="_images/bcd4a897ea3447f4b02c7fa869061bb397c30a59a908b23b7e4ceca52b7184fd.png" />
 </div>
-<p>The inverse operation of <a class="reference internal" href="#api/ktk.cycles.stack.rst"><span class="xref myst">ktk.cycles.stack</span></a> is <a class="reference internal" href="#api/ktk.cycles.unstack.rst"><span class="xref myst">ktk.cycles.unstack</span></a>.</p>
+</div>
+<p>The inverse operation of <a class="reference internal" href="api/ktk.cycles.stack.html"><span class="std std-doc">ktk.cycles.stack</span></a> is <a class="reference internal" href="api/ktk.cycles.unstack.html"><span class="std std-doc">ktk.cycles.unstack</span></a>.</p>
 </section>
 <section id="finding-the-most-repeatable-cycles">
 <h2><span class="section-number">7.4.4. </span>Finding the most repeatable cycles<a class="headerlink" href="#finding-the-most-repeatable-cycles" title="Link to this heading">#</a></h2>
-<p>We can sort the cycles in order of reproducibility (get which cycles are the most repeatable, and which cycles are unique) using <a class="reference internal" href="#api/ktk.cycles.most_repeatable_cycles.rst"><span class="xref myst">ktk.cycles.most_repeatable_cycles</span></a>. Here, we will base this analysis on the <code class="docutils literal notranslate"><span class="pre">Ftot</span></code> signal.</p>
+<p>We can sort the cycles in order of reproducibility (get which cycles are the most repeatable, and which cycles are unique) using <a class="reference internal" href="api/ktk.cycles.most_repeatable_cycles.html"><span class="std std-doc">ktk.cycles.most_repeatable_cycles</span></a>. Here, we will base this analysis on the <code class="docutils literal notranslate"><span class="pre">Ftot</span></code> signal.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">index</span> <span class="o">=</span> <span class="n">ktk</span><span class="o">.</span><span class="n">cycles</span><span class="o">.</span><span class="n">most_repeatable_cycles</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;Ftot&quot;</span><span class="p">])</span>
 
 <span class="n">index</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1, 2, 0, 3, 4]
 </pre></div>
 </div>
 </div>
@@ -1055,16 +1108,14 @@
             
             
               
-                <dialog id="pst-secondary-sidebar-modal"></dialog>
-                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
 
-  <div class="sidebar-secondary-item"><div
-    id="pst-page-navigation-heading-2"
-    class="page-toc tocsection onthispage">
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
     <i class="fa-solid fa-list"></i> Contents
   </div>
-  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+  <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#detecting-cycles">7.4.1. Detecting cycles</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#time-normalizing-cycles">7.4.2. Time-normalizing cycles</a></li>
@@ -1094,7 +1145,7 @@ By Félix Chénier
 
   <p class="copyright">
     
-      © Copyright 2020-2026.
+      © Copyright 2020-2025.
       <br/>
     
   </p>
@@ -1121,8 +1172,8 @@ By Félix Chénier
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
-<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
 
   <footer class="bd-footer">
   </footer>

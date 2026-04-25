@@ -6,7 +6,7 @@ This book is a free and continuously improving tool for learning how to perform 
 
 **Part II** covers the basics of Python, Matplotlib, and NumPy for general data processing. It includes numerous exercises that you can complete as you progress through the sections.
 
-**Part III** focuses on topics related to biomechanics, such as time series analysis, filtering, 3D geometry, marker reconstruction techniques, and more. It also explains how to perform these operations using the open-source `kineticstoolkit` package:
+**Part III** delves into topics related to biomechanics, such as time series analysis, filtering, 3D geometry, marker reconstruction techniques, and more. It also explains how to perform these operations using the open-source `kineticstoolkit` package:
 
 https://kineticstoolkit.uqam.ca.
 
