@@ -1,4 +1,4 @@
-# Where to start
+# Part I. Getting Started
 
 Depending on your background, you may want to start your journey at different points:
 

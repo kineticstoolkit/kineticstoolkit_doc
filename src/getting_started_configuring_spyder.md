@@ -2,9 +2,10 @@
 
 Spyder is a general-purpose programming environment for scientific applications, and it suits biomechanical data processing very well. Therefore, this is the programming environment that we recommend in this guide. Here is how to install and configure it to enhance your experience with interactive data processing.
 
-:::{figure-md} fig_spyder_ide
-:width: 4in
-![](_static/images/fig_spyder_ide.jpg)
+:::{figure}
+:label: fig_spyder_ide
+
+![-width:wide](_static/images/fig_spyder_ide.jpg)
 
 The Scientific Python Development Environment (Spyder)
 :::

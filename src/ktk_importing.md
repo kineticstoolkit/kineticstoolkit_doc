@@ -1,6 +1,16 @@
 # Importing Kinetics Toolkit
 
-Now that we have learned how to use Python, Numpy, and Matplotlib to perform simple biomechanical analyses, we can go further with more complex analyses using the `kineticstoolkit` Python package. This package provides functions and classes to express and manipulate time series data (resampling, segmenting using events, synchronizing different instruments, filtering data), performing geometrical operations, visualizing kinematic data interactively, tracking markers and rigid bodies, etc.
+Now that we have learned how to use Python, Numpy, and Matplotlib to perform simple biomechanical analyses, we can go further with more complex analyses using the `kineticstoolkit` Python package.
+
+
+Kinetics Toolkit is an open-source Python package to facilitate research in biomechanics. It provides tools for:
+- [Analyzing timeseries](timeseries.md), including [data](timeseries_data_management.md), [time](timeseries_time_management.md) and [event](timeseries_event_management.md) management, [time-domain and frequency-domain noise filtering](filters.md), and [cycle management](cycles.md);
+- [Managing files](files.md), including reading/writing C3D, CSV and any file supported by {{pandas}};
+- [Performing rigid body geometry operations](geometry.md), including manipulation of series of [points, vectors](geometry_points_vectors.md), [frames](geometry_transforms.md) and [homogeneous transforms](geometry_transform_moving_coordinates.md), [coordinate system changes](geometry_transform_changing_coordinate_system.md), and [3D angle extraction](geometry_angles.md);
+- [Visualizing 3D points and frames interactively](player.md);
+- [Performing kinematic operations](kinematics.md) such as reconstructing [occluded](kinematics_reconstructing_occluded_markers.md), [removed](kinematics_reconstructing_removed_markers.md) or [probed](kinematics_reconstructing_probed_points.md) markers;
+- And more using [extensions](extensions.md).
+
 
 ```{figure-md} fig_joss
 :width: 6in
