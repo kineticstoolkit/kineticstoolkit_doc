@@ -1,71 +1,50 @@
 ---
-jupytext:
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.14.0
 kernelspec:
-  display_name: python 3 (ipykernel)
-  language: python
   name: python3
 ---
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-%matplotlib inline
-```
 
 # Arithmetic operations
 
 Any arithmetic operation is performed simply by writing its equation. For example, the most common arithmetic operators are `+`, `-`, `*`, `/` and `**`. We use parentheses `()` to indicate operation priority.
 
-:::::{grid}
-:gutter: 2
+:::::{grid} 1 2 2 2
 
-::::{grid-item-card} Addition
-:columns: 6
-```
+::::{card} Addition
+```python
 4 + 3
 ```
 ::::
 
-::::{grid-item-card} Subtraction
-:columns: 6
-```
+::::{card} Subtraction
+```python
 4 - 3
 ```
 ::::
 
-::::{grid-item-card} Multiplication
-:columns: 6
-```
+::::{card} Multiplication
+```python
 4 * 3
 ```
 ::::
 
-::::{grid-item-card} Division
-:columns: 6
-```
+::::{card} Division
+```python
 4 / 3
 ```
 ::::
 
-::::{grid-item-card} Exponent
-:columns: 6
+::::{card} Exponent
 To raise a value to a power (e.g., to calculate $4^2$), we would write:
 
-```
+```python
 4 ** 2
 ```
 ::::
 
 ::::{grid-item-card} Root
-:columns: 6
 For roots, we can exponentiate to the inverse. For example, to calculate $\sqrt{4}$, we would write:
 
-```
+```python
 4 ** (1 / 2)
 ```
 ::::

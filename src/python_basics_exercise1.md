@@ -1,29 +1,17 @@
 ---
-jupytext:
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.14.0
 kernelspec:
-  display_name: python 3 (ipykernel)
-  language: python
   name: python3
 ---
 
-```{code-cell} ipython3
-:tags: [remove-cell]
 
-%matplotlib inline
-```
-
-# Exercise: Python basics 1
+# 💪 Exercise: Python basics 1
 
 A sprinter runs through two timing gates spaced by 50 m as shown in {numref}`fig_exercise_timing_gates`. Each timing gate records the time (in seconds) when the sprinter passes through it.
 
-```{figure-md} fig_exercise_timing_gates
-:width: 4in
-![](_static/images/fig_exercise_timing_gates.png)
+```{figure}
+:label: fig_exercise_timing_gates
+
+![-width:normal](_static/images/fig_exercise_timing_gates.png)
 
 Two timing gates separated by 50 meters.
 ```

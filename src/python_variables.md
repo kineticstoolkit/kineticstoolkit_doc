@@ -1,44 +1,30 @@
 ---
-jupytext:
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.14.0
 kernelspec:
-  display_name: Python 3 (ipykernel)
-  language: python
   name: python3
 ---
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-%matplotlib inline
-```
 
 # Variables
 
 Variables are fundamental in programming. A variable is a space in memory to store a value. For example, we could create two variables, `a` and `b`, that both store a different number:
 
-```{code-cell} ipython3
+```{code-cell}
 a = 4
 b = 3
 ```
 
 From there, we can refer to the value of a variable by referring to its name:
 
-```{code-cell} ipython3
+```{code-cell}
 a + 1
 ```
 
-```{code-cell} ipython3
+```{code-cell}
 a + b
 ```
 
 We can even assign the result of an operation to a new variable:
 
-```{code-cell} ipython3
+```{code-cell}
 c = a + b
 
 c
@@ -50,7 +36,7 @@ Unlike other programming languages such as C/C++, we do not need to declare a va
 
 Keep in mind that in the last example, we did not instruct Python that `c` must always be equal to `a + b`. This is not how a sequential programming language such as Python works. Instead, we instructed Python, at this very instant, to calculate the result of `a + b` and to store it in a new variable named `c`. This sequential nature is illustrated in this example:
 
-```{code-cell} ipython3
+```{code-cell}
 c = c + 1
 
 c
@@ -72,7 +58,7 @@ a /= b      # equivalent to a = a / b
 :::
 
 
-:::{good-practice} Variable names
+:::{hint} Variable names
 It is generally a good idea to use words rather than letters for variable names. For example, this code:
 
 ```

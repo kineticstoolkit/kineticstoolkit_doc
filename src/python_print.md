@@ -1,34 +1,20 @@
 ---
-jupytext:
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.14.0
 kernelspec:
-  display_name: python 3 (ipykernel)
-  language: python
   name: python3
 ---
-
-```{code-cell} ipython3
-:tags: [remove-cell]
-
-%matplotlib inline
-```
 
 # Printing to the console
 
 To print anything to the console, we use the `print` function:
 
-```{code-cell} ipython3
+```{code-cell}
 print(1 + 2)
 print(3 + 4)
 ```
 
 The `print` function works with any content, be it numbers or words:
 
-```{code-cell} ipython3
+```{code-cell}
 print("Hello world")
 ```
 

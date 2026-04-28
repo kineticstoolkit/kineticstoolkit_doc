@@ -15,14 +15,17 @@ This electronic book is a free and continuously improving tool for learning how 
 
 Learn how you can contribute to this project in chapter [](dev_contributors.md), and stay up to date by visiting and participating in the [discussion forum](https://github.com/felixchenier/kineticstoolkit/discussions).
 
+::::{margin}
+<a href="https://doi.org/10.21105/joss.03714"><img src="https://joss.theoj.org/papers/10.21105/joss.03714/status.svg" alt="JOSS"></a>
 
+<a href="https://anaconda.org/conda-forge/kineticstoolkit"><img src="https://anaconda.org/conda-forge/kineticstoolkit/badges/version.svg" alt="Anaconda"></a>
 
+<a href="https://anaconda.org/conda-forge/kineticstoolkit"><img src="https://anaconda.org/conda-forge/kineticstoolkit/badges/latest_release_date.svg" alt="Latest release"></a>
+::::
 
+::::{grid} 1 2 2 2
 
-
-::::{grid}
-
-```{grid-item-card}
+```{card}
 
 <img src="_static/images/github-logo.png" alt="GitHub logo" width="20px"/><a href="https://github.com/orgs/kineticstoolkit/discussions/categories/announcements">
 Announcements
@@ -42,15 +45,8 @@ Félix Chénier
 
 ```
 
-```{grid-item-card}
-<a href="https://doi.org/10.21105/joss.03714"><img src="https://joss.theoj.org/papers/10.21105/joss.03714/status.svg" alt="JOSS"></a>
+:::{card}
 
-<a href="https://anaconda.org/conda-forge/kineticstoolkit"><img src="https://anaconda.org/conda-forge/kineticstoolkit/badges/version.svg" alt="Anaconda"></a>
-
-<a href="https://anaconda.org/conda-forge/kineticstoolkit"><img src="https://anaconda.org/conda-forge/kineticstoolkit/badges/latest_release_date.svg" alt="Latest release"></a>
-```
-
-:::{grid-item-card}
 [![Mobility and Adaptive Sports Research Lab](_static/images/logo_mosa.png)](https://felixchenier.uqam.ca)
 
 [![Université du Québec à Montréal -width:half](_static/images/logo_uqam.png)](https://uqam.ca)
@@ -59,3 +55,4 @@ Félix Chénier
 :::
 
 ::::
+

@@ -3,6 +3,14 @@ project:
   title: Biomechanical Analysis using Python and Kinetics Toolkit
   copyright: Félix Chénier, 2020-2026
   github: kineticstoolkit/kineticstoolkit_doc
+  authors:
+    Félix Chénier
+  exports:
+    - format: docx
+      output: exports/my-document.docx
+  numbering:
+      figure:
+        continue: true
   toc:
     - file: [](index.md)
     - file: [](getting_started.md)
@@ -10,19 +18,16 @@ project:
         - file: [](getting_started_installing.md)
         - file: [](getting_started_configuring_spyder.md)
         - file: [](getting_started_using_spyder.md)
-    - title: Part II. Learning Python for Biomechanics
+    - file: [](python_intro.md)
       children:
-        - file: [](python_intro.md)
+        - file: [](python_basics.md)
           children:
-            - file: [](python_basics.md)
-              children:
-                - file: [](python_arithmetics.md)
-                - file: [](python_print.md)
-                - file: [](python_comments.md)
-                - file: [](python_variables.md)
-                  children:
-                    - file: [](python_basics_exercise1.md)
-                    - file: [](python_basics_exercise2.md)
+            - file: [](python_arithmetics.md)
+            - file: [](python_print.md)
+            - file: [](python_comments.md)
+            - file: [](python_variables.md)
+            - file: [](python_basics_exercise1.md)
+            - file: [](python_basics_exercise2.md)
             - file: [](python_numbers.md)
               children:
                 - file: [](python_int_float.md)
@@ -288,9 +293,16 @@ project:
         - url: https://github.com/felixchenier/kineticstoolkit
           title: GitHub repository
 site:
+  nav:
+    - title: Reference Book
+      url: /index
+    - title: Kinetics Toolkit API
+      url: https://kineticstoolkit.uqam.ca/doc
+    - title: GitHub
+      url: https://github.com/kineticstoolkit
   options:
     analytics_google: ''
+    hide_authors: true
     folders: true
     style: _static/css/figsize.css
     logo: _static/logo.png
-  template: book-theme

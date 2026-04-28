@@ -1,15 +1,9 @@
 ---
-jupytext:
-  text_representation:
-    extension: .md
-    format_name: myst
-    format_version: 0.13
-    jupytext_version: 1.14.0
 kernelspec:
-  display_name: python 3 (ipykernel)
-  language: python
   name: python3
 ---
+
+# Using Spyder
 
 ```{code-cell} ipython3
 :tags: [remove-cell]
@@ -17,15 +11,14 @@ kernelspec:
 %matplotlib inline
 ```
 
-# Using Spyder
-
 For those who are familiar with Matlab, Spyder's interface should immediately look familiar. Spyder's standard look is shown in {numref}`fig_spyder_interface`.
 
-```{figure-md} fig_spyder_interface
-![](_static/images/fig_spyder_interface.png)
+:::{figure}
+:label: fig_spyder_interface
+![-width:full](_static/images/fig_spyder_interface.png)
 
 The three main panes of the standard Spyder interface.
-```
+:::
 
 ## Writing code in the console
 
@@ -43,7 +36,7 @@ The console will show the results just below your command:
 1 + 2
 ```
 
-You can also write multiple-line commands using CTRL+Enter. Both are executed, but only the result from the last command is printed:
+You can also write multiple-line commands using CTRL+Enter (control+option+Enter on Mac). Both are executed, but only the result from the last command is printed:
 
 ```{code-cell} ipython3
 1 + 2
@@ -63,9 +56,10 @@ Section B of {numref}`fig_spyder_interface` is the script editor. It is simply a
 
 As an exercise, create a file that prints "Hello World", save it as `hello_world.py`, and run it using the "Run File" button. You should see the text "Hello World" appear in the console.
 
-```{figure-md} fig_spyder_toolbar
-:width: 3in
-![](_static/images/spyder_toolbar.png)
+```{figure}
+:label: fig_spyder_toolbar
+
+![-width:narrow](_static/images/spyder_toolbar.png)
 
 "Run file", "Run current cell", "Run current cell and advance".
 ```
@@ -74,21 +68,18 @@ As an exercise, create a file that prints "Hello World", save it as `hello_world
 
 When a script grows in length, it can be useful to run only one section at a time. A script can be split into cells using this sequence of characters that acts as a separator:
 
-```
+```python
 # %%
 ```
 
 You can also name cells by adding a title next to the separator:
 
-```
+```python
 # %% Load results from previous acquisition
+```
 
-[...]
-
+```python
 # %% Report these results in a local coordinate system
-
-[...]
-
 ```
 
 You can execute a cell by placing the cursor in that cell, then by clicking on the "Run current cell" or "Run current cell and advance" button ({numref}`fig_spyder_toolbar`).
@@ -99,16 +90,16 @@ As an exercise, create a file named `exercise.py` that contains two cells. A fir
 
 Section C of {numref}`fig_spyder_interface` contains various panes. The help pane is particularly helpful to navigate the documentation of a given module or package. For example, to better understand how to use the Python `max` function, write `max` in the help pane.
 
-```{figure-md} fig_spyder_help_pane
-:width: 5in
-![](_static/images/fig_spyder_help_pane.png)
+:::{figure}
+:label: fig_spyder_help_pane
 
+![-width:wide](_static/images/fig_spyder_help_pane.png)
 
 Getting help on a function using Spyder's help pane.
-```
+:::
 
 Note that you can also get help from the console, using the `help` function:
 
-```{code-cell} ipython3
+```{code-cell}
 help(max)
 ```

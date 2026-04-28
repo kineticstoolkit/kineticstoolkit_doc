@@ -1,6 +1,6 @@
 # Installing and configuring Spyder
 
-Spyder is a general-purpose programming environment for scientific applications, and it suits biomechanical data processing very well. Therefore, this is the programming environment that we recommend in this guide. Here is how to install and configure it to enhance your experience with interactive data processing.
+Spyder is a general-purpose programming environment for scientific applications, and it suits biomechanical data processing very well. Here is how to install and configure it to enhance your experience with interactive data processing.
 
 :::{figure}
 :label: fig_spyder_ide
@@ -23,11 +23,12 @@ In section [](getting_started_installing.md), we created a `ktk` conda environme
 - Go to Spyder's preferences
 - Navigate to the **Python interpreter** item
 - Check "Use the following interpreter"
-- In the dropdown box, select the entry that includes "/envs/ktk/". If it is not in the list, then click the "open" button, navigate to the folder "miniforge3/envs/ktk" or "miniconda3/envs/ktk" (on Windows), or "miniforge3/envs/ktk/bin" or "miniconda3/envs/ktk/bin" (on macOS), then select "python".
+- In the dropdown box, select the entry that includes "/envs/ktk/". If it is not in the list, then click the "open" button, navigate to the folder `miniconda3/envs/ktk` (on Windows), or `miniconda3/envs/ktk/bin` (on macOS), then select "python".
 
-:::{figure-md} fig_spyder_python_interpreter
-:width: 7in
-![](_static/images/fig_spyder_python_interpreter.png)
+:::{figure}
+:label: fig_spyder_python_interpreter
+
+![-width:full](_static/images/fig_spyder_python_interpreter.png)
 
 Selecting the correct Python installation in Spyder
 :::
@@ -41,12 +42,13 @@ To pan and zoom plots, or to use Kinetics Toolkit's interactive functions (e.g.,
 - Navigate to the **Graphics** pane.
 - In the **Graphics backend** box, select **Qt5**.
 
-```{figure-md} fig_spyder_qt5
-:width: 7in
-![](_static/images/fig_spyder_qt5.png)
+:::{figure}
+:label: fig_spyder_qt5
+
+![-width:full](_static/images/fig_spyder_qt5.png)
 
 Enabling interactive graphics in Spyder
-```
+:::
 
 :::{note}
 If you use an IPython-based console other than Spyder's, or you do not want to change this Spyder configuration, you can enable interactive graphics temporarily by typing:
@@ -56,6 +58,4 @@ If you use an IPython-based console other than Spyder's, or you do not want to c
 ```
 :::
 
-:::{important}
 It is recommended to restart Spyder after changing all these settings.
-:::
