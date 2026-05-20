@@ -86,7 +86,7 @@ T
 ```
 
 :::{caution}
-Note that the `angles` and `positions` values are enclosed in brackets. This is because all functions in the [](api/ktk.geometry.rst) module work on series of data, and the first dimension is always reserved for time. Please consult [this section](geometry_dimension_conventions.md) for more information.
+Note that the `angles` and `positions` values are enclosed in brackets. This is because all functions in the [geometry](api/ktk.geometry.rst) module work on series of data, and the first dimension is always reserved for time. Please consult [](geometry_dimension_conventions.md) for more information.
 :::
 
 The function [ktk.geometry.matmul](api/ktk.geometry.matmul.rst) performs matrix multiplications on data series. It can therefore be used to obtain the solution to the previous examples.
