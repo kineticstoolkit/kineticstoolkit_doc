@@ -26,38 +26,41 @@
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-
-  
-  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+  <link href="_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
-    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="_static/css/custom.css?v=e3fcc901" />
   
+  <!-- So that users can add custom icons -->
+  <script src="_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
-  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="_static/doctools.js?v=9a2dae69"></script>
     <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="_static/copybutton.js?v=f281be69"></script>
-    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -73,10 +76,11 @@
     <link rel="icon" href="_static/favicon.ico"/>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="3.7.1.1. Exercise: Looping using while 1" href="python_while_exercise1.html" />
+    <link rel="next" title="3.7.2. Exercise: Looping using while 1" href="python_while_exercise1.html" />
     <link rel="prev" title="3.7. Looping" href="python_looping.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
   </head>
   
   
@@ -92,19 +96,8 @@
     <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-primary-sidebar-checkbox"/>
-  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
-  
-  <input type="checkbox"
-          class="sidebar-toggle"
-          id="pst-secondary-sidebar-checkbox"/>
-  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
-  
-  <div class="search-button__wrapper">
-    <div class="search-button__overlay"></div>
-    <div class="search-button__search-container">
+  <dialog id="pst-search-dialog">
+    
 <form class="bd-search d-flex align-items-center"
       action="search.html"
       method="get">
@@ -112,7 +105,6 @@
   <input type="search"
          class="form-control"
          name="q"
-         id="search-input"
          placeholder="Search..."
          aria-label="Search..."
          autocomplete="off"
@@ -120,8 +112,8 @@
          autocapitalize="off"
          spellcheck="false"/>
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
-</form></div>
-  </div>
+</form>
+  </dialog>
 
   <div class="pst-async-banner-revealer d-none">
   <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
@@ -137,7 +129,8 @@
       
       
       
-      <div class="bd-sidebar-primary bd-sidebar">
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
         
 
   
@@ -167,21 +160,17 @@
     
     
     <img src="_static/logo.png" class="logo__image only-light" alt="Biomechanical Analysis using Python and Kinetics Toolkit - Home"/>
-    <script>document.write(`<img src="_static/logo-dark.png" class="logo__image only-dark" alt="Biomechanical Analysis using Python and Kinetics Toolkit - Home"/>`);</script>
+    <img src="_static/logo-dark.png" class="logo__image only-dark pst-js-only" alt="Biomechanical Analysis using Python and Kinetics Toolkit - Home"/>
   
   
 </a></div>
         <div class="sidebar-primary-item">
 
- <script>
- document.write(`
-   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="fa-solid fa-magnifying-glass"></i>
-    <span class="search-button__default-text">Search</span>
-    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
-   </button>
- `);
- </script></div>
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <p aria-level="2" class="caption" role="heading"><span class="caption-text">Part I. Getting Started</span></p>
@@ -201,19 +190,15 @@
 <li class="toctree-l3"><a class="reference internal" href="python_arithmetics.html">3.1.1. Arithmetic operations</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python_print.html">3.1.2. Printing to the console</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python_comments.html">3.1.3. Comments</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="python_variables.html">3.1.4. Variables</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="python_basics_exercise1.html">3.1.4.1. Exercise: Python basics 1</a></li>
-<li class="toctree-l4"><a class="reference internal" href="python_basics_exercise2.html">3.1.4.2. Exercise: Python basics 2</a></li>
-</ul>
-</details></li>
+<li class="toctree-l3"><a class="reference internal" href="python_variables.html">3.1.4. Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_basics_exercise1.html">3.1.5. Exercise: Python basics 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_basics_exercise2.html">3.1.6. Exercise: Python basics 2</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="python_numbers.html">3.2. Numbers</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="python_int_float.html">3.2.1. Difference between integers and floats</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="python_int_float_exercise.html">3.2.1.1. Exercise: Integers and floats</a></li>
-</ul>
-</details></li>
-<li class="toctree-l3"><a class="reference internal" href="python_int_float_arithmetics.html">3.2.2. Arithmetic operations between integers and floats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_int_float.html">3.2.1. Difference between integers and floats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_int_float_exercise.html">3.2.2. Exercise: Integers and floats</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_int_float_arithmetics.html">3.2.3. Arithmetic operations between integers and floats</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="python_strings.html">3.3. Strings</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -221,102 +206,72 @@
 <li class="toctree-l3"><a class="reference internal" href="python_strings_backslash.html">3.3.2. Backslash</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python_strings_triple_quotes.html">3.3.3. Creating strings using triple-quotes</a></li>
 <li class="toctree-l3"><a class="reference internal" href="python_strings_long_strings.html">3.3.4. Creating long strings</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="python_strings_fstrings.html">3.3.5. Including variable contents in strings using f-strings</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="python_strings_exercise.html">3.3.5.1. Exercise: Strings</a></li>
-</ul>
-</details></li>
-<li class="toctree-l3"><a class="reference internal" href="python_strings_input.html">3.3.6. User input</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_strings_fstrings.html">3.3.5. Including variable contents in strings using f-strings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_strings_exercise.html">3.3.6. Exercise: Strings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_strings_input.html">3.3.7. User input</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="python_functions.html">3.4. Functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="python_functions_syntax.html">3.4.1. Function syntax</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="python_functions_arguments.html">3.4.2. Argument names</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="python_functions_arguments_exercise.html">3.4.2.1. Exercise: Function arguments</a></li>
-</ul>
-</details></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="python_functions_return.html">3.4.3. Return values</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="python_functions_return_exercise1.html">3.4.3.1. Exercise: Function return values 1</a></li>
-<li class="toctree-l4"><a class="reference internal" href="python_functions_return_exercise2.html">3.4.3.2. Exercise: Function return values 2</a></li>
-</ul>
-</details></li>
-<li class="toctree-l3"><a class="reference internal" href="python_functions_docstrings.html">3.4.4. Docstrings</a></li>
-<li class="toctree-l3"><a class="reference internal" href="python_functions_type_annotations.html">3.4.5. Type annotations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="python_functions_positional_keywords.html">3.4.6. Positional and keyword arguments</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="python_functions_default_values.html">3.4.7. Default values</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="python_functions_default_values_exercise.html">3.4.7.1. Exercise: Function argument’s default values</a></li>
-</ul>
-</details></li>
+<li class="toctree-l3"><a class="reference internal" href="python_functions_arguments.html">3.4.2. Argument names</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_functions_arguments_exercise.html">3.4.3. Exercise: Function arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_functions_return.html">3.4.4. Return values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_functions_return_exercise1.html">3.4.5. Exercise: Function return values 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_functions_return_exercise2.html">3.4.6. Exercise: Function return values 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_functions_docstrings.html">3.4.7. Docstrings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_functions_type_annotations.html">3.4.8. Type annotations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_functions_positional_keywords.html">3.4.9. Positional and keyword arguments</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_functions_default_values.html">3.4.10. Default values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_functions_default_values_exercise.html">3.4.11. Exercise: Function argument’s default values</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="python_conditions.html">3.5. Conditions and booleans</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="python_conditions_boolean.html">3.5.1. Boolean and comparisons</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="python_conditions_if_elif_else.html">3.5.2. Conditional code</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="python_conditions_if_elif_else_exercise.html">3.5.2.1. Exercise: if/elif/else</a></li>
-</ul>
-</details></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="python_conditions_logical_operators.html">3.5.3. Logical operators</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="python_conditions_logical_operators_exercise.html">3.5.3.1. Exercise: Logical operators</a></li>
-</ul>
-</details></li>
+<li class="toctree-l3"><a class="reference internal" href="python_conditions_if_elif_else.html">3.5.2. Conditional code</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_conditions_if_elif_else_exercise.html">3.5.3. Exercise: if/elif/else</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_conditions_logical_operators.html">3.5.4. Logical operators</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_conditions_logical_operators_exercise.html">3.5.5. Exercise: Logical operators</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="python_lists.html">3.6. Lists and tuples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="python_lists_creating.html">3.6.1. Creating lists and tuples</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="python_lists_indexing.html">3.6.2. Indexing a list</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="python_lists_indexing_exercise1.html">3.6.2.4. Exercise: Indexing lists 1</a></li>
-<li class="toctree-l4"><a class="reference internal" href="python_lists_indexing_exercise2.html">3.6.2.5. Exercise: Indexing lists 2</a></li>
-</ul>
-</details></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="python_lists_slicing.html">3.6.3. Slicing lists</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="python_lists_slicing_exercise1.html">3.6.3.4. Exercise: Slicing lists 1</a></li>
-<li class="toctree-l4"><a class="reference internal" href="python_lists_slicing_exercise2.html">3.6.3.5. Exercise: Slicing lists 2</a></li>
-</ul>
-</details></li>
-<li class="toctree-l3"><a class="reference internal" href="python_strings_slicing.html">3.6.4. Indexing and slicing strings</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="python_lists_modify.html">3.6.5. Modifying lists</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="python_lists_modify_exercise1.html">3.6.5.5. Exercise: Modifying lists 1</a></li>
-<li class="toctree-l4"><a class="reference internal" href="python_lists_modify_exercise2.html">3.6.5.6. Exercise: Modifying lists 2</a></li>
-</ul>
-</details></li>
+<li class="toctree-l3"><a class="reference internal" href="python_lists_indexing.html">3.6.2. Indexing a list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_lists_indexing_exercise1.html">3.6.3. Exercise: Indexing lists 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_lists_indexing_exercise2.html">3.6.4. Exercise: Indexing lists 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_lists_slicing.html">3.6.5. Slicing lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_lists_slicing_exercise1.html">3.6.6. Exercise: Slicing lists 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_lists_slicing_exercise2.html">3.6.7. Exercise: Slicing lists 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_strings_slicing.html">3.6.8. Indexing and slicing strings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_lists_modify.html">3.6.9. Modifying lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_lists_modify_exercise1.html">3.6.10. Exercise: Modifying lists 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_lists_modify_exercise2.html">3.6.11. Exercise: Modifying lists 2</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="python_looping.html">3.7. Looping</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l3 current active has-children"><a class="current reference internal" href="#">3.7.1. Looping using <strong>while</strong></a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="python_while_exercise1.html">3.7.1.1. Exercise: Looping using <strong>while</strong> 1</a></li>
-<li class="toctree-l4"><a class="reference internal" href="python_while_exercise2.html">3.7.1.2. Exercise: Looping using <strong>while</strong> 2</a></li>
-<li class="toctree-l4"><a class="reference internal" href="python_while_exercise3.html">3.7.1.3. Exercise: Looping using <strong>while</strong> 3</a></li>
-</ul>
-</details></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="python_for.html">3.7.2. Looping using <strong>for</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="python_for_exercise.html">3.7.2.1. Exercise: Looping using <strong>for</strong></a></li>
-</ul>
-</details></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="python_for_range.html">3.7.3. Looping using <strong>for</strong> and <strong>range</strong></a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="python_for_range_exercise1.html">3.7.3.1. Exercise: Looping using <strong>for</strong> and <strong>range</strong> 1</a></li>
-<li class="toctree-l4"><a class="reference internal" href="python_for_range_exercise2.html">3.7.3.2. Exercise: Looping using <strong>for</strong> and <strong>range</strong> 2</a></li>
-<li class="toctree-l4"><a class="reference internal" href="python_for_range_exercise3.html">3.7.3.3. Exercise: Looping using <strong>for</strong> and <strong>range</strong> 3</a></li>
-<li class="toctree-l4"><a class="reference internal" href="python_for_range_exercise4.html">3.7.3.4. Exercise: Looping using <strong>for</strong> and <strong>range</strong> 4</a></li>
-</ul>
-</details></li>
-<li class="toctree-l3"><a class="reference internal" href="python_for_writing_list.html">3.7.4. Modifying a list while looping</a></li>
-<li class="toctree-l3"><a class="reference internal" href="python_for_enumerate.html">3.7.5. Looping a list using <strong>for</strong> and <strong>enumerate</strong></a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">3.7.1. Looping using <strong>while</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_while_exercise1.html">3.7.2. Exercise: Looping using <strong>while</strong> 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_while_exercise2.html">3.7.3. Exercise: Looping using <strong>while</strong> 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_while_exercise3.html">3.7.4. Exercise: Looping using <strong>while</strong> 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_for.html">3.7.5. Looping using <strong>for</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_for_exercise.html">3.7.6. Exercise: Looping using <strong>for</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_for_range.html">3.7.7. Looping using <strong>for</strong> and <strong>range</strong></a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_for_range_exercise1.html">3.7.8. Exercise: Looping using <strong>for</strong> and <strong>range</strong> 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_for_range_exercise2.html">3.7.9. Exercise: Looping using <strong>for</strong> and <strong>range</strong> 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_for_range_exercise3.html">3.7.10. Exercise: Looping using <strong>for</strong> and <strong>range</strong> 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_for_range_exercise4.html">3.7.11. Exercise: Looping using <strong>for</strong> and <strong>range</strong> 4</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_for_writing_list.html">3.7.12. Modifying a list while looping</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_for_enumerate.html">3.7.13. Looping a list using <strong>for</strong> and <strong>enumerate</strong></a></li>
 </ul>
 </details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="python_dicts.html">3.8. Dictionaries</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3 has-children"><a class="reference internal" href="python_dicts_creating_accessing.html">3.8.1. Creating dictionaries and accessing/modifying entries</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="python_dicts_creating_accessing_exercise1.html">3.8.1.1. Exercise: Creating and accessing dictionaries 1</a></li>
-<li class="toctree-l4"><a class="reference internal" href="python_dicts_creating_accessing_exercise2.html">3.8.1.2. Exercise: Creating and accessing dictionaries 2</a></li>
-<li class="toctree-l4"><a class="reference internal" href="python_dicts_creating_accessing_exercise3.html">3.8.1.3. Exercise: Creating and accessing dictionaries 3</a></li>
-</ul>
-</details></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="python_dicts_modifying.html">3.8.2. Adding and removing entries</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="python_dicts_modifying_exercise.html">3.8.2.1. Exercise: Adding entries to dictionaries</a></li>
-</ul>
-</details></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="python_dicts_looping.html">3.8.3. Looping through a dictionary’s entries</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="python_dicts_looping_exercise.html">3.8.3.1. Exercise: Looping through a dictionary</a></li>
-</ul>
-</details></li>
+<li class="toctree-l3"><a class="reference internal" href="python_dicts_creating_accessing.html">3.8.1. Creating dictionaries and accessing/modifying entries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_dicts_creating_accessing_exercise1.html">3.8.2. Exercise: Creating and accessing dictionaries 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_dicts_creating_accessing_exercise2.html">3.8.3. Exercise: Creating and accessing dictionaries 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_dicts_creating_accessing_exercise3.html">3.8.4. Exercise: Creating and accessing dictionaries 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_dicts_modifying.html">3.8.5. Adding and removing entries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_dicts_modifying_exercise.html">3.8.6. Exercise: Adding entries to dictionaries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_dicts_looping.html">3.8.7. Looping through a dictionary’s entries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="python_dicts_looping_exercise.html">3.8.8. Exercise: Looping through a dictionary</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="python_exercises.html">3.9. Exercises</a></li>
@@ -326,22 +281,16 @@
 <li class="toctree-l2"><a class="reference internal" href="matplotlib_import.html">4.1. Importing <strong>pyplot</strong></a></li>
 <li class="toctree-l2"><a class="reference internal" href="matplotlib_plot.html">4.2. Line plots</a></li>
 <li class="toctree-l2"><a class="reference internal" href="matplotlib_plot_multiple.html">4.3. Plotting multiple series</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="matplotlib_titles_labels.html">4.4. Title, axis labels, legend and grid</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="matplotlib_plot_titles_labels_exercise1.html">4.4.1. Exercise: Plotting a series 1</a></li>
-<li class="toctree-l3"><a class="reference internal" href="matplotlib_plot_titles_labels_exercise2.html">4.4.2. Exercise: Plotting a series 2</a></li>
-</ul>
-</details></li>
-<li class="toctree-l2"><a class="reference internal" href="matplotlib_subplot.html">4.5. Multiple plots side by side</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="matplotlib_style.html">4.6. Markers, line style and colour</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="matplotlib_style_exercise.html">4.6.4. Exercise: Plot styling</a></li>
-</ul>
-</details></li>
-<li class="toctree-l2"><a class="reference internal" href="matplotlib_axis.html">4.7. Setting axes limits</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="matplotlib_ginput.html">4.8. Graphical input</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="matplotlib_ginput_exercise.html">4.8.1. Exercise: Graphical input</a></li>
-</ul>
-</details></li>
-<li class="toctree-l2"><a class="reference internal" href="matplotlib_exercises.html">4.9. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matplotlib_titles_labels.html">4.4. Title, axis labels, legend and grid</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matplotlib_plot_titles_labels_exercise1.html">4.5. Exercise: Plotting a series 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matplotlib_plot_titles_labels_exercise2.html">4.6. Exercise: Plotting a series 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matplotlib_subplot.html">4.7. Multiple plots side by side</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matplotlib_style.html">4.8. Markers, line style and colour</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matplotlib_style_exercise.html">4.9. Exercise: Plot styling</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matplotlib_axis.html">4.10. Setting axes limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matplotlib_ginput.html">4.11. Graphical input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matplotlib_ginput_exercise.html">4.12. Exercise: Graphical input</a></li>
+<li class="toctree-l2"><a class="reference internal" href="matplotlib_exercises.html">4.13. Exercises</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1 has-children"><a class="reference internal" href="numpy.html">5. NumPy</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
@@ -350,57 +299,39 @@
 <li class="toctree-l3"><a class="reference internal" href="numpy_ndarray_introduction.html">5.2.1. Introduction to arrays</a></li>
 <li class="toctree-l3"><a class="reference internal" href="numpy_ndarray_dimensions.html">5.2.2. Array dimensions</a></li>
 <li class="toctree-l3"><a class="reference internal" href="numpy_ndarray_creating_from_lists.html">5.2.3. Creating arrays from lists</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="numpy_ndarray_creating_zeros_ones.html">5.2.4. Creating arrays of zeros or ones</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="numpy_ndarray_creating_zeros_ones_exercise1.html">5.2.4.1. Exercise: Creating arrays using zeros and ones 1</a></li>
-<li class="toctree-l4"><a class="reference internal" href="numpy_ndarray_creating_zeros_ones_exercise2.html">5.2.4.2. Exercise: Creating arrays using zeros and ones 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numpy_ndarray_creating_zeros_ones.html">5.2.4. Creating arrays of zeros or ones</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numpy_ndarray_creating_zeros_ones_exercise1.html">5.2.5. Exercise: Creating arrays using zeros and ones 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numpy_ndarray_creating_zeros_ones_exercise2.html">5.2.6. Exercise: Creating arrays using zeros and ones 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numpy_ndarray_creating_linspace.html">5.2.7. Creating linearly spaced arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numpy_ndarray_creating_linspace_exercise.html">5.2.8. Exercise: Creating linearly spaced arrays</a></li>
 </ul>
 </details></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="numpy_ndarray_creating_linspace.html">5.2.5. Creating linearly spaced arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="numpy_ndarray_creating_linspace_exercise.html">5.2.5.1. Exercise: Creating linearly spaced arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numpy_arithmetics.html">5.3. Arithmetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numpy_arithmetics_exercise.html">5.4. Exercise: Arithmetics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numpy_matmul.html">5.5. Matrix multiplication</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numpy_trigonometry.html">5.6. Trigonometry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numpy_trigonometry_exercise1.html">5.7. Exercise: Trigonometry 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numpy_trigonometry_exercise2.html">5.8. Exercise: Trigonometry 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numpy_inf_nan.html">5.9. Infinity and Not-A-Number (nan)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numpy_statistics.html">5.10. Statistical functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numpy_statistics_exercise.html">5.11. Exercise: Statistics</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numpy_comparisons.html">5.12. Comparisons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numpy_comparisons_exercise.html">5.13. Exercise: Comparisons</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numpy_logical_operators.html">5.14. Logical operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numpy_indexing_slicing_1d.html">5.15. Indexing and slicing one-dimensional arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numpy_indexing_slicing_1d_exercise.html">5.16. Exercise: Indexing and slicing unidimensional arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numpy_filtering_1d.html">5.17. Filtering unidimensional arrays</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numpy_indexing_slicing_filtering_1d_exercise1.html">5.18. Exercise: Indexing/slicing/filtering one-dimensional arrays 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numpy_indexing_slicing_filtering_1d_exercise2.html">5.19. Exercise: Indexing/slicing/filtering one-dimensional arrays 2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numpy_indexing_slicing_filtering_1d_exercise3.html">5.20. Exercise: Indexing/slicing/filtering one-dimensional arrays 3</a></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="numpy_nd.html">5.21. Multidimensional arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_nd.html">5.21.1. Indexing multidimensional arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numpy_slicing_nd.html">5.21.2. Slicing multidimensional arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numpy_filtering_nd.html">5.21.3. Filtering multidimensional arrays</a></li>
+<li class="toctree-l3"><a class="reference internal" href="numpy_filtering_nd_exercise.html">5.21.4. Exercise: Filtering n-dimensional arrays</a></li>
 </ul>
 </details></li>
-</ul>
-</details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="numpy_arithmetics.html">5.3. Arithmetics</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="numpy_arithmetics_exercise.html">5.3.1. Exercise: Arithmetics</a></li>
-</ul>
-</details></li>
-<li class="toctree-l2"><a class="reference internal" href="numpy_matmul.html">5.4. Matrix multiplication</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="numpy_trigonometry.html">5.5. Trigonometry</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="numpy_trigonometry_exercise1.html">5.5.1. Exercise: Trigonometry 1</a></li>
-<li class="toctree-l3"><a class="reference internal" href="numpy_trigonometry_exercise2.html">5.5.2. Exercise: Trigonometry 2</a></li>
-</ul>
-</details></li>
-<li class="toctree-l2"><a class="reference internal" href="numpy_inf_nan.html">5.6. Infinity and Not-A-Number (nan)</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="numpy_statistics.html">5.7. Statistical functions</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="numpy_statistics_exercise.html">5.7.1. Exercise: Statistics</a></li>
-</ul>
-</details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="numpy_comparisons.html">5.8. Comparisons</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="numpy_comparisons_exercise.html">5.8.1. Exercise: Comparisons</a></li>
-</ul>
-</details></li>
-<li class="toctree-l2"><a class="reference internal" href="numpy_logical_operators.html">5.9. Logical operators</a></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="numpy_indexing_slicing_1d.html">5.10. Indexing and slicing one-dimensional arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_1d_exercise.html">5.10.1. Exercise: Indexing and slicing unidimensional arrays</a></li>
-</ul>
-</details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="numpy_filtering_1d.html">5.11. Filtering unidimensional arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_filtering_1d_exercise1.html">5.11.1. Exercise: Indexing/slicing/filtering one-dimensional arrays 1</a></li>
-<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_filtering_1d_exercise2.html">5.11.2. Exercise: Indexing/slicing/filtering one-dimensional arrays 2</a></li>
-<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_slicing_filtering_1d_exercise3.html">5.11.3. Exercise: Indexing/slicing/filtering one-dimensional arrays 3</a></li>
-</ul>
-</details></li>
-<li class="toctree-l2 has-children"><a class="reference internal" href="numpy_nd.html">5.12. Multidimensional arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l3"><a class="reference internal" href="numpy_indexing_nd.html">5.12.1. Indexing multidimensional arrays</a></li>
-<li class="toctree-l3"><a class="reference internal" href="numpy_slicing_nd.html">5.12.2. Slicing multidimensional arrays</a></li>
-<li class="toctree-l3 has-children"><a class="reference internal" href="numpy_filtering_nd.html">5.12.3. Filtering multidimensional arrays</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l4"><a class="reference internal" href="numpy_filtering_nd_exercise.html">5.12.3.1. Exercise: Filtering n-dimensional arrays</a></li>
-</ul>
-</details></li>
-</ul>
-</details></li>
-<li class="toctree-l2"><a class="reference internal" href="numpy_exercises.html">5.13. Exercises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="numpy_exercises.html">5.22. Exercises</a></li>
 </ul>
 </details></li>
 </ul>
@@ -666,9 +597,14 @@
   
   
   <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
   </div>
-  
-  <div id="rtd-footer-container"></div>
 
 
       </div>
@@ -751,7 +687,7 @@
 
 
 <button onclick="toggleFullScreen()"
-  class="btn btn-sm btn-fullscreen-button"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
   title="Fullscreen mode"
   data-bs-placement="bottom" data-bs-toggle="tooltip"
 >
@@ -765,24 +701,16 @@
 
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
-    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
-    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
-    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
-  </button>
-`);
-</script>
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
 
 
-<script>
-document.write(`
-  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <i class="fa-solid fa-magnifying-glass fa-lg"></i>
-  </button>
-`);
-</script>
+</button>
 
 </div></div>
       
@@ -875,8 +803,6 @@ done
 <p class="admonition-title">Good practice: Looping</p>
 <p>While this example works perfectly well and is indeed a correct demonstration of how <code class="docutils literal notranslate"><span class="pre">while</span></code> works, we will see later that for this specific example, other methods such as using <a class="reference internal" href="python_for.html"><span class="std std-doc">for</span></a> or <a class="reference internal" href="numpy.html"><span class="std std-doc">NumPy</span></a> would be less error-prone and faster.</p>
 </div>
-<div class="toctree-wrapper compound">
-</div>
 </section>
 
     <script type="text/x-thebe-config">
@@ -923,7 +849,7 @@ done
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title"><span class="section-number">3.7.1.1. </span>Exercise: Looping using <strong>while</strong> 1</p>
+        <p class="prev-next-title"><span class="section-number">3.7.2. </span>Exercise: Looping using <strong>while</strong> 1</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -980,8 +906,8 @@ By Félix Chénier
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+  <script defer src="_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
 
   <footer class="bd-footer">
   </footer>
