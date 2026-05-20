@@ -21,7 +21,8 @@ kernelspec:
 
 Someone pushes a carriage using a dynamometer as shown in {numref}`fig_carriage_dynamometer`. The push force is measured in newtons every tenth of a second, over five seconds.
 
-```{figure-md} fig_carriage_dynamometer
+```{figure}
+:label: fig_carriage_dynamometer
 :width: 5in
 ![](_static/images/fig_carriage_dynamometer.png)
 

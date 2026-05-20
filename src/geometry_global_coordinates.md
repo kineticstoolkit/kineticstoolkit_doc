@@ -11,9 +11,9 @@ In newton dynamics and at the human scale, it is totally acceptable to define a 
 
 This coordinate system is completely arbitrary: any other origin or set of orthonormal axes would still be perfectly valid, as long as we are consistent during the whole analysis. This is the one we chose here, the one every global coordinate will refer to.
 
-```{figure-md} fig_geometry_global_coordinates
+```{figure}
+:label: fig_geometry_global_coordinates
 :width: 3in
-
 ![](_static/images/geometry_global_coordinates.png)
 
 A global coordinate system.

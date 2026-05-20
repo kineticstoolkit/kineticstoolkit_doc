@@ -148,14 +148,16 @@ ts = ts.ui_edit_events()
 which creates the interactive windows shown in {numref}`fig_timeseries.ui_edit_events_1` and {numref}`fig_timeseries.ui_edit_events_2`.
 
 
-```{figure-md} fig_timeseries.ui_edit_events_1
+```{figure}
+:label: fig_timeseries.ui_edit_events_1
 :width: 7in
 ![timeseries.ui_edit_events](_static/images/fig_timeseries.ui_edit_events_1.png)
 
 Interactive figure created by [ktk.TimeSeries.ui_edit_events](api/ktk.TimeSeries.ui_edit_events.rst)
 ```
 
-```{figure-md} fig_timeseries.ui_edit_events_2
+```{figure}
+:label: fig_timeseries.ui_edit_events_2
 :width: 4in
 ![timeseries.ui_edit_events](_static/images/fig_timeseries.ui_edit_events_2.png)
 

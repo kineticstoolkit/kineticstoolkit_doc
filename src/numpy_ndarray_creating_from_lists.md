@@ -21,7 +21,8 @@ kernelspec:
 
 A simple way to create an array from a list is to use the {{np_array}} function. To create the one-dimensional array of {numref}`fig_array_1d_float`, we would write:
 
-```{figure-md} fig_array_1d_float
+```{figure}
+:label: fig_array_1d_float
 :width: 2in
 ![](_static/images/fig_array_1d_float.png)
 
@@ -44,7 +45,8 @@ array_1d.tolist()
 
 To create the two-dimensional array of {numref}`fig_array_2d_float`, we would use nested lists:
 
-```{figure-md} fig_array_2d_float
+```{figure}
+:label: fig_array_2d_float
 :width: 3in
 
 ![](_static/images/fig_array_2d_float.png)
@@ -67,7 +69,8 @@ array_2d
 
 To create the three-dimensional array of {numref}`fig_array_3d_float`, we would use multiple levels of nested lists:
 
-```{figure-md} fig_array_3d_float
+```{figure}
+:label: fig_array_3d_float
 :width: 4in
 
 ![](_static/images/fig_array_3d_float.png)

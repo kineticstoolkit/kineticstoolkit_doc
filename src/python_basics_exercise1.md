@@ -21,7 +21,8 @@ kernelspec:
 
 A sprinter runs through two timing gates spaced by 50 m as shown in {numref}`fig_exercise_timing_gates`. Each timing gate records the time (in seconds) when the sprinter passes through it.
 
-```{figure-md} fig_exercise_timing_gates
+```{figure}
+:label: fig_exercise_timing_gates
 :width: 4in
 ![](_static/images/fig_exercise_timing_gates.png)
 

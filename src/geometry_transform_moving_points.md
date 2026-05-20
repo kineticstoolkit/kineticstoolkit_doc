@@ -21,7 +21,8 @@ kernelspec:
 
 Let's say we want to rotate the point located at (10, 0, 0) by 30 degrees around the origin's z-axis, then translate it 2 units to the right as shown in {numref}`fig_geometry_moving_points`.
 
-```{figure-md} fig_geometry_moving_points
+```{figure}
+:label: fig_geometry_moving_points
 :width: 4in
 ![](_static/images/fig_geometry_moving_points.png)
 

@@ -2,7 +2,8 @@
 
 Now that we have learned how to use Python, Numpy, and Matplotlib to perform simple biomechanical analyses, we can go further with more complex analyses using the `kineticstoolkit` Python package. This package provides functions and classes to express and manipulate time series data (resampling, segmenting using events, synchronizing different instruments, filtering data), performing geometrical operations, visualizing kinematic data interactively, tracking markers and rigid bodies, etc.
 
-```{figure-md} fig_joss
+```{figure}
+:label: fig_joss
 :width: 6in
 ![](_static/images/JOSS_screenshot.png)
 

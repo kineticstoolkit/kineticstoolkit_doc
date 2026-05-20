@@ -27,7 +27,8 @@ $$
 
 where $m$ is the person's mass, $g$ is 9.81 m/s² and $\theta$ is the treadmill angle. Write a function named `plot_force` that takes the mass as an argument and that plots $F$ for $\theta \in [-20, 20]$ degrees. Then, test your function for $m = 65$ kg.
 
-```{figure-md} fig_gait_inclined
+```{figure}
+:label: fig_gait_inclined
 :width: 3.5in
 ![](_static/images/fig_gait_inclined.png)
 

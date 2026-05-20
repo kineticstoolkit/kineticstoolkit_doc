@@ -21,7 +21,8 @@ kernelspec:
 
 For this second example, let's apply this same transform to a vector of 10 units toward the x-axis (10, 0, 0) as shown in {numref}`fig_geometry_moving_vectors`.
 
-```{figure-md} fig_geometry_moving_vectors
+```{figure}
+:label: fig_geometry_moving_vectors
 :width: 4in
 ![](_static/images/fig_geometry_moving_vectors.png)
 

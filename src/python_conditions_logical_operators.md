@@ -21,7 +21,8 @@ kernelspec:
 
 In section [](python_conditions_boolean.md), we learned how to generate boolean values (True, False) using comparison operators such as `>` (greater than) or `<=` (less or equal to). We can create more complex comparisons by combining and inverting the results of many comparisons, using the logical operators `not`, `or` and `and` as shown in {numref}`fig_logical_operators`.
 
-```{figure-md} fig_logical_operators
+```{figure}
+:label: fig_logical_operators
 :width: 3.5in
 ![](_static/images/fig_logical_operators.png)
 

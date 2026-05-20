@@ -45,7 +45,8 @@ This chapter covers the basics of NumPy for biomechanics.
 If you already know Matlab, then this [cheat sheet](https://numpy.org/doc/stable/user/numpy-for-matlab-users.html) could be useful.
 :::
 
-```{figure-md} fig_numpy_logo
+```{figure}
+:label: fig_numpy_logo
 :width: 4in
 ![NumPy Logo](_static/images/fig_numpy_logo.png)
 

@@ -21,7 +21,8 @@ kernelspec:
 
 A sprinter runs a given distance $x$ to the East, then a given distance $y$ to the North (in km), as pictured in {numref}`fig_exercise_pythagore`. Use the Pythagorean theorem to complete the following program so that it prints the distance $d$ between her starting point and her final destination.
 
-```{figure-md} fig_exercise_pythagore
+```{figure}
+:label: fig_exercise_pythagore
 :width: 4in
 ![](_static/images/fig_exercise_pythagore.png)
 

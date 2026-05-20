@@ -21,7 +21,8 @@ kernelspec:
 
 For those who are familiar with Matlab, Spyder's interface should immediately look familiar. Spyder's standard look is shown in {numref}`fig_spyder_interface`.
 
-```{figure-md} fig_spyder_interface
+```{figure}
+:label: fig_spyder_interface
 ![](_static/images/fig_spyder_interface.png)
 
 The three main panes of the standard Spyder interface.
@@ -63,7 +64,8 @@ Section B of {numref}`fig_spyder_interface` is the script editor. It is simply a
 
 As an exercise, create a file that prints "Hello World", save it as `hello_world.py`, and run it using the "Run File" button. You should see the text "Hello World" appear in the console.
 
-```{figure-md} fig_spyder_toolbar
+```{figure}
+:label: fig_spyder_toolbar
 :width: 3in
 ![](_static/images/spyder_toolbar.png)
 
@@ -99,7 +101,8 @@ As an exercise, create a file named `exercise.py` that contains two cells. A fir
 
 Section C of {numref}`fig_spyder_interface` contains various panes. The help pane is particularly helpful to navigate the documentation of a given module or package. For example, to better understand how to use the Python `max` function, write `max` in the help pane.
 
-```{figure-md} fig_spyder_help_pane
+```{figure}
+:label: fig_spyder_help_pane
 :width: 5in
 ![](_static/images/fig_spyder_help_pane.png)
 

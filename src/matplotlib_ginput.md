@@ -24,7 +24,8 @@ points = plt.ginput(10)  # 10 points
 
 generate {numref}`fig_matplotlib_ginput` and let the user click a maximum of 10 points.
 
-```{figure-md} fig_matplotlib_ginput
+```{figure}
+:label: fig_matplotlib_ginput
 :width: 5in
 ![plt.ginput -width:wider](_static/images/fig_matplotlib_ginput.png)
 

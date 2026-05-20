@@ -15,7 +15,8 @@ $$
 
 The first three columns of a transform express the orientation of the coordinate system into the reference coordinate system. They are, in the reference coordinate system, the coordinates of three unit vectors that are respectively oriented toward the x, y and z axes of the local coordinate system.
 
-```{figure-md} fig_geometry_frame
+```{figure}
+:label: fig_geometry_frame
 :width: 4in
 ![](_static/images/fig_geometry_frame.png)
 

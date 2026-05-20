@@ -48,7 +48,8 @@ print_full_name(last_name="Smith", first_name="Catherina")
 
 For very simple functions, using keyword arguments is not that useful. However, some functions may have lots of arguments, with many of them being optional. For example, let's look at the signature of Pandas' {{pd_read_csv}} function (we will use Pandas later), in {numref}`fig_pandas_read_csv_signature`.
 
-````{figure-md} fig_pandas_read_csv_signature
+````{figure}
+:label: fig_pandas_read_csv_signature
 :width: 6in
 ![](_static/images/fig_pandas_read_csv_signature.png)
 

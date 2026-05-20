@@ -21,7 +21,8 @@ kernelspec:
 
 A ball is released from a point in the air. Knowing that it was immobile when released, and that it gains negative speed at a rate of 9.81 m/s², plot its velocity as shown in {numref}`fig_falling_ball` for one second after release.
 
-```{figure-md} fig_falling_ball
+```{figure}
+:label: fig_falling_ball
 :width: 3in
 ![](_static/images/fig_falling_ball.png)
 

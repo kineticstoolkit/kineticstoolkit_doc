@@ -2,7 +2,8 @@
 
 Spyder is a general-purpose programming environment for scientific applications, and it suits biomechanical data processing very well. Therefore, this is the programming environment that we recommend in this guide. Here is how to install and configure it to enhance your experience with interactive data processing.
 
-:::{figure-md} fig_spyder_ide
+:::{figure}
+:label: fig_spyder_ide
 :width: 4in
 ![](_static/images/fig_spyder_ide.jpg)
 
@@ -24,7 +25,8 @@ In section [](getting_started_installing.md), we created a `ktk` conda environme
 - Check "Use the following interpreter"
 - In the dropdown box, select the entry that includes "/envs/ktk/". If it is not in the list, then click the "open" button, navigate to the folder "miniforge3/envs/ktk" or "miniconda3/envs/ktk" (on Windows), or "miniforge3/envs/ktk/bin" or "miniconda3/envs/ktk/bin" (on macOS), then select "python".
 
-:::{figure-md} fig_spyder_python_interpreter
+:::{figure}
+:label: fig_spyder_python_interpreter
 :width: 7in
 ![](_static/images/fig_spyder_python_interpreter.png)
 
@@ -40,7 +42,8 @@ To pan and zoom plots, or to use Kinetics Toolkit's interactive functions (e.g.,
 - Navigate to the **Graphics** pane.
 - In the **Graphics backend** box, select **Qt5**.
 
-```{figure-md} fig_spyder_qt5
+```{figure}
+:label: fig_spyder_qt5
 :width: 7in
 ![](_static/images/fig_spyder_qt5.png)
 

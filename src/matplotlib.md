@@ -2,7 +2,8 @@
 
 Matplotlib is a standard for producing high-quality and interactive figures. The pyplot module is highly similar to Matlab's plotting functions, and offers an easy-to-understand, yet very powerful way to produce figures.
 
-```{figure-md} matplotlib_logo
+```{figure}
+:label: matplotlib_logo
 :width: 4in
 ![](_static/images/matplotlib_logo.png)
 

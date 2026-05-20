@@ -2,7 +2,8 @@
 
 Let's start with this example, where we want to express the yellow point of {numref}`fig_geometry_change_coordinate_system` in global coordinates.
 
-```{figure-md} fig_geometry_change_coordinate_system
+```{figure}
+:label: fig_geometry_change_coordinate_system
 :width: 4in
 ![](_static/images/fig_geometry_change_coordinate_system.png)
 
@@ -18,7 +19,8 @@ $$ (eq_geometry_transform_unkown)
 Instead of considering point $p$ as a point in its own local coordinate system, let's imagine that it was first expressed in the global reference frame ($^\text{global} p_\text{initial}$). Then, it was rotated by 30 degrees around the origin, then translated by (7, 5, 0) to reach its final position ($^\text{global} p_\text{transformed}$), as shown in {numref}`fig_geometry_transformation_sequence`.
 
 
-```{figure-md} fig_geometry_transformation_sequence
+```{figure}
+:label: fig_geometry_transformation_sequence
 :width: 8in
 ![](_static/images/fig_geometry_transformation_sequence.png)
 

@@ -25,7 +25,8 @@ Until now, we referred to numbers simply as "numbers". In reality, numbers belon
 - Real numbers: `float`
 - Complex numbers: `complex`
 
-```{figure-md} fig_number_sets
+```{figure}
+:label: fig_number_sets
 :width: 6in
 ![](_static/images/fig_number_sets.png)
 

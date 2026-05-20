@@ -56,7 +56,8 @@ Write a program of only 1 to 2 lines that calculates the speed of the object. Th
 Due to the calculation of speed requiring position values before and after the current sample, the velocity array will be 2 values shorter than the position array, as illustrated in {numref}`fig_speed_calculation`.
 :::
 
-```{figure-md} fig_speed_calculation
+```{figure}
+:label: fig_speed_calculation
 :width: 6in
 ![](_static/images/fig_speed_calculation.png)
 

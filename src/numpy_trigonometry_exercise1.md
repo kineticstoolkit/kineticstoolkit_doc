@@ -21,7 +21,8 @@ kernelspec:
 
 A ball is thrown horizontally with a constant horizontal velocity of 10 m/s and with no initial vertical velocity at release. Once released, its horizontal velocity remains constant while its vertical velocity increases negatively at a rate of 9.81 m/s². Plot a curve of its total speed for one second after release. The total speed is the magnitude (norm) of the vector created by the horizontal velocity and the vertical velocity, as shown in {numref}`fig_falling_ball_horizontal`.
 
-```{figure-md} fig_falling_ball_horizontal
+```{figure}
+:label: fig_falling_ball_horizontal
 :width: 3.5in
 ![](_static/images/fig_falling_ball_horizontal.png)
 

@@ -29,7 +29,8 @@ kernelspec:
 
 {numref}`fig_numpy_boolean_operators` illustrates the behaviour of each operator.
 
-```{figure-md} fig_numpy_boolean_operators
+```{figure}
+:label: fig_numpy_boolean_operators
 ![Logical operators on Python and Numpy](_static/images/fig_numpy_boolean_operators.png)
 
 Correspondence between logical operations on bool and ndarray.

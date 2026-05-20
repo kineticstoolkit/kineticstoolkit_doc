@@ -20,7 +20,8 @@ kernelspec:
 
 In section [](kinematics_reconstructing_removed_markers.md), we learned how to reconstructed "virtual" markers that are not physically attached to a bony landmark, but that were during a static calibration acquisition. Sometimes, it is completely impossible to affix a marker on a landmark, for example if the landmark is obstructed with clothes or other objects. In these situation, it may be possible to use a digitizing probe ({numref}`fig_kinematics_probe`) to point landmarks during short acquisitions of a few seconds, and use these probed points to reconstruct the landmarks trajectory during other acquisitions.
 
-```{figure-md} fig_kinematics_probe
+```{figure}
+:label: fig_kinematics_probe
 :width: 4in
 ![](_static/images/fig_kinematics_probe.png)
 

@@ -30,7 +30,8 @@ y = [1.0, 2.0, -1.0, -0.0]
 plt.plot(y)
 ```
 
-```{figure-md} fig_matplotlib_qt5
+```{figure}
+:label: fig_matplotlib_qt5
 :width: 5in
 ![](_static/images/fig_matplotlib_qt5.png)
 

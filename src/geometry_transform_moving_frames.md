@@ -21,7 +21,8 @@ kernelspec:
 
 The orientation and position of a frame (defined as a coordinate system attached to a segment) are expressed by a [homogeneous transform](geometry_transforms.md). We remind that the first three columns are three vectors (the direction of three axes), and the fourth column is a point (the position of the origin). Therefore, since a homogeneous transform can move both points and vectors, it can also move complete frames.
 
-```{figure-md} fig_geometry_moving_frames
+```{figure}
+:label: fig_geometry_moving_frames
 :width: 5in
 ![](_static/images/fig_geometry_moving_frames.png)
 

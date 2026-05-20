@@ -77,7 +77,8 @@ plt.plot(signal);
 
 You want to smooth this signal using a moving average with a window of three samples. This means creating a new array where each value is the average of the three neighbour values of the raw signal, as illustrated in {numref}`fig_moving_average`.
 
-```{figure-md} fig_moving_average
+```{figure}
+:label: fig_moving_average
 :width: 6in
 ![](_static/images/fig_moving_average.png)
 

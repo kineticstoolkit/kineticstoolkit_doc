@@ -39,7 +39,8 @@ In the following sections, we will cover how to create a transform that expresse
 
 We use this method when we already know the orientation angles. Real-life cases include expressing coordinate systems for an inclined surface, a turning wheel, etc.
 
-:::{figure-md} fig_geometry_create_transform_series_angles
+:::{figure}
+:label: fig_geometry_create_transform_series_angles
 :width: 3in
 ![](_static/images/fig_geometry_create_transform_series_angles.png)
 
@@ -72,7 +73,8 @@ We use this method to create transforms based on known positions such as markers
 
 In this case, we know the position of the shoulder, elbow, and wrist. We want to create a transform that has its y axis aligned with the shoulder-elbow line, and its z axis perpendicular to the shoulder-elbow-wrist plane.
 
-:::{figure-md} fig_geometry_create_transform_series_points
+:::{figure}
+:label: fig_geometry_create_transform_series_points
 :width: 3in
 ![](_static/images/fig_geometry_create_transform_series_points.png)
 
@@ -107,7 +109,8 @@ We use this method to create transforms based on the known 3D orientation of rig
 
 Due to this more efficient representation of the same operation, measurement systems often use this representation to communicate 3D orientations. This is the case with inertial measurement units (IMUs), and with rigid body orientations measured by optoelectronic systems such as Vicon (Tracker) or Optitrack (Motive).
 
-:::{figure-md} fig_geometry_create_transform_series_quaternions
+:::{figure}
+:label: fig_geometry_create_transform_series_quaternions
 :width: 3in
 ![](_static/images/fig_geometry_create_transform_series_quaternions.png)
 

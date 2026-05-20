@@ -77,7 +77,8 @@ Since they are so ubiquitous, docstrings can be read without having to open the 
 
 - Type `format_info` in Spyder's help browser. The docstring appears, all well-formatted, as pictured in {numref}`fig_python_function_spyder_help`.
 
-```{figure-md} fig_python_function_spyder_help
+```{figure}
+:label: fig_python_function_spyder_help
 :width: 5in
 ![](_static/images/fig_python_function_spyder_help.png)
 

@@ -21,7 +21,8 @@ kernelspec:
 
 We affix an inclinometer on a person's arm. We ask the person to reach different positions in the sagittal plane as shown in {numref}`fig_shoulder_flexion_inclinometer`. Each position is reached twice.
 
-```{figure-md} fig_shoulder_flexion_inclinometer
+```{figure}
+:label: fig_shoulder_flexion_inclinometer
 :width: 7in
 ![](_static/images/fig_shoulder_flexion_inclinometer.png)
 

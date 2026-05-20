@@ -151,7 +151,8 @@ It is also possible to set a custom viewpoint, using these properties (some of t
 - `pan`: panning in (x, y), in the camera's point of view
 - `zoom`: zoom, in the camera's point of view
 
-:::{figure-md} fig_player_view_point
+:::{figure}
+:label: fig_player_view_point
 :width: 4.5in
 ![Player custom viewpoint](_static/images/player_view_point.png)
 

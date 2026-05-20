@@ -21,7 +21,8 @@ kernelspec:
 
 We measured some spatial parameters of gait using an instrumented walkway. This instrumented walkway stores the longitudinal distance between the origin and each heel strike in a list `y`, where each element corresponds to one heel strike, as shown in {numref}`fig_instrumented_walkway`.
 
-```{figure-md} fig_instrumented_walkway
+```{figure}
+:label: fig_instrumented_walkway
 :width: 7in
 ![](_static/images/fig_instrumented_walkway.png)
 

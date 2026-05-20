@@ -41,7 +41,8 @@ p._to_animation()
 
 To interconnect points, we use the `interconnections` property of the Player, which is a dict that follows this form:
 
-:::{figure-md} fig_player_interconnections
+:::{figure}
+:label: fig_player_interconnections
 :width: 5in
 ![Player custom viewpoint](_static/images/player_interconnections.png)
 
