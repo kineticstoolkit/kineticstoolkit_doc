@@ -35,7 +35,7 @@ np.arange(5)
 
 This function takes the same arguments as Python's [range](python_for.md) function.
 
-:::{good-practice} np.arange
+:::{tip} np.arange
 While `range` only accepts integers as arguments, `np.arange` also accepts floats. For example:
 
 ```

@@ -70,17 +70,11 @@ plt.grid(True);
 
 ::::{tip}
 
-:::{toggle}
 Do not forget to convert the list to an array.
-:::
 
-:::{toggle}
 Separate the problem in two separate steps. First shift the signal, then fill the rest of the signal with zeroes. It is suggested to plot the intermediary result between both steps.
-:::
 
-:::{toggle}
 Shifting the signal is equivalent to reading a certain portion of the signal, and then assign this portion to another portion of the signal.
-:::
 
 ::::
 

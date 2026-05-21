@@ -109,7 +109,7 @@ plt.tight_layout()
 We observe an `_` event at the end. There are in fact such `_` events at the end of each cycle (look how each next push's 'p' letter seems underlined). As explained above, the `detect_cycles` function adds an `_` event at the end of each cycle. These events are usefull to extract cycles of phases using TimeSeries methods such as [ktk.TimeSeries.get_ts_between_events](api/ktk.TimeSeries.get_ts_between_events.rst).
 :::
 
-:::{good-practice} Manual editing
+:::{tip} Manual editing
 Although detecting cycles automatically seems time-saving, it is always an excellent idea to manually inspect any signal that is being processed based on such "arbitrary" constraints. Use the interactive [ktk.TimeSeries.ui_edit_events](api/ktk.TimeSeries.ui_edit_events.rst) method to inspect, correct and manually identify cycles.
 :::
 

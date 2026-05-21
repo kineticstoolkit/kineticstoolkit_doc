@@ -72,7 +72,7 @@ a /= b      # equivalent to a = a / b
 :::
 
 
-:::{good-practice} Variable names
+:::{tip} Variable names
 It is generally a good idea to use words rather than letters for variable names. For example, this code:
 
 ```

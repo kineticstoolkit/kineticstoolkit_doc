@@ -99,7 +99,10 @@ def get_spike_time(time: list[float], force: list[float]) -> float:
     """
 ```
 
-:::{toggle}
+#todo put solution elsewhere
+
+Solution:
+
 ```
 import matplotlib.pyplot as plt
 
@@ -108,4 +111,3 @@ def get_spike_time(time, force):
     points = plt.ginput(1)
     return points[0][0]  # Coordinate 0 (x) of point 0 (1st and only point)
 ```
-:::

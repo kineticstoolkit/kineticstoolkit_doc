@@ -59,6 +59,6 @@ while i < len(meters):
 millimeters
 ```
 
-:::{good-practice} Looping
+:::{tip} Looping
 While this example works perfectly well and is indeed a correct demonstration of how `while` works, we will see later that for this specific example, other methods such as using [for](python_for.md) or [NumPy](numpy.md) would be less error-prone and faster.
 :::

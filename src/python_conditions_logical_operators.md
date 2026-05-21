@@ -42,6 +42,6 @@ print(is_between(10, 2, 5))
 print(is_between(2, 2, 5))
 ```
 
-:::{good-practice} Naming functions that return bools
+:::{tip} Naming functions that return bools
 For clarity, functions that return booleans often start with `is_`, `has_`, `contains_`, etc.
 :::

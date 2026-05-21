@@ -95,7 +95,7 @@ which gives:
 ts_20Hz.plot([], ".-")
 ```
 
-:::{good-practice} Filtering before downsampling
+:::{tip} Filtering before downsampling
 It is usually important to [filter](filters.md) a signal before downsampling it, to respect the [Nyquist–Shannon sampling theorem](https://en.wikipedia.org/wiki/Nyquist%E2%80%93Shannon_sampling_theorem) and thus avoid aliasing.
 :::
 

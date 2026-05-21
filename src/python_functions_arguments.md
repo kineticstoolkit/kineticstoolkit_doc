@@ -20,6 +20,6 @@ def print_sum(first, second):
     print(f"The sum of both variables is {first + second}.")
 ```
 
-:::{good-practice} Clear argument names
+:::{tip} Clear argument names
 It is important to use clear names for function arguments. Argument names are selected using the same best practices as standard [variable](python_variables.md) names.
 :::

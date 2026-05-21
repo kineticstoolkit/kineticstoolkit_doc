@@ -11,7 +11,9 @@ Local coordinates for both the upper arm and the forearm.
 ```
 
 
-:::{toggle}
+#todo put solution elsewhere
+
+Solution:
 
 $$
 ~^\text{global}_\text{forearm}T = \begin{bmatrix}
@@ -27,5 +29,3 @@ $$
 0 & 0 & 0 & 1
 \end{bmatrix}
 $$
-
-:::

@@ -70,6 +70,6 @@ print_sum(1, 4)
 print_sum(3, 10)
 ```
 
-:::{good-practice} Function naming
+:::{tip} Function naming
 Usually, function names start with an active verb that tells what action is performed. Usually in Python, function names are written in `lower_case` style, with words separated by underscores.
 :::

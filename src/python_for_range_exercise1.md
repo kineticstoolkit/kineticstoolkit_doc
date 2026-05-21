@@ -31,7 +31,11 @@ Max shoulder flexion: [119.0, 124.0, 123.0]
 ```
 :::
 
-:::{toggle}
+
+#todo put solution elsewhere
+
+Solution:
+
 ```
 # Initialize an empty list of measurements
 measurements = []
@@ -46,4 +50,4 @@ for i in range(3):
 # Print the result
 print("Max shoulder flexion:", measurements)
 ```
-:::
+

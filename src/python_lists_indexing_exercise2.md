@@ -37,15 +37,17 @@ calculate_step_length(y, 9)
 
 **Question 1)** Explain why this call produces an IndexError.
 
-:::{toggle}
+#todo put solution elsewhere
+
+Solution:
+
 This happens because to calculate a step length, two consecutive heel strikes are needed. To calculate the length of step 9, heel strikes 9 and 10 are needed. However, the last element of `y` is at index 9.
 
 One way to avoid this error is to check that the list will not be indexed out of its range, before calculating the step length.
-:::
 
 **Question 2)** Modify your function so that instead of producing this error, it simply returns 0.
 
-:::{good-practice} Invalid data
+:::{tip} Invalid data
 For this example, we ask you to return 0 for invalid data, but a better practice would be to return {{np_nan}}, which will be seen in section [](numpy_inf_nan.md). Simply return 0 for now since we have not covered NumPy yet.
 :::
 

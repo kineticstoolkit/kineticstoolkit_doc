@@ -55,7 +55,7 @@ plt.title("Comparing a same measurement using two instruments")
 plt.grid(True);
 ```
 
-:::{good-practice} Legend labels
+:::{tip} Legend labels
 Another, less error-prone way to add legends is to define the labels at plot time. Instead of:
 
 ```

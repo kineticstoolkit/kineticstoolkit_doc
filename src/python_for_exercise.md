@@ -43,7 +43,7 @@ for one_measurement in meters:
 millimeters
 ```
 
-:::{good-practice} `for` vs `while`
+:::{tip} `for` vs `while`
 Note how the solution of this exercise is much clearer using `for` than `while`. We don't need to initialize an index at 0 before starting the loop, and we don't need to manually increment the index at the end of each loop. Therefore, in this case, using a `for` loop is less error-prone than using a `while` loop.
 
 Generally:

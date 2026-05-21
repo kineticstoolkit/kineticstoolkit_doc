@@ -31,9 +31,7 @@ A falling ball with both horizontal and vertical velocity components.
 
 
 ::::{tip}
-:::{toggle}
 You already calculated the vertical velocity in [](numpy_arithmetics_exercise.md). Now use the Pythagorean theorem with arithmetic operations on arrays to calculate the total speed `v_total` based on `v_x` and `v_y`.
-:::
 ::::
 
 ```{code-cell} ipython3

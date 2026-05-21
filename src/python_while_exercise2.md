@@ -36,7 +36,10 @@ Max shoulder flexion: [119.0, 124.0, 123.0]
 The [input](python_strings_input.md) function returns an empty string `""` when the user presses Enter without entering a value.
 :::
 
-:::{toggle}
+#todo put solution elsewhere
+
+Solution:
+
 ```
 # Initialize an empty list of measurements
 measurements = []

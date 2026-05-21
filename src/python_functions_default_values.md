@@ -51,7 +51,7 @@ def calculate_reaction_force(mass, acceleration):
 print(calculate_reaction_force(mass=60, acceleration=3.5))
 ```
 
-:::{good-practice} Constants
+:::{tip} Constants
 Note these conventions used for GRAVITATIONAL_CONSTANT:
 
 **No magic constants**: Instead of writing plainly 9.81 in the function's return statement, we defined the gravity using a name, and we used that name in the equation. We generally want to avoid "magical" constants dispersed around the code: we call them "magical" because after time, we tend to not remember what these values are for, other than making the function work "magically". Using named constants is a good way to auto-document the code.

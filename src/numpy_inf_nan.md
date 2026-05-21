@@ -51,6 +51,6 @@ np.isnan(c)
 np.isinf(c)
 ```
 
-:::{good-practice} Missing data
+:::{tip} Missing data
 It is common in data analysis to use `np.nan` for representing missing data. For instance, we could record the (x, y, z) trajectory of a reflective marker and use (`nan`, `nan`, `nan`) when the marker is not seen by the cameras.
 :::
