@@ -1,6 +1,6 @@
 version: 1
 project:
-  title: Biomechanical Analysis using Python and Kinetics Toolkit
+  title: Kinetics Toolkit
   copyright: Félix Chénier, 2020-2026
   github: kineticstoolkit/kineticstoolkit_doc
   authors:
@@ -17,7 +17,8 @@ project:
     figure:
       continue: true
   toc:
-    - file: index.md
+    - file: [](index.md)
+    - file: [](title.md)
     - title: Part I. Getting Started
       children:
         - file: [](getting_started_intro.md)
