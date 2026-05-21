@@ -1,1 +1,0 @@
-# Some information (1)
