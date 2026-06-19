@@ -28,7 +28,3 @@ Matplotlib can generate a wide variety of plots. Here are different examples tha
 
 This chapter focuses solely on line plots using {{plt_plot}}. However, after learning this type of plot and [](numpy.md), any other type of plot will become relatively easy to draw just by reading their documentation.
 
-**Chapter Contents**
-
-```{tableofcontents}
-```

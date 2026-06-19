@@ -18,5 +18,3 @@ jupyter:
 
 In this chapter, we will use the {{ktk_kinematics}} module to process real acquisitions of 3D markers, calculate a series of joint angles, and reconstruct virtual markers using different methods such as calibration markers or probing.
 
-```{tableofcontents}
-```

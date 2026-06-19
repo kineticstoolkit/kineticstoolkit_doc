@@ -12,7 +12,3 @@ Now that we have learned how to work with TimeSeries data, we need to learn how 
 Common data flow in the `kineticstoolkit` module
 ```
 
-**Chapter Contents**
-
-```{tableofcontents}
-```

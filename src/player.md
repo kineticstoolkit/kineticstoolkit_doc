@@ -4,7 +4,3 @@ Kinetics Toolkit provides an interactive Matplotlib-based user interface to visu
 
 ![](_static/images/frontpage.gif)
 
-**Chapter Contents**
-
-```{tableofcontents}
-```

@@ -53,7 +53,3 @@ If you already know Matlab, then this [cheat sheet](https://numpy.org/doc/stable
 Numpy logo.
 ```
 
-**Chapter Contents**
-
-```{tableofcontents}
-```

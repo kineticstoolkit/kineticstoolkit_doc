@@ -12,7 +12,3 @@ However, things can get more complicated when:
 
 For these reasons, Kinetics Toolkit provides a new type of variable: the {{ktk_timeseries}}.
 
-**Chapter Contents**
-
-```{tableofcontents}
-```
