@@ -19,7 +19,7 @@ kernelspec:
 
 # Visualizing forces and other vectors
 
-In addition to points and frames (local coordinate systems), the [Player](api/ktk.Player.rst) can represent forces or other vectors using its `vectors` property.
+In addition to points and frames (local coordinate systems), the {{ktk_player}} can represent forces or other vectors using its `vectors` property.
 
 We start by loading a gait c3d file.
 

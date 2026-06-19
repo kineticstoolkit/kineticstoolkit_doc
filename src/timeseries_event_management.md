@@ -16,13 +16,13 @@ kernelspec:
 # Event management
 
 This section shows how to use these methods for event management:
-- [ktk.TimeSeries.add_event](api/ktk.TimeSeries.add_event.rst)
-- [ktk.TimeSeries.count_events](api/ktk.TimeSeries.count_events.rst)
-- [ktk.TimeSeries.rename_event](api/ktk.TimeSeries.rename_event.rst)
-- [ktk.TimeSeries.remove_event](api/ktk.TimeSeries.remove_event.rst)
-- [ktk.TimeSeries.remove_duplicate_events](api/ktk.TimeSeries.remove_duplicate_events.rst)
-- [ktk.TimeSeries.trim_events](api/ktk.TimeSeries.trim_events.rst)
-- [ktk.TimeSeries.ui_edit_events](api/ktk.TimeSeries.ui_edit_events.rst)
+- {{ktk_timeseries_add_event}}
+- {{ktk_timeseries_count_events}}
+- {{ktk_timeseries_rename_event}}
+- {{ktk_timeseries_remove_event}}
+- {{ktk_timeseries_remove_duplicate_events}}
+- {{ktk_timeseries_trim_events}}
+- {{ktk_timeseries_ui_edit_events}}
 
 We will use this TimeSeries that contains [cyclic kinetic data in wheelchair propulsion](dataset_kinetics_wheelchair_propulsion.md):
 
@@ -36,7 +36,7 @@ ts.plot()
 
 ## Adding events
 
-We already know how to manually add events using [ktk.TimeSeries.add_event](api/ktk.TimeSeries.add_event.rst):
+We already know how to manually add events using {{ktk_timeseries_add_event}}:
 
 ```{code-cell} ipython3
 ts = ts.add_event(4.37, "sync")
@@ -56,7 +56,7 @@ ts.plot()
 
 ## Counting the number of occurrences of an event
 
-Each event is defined by its name, and if it is repeated multiple times, by an occurrence. To count these occurrences, we use [ktk.TimeSeries.count_events](api/ktk.TimeSeries.count_events.rst):
+Each event is defined by its name, and if it is repeated multiple times, by an occurrence. To count these occurrences, we use {{ktk_timeseries_count_events}}:
 
 ```{code-cell} ipython3
 print(ts.count_events('sync'), "occurrences of event 'sync'")
@@ -66,7 +66,7 @@ print(ts.count_events('recovery'), "occurrences of event 'recovery'")
 
 ## Renaming events
 
-Renaming events is performed using [ktk.TimeSeries.rename_event](api/ktk.TimeSeries.rename_event.rst):
+Renaming events is performed using {{ktk_timeseries_rename_event}}:
 
 ```{code-cell} ipython3
 ts = ts.rename_event("push", "lastpush", occurrence=4)
@@ -77,7 +77,7 @@ ts.plot()
 
 ## Removing events
 
-To remove an occurrence of an event, we use [ktk.TimeSeries.remove_event](api/ktk.TimeSeries.remove_event.rst). For instance, to remove the second push cycle:
+To remove an occurrence of an event, we use {{ktk_timeseries_remove_event}}. For instance, to remove the second push cycle:
 
 ```{code-cell} ipython3
 ts = ts.remove_event("push", occurrence=1)
@@ -102,7 +102,7 @@ ts = ts.add_event(12.33, "recovery")
 ts.plot()
 ```
 
-Note the superposition of occurrences on the first events. To remove the duplicate events, we use [ktk.TimeSeries.remove_duplicate_events](api/ktk.TimeSeries.remove_duplicate_events.rst):
+Note the superposition of occurrences on the first events. To remove the duplicate events, we use {{ktk_timeseries_remove_duplicate_events}}:
 
 ```{code-cell} ipython3
 ts = ts.remove_duplicate_events()
@@ -122,7 +122,7 @@ ts = ts.add_event(25.0, "after")
 ts.plot()
 ```
 
-To remove any event that is outside the TimeSeries' time array, we use [ktk.TimeSeries.trim_events](api/ktk.TimeSeries.trim_events.rst).
+To remove any event that is outside the TimeSeries' time array, we use {{ktk_timeseries_trim_events}}:
 
 ```{code-cell} ipython3
 ts = ts.trim_events()
@@ -131,7 +131,7 @@ ts.plot()
 
 ## Editing events interactively
 
-Finally, it is possible to edit the events interactively, using [ktk.TimeSeries.ui_edit_events](api/ktk.TimeSeries.ui_edit_events.rst). This allows to add, remove and move events by clicking on a figure.
+Finally, it is possible to edit the events interactively, using {{ktk_timeseries_ui_edit_events}}. This allows to add, remove and move events by clicking on a figure.
 
 :::{note}
 Matplotlib must be interactive. See section [](getting_started_configuring_spyder.md) do help.
@@ -144,18 +144,18 @@ ts = ts.ui_edit_events()
 which creates the interactive windows shown in {numref}`fig_timeseries.ui_edit_events_1` and {numref}`fig_timeseries.ui_edit_events_2`.
 
 
-```{figure}
+:::{figure}
 :label: fig_timeseries.ui_edit_events_1
 :width: 7in
 ![timeseries.ui_edit_events](_static/images/fig_timeseries.ui_edit_events_1.png)
 
-Interactive figure created by [ktk.TimeSeries.ui_edit_events](api/ktk.TimeSeries.ui_edit_events.rst)
-```
+Interactive figure created by {{ktk_timeseries_ui_edit_events}}
+:::
 
-```{figure}
+:::{figure}
 :label: fig_timeseries.ui_edit_events_2
 :width: 4in
 ![timeseries.ui_edit_events](_static/images/fig_timeseries.ui_edit_events_2.png)
 
-Interactive menu created by [ktk.TimeSeries.ui_edit_events](api/ktk.TimeSeries.ui_edit_events.rst)
-```
+Interactive menu created by {{ktk_timeseries_ui_edit_events}}
+:::

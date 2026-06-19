@@ -287,7 +287,7 @@ p._mpl_objects["Figure"]
 
 ### Exporting to an image
 
-The Player's current view can be exported to any file format supported by Matplotlib such as PNG, JPEG, SVG, or PDF, using [ktk.Player.to_image](api/ktk.Player.to_image.rst):
+The Player's current view can be exported to any file format supported by Matplotlib such as PNG, JPEG, SVG, or PDF, using {{ktk_player_to_image}}:
 
 ```
 p.to_image("exported_image.png")
@@ -295,7 +295,7 @@ p.to_image("exported_image.png")
 
 ### Exporting to a video
 
-The whole animation in the current viewpoint can be exported to an MP4 file using [ktk.Player.to_video](api/ktk.Player.to_video.rst):
+The whole animation in the current viewpoint can be exported to an MP4 file using {{ktk_player_to_video}}:
 
 
 ```

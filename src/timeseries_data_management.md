@@ -17,11 +17,11 @@ kernelspec:
 
 This section shows how to use these methods for data management:
 
-- [ktk.TimeSeries.add_data](api/ktk.TimeSeries.add_data.rst)
-- [ktk.TimeSeries.rename_data](api/ktk.TimeSeries.rename_data.rst)
-- [ktk.TimeSeries.remove_data](api/ktk.TimeSeries.remove_data.rst)
-- [ktk.TimeSeries.get_subset](api/ktk.TimeSeries.get_subset.rst)
-- [ktk.TimeSeries.merge](api/ktk.TimeSeries.merge.rst)
+- {{ktk_timeseries_add_data}}
+- {{ktk_timeseries_rename_data}}
+- {{ktk_timeseries_remove_data}}
+- {{ktk_timeseries_get_subset}}
+- {{ktk_timeseries_merge}}
 
 We will use this sample [kinematic acquisition](dataset_kinematics_tennis_serve.md) of 39 bilateral markers with 1092 samples recorded at 50 Hz during tennis serve:
 
@@ -44,7 +44,7 @@ markers.plot()
 
 +++ {"jp-MarkdownHeadingCollapsed": true}
 
-To keep only the data we need, it is often practical to make a [copy](api/ktk.TimeSeries.copy.rst) of the TimeSeries with no data, and selectively add the data we need using [ktk.TimeSeries.add_data](api/ktk.TimeSeries.add_data.rst):
+To keep only the data we need, it is often practical to make a copy of the TimeSeries with no data using {{ktk_timeseries_copy}}, and selectively add the data we need using {{ktk_timeseries_add_data}}:
 
 ```{code-cell} ipython3
 # Copy the TimeSeries without its data
@@ -59,7 +59,7 @@ selected_markers.plot()
 
 ## Removing data
 
-We could do the same by removing the superfluous data from the TimeSeries, using [ktk.TimeSeries.remove_data](api/ktk.TimeSeries.remove_data.rst):
+We could do the same by removing the superfluous data from the TimeSeries, using {{ktk_timeseries_remove_data}}:
 
 ```{code-cell} ipython3
 # Copy the whole TimeSeries, with all data
@@ -75,7 +75,7 @@ selected_markers.plot()
 
 ## Subsetting
 
-As a shortcut method, we can also use [ktk.TimeSeries.get_subset](api/ktk.TimeSeries.get_subset.rst), which returns a TimeSeries with only a selection of data keys:
+As a shortcut method, we can also use {{ktk_timeseries_get_subset}}, which returns a TimeSeries with only a selection of data keys:
 
 ```{code-cell} ipython3
 selected_markers = markers.get_subset(
@@ -92,7 +92,7 @@ selected_markers.plot()
 
 ## Renaming data
 
-Use the [ktk.TimeSeries.rename_data](api/ktk.TimeSeries.rename_data.rst) to change the name of a data key:
+Use the {{ktk_timeseries_rename_data}} to change the name of a data key:
 
 ```{code-cell} ipython3
 selected_markers = selected_markers.rename_data("Derrick:C7", "C7")
@@ -132,7 +132,7 @@ plt.subplot(1,2,2)
 right_lower_limb.plot(legend=False)
 ```
 
-To merge these TimeSeries, we could simply use the [ktk.TimeSeries.add_data](api/ktk.TimeSeries.add_data.rst) method as we did above:
+To merge these TimeSeries, we could simply use the {{ktk_timeseries_add_data}} method as we did above:
 
 ```{code-cell} ipython3
 merged = left_lower_limb.copy()
@@ -143,7 +143,7 @@ for key in right_lower_limb.data:
 merged.plot(legend=False)
 ```
 
-As a shortcut method, we can also use [ktk.TimeSeries.merge](api/ktk.TimeSeries.merge.rst):
+As a shortcut method, we can also use {{ktk_timeseries_merge}}:
 
 ```{code-cell} ipython3
 merged = left_lower_limb.merge(right_lower_limb)
@@ -151,4 +151,4 @@ merged = left_lower_limb.merge(right_lower_limb)
 merged.plot(legend=False)
 ```
 
-Using [ktk.TimeSeries.merge](api/ktk.TimeSeries.merge.rst) has several other benefits, such as merging events, information, and even resample TimeSeries that may have been recorded at different sampling rates.
+Using {{ktk_timeseries_merge}} has several other benefits, such as merging events, information, and even resample TimeSeries that may have been recorded at different sampling rates.

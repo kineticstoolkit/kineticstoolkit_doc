@@ -66,7 +66,7 @@ The final coordinates of the point are (10.66, 5, 0).
 
 ## Application in Kinetics Toolkit
 
-We can do the same in Kinetics Toolkit, using the function [ktk.geometry.create_transform_series](api/ktk.geometry.create_transform_series.rst). The transform $T$ used in this section is created using:
+We can do the same in Kinetics Toolkit, using the function {{ktk_geometry_create_transform_series}}. The transform $T$ used in this section is created using:
 
 ```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
@@ -82,10 +82,10 @@ T
 ```
 
 :::{caution}
-Note that the `angles` and `positions` values are enclosed in brackets. This is because all functions in the [geometry](api/ktk.geometry.rst) module work on series of data, and the first dimension is always reserved for time. Please consult [](geometry_dimension_conventions.md) for more information.
+Note that the `angles` and `positions` values are enclosed in brackets. This is because all functions in the {{ktk_geometry}} module work on series of data, and the first dimension is always reserved for time. Please consult [](geometry_dimension_conventions.md) for more information.
 :::
 
-The function [ktk.geometry.matmul](api/ktk.geometry.matmul.rst) performs matrix multiplications on data series. It can therefore be used to obtain the solution to the previous examples.
+The function {{ktk_geometry_matmul}} performs matrix multiplications on data series. It can therefore be used to obtain the solution to the previous examples.
 
 ```{code-cell} ipython3
 ktk.geometry.matmul(T, [[10, 0, 0, 1]])
@@ -93,7 +93,7 @@ ktk.geometry.matmul(T, [[10, 0, 0, 1]])
 
 ## Direct transformation in Kinetics Toolkit
 
-Kinetics Toolkit's geometry module also provides simpler functions to perform basic geometry operations, such as [ktk.geometry.rotate](api/ktk.geometry.rotate.rst), [ktk.geometry.translate](api/ktk.geometry.translate.rst), and [ktk.geometry.scale](api/ktk.geometry.scale.rst). If we don't need to express a full homogeneous transform, then it is generally simpler to use these functions:
+Kinetics Toolkit's geometry module also provides simpler functions to perform basic geometry operations, such as {{ktk_geometry_rotate}}, {{ktk_geometry_translate}}, and {{ktk_geometry_scale}}. If we don't need to express a full homogeneous transform, then it is generally simpler to use these functions:
 
 ```{code-cell} ipython3
 point = [[10, 0, 0, 1]]

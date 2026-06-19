@@ -10,7 +10,7 @@ However, things can get more complicated when:
 - data are noisy;
 - etc.
 
-For these reasons, Kinetics Toolkit provides a new type of variable: the [TimeSeries](api/ktk.TimeSeries.rst).
+For these reasons, Kinetics Toolkit provides a new type of variable: the {{ktk_timeseries}}.
 
 **Chapter Contents**
 

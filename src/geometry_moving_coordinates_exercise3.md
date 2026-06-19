@@ -19,7 +19,7 @@ In {numref}`fig_geometry_basics_exercise`, the position of the elbow in the arm 
 
 Using Kinetics Toolkit's geometry module, express the position of the elbow in global coordinates for shoulder flexion movements of 0°, 5°, 10°, and 15°.
 
-a) Do this exercise by creating the corresponding homogeneous transform using [ktk.geometry.create_transform_series](api/ktk.geometry.create_transform_series.rst), then by multiplying this transform by the point coordinates using [ktk.geometry.matmul](api/ktk.geometry.matmul.rst).
+a) Do this exercise by creating the corresponding homogeneous transform using {{ktk_geometry_create_transform_series}}, then by multiplying this transform by the point coordinates using {{ktk_geometry_matmul}}.
 
 ```{code-cell} ipython3
 :tags: [hide-cell]
@@ -39,7 +39,7 @@ T_arm = ktk.geometry.create_transform_series(
 ktk.geometry.matmul(T_arm, p_elbow_ref_arm)
 ```
 
-b) Do this exercise using the [ktk.geometry.rotate](api/ktk.geometry.rotate.rst) and [ktk.geometry.translate](api/ktk.geometry.translate.rst) functions.
+b) Do this exercise using the  {{ktk_geometry_rotate}} and {{ktk_geometry_translate}} functions.
 
 ```{code-cell} ipython3
 :tags: [hide-cell]

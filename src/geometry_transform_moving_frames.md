@@ -119,7 +119,7 @@ ktk.geometry.matmul(T, initial_frame)
 
 ## Direct transformation in Kinetics Toolkit
 
-We can also rotate and translate the initial frame using [ktk.geometry.rotate](api/ktk.geometry.rotate.rst) and [ktk.geometry.translate](api/ktk.geometry.translate.rst):
+We can also rotate and translate the initial frame using {{ktk_geometry_rotate}} and {{ktk_geometry_translate}}:
 
 ```{code-cell} ipython3
 rotated_frame = ktk.geometry.rotate(

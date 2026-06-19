@@ -19,9 +19,9 @@ kernelspec:
 # Moving average, Savitzky-Golay and deriving filters
 
 This section presents the following functions:
-- [ktk.filters.smooth](api/ktk.filters.smooth.rst)
-- [ktk.filters.savgol](api/ktk.filters.savgol.rst)
-- [ktk.filters.deriv](api/ktk.filters.deriv.rst).
+- {{ktk_filters_smooth}}
+- {{ktk_filters_savgol}}
+- {{ktk_filters_deriv}}
 
 ## Smoothing using a moving average
 
@@ -79,7 +79,7 @@ ts.merge(filtered).plot(["clean", "quantized", "filtered"], '.-')
 
 ## Deriving TimeSeries
 
-Heavily quantized signals are often difficult to derive because they contain lots of plateaus that, once derived, are transformed into series of spikes. For instance, let's see how deriving a quantized signal works without filtering, using [ktk.filters.deriv](api/ktk.filters.deriv.rst):
+Heavily quantized signals are often difficult to derive because they contain lots of plateaus that, once derived, are transformed into series of spikes. For instance, let's see how deriving a quantized signal works without filtering, using {{ktk_filters_deriv}}:
 
 ```{code-cell} ipython3
 derived = ktk.filters.deriv(ts)

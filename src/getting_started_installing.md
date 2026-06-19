@@ -21,26 +21,21 @@ Both are mostly equivalent. In general, Miniforge installs packages faster becau
 
 These command create the `ktk` environment. We recommend installing in such a separate environment; this way, when you will mess up (we all do), you can simply delete and recreate the environment.
 
-:::::{tab-set}
+### Using Miniforge
 
-::::{tab-item} Using Miniforge
-:::{card}
 Open `Miniforge Prompt` (on Windows) or a terminal (on macOS) and type:
+
 ```
 mamba create -n ktk kineticstoolkit spyder-kernels
 ```
-:::
-::::
 
-::::{tab-item} Using Miniconda
-:::{card}
+### Using Miniconda
+
 Open `Anaconda Prompt` (on Windows) or a terminal (on macOS) and type:
+
 ```
 conda create -n ktk -c conda-forge kineticstoolkit spyder-kernels
 ```
-:::
-::::
-:::::
 
 
 Press `y` to confirm and wait until the installation completes.

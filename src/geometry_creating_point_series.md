@@ -22,7 +22,7 @@ We learned in the previous section that a series of N points is expressed as:
         [ ... ,  ... ,  ... , ...],
     ]
 
-The function [ktk.geometry.create_point_series](api/ktk.geometry.create_point_series.rst) can create such series from different forms:
+The function {{ktk_geometry_create_point_series}} can create such series from different forms:
 
 ## Using multiple arrays
 
@@ -55,7 +55,7 @@ ktk.geometry.create_point_series(
 
 ## Series of constant values
 
-The function [ktk.geometry.create_point_series](api/ktk.geometry.create_point_series.rst) has a convenient argument `length` for series of constant values. For instance, if we need to repeat a constant point over five samples:
+The function {{ktk_geometry_create_point_series}} has a convenient argument `length` for series of constant values. For instance, if we need to repeat a constant point over five samples:
 
 ```{code-cell} ipython3
 ktk.geometry.create_point_series([[1.0, 2.0, 3.0]], length=5)

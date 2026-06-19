@@ -17,15 +17,15 @@ kernelspec:
 
 This section shows how to use these methods to segment TimeSeries:
 
-- [ktk.TimeSeries.get_ts_before_index](api/ktk.TimeSeries.get_ts_before_index.rst)
-- [ktk.TimeSeries.get_ts_after_index](api/ktk.TimeSeries.get_ts_after_index.rst)
-- [ktk.TimeSeries.get_ts_between_indexes](api/ktk.TimeSeries.get_ts_between_indexes.rst)
-- [ktk.TimeSeries.get_ts_before_time](api/ktk.TimeSeries.get_ts_before_time.rst)
-- [ktk.TimeSeries.get_ts_after_time](api/ktk.TimeSeries.get_ts_after_time.rst)
-- [ktk.TimeSeries.get_ts_between_times](api/ktk.TimeSeries.get_ts_between_times.rst)
-- [ktk.TimeSeries.get_ts_before_event](api/ktk.TimeSeries.get_ts_before_event.rst)
-- [ktk.TimeSeries.get_ts_after_event](api/ktk.TimeSeries.get_ts_after_event.rst)
-- [ktk.TimeSeries.get_ts_between_indexes](api/ktk.TimeSeries.get_ts_between_indexes.rst)
+- {{ktk_timeseries_get_ts_before_index}}
+- {{ktk_timeseries_get_ts_after_index}}
+- {{ktk_timeseries_get_ts_between_indexes}}
+- {{ktk_timeseries_get_ts_before_time}}
+- {{ktk_timeseries_get_ts_after_time}}
+- {{ktk_timeseries_get_ts_between_times}}
+- {{ktk_timeseries_get_ts_before_event}}
+- {{ktk_timeseries_get_ts_after_event}}
+- {{ktk_timeseries_get_ts_between_events}}
 
 All these methods do the same: they extract a new TimeSeries using a criterion based on index, time, or event. We will once again use [kinetic data of wheelchair propulsion](dataset_kinetics_wheelchair_propulsion.md):
 

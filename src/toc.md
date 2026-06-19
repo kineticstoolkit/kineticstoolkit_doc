@@ -93,6 +93,7 @@ project:
 
     ezc3d: "[ezc3d](https://github.com/pyomeca/ezc3d)"
     
+    ktk_api_reference: "[API Reference]([API Reference](https://kineticstoolkit.uqam.ca/docs)"
     ktk_timeseries: "[ktk.TimeSeries](https://kineticstoolkit.uqam.ca/docs/api/ktk.TimeSeries.html)"
     ktk_timeseries_add_data: "[add_data](https://kineticstoolkit.uqam.ca/docs/api/ktk.TimeSeries.add_data.html)"
     ktk_timeseries_add_event: "[add_event](https://kineticstoolkit.uqam.ca/docs/api/ktk.TimeSeries.add_event.html)"

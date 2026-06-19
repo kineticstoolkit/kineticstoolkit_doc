@@ -36,7 +36,7 @@ filename = ktk.doc.download("kinematics_tennis_serve_2players.c3d")
 markers = ktk.read_c3d(filename)["Points"]
 ```
 
-To visualize these markers, we instantiate a [Player](api/ktk.Player.rst) using one of these methods:
+To visualize these markers, we instantiate a {{ktk_player}} using one of these methods:
 
 ```
 p = ktk.Player(markers)
@@ -110,7 +110,7 @@ p._to_animation()
 
 Use the mouse to change the viewpoint interactively.
 
-In addition, once the Player is correctly aligned to the data, we can set the viewpoint using the keyboard (numbers 1-6) or [ktk.Player.set_view](api/ktk.Player.set_view.rst):
+In addition, once the Player is correctly aligned to the data, we can set the viewpoint using the keyboard (numbers 1-6) or {{ktk_player_set_view}}:
 
 ```{code-cell} ipython3
 p.set_view("front")

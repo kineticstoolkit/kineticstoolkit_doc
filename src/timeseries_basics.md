@@ -36,7 +36,7 @@ ts.data["SquareRoot"] = np.sqrt(ts.time)  # Add yet another data series
 ts
 ```
 
-We can also add data to a TimeSeries using its [add_data](api/ktk.TimeSeries.add_data.rst) method. This method checks that each data series has the same number of samples, whereas assigning it directly to `data` (as above) does not perform such verification.
+We can also add data to a TimeSeries using its {{ktk_timeseries_add_data}} method. This method checks that each data series has the same number of samples, whereas assigning it directly to `data` (as above) does not perform such verification.
 
 ```{code-cell} ipython3
 ts = ktk.TimeSeries()                             # Create an empty TimeSeries
@@ -54,7 +54,7 @@ To see the TimeSeries data:
 ts.data
 ```
 
-TimeSeries can be [plotted](api/ktk.TimeSeries.plot.rst) directly using Matplotlib, and we can also specify which of the series to plot.
+TimeSeries can be plotted using their {{ktk_timeseries_plot}} method. We can also specify which of the series to plot.
 
 ```{code-cell} ipython3
 plt.subplot(1, 3, 1)
@@ -103,7 +103,7 @@ ts.plot()
 
 ## Events
 
-In the figure above, we see that the TimeSeries contains cyclic data. These cycles could be delimited using events. There are several ways to edit the events of a TimeSeries, which will be presented later in section [](timeseries_event_management.md). For now, we will add the events manually using [ktk.TimeSeries.add_event](api/ktk.TimeSeries.add_event.rst):
+In the figure above, we see that the TimeSeries contains cyclic data. These cycles could be delimited using events. There are several ways to edit the events of a TimeSeries, which will be presented later in section [](timeseries_event_management.md). For now, we will add the events manually using {{ktk_timeseries_add_event}}:
 
 ```{code-cell} ipython3
 ts = ts.add_event(8.56, "push")
@@ -140,7 +140,7 @@ By default, `info` includes the time unit:
 ts.info
 ```
 
-You may use the [ktk.TimeSeries.add_info](api/ktk.TimeSeries.add_info.rst), [ktk.TimeSeries.rename_info](api/ktk.TimeSeries.rename_info.rst) and [ktk.TimeSeries.remove_info](api/ktk.TimeSeries.remove_info.rst) to manage `info`:
+You may use the {{ktk_timeseries_add_info}}, {{ktk_timeseries_rename_info}} and {{ktk_timeseries_remove_info}} to manage `info`:
 
 ```{code-cell} ipython3
 ts = ts.add_info("Forces", "Unit", "N")
@@ -149,7 +149,7 @@ ts = ts.add_info("Moments", "Unit", "Nm")
 ts.info
 ```
 
-Unless explicitly mentioned, metadata is not used for calculation and is strictly optional. "Unit" info is however used by [ktk.TimeSeries.plot](api/ktk.TimeSeries.plot.rst) to plot the units:
+Unless explicitly mentioned, metadata is not used for calculation and is strictly optional. "Unit" info is however used by {{ktk_timeseries_plot}} to plot the units:
 
 ```{code-cell} ipython3
 ts.plot()

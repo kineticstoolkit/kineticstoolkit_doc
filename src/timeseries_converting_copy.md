@@ -93,7 +93,7 @@ As for most types in Python, a TimeSeries is a mutable type, which means that si
 This same phenomenon also happens with most Python types, including NumPy arrays and Pandas DataFrames. This is why they also include a `copy` method.
 :::
 
-The [ktk.TimeSeries.copy](api/ktk.TimeSeries.copy.rst) method has different arguments to select which attributes to copy. For instance, if we want to create TimeSeries with the same time and events as another one, but without its data or info, we would use:
+The {{ktk_timeseries_copy}} method has different arguments to select which attributes to copy. For instance, if we want to create TimeSeries with the same time and events as another one, but without its data or info, we would use:
 
 ```
 ts2 = ts1.copy(copy_data=False, copy_info=False)

@@ -16,7 +16,7 @@ kernelspec:
 
 # Reading CSV files
 
-To ensure great compatibility between Kinetics Toolkit and other frameworks, TimeSeries can be converted from and to Pandas {{pd_dataframe}} using the [ktk.TimeSeries.from_dataframe](api/ktk.TimeSeries.from_dataframe.rst) and [ktk.TimeSeries.to_dataframe](api/ktk.TimeSeries.to_dataframe.rst) methods. Therefore, as long as a data file can be opened in Pandas, it can then be converted to a TimeSeries, as shown in {numref}`fig_ktk_dataflow`.
+To ensure great compatibility between Kinetics Toolkit and other frameworks, TimeSeries can be converted from and to Pandas {{pd_dataframe}} using the {{ktk_timeseries_from_dataframe}} and {{ktk_timeseries_to_dataframe}} methods. Therefore, as long as a data file can be opened in Pandas, it can then be converted to a TimeSeries, as shown in {numref}`fig_ktk_dataflow`.
 
 Comma Separated Values (CSV) files are ubiquitous in research. They are text files where values are separated usually by commas, but sometimes by other delimiters such as `;` or tabs. The first line often contains labels to indicate the nature of each column. Here is the content of a typical CSV file:
 

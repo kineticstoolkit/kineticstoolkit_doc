@@ -82,7 +82,7 @@ plt.tight_layout()
 
 ## Create a cluster of markers
 
-To reconstruct the most that we can from these data, we begin by creating a cluster of markers. A cluster is the fixed, local position of every provided marker expressed in an arbitrary, local coordinate system. The [ktk.kinematics.create_cluster](api/ktk.kinematics.create_cluster.rst) function is used to create such a cluster. Note that for this function to work, all markers must be visible at the same time at least once.
+To reconstruct the most that we can from these data, we begin by creating a cluster of markers. A cluster is the fixed, local position of every provided marker expressed in an arbitrary, local coordinate system. The {{ktk_kinematics_create_cluster}} function is used to create such a cluster. Note that for this function to work, all markers must be visible at the same time at least once.
 
 ```{code-cell} ipython3
 cluster = ktk.kinematics.create_cluster(

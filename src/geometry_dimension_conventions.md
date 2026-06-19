@@ -36,7 +36,7 @@ Since a point has four coordinates (x, y, z, 1), then a **series** of N points h
         [ ... ,  ... ,  ... , ...],
     ]
 
-The function [ktk.geometry.create_point_series](api/ktk.geometry.create_point_series.rst) creates such point series:
+The function {{ktk_geometry_create_point_series}} creates such point series:
 
 ```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
@@ -57,7 +57,7 @@ Since a vector has four coordinates (x, y, z, 0), a **series** of N vectors has 
         [ ... ,  ... ,  ... , ...],
     ]
 
-The function [ktk.geometry.create_vector_series](api/ktk.geometry.create_vector_series.rst) creates such vector series:
+The function {{ktk_geometry_create_vector_series}} creates such vector series:
 
 ```{code-cell} ipython3
 ktk.geometry.create_vector_series(

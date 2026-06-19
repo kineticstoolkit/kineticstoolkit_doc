@@ -83,7 +83,7 @@ ktk.geometry.matmul(T, [[10, 0, 0, 1]])
 
 ## Direct transformation in Kinetics Toolkit
 
-We can also rotate the vector directly using [ktk.geometry.rotate](api/ktk.geometry.rotate.rst):
+We can also rotate the vector directly using {{ktk_geometry_rotate}}):
 
 ```{code-cell} ipython3
 ktk.geometry.rotate([[10, 0, 0, 0]], seq="z", angles=[30], degrees=True)

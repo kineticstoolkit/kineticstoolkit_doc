@@ -15,7 +15,7 @@ kernelspec:
 
 # Writing C3D files
 
-Writing a new C3D file is done using [ktk.write_c3d](api/ktk.write_c3d.rst). In this example, suppose that we forgot to zero the force plates before recording, and our workflow requires that the input C3D file has zeroed vertical forces. We will open this C3D file as in the previous section, correct the analog signals, and then save a new C3D file.
+Writing a new C3D file is done using {{ktk_write_c3d}}. In this example, suppose that we forgot to zero the force plates before recording, and our workflow requires that the input C3D file has zeroed vertical forces. We will open this C3D file as in the previous section, correct the analog signals, and then save a new C3D file.
 
 ```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
@@ -43,7 +43,7 @@ analogs.data["FZ2"] -= np.median(analogs.data["FZ2"])
 analogs.plot(["FZ1", "FZ2"])
 ```
 
-Much better. To save these corrected data as a new C3D file, we use [ktk.write_c3d](api/ktk.write_c3d.rst):
+Much better. To save these corrected data as a new C3D file, we use {{ktk_write_c3d}}:
 
 ```{code-cell} ipython3
 ktk.write_c3d("corrected.c3d", points=points, analogs=analogs)

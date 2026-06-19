@@ -17,24 +17,22 @@ kernelspec:
 
 Usually, floats and integers fulfil different roles:
 
-::::{grid}
-:::{grid-item-card}
 **Floats** are used to represent real, physical values:
+
 - A force in newtons
 - A distance in meters
 - A power in watts
 - An angle in radians
 - etc.
-:::
-:::{grid-item-card}
+
 **Integers** are used to represent ranks, indexes, counts, etc:
+
 - An index in a list (e.g, 5th value of a list)
 - A number of repetitions
 - A number of events
 - The size of a matrix
 - etc.
-:::
-::::
+
 
 When we create a new numeric variable, the variable is defined:
 - as a `float` if its literal value contains a decimal point

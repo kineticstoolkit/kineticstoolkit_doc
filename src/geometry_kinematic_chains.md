@@ -123,7 +123,7 @@ global_p_wrist = ktk.geometry.matmul(
 global_p_wrist
 ```
 
-Another, equivalent method, is to iteratively express everything in global coordinates using [ktk.geometry.get_global_coordinates](api/ktk.geometry.get_global_coordinates.rst). We already defined the upper arm frame:
+Another, equivalent method, is to iteratively express everything in global coordinates using {{ktk_geometry_get_global_coordinates}}. We already defined the upper arm frame:
 
 ```{code-cell} ipython3
 global_T_upperarm

@@ -78,7 +78,7 @@ $$
 \theta = \text{atan2}(y=0.93970, x=0.36396) \\= 20^\circ
 $$
 
-We can also use Kinetics Toolkit's function [ktk.geometry.get_angles](api/ktk.geometry.get_angles.rst) to extract this angle automatically:
+We can also use Kinetics Toolkit's function {{ktk_geometry_get_angles}} to extract this angle automatically:
 
 ```{code-cell} ipython3
 elbow_angles = ktk.geometry.get_angles(

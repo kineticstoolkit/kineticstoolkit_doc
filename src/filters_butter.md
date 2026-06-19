@@ -33,7 +33,7 @@ ts_noisy.plot();
 
 ## Low-pass filter
 
-The default setting for [ktk.filters.butter](api/ktk.filters.butter.rst) is to apply a low-pass, no-lag filter of order 2. To filter with a cut-off frequency of 20 Hz:
+The default setting for {{ktk_filters_butter}} is to apply a low-pass, no-lag filter of order 2. To filter with a cut-off frequency of 20 Hz:
 
 ```{code-cell} ipython3
 ts_filtered = ktk.filters.butter(ts_noisy, fc=20)

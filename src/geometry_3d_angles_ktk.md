@@ -16,7 +16,7 @@ kernelspec:
 
 # Extracting 3D angles using Kinetics Toolkit
 
-We already used the [ktk.geometry.get_angles](api/ktk.geometry.get_angles.rst) function to extract [a 2D angle](geometry_2d_angles.md). This function can also accommodate any of these 24 variations of 3D rotation sequences, using the `seq` parameter which is 3 characters belonging to the set {'X', 'Y', 'Z'} for intrinsic rotations (moving axes), or {'x', 'y', 'z'} for extrinsic rotations (fixed axes).
+We already used the {{ktk_geometry_get_angles}} function to extract [a 2D angle](geometry_2d_angles.md). This function can also accommodate any of these 24 variations of 3D rotation sequences, using the `seq` parameter which is 3 characters belonging to the set {'X', 'Y', 'Z'} for intrinsic rotations (moving axes), or {'x', 'y', 'z'} for extrinsic rotations (fixed axes).
 
 For instance, let's create a 3D rotation defined by an extrinsic Cardan sequence of 20° about the x axis, then -10° about the y axis, then 15° about the z axis:
 

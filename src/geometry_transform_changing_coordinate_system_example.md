@@ -81,7 +81,7 @@ Its global coordinates are $(0.34, 0.371, 0)$.
 
 ## Changing coordinate systems using Kinetics Toolkit
 
-Using the [ktk.geometry.create_transform_series](api/ktk.geometry.create_transform_series.rst) and [ktk.geometry.matmul](api/ktk.geometry.matmul.rst) functions introduced in the previous section, we can solve this problem as follows:
+Using the {{ktk_geometry_create_transform_series}} and {{ktk_geometry_matmul}} functions introduced in the previous section, we can solve this problem as follows:
 
 ```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
@@ -97,7 +97,7 @@ global_p_elbow = ktk.geometry.matmul(T_upperarm, local_p_elbow)
 global_p_elbow
 ```
 
-However, since changing coordinates between reference frames is so common, Kinetics Toolkit also provides the functions [ktk.geometry.get_global_coordinates](api/ktk.geometry.get_global_coordinates.rst) and [ktk.geometry.get_local_coordinates](api/ktk.geometry.get_local_coordinates.rst). These functions are simple shortcuts but are easier to remember:
+However, since changing coordinates between reference frames is so common, Kinetics Toolkit also provides the functions {{ktk_geometry_get_global_coordinates}} and {{ktk_geometry_get_local_coordinates}}. These functions are simple shortcuts but are easier to remember:
 
 ```{code-cell} ipython3
 global_p_elbow = ktk.geometry.get_global_coordinates(

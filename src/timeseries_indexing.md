@@ -19,12 +19,12 @@ kernelspec:
 # Indexing TimeSeries
 
 This section shows how to use these methods for indexing TimeSeries:
-- [ktk.TimeSeries.get_index_at_time](api/ktk.TimeSeries.get_index_at_time.rst)
-- [ktk.TimeSeries.get_index_before_time](api/ktk.TimeSeries.get_index_before_time.rst)
-- [ktk.TimeSeries.get_index_after_time](api/ktk.TimeSeries.get_index_after_time.rst)
-- [ktk.TimeSeries.get_index_at_event](api/ktk.TimeSeries.get_index_at_event.rst)
-- [ktk.TimeSeries.get_index_before_event](api/ktk.TimeSeries.get_index_before_event.rst)
-- [ktk.TimeSeries.get_index_after_event](api/ktk.TimeSeries.get_index_after_event.rst)
+- {{ktk_timeseries_get_index_at_time}}
+- {{ktk_timeseries_get_index_before_time}}
+- {{ktk_timeseries_get_index_after_time}}
+- {{ktk_timeseries_get_index_at_event}}
+- {{ktk_timeseries_get_index_before_event}}
+- {{ktk_timeseries_get_index_after_event}}
 
 For this section, we will continue to use [kinetic data from wheelchair propulsion](dataset_kinetics_wheelchair_propulsion.md):
 
@@ -44,7 +44,7 @@ print("Time is", ts.time[99])
 print("Force is", ts.data["Forces"][99])
 ```
 
-We may however want to know which index corresponds to a given time. To this effect, we can use [ktk.TimeSeries.get_index_at_time](api/ktk.TimeSeries.get_index_at_time.rst), [ktk.TimeSeries.get_index_before_time](api/ktk.TimeSeries.get_index_before_time.rst) and [ktk.TimeSeries.get_index_after_time](api/ktk.TimeSeries.get_index_after_time.rst):
+We may however want to know which index corresponds to a given time. To this effect, we can use {{ktk_timeseries_get_index_at_time}}, {{ktk_timeseries_get_index_before_time}} and {{ktk_timeseries_get_index_after_time}}:
 
 ```{code-cell}
 print("The index that is nearest to 15 seconds is:")
@@ -57,7 +57,7 @@ print("The index that is just after 15 seconds is:")
 print(ts.get_index_after_time(15.0))
 ```
 
-Or, we may want to know which index corresponds to a given event, using [ktk.TimeSeries.get_index_at_event](api/ktk.TimeSeries.get_index_at_event.rst), [ktk.TimeSeries.get_index_before_event](api/ktk.TimeSeries.get_index_before_event.rst) or [ktk.TimeSeries.get_index_after_event](api/ktk.TimeSeries.get_index_after_event.rst):
+Or, we may want to know which index corresponds to a given event, using {{ktk_timeseries_get_index_at_event}}, {{ktk_timeseries_get_index_before_event}} and {{ktk_timeseries_get_index_after_event}}:
 
 ```{code-cell}
 print("The index that is nearest to 2nd push is:")

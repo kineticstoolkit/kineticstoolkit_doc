@@ -17,72 +17,14 @@ kernelspec:
 
 Comparisons are performed using the operators `==`, `!=`, `>=`, `>`, `<=` and `<`, and always result in a variable of type boolean. We already know the following types of variable: `string`, `int`, `float` and `complex`. Boolean variables, `bool`, are the simplest: they can be either `True` or `False`.
 
-::::{grid}
-:::{grid-item-card} Equal
-:columns: 6
+```python
+10 == 5  # False
+10 != 5  # True
+10 <= 5  # False
+10 >= 5  # True
+10 < 5   # False
+10 > 5   # True
 ```
-10 == 5
-```
-
-+++
-
-False
-:::
-:::{grid-item-card} Unequal
-:columns: 6
-```
-10 != 5
-```
-
-+++
-
-True
-:::
-::::
-::::{grid}
-:::{grid-item-card} Lower or equal
-:columns: 6
-```
-10 <= 5
-```
-
-+++
-
-False
-:::
-:::{grid-item-card} Greater or equal
-:columns: 6
-```
-10 >= 5
-```
-
-+++
-
-True
-:::
-::::
-::::{grid}
-:::{grid-item-card} Strictly lower
-:columns: 6
-```
-10 < 5
-```
-
-+++
-
-False
-:::
-:::{grid-item-card} Strictly greater
-:columns: 6
-```
-10 > 5
-```
-
-+++
-
-True
-:::
-::::
 
 Obviously, comparing a constant with another constant has little sense. However, comparing variables with constants, or variables with other variables, is very common:
 

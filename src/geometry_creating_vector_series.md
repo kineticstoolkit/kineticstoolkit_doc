@@ -22,7 +22,7 @@ A series of N vectors (e.g., speeds, forces) is expressed as:
         [ ... ,  ... ,  ... , ...],
     ]
 
-As with points, the function [ktk.geometry.create_vector_series](api/ktk.geometry.create_vector_series.rst) can create such series from different forms:
+As with points, the function {{ktk_geometry_create_vector_series}} can create such series from different forms:
 
 ## Using multiple arrays
 
@@ -55,7 +55,7 @@ ktk.geometry.create_vector_series(
 
 ## Series of constant values
 
-Similar to point series, the function [ktk.geometry.create_vector_series](api/ktk.geometry.create_vector_series.rst) has a convenient argument `length` for series of constant values. For instance, if we need to repeat a constant vector over five samples:
+Similar to point series, the function {{ktk_geometry_create_vector_series}} has a convenient argument `length` for series of constant values. For instance, if we need to repeat a constant vector over five samples:
 
 ```{code-cell} ipython3
 ktk.geometry.create_vector_series([[1.0, 2.0, 3.0]], length=5)

@@ -31,7 +31,7 @@ import kineticstoolkit.lab as ktk
 filename = ktk.doc.download("c3d_sample.c3d")
 ```
 
-We read it using [ktk.read_c3d](api/ktk.read_c3d.rst):
+We read it using {{ktk_read_c3d}}:
 
 ```{code-cell} ipython3
 c3d_contents = ktk.read_c3d(filename)
@@ -48,7 +48,7 @@ c3d_contents = ktk.read_c3d(filename, convert_point_unit=True)
 
 You can generally ignore this warning if you read unprocessed marker positions and analog signals.
 
-You should not ignore this warning if you are reading a C3D file that has been processed by some software or pipeline to calculate joint kinetics, powers, etc., and if these values are expressed as "points" in the C3D. Consult the help of [ktk.read_c3d](api/ktk.read_c3d.rst) for more details.
+You should not ignore this warning if you are reading a C3D file that has been processed by some software or pipeline to calculate joint kinetics, powers, etc., and if these values are expressed as "points" in the C3D. Consult the help of {{ktk_read_c3d}} for more details.
 :::
 
 The content of the file is expressed as a dictionary with two keys:
@@ -105,7 +105,7 @@ c3d_contents["ForcePlatforms"].plot('FP0_COP')
 
 ## Quick visualization
 
-Although visualizing data using the interactive 3D [Player](api/ktk.Player.rst) is explained in section [](player.md), here is how we can quickly visualize the kinematic and kinetic data in this file. Note that every TimeSeries provided to the Player must have the same sampling rate, which means we need to downsample the force platform data to the points sampling rate:
+Although visualizing data using the interactive 3D {{ktk_player}} is explained in section [](player.md), here is how we can quickly visualize the kinematic and kinetic data in this file. Note that every TimeSeries provided to the Player must have the same sampling rate, which means we need to downsample the force platform data to the points sampling rate:
 
 ```{code-cell} ipython3
 :tags: [skip-execution]

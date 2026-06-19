@@ -2,8 +2,8 @@
 
 Contrarily to Matlab's MAT file, Python does not come with a single standard way to save data. To ease saving and sharing data, Kinetics Toolkit provides two functions to load and save in its own ktk.zip format:
 
-- [ktk.save](api/ktk.save.rst)
-- [ktk.load](api/ktk.load.rst)
+- {{ktk_save}}
+- {{ktk_load}}
 
 These functions are straightforward. To save a variable:
 

@@ -20,8 +20,8 @@ kernelspec:
 
 This section shows how to use these methods:
 
-- [ktk.TimeSeries.isnan](api/ktk.TimeSeries.isnan.rst)
-- [ktk.TimeSeries.fill_missing_samples](api/ktk.TimeSeries.fill_missing_samples.rst)
+- {{ktk_timeseries_isnan}}
+- {{ktk_timeseries_fill_missing_samples}}
 
 It happens regularly that we record suboptimal data, which may include missing samples. For instance, in [these kinematic data of tennis serve](dataset_kinematics_tennis_serve.md), the marker on the right shoulder dissapears regularly:
 
@@ -38,7 +38,7 @@ markers.plot("Derrick:RSHO")
 
 ## Finding missing samples
 
-Similarly to NumPy's {{np_isnan}} function, TimeSeries provide the [ktk.geometry.isnan](api/ktk.geometry.isnan.rst) method that returns which samples are missing as a list of bool:
+Similarly to NumPy's {{np_isnan}} function, TimeSeries provide the {{ktk_geometry_isnan}} method that returns which samples are missing as a list of bool:
 
 ```{code-cell}
 is_missing = markers.isnan("Derrick:RSHO")
@@ -52,7 +52,7 @@ np.nonzero(is_missing)
 
 ## Filling missing samples
 
-If the gaps are not too wide, we can fill these gaps using [ktk.TimeSeries.fill_missing_samples](api/ktk.TimeSeries.fill_missing_samples.rst):
+If the gaps are not too wide, we can fill these gaps using {{ktk_timeseries_fill_missing_samples}}:
 
 ```{code-cell}
 filled_markers = markers.fill_missing_samples(

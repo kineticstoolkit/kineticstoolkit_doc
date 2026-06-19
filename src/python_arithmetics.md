@@ -17,57 +17,32 @@ kernelspec:
 
 Any arithmetic operation is performed simply by writing its equation. For example, the most common arithmetic operators are `+`, `-`, `*`, `/` and `**`. We use parentheses `()` to indicate operation priority.
 
-:::::{grid}
-:gutter: 2
+```python
+# Addition
 
-::::{grid-item-card} Addition
-:columns: 6
-```
 4 + 3
-```
-::::
 
-::::{grid-item-card} Subtraction
-:columns: 6
-```
+# Subtraction
+
 4 - 3
-```
-::::
 
-::::{grid-item-card} Multiplication
-:columns: 6
-```
+# Multiplication
+
 4 * 3
-```
-::::
 
-::::{grid-item-card} Division
-:columns: 6
-```
+# Division
+
 4 / 3
-```
-::::
 
-::::{grid-item-card} Exponent
-:columns: 6
-To raise a value to a power (e.g., to calculate $4^2$), we would write:
+# Exponent
 
-```
 4 ** 2
-```
-::::
 
-::::{grid-item-card} Root
-:columns: 6
-For roots, we can exponentiate to the inverse. For example, to calculate $\sqrt{4}$, we would write:
+# Root: we can exponentiate to the inverse. For example, to calculate
+# the square root of a number, we would write:
 
-```
 4 ** (1 / 2)
 ```
-::::
-
-:::::
-
 
 As an exercise, type one line in the console that performs this operation:
 

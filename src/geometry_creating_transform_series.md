@@ -31,7 +31,7 @@ A series of N transforms has a shape of (N, 4, 4):
         ...
     ]
 
-The function [ktk.geometry.create_transform_series](api/ktk.geometry.create_transform_series.rst) can create transforms using multiple input forms.
+The function {{ktk_geometry_create_transform_series}} can create transforms using multiple input forms.
 
 In the following sections, we will cover how to create a transform that expresses the position and orientation of the upper-arm coordinate system using different inputs.
 

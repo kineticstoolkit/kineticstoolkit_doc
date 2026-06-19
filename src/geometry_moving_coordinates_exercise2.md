@@ -27,7 +27,7 @@ $$
 
 Using Kinetics Toolkit's geometry module, rotate this whole trajectory counterclockwise on the z-axis by 20° then translate it by one unit to the left.
 
-a) Do this exercise by creating the corresponding homogeneous transform using [ktk.geometry.create_transform_series](api/ktk.geometry.create_transform_series.rst), then by multiplying this transform by the point coordinates using [ktk.geometry.matmul](api/ktk.geometry.matmul.rst).
+a) Do this exercise by creating the corresponding homogeneous transform using {{ktk_geometry_create_transform_series}}, then by multiplying this transform by the point coordinates using {{ktk_geometry_matmul}}.
 
 ```{code-cell} ipython3
 :tags: [hide-cell]
@@ -53,7 +53,7 @@ T = ktk.geometry.create_transform_series(
 ktk.geometry.matmul(T, p)
 ```
 
-b) Do this exercise using the [ktk.geometry.rotate](api/ktk.geometry.rotate.rst) and [ktk.geometry.translate](api/ktk.geometry.translate.rst) functions.
+b) Do this exercise using the {{ktk_geometry_rotate}} and {{ktk_geometry_translate}} functions.
 
 ```{code-cell} ipython3
 :tags: [hide-cell]
