@@ -11,11 +11,7 @@ kernelspec:
   name: python3
 ---
 
-```{code-cell} ipython3
-:tags: [remove-cell]
 
-%matplotlib inline
-```
 
 
 # Exercise: Indexing/slicing/filtering one-dimensional arrays 2

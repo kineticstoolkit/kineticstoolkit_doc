@@ -11,11 +11,7 @@ kernelspec:
   name: python3
 ---
 
-```{code-cell} ipython3
-:tags: [remove-cell]
 
-%matplotlib inline
-```
 
 # Including variable contents in strings using f-strings
 

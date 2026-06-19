@@ -11,11 +11,7 @@ kernelspec:
   name: python3
 ---
 
-```{code-cell} ipython3
-:tags: [remove-cell]
 
-%matplotlib inline
-```
 
 
 # Exercise: Modifying lists 2

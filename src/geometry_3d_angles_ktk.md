@@ -11,11 +11,7 @@ kernelspec:
   name: python3
 ---
 
-```{code-cell} ipython3
-:tags: [remove-cell]
 
-%matplotlib inline
-```
 
 
 # Extracting 3D angles using Kinetics Toolkit
