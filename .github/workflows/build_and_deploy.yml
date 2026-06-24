@@ -47,4 +47,4 @@ jobs:
         PORT_OPT=""
         if [ -n "${SCP_PORT:-}" ]; then PORT_OPT="-P $SCP_PORT"; fi
 
-        scp $PORT_OPT -r $SSH_OPTS * "$SCP_USER@$SCP_HOST:/home/kinetics/docs_build/"
+        scp -r $SSH_OPTS * "$SCP_USER@$SCP_HOST:/home/kinetics/docs_build/" -P "$SCP_PORT"
