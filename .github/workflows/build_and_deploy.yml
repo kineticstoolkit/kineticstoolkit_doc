@@ -12,7 +12,8 @@ jobs:
     defaults:
       run:
         shell: bash -l {0}
-    runs-on: ubuntu-latest       
+    runs-on: ubuntu-latest
+    
     steps:
     - uses: actions/checkout@v7
       with:
@@ -29,7 +30,7 @@ jobs:
         cd src
         myst build --ci --html
         cd ..
-     - name: Deploy via scp
+    - name: Deploy via scp
       env:
         SCP_USER: ${{ secrets.SCP_USER }}
         SCP_HOST: ${{ secrets.SCP_HOST }}
