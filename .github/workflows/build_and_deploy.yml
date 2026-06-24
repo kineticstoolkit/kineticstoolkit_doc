@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
   
 jobs:
-  build:
+  build_and_deploy:
     defaults:
       run:
         shell: bash -l {0}
@@ -20,7 +20,7 @@ jobs:
       with:
         ref: mystmd
     - name: Setup conda
-      uses: conda-incubator/setup-miniconda@v3
+      uses: conda-incubator/setup-miniconda@v4
       with:
         activate-environment: anaconda-client-env
     - name: Install dependencies
@@ -29,7 +29,8 @@ jobs:
     - name: Build book
       run: |
         cd src
-        myst build --html
+        myst build --ci --html
+        cd ..
     - name: Deploy via scp
       env:
         SCP_USER: ${{ secrets.SCP_USER }}
