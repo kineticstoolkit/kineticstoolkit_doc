@@ -16,21 +16,6 @@ jobs:
     runs-on: ubuntu-latest
         
     steps:
-    - uses: actions/checkout@v7
-      with:
-        ref: mystmd
-    - name: Setup conda
-      uses: conda-incubator/setup-miniconda@v4
-      with:
-        activate-environment: anaconda-client-env
-    - name: Install dependencies
-      run: |
-        conda install -c conda-forge python kineticstoolkit mystmd -y
-    - name: Build book
-      run: |
-        cd src
-        myst build --ci --html
-        cd ..
     - name: Deploy via scp
       env:
         SCP_USER: ${{ secrets.SCP_USER }}
@@ -44,7 +29,5 @@ jobs:
         chmod 600 ~/.ssh/id_ed25519
 
         SSH_OPTS="-o StrictHostKeyChecking=accept-new"
-        PORT_OPT=""
-        if [ -n "${SCP_PORT:-}" ]; then PORT_OPT="-P $SCP_PORT"; fi
-
-        scp -r $SSH_OPTS * "$SCP_USER@$SCP_HOST:/home/kinetics/docs_build/" -P "$SCP_PORT"
+        echo "allo" > book
+        scp -r -p $SCP_PORT book $SCP_USER@$SCP_HOST:/home/kinetics/docs_build/
