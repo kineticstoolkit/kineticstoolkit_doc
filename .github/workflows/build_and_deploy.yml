@@ -1,0 +1,46 @@
+name: build_and_deploy
+
+on:
+  push:
+    branches: [ "mystmd" ]
+  schedule:
+     - cron: "15 0 1,6,11,16,21,26 * *"
+  workflow_dispatch:
+  
+jobs:
+  build_and_deploy:
+    defaults:
+      run:
+        shell: bash -l {0}
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v7
+      with:
+        ref: mystmd
+    - name: Setup conda
+      uses: conda-incubator/setup-miniconda@v4
+      with:
+        activate-environment: anaconda-client-env
+    - name: Install dependencies
+      run: |
+        conda install -c conda-forge python kineticstoolkit jupyter mystmd -y
+    - name: Build book
+      run: |
+        cd src
+        export BASE_URL="/docs/book"
+        myst build --execute --ci --html
+        cd ..
+    - name: Deploy via scp
+      env:
+        SCP_USER: ${{ secrets.SCP_USER }}
+        SCP_HOST: ${{ secrets.SCP_HOST }}
+        SCP_PORT: ${{ secrets.SCP_PORT }} # optional (e.g. 22)
+        SCP_KEY: ${{ secrets.SCP_KEY }}   # private key contents (PEM)
+      run: |
+        set -euo pipefail
+        mkdir -p ~/.ssh
+        echo "$SCP_KEY" > ~/.ssh/id_ed25519
+        chmod 600 ~/.ssh/id_ed25519
+        SSH_OPTS="-o StrictHostKeyChecking=accept-new"
+        scp -r $SSH_OPTS -P $SCP_PORT src/_build/html $SCP_USER@$SCP_HOST:/home/kinetics/docs_build/book
