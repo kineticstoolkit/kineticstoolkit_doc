@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+# Usage: resize.sh input.png X
+# where X = orig/total width ratio
+# and saves as input_resized.png
+set -euo pipefail
+
+if [ "$#" -ne 2 ]; then
+  echo "Usage: $0 <input.png> <padding-pixels>" >&2
+  exit 2
+fi
+
+input="$1"
+ratio="$2"
+
+if ! command -v magick >/dev/null 2>&1; then
+  echo "Error: 'magick' not found. Install ImageMagick v7 or adjust script to your installation." >&2
+  exit 4
+fi
+
+ext="${input##*.}"
+base="${input%.*}"
+output="${base}_resized.${ext}"
+
+info=$(magick identify -format "%w %h" -- "$input" 2>&1) || {
+  echo "Error reading image info: $info" >&2
+  exit 5
+}
+read -r width height <<< "$info"
+
+new_width=`echo $width / $ratio | bc`
+
+magick "$input" -background none -gravity center -extent "${new_width}x${height}" "temp.${ext}"
+if (($new_width > 1000)); then
+	magick "temp.${ext}" -resize 1000x1000 "$output"
+else
+	cp "temp.${ext}" "$output"
+fi
+rm "temp.${ext}"
+
+echo "Wrote: $output"
