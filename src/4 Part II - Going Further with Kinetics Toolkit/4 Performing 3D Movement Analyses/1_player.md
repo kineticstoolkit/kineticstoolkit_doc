@@ -30,9 +30,6 @@ In this section, we will use kinematic data of [tennis serves](../../5%20Appendi
 ```{code-cell} ipython3
 import kineticstoolkit.lab as ktk
 
-# Set an interactive backend, not required if already enabled in Spyder
-%matplotlib qt5
-
 # Download and read markers from a sample C3D file
 filename = ktk.doc.download("kinematics_tennis_serve_2players.c3d")
 markers = ktk.read_c3d(filename)["Points"]
