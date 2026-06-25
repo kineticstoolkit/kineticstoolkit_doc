@@ -34,6 +34,7 @@ jobs:
     - name: Build api
       run: |
         cd api
+        python create_symlink.py
         sphinx-build . _build/html
         cd ..
     - name: Build book
