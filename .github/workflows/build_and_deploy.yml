@@ -35,6 +35,7 @@ jobs:
       run: |
         cd api
         python create_symlink.py
+        export PYTHONPATH="$PYTHONPATH:."
         sphinx-build . _build/html
         cd ..
     - name: Build book
