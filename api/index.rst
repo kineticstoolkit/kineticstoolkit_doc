@@ -7,7 +7,7 @@ Kinetics Toolkit API
 ====================
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    
    classes
    functions

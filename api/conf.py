@@ -19,6 +19,7 @@ extensions = [
     "sphinxext.opengraph",  # Generate metadata for social media
 ]
 
+templates_path = ['_templates']
 
 # Configure autodoc to use summary pages and generate them during build
 autosummary_generate = True
@@ -38,6 +39,7 @@ napoleon_use_admonition_for_references = True
 napoleon_use_ivar = False
 napoleon_use_param = True
 napoleon_use_rtype = True
+
 
 
 # -- HTML Options --------------------------------------------------------------
