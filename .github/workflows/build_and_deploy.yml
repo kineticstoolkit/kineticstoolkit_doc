@@ -24,12 +24,17 @@ jobs:
         activate-environment: anaconda-client-env
     - name: Install dependencies
       run: |
-        conda install -c conda-forge python kineticstoolkit jupyter mystmd -y
+        conda install -c conda-forge python kineticstoolkit jupyter mystmd sphinx sphinx-sitemap sphinxext-opengraph sphinx-book-theme -y
     - name: Build home
       run: |
         cd home
         export BASE_URL="/docs/home"
         myst build --execute --ci --html
+        cd ..
+    - name: Build api
+      run: |
+        cd api
+        sphinx-build . _build/html
         cd ..
     - name: Build book
       run: |
@@ -50,4 +55,5 @@ jobs:
         chmod 600 ~/.ssh/id_ed25519
         SSH_OPTS="-o StrictHostKeyChecking=accept-new"
         scp -r $SSH_OPTS -P $SCP_PORT home/_build/html $SCP_USER@$SCP_HOST:/home/kinetics/docs_build/home
+        scp -r $SSH_OPTS -P $SCP_PORT api/_build/html $SCP_USER@$SCP_HOST:/home/kinetics/docs_build/api
         scp -r $SSH_OPTS -P $SCP_PORT book/_build/html $SCP_USER@$SCP_HOST:/home/kinetics/docs_build/book
